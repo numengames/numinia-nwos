@@ -1,6 +1,6 @@
-// missions.ts — fetches mission .md files from numinia-digital-agents via GitHub API at build time
-// Repo: https://github.com/numengames/numinia-digital-agents (public, CC0)
-// Fallback: local filesystem when running in dev with both repos side by side
+// missions.ts — loads mission .md files at build time
+// Primary: this repo's own missions/ directory (canon lives here since the merge)
+// Fallback: GitHub API against https://github.com/numengames/numinia-nwos
 
 import fs from "node:fs";
 import path from "node:path";
@@ -131,7 +131,7 @@ function mdToMission(content: string, folderStatus: MissionStatus): Mission | nu
 }
 
 // ── GitHub API loader (used on Vercel / CI) ───────────────────────────────────
-const REPO = "numengames/numinia-digital-agents";
+const REPO = "numengames/numinia-nwos";
 const BRANCH = "main";
 const FOLDERS: [string, MissionStatus][] = [
   ["missions/queue",  "todo"],
