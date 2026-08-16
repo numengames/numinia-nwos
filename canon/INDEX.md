@@ -3,14 +3,17 @@ id: "canon-index"
 title: "Canon — Index"
 type: seminal
 status: active
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-04-06T00:00:00Z"
-updated: "2026-04-07T12:59:00Z"
+updated: "2026-08-16T00:00:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [canon, index, seminal]
 license: "CC0-1.0"
 changelog:
+  - version: "1.2.0"
+    date: "2026-08-16T00:00:00Z"
+    change: "Added C-005 Canon de Licencias — first operational canon (C-series) alongside the 10 seminales."
   - version: "1.1.0"
     date: "2026-04-07T12:59:00Z"
     change: "Added S-009 Rank Specifications (QA audit). Reclassified S-010 as meta-document. Total: 10 seminales."
@@ -51,6 +54,16 @@ Los 10 documentos fundacionales de Numinia. Son inmutables por política y por e
 | 8 | S-008 | Numinia — El Juego de Rol | `Numinia. El juego de rol (manual completo).txt` | ES | 8/10 |
 | 9 | S-009 | Rank Specifications | `Rank Specifications.md` | EN | 7/10 |
 | 10 | S-010 | Archive System | `README.md` (meta) | EN | — |
+
+## Canon operativo (serie C)
+
+Normas internas con rango de canon: inmutables salvo consenso formal, pero de
+naturaleza operativa, no seminal. Autoridad: Brand & Culture > C-001…C-004
+(canon de workspace NWOS) > serie C operativa > cualquier repositorio.
+
+| # | ID | Documento | Archivo | Idioma | Versión |
+|---|----|-----------|---------|--------|---------|
+| 1 | C-005 | Canon de Licencias | `C-005-licensing.md` | ES | 1.0.0 |
 
 ## Notas sobre S-009
 
