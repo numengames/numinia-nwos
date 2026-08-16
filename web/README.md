@@ -4,7 +4,8 @@ Visor público del canon de Numinia / Numen Games. Extraído de [numinia-nwos-vi
 
 ## Stack
 
-- Astro 5 (`output: "static"` + adaptador Vercel) con islas React 19
+- Astro 5 (`output: "static"`, sin adapter) con islas React 19
+- Deploy: Cloudflare Workers como static assets (`wrangler.toml`, worker `numinia-org` → https://numinia.org)
 - Tailwind 3 + shadcn/ui, dark-only, tipografía Geist
 - Sistema de diseño en `DESIGN.md`
 
