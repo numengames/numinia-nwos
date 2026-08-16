@@ -1,0 +1,444 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import HighlightBox from "@/components/HighlightBox.astro";
+
+// ── ICP RANKING ──
+const icpRanking = [
+  {
+    rank: 1,
+    label: "Startup técnica 5–15p",
+    score: 92,
+    adoptionRate: 85,
+    timeToValue: "2–4 sem",
+    buyerProfile: "CEO / CTO",
+    budget: "€500–2.000/mes",
+    painPoint: "Cultura de equipo se rompe al pasar de 5 a 10 personas",
+    signal: "Busca alternativas a Notion + Linear + reuniones de alineación",
+    verdict: "ICP ideal ahora",
+    color: "teal",
+  },
+  {
+    rank: 2,
+    label: "Startup mixta 15–50p",
+    score: 74,
+    adoptionRate: 75,
+    timeToValue: "4–8 sem",
+    buyerProfile: "CEO / Head of People",
+    budget: "€1.500–5.000/mes",
+    painPoint: "Perfiles técnicos y no-técnicos hablan idiomas distintos",
+    signal: "Ha probado OKRs y no funcionaron. Busca algo más vivo.",
+    verdict: "ICP de expansión",
+    color: "blue",
+  },
+  {
+    rank: 3,
+    label: "Agencia creativa 10–30p",
+    score: 68,
+    adoptionRate: 75,
+    timeToValue: "3–6 sem",
+    buyerProfile: "CEO / Director Creativo",
+    budget: "€800–3.000/mes",
+    painPoint: "Cada proyecto nuevo reinicia la cultura desde cero",
+    signal: "Menciona 'identidad de empresa' o 'cómo hacemos las cosas aquí'",
+    verdict: "ICP de oportunidad",
+    color: "purple",
+  },
+  {
+    rank: 4,
+    label: "PYME tradicional 50–150p",
+    score: 31,
+    adoptionRate: 35,
+    timeToValue: "6–12 mes",
+    buyerProfile: "CHRO / Director General",
+    budget: "€3.000–8.000/mes",
+    painPoint: "Rotación alta, desconexión con los valores de empresa",
+    signal: "Ha invertido en formación de liderazgo sin resultados",
+    verdict: "Evitar ahora",
+    color: "orange",
+  },
+  {
+    rank: 5,
+    label: "Equipo corporativo 100–500p",
+    score: 18,
+    adoptionRate: 30,
+    timeToValue: "9–18 mes",
+    buyerProfile: "CHRO / VP People",
+    budget: "€10.000–40.000/mes",
+    painPoint: "Transformación cultural post-fusión o remote-first",
+    signal: "RFP activo, presupuesto anual de cultura aprobado",
+    verdict: "Evitar hasta Serie A",
+    color: "red",
+  },
+];
+
+// ── FUNNEL ──
+const funnelStages = [
+  { label: "Awareness", n: 1000, desc: "Contactos que saben que NWOS existe", color: "#2dd4bf" },
+  { label: "Interés", n: 180, desc: "Han leído el one-pager o visitado /nwos", color: "#60a5fa" },
+  { label: "Cualificado", n: 54, desc: "ICP correcto + dolor activo + decisor identificado", color: "#a78bfa" },
+  { label: "Piloto", n: 18, desc: "Acuerdan un piloto de 8 semanas", color: "#f59e0b" },
+  { label: "Cliente", n: 9, desc: "Renuevan tras el piloto", color: "#10b981" },
+];
+
+// ── BLOQUEADORES ──
+const blockers = [
+  {
+    id: "B1",
+    titulo: "No hay prueba externa",
+    urgencia: 10,
+    desc: "Nadie puede comprar lo que no ha visto funcionar fuera de los fundadores. Mientras no exista un caso real, el ciclo de ventas comienza con una pregunta sin respuesta.",
+    accion: "Protocolo de exposición ciega: 2 personas externas, 48h, sin contexto previo. Esta semana.",
+    icon: "🔴",
+  },
+  {
+    id: "B2",
+    titulo: "Sin ICP operativo",
+    urgencia: 9,
+    desc: "Sin saber quién firma el cheque, qué métrica justifica la compra y desde qué línea de presupuesto, no hay go-to-market. Solo esperanza.",
+    accion: "Apostar por UN perfil: CEO de startup técnica 5–15p. Diseñar todo el mensaje para él.",
+    icon: "🔴",
+  },
+  {
+    id: "B3",
+    titulo: "Sin formato de venta",
+    urgencia: 9,
+    desc: "Si una empresa dice 'lo quiero' mañana, no hay nada que mandar, nada que cobrar, nadie libre para implementarlo.",
+    accion: "Definir el producto mínimo vendible: piloto de 8 semanas con precio fijo, entregables y criterio de éxito.",
+    icon: "🔴",
+  },
+  {
+    id: "B4",
+    titulo: "Coste cognitivo de entrada",
+    urgencia: 7,
+    desc: "El vocabulario completo de NWOS en la primera reunión cierra puertas. La barrera de adopción ocurre antes de que el cliente haya sentido valor.",
+    accion: "Crear el deck de ventas con 5 conceptos máximo. Numinia es capa 3, no capa 1.",
+    icon: "🟠",
+  },
+  {
+    id: "B5",
+    titulo: "Sin métricas de ROI para el decisor",
+    urgencia: 7,
+    desc: "Un CHRO o CEO no puede aprobar un gasto sin saber qué número mejora. 'Más significado' no es una métrica de negocio.",
+    accion: "Definir 3 KPIs pre-piloto que el cliente acuerda medir. Retención, velocidad de decisión, NPS interno.",
+    icon: "🟠",
+  },
+];
+
+// ── PILOT PLAN ──
+const pilotWeeks = [
+  { week: "S1–S2", label: "Diagnóstico", tasks: ["Maslach organizacional", "Mapa de roles actuales", "3 KPIs acordados"], color: "teal" },
+  { week: "S3–S4", label: "MVV", tasks: ["5 conceptos instalados", "Primera misión en vivo", "Ritual semanal (30 min)"], color: "blue" },
+  { week: "S5–S6", label: "Expansión", tasks: ["Gremio asignado", "Primer agente digital", "Primera Piedra del Camino"], color: "purple" },
+  { week: "S7–S8", label: "Evaluación", tasks: ["Medición vs. KPIs", "Informe de adopción", "Decisión de renovación"], color: "orange" },
+];
+
+// ── VALUE PROP POR BUYER ──
+const valueProps = [
+  {
+    buyer: "CEO startup técnica",
+    pain: "El equipo crece y la cultura se rompe",
+    message: "NWOS es la infraestructura de cultura que escala con el equipo. No es una herramienta más — es la gramática común que conecta a las personas con lo que construyen.",
+    metric: "Tiempo de onboarding cultural: de 3 meses a 3 semanas",
+  },
+  {
+    buyer: "Head of People startup mixta",
+    pain: "Los OKRs no funcionan y el equipo está desconectado",
+    message: "NWOS reemplaza la motivación por métricas con motivación por propósito. Las misiones tienen contexto. Las decisiones tienen memoria. Las personas saben por qué importa lo que hacen.",
+    metric: "eNPS: objetivo +20 puntos en 6 meses",
+  },
+  {
+    buyer: "Director Creativo agencia",
+    pain: "Cada cliente nuevo reinicia la identidad del equipo",
+    message: "NWOS da identidad permanente al equipo más allá de cada proyecto. El Archive es la memoria institucional que sobrevive a cada entrega.",
+    metric: "Retención de talento creativo senior: objetivo -50% rotación",
+  },
+];
+
+const colorMap: Record<string, string> = {
+  teal: "text-teal-400 border-teal-500/30 bg-teal-500/10",
+  blue: "text-blue-400 border-blue-500/30 bg-blue-500/10",
+  purple: "text-purple-400 border-purple-500/30 bg-purple-500/10",
+  orange: "text-orange-400 border-orange-500/30 bg-orange-500/10",
+  red: "text-red-400 border-red-500/30 bg-red-500/10",
+};
+---
+
+<Layout
+  title="NWOS — Estrategia de Ventas — Pablo FM"
+  description="Guía de ventas del Narrative Work OS para los Oráculos de Numen Games. ICP, funnel, bloqueadores y plan de piloto."
+  canonicalPath="/ventas"
+  activeNav=""
+>
+  <PageHero
+    label="NWOS — Ventas"
+    title="Cómo conseguir los primeros clientes"
+    description="Guía operativa para los Oráculos. ICP definido, funnel de ventas, bloqueadores actuales y el plan de piloto de 8 semanas."
+  />
+
+  <!-- Estado actual -->
+  <section class="pb-10">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <HighlightBox>
+        <p class="text-sm leading-relaxed text-muted-foreground">
+          <strong class="text-accent">Diagnóstico honesto (abril 2026):</strong> NWOS tiene coherencia teórica sólida, validación interna de 4 Oráculos y 0 clientes externos. La brecha entre ambos extremos no es de producto — es de secuencia. Primero validación externa, luego ICP, luego producto vendible. Este documento es el mapa para recorrer esa distancia.
+        </p>
+      </HighlightBox>
+    </div>
+  </section>
+
+  <!-- BLOQUEADORES -->
+  <section class="border-t border-border py-16">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <SectionHeader label="Los bloqueadores" title="Qué impide vender hoy" />
+      <div class="mt-8 space-y-4">
+        {blockers.map((b) => (
+          <div class="rounded-xl border border-border bg-card p-5 flex gap-4">
+            <div class="text-2xl shrink-0 pt-0.5">{b.icon}</div>
+            <div class="flex-1 space-y-2">
+              <div class="flex items-center gap-3">
+                <span class="font-mono text-xs text-muted-foreground/50">{b.id}</span>
+                <h3 class="font-display text-base text-foreground">{b.titulo}</h3>
+                <span class="ml-auto font-mono text-xs text-muted-foreground">urgencia {b.urgencia}/10</span>
+              </div>
+              <p class="text-sm text-muted-foreground">{b.desc}</p>
+              <div class="rounded-lg bg-accent/5 border border-accent/20 px-4 py-2.5">
+                <span class="text-xs text-accent font-mono uppercase tracking-wider">Acción concreta → </span>
+                <span class="text-sm text-foreground">{b.accion}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ICP RANKING -->
+  <section class="border-t border-border py-16">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <SectionHeader label="ICP — A quién vender" title="Ranking de perfiles objetivo" />
+      <p class="mt-2 max-w-[640px] text-sm text-muted-foreground">Basado en las 100 simulaciones y el análisis de gaps. Puntuación combinada: tasa de adopción + velocidad de valor + accesibilidad del decisor.</p>
+
+      <!-- Gráfico barras horizontal -->
+      <div class="mt-8 space-y-3 max-w-[680px]">
+        {icpRanking.map((icp) => {
+          const classes = colorMap[icp.color];
+          return (
+            <div class="space-y-1">
+              <div class="flex justify-between items-center text-sm">
+                <span class="text-foreground font-medium">#{icp.rank} {icp.label}</span>
+                <span class={`text-xs font-mono rounded-full border px-2.5 py-0.5 ${classes}`}>{icp.verdict}</span>
+              </div>
+              <div class="h-8 rounded-lg bg-border/20 overflow-hidden relative">
+                <div
+                  class={`h-full rounded-lg transition-all flex items-center px-3`}
+                  style={`width:${icp.score}%; background: var(--bar-bg)`}
+                  data-color={icp.color}
+                >
+                </div>
+                <div class="absolute inset-0 flex items-center px-3 justify-between">
+                  <span class="text-xs font-mono text-foreground/80">Adopción {icp.adoptionRate}%</span>
+                  <span class="text-xs font-mono text-foreground/80">{icp.timeToValue} tiempo a valor</span>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <!-- Detalle ICP top 3 -->
+      <div class="mt-10 grid gap-5 sm:grid-cols-3">
+        {icpRanking.slice(0, 3).map((icp) => {
+          const classes = colorMap[icp.color];
+          return (
+            <div class={`rounded-xl border p-5 space-y-4 ${classes}`}>
+              <div>
+                <div class="text-xs font-mono uppercase tracking-wider opacity-70 mb-1">#{icp.rank} — {icp.verdict}</div>
+                <h3 class="font-display text-base text-foreground">{icp.label}</h3>
+              </div>
+              <div class="space-y-2 text-sm text-muted-foreground">
+                <div><span class="text-foreground font-medium">Decisor:</span> {icp.buyerProfile}</div>
+                <div><span class="text-foreground font-medium">Presupuesto:</span> {icp.budget}</div>
+                <div><span class="text-foreground font-medium">Dolor:</span> {icp.painPoint}</div>
+                <div><span class="text-foreground font-medium">Señal de compra:</span> {icp.signal}</div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPUESTA DE VALOR POR BUYER -->
+  <section class="border-t border-border py-16">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <SectionHeader label="Mensaje de ventas" title="Qué decir a cada decisor" />
+      <div class="mt-8 space-y-5">
+        {valueProps.map((vp, i) => (
+          <div class="rounded-xl border border-border bg-card p-6 grid sm:grid-cols-[200px_1fr] gap-6">
+            <div>
+              <div class="text-xs font-mono text-muted-foreground/60 uppercase tracking-wider mb-1">Decisor</div>
+              <div class="font-display text-base text-accent">{vp.buyer}</div>
+              <div class="mt-3 text-xs font-mono text-muted-foreground/60 uppercase tracking-wider mb-1">Su dolor</div>
+              <div class="text-sm text-muted-foreground italic">"{vp.pain}"</div>
+            </div>
+            <div class="space-y-3">
+              <div>
+                <div class="text-xs font-mono text-muted-foreground/60 uppercase tracking-wider mb-1">Tu mensaje</div>
+                <p class="text-sm text-foreground leading-relaxed">{vp.message}</p>
+              </div>
+              <div class="rounded-lg bg-teal-500/10 border border-teal-500/20 px-4 py-2.5">
+                <span class="text-xs text-teal-400 font-mono uppercase tracking-wider">KPI prometido → </span>
+                <span class="text-sm text-foreground">{vp.metric}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FUNNEL -->
+  <section class="border-t border-border py-16">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <SectionHeader label="Funnel de ventas" title="El embudo objetivo" />
+      <p class="mt-2 max-w-[640px] text-sm text-muted-foreground">Proyección conservadora para los primeros 12 meses. Conversión awareness → cliente: ~0.9%.</p>
+
+      <div class="mt-8 max-w-[560px] space-y-2">
+        {funnelStages.map((stage, i) => {
+          const maxN = funnelStages[0].n;
+          const pct = Math.round((stage.n / maxN) * 100);
+          return (
+            <div class="space-y-1">
+              <div class="flex justify-between text-sm">
+                <span class="text-foreground font-medium">{stage.label}</span>
+                <span class="font-mono text-muted-foreground">{stage.n.toLocaleString()}</span>
+              </div>
+              <div class="h-9 rounded-lg bg-border/20 overflow-hidden">
+                <div
+                  class="h-full rounded-lg flex items-center px-4"
+                  style={`width:${pct}%; background-color:${stage.color}25; border: 1px solid ${stage.color}50`}
+                >
+                  <span class="text-xs text-muted-foreground">{stage.desc}</span>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <!-- Conversion rates -->
+      <div class="mt-6 flex flex-wrap gap-4 text-xs text-muted-foreground max-w-[560px]">
+        <span>Awareness → Interés: <strong class="text-foreground">18%</strong></span>
+        <span>Interés → Cualificado: <strong class="text-foreground">30%</strong></span>
+        <span>Cualificado → Piloto: <strong class="text-foreground">33%</strong></span>
+        <span>Piloto → Cliente: <strong class="text-foreground">50%</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILOTO 8 SEMANAS -->
+  <section class="border-t border-border py-16">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <SectionHeader label="El producto vendible" title="Piloto de 8 semanas" />
+      <p class="mt-2 max-w-[640px] text-sm text-muted-foreground">El formato de entrada. Precio fijo, entregables definidos, criterio de éxito acordado antes de empezar. Sin este formato, no hay nada que vender.</p>
+
+      <div class="mt-8 grid gap-4 sm:grid-cols-4">
+        {pilotWeeks.map((phase) => {
+          const c = colorMap[phase.color];
+          return (
+            <div class={`rounded-xl border p-5 space-y-3 ${c}`}>
+              <div>
+                <div class="text-xs font-mono opacity-70">{phase.week}</div>
+                <h3 class="font-display text-base text-foreground mt-0.5">{phase.label}</h3>
+              </div>
+              <ul class="space-y-1.5">
+                {phase.tasks.map(t => (
+                  <li class="flex gap-2 text-sm text-muted-foreground">
+                    <span class="shrink-0 opacity-50">·</span>
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
+      </div>
+
+      <!-- Pricing -->
+      <div class="mt-8 grid gap-4 sm:grid-cols-3 max-w-[720px]">
+        <div class="rounded-xl border border-border bg-card p-5 space-y-2">
+          <div class="text-xs font-mono text-muted-foreground/60 uppercase tracking-wider">Startup (&lt;15p)</div>
+          <div class="text-2xl font-display font-bold text-foreground">€1.500</div>
+          <div class="text-xs text-muted-foreground">piloto 8 semanas · todo incluido</div>
+        </div>
+        <div class="rounded-xl border border-accent/40 bg-accent/5 p-5 space-y-2 relative">
+          <div class="absolute -top-2.5 left-4 text-[0.6rem] font-mono uppercase tracking-wider bg-accent text-background px-2 py-0.5 rounded-full">Recomendado</div>
+          <div class="text-xs font-mono text-accent/70 uppercase tracking-wider">Startup (15–50p)</div>
+          <div class="text-2xl font-display font-bold text-foreground">€3.500</div>
+          <div class="text-xs text-muted-foreground">piloto 8 semanas · con agente digital</div>
+        </div>
+        <div class="rounded-xl border border-border bg-card p-5 space-y-2">
+          <div class="text-xs font-mono text-muted-foreground/60 uppercase tracking-wider">Agencia / PYME</div>
+          <div class="text-2xl font-display font-bold text-foreground">€6.000</div>
+          <div class="text-xs text-muted-foreground">piloto 8 semanas · 2 agentes + modo corp.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRÓXIMOS PASOS -->
+  <section class="border-t border-border py-16">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <SectionHeader label="Plan de acción" title="Los próximos 30 días" />
+      <div class="mt-8 space-y-3 max-w-[720px]">
+        {[
+          { n: "01", plazo: "Esta semana", accion: "Protocolo de exposición ciega: 2 personas externas, 48h sin contexto. Observar sin intervenir.", owner: "Pablo + Oráculo libre" },
+          { n: "02", plazo: "Esta semana", accion: "Confirmar ICP #1: CEO startup técnica 5–15p. Listar 10 contactos concretos que encajan.", owner: "Dark Council" },
+          { n: "03", plazo: "Semana 2", accion: "Crear el deck de ventas con máximo 5 conceptos. Sin Numinia en capa 1.", owner: "Alquimista-01" },
+          { n: "04", plazo: "Semana 2", accion: "Definir los 3 KPIs del piloto que el cliente va a medir. Sin esto no hay criterio de éxito.", owner: "Dark Council" },
+          { n: "05", plazo: "Semana 3", accion: "Primera conversación exploratoria con 3 contactos del ICP #1. No es una demo — es escucha.", owner: "Pablo" },
+          { n: "06", plazo: "Semana 4", accion: "Si hay señal positiva: propuesta de piloto formalizada. Precio, entregables, criterio. Firma.", owner: "Pablo + Oráculo legal" },
+        ].map((step) => (
+          <div class="flex gap-4 rounded-xl border border-border bg-card p-4">
+            <div class="font-mono text-2xl font-bold text-accent/30 shrink-0 w-8 text-center">{step.n}</div>
+            <div class="flex-1 space-y-1">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="text-sm font-medium text-foreground">{step.accion}</span>
+              </div>
+              <div class="flex flex-wrap gap-4 text-xs text-muted-foreground">
+                <span>📅 {step.plazo}</span>
+                <span>👤 {step.owner}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cierre -->
+  <section class="border-t border-border py-20">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <HighlightBox>
+        <div class="space-y-3 text-sm leading-relaxed text-muted-foreground">
+          <p>
+            <strong class="text-accent">El único número que importa ahora mismo:</strong> 1. Un cliente externo real que haya pasado el piloto de 8 semanas y renovado. Ese caso convierte todo lo demás — el one-pager, el deck, las simulaciones, el análisis de gaps — de teoría en evidencia. Con evidencia, el ciclo de ventas se divide por tres.
+          </p>
+          <p>
+            La secuencia es: validación ciega → ICP confirmado → piloto vendido → caso documentado → escala. No hay atajo.
+          </p>
+        </div>
+      </HighlightBox>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  [data-color="teal"] { background-color: rgb(45 212 191 / 0.2); border-left: 3px solid rgb(45 212 191 / 0.6); }
+  [data-color="blue"] { background-color: rgb(96 165 250 / 0.2); border-left: 3px solid rgb(96 165 250 / 0.6); }
+  [data-color="purple"] { background-color: rgb(167 139 250 / 0.2); border-left: 3px solid rgb(167 139 250 / 0.6); }
+  [data-color="orange"] { background-color: rgb(251 146 60 / 0.15); border-left: 3px solid rgb(251 146 60 / 0.4); }
+  [data-color="red"] { background-color: rgb(248 113 113 / 0.15); border-left: 3px solid rgb(248 113 113 / 0.4); }
+</style>

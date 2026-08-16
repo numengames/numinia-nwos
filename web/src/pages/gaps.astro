@@ -1,0 +1,343 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import HighlightBox from "@/components/HighlightBox.astro";
+
+const gapsNegocio = [
+  {
+    nombre: "Ausencia de prueba de valor externa",
+    descripcion: "4 oráculos internos no constituyen validación de mercado. Todo el aprendizaje es endógeno: el sistema funciona para quienes lo construyeron y creen en él. En bootstrapping sin clientes externos, cada semana sin validación externa es runway quemado contra un modelo no probado.",
+    ciego: "Los fundadores confunden profundidad conceptual con valor de mercado. La sofisticación filosófica (Peirce + Jung) da seguridad intelectual pero no sustituye la validación externa.",
+    impacto: 10,
+    criticidad: 10,
+    pregunta: "¿Han puesto el sistema en manos de alguien completamente ajeno a Numen Games, sin contexto previo, y observado qué pasa en las primeras 48 horas?",
+  },
+  {
+    nombre: "El problema del comprador fantasma",
+    descripcion: "'Organizaciones que quieren poner el significado en el centro del trabajo' no es un ICP operativo. En B2B, alguien específico firma el cheque: ¿el CPO? ¿el CHRO? ¿el CEO? Cada uno tiene incentivos distintos, ciclos de decisión distintos y métricas de éxito distintas.",
+    ciego: "Los fundadores están tan inmersos en el 'por qué' filosófico que asumen que el valor es autoevidente. Cuando todo el equipo comparte los mismos valores, el problema del comprador se vuelve invisible.",
+    impacto: 9,
+    criticidad: 10,
+    pregunta: "¿Qué línea del presupuesto organizacional paga esto, y qué métrica concreta justifica esa firma?",
+  },
+  {
+    nombre: "Modelo de negocio indeterminado en fase crítica",
+    descripcion: "No está claro qué vende Numen Games: ¿SaaS? ¿consultoría? ¿licencia de metodología? ¿formación? Cada modelo tiene economías unitarias, ciclos de venta y estructuras de equipo radicalmente distintos. La indefinición en bootstrapping es letal.",
+    ciego: "La riqueza conceptual del NWOS genera la ilusión de que el modelo emergirá solo cuando el mercado lo descubra.",
+    impacto: 9,
+    criticidad: 9,
+    pregunta: "Si mañana una empresa de 100 personas dice 'lo quiero', ¿qué les mandáis, cuánto les cobráis, y quién lo implementa sin dejar de construir el producto?",
+  },
+  {
+    nombre: "Complejidad de adopción vs. inercia organizacional",
+    descripcion: "El NWOS requiere adoptar simultáneamente: nueva terminología, nuevos rituales, nueva forma de documentar decisiones, integración de agentes IA como ciudadanos, y una proyección narrativa completa. Las organizaciones fracasan con implementaciones de Notion. Esto es 10× más complejo.",
+    ciego: "Cuando construyes el sistema desde dentro, la coherencia interna lo hace sentir natural. Desde fuera, es un mundo completamente ajeno que exige rendirse antes de ver valor.",
+    impacto: 9,
+    criticidad: 9,
+    pregunta: "¿Cuántos días necesita una organización nueva para tener su primera misión completada y sentir valor real? ¿Lo han medido?",
+  },
+  {
+    nombre: "Dependencia de evangelización vs. demanda orgánica",
+    descripcion: "El NWOS no resuelve un problema que las organizaciones ya están buscando resolver activamente. Primero hay que convencerles de que tienen el problema, luego de que este marco es la solución, luego de adoptarlo. El coste de venta es triple.",
+    ciego: "Los fundadores asumen que otros sienten igual de intensamente la falta de significado en el trabajo. El mercado 'meaning-driven' existe pero es pequeño, disperso y difícil de monetizar.",
+    impacto: 8,
+    criticidad: 8,
+    pregunta: "¿Existe algún segmento donde las organizaciones ya estén buscando activamente lo que ofrecéis, sin necesidad de educarles primero sobre el problema?",
+  },
+  {
+    nombre: "La metáfora como barrera de entrada",
+    descripcion: "'Tendrás rango de Nómada y participarás en el Lunar Coven' es una barrera de contratación real para perfiles de entornos tradicionales. El sistema auto-selecciona hacia un tipo muy específico de persona.",
+    ciego: "Los fundadores ven esto como feature (auto-selección cultural). El punto ciego es que cuando necesiten escalar con urgencia, el vocabulario limitará severamente el pool de talento.",
+    impacto: 7,
+    criticidad: 8,
+    pregunta: "¿Han presentado el sistema con este lenguaje exacto a un CFO o RRHH de una empresa de 200+ empleados, y cuál fue su reacción real?",
+  },
+  {
+    nombre: "Riesgo de obsolescencia por commoditización de LLMs",
+    descripcion: "En 12-18 meses, herramientas como Notion, Confluence o Microsoft Copilot tendrán agentes integrados nativamente con capacidades similares, sin requerir la adopción de todo un marco filosófico. El moat tecnológico es débil.",
+    ciego: "Quien construye con LLMs hoy tiende a sobrestimar la durabilidad de la ventaja. El mercado verá 'otro wrapper de IA con temática de fantasía'.",
+    impacto: 8,
+    criticidad: 7,
+    pregunta: "Si Microsoft Copilot lanza mañana 'organizational roles and missions' para sus agentes, ¿qué parte de vuestra propuesta sigue siendo irreemplazable?",
+  },
+];
+
+const gapsProducto = [
+  {
+    nombre: "Burbuja fundacional — sesgo de supervivencia inverso",
+    descripcion: "El sistema fue diseñado por los 4 únicos usuarios que también son sus máximos creyentes. No existe ningún punto de contacto con alguien que haya dicho 'esto no me funciona'. Cada decisión de diseño ha sido validada por las mismas personas que la inventaron, en el mismo contexto emocional de fundación.",
+    ciego: "Los fundadores confunden coherencia interna (el sistema tiene sentido entre ellos) con validez externa (funcionará para otros). El 'experimento vivo' da sensación de rigor sin el riesgo real de fallo.",
+    impacto: 9,
+    criticidad: 10,
+    pregunta: "¿Cuántas veces alguien de fuera ha interactuado con el sistema sin contexto previo y sin que vosotros estuvierais ahí para explicarlo?",
+  },
+  {
+    nombre: "Coste cognitivo de entrada vs. beneficio percibido",
+    descripcion: "Gremios, rangos con nombres propios, rituales con títulos oscuros, facciones, Piedras del Camino... El vocabulario especializado es masivo. Para un nuevo miembro, el coste de onboarding es enorme antes de obtener cualquier beneficio funcional.",
+    ciego: "Los fundadores ya no recuerdan cómo era no saber. Son nativos del lenguaje. Cualquier externo es un inmigrante cognitivo.",
+    impacto: 8,
+    criticidad: 9,
+    pregunta: "¿Cuánto tiempo tarda alguien completamente nuevo en ser operativo dentro del sistema sin ayuda de un fundador?",
+  },
+  {
+    nombre: "Equivalencia LLM-Humano: el problema de accountability",
+    descripcion: "Dar a los agentes digitales los mismos roles y misiones que a los humanos crea ambigüedad peligrosa sobre responsabilidad y agencia. Cualquier organización con estructura legal, HR o clientes externos necesita cadenas de accountability claras que la equivalencia narrativa puede destruir.",
+    ciego: "En un equipo de fundadores técnicos entusiastas de la IA, esto parece elegante y futurista. Pero el mundo corporativo necesita saber quién responde cuando algo falla.",
+    impacto: 9,
+    criticidad: 8,
+    pregunta: "Si un agente LLM con rango de Peregrino toma una decisión que causa un problema, ¿qué persona específica es responsable y cómo lo documenta el sistema?",
+  },
+  {
+    nombre: "Fatiga ritual y teatro performativo",
+    descripcion: "Los rituales con nombres son poderosos cuando son significativos y raros. Al escalar, se convierten inevitablemente en reuniones con disfraces verbales. La gente participará formalmente sin estar emocionalmente presente. Esto es exactamente lo que la gamificación superficial hace, pero con terminología más sofisticada.",
+    ciego: "Con 4 personas co-autoras del significado, los rituales tienen peso real. El punto ciego es que el significado no escala — escala el formato, no la experiencia.",
+    impacto: 7,
+    criticidad: 7,
+    pregunta: "¿Qué mecanismo concreto impide que el Dark Council se convierta en 'la reunión del lunes por la noche' para alguien que se une en la ronda B?",
+  },
+  {
+    nombre: "Vacío métrico: ¿cómo sabe el sistema que funciona?",
+    descripcion: "El sistema parece carecer de mecanismos para medir si la estructura narrativa mejora resultados organizacionales reales. Sin métricas propias, no puede demostrar ROI a ningún comprador ni detectar su propio deterioro.",
+    ciego: "Los fundadores creen que el valor es cualitativo e intangible por diseño. Pero sin indicadores propios, no hay forma de distinguir si el sistema funciona o si el equipo es simplemente bueno y funcionaría con cualquier sistema.",
+    impacto: 8,
+    criticidad: 6,
+    pregunta: "¿Qué tres números concretos, medibles hoy, demostrarían en 6 meses que NWOS mejoró la organización frente a no tenerlo?",
+  },
+  {
+    nombre: "Coherencia narrativa no escala sin infraestructura",
+    descripcion: "Con 4 personas, la coherencia se mantiene por osmosis. A 15-30 personas, aparecen sub-narrativas e interpretaciones divergentes. Sin un sistema explícito de mantenimiento del canon, el NWOS fragmentará en dialectos incompatibles.",
+    ciego: "El tamaño actual hace invisible el problema. 4 fundadores pueden corregir en tiempo real cualquier deriva. A 20 personas ese mecanismo informal colapsa.",
+    impacto: 8,
+    criticidad: 5,
+    pregunta: "¿Quién tiene autoridad para decir 'eso no es cómo funciona el sistema' cuando dos Arcontes de distintos gremios interpreten una misión de forma contradictoria?",
+  },
+];
+
+const gapsTeoría = [
+  {
+    nombre: "Sesgo del fundador como único caso de prueba",
+    descripcion: "Los fundadores poseen niveles excepcionales de motivación intrínseca, ownership psicológico y disposición a suspender la incredulidad narrativa. Estas condiciones son atípicas en empleados contratados. Lo que parece evidencia de que el sistema funciona puede ser simplemente evidencia de que los fundadores son el tipo de persona para quien fue diseñado.",
+    ciego: "Los fundadores no pueden percibir su propio rol como variable de confusión. Cuanto más diseñas el sistema, más crees que funciona — efecto Dunning-Kruger organizacional.",
+    impacto: 9,
+    criticidad: 10,
+    pregunta: "¿Podemos distinguir entre 'el sistema funciona' y 'las personas que diseñaron el sistema son el tipo de persona para quien este sistema fue diseñado'?",
+  },
+  {
+    nombre: "La trampa del cumplimiento performativo",
+    descripcion: "La investigación en Self-Determination Theory (Deci & Ryan) demuestra que los sistemas de rangos y títulos narrativos crean incentivos perversos hacia el surface acting: los participantes aprenden a 'jugar el juego' externamente sin transformación interna real. Es exactamente lo opuesto al objetivo declarado.",
+    ciego: "El NWOS asume que la adopción de roles narrativos genera identificación genuina. Pero los sistemas de identidad impuesta (vs. emergente) producen con frecuencia disonancia cognitiva y resistencia latente.",
+    impacto: 8,
+    criticidad: 9,
+    pregunta: "¿Cómo distinguiríamos empíricamente entre un miembro que genuinamente ha integrado el sistema y uno que ha aprendido a actuar como si lo hubiera hecho?",
+  },
+  {
+    nombre: "Malentendido causal sobre el burnout",
+    descripcion: "El modelo de Maslach identifica 6 predictores estructurales del burnout: carga, control, recompensa, comunidad, justicia y valores. El NWOS interviene sobre valores y parcialmente comunidad, pero no toca carga, control ni justicia — que en la mayoría de organizaciones son los drivers primarios. Riesgo real: proporciona una capa de significado narrativo que enmascara problemas estructurales sin resolverlos.",
+    ciego: "Los sistemas de sentido pueden funcionar como analgésicos organizacionales. Según la investigación de Pfeffer, los marcos de significado pueden ser usados (consciente o inconscientemente) para sostener condiciones de trabajo dañinas.",
+    impacto: 9,
+    criticidad: 8,
+    pregunta: "¿Hemos comprobado que los componentes del burnout que el NWOS no toca (carga, control, justicia) no son los dominantes en las organizaciones donde queremos implantarlo?",
+  },
+  {
+    nombre: "Asimetría de agencia en la ciudadanía digital",
+    descripcion: "Los LLMs no experimentan fatiga, significado, burnout ni ninguna de las condiciones que el NWOS dice resolver. Su presencia como 'iguales' crea comparación social asimétrica — los humanos se miden contra agentes perfectamente disponibles y sin fricción emocional — y diluye la responsabilidad narrativa.",
+    ciego: "El marco peirciano requiere un interpretante que procese signos desde experiencia encarnada. Los LLMs producen output estadísticamente coherente con discurso sobre experiencia, sin tenerla. Tratar esto como ciudadanía colapsa una distinción que el propio Peirce consideraría fundamental.",
+    impacto: 7,
+    criticidad: 7,
+    pregunta: "¿Qué ocurre en el sistema cuando un agente digital 'falla' su rol narrativo, y cómo se preserva la accountability humana sin romper la coherencia del mundo?",
+  },
+  {
+    nombre: "Universalismo junguiano vs. variación cultural y de personalidad",
+    descripcion: "La investigación transcultural (Hofstede, GLOBE Study) documenta variaciones sistemáticas en cómo distintas culturas conceptualizan trabajo, juego, jerarquía y ritual. Personas con alta necesidad de cierre cognitivo o culturas con separación rígida trabajo/juego pueden encontrar el framework activamente alienante.",
+    ciego: "Jung desarrolló su teoría desde una epistemología romántica europea y trabajo clínico individual. Su transferencia a diseño organizacional sin mediación empírica es un salto hermenéutico no validado.",
+    impacto: 7,
+    criticidad: 6,
+    pregunta: "¿Hemos mapeado para qué perfiles culturales y de personalidad el sistema produce engagement genuino versus alienación silenciosa?",
+  },
+  {
+    nombre: "Carga cognitiva y brecha de traducción filosófica-práctica",
+    descripcion: "El NWOS requiere operar simultáneamente en múltiples capas de abstracción: realidad operativa, marco semiótico, estructura junguiana, sistema de gremios/facciones/rangos y narrativa compartida. La investigación en change management documenta que la complejidad conceptual es uno de los principales predictores de fracaso en adopción.",
+    ciego: "Los fundadores han desarrollado el sistema incrementalmente. Para un nuevo participante, la curva no es lineal sino exponencial. La gente finge entender y participar sin haberse integrado.",
+    impacto: 6,
+    criticidad: 7,
+    pregunta: "¿Cuánto tiempo y esfuerzo cognitivo requiere que un nuevo miembro opere el sistema con fluidez genuina, y ese coste está incluido en el cálculo de valor del NWOS?",
+  },
+];
+
+function scoreColor(n: number) {
+  if (n >= 9) return "text-red-400";
+  if (n >= 7) return "text-orange-400";
+  return "text-yellow-400";
+}
+
+function bgColor(n: number) {
+  if (n >= 9) return "bg-red-400/10 border-red-400/30";
+  if (n >= 7) return "bg-orange-400/10 border-orange-400/30";
+  return "bg-yellow-400/10 border-yellow-400/30";
+}
+---
+
+<Layout
+  title="NWOS — Análisis de Gaps — Pablo FM"
+  description="Análisis crítico de los puntos ciegos del Narrative Work OS. Perspectivas de negocio, producto y teoría organizacional."
+  canonicalPath="/gaps"
+  activeNav=""
+>
+  <PageHero
+    label="NWOS — Gaps"
+    title="Los puntos ciegos que hay que ver antes de que te los señale el mercado"
+    description="Análisis crítico del Narrative Work OS desde tres perspectivas: negocio, producto y teoría organizacional. Sin filtros."
+  />
+
+  <!-- Intro -->
+  <section class="pb-16">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <div class="max-w-[720px] space-y-5 text-base leading-relaxed text-muted-foreground">
+        <p>
+          Numen Games está construyendo el <strong class="text-foreground">Narrative Work OS</strong> desde dentro, usándolo como sistema operativo de la propia empresa. Eso es una fortaleza — y también el mayor riesgo: cuando eres el arquitecto, el usuario y el creyente simultáneamente, algunos puntos ciegos son estructuralmente invisibles.
+        </p>
+        <p>
+          Este documento es el intento de verlos antes de que los vea el mercado. Tres perspectivas críticas — negocio, producto, teoría organizacional — aplicadas sin piedad. Cada gap incluye la pregunta que los Oráculos deberían hacerse.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leyenda -->
+  <section class="border-t border-border py-10">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <div class="flex flex-wrap gap-6 text-sm text-muted-foreground">
+        <div class="flex items-center gap-2"><span class="font-bold text-red-400">■</span> Crítico (9-10)</div>
+        <div class="flex items-center gap-2"><span class="font-bold text-orange-400">■</span> Alto (7-8)</div>
+        <div class="flex items-center gap-2"><span class="font-bold text-yellow-400">■</span> Medio (≤6)</div>
+        <div class="ml-auto text-xs">Impacto = gravedad si no se resuelve · Criticidad = urgencia de resolución</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEGOCIO -->
+  <section class="border-t border-border py-16">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <SectionHeader label="Perspectiva 1" title="Negocio" />
+      <p class="mt-2 max-w-[720px] text-sm text-muted-foreground">¿Quién compra esto, cómo, y por qué ahora?</p>
+      <div class="mt-8 space-y-6">
+        {gapsNegocio.map((gap) => (
+          <div class={`rounded-lg border p-6 space-y-4 ${bgColor(Math.max(gap.impacto, gap.criticidad))}`}>
+            <div class="flex flex-wrap items-start justify-between gap-4">
+              <h3 class="font-display text-lg text-foreground">{gap.nombre}</h3>
+              <div class="flex gap-4 text-sm font-mono shrink-0">
+                <span>Impacto: <strong class={scoreColor(gap.impacto)}>{gap.impacto}/10</strong></span>
+                <span>Urgencia: <strong class={scoreColor(gap.criticidad)}>{gap.criticidad}/10</strong></span>
+              </div>
+            </div>
+            <p class="text-sm text-muted-foreground">{gap.descripcion}</p>
+            <div class="border-l-2 border-accent/40 pl-4">
+              <p class="text-xs text-muted-foreground/70 uppercase tracking-wider mb-1">Punto ciego</p>
+              <p class="text-sm text-muted-foreground italic">{gap.ciego}</p>
+            </div>
+            <div class="rounded bg-accent/5 border border-accent/20 px-4 py-3">
+              <p class="text-xs text-accent uppercase tracking-wider mb-1">Pregunta para los Oráculos</p>
+              <p class="text-sm text-foreground">"{gap.pregunta}"</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTO -->
+  <section class="border-t border-border py-16">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <SectionHeader label="Perspectiva 2" title="Producto" />
+      <p class="mt-2 max-w-[720px] text-sm text-muted-foreground">¿Qué hace que esto falle cuando sale al mundo real?</p>
+      <div class="mt-8 space-y-6">
+        {gapsProducto.map((gap) => (
+          <div class={`rounded-lg border p-6 space-y-4 ${bgColor(Math.max(gap.impacto, gap.criticidad))}`}>
+            <div class="flex flex-wrap items-start justify-between gap-4">
+              <h3 class="font-display text-lg text-foreground">{gap.nombre}</h3>
+              <div class="flex gap-4 text-sm font-mono shrink-0">
+                <span>Impacto: <strong class={scoreColor(gap.impacto)}>{gap.impacto}/10</strong></span>
+                <span>Urgencia: <strong class={scoreColor(gap.criticidad)}>{gap.criticidad}/10</strong></span>
+              </div>
+            </div>
+            <p class="text-sm text-muted-foreground">{gap.descripcion}</p>
+            <div class="border-l-2 border-accent/40 pl-4">
+              <p class="text-xs text-muted-foreground/70 uppercase tracking-wider mb-1">Punto ciego</p>
+              <p class="text-sm text-muted-foreground italic">{gap.ciego}</p>
+            </div>
+            <div class="rounded bg-accent/5 border border-accent/20 px-4 py-3">
+              <p class="text-xs text-accent uppercase tracking-wider mb-1">Pregunta para los Oráculos</p>
+              <p class="text-sm text-foreground">"{gap.pregunta}"</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TEORÍA -->
+  <section class="border-t border-border py-16">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <SectionHeader label="Perspectiva 3" title="Teoría Organizacional" />
+      <p class="mt-2 max-w-[720px] text-sm text-muted-foreground">¿Qué supuestos filosóficos o psicológicos no están probados?</p>
+      <div class="mt-8 space-y-6">
+        {gapsTeoría.map((gap) => (
+          <div class={`rounded-lg border p-6 space-y-4 ${bgColor(Math.max(gap.impacto, gap.criticidad))}`}>
+            <div class="flex flex-wrap items-start justify-between gap-4">
+              <h3 class="font-display text-lg text-foreground">{gap.nombre}</h3>
+              <div class="flex gap-4 text-sm font-mono shrink-0">
+                <span>Impacto: <strong class={scoreColor(gap.impacto)}>{gap.impacto}/10</strong></span>
+                <span>Urgencia: <strong class={scoreColor(gap.criticidad)}>{gap.criticidad}/10</strong></span>
+              </div>
+            </div>
+            <p class="text-sm text-muted-foreground">{gap.descripcion}</p>
+            <div class="border-l-2 border-accent/40 pl-4">
+              <p class="text-xs text-muted-foreground/70 uppercase tracking-wider mb-1">Punto ciego</p>
+              <p class="text-sm text-muted-foreground italic">{gap.ciego}</p>
+            </div>
+            <div class="rounded bg-accent/5 border border-accent/20 px-4 py-3">
+              <p class="text-xs text-accent uppercase tracking-wider mb-1">Pregunta para los Oráculos</p>
+              <p class="text-sm text-foreground">"{gap.pregunta}"</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Síntesis -->
+  <section class="border-t border-border py-16">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <SectionHeader label="Síntesis" title="Los tres gaps que mandan sobre todos los demás" />
+      <div class="mt-8 grid gap-6 sm:grid-cols-3">
+        <div class="rounded-lg border border-red-400/30 bg-red-400/5 p-6 space-y-3">
+          <div class="text-xs font-semibold uppercase tracking-wider text-red-400">Gap Crítico #1</div>
+          <h3 class="font-display text-base text-foreground">Sin validación externa</h3>
+          <p class="text-sm text-muted-foreground">Ningún outsider ha probado el sistema sin que los fundadores estuvieran ahí para explicarlo. Todo lo demás es secundario hasta resolver esto.</p>
+        </div>
+        <div class="rounded-lg border border-red-400/30 bg-red-400/5 p-6 space-y-3">
+          <div class="text-xs font-semibold uppercase tracking-wider text-red-400">Gap Crítico #2</div>
+          <h3 class="font-display text-base text-foreground">Sin comprador definido</h3>
+          <p class="text-sm text-muted-foreground">No hay ICP. No hay línea de presupuesto. No hay métrica de éxito para el decisor. Sin esto, el go-to-market no puede existir.</p>
+        </div>
+        <div class="rounded-lg border border-red-400/30 bg-red-400/5 p-6 space-y-3">
+          <div class="text-xs font-semibold uppercase tracking-wider text-red-400">Gap Crítico #3</div>
+          <h3 class="font-display text-base text-foreground">Burbuja fundacional</h3>
+          <p class="text-sm text-muted-foreground">Los únicos usuarios del sistema son sus creadores. La coherencia interna puede ser total y la validez externa puede ser cero. No se puede saber sin salir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cierre -->
+  <section class="border-t border-border py-20">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <HighlightBox>
+        <p class="text-sm leading-relaxed text-muted-foreground">
+          <strong class="text-accent">Nota metodológica:</strong> Este análisis fue generado por tres agentes digitales con perspectivas distintas — crítico de negocio, crítico de producto y académico de teoría organizacional — aplicando pensamiento crítico sin complacencia. Los gaps identificados no son una sentencia sobre el proyecto. Son el mapa de trabajo necesario para convertir una idea poderosa en algo que el mundo pueda usar. La diferencia entre los proyectos que sobreviven y los que no suele estar en si los fundadores vieron estos puntos ciegos a tiempo.
+        </p>
+      </HighlightBox>
+    </div>
+  </section>
+</Layout>

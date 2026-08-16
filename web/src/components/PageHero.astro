@@ -1,0 +1,27 @@
+---
+interface Props {
+  label?: string;
+  title: string;
+  description?: string;
+}
+
+const { label, title, description } = Astro.props;
+---
+
+<section class="pb-12 pt-16 sm:pt-24">
+  <div class="mx-auto max-w-[1100px] px-6">
+    {label && (
+      <span class="mb-4 inline-block font-mono text-[0.7rem] font-medium uppercase tracking-[0.25em] text-accent opacity-0 animate-slide-up">
+        {label}
+      </span>
+    )}
+    <h1 class="font-display text-4xl tracking-tight text-foreground opacity-0 animate-slide-up-1 sm:text-5xl lg:text-6xl">
+      {title}
+    </h1>
+    {description && (
+      <p class="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground opacity-0 animate-slide-up-2">
+        {description}
+      </p>
+    )}
+  </div>
+</section>

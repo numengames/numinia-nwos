@@ -1,0 +1,45 @@
+version = 1
+
+# Regime map per Numinia canon C-005 v1.3.0, signed off by Oráculo on
+# 2026-08-16 after the CC0 incident recorded in LEGAL_DEBT.md: versions
+# published through commit 0157be9 were offered under the root CC0-1.0
+# license (irrevocable, not revoked); from this commit forward the paths
+# below carry their C-005 regime.
+#
+# Ordering matters: when several annotations match a file, the LAST one in
+# this file wins. Specific overrides therefore come after their directory.
+
+# --- Lore, narrative, brand, agent identity → reserved (C-005 §2) --------
+[[annotations]]
+path = ["canon/**", "guilds/**", "agents/**"]
+SPDX-FileCopyrightText = "2026 Numen Games S.L."
+SPDX-License-Identifier = "LicenseRef-Numen-AllRightsReserved"
+
+# Governance documents living inside canon/ are docs, not lore.
+[[annotations]]
+path = ["canon/C-005-licensing.md", "canon/INDEX.md", "canon/README.md"]
+SPDX-FileCopyrightText = "2026 Numen Games S.L."
+SPDX-License-Identifier = "CC-BY-4.0"
+
+# --- Documentation, ADRs, specs, missions, reports → CC-BY-4.0 -----------
+[[annotations]]
+path = [
+  "decisions/**", "protocols/**", "operations/**", "reports/**",
+  "missions/**", "blueprints/**", "standards/**",
+  "README.md", "CHANGELOG.md", "CONTRIBUTING.md", "GOVERNANCE.md",
+  "STANDARDS.md", "CLAUDE.md", "TRADEMARKS.md", "LEGAL_DEBT.md",
+]
+SPDX-FileCopyrightText = "2026 Numen Games S.L."
+SPDX-License-Identifier = "CC-BY-4.0"
+
+# --- Data and indexes → CC0-1.0 ------------------------------------------
+[[annotations]]
+path = "missions-index.json"
+SPDX-FileCopyrightText = "2026 Numen Games S.L."
+SPDX-License-Identifier = "CC0-1.0"
+
+# --- Code: viewer and scripts → MIT (C-005 §2: borde) --------------------
+[[annotations]]
+path = ["web/**", "scripts/**"]
+SPDX-FileCopyrightText = "2026 Numen Games S.L."
+SPDX-License-Identifier = "MIT"

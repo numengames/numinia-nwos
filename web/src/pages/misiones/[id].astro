@@ -1,0 +1,177 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { misiones } from "@/data/misiones";
+
+export function getStaticPaths() {
+  return misiones.map((m) => ({
+    params: { id: m.id.toLowerCase() },
+    props: { mision: m },
+  }));
+}
+
+const { mision } = Astro.props;
+
+const estadoConfig: Record<string, { icon: string; label: string; class: string }> = {
+  "backlog": { icon: "📋", label: "Backlog", class: "text-dim" },
+  "en-curso": { icon: "⚡", label: "En curso", class: "text-accent" },
+  "revision": { icon: "👁️", label: "En revisión", class: "text-yellow" },
+  "done": { icon: "✅", label: "Completada", class: "text-green" },
+};
+const estadoActual = estadoConfig[mision.estado] ?? { icon: "📋", label: mision.estado, class: "text-dim" };
+
+const prioridadColor: Record<string, string> = {
+  "crítica": "bg-red/10 text-red border-red/20",
+  "alta": "bg-accent/10 text-accent border-accent/20",
+  "media": "bg-yellow/10 text-yellow border-yellow/20",
+  "baja": "bg-green/10 text-green border-green/20",
+};
+const prioridadIcon: Record<string, string> = {
+  "crítica": "🔴", "alta": "🟠", "media": "🟡", "baja": "🟢"
+};
+const tipoIcon: Record<string, string> = {
+  "biológico": "🧬", "digital": "🤖", "híbrido": "🔀"
+};
+const tipoLabel: Record<string, string> = {
+  "biológico": "Agente Biológico", "digital": "Agente Digital", "híbrido": "Híbrido"
+};
+---
+
+<Layout
+  title={`${mision.id} — ${mision.titulo} · Numen Games`}
+  description={mision.historia}
+  canonicalPath={`/misiones/${mision.id.toLowerCase()}`}
+>
+  <section class="pb-20 pt-16">
+    <div class="mx-auto max-w-[800px] px-6">
+
+      <!-- Back -->
+      <a href="/misiones" class="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-8">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="19 12 5 12"/>
+          <polyline points="12 5 5 12 12 19"/>
+        </svg>
+        Tablero de misiones
+      </a>
+
+      <!-- Header -->
+      <div class="mb-8">
+        <div class="flex flex-wrap items-center gap-2 mb-4">
+          <span class="font-mono text-[0.65rem] text-dim">{mision.id}</span>
+          <span class:list={["inline-flex rounded-full border px-2.5 py-0.5 font-mono text-[0.6rem] font-medium", prioridadColor[mision.prioridad]]}>
+            {prioridadIcon[mision.prioridad]} {mision.prioridad}
+          </span>
+          <span class="inline-flex rounded-full border border-border bg-card px-2.5 py-0.5 font-mono text-[0.6rem] text-muted-foreground">
+            {tipoIcon[mision.tipo]} {tipoLabel[mision.tipo]}
+          </span>
+          <span class="inline-flex rounded-full border border-border bg-card px-2.5 py-0.5 font-mono text-[0.6rem] text-muted-foreground">
+            {mision.esfuerzo}
+          </span>
+        </div>
+
+        <h1 class="font-display text-3xl sm:text-4xl text-foreground mb-3">{mision.titulo}</h1>
+
+        <div class="flex flex-wrap gap-4 font-mono text-[0.7rem] text-dim">
+          <span>Área <span class="text-muted-foreground">{mision.area}</span></span>
+          <span>Gremio <span class="text-muted-foreground">{mision.gremio}</span></span>
+          <span>Estado <span class:list={[estadoActual.class]}>{estadoActual.icon} {estadoActual.label}</span></span>
+        </div>
+      </div>
+
+      <!-- Historia -->
+      <div class="rounded-xl border border-border bg-card p-6 mb-6">
+        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-3">📖 Historia</p>
+        <p class="text-base leading-relaxed text-muted-foreground italic">"{mision.historia}"</p>
+      </div>
+
+      <!-- Criterios -->
+      <div class="rounded-xl border border-border bg-card p-6 mb-6">
+        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">✅ Criterios de aceptación</p>
+        <ul class="space-y-3">
+          {mision.criterios.map((c) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 h-4 w-4 flex-shrink-0 flex items-center justify-center">
+                {mision.estado === "done" ? "✅" : <span class="h-4 w-4 rounded border border-border block"></span>}
+              </span>
+              <span class="text-sm text-muted-foreground leading-relaxed">{c}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Valores -->
+      <div class="grid gap-4 sm:grid-cols-2 mb-8">
+        <div class="rounded-xl border border-border bg-card p-6">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-3">🧠 Valor epistémico</p>
+          <p class="text-sm text-muted-foreground leading-relaxed">{mision.epistemico}</p>
+        </div>
+        <div class="rounded-xl border border-border bg-card p-6">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-3">⚡ Valor pragmático</p>
+          <p class="text-sm text-muted-foreground leading-relaxed">{mision.pragmatico}</p>
+        </div>
+      </div>
+
+      <!-- Ejecución Real -->
+      {mision.ejecucion && (
+        <div class="rounded-xl border border-green/20 bg-green/5 p-6 mb-8">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-green mb-4">🏗️ Ejecución Real</p>
+          <p class="font-mono text-[0.55rem] text-dim mb-4 italic">"Los planos ideales muestran la intención. Los planos reales muestran el conocimiento."</p>
+          <div class="space-y-3">
+            {mision.ejecucion.tecnologiaUsada && (
+              <div>
+                <p class="font-mono text-[0.6rem] text-green uppercase tracking-wider mb-1">Tecnología ejecutada</p>
+                <p class="text-sm text-muted-foreground">{mision.ejecucion.tecnologiaUsada}</p>
+              </div>
+            )}
+            {mision.ejecucion.porQueDivergió && (
+              <div>
+                <p class="font-mono text-[0.6rem] text-green uppercase tracking-wider mb-1">Por qué divergió</p>
+                <p class="text-sm text-muted-foreground">{mision.ejecucion.porQueDivergió}</p>
+              </div>
+            )}
+            {mision.ejecucion.aprendizajeClave && (
+              <div>
+                <p class="font-mono text-[0.6rem] text-green uppercase tracking-wider mb-1">Aprendizaje clave</p>
+                <p class="text-sm text-muted-foreground font-medium">{mision.ejecucion.aprendizajeClave}</p>
+              </div>
+            )}
+            <div class="flex gap-6 pt-2 border-t border-green/10">
+              {mision.ejecucion.fechaCierre && (
+                <div>
+                  <p class="font-mono text-[0.55rem] text-dim">Cerrada</p>
+                  <p class="font-mono text-[0.65rem] text-green">{mision.ejecucion.fechaCierre}</p>
+                </div>
+              )}
+              {mision.ejecucion.agenteEjecutor && (
+                <div>
+                  <p class="font-mono text-[0.55rem] text-dim">Agente</p>
+                  <p class="font-mono text-[0.65rem] text-green">{mision.ejecucion.agenteEjecutor}</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      <!-- Nav entre misiones -->
+      <div class="flex justify-between border-t border-border pt-6">
+        {misiones.findIndex(m => m.id === mision.id) > 0 ? (
+          <a
+            href={`/misiones/${misiones[misiones.findIndex(m => m.id === mision.id) - 1].id.toLowerCase()}`}
+            class="font-mono text-[0.7rem] text-dim hover:text-accent transition-colors"
+          >
+            ← {misiones[misiones.findIndex(m => m.id === mision.id) - 1].id}
+          </a>
+        ) : <span />}
+        {misiones.findIndex(m => m.id === mision.id) < misiones.length - 1 ? (
+          <a
+            href={`/misiones/${misiones[misiones.findIndex(m => m.id === mision.id) + 1].id.toLowerCase()}`}
+            class="font-mono text-[0.7rem] text-dim hover:text-accent transition-colors"
+          >
+            {misiones[misiones.findIndex(m => m.id === mision.id) + 1].id} →
+          </a>
+        ) : <span />}
+      </div>
+
+    </div>
+  </section>
+</Layout>

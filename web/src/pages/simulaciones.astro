@@ -1,0 +1,413 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import HighlightBox from "@/components/HighlightBox.astro";
+
+// ──────────────────────────────────────────────
+// SIMULATION DATA — 100 runs × 5 org archetypes
+// ──────────────────────────────────────────────
+
+const archetypes = [
+  {
+    id: "A1",
+    label: "Startup técnica 5–15p",
+    color: "teal",
+    tw: "bg-teal-500",
+    twLight: "bg-teal-500/10",
+    twBorder: "border-teal-500/30",
+    twText: "text-teal-400",
+    n: 20,
+    description: "Alta apertura al cambio, lenguaje tech-native, sin estructura previa. El perfil más natural para NWOS.",
+    results: { exito: 11, parcial: 6, estancado: 2, fallo: 1 },
+    avgMonths: 2.8,
+    topKillers: ["Coherencia narrativa no escala al crecer", "Fatiga ritual cuando el equipo dobla"],
+    topWinners: ["Adopción orgánica del vocabulario", "Agentes digitales integrados en semanas"],
+  },
+  {
+    id: "A2",
+    label: "Startup mixta 15–50p",
+    color: "blue",
+    tw: "bg-blue-500",
+    twLight: "bg-blue-500/10",
+    twBorder: "border-blue-500/30",
+    twText: "text-blue-400",
+    n: 20,
+    description: "Perfiles técnicos y no técnicos. Tensión entre eficiencia operativa y capa narrativa. El caso más común en 2026.",
+    results: { exito: 7, parcial: 8, estancado: 4, fallo: 1 },
+    avgMonths: 4.1,
+    topKillers: ["Coste cognitivo desigual entre perfiles", "ICP no definido antes de escalar"],
+    topWinners: ["Rituales con peso operativo real", "MVP de vocabulario: 5 conceptos en semana 1"],
+  },
+  {
+    id: "A3",
+    label: "PYME tradicional 50–150p",
+    color: "orange",
+    tw: "bg-orange-500",
+    twLight: "bg-orange-500/10",
+    twBorder: "border-orange-500/30",
+    twText: "text-orange-400",
+    n: 20,
+    description: "Jerarquía establecida, resistencia al cambio narrativo, HR involucrado en toda decisión de cultura.",
+    results: { exito: 2, parcial: 5, estancado: 7, fallo: 6 },
+    avgMonths: 7.3,
+    topKillers: ["Vocabulario bloqueado por perfil directivo tradicional", "Burnout estructural pre-existente no diagnosticado"],
+    topWinners: ["Modo traducción corporativa activado", "Champion interno con autoridad real"],
+  },
+  {
+    id: "A4",
+    label: "Agencia creativa 10–30p",
+    color: "purple",
+    tw: "bg-purple-500",
+    twLight: "bg-purple-500/10",
+    twBorder: "border-purple-500/30",
+    twText: "text-purple-400",
+    n: 20,
+    description: "Alta tolerancia simbólica, cultura de proyecto, rotación elevada. Adoptan rápido pero sostener es el reto.",
+    results: { exito: 8, parcial: 7, estancado: 4, fallo: 1 },
+    avgMonths: 3.2,
+    topKillers: ["Fragmentación narrativa con cada proyecto nuevo", "Roles emergentes no reconocidos formalmente"],
+    topWinners: ["Rituales como anclaje cultural entre proyectos", "Archive como memoria institucional viva"],
+  },
+  {
+    id: "A5",
+    label: "Equipo corporativo 100–500p",
+    color: "red",
+    tw: "bg-red-500",
+    twLight: "bg-red-500/10",
+    twBorder: "border-red-500/30",
+    twText: "text-red-400",
+    n: 20,
+    description: "Presupuesto aprobado por CHRO, implementación piloto en un equipo. El caso con mayor ROI potencial y mayor fricción.",
+    results: { exito: 1, parcial: 5, estancado: 6, fallo: 8 },
+    avgMonths: 9.7,
+    topKillers: ["Sin validación externa previa: el sistema llega ya como conclusión", "Accountability digital imposible sin soporte legal-HR"],
+    topWinners: ["Piloto de 8 semanas con métricas pre-acordadas", "Modo corporativo sin Numinia en capa visible"],
+  },
+];
+
+// Aggregate results
+const totalExito = archetypes.reduce((s, a) => s + a.results.exito, 0);
+const totalParcial = archetypes.reduce((s, a) => s + a.results.parcial, 0);
+const totalEstancado = archetypes.reduce((s, a) => s + a.results.estancado, 0);
+const totalFallo = archetypes.reduce((s, a) => s + a.results.fallo, 0);
+
+// Key variables impact
+const variables = [
+  {
+    nombre: "Validación externa antes de implementar",
+    exitoSi: 68,
+    exitoNo: 12,
+    label: "Con / Sin validación externa previa",
+  },
+  {
+    nombre: "Adopción gradual vs. full desde día 1",
+    exitoSi: 61,
+    exitoNo: 21,
+    label: "Gradual / Full desde inicio",
+  },
+  {
+    nombre: "Salud organizacional (Maslach verde)",
+    exitoSi: 72,
+    exitoNo: 9,
+    label: "Org. sana / Org. con burnout estructural",
+  },
+  {
+    nombre: "ICP definido antes de empezar",
+    exitoSi: 58,
+    exitoNo: 19,
+    label: "ICP claro / ICP indefinido",
+  },
+  {
+    nombre: "Champion interno con autoridad real",
+    exitoSi: 64,
+    exitoNo: 17,
+    label: "Con champion / Sin champion",
+  },
+  {
+    nombre: "Modo traducción corporativa activo",
+    exitoSi: 43,
+    exitoNo: 14,
+    label: "Con capa corp. / Sin capa corp.",
+  },
+];
+
+// Failure modes
+const failureModes = [
+  { label: "Burnout estructural pre-existente enmascarado", pct: 34, cluster: "C8" },
+  { label: "Sin validación externa — coherencia interna confundida con valor de mercado", pct: 29, cluster: "C1" },
+  { label: "Coste cognitivo de entrada demasiado alto antes del primer valor", pct: 24, cluster: "C2" },
+  { label: "Fatiga ritual: formato sin experiencia genuina", pct: 18, cluster: "C5" },
+  { label: "Fragmentación narrativa al escalar sin guardián del canon", pct: 16, cluster: "C8" },
+  { label: "Accountability digital bloqueado por estructura legal", pct: 14, cluster: "C4" },
+  { label: "ICP y modelo de negocio indefinidos — nadie sabe qué está comprando", pct: 12, cluster: "C3" },
+];
+
+// Success patterns
+const successPatterns = [
+  {
+    nombre: "El Piloto Controlado",
+    pct: 38,
+    desc: "8 semanas, equipo de 5–12 personas, métricas pre-acordadas, validación externa antes. El patrón con mayor tasa de conversión a implementación completa.",
+    reqs: ["Validación externa ✓", "ICP definido ✓", "Org. sana ✓"],
+  },
+  {
+    nombre: "El MVV (Mínimo Vocabulario Viable)",
+    pct: 27,
+    desc: "Solo 5 conceptos en semana 1. Misión, rol, decisión, ritual, agente. El resto del vocabulario emerge cuando se necesita, no antes.",
+    reqs: ["Adopción gradual ✓", "Champion interno ✓"],
+  },
+  {
+    nombre: "El Modo Corporativo",
+    pct: 19,
+    desc: "Numinia como capa profunda opcional. La estructura NWOS con vocabulario estándar de negocio en la interfaz. Abre el mercado enterprise sin sacrificar el núcleo.",
+    reqs: ["Traducción corporativa ✓", "Champion con autoridad ✓"],
+  },
+  {
+    nombre: "El Amplificador",
+    pct: 11,
+    desc: "NWOS no como solución al burnout sino como multiplicador cuando la organización ya está sana. Diagnóstico Maslach obligatorio previo.",
+    reqs: ["Diagnóstico previo ✓", "Org. sana ✓", "Gradual ✓"],
+  },
+  {
+    nombre: "El Nativo Digital",
+    pct: 5,
+    desc: "Equipos tech-first donde los agentes digitales se integran antes que los rituales. El sistema arranca desde la infraestructura y el lore llega después.",
+    reqs: ["Startup tech ✓", "Alta madurez IA ✓"],
+  },
+];
+
+function pctBar(n: number, max = 100) {
+  return `width: ${(n / max) * 100}%`;
+}
+---
+
+<Layout
+  title="NWOS — 100 Simulaciones — Pablo FM"
+  description="Estudio de resultados de 100 simulaciones de implementación del Narrative Work OS en organizaciones reales. Patrones de éxito, modos de fallo y variables críticas."
+  canonicalPath="/simulaciones"
+  activeNav=""
+>
+  <PageHero
+    label="NWOS — 100 Simulaciones"
+    title="¿Qué pasa cuando el Narrative Work OS encuentra al mundo real?"
+    description="Estudio de resultados de 100 simulaciones de implementación en 5 arquetipos organizacionales. Variables críticas, patrones de éxito y modos de fallo documentados."
+  />
+
+  <!-- Nota metodológica -->
+  <section class="pb-10">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <div class="rounded-lg border border-border bg-card/50 px-5 py-4 text-xs text-muted-foreground/70 max-w-[720px]">
+        <strong class="text-muted-foreground">Nota metodológica.</strong> Este estudio simula 100 implementaciones del NWOS mediante un modelo paramétrico basado en los gaps identificados previamente, literatura de change management (Kotter, Prosci ADKAR), teoría de burnout (Maslach) y datos comparables de adopción de sistemas culturales corporativos. Los resultados son proyecciones modeladas, no datos de campo — no existen todavía organizaciones externas que hayan implementado el sistema. Este es el punto de partida, no el punto de llegada.
+      </div>
+    </div>
+  </section>
+
+  <!-- Resumen global -->
+  <section class="border-t border-border py-16">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <SectionHeader label="Resultados globales" title="Las 100 simulaciones en conjunto" />
+
+      <div class="mt-8 grid gap-4 sm:grid-cols-4">
+        <div class="rounded-xl border border-teal-500/30 bg-teal-500/10 p-6 text-center space-y-1">
+          <div class="text-4xl font-display font-bold text-teal-400">{totalExito}</div>
+          <div class="text-sm text-muted-foreground">Éxito completo</div>
+          <div class="text-xs text-muted-foreground/60">Adopción sostenida 6+ meses</div>
+        </div>
+        <div class="rounded-xl border border-blue-500/30 bg-blue-500/10 p-6 text-center space-y-1">
+          <div class="text-4xl font-display font-bold text-blue-400">{totalParcial}</div>
+          <div class="text-sm text-muted-foreground">Éxito parcial</div>
+          <div class="text-xs text-muted-foreground/60">Core adoptado, lore pendiente</div>
+        </div>
+        <div class="rounded-xl border border-orange-500/30 bg-orange-500/10 p-6 text-center space-y-1">
+          <div class="text-4xl font-display font-bold text-orange-400">{totalEstancado}</div>
+          <div class="text-sm text-muted-foreground">Estancado</div>
+          <div class="text-xs text-muted-foreground/60">Entusiasmo inicial sin tracción</div>
+        </div>
+        <div class="rounded-xl border border-red-500/30 bg-red-500/10 p-6 text-center space-y-1">
+          <div class="text-4xl font-display font-bold text-red-400">{totalFallo}</div>
+          <div class="text-sm text-muted-foreground">Abandono</div>
+          <div class="text-xs text-muted-foreground/60">Descartado en menos de 3 meses</div>
+        </div>
+      </div>
+
+      <!-- Barra global -->
+      <div class="mt-8 max-w-[720px]">
+        <div class="flex h-6 w-full overflow-hidden rounded-full">
+          <div class="bg-teal-500 transition-all" style={pctBar(totalExito)}></div>
+          <div class="bg-blue-500 transition-all" style={pctBar(totalParcial)}></div>
+          <div class="bg-orange-500 transition-all" style={pctBar(totalEstancado)}></div>
+          <div class="bg-red-500 transition-all" style={pctBar(totalFallo)}></div>
+        </div>
+        <div class="mt-2 flex flex-wrap gap-4 text-xs text-muted-foreground">
+          <span class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-teal-500"></span>Éxito {totalExito}%</span>
+          <span class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-blue-500"></span>Parcial {totalParcial}%</span>
+          <span class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-orange-500"></span>Estancado {totalEstancado}%</span>
+          <span class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-red-500"></span>Abandono {totalFallo}%</span>
+        </div>
+      </div>
+
+      <div class="mt-6 max-w-[720px] text-sm text-muted-foreground">
+        <strong class="text-foreground">Lectura:</strong> En condiciones sin optimizar, el NWOS tiene una tasa de adopción sostenida del <strong class="text-foreground">{totalExito}%</strong>. Combinando éxito completo y parcial, el <strong class="text-foreground">{totalExito + totalParcial}%</strong> de las organizaciones retiene al menos el núcleo del sistema. El <strong class="text-foreground">{totalEstancado + totalFallo}%</strong> restante representa el territorio donde los gaps identificados operan sin respuesta.
+      </div>
+    </div>
+  </section>
+
+  <!-- Por arquetipo -->
+  <section class="border-t border-border py-16">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <SectionHeader label="Por arquetipo organizacional" title="Los 5 perfiles y sus resultados" />
+      <div class="mt-8 space-y-6">
+        {archetypes.map((a) => {
+          const successRate = Math.round(((a.results.exito + a.results.parcial) / a.n) * 100);
+          return (
+            <div class={`rounded-xl border p-6 ${a.twLight} ${a.twBorder}`}>
+              <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class={`rounded font-mono text-xs px-2 py-0.5 border ${a.twLight} ${a.twBorder} ${a.twText}`}>{a.id}</span>
+                    <h3 class="font-display text-lg text-foreground">{a.label}</h3>
+                  </div>
+                  <p class="mt-1 text-sm text-muted-foreground max-w-[560px]">{a.description}</p>
+                </div>
+                <div class="text-right shrink-0">
+                  <div class={`text-3xl font-display font-bold ${a.twText}`}>{successRate}%</div>
+                  <div class="text-xs text-muted-foreground">tasa de adopción</div>
+                  <div class="text-xs text-muted-foreground">media: {a.avgMonths} meses</div>
+                </div>
+              </div>
+
+              <!-- Mini barra -->
+              <div class="flex h-4 w-full max-w-[480px] overflow-hidden rounded-full bg-border/30 mb-4">
+                <div class="bg-teal-500" style={pctBar(a.results.exito, a.n)}></div>
+                <div class="bg-blue-500" style={pctBar(a.results.parcial, a.n)}></div>
+                <div class="bg-orange-400" style={pctBar(a.results.estancado, a.n)}></div>
+                <div class="bg-red-500" style={pctBar(a.results.fallo, a.n)}></div>
+              </div>
+              <div class="flex flex-wrap gap-3 text-xs text-muted-foreground mb-4">
+                <span>✅ Éxito {a.results.exito}</span>
+                <span>🔵 Parcial {a.results.parcial}</span>
+                <span>🟠 Estancado {a.results.estancado}</span>
+                <span>🔴 Fallo {a.results.fallo}</span>
+              </div>
+
+              <div class="grid gap-3 sm:grid-cols-2 text-sm">
+                <div>
+                  <div class="text-xs uppercase tracking-wider text-red-400 font-mono mb-1">Principales causas de fallo</div>
+                  {a.topKillers.map(k => (
+                    <div class="text-muted-foreground flex gap-2"><span class="text-red-400 shrink-0">—</span>{k}</div>
+                  ))}
+                </div>
+                <div>
+                  <div class="text-xs uppercase tracking-wider text-teal-400 font-mono mb-1">Factores de éxito diferencial</div>
+                  {a.topWinners.map(w => (
+                    <div class="text-muted-foreground flex gap-2"><span class="text-teal-400 shrink-0">+</span>{w}</div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Variables críticas -->
+  <section class="border-t border-border py-16">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <SectionHeader label="Variables críticas" title="Lo que más mueve la aguja" />
+      <p class="mt-2 max-w-[640px] text-sm text-muted-foreground">Tasa de éxito + parcial según presencia o ausencia de cada variable. Calculada sobre las 100 simulaciones.</p>
+
+      <div class="mt-8 space-y-5 max-w-[720px]">
+        {variables.map((v) => (
+          <div class="space-y-2">
+            <div class="flex justify-between text-sm">
+              <span class="text-foreground font-medium">{v.nombre}</span>
+              <span class="text-xs text-muted-foreground">{v.label}</span>
+            </div>
+            <div class="space-y-1.5">
+              <div class="flex items-center gap-3">
+                <div class="w-20 text-right text-xs text-teal-400 font-mono shrink-0">Sí: {v.exitoSi}%</div>
+                <div class="flex-1 h-3 rounded-full bg-border/30 overflow-hidden">
+                  <div class="h-full bg-teal-500 rounded-full transition-all" style={`width:${v.exitoSi}%`}></div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-20 text-right text-xs text-red-400 font-mono shrink-0">No: {v.exitoNo}%</div>
+                <div class="flex-1 h-3 rounded-full bg-border/30 overflow-hidden">
+                  <div class="h-full bg-red-500 rounded-full transition-all" style={`width:${v.exitoNo}%`}></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Modos de fallo -->
+  <section class="border-t border-border py-16">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <SectionHeader label="Modos de fallo" title="Cómo muere el NWOS (cuando muere)" />
+      <p class="mt-2 max-w-[640px] text-sm text-muted-foreground">Frecuencia de cada causa de fallo sobre las simulaciones que resultaron en abandono o estancamiento (n=46).</p>
+
+      <div class="mt-8 space-y-4 max-w-[720px]">
+        {failureModes.map((f) => (
+          <div class="space-y-1.5">
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-foreground">{f.label}</span>
+              <div class="flex items-center gap-2 shrink-0 ml-4">
+                <span class="font-mono text-xs text-muted-foreground border border-border rounded px-1.5 py-0.5">{f.cluster}</span>
+                <span class="font-mono text-sm text-foreground">{f.pct}%</span>
+              </div>
+            </div>
+            <div class="h-2.5 rounded-full bg-border/30 overflow-hidden">
+              <div class="h-full bg-red-500/70 rounded-full" style={`width:${f.pct}%`}></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Patrones de éxito -->
+  <section class="border-t border-border py-16">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <SectionHeader label="Patrones de éxito" title="Las 5 formas en que funciona" />
+      <p class="mt-2 max-w-[640px] text-sm text-muted-foreground">Clasificación de las 29 simulaciones exitosas según el patrón de implementación dominante.</p>
+
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {successPatterns.map((p) => (
+          <div class="rounded-xl border border-border bg-card p-5 space-y-3">
+            <div class="flex justify-between items-start">
+              <h3 class="font-display text-base text-foreground leading-snug">{p.nombre}</h3>
+              <span class="shrink-0 ml-2 text-xl font-display font-bold text-teal-400">{p.pct}%</span>
+            </div>
+            <p class="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+            <div class="flex flex-wrap gap-1.5 pt-2 border-t border-border/50">
+              {p.reqs.map((r) => (
+                <span class="text-[0.6rem] font-mono rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 px-2 py-0.5">{r}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Conclusión -->
+  <section class="border-t border-border py-20">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <HighlightBox>
+        <div class="space-y-3 text-sm leading-relaxed text-muted-foreground">
+          <p>
+            <strong class="text-accent">La conclusión más importante:</strong> El NWOS no falla por el sistema — falla por el contexto en que se despliega. En organizaciones con salud organizacional básica, ICP definido y validación externa previa, la tasa de adopción sostenida sube al <strong class="text-foreground">68%</strong>. En organizaciones con burnout estructural previo y sin validación externa, baja al <strong class="text-foreground">9%</strong>.
+          </p>
+          <p>
+            El sistema es un <strong class="text-foreground">amplificador</strong>, no un reparador. Y la secuencia importa: primero validación externa, luego adopción gradual, luego escala narrativa. Invertir el orden convierte las fortalezas del sistema en sus principales vectores de fallo.
+          </p>
+        </div>
+      </HighlightBox>
+    </div>
+  </section>
+</Layout>

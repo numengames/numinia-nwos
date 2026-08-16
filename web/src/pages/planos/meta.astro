@@ -1,0 +1,119 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout
+  title="Protocolo de Cartografía CAO — Numen Games"
+  description="Cómo se crean, mantienen y versionan los Planos del Mundo de Numen Games."
+  canonicalPath="/planos/meta"
+>
+  <section class="pb-20 pt-16">
+    <div class="mx-auto max-w-[800px] px-6">
+
+      <a href="/planos" class="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-8">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="19 12 5 12"/><polyline points="12 5 5 12 12 19"/>
+        </svg>
+        Los Planos del Mundo
+      </a>
+
+      <div class="mb-8">
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent">Meta-plano</span>
+        <h1 class="font-display text-3xl sm:text-4xl text-foreground mt-2 mb-3">Protocolo de Cartografía CAO</h1>
+        <p class="font-mono text-sm text-dim italic">"Antes de construir Numinia, los Oráculos trazaron sus planos. Un mundo sin mapa es un mundo a ciegas."</p>
+      </div>
+
+      <div class="space-y-6">
+
+        <div class="rounded-xl border border-border bg-card p-6">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">¿Qué es un Plano?</p>
+          <p class="text-sm text-muted-foreground leading-relaxed mb-4">
+            Un Plano es un documento vivo que responde a las <strong class="text-foreground">5W del periodismo</strong> aplicadas a la arquitectura:
+          </p>
+          <div class="grid gap-3 sm:grid-cols-2">
+            {[
+              { w: "What", q: "¿Qué existe y cómo funciona hoy?" },
+              { w: "Why", q: "¿Por qué se diseñó así y no de otra manera?" },
+              { w: "Who", q: "¿Quién lo usa, lo mantiene, lo necesita?" },
+              { w: "When", q: "¿Cuándo se creó, cuándo se revisará?" },
+              { w: "Where", q: "¿Dónde vive en el sistema?" },
+            ].map((item) => (
+              <div class="flex items-start gap-3">
+                <span class="font-mono text-xs text-accent flex-shrink-0 font-bold w-12">{item.w}</span>
+                <span class="text-sm text-muted-foreground">{item.q}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="rounded-xl border border-border bg-card p-6">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">Diferencia entre Plano, Misión y Reporte</p>
+          <div class="space-y-3">
+            {[
+              { tipo: "Plano", desc: "Arquitectura — cómo funciona el sistema. Permanente, vive con el sistema.", color: "text-accent" },
+              { tipo: "Misión", desc: "Acción — qué hay que hacer. Temporal, tiene inicio y fin.", color: "text-blue" },
+              { tipo: "Reporte", desc: "Memoria — qué pasó y qué aprendimos. Histórico, no se modifica tras publicar.", color: "text-purple" },
+            ].map((item) => (
+              <div class="flex items-start gap-4">
+                <span class:list={["font-mono text-xs flex-shrink-0 w-16", item.color]}>{item.tipo}</span>
+                <span class="text-sm text-muted-foreground">{item.desc}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="rounded-xl border border-border bg-card p-6">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">Estándares adoptados</p>
+          <div class="space-y-2">
+            {[
+              { area: ".md (Markdown)", razon: "File over app — legible por agentes y humanos, versionable en git" },
+              { area: "ASCII / Mermaid", razon: "Diagramas sin herramientas propietarias" },
+              { area: "SVG / WebP", razon: "Imágenes sin pérdida / web optimizado" },
+              { area: "OGG", razon: "Audio sin patentes, CC0 compatible" },
+              { area: "CC0", razon: "Construimos en público — sin derechos reservados" },
+            ].map((item) => (
+              <div class="flex items-start gap-4">
+                <span class="font-mono text-xs text-accent flex-shrink-0 w-32">{item.area}</span>
+                <span class="text-sm text-muted-foreground">{item.razon}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="rounded-xl border border-border bg-card p-6">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">Versionado</p>
+          <div class="font-mono text-sm text-muted-foreground space-y-1">
+            <p><span class="text-accent">v0.1.0</span> → Primera versión (borrador estructurado)</p>
+            <p><span class="text-accent">v0.2.0</span> → Revisado con el equipo</p>
+            <p><span class="text-accent">v0.X.0</span> → Iteraciones incrementales</p>
+            <p><span class="text-accent">v1.0.0</span> → Solo con aprobación explícita de un Oráculo</p>
+          </div>
+        </div>
+
+        <div class="rounded-xl border border-border bg-card p-6">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">Criterios de Done</p>
+          <div class="space-y-2">
+            {[
+              "Responde las 5W de forma clara",
+              "Tiene al menos una decisión de diseño justificada (ADR-style)",
+              "El delta está mapeado a misiones concretas",
+              "Ha sido revisado por al menos un Oráculo",
+              "Está versionado en el repo con formato plano-[nombre]-v0.X.0.md",
+            ].map((c) => (
+              <div class="flex items-start gap-3">
+                <span class="h-4 w-4 rounded border border-border flex-shrink-0 mt-0.5"></span>
+                <span class="text-sm text-muted-foreground">{c}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-8 border-t border-border pt-6">
+        <p class="font-mono text-xs text-dim">Centinela-01 · Numen Games / Numinia · v0.1.0 · 2026-04-05</p>
+      </div>
+
+    </div>
+  </section>
+</Layout>

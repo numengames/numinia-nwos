@@ -1,0 +1,17 @@
+All Rights Reserved
+
+Copyright (c) 2026 Numen Games S.L.
+
+No rights are granted. The files covered by this license reference may be
+read where they are published, but no license is granted to copy, modify,
+distribute, perform, display, or create derivative works from them, in whole
+or in part, by any means, for any purpose.
+
+This express reservation exists so that the absence of an open license can
+never be mistaken for an oversight (Numinia canon C-005 §1: silence does not
+declare).
+
+Nothing in this notice revokes or narrows any license validly granted over
+earlier published versions of these files; see LEGAL_DEBT.md.
+
+Trademark rights are addressed separately in TRADEMARKS.md.
