@@ -1,9 +1,14 @@
 version = 1
 
-# TODO: the licence regime for the canon and lore paths (canon/, missions/,
-# guilds/, protocols/, operations/, decisions/, reports/, standards/,
-# blueprints/, agents/…) is an open decision — see C-005 Canon de Licencias.
-# They are deliberately left undeclared here until that decision lands.
+# Canon and lore paths (canon/, missions/, guilds/, protocols/, operations/,
+# decisions/, reports/, standards/, blueprints/, agents/…): C-005 v1.3.0 maps
+# docs/ADRs/specs to CC-BY-4.0 and lore/narrative/brand to reserved
+# (LicenseRef-Numen-AllRightsReserved) — but this repo went public with a
+# root CC0-1.0 LICENSE, and per C-005 §4 a published CC0 waiver is
+# irrevocable. Re-scoping those paths is therefore a visibility/regime change
+# that C-005 gates behind formal consensus (Oráculo sign-off); until that
+# act lands, the root LICENSE (CC0-1.0) is what actually governs them and
+# they carry no annotation here. Do not annotate them without that sign-off.
 
 [[annotations]]
 path = "web/**"
