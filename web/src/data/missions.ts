@@ -178,12 +178,12 @@ async function fetchFromGitHub(): Promise<Mission[]> {
   return all;
 }
 
-// ── Local filesystem loader (dev with both repos present) ─────────────────────
+// ── Local filesystem loader (canon lives in this repo, one level up from web/) ─
 function loadFromFilesystem(): Mission[] {
   const repoBase = path.resolve(
     path.dirname(new URL(import.meta.url).pathname),
     "../../..",
-    "numinia-digital-agents/missions"
+    "missions"
   );
   if (!fs.existsSync(repoBase)) return [];
 

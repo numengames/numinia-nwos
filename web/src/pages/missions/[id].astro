@@ -1,21 +1,35 @@
 ---
+import fs from "node:fs";
+import path from "node:path";
 import Layout from "@/layouts/Layout.astro";
 
 const REPO = "numengames/numinia-digital-agents";
 const INDEX_URL = `https://raw.githubusercontent.com/${REPO}/main/missions-index.json`;
 
 export async function getStaticPaths() {
+  // Canon lives in this repo: read the local index at build time and fall
+  // back to the GitHub API only when building outside the repo checkout.
+  let data: any = null;
+  const localIndex = path.resolve(
+    path.dirname(new URL(import.meta.url).pathname),
+    "../../../..",
+    "missions-index.json"
+  );
   try {
-    const res = await fetch(`https://raw.githubusercontent.com/numengames/numinia-digital-agents/main/missions-index.json`);
-    if (!res.ok) return [];
-    const data = await res.json();
-    return (data.missions || []).map((m: any) => ({
-      params: { id: m.id.toLowerCase() },
-      props: { missionId: m.id },
-    }));
+    data = JSON.parse(fs.readFileSync(localIndex, "utf-8"));
   } catch {
-    return [];
+    try {
+      const res = await fetch(INDEX_URL);
+      if (!res.ok) return [];
+      data = await res.json();
+    } catch {
+      return [];
+    }
   }
+  return (data.missions || []).map((m: any) => ({
+    params: { id: m.id.toLowerCase() },
+    props: { missionId: m.id },
+  }));
 }
 
 const { missionId } = Astro.props;
