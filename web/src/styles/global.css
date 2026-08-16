@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		/* Font stacks — Geist (Vercel open source) */
+		--font-display: "Geist Variable", system-ui, sans-serif;
+		--font-sans: "Geist Variable", system-ui, sans-serif;
+		--font-mono: "Geist Mono Variable", ui-monospace, monospace;
+
+		/* ── Core palette — RGB triplets for Tailwind opacity support ──────── */
+
+		/* Fondo: negro espacio */
+		--bg: 10 10 10;
+		--bg-card: 10 12 14;
+		--bg-card-hover: 16 20 24;
+		--border: 35 42 50;
+		--text: 248 247 243;
+		--text-muted: 139 134 128;
+		--text-dim: 90 88 84;
+
+		/* Accent principal: teal cálido */
+		--accent: 45 212 191;
+
+		/* ── Solarpunk mediterráneo ───────────────────────────────────────── */
+		--terracota: 193 123 74;   /* #C17B4A */
+		--ocre: 212 168 85;        /* #D4A855 */
+		--arena: 232 213 176;      /* #E8D5B0 */
+		--azul-med: 43 108 176;    /* #2B6CB0 */
+		--salvia: 107 143 94;      /* #6B8F5E */
+
+		/* ── Steampunk ───────────────────────────────────────────────────── */
+		--cobre: 184 115 51;       /* #B87333 */
+		--bronce: 139 105 20;      /* #8B6914 */
+
+		/* ── Cyberpunk contenido ─────────────────────────────────────────── */
+		--teal: 45 212 191;        /* #2DD4BF */
+		--ambar: 245 158 11;       /* #F59E0B */
+
+		/* ── Semantic colors ─────────────────────────────────────────────── */
+		--green: 34 197 94;
+		--red: 239 68 68;
+		--yellow: 234 179 8;
+		--blue: 59 130 246;
+		--purple: 168 85 247;
+
+		/* ── Glow (direct rgba for non-Tailwind use) ─────────────────────── */
+		--accent-glow: rgba(45, 212, 191, 0.10);
+		--veil-glow: rgba(45, 212, 191, 0.04);
+		--cobre-glow: rgba(45, 212, 191, 0.18);
+
+		/* ── Radius ──────────────────────────────────────────────────────── */
+		--radius: 0.75rem;
+
+		/* ── shadcn compat aliases ───────────────────────────────────────── */
+		--background: var(--bg);
+		--foreground: var(--text);
+		--card: var(--bg-card);
+		--card-foreground: var(--text);
+		--muted: var(--bg-card-hover);
+		--muted-foreground: var(--text-muted);
+		--ring: var(--accent);
+		--input: var(--border);
+	}
+
+	* {
+		@apply border-border;
+	}
+
+	html {
+		background-color: #0a0a0a;
+		color: #F8F7F3;
+		scroll-behavior: smooth;
+	}
+
+	body {
+		@apply min-h-screen font-sans text-foreground antialiased;
+		background-color: transparent;
+		color: #F8F7F3;
+	}
+
+	/* ── Subtle ambient glow (no grid) ──────────────────────────────────── */
+	body::before {
+		content: "";
+		position: fixed;
+		inset: 0;
+		z-index: 0;
+		pointer-events: none;
+		background-image:
+			radial-gradient(ellipse 80% 60% at 0% 100%, var(--veil-glow), transparent);
+		background-size: 100% 100%;
+	}
+
+	/* ── Noise texture overlay ───────────────────────────────────────────── */
+	body::after {
+		content: "";
+		position: fixed;
+		inset: 0;
+		z-index: 9999;
+		pointer-events: none;
+		opacity: 0.04;
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+		background-repeat: repeat;
+	}
+
+	/* ── Custom scrollbar ────────────────────────────────────────────────── */
+	::-webkit-scrollbar {
+		width: 6px;
+		height: 6px;
+	}
+	::-webkit-scrollbar-track {
+		background: rgb(10 10 10);
+	}
+	::-webkit-scrollbar-thumb {
+		background: rgba(45, 212, 191, 0.30);
+		border-radius: 3px;
+	}
+	::-webkit-scrollbar-thumb:hover {
+		background: rgba(45, 212, 191, 0.55);
+	}
+
+	/* Firefox scrollbar */
+	* {
+		scrollbar-width: thin;
+		scrollbar-color: rgba(45, 212, 191, 0.30) transparent;
+	}
+
+	/* ── Text selection ──────────────────────────────────────────────────── */
+	::selection {
+		background: rgba(45, 212, 191, 0.22);
+		color: rgb(241, 240, 235);
+	}
+
+	/* ── Animations ──────────────────────────────────────────────────────── */
+	@keyframes slideUp {
+		from {
+			opacity: 0;
+			transform: translateY(24px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes twinkle {
+		0%, 100% { opacity: 1; }
+		50% { opacity: 0.2; }
+	}
+
+	@keyframes twinkle-slow {
+		0%, 100% { opacity: 0.9; }
+		50% { opacity: 0.15; }
+	}
+}

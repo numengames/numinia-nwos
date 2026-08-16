@@ -1,0 +1,204 @@
+---
+import { navItems } from "@/data/navigation";
+
+interface Props {
+  activeNav?: string;
+}
+
+const { activeNav } = Astro.props;
+
+const numaniaIds = navItems
+  .find((i) => i.id === "numinia")
+  ?.children?.map((c) => c.id) ?? [];
+const numaniaActive = numaniaIds.includes(activeNav ?? "");
+---
+
+<nav class="sticky top-0 z-50 border-b border-border/50 bg-background/85 backdrop-blur-xl">
+  <div class="mx-auto flex h-14 max-w-[1100px] items-center justify-between px-6">
+    <a href="/" class="font-display text-xl text-foreground transition-colors hover:text-accent">
+      NW<em class="text-accent">OS</em>
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden items-center gap-1 sm:flex">
+      {navItems.map((item) => {
+        if (item.children) {
+          return (
+            <div class="relative" data-dropdown>
+              <button
+                data-dropdown-btn
+                class:list={[
+                  "flex items-center gap-1 rounded-full px-4 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.15em] transition-all",
+                  numaniaActive
+                    ? "border border-accent bg-accent/10 text-accent"
+                    : "border border-transparent text-muted-foreground hover:border-border hover:bg-card hover:text-foreground",
+                ]}
+              >
+                {item.label}
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200" data-chevron>
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <!-- invisible bridge to prevent gap-triggered close -->
+              <div class="absolute right-0 top-full h-3 w-full" data-bridge></div>
+              <!-- Dropdown panel -->
+              <div
+                data-dropdown-panel
+                class="absolute right-0 top-full mt-3 hidden w-48 rounded-xl border border-border bg-background/95 py-2 shadow-xl backdrop-blur-xl"
+              >
+                {item.children.map((child) => (
+                  <a
+                    href={child.href}
+                    class:list={[
+                      "block px-4 py-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] transition-colors",
+                      activeNav === child.id
+                        ? "bg-accent/10 text-accent"
+                        : "text-muted-foreground hover:bg-card hover:text-foreground",
+                    ]}
+                  >
+                    {child.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          );
+        }
+        return (
+          <a
+            href={item.href}
+            class:list={[
+              "rounded-full px-4 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.15em] transition-all",
+              activeNav === item.id
+                ? "border border-accent bg-accent/10 text-accent"
+                : "border border-transparent text-muted-foreground hover:border-border hover:bg-card hover:text-foreground",
+            ]}
+          >
+            {item.label}
+          </a>
+        );
+      })}
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="mobile-menu-btn"
+      class="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:bg-card hover:text-foreground sm:hidden"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+    >
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden border-t border-border/50 bg-background/95 backdrop-blur-xl sm:hidden">
+    <div class="flex flex-col gap-1 px-6 py-4">
+      {navItems.map((item) => {
+        if (item.children) {
+          return (
+            <div>
+              <div class:list={[
+                "rounded-lg px-4 py-2.5 font-mono text-[0.7rem] uppercase tracking-[0.15em]",
+                numaniaActive ? "text-accent" : "text-muted-foreground",
+              ]}>
+                {item.label}
+              </div>
+              <div class="ml-4 flex flex-col gap-1 border-l border-border/50 pl-3">
+                {item.children.map((child) => (
+                  <a
+                    href={child.href}
+                    class:list={[
+                      "rounded-lg px-3 py-2 font-mono text-[0.65rem] uppercase tracking-[0.15em] transition-colors",
+                      activeNav === child.id
+                        ? "bg-accent/10 text-accent"
+                        : "text-muted-foreground hover:bg-card hover:text-foreground",
+                    ]}
+                  >
+                    {child.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          );
+        }
+        return (
+          <a
+            href={item.href}
+            class:list={[
+              "rounded-lg px-4 py-2.5 font-mono text-[0.7rem] uppercase tracking-[0.15em] transition-colors",
+              activeNav === item.id
+                ? "bg-accent/10 text-accent"
+                : "text-muted-foreground hover:bg-card hover:text-foreground",
+            ]}
+          >
+            {item.label}
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  if (btn && menu) {
+    btn.addEventListener("click", () => {
+      const open = !menu.classList.contains("hidden");
+      menu.classList.toggle("hidden");
+      btn.setAttribute("aria-expanded", String(!open));
+    });
+  }
+
+  // Desktop dropdowns
+  document.querySelectorAll<HTMLElement>("[data-dropdown]").forEach((dropdown) => {
+    const dropBtn = dropdown.querySelector<HTMLElement>("[data-dropdown-btn]");
+    const panel = dropdown.querySelector<HTMLElement>("[data-dropdown-panel]");
+    const bridge = dropdown.querySelector<HTMLElement>("[data-bridge]");
+    const chevron = dropdown.querySelector<HTMLElement>("[data-chevron]");
+
+    if (!dropBtn || !panel) return;
+
+    let closeTimer: ReturnType<typeof setTimeout> | null = null;
+
+    function openPanel() {
+      if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+      panel!.classList.remove("hidden");
+      if (bridge) bridge.classList.remove("hidden");
+      chevron?.classList.add("rotate-180");
+    }
+
+    function scheduleClose() {
+      closeTimer = setTimeout(() => {
+        panel!.classList.add("hidden");
+        if (bridge) bridge.classList.add("hidden");
+        chevron?.classList.remove("rotate-180");
+        closeTimer = null;
+      }, 120);
+    }
+
+    // Click toggle
+    dropBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      panel!.classList.contains("hidden") ? openPanel() : scheduleClose();
+    });
+
+    // Close on outside click
+    document.addEventListener("click", () => {
+      if (!panel!.classList.contains("hidden")) scheduleClose();
+    });
+    panel.addEventListener("click", (e) => e.stopPropagation());
+
+    // Hover — button, bridge and panel all keep it open
+    [dropdown, bridge, panel].forEach((el) => {
+      if (!el) return;
+      el.addEventListener("mouseenter", () => openPanel());
+      el.addEventListener("mouseleave", () => scheduleClose());
+    });
+  });
+</script>

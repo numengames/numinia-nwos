@@ -1,0 +1,257 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+
+const fondosData = [
+  {
+    id: 'canon',
+    titulo: 'Canon',
+    subtitulo: 'Memoria Inmutable',
+    icono: '📜',
+    color: 'green',
+    descripcion: 'Los 9 documentos fundacionales de Numinia. Inmutables por política y por técnica. Son el suelo sobre el que todo lo demás se construye.',
+    lore: 'El Archive no comenzó con código. Comenzó con nueve preguntas que nadie supo responder sin ponerse de acuerdo.',
+    governance: 'Solo Oracle puede modificar. CODEOWNERS bloqueante. Sin excepciones.',
+    documentos: [
+      { nombre: 'Welcome to Numinia', desc: 'Puerta de entrada al mundo. Contexto histórico y propósito del sistema.', file: 'welcome-to-numinia.md' },
+      { nombre: 'Numinia Brand & Culture', desc: 'Identidad visual, verbal y cultural de Numinia v0.1.2.', file: 'numinia-brand-and-culture.md' },
+      { nombre: 'Epistemic Relations', desc: 'La tríada OS→Modelo→Narrativa. Peirce + Jung aplicados a organizaciones.', file: 'epistemic-relations.md' },
+      { nombre: 'Compendium of Attributes', desc: 'Sistema de atributos, rangos y ficha de personaje del agente.', file: 'compendium-of-attributes.md' },
+      { nombre: 'Role Structure', desc: 'Teoría de roles: Nivel Básico (gremios) + Prototipo (facciones).', file: 'role-structure.md' },
+      { nombre: 'Platform Role System', desc: 'Rangos y permisos de la plataforma Digital Goods v2.', file: 'platform-role-system.md' },
+      { nombre: 'About Session Zero', desc: '4 escape rooms de introducción, sellos, Celdas Prisma.', file: 'about-session-zero.md' },
+      { nombre: 'Numinia — El Juego de Rol', desc: 'Manual RPG completo en español. ~4.600 líneas.', file: 'numinia-el-juego-de-rol.md' },
+      { nombre: 'Archive System', desc: 'El sistema de archivo documental de Numinia. Cómo se organiza el conocimiento.', file: 'archive-system.md' },
+    ]
+  },
+  {
+    id: 'agents',
+    titulo: 'Agentes',
+    subtitulo: 'Entidades Vivas',
+    icono: '🤖',
+    color: 'teal',
+    descripcion: 'Los agentes digitales que operan en el sistema. Organizados por gremio. Cada uno con identidad (SOUL), reglas (OPERATOR) y estado operativo (STATUS).',
+    lore: 'No son herramientas. Son funciones vivas que existen mientras operan dentro de sus reglas.',
+    governance: 'SOUL y OPERATOR solo los modifica Oracle. STATUS lo actualiza el propio agente.',
+    documentos: [
+      { nombre: 'Nimrod — SOUL.md', desc: 'Guardián de las Puertas. Centinela-01. Identidad, voz, valores, límites.', file: 'agents/guilds/centinelas/members/nimrod/SOUL.md' },
+      { nombre: 'Nimrod — OPERATOR.md', desc: 'Las 4 leyes operativas de Nimrod. Lo que puede y no puede hacer.', file: 'agents/guilds/centinelas/members/nimrod/OPERATOR.md' },
+      { nombre: 'Adonaz — SOUL.md', desc: 'Archivista General. Exégeta. El custodio del conocimiento de Numinia.', file: 'agents/guilds/exegetas/members/adonaz/SOUL.md' },
+      { nombre: 'Charter — Centinelas', desc: 'Reglas comunes del gremio Centinelas. Seguridad, guardia, puertas.', file: 'agents/guilds/centinelas/charter.md' },
+      { nombre: 'Charter — Exégetas', desc: 'Reglas comunes del gremio Exégetas. Conocimiento, archivo, narrativa.', file: 'agents/guilds/exegetas/charter.md' },
+    ]
+  },
+  {
+    id: 'missions',
+    titulo: 'Misiones',
+    subtitulo: 'Movimiento',
+    icono: '⚡',
+    color: 'yellow',
+    descripcion: 'Las tareas con criterios de aceptación verificables. Una misión es la unidad mínima de trabajo del sistema. Cuando se completa, permanece con su Ejecución Real documentada.',
+    lore: 'Una misión no termina cuando se cierra. Termina cuando se entiende por qué divergió del plan.',
+    governance: 'Solo el executor edita su misión activa. Done/ es inmutable.',
+    documentos: [
+      { nombre: 'Mission Template v2', desc: 'Plantilla estándar con divergence_log, executor, blocked_reason.', file: 'missions/TEMPLATE.md' },
+      { nombre: 'MIS-037 — Archive Summa', desc: 'La misión de crear este repositorio. En curso.', file: 'missions/MIS-037.md' },
+      { nombre: 'MIS-051 — Gmail/Drive/Calendar', desc: 'Integración de Google Workspace con gog CLI. Completada.', file: 'missions/MIS-051.md' },
+      { nombre: 'MIS-054 — Acceso multi-Oráculo', desc: 'Onboarding de Oráculos a Telegram con Nimrod. En curso.', file: 'missions/MIS-054.md' },
+    ]
+  },
+  {
+    id: 'protocols',
+    titulo: 'Protocolos',
+    subtitulo: 'Rituales Operativos',
+    icono: '📋',
+    color: 'blue',
+    descripcion: 'Los procedimientos exactos para iniciar sesiones, ejecutar misiones, coordinarse entre agentes y escalar decisiones. Nunca se editan — se versionan.',
+    lore: 'Un ritual no es burocracia. Es la forma en que el sistema recuerda cómo hacerlo bien.',
+    governance: 'Nueva versión = nuevo archivo. Nunca editar en sitio. Oracle aprueba.',
+    documentos: [
+      { nombre: 'P-001 Briefing de Agente v1', desc: 'El arranque canónico. 4 pasos inviolables para iniciar cualquier sesión.', file: 'protocols/P-001-briefing-agente-v1.md' },
+      { nombre: 'P-002 Onboarding de Agente v1', desc: 'Cómo incorporar un nuevo agente al sistema sin perder coherencia.', file: 'protocols/P-002-onboarding-agente-v1.md' },
+      { nombre: 'P-003 Ciclo de Misión v1', desc: 'Crear, ejecutar, documentar y cerrar una misión correctamente.', file: 'protocols/P-003-ciclo-mision-v1.md' },
+      { nombre: 'P-004 Inter-Agent v1', desc: 'Coordinación entre agentes sin ambigüedad ni conflictos de escritura.', file: 'protocols/P-004-inter-agent-v1.md' },
+      { nombre: 'P-005 Escalation v1', desc: 'Cuándo y cómo escalar al coordinador o al Oracle.', file: 'protocols/P-005-escalation-v1.md' },
+    ]
+  },
+  {
+    id: 'decisions',
+    titulo: 'Decisiones',
+    subtitulo: 'Voluntad Cristalizada',
+    icono: '🗿',
+    color: 'purple',
+    descripcion: 'Las decisiones arquitectónicas que no se revisan, solo se superan. Cada ADR existe porque alguien tuvo que elegir y lo hizo explícitamente. Son el registro permanente del por qué.',
+    lore: 'Una decisión no documentada es una deuda que otro pagará sin saber que existe.',
+    governance: 'Append-only. Nunca eliminar. Solo se puede añadir "superseded by ADR-XXX".',
+    documentos: [
+      { nombre: 'ADR-001 — GitHub como Archive', desc: '¿Por qué GitHub y no Notion, Confluence u otro sistema?', file: 'decisions/ADR-001-github-como-archivo.md' },
+      { nombre: 'ADR-002 — Markdown Universal', desc: '¿Por qué .md y no PDF, Word u otros formatos?', file: 'decisions/ADR-002-formato-markdown.md' },
+    ]
+  },
+  {
+    id: 'blueprints',
+    titulo: 'Blueprints',
+    subtitulo: 'Potencial No Manifestado',
+    icono: '🔮',
+    color: 'indigo',
+    descripcion: 'Los diseños y arquitecturas que están siendo pensados. El Archive Summa mismo comenzó como un blueprint. Aquí vive el futuro antes de ser presente.',
+    lore: 'Todo lo que existe fue primero potencial. Los blueprints son el lugar donde el potencial espera.',
+    governance: 'Oracle y agentes pueden crear. Oracle aprueba el merge.',
+    documentos: [
+      { nombre: 'Archive Summa — Arquitectura v0.1.0', desc: 'Estructura completa, governance, permisos y jerarquía de delegación.', file: 'archive-summa-arquitectura-v0.1.0.md', descargable: true, downloadPath: '/archive/archive-summa-arquitectura-v0.1.0.md' },
+      { nombre: 'Archive Summa — Fundacional v0.1.0', desc: '100 simulaciones, 12 principios operativos, protocolo de arranque canónico.', file: 'archive-summa-fundacional-v0.1.0.md', descargable: true, downloadPath: '/archive/archive-summa-fundacional-v0.1.0.md' },
+      { nombre: 'Prompt para IAs v0.1.0', desc: 'Prompt completo para estudiar el Archive Summa con cualquier IA externa.', file: 'archive-summa-prompt-v0.1.0.md', descargable: true, downloadPath: '/archive/archive-summa-prompt-v0.1.0.md' },
+    ]
+  },
+  {
+    id: 'operations',
+    titulo: 'Operaciones',
+    subtitulo: 'Sistema Circulatorio',
+    icono: '⚙️',
+    color: 'orange',
+    descripcion: 'Las reglas de quién puede hacer qué, los mapas de credenciales y las políticas de seguridad. Es el sistema circulatorio que mantiene todo cohesionado.',
+    lore: 'Sin governance explícita, el sistema se deteriora. Sin seguridad, el sistema se expone.',
+    governance: 'Oracle modifica. Agentes pueden proponer via PR.',
+    documentos: [
+      { nombre: 'Governance', desc: 'Tabla completa: quién puede crear, modificar, archivar cada tipo de documento.', file: 'operations/governance.md' },
+      { nombre: 'Security Policy', desc: 'Reglas de seguridad del sistema. Qué nunca va en el repo.', file: 'operations/security-policy.md' },
+      { nombre: 'Credential Map', desc: 'Estructura de credenciales sin valores reales. Mapa de dónde vive qué.', file: 'operations/credential-map.md' },
+    ]
+  }
+];
+
+export function getStaticPaths() {
+  const fondos = [
+    'canon', 'agents', 'missions', 'protocols', 'decisions', 'blueprints', 'operations'
+  ];
+  return fondos.map((id) => ({ params: { fondo: id } }));
+}
+
+const { fondo: fondoId } = Astro.params;
+const fondo = fondosData.find((f) => f.id === fondoId)!;
+const otrosFondos = fondosData.filter((f) => f.id !== fondoId);
+
+const colorMap: Record<string, { border: string; bg: string; text: string; badge: string; badgeBg: string }> = {
+  green:  { border: 'border-green/20',   bg: 'bg-green/5',   text: 'text-green',        badge: 'text-green',        badgeBg: 'bg-green/10'  },
+  teal:   { border: 'border-accent/20',  bg: 'bg-accent/5',  text: 'text-accent',       badge: 'text-accent',       badgeBg: 'bg-accent/10' },
+  yellow: { border: 'border-yellow/20',  bg: 'bg-yellow/5',  text: 'text-yellow',       badge: 'text-yellow',       badgeBg: 'bg-yellow/10' },
+  blue:   { border: 'border-blue/20',    bg: 'bg-blue/5',    text: 'text-blue-400',     badge: 'text-blue-400',     badgeBg: 'bg-blue/10'   },
+  purple: { border: 'border-purple/20',  bg: 'bg-purple/5',  text: 'text-purple-400',   badge: 'text-purple-400',   badgeBg: 'bg-purple/10' },
+  indigo: { border: 'border-indigo/20',  bg: 'bg-indigo/5',  text: 'text-indigo-400',   badge: 'text-indigo-400',   badgeBg: 'bg-indigo/10' },
+  orange: { border: 'border-orange/20',  bg: 'bg-orange/5',  text: 'text-orange-400',   badge: 'text-orange-400',   badgeBg: 'bg-orange/10' },
+};
+
+const c = colorMap[fondo.color] ?? colorMap.teal;
+---
+
+<Layout
+  title={`${fondo.titulo} — Archive Summa · Numen Games`}
+  description={fondo.descripcion}
+  canonicalPath={`/archive/${fondo.id}`}
+  activeNav="archive"
+>
+  <PageHero
+    label={`Archive Summa · ${fondo.subtitulo}`}
+    title={`${fondo.icono} ${fondo.titulo}`}
+    description={fondo.descripcion}
+  />
+
+  <section class="pb-24">
+    <div class="mx-auto max-w-[1100px] px-6">
+
+      <!-- Back -->
+      <div class="mb-8">
+        <a href="/archive" class="inline-flex items-center gap-2 font-mono text-xs text-dim hover:text-foreground transition-colors">
+          <span>←</span>
+          <span>Archive Summa</span>
+        </a>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-10">
+
+        <!-- Main -->
+        <div class="flex-1 min-w-0">
+
+          <!-- Hero lore + governance -->
+          <div class={`rounded-xl border ${c.border} ${c.bg} p-6 mb-8`}>
+            <p class={`font-mono text-[0.65rem] uppercase tracking-[0.2em] ${c.text} mb-2`}>{fondo.subtitulo}</p>
+            <p class="text-base italic text-muted-foreground leading-relaxed mb-5">"{fondo.lore}"</p>
+            <div class="flex items-start gap-2">
+              <span class={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-mono text-[0.6rem] ${c.badgeBg} ${c.badge} border ${c.border} shrink-0`}>
+                🔒 Governance
+              </span>
+              <p class="font-mono text-[0.65rem] text-dim leading-relaxed pt-1">{fondo.governance}</p>
+            </div>
+          </div>
+
+          <!-- Document cards -->
+          <div class="mb-4 flex items-center gap-3">
+            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Documentos del fondo</span>
+            <span class="h-px flex-1 bg-border"></span>
+            <span class="font-mono text-[0.6rem] text-dim">{fondo.documentos.length} docs</span>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            {fondo.documentos.map((doc) => (
+              <div class="border border-border bg-card p-5 rounded-xl flex flex-col gap-3">
+                <div class="flex items-start justify-between gap-2">
+                  <h3 class="font-mono text-sm font-medium text-foreground leading-snug">{doc.nombre}</h3>
+                  {(doc as any).descargable && (
+                    <a
+                      href={(doc as any).downloadPath}
+                      download
+                      class={`shrink-0 inline-flex items-center gap-1 font-mono text-[0.55rem] uppercase tracking-wider ${c.text} hover:opacity-70 transition-opacity`}
+                    >
+                      ↓ .md
+                    </a>
+                  )}
+                </div>
+                <p class="text-xs text-muted-foreground leading-relaxed flex-1">{doc.desc}</p>
+                <div class="flex items-center justify-between pt-2 border-t border-border/50">
+                  <code class="font-mono text-[0.5rem] text-dim bg-background/50 rounded px-1.5 py-0.5 truncate max-w-[180px]">{doc.file}</code>
+                  {(doc as any).descargable ? (
+                    <a href={(doc as any).downloadPath} download class={`font-mono text-[0.6rem] ${c.text} hover:opacity-70 transition-opacity`}>
+                      Descargar ↓
+                    </a>
+                  ) : (
+                    <span class="font-mono text-[0.55rem] text-dim opacity-40">numinia-agents</span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="lg:w-56 shrink-0">
+          <div class="sticky top-6">
+            <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim mb-3">Otros fondos</p>
+            <nav class="flex flex-col gap-1.5">
+              {otrosFondos.map((f) => (
+                <a
+                  href={`/archive/${f.id}`}
+                  class="flex items-center gap-2.5 rounded-lg border border-border bg-card px-3 py-2.5 hover:border-accent/50 hover:bg-accent/5 transition-all group"
+                >
+                  <span class="text-base">{f.icono}</span>
+                  <div class="min-w-0">
+                    <p class="font-mono text-xs text-foreground group-hover:text-accent transition-colors truncate">{f.titulo}</p>
+                    <p class="font-mono text-[0.5rem] text-dim truncate">{f.subtitulo}</p>
+                  </div>
+                </a>
+              ))}
+              <a
+                href="/archive"
+                class="flex items-center gap-2.5 rounded-lg border border-border/50 px-3 py-2.5 hover:border-accent/30 transition-all mt-2"
+              >
+                <span class="text-base">🗂</span>
+                <p class="font-mono text-xs text-dim hover:text-foreground transition-colors">← Volver al índice</p>
+              </a>
+            </nav>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+</Layout>

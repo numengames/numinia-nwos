@@ -1,0 +1,190 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+
+const reportes = [
+  {
+    id: "diario-2026-04-06",
+    tipo: "Diario",
+    fecha: "2026-04-06",
+    semana: "W15",
+    agente: "Nimrod",
+    modelo: "claude-sonnet-4.6",
+    titulo: "Reporte Diario — 2026-04-06",
+    resumen: "Gmail/Calendar/Drive operativos. 3 PRs mergeados. Nuevo estándar documental: Ejecución Real. Primer email enviado al equipo de Oráculos.",
+    prs: 3,
+    misiones: 53,
+    coste: "~$3",
+    destacado: [
+      "khepri@ai.numengames.com activa — Nimrod tiene identidad digital verificable",
+      "Nuevo estándar: sección Ejecución Real en Mission Template v0.2.0",
+      "Primer reporte diario enviado por email al equipo completo de Oráculos",
+    ],
+  },
+  {
+    id: "diario-2026-04-05",
+    tipo: "Diario",
+    fecha: "2026-04-05",
+    semana: "W14",
+    agente: "Centinela-01",
+    modelo: "claude-sonnet-4.6",
+    titulo: "Reporte Diario — 2026-04-05",
+    resumen: "3 PRs mergeados en pablofm-web. Sistema CAO operativo. 50 misiones generadas por Procyon. Primer experimento multiagente completado.",
+    prs: 3,
+    misiones: 50,
+    coste: "~$5",
+    destacado: [
+      "Primer experimento multiagente: Procyon + Alquimista-01 ejecutaron MIS-001 en 77 segundos",
+      "Tablero de 50 misiones en producción con páginas de detalle",
+      "SOUL.md de 4 agentes creados",
+    ],
+  },
+  {
+    id: "diario-2026-04-03",
+    tipo: "Diario",
+    fecha: "2026-04-03",
+    semana: "W14",
+    agente: "Centinela-01",
+    modelo: "claude-sonnet-4.6",
+    titulo: "Reporte Diario — 2026-04-03 🎉",
+    resumen: "5 PRs mergeados. Umami Analytics y Cal.com self-hosted instalados. Primer reporte enviado por Telegram a las 8am.",
+    prs: 5,
+    misiones: 0,
+    coste: "~$45",
+    destacado: [
+      "Numen Games visible en pablofm.com como proyecto featured",
+      "Fondo Velo de Numinia — identidad visual aplicada a un producto real por primera vez",
+      "Primer reporte diario enviado por Telegram 🎉",
+    ],
+  },
+  {
+    id: "diario-2026-04-02",
+    tipo: "Diario",
+    fecha: "2026-04-02",
+    semana: "W14",
+    agente: "Centinela-01",
+    modelo: "claude-sonnet-4.6",
+    titulo: "Reporte Diario — 2026-04-02",
+    resumen: "Primer día de operación. Activación, lectura de los 9 documentos seminales y configuración del sistema.",
+    prs: 0,
+    misiones: 0,
+    coste: "~$5",
+    destacado: [
+      "Centinela-01 activado — identidad y leyes operativas confirmadas",
+      "9 documentos seminales leídos y asimilados",
+      "MEMORY.md creado — contexto operativo persistente desde el primer día",
+    ],
+  },
+];
+
+const tipoColor: Record<string, string> = {
+  "Diario": "bg-accent/10 text-accent",
+  "Semanal": "bg-blue/10 text-blue",
+  "Mensual": "bg-purple/10 text-purple",
+  "Cuatrimestral": "bg-yellow/10 text-yellow",
+  "Anual": "bg-green/10 text-green",
+};
+---
+
+<Layout
+  title="Reportes CAO — Numen Games"
+  description="Reportes públicos de actividad de la CAO de Numen Games. Diarios, semanales, mensuales y anuales generados por los agentes digitales."
+  canonicalPath="/reportes"
+  activeNav="reportes"
+>
+  <PageHero
+    label="CAO · Centinela-01"
+    title="Reportes de Actividad"
+    description="Historial público de lo que construimos. Generados por los agentes de la CAO. Sin datos de terceros."
+  />
+
+  <section class="pb-20">
+    <div class="mx-auto max-w-[1100px] px-6">
+
+      <!-- Info política -->
+      <div class="mb-10 rounded-xl border border-border/50 bg-card/50 p-5">
+        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-2">Política de transparencia</p>
+        <p class="text-sm text-muted-foreground">
+          Construimos en público. Estos reportes son artefactos de conocimiento de la CAO de Numen Games. 
+          Los datos de terceros y credenciales se redactan como <code class="font-mono text-xs text-accent">[REDACTED]</code>.
+          Costes son estimaciones.
+        </p>
+      </div>
+
+      <!-- Lista de reportes -->
+      <div class="space-y-4">
+        {reportes.map((r) => (
+          <a href={`/reportes/${r.id}`} class="block rounded-xl border border-border bg-card p-6 hover:bg-card-hover transition-colors">
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div>
+                <div class="flex items-center gap-2 mb-2">
+                  <span class:list={["inline-flex rounded-full px-2.5 py-0.5 font-mono text-[0.6rem] font-medium", tipoColor[r.tipo] || "bg-muted text-muted-foreground"]}>
+                    {r.tipo}
+                  </span>
+                  <span class="font-mono text-[0.65rem] text-dim">Semana {r.semana}</span>
+                  <span class="font-mono text-[0.65rem] text-dim">🤖 {r.agente}</span>
+                </div>
+                <h2 class="font-display text-xl text-foreground">{r.titulo}</h2>
+                <p class="mt-1 text-sm text-muted-foreground">{r.resumen}</p>
+              </div>
+              <div class="flex-shrink-0 text-right">
+                <p class="font-display text-2xl text-foreground">{r.coste}</p>
+                <p class="font-mono text-[0.6rem] text-dim">coste</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 border-t border-border pt-4 mb-4">
+              <div>
+                <p class="font-mono text-[0.6rem] text-dim mb-1">PRs mergeados</p>
+                <p class="font-display text-lg text-foreground">{r.prs}</p>
+              </div>
+              <div>
+                <p class="font-mono text-[0.6rem] text-dim mb-1">Misiones generadas</p>
+                <p class="font-display text-lg text-foreground">{r.misiones}</p>
+              </div>
+              <div>
+                <p class="font-mono text-[0.6rem] text-dim mb-1">Modelo</p>
+                <p class="font-mono text-xs text-muted-foreground">{r.modelo}</p>
+              </div>
+            </div>
+
+            <div class="space-y-1">
+              {r.destacado.map((d) => (
+                <div class="flex items-start gap-2">
+                  <span class="text-accent mt-0.5 flex-shrink-0">→</span>
+                  <span class="text-xs text-muted-foreground">{d}</span>
+                </div>
+              ))}
+            </div>
+
+            <p class="mt-4 font-mono text-[0.65rem] text-accent text-right">Ver reporte completo →</p>
+          </a>
+        ))}
+      </div>
+
+      <!-- Próximos reportes -->
+      <div class="mt-12">
+        <div class="mb-4 flex items-center gap-3">
+          <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Cadencia configurada</span>
+          <span class="h-px flex-1 bg-border"></span>
+        </div>
+        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { tipo: "Diario", schedule: "8:00am UTC+1", modelo: "claude-haiku-3.5", estado: "✅ Activo" },
+            { tipo: "Semanal", schedule: "Lunes antes del Dark Council", modelo: "claude-haiku-3.5", estado: "⏳ Pendiente" },
+            { tipo: "Mensual", schedule: "Día 1 de cada mes", modelo: "claude-sonnet-4.6", estado: "⏳ Pendiente" },
+            { tipo: "Anual", schedule: "1 enero + cierre fiscal", modelo: "claude-sonnet-4.6", estado: "⏳ Pendiente" },
+          ].map((c) => (
+            <div class="rounded-lg border border-border bg-card p-4">
+              <p class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim mb-2">{c.tipo}</p>
+              <p class="text-xs text-muted-foreground mb-1">{c.schedule}</p>
+              <p class="font-mono text-[0.55rem] text-dim mb-2">{c.modelo}</p>
+              <p class="font-mono text-[0.6rem] text-accent">{c.estado}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+</Layout>

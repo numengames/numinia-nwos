@@ -1,0 +1,33 @@
+---
+interface TimelineItem {
+  phase?: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  items: TimelineItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="relative space-y-8 pl-8">
+  <!-- Vertical line -->
+  <div class="absolute left-[7px] top-2 h-[calc(100%-2rem)] w-px bg-border" aria-hidden="true" />
+
+  {items.map((item) => (
+    <div class="relative">
+      <!-- Dot -->
+      <div class="absolute -left-8 top-1.5 h-[14px] w-[14px] rounded-full border-2 border-accent bg-background" />
+
+      {item.phase && (
+        <span class="mb-1 block font-mono text-[0.7rem] uppercase tracking-[0.1em] text-accent">
+          {item.phase}
+        </span>
+      )}
+      <h4 class="text-base font-semibold text-foreground">{item.title}</h4>
+      <p class="mt-1 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+    </div>
+  ))}
+</div>

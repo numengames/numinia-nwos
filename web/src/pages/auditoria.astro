@@ -1,0 +1,365 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+const score = 8.8;
+const scoreAntes = 9.5;
+const fechaAuditoria = "2026-04-07";
+
+const criticos = [
+  {
+    id: "A-001",
+    titulo: "CAO dashboard congelado en 2026-04-05",
+    descripcion: "Los datos del dashboard /cao están hardcodeados: 47 misiones, ~$50, 10 PRs. La realidad actual es 57 misiones, ~$100, ~40 PRs. No hay mecanismo de actualización automática.",
+    impacto: "Cualquier externo que vea /cao recibe información falsa sobre el estado del sistema.",
+    fix: "Conectar /cao a la GitHub API del repo para leer datos en tiempo real. MIS-00040 (Dashboard KPIs).",
+    estado: "abierto",
+  },
+  {
+    id: "A-002",
+    titulo: "3 misiones ausentes en la web (MIS-00055, 056, 057)",
+    descripcion: "El repo tiene 57 misiones. La web muestra 54. MIS-00055 (Nomenclatura Dual), MIS-00056 (i18n), MIS-00057 (QA profundo) no están en la web.",
+    impacto: "El trabajo más reciente no es visible públicamente.",
+    fix: "Actualizar misiones.ts con las 3 misiones nuevas. Corto plazo: 1 PR.",
+    estado: "abierto",
+  },
+  {
+    id: "A-003",
+    titulo: "RPT-2026-04-07 no publicado · RPT-2026-04-04 faltante",
+    descripcion: "El reporte del 7 de abril existe en el repo pero no en la web. El reporte del 4 de abril tiene un hueco — no aparece ni en el listado.",
+    impacto: "El historial público de operaciones tiene lagunas.",
+    fix: "Publicar RPT-2026-04-07 y verificar/crear RPT-2026-04-04.",
+    estado: "abierto",
+  },
+  {
+    id: "A-004",
+    titulo: "El agente se llama Nimrod, la web dice Centinela-01",
+    descripcion: "El 2026-04-06 el agente fue renombrado a Nimrod. El /cao sigue mostrando 'Centinela-01' como nombre oficial.",
+    impacto: "Incoherencia de identidad — el agente tiene dos nombres según dónde mires.",
+    fix: "Actualizar el label en cao.astro. 5 minutos.",
+    estado: "abierto",
+  },
+  {
+    id: "A-005",
+    titulo: "Pipeline web↔repo no existe — todo es manual",
+    descripcion: "La web lee de archivos .ts hardcodeados (misiones.ts, planos.ts, etc.), no del repo en tiempo real. Cada vez que el repo crece, la web queda obsoleta automáticamente.",
+    impacto: "Divergencia estructural garantizada. El sistema no puede ser coherente con sincronización manual.",
+    fix: "Implementar GitHub API como fuente de datos en tiempo real. MIS-00040. Estimación: 1 sprint.",
+    estado: "raíz del problema",
+  },
+];
+
+const importantes = [
+  {
+    id: "A-006",
+    titulo: "ADR-001 y ADR-002 no aparecen en /decisiones",
+    descripcion: "El repo tiene 7 decisiones (ADR-001, ADR-002, DEC-00001 a DEC-00005). La web solo muestra las 5 DEC. Las decisiones técnicas de arquitectura (GitHub como Archive Summa, Markdown como formato universal) no son visibles.",
+    fix: "Añadir ADR-001 y ADR-002 a la página /decisiones.",
+    estado: "abierto",
+  },
+  {
+    id: "A-007",
+    titulo: "WARDLEY-MAP.md sin página en /planos",
+    descripcion: "El repo tiene 8 blueprints, incluido WARDLEY-MAP.md. La web /planos muestra 7 planos. El Wardley vive en /wardley como página separada, no integrado como el 8º plano.",
+    fix: "Añadir el Wardley Map a /planos o añadir referencia cruzada.",
+    estado: "abierto",
+  },
+  {
+    id: "A-008",
+    titulo: "Procyon en la web sin archivo en el repo",
+    descripcion: "La web /cao lista a Procyon como '5º agente / CAO Coordinator'. El repo agents/ tiene nimrod, adonaz, alquimista-01, exegeta-01, procurador-01 — Procyon no existe como archivo. Se le atribuye la generación de 54 misiones.",
+    fix: "Crear agents/procyon/ con SOUL.md básico que documente su rol futuro (2028).",
+    estado: "abierto",
+  },
+  {
+    id: "A-009",
+    titulo: "Adonaz existe en el repo pero no en /cao",
+    descripcion: "agents/adonaz/ tiene SOUL.md, OPERATOR.md y STATUS.md completos. Sin embargo, el dashboard /cao no lo muestra como agente activo.",
+    fix: "Añadir Adonaz al dashboard /cao.",
+    estado: "abierto",
+  },
+  {
+    id: "A-010",
+    titulo: "Archive: falta el 8º fondo 'Governance'",
+    descripcion: "STANDARDS.md, GOVERNANCE.md, CONTRIBUTING.md, APPROVAL-REQUEST-template.md y el futuro CHANGELOG.md son documentos de gobierno que no encajan en ninguno de los 7 fondos actuales. El Archive debería tener un 8º fondo.",
+    fix: "Crear el fondo 'Governance & Standards' y actualizar /archive de 7 a 8 fondos.",
+    estado: "abierto",
+  },
+  {
+    id: "A-011",
+    titulo: "Score /continuidad: 8.8/10, no 9.5/10",
+    descripcion: "El checklist marca '✅ 54 misiones con detalle completo' — pero las misiones residen en misiones.ts del frontend, no en el repo. Es un falso positivo. Las misiones .md existen en el repo pero la web no las lee.",
+    fix: "Actualizar el score y el checklist para reflejar la realidad. Este documento.",
+    estado: "reconocido",
+  },
+];
+
+const menores = [
+  {
+    id: "A-012",
+    titulo: "STANDARDS.md, P-006 y guilds/roster sin representación web",
+    descripcion: "Documentos fundamentales del sistema creados hoy que no tienen ninguna página en pablofm.com.",
+    fix: "Crear /standards o integrar en /nwos. Decisión editorial pendiente.",
+  },
+  {
+    id: "A-013",
+    titulo: "/simulaciones, /ventas, /gaps, /soluciones sin archivo en el repo",
+    descripcion: "Análisis estratégicos de alta calidad que existen en la web pero no están en el Archive Summa. El conocimiento queda atrapado en el frontend.",
+    fix: "Crear BP-simulaciones.md, BP-gaps-y-soluciones.md en blueprints/. Las soluciones concretas → misiones en backlog.",
+  },
+  {
+    id: "A-014",
+    titulo: "3 gaps críticos de /gaps sin misión en el repo",
+    descripcion: "'Ausencia de prueba de valor externa', 'El problema del comprador fantasma', 'Burbuja fundacional' — los 3 gaps con urgencia 10/10 no tienen misión correspondiente.",
+    fix: "Crear MIS-00058, MIS-00059, MIS-00060 en missions/backlog/.",
+  },
+  {
+    id: "A-015",
+    titulo: "Política ES/EN no explícita en STANDARDS.md",
+    descripcion: "STANDARDS.md §3 dice 'ES para operaciones internas, EN para docs públicos' pero no cubre los IDs de prefijo (MIS-, DEC-, BP- son EN aunque los títulos sean ES). Ambigüedad que generará inconsistencias.",
+    fix: "Añadir sección §9 'Política de naming de directorios y prefijos' en STANDARDS.md.",
+  },
+  {
+    id: "A-016",
+    titulo: "5 pendientes del Diagrama C sin misión en el repo",
+    descripcion: "La página /agente lista 6 componentes pendientes (Vector DB, Event Bus, Mission State Machine, Knowledge Graph, Observability). Ninguno tiene misión correspondiente.",
+    fix: "Crear misiones para al menos los 3 más críticos (Vector DB, Event Bus, Mission State Machine).",
+  },
+];
+
+const raizDelProblema = {
+  titulo: "La fuente de verdad está dividida",
+  descripcion: "El repo es la fuente de verdad declarada del NWOS. La web lee de archivos TypeScript hardcodeados. Mientras no haya un pipeline GitHub API → web, la divergencia es inevitable y creciente.",
+  solucion: "MIS-00040 (Dashboard KPIs con GitHub API). Estimación: 1-2 sprints. Impacto: resuelve A-001, A-002, A-003, A-005 y previene todas las futuras.",
+  urgencia: "critical",
+};
+---
+
+<Layout
+  title="Auditoría del sistema — NWOS · Numen Games"
+  description="Divergencias entre pablofm.com y el repositorio numinia-digital-agents. Transparencia radical: no nos avergonzamos de los gaps, los estudiamos y los resolvemos."
+  canonicalPath="/auditoria"
+  activeNav="auditoria"
+>
+  <!-- Hero -->
+  <section class="pt-16 pb-12 border-b border-border">
+    <div class="mx-auto max-w-[800px] px-6">
+      <div class="flex flex-wrap items-center gap-2 mb-6">
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Numen Games · NWOS · Transparencia</span>
+      </div>
+      <h1 class="font-display text-4xl sm:text-5xl text-foreground mb-4">Auditoría del sistema</h1>
+      <p class="text-lg text-muted-foreground leading-relaxed mb-6">
+        Divergencias entre <strong class="text-foreground">pablofm.com</strong> y el repositorio <strong class="text-foreground">numinia-digital-agents</strong>. No nos avergonzamos de los gaps — los estudiamos y los resolvemos.
+      </p>
+      <div class="flex flex-wrap gap-4 items-center">
+        <div class="rounded-xl border border-border bg-card px-5 py-3 text-center">
+          <p class="font-display text-3xl text-foreground">{score}/10</p>
+          <p class="font-mono text-[0.6rem] text-dim mt-1">Score de coherencia</p>
+        </div>
+        <div class="rounded-xl border border-red/20 bg-red/5 px-4 py-2 text-center">
+          <p class="font-display text-2xl text-red">{criticos.length}</p>
+          <p class="font-mono text-[0.55rem] text-dim">críticos</p>
+        </div>
+        <div class="rounded-xl border border-yellow/20 bg-yellow/5 px-4 py-2 text-center">
+          <p class="font-display text-2xl text-yellow">{importantes.length}</p>
+          <p class="font-mono text-[0.55rem] text-dim">importantes</p>
+        </div>
+        <div class="rounded-xl border border-border bg-card px-4 py-2 text-center">
+          <p class="font-display text-2xl text-muted-foreground">{menores.length}</p>
+          <p class="font-mono text-[0.55rem] text-dim">menores</p>
+        </div>
+        <div class="font-mono text-[0.6rem] text-dim">Auditoría: {fechaAuditoria} · Alquimista-01 + Exégeta-01 + Nimrod</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Raíz del problema -->
+  <section class="py-12 border-b border-border">
+    <div class="mx-auto max-w-[800px] px-6">
+      <div class="rounded-2xl border border-red/30 bg-red/5 p-7">
+        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-red mb-3">⚠ Causa raíz</p>
+        <h2 class="font-display text-2xl text-foreground mb-3">{raizDelProblema.titulo}</h2>
+        <p class="text-sm text-muted-foreground leading-relaxed mb-4">{raizDelProblema.descripcion}</p>
+        <div class="border-t border-red/15 pt-4">
+          <p class="font-mono text-[0.6rem] text-red uppercase tracking-widest mb-1">Solución</p>
+          <p class="text-sm text-muted-foreground">{raizDelProblema.solucion}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Críticos -->
+  <section class="py-16 border-b border-border">
+    <div class="mx-auto max-w-[960px] px-6">
+      <div class="mb-6 flex items-center gap-3">
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-red">🔴 Críticos — {criticos.length}</span>
+        <span class="h-px flex-1 bg-border"></span>
+        <span class="font-mono text-[0.6rem] text-dim">Afectan veracidad o continuidad</span>
+      </div>
+      <div class="space-y-4">
+        {criticos.map((item) => (
+          <div class="rounded-xl border border-red/20 bg-card overflow-hidden">
+            <div class="px-5 py-3 border-b border-red/10 bg-red/5 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-[0.55rem] text-dim">{item.id}</span>
+                <span class="font-semibold text-sm text-foreground">{item.titulo}</span>
+              </div>
+              <span class={`font-mono text-[0.55rem] flex-shrink-0 px-2 py-0.5 rounded-full ${item.estado === "raíz del problema" ? "bg-red/20 text-red" : "bg-yellow/10 text-yellow"}`}>
+                {item.estado}
+              </span>
+            </div>
+            <div class="grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border/50">
+              <div class="p-4 sm:col-span-2">
+                <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-1">Divergencia</p>
+                <p class="text-xs text-muted-foreground leading-relaxed">{item.descripcion}</p>
+                {item.impacto && (
+                  <p class="text-xs text-red/70 mt-2 italic">Impacto: {item.impacto}</p>
+                )}
+              </div>
+              <div class="p-4">
+                <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-1">Fix</p>
+                <p class="text-xs text-muted-foreground leading-relaxed">{item.fix}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Importantes -->
+  <section class="py-16 border-b border-border">
+    <div class="mx-auto max-w-[960px] px-6">
+      <div class="mb-6 flex items-center gap-3">
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-yellow">🟡 Importantes — {importantes.length}</span>
+        <span class="h-px flex-1 bg-border"></span>
+        <span class="font-mono text-[0.6rem] text-dim">Afectan completitud</span>
+      </div>
+      <div class="space-y-3">
+        {importantes.map((item) => (
+          <div class="rounded-xl border border-yellow/15 bg-card overflow-hidden">
+            <div class="px-5 py-3 border-b border-yellow/10 bg-yellow/5 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-[0.55rem] text-dim">{item.id}</span>
+                <span class="font-semibold text-sm text-foreground">{item.titulo}</span>
+              </div>
+              <span class="font-mono text-[0.55rem] text-yellow flex-shrink-0">{item.estado}</span>
+            </div>
+            <div class="grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border/50">
+              <div class="p-4 sm:col-span-2">
+                <p class="text-xs text-muted-foreground leading-relaxed">{item.descripcion}</p>
+              </div>
+              <div class="p-4">
+                <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-1">Fix</p>
+                <p class="text-xs text-muted-foreground leading-relaxed">{item.fix}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Menores -->
+  <section class="py-16 border-b border-border">
+    <div class="mx-auto max-w-[960px] px-6">
+      <div class="mb-6 flex items-center gap-3">
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">🟢 Menores — {menores.length}</span>
+        <span class="h-px flex-1 bg-border"></span>
+        <span class="font-mono text-[0.6rem] text-dim">Deuda técnica y gaps documentales</span>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-3">
+        {menores.map((item) => (
+          <div class="rounded-xl border border-border bg-card p-5">
+            <div class="flex items-start gap-2 mb-2">
+              <span class="font-mono text-[0.55rem] text-dim flex-shrink-0 mt-0.5">{item.id}</span>
+              <p class="font-semibold text-sm text-foreground">{item.titulo}</p>
+            </div>
+            <p class="text-xs text-muted-foreground leading-relaxed mb-3">{item.descripcion}</p>
+            <p class="font-mono text-[0.55rem] text-accent">→ {item.fix}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Score actualizado -->
+  <section class="py-16 border-b border-border">
+    <div class="mx-auto max-w-[800px] px-6">
+      <div class="mb-6 flex items-center gap-3">
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Score de coherencia — actualizado</span>
+        <span class="h-px flex-1 bg-border"></span>
+      </div>
+      <div class="rounded-2xl border border-border bg-card p-7">
+        <div class="flex flex-wrap items-center gap-6 mb-6">
+          <div class="text-center">
+            <p class="font-display text-5xl text-muted-foreground line-through">{scoreAntes}/10</p>
+            <p class="font-mono text-[0.6rem] text-dim mt-1">Score previo (sobreestimado)</p>
+          </div>
+          <span class="text-dim text-2xl">→</span>
+          <div class="text-center">
+            <p class="font-display text-5xl text-accent">{score}/10</p>
+            <p class="font-mono text-[0.6rem] text-dim mt-1">Score real (2026-04-07)</p>
+          </div>
+        </div>
+        <p class="text-sm text-muted-foreground leading-relaxed mb-5">
+          El score anterior de 9.5/10 contaba las misiones como si estuvieran en el repo. En realidad, residen en <code class="font-mono text-xs text-accent">misiones.ts</code> del frontend. Los archivos .md individuales existen en el repo — pero la web no los lee. El claim de continuidad era un falso positivo.
+        </p>
+        <div class="space-y-2">
+          {[
+            { text: "Nimrod con SOUL + OPERATOR + STATUS + MEMORY en el repo", ok: true },
+            { text: "10 seminales en canon/ con knowledge graph", ok: true },
+            { text: "7 decisiones en el repo (ADR-001/002 + DEC-00001/005)", ok: true },
+            { text: "6 días de reportes históricos", ok: true },
+            { text: "5 agentes con SOUL.md en el repo", ok: true },
+            { text: "STANDARDS.md v1.0.0 — ISO 8601, UUID v7, frameworks", ok: true },
+            { text: "54 misiones en misiones.ts (web) → repo aún no las sirve", ok: false },
+            { text: "Memoria diaria persistida en git al cierre", ok: false },
+            { text: "Pipeline GitHub API → web (fuente de verdad en tiempo real)", ok: false },
+          ].map((item) => (
+            <div class="flex items-center gap-2">
+              <span class={item.ok ? "text-green" : "text-red"}>{item.ok ? "✅" : "❌"}</span>
+              <span class={`text-xs ${item.ok ? "text-muted-foreground" : "text-red/70"}`}>{item.text}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Próximos pasos -->
+  <section class="py-16">
+    <div class="mx-auto max-w-[800px] px-6">
+      <div class="mb-6 flex items-center gap-3">
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Próximos pasos para llegar al 10/10</span>
+        <span class="h-px flex-1 bg-border"></span>
+      </div>
+      <div class="space-y-3">
+        {[
+          { prioridad: "Esta semana", accion: "Actualizar CAO dashboard (Nimrod, 57 misiones, $100, 40 PRs)", score: "🔴" },
+          { prioridad: "Esta semana", accion: "Publicar RPT-2026-04-07 en la web", score: "🔴" },
+          { prioridad: "Esta semana", accion: "Añadir MIS-00055, 056, 057 a misiones.ts", score: "🔴" },
+          { prioridad: "Esta semana", accion: "Añadir ADR-001 y ADR-002 a /decisiones", score: "🟡" },
+          { prioridad: "Esta semana", accion: "Crear agents/procyon/ con SOUL.md básico", score: "🟡" },
+          { prioridad: "Próximo sprint", accion: "GitHub API como fuente de datos en tiempo real (MIS-00040)", score: "🔴" },
+          { prioridad: "Próximo sprint", accion: "BP-simulaciones.md y BP-gaps-y-soluciones.md en el repo", score: "🟢" },
+          { prioridad: "Dark Council", accion: "Validar nomenclatura /idioma → DEC-006", score: "🟡" },
+        ].map((step) => (
+          <div class="flex items-start gap-4 rounded-xl border border-border bg-card p-4">
+            <span class="text-sm flex-shrink-0">{step.score}</span>
+            <div class="flex-1">
+              <p class="text-sm text-foreground">{step.accion}</p>
+            </div>
+            <span class="font-mono text-[0.55rem] text-dim flex-shrink-0">{step.prioridad}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="/misiones" class="font-mono text-[0.65rem] text-accent hover:text-accent/80 transition-colors">Misiones →</a>
+        <a href="/continuidad" class="font-mono text-[0.65rem] text-dim hover:text-foreground transition-colors">Continuidad →</a>
+        <a href="https://github.com/numengames/numinia-digital-agents" target="_blank" rel="noopener noreferrer" class="font-mono text-[0.65rem] text-dim hover:text-foreground transition-colors">Repositorio →</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

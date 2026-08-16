@@ -1,0 +1,160 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { planos } from "@/data/planos";
+
+export function getStaticPaths() {
+  return planos.map((p) => ({
+    params: { id: p.id },
+    props: { plano: p },
+  }));
+}
+
+const { plano } = Astro.props;
+
+const semaforo: Record<string, string> = {
+  verde: "bg-green/10 text-green border-green/20",
+  amarillo: "bg-yellow/10 text-yellow border-yellow/20",
+  rojo: "bg-red/10 text-red border-red/20",
+};
+const semaforoLabel: Record<string, string> = {
+  verde: "🟢 Operativo", amarillo: "🟡 En progreso", rojo: "🔴 Atención",
+};
+---
+
+<Layout
+  title={`${plano.titulo} — Planos del Mundo · Numen Games`}
+  description={plano.descripcion}
+  canonicalPath={`/planos/${plano.id}`}
+>
+  <section class="pb-20 pt-16">
+    <div class="mx-auto max-w-[800px] px-6">
+
+      <a href="/planos" class="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-8">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="19 12 5 12"/><polyline points="12 5 5 12 12 19"/>
+        </svg>
+        Los Planos del Mundo
+      </a>
+
+      <!-- Header -->
+      <div class="mb-8">
+        <div class="flex flex-wrap items-center gap-2 mb-4">
+          <span class:list={["inline-flex rounded-full border px-2.5 py-0.5 font-mono text-[0.6rem] font-medium", semaforo[plano.semaforo]]}>
+            {semaforoLabel[plano.semaforo]}
+          </span>
+          <span class="font-mono text-[0.65rem] text-dim">{plano.version}</span>
+          <span class="font-mono text-[0.65rem] text-dim">{plano.area}</span>
+          <span class="font-mono text-[0.65rem] text-dim">{plano.fecha}</span>
+        </div>
+        <h1 class="font-display text-3xl sm:text-4xl text-foreground mb-3">{plano.titulo}</h1>
+        <p class="font-mono text-sm text-dim italic">"{plano.lore}"</p>
+      </div>
+
+      <div class="space-y-6">
+
+        <!-- Estado actual -->
+        <div class="rounded-xl border border-border bg-card p-6">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">📍 Estado actual</p>
+          <ul class="space-y-2">
+            {plano.estadoActual.map((s) => (
+              <li class="flex items-start gap-3">
+                <span class="text-muted-foreground mt-1 flex-shrink-0">·</span>
+                <span class="text-sm text-muted-foreground">{s}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Estado objetivo -->
+        <div class="rounded-xl border border-accent/20 bg-accent/5 p-6">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent mb-4">🎯 Estado objetivo</p>
+          <ul class="space-y-2">
+            {plano.estadoObjetivo.map((s) => (
+              <li class="flex items-start gap-3">
+                <span class="text-accent mt-1 flex-shrink-0">→</span>
+                <span class="text-sm text-muted-foreground">{s}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Decisiones ADR -->
+        <div class="rounded-xl border border-border bg-card p-6">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">🧠 Decisiones de diseño</p>
+          <ul class="space-y-3">
+            {plano.decisiones.map((d) => (
+              <li class="flex items-start gap-3">
+                <span class="font-mono text-xs text-accent flex-shrink-0 mt-0.5">ADR</span>
+                <span class="text-sm text-muted-foreground">{d}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Delta → Misiones -->
+        <div class="rounded-xl border border-border bg-card p-6">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">⚡ Delta → Misiones</p>
+          <div class="space-y-3">
+            {plano.delta.map((d) => (
+              <div class="flex items-start gap-4">
+                <div class="flex-1">
+                  <p class="text-sm text-muted-foreground">{d.brecha}</p>
+                </div>
+                <span class="font-mono text-xs text-accent flex-shrink-0">{d.mision}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Dependencias -->
+        {plano.dependencias.length > 0 && (
+          <div class="rounded-xl border border-border bg-card p-6">
+            <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-3">🔗 Dependencias</p>
+            <div class="flex flex-wrap gap-2">
+              {plano.dependencias.map((dep) => (
+                <a href={`/planos/${dep.replace("plano-", "")}`} class="rounded-full border border-border bg-background px-3 py-1 font-mono text-[0.65rem] text-muted-foreground hover:text-accent hover:border-accent/30 transition-colors">
+                  {dep}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- Preguntas abiertas -->
+        {plano.preguntas.length > 0 && (
+          <div class="rounded-xl border border-yellow/20 bg-yellow/5 p-6">
+            <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-yellow mb-4">❓ Preguntas abiertas — Dark Council</p>
+            <ul class="space-y-2">
+              {plano.preguntas.map((q) => (
+                <li class="flex items-start gap-3">
+                  <span class="text-yellow mt-1 flex-shrink-0">?</span>
+                  <span class="text-sm text-muted-foreground">{q}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+      </div>
+
+      <!-- Nav entre planos -->
+      <div class="flex justify-between border-t border-border pt-6 mt-8">
+        {planos.findIndex(p => p.id === plano.id) > 0 ? (
+          <a href={`/planos/${planos[planos.findIndex(p => p.id === plano.id) - 1].id}`} class="font-mono text-[0.7rem] text-dim hover:text-accent transition-colors">
+            ← {planos[planos.findIndex(p => p.id === plano.id) - 1].titulo}
+          </a>
+        ) : <span />}
+        {planos.findIndex(p => p.id === plano.id) < planos.length - 1 ? (
+          <a href={`/planos/${planos[planos.findIndex(p => p.id === plano.id) + 1].id}`} class="font-mono text-[0.7rem] text-dim hover:text-accent transition-colors">
+            {planos[planos.findIndex(p => p.id === plano.id) + 1].titulo} →
+          </a>
+        ) : <span />}
+      </div>
+
+      <div class="mt-6 border-t border-border pt-6">
+        <p class="font-mono text-xs text-dim">Centinela-01 · Numen Games / Numinia · {plano.version} · {plano.fecha}</p>
+      </div>
+
+    </div>
+  </section>
+</Layout>

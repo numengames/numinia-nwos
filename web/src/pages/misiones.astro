@@ -1,0 +1,296 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+import { misiones as misionesData } from "@/data/misiones";
+
+// --- MERGE: misionesData como fuente de verdad de estados ---
+const misionesDataMap = new Map(misionesData.map(m => [m.id, m]));
+
+const misionesBase = [
+  // PRODUCTO
+  { id: "MIS-001", titulo: "Definir el MVP de Numinia en una página", area: "Producto", gremio: "Alquimistas", tipo: "biológico", prioridad: "crítica", esfuerzo: "S", estado: "backlog" },
+  { id: "MIS-002", titulo: "Mapa de usuario: quién paga y por qué", area: "Producto", gremio: "Exegetas", tipo: "biológico", prioridad: "crítica", esfuerzo: "S", estado: "backlog" },
+  { id: "MIS-003", titulo: "Prototipo navegable de Numinia", area: "Producto", gremio: "Alquimistas", tipo: "híbrido", prioridad: "crítica", esfuerzo: "M", estado: "backlog" },
+  { id: "MIS-004", titulo: "Definir el modelo de monetización v1", area: "Producto", gremio: "Procuradores", tipo: "biológico", prioridad: "crítica", esfuerzo: "S", estado: "backlog" },
+  { id: "MIS-005", titulo: "Landing page de Numinia con captura de leads", area: "Producto", gremio: "Alquimistas", tipo: "híbrido", prioridad: "crítica", esfuerzo: "M", estado: "backlog" },
+  { id: "MIS-006", titulo: "Arquitectura de experiencia: sesión Numinia", area: "Producto", gremio: "Exegetas", tipo: "biológico", prioridad: "alta", esfuerzo: "M", estado: "backlog" },
+  { id: "MIS-007", titulo: "Integrar Cal.com en onboarding de Numinia", area: "Producto", gremio: "Centinelas", tipo: "híbrido", prioridad: "alta", esfuerzo: "S", estado: "backlog" },
+  { id: "MIS-008", titulo: "Definir métricas North Star del producto", area: "Producto", gremio: "Exegetas", tipo: "biológico", prioridad: "alta", esfuerzo: "XS", estado: "backlog" },
+  { id: "MIS-009", titulo: "Piloto cerrado con 5 usuarios beta", area: "Producto", gremio: "Alquimistas", tipo: "híbrido", prioridad: "alta", esfuerzo: "L", estado: "backlog" },
+  { id: "MIS-010", titulo: "Roadmap público de Numinia v1.0", area: "Producto", gremio: "Exegetas", tipo: "híbrido", prioridad: "media", esfuerzo: "S", estado: "backlog" },
+  // INFRAESTRUCTURA
+  { id: "MIS-011", titulo: "Auditoría técnica de numengames.com", area: "Infraestructura", gremio: "Centinelas", tipo: "híbrido", prioridad: "crítica", esfuerzo: "S", estado: "backlog" },
+  { id: "MIS-012", titulo: "Configurar pipeline CI/CD numengames.com", area: "Infraestructura", gremio: "Centinelas", tipo: "digital", prioridad: "alta", esfuerzo: "M", estado: "backlog" },
+  { id: "MIS-013", titulo: "Sistema de monitoreo y alertas", area: "Infraestructura", gremio: "Centinelas", tipo: "digital", prioridad: "alta", esfuerzo: "S", estado: "backlog" },
+  { id: "MIS-014", titulo: "Instalar Umami en numengames.com", area: "Infraestructura", gremio: "Centinelas", tipo: "digital", prioridad: "alta", esfuerzo: "XS", estado: "backlog" },
+  { id: "MIS-015", titulo: "Documentar stack tecnológico de Numinia", area: "Infraestructura", gremio: "Alquimistas", tipo: "biológico", prioridad: "alta", esfuerzo: "S", estado: "backlog" },
+  { id: "MIS-016", titulo: "Nginx + SSL para todos los servicios", area: "Infraestructura", gremio: "Centinelas", tipo: "digital", prioridad: "crítica", esfuerzo: "M", estado: "backlog" },
+  // VENTAS
+  { id: "MIS-017", titulo: "Pipeline de Prospección B2B (50 leads)", area: "Ventas", gremio: "Procuradores", tipo: "híbrido", prioridad: "crítica", esfuerzo: "M", estado: "backlog" },
+  { id: "MIS-018", titulo: "Propuesta de Valor Comercial (One-Pager)", area: "Ventas", gremio: "Exegetas", tipo: "digital", prioridad: "crítica", esfuerzo: "S", estado: "backlog" },
+  { id: "MIS-019", titulo: "Outreach secuencial a 20 prospectos", area: "Ventas", gremio: "Procuradores", tipo: "híbrido", prioridad: "crítica", esfuerzo: "M", estado: "backlog" },
+  { id: "MIS-020", titulo: "Demo / Pitch Deck interactivo", area: "Ventas", gremio: "Alquimistas", tipo: "digital", prioridad: "alta", esfuerzo: "M", estado: "backlog" },
+  { id: "MIS-021", titulo: "Definición de Pricing y Paquetes", area: "Ventas", gremio: "Exegetas", tipo: "biológico", prioridad: "alta", esfuerzo: "S", estado: "backlog" },
+  { id: "MIS-022", titulo: "Alianzas con estudios indie y DAOs", area: "Ventas", gremio: "Procuradores", tipo: "biológico", prioridad: "alta", esfuerzo: "M", estado: "backlog" },
+  { id: "MIS-023", titulo: "Case Study inicial", area: "Ventas", gremio: "Exegetas", tipo: "digital", prioridad: "media", esfuerzo: "S", estado: "backlog" },
+  { id: "MIS-024", titulo: "Sistema de seguimiento post-call", area: "Ventas", gremio: "Centinelas", tipo: "digital", prioridad: "media", esfuerzo: "XS", estado: "backlog" },
+  // CONTENIDO
+  { id: "MIS-025", titulo: "Estrategia de contenido 30 días", area: "Contenido", gremio: "Exegetas", tipo: "híbrido", prioridad: "alta", esfuerzo: "M", estado: "backlog" },
+  { id: "MIS-026", titulo: "Activación del canal X/Twitter", area: "Contenido", gremio: "Alquimistas", tipo: "digital", prioridad: "alta", esfuerzo: "S", estado: "backlog" },
+  { id: "MIS-027", titulo: "Mejora de numengames.com", area: "Contenido", gremio: "Alquimistas", tipo: "digital", prioridad: "crítica", esfuerzo: "M", estado: "backlog" },
+  { id: "MIS-028", titulo: "Newsletter / Lista de correo fundacional", area: "Contenido", gremio: "Procuradores", tipo: "híbrido", prioridad: "media", esfuerzo: "S", estado: "backlog" },
+  { id: "MIS-029", titulo: "Comunidad en Discord o Telegram", area: "Contenido", gremio: "Centinelas", tipo: "biológico", prioridad: "media", esfuerzo: "M", estado: "backlog" },
+  { id: "MIS-030", titulo: "Hilo semanal \"Detrás de Numen\"", area: "Contenido", gremio: "Exegetas", tipo: "digital", prioridad: "media", esfuerzo: "XS", estado: "backlog" },
+  // FINANCIACIÓN
+  { id: "MIS-031", titulo: "Revisión final del Grant Arbitrum", area: "Financiación", gremio: "Procuradores", tipo: "digital", prioridad: "crítica", esfuerzo: "M", estado: "backlog" },
+  { id: "MIS-032", titulo: "Investigación: Ethereum Foundation ESP", area: "Financiación", gremio: "Procuradores", tipo: "digital", prioridad: "alta", esfuerzo: "S", estado: "backlog" },
+  { id: "MIS-033", titulo: "Identificar 10 sponsors Web3/Gaming", area: "Financiación", gremio: "Procuradores", tipo: "híbrido", prioridad: "alta", esfuerzo: "M", estado: "backlog" },
+  { id: "MIS-034", titulo: "Deck para inversores ángel v1.0", area: "Financiación", gremio: "Procuradores", tipo: "híbrido", prioridad: "alta", esfuerzo: "L", estado: "backlog" },
+  { id: "MIS-035", titulo: "CRM de grants y financiación", area: "Financiación", gremio: "Procuradores", tipo: "digital", prioridad: "media", esfuerzo: "S", estado: "backlog" },
+  { id: "MIS-036", titulo: "Memo: Estrategia de financiación Q2 2026", area: "Financiación", gremio: "Procuradores", tipo: "digital", prioridad: "media", esfuerzo: "S", estado: "backlog" },
+  // CAO
+  { id: "MIS-037", titulo: "Crear repositorio numinia-agents", area: "CAO", gremio: "Centinelas", tipo: "digital", prioridad: "crítica", esfuerzo: "M", estado: "backlog" },
+  { id: "MIS-038", titulo: "Diseñar Briefing Protocol v1.0", area: "CAO", gremio: "Centinelas", tipo: "digital", prioridad: "crítica", esfuerzo: "M", estado: "backlog" },
+  { id: "MIS-039", titulo: "Sistema de logs de agentes", area: "CAO", gremio: "Centinelas", tipo: "digital", prioridad: "alta", esfuerzo: "S", estado: "backlog" },
+  { id: "MIS-040", titulo: "Dashboard CAO: definición de KPIs", area: "CAO", gremio: "Centinelas", tipo: "híbrido", prioridad: "alta", esfuerzo: "M", estado: "backlog" },
+  { id: "MIS-041", titulo: "Protocolo de onboarding para nuevos agentes", area: "CAO", gremio: "Centinelas", tipo: "digital", prioridad: "media", esfuerzo: "M", estado: "backlog" },
+  // DOCUMENTACIÓN
+  { id: "MIS-042", titulo: "README principal de numinia-agents", area: "Documentación", gremio: "Exegetas", tipo: "digital", prioridad: "alta", esfuerzo: "S", estado: "backlog" },
+  { id: "MIS-043", titulo: "Completar lectura del Manual RPG de Numinia", area: "Documentación", gremio: "Exegetas", tipo: "digital", prioridad: "alta", esfuerzo: "M", estado: "backlog" },
+  { id: "MIS-044", titulo: "GAPS.md — Mapa de carencias de Numen Games", area: "Documentación", gremio: "Procuradores", tipo: "híbrido", prioridad: "crítica", esfuerzo: "S", estado: "backlog" },
+  { id: "MIS-045", titulo: "Documentar arquitectura de la CAO", area: "Documentación", gremio: "Centinelas", tipo: "digital", prioridad: "alta", esfuerzo: "S", estado: "backlog" },
+  { id: "MIS-046", titulo: "READMEs de repos numengames org", area: "Documentación", gremio: "Exegetas", tipo: "digital", prioridad: "media", esfuerzo: "M", estado: "backlog" },
+  // OPERACIONES
+  { id: "MIS-047", titulo: "Configurar reporte semanal automático", area: "Operaciones", gremio: "Centinelas", tipo: "digital", prioridad: "alta", esfuerzo: "S", estado: "backlog" },
+  { id: "MIS-048", titulo: "Sistema de costes por agente", area: "Operaciones", gremio: "Centinelas", tipo: "digital", prioridad: "crítica", esfuerzo: "M", estado: "backlog" },
+  { id: "MIS-049", titulo: "DORA Metrics para numengames-web", area: "Operaciones", gremio: "Centinelas", tipo: "digital", prioridad: "media", esfuerzo: "M", estado: "backlog" },
+  { id: "MIS-050", titulo: "Ritual de revisión del backlog (Dark Council)", area: "Operaciones", gremio: "Procuradores", tipo: "híbrido", prioridad: "alta", esfuerzo: "XS", estado: "backlog" },
+] as const;
+
+// Aplica estados desde misionesData + añade misiones extra (MIS-051, MIS-052, MIS-053)
+const misionesBaseIds = new Set(misionesBase.map(m => m.id));
+const misionesExtra = misionesData
+  .filter(m => !misionesBaseIds.has(m.id))
+  .map(m => ({
+    id: m.id,
+    titulo: m.titulo,
+    area: m.area,
+    gremio: m.gremio,
+    tipo: m.tipo as string,
+    prioridad: m.prioridad as string,
+    esfuerzo: m.esfuerzo as string,
+    estado: m.estado as string,
+  }));
+
+const misiones = [
+  ...misionesBase.map(m => {
+    const dataEntry = misionesDataMap.get(m.id);
+    return { ...m, estado: dataEntry ? dataEntry.estado : m.estado };
+  }),
+  ...misionesExtra,
+];
+
+const misionesConDetalle = misionesData.map(m => m.id);
+const areas = [...new Set(misiones.map(m => m.area))];
+
+// Stats
+const doneCount = misiones.filter(m => m.estado === "done").length;
+const enCursoCount = misiones.filter(m => m.estado === "en-curso").length;
+
+const prioridadOrder: Record<string, number> = { "crítica": 0, "alta": 1, "media": 2, "baja": 3 };
+const prioridadColor: Record<string, string> = {
+  "crítica": "bg-red/10 text-red",
+  "alta": "bg-accent/10 text-accent",
+  "media": "bg-yellow/10 text-yellow",
+  "baja": "bg-green/10 text-green",
+};
+const prioridadIcon: Record<string, string> = {
+  "crítica": "🔴", "alta": "🟠", "media": "🟡", "baja": "🟢"
+};
+const tipoIcon: Record<string, string> = {
+  "biológico": "🧬", "digital": "🤖", "híbrido": "🔀"
+};
+
+// Card border/bg según estado
+const estadoCardClass: Record<string, string> = {
+  "done": "border-green/20 bg-green/5 hover:bg-green/10",
+  "en-curso": "border-accent/20 bg-accent/5 hover:bg-accent/10",
+  "backlog": "border-border bg-card hover:bg-card-hover",
+};
+
+const sorted = [...misiones].sort((a, b) => prioridadOrder[a.prioridad] - prioridadOrder[b.prioridad]);
+// Críticas pendientes (excluye done para no duplicar con sección Completadas)
+const criticas = sorted.filter(m => m.prioridad === "crítica" && m.estado !== "done");
+const doneMisiones = sorted.filter(m => m.estado === "done");
+---
+
+<Layout
+  title="Tablero de Misiones — Numen Games"
+  description={`${misiones.length} misiones estratégicas de Numen Games / Numinia. Backlog público generado por la CAO.`}
+  canonicalPath="/misiones"
+  activeNav="misiones"
+>
+  <PageHero
+    label="CAO · Procyon"
+    title="Tablero de Misiones"
+    description={`${misiones.length} misiones estratégicas para construir Numinia. Generadas y coordinadas por los agentes de la CAO.`}
+  />
+
+  <section class="pb-20">
+    <div class="mx-auto max-w-[1100px] px-6">
+
+      <!-- Stats -->
+      <div class="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 mb-12">
+        <div class="rounded-xl border border-border bg-card p-5 text-center">
+          <p class="font-display text-3xl text-foreground">{misiones.length}</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">Total</p>
+        </div>
+        <div class="rounded-xl border border-red/20 bg-red/5 p-5 text-center">
+          <p class="font-display text-3xl text-red">{misiones.filter(m => m.prioridad === "crítica").length}</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">🔴 Críticas</p>
+        </div>
+        <div class="rounded-xl border border-green/20 bg-green/5 p-5 text-center">
+          <p class="font-display text-3xl text-green-400">{doneCount}</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">✅ Done</p>
+        </div>
+        <div class="rounded-xl border border-accent/20 bg-accent/5 p-5 text-center">
+          <p class="font-display text-3xl text-accent">{enCursoCount}</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">⚡ En curso</p>
+        </div>
+        <div class="rounded-xl border border-border bg-card p-5 text-center">
+          <p class="font-display text-3xl text-foreground">{misiones.filter(m => m.tipo === "digital" || m.tipo === "híbrido").length}</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">🤖 Digitales</p>
+        </div>
+        <div class="rounded-xl border border-border bg-card p-5 text-center">
+          <p class="font-display text-3xl text-foreground">{areas.length}</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">Áreas</p>
+        </div>
+      </div>
+
+      <!-- Completadas ✅ -->
+      {doneMisiones.length > 0 && (
+        <div class="mb-12">
+          <div class="mb-4 flex items-center gap-3">
+            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-green-400">✅ Completadas — misiones cerradas</span>
+            <span class="h-px flex-1 bg-border"></span>
+            <span class="font-mono text-[0.6rem] text-dim">{doneMisiones.length} misiones</span>
+          </div>
+          <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {doneMisiones.map((m) => {
+              const hasDetail = misionesConDetalle.includes(m.id);
+              return (
+                <a href={hasDetail ? `/misiones/${m.id.toLowerCase()}` : undefined} class="rounded-lg border border-green/20 bg-green/5 hover:bg-green/10 transition-colors block">
+                  <div class="p-4">
+                    <div class="flex items-center justify-between mb-2">
+                      <span class="font-mono text-[0.6rem] text-green-400">{m.id}</span>
+                      <span class="font-mono text-[0.6rem] text-dim">{tipoIcon[m.tipo]} {m.esfuerzo}</span>
+                    </div>
+                    <p class="text-sm font-medium text-foreground leading-snug mb-2">{m.titulo}</p>
+                    <div class="flex items-center justify-between">
+                      <div class="flex items-center gap-2">
+                        <span class="font-mono text-[0.55rem] text-dim">{m.area}</span>
+                        <span class="text-dim">·</span>
+                        <span class="font-mono text-[0.55rem] text-dim">{m.gremio}</span>
+                      </div>
+                      <div class="flex items-center gap-1.5">
+                        <span class="inline-flex rounded-full px-1.5 py-0.5 font-mono text-[0.55rem] font-medium bg-green/10 text-green-400">✅ done</span>
+                        {hasDetail && <span class="font-mono text-[0.55rem] text-green-400">Ver →</span>}
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      <!-- Críticas primero -->
+      <div class="mb-4 flex items-center gap-3">
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-red">🔴 Críticas — arrancar esta semana</span>
+        <span class="h-px flex-1 bg-border"></span>
+      </div>
+
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 mb-12">
+        {criticas.map((m) => {
+          const hasDetail = misionesConDetalle.includes(m.id);
+          const cardClass = estadoCardClass[m.estado] ?? estadoCardClass["backlog"];
+          return (
+            <a href={hasDetail ? `/misiones/${m.id.toLowerCase()}` : undefined} class={`rounded-lg border p-4 transition-colors block ${m.estado === "en-curso" ? "border-accent/20 bg-accent/5 hover:bg-accent/10" : "border-red/20 bg-red/5 hover:bg-red/10"}`}>
+              <div class="flex items-center justify-between mb-2">
+                <span class={`font-mono text-[0.6rem] ${m.estado === "en-curso" ? "text-accent" : "text-red"}`}>{m.id}</span>
+                <div class="flex items-center gap-1">
+                  <span class="font-mono text-[0.6rem] text-dim">{tipoIcon[m.tipo]} {m.esfuerzo}</span>
+                  {m.estado === "en-curso" && <span class="inline-flex rounded-full px-1.5 py-0.5 font-mono text-[0.5rem] font-medium bg-accent/10 text-accent ml-1">⚡ en curso</span>}
+                </div>
+              </div>
+              <p class="text-sm font-medium text-foreground leading-snug mb-2">{m.titulo}</p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="font-mono text-[0.55rem] text-dim">{m.area}</span>
+                  <span class="text-dim">·</span>
+                  <span class="font-mono text-[0.55rem] text-dim">{m.gremio}</span>
+                </div>
+                {hasDetail && <span class={`font-mono text-[0.55rem] ${m.estado === "en-curso" ? "text-accent" : "text-red"}`}>Ver detalle →</span>}
+              </div>
+            </a>
+          );
+        })}
+      </div>
+
+      <!-- Por área -->
+      {areas.map((area) => {
+        const misionesArea = sorted.filter(m => m.area === area);
+        return (
+          <div class="mb-10">
+            <div class="mb-4 flex items-center gap-3">
+              <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">{area}</span>
+              <span class="h-px flex-1 bg-border"></span>
+              <span class="font-mono text-[0.6rem] text-dim">{misionesArea.length} misiones</span>
+            </div>
+            <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+              {misionesArea.map((m) => {
+                const hasDetail = misionesConDetalle.includes(m.id);
+                const cardClass = estadoCardClass[m.estado] ?? estadoCardClass["backlog"];
+                return (
+                  <a href={hasDetail ? `/misiones/${m.id.toLowerCase()}` : undefined} class={`rounded-lg border p-4 transition-colors block ${cardClass}`}>
+                    <div class="flex items-center justify-between mb-2">
+                      <span class={`font-mono text-[0.6rem] ${m.estado === "done" ? "text-green-400" : m.estado === "en-curso" ? "text-accent" : "text-dim"}`}>{m.id}</span>
+                      <div class="flex items-center gap-1">
+                        <span class="font-mono text-[0.6rem] text-dim">{tipoIcon[m.tipo]}</span>
+                        <span class:list={["inline-flex rounded-full px-1.5 py-0.5 font-mono text-[0.55rem] font-medium", prioridadColor[m.prioridad]]}>
+                          {prioridadIcon[m.prioridad]} {m.prioridad}
+                        </span>
+                      </div>
+                    </div>
+                    <p class="text-sm text-foreground leading-snug mb-2">{m.titulo}</p>
+                    <div class="flex items-center justify-between">
+                      <span class="font-mono text-[0.55rem] text-dim">{m.gremio}</span>
+                      <div class="flex items-center gap-1.5">
+                        {m.estado === "done" && <span class="inline-flex rounded-full px-1.5 py-0.5 font-mono text-[0.5rem] font-medium bg-green/10 text-green-400">✅ done</span>}
+                        {m.estado === "en-curso" && <span class="inline-flex rounded-full px-1.5 py-0.5 font-mono text-[0.5rem] font-medium bg-accent/10 text-accent">⚡ en curso</span>}
+                        <span class="font-mono text-[0.55rem] text-dim">{hasDetail ? '→' : m.esfuerzo}</span>
+                      </div>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })}
+
+      <!-- Nota -->
+      <div class="mt-8 rounded-xl border border-border/50 bg-card/50 p-6">
+        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent mb-2">Sobre este tablero</p>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          {misiones.length} misiones generadas por Procyon (coordinador CAO) con el contexto de Numen Games / Numinia.
+          Estados sincronizados desde <code class="font-mono text-xs text-accent">misiones.ts</code> como fuente de verdad.
+          Fuente futura: repositorio <code class="font-mono text-xs text-accent">numinia-agents</code> en GitHub — 
+          cuando esté creado, este tablero leerá los `.md` en tiempo real sin redeploy.
+        </p>
+      </div>
+
+    </div>
+  </section>
+</Layout>

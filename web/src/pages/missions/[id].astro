@@ -1,0 +1,383 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+const REPO = "numengames/numinia-digital-agents";
+const INDEX_URL = `https://raw.githubusercontent.com/${REPO}/main/missions-index.json`;
+
+export async function getStaticPaths() {
+  try {
+    const res = await fetch(`https://raw.githubusercontent.com/numengames/numinia-digital-agents/main/missions-index.json`);
+    if (!res.ok) return [];
+    const data = await res.json();
+    return (data.missions || []).map((m: any) => ({
+      params: { id: m.id.toLowerCase() },
+      props: { missionId: m.id },
+    }));
+  } catch {
+    return [];
+  }
+}
+
+const { missionId } = Astro.props;
+---
+
+<Layout
+  title={`${missionId} — Numen Games CAO`}
+  description={`Mission detail for ${missionId}`}
+  canonicalPath={`/missions/${missionId.toLowerCase()}`}
+>
+  <section class="pb-20 pt-16">
+    <div class="mx-auto max-w-[800px] px-6">
+
+      <!-- Back -->
+      <a href="/missions" class="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-8">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="19 12 5 12"/>
+          <polyline points="12 5 5 12 12 19"/>
+        </svg>
+        Mission Board
+      </a>
+
+      <!-- Loading state -->
+      <div id="loading-state">
+        <div class="animate-pulse space-y-4">
+          <div class="h-4 bg-border rounded w-1/4"></div>
+          <div class="h-8 bg-border rounded w-3/4"></div>
+          <div class="h-4 bg-border rounded w-1/2"></div>
+          <div class="h-32 bg-border rounded"></div>
+          <div class="h-32 bg-border rounded"></div>
+        </div>
+      </div>
+
+      <!-- Error state (hidden by default) -->
+      <div id="error-state" class="hidden">
+        <div class="rounded-xl border border-red/20 bg-red/5 p-6">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-red mb-2">Mission not found</p>
+          <p class="text-sm text-muted-foreground">Could not load data for <span id="error-id" class="font-mono text-accent">{missionId}</span>.</p>
+        </div>
+      </div>
+
+      <!-- Mission content (hidden until loaded) -->
+      <div id="mission-content" class="hidden">
+
+        <!-- Header badges -->
+        <div class="flex flex-wrap items-center gap-2 mb-4" id="mission-badges"></div>
+
+        <!-- Title -->
+        <h1 class="font-display text-3xl sm:text-4xl text-foreground mb-3" id="mission-title"></h1>
+
+        <!-- Meta row -->
+        <div class="flex flex-wrap gap-4 font-mono text-[0.7rem] text-dim mb-8" id="mission-meta"></div>
+
+        <!-- Description / summary card -->
+        <div class="rounded-xl border border-border bg-card p-6 mb-6" id="mission-summary-wrap">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-3">📖 Mission</p>
+          <p class="text-base leading-relaxed text-muted-foreground" id="mission-summary"></p>
+        </div>
+
+        <!-- Rich detail from .md file (shown if available) -->
+        <div id="mission-rich" class="hidden">
+          <!-- Acceptance criteria -->
+          <div class="rounded-xl border border-border bg-card p-6 mb-6" id="mission-criteria-wrap">
+            <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">✅ Acceptance Criteria</p>
+            <ul class="space-y-3" id="mission-criteria"></ul>
+          </div>
+
+          <!-- Epistemic / Pragmatic -->
+          <div class="grid gap-4 sm:grid-cols-2 mb-6">
+            <div class="rounded-xl border border-border bg-card p-6">
+              <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-3">🧠 Epistemic value</p>
+              <p class="text-sm text-muted-foreground leading-relaxed" id="mission-epistemic"></p>
+            </div>
+            <div class="rounded-xl border border-border bg-card p-6">
+              <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-3">⚡ Pragmatic value</p>
+              <p class="text-sm text-muted-foreground leading-relaxed" id="mission-pragmatic"></p>
+            </div>
+          </div>
+
+          <!-- Execution (for done missions) -->
+          <div id="mission-execution-wrap" class="rounded-xl border border-green/20 bg-green/5 p-6 mb-8 hidden">
+            <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-green mb-4">🏗️ Execution</p>
+            <div class="space-y-3" id="mission-execution-content"></div>
+          </div>
+        </div>
+
+        <!-- Minimal detail fallback (shown if no .md detail available) -->
+        <div id="mission-minimal" class="rounded-xl border border-border bg-card p-6 mb-6">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-3">ℹ️ Details</p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4" id="mission-minimal-grid"></div>
+        </div>
+
+        <!-- Nav -->
+        <div class="flex justify-between border-t border-border pt-6 mt-8">
+          <a id="nav-prev" href="#" class="font-mono text-[0.7rem] text-dim hover:text-accent transition-colors hidden">← prev</a>
+          <span id="nav-prev-empty"></span>
+          <a id="nav-next" href="#" class="font-mono text-[0.7rem] text-dim hover:text-accent transition-colors hidden">next →</a>
+          <span id="nav-next-empty"></span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</Layout>
+
+<script define:vars={{ missionId, REPO }}>
+const PRIORITY_COLOR = {
+  critical: "bg-red/10 text-red border border-red/20",
+  high: "bg-accent/10 text-accent border border-accent/20",
+  medium: "bg-yellow/10 text-yellow border border-yellow/20",
+  low: "bg-green/10 text-green-400 border border-green/20",
+};
+const PRIORITY_ICON = { critical:"🔴", high:"🟠", medium:"🟡", low:"🟢" };
+const TYPE_ICON = { biological:"🧬", digital:"🤖", hybrid:"🔀" };
+const TYPE_LABEL = { biological:"Biological", digital:"Digital", hybrid:"Hybrid" };
+const STATUS_CLASS = {
+  "todo": "text-dim", "in-progress": "text-accent", "in-review": "text-yellow",
+  "done": "text-green-400", "freeze": "text-dim", "cancelled": "text-dim",
+};
+const STATUS_ICON = {
+  "todo":"📋", "in-progress":"⚡", "in-review":"👁️", "done":"✅", "freeze":"❄️", "cancelled":"🚫",
+};
+const STATUS_LABEL = {
+  "todo":"To Do", "in-progress":"In Progress", "in-review":"In Review",
+  "done":"Done", "freeze":"Freeze", "cancelled":"Cancelled",
+};
+
+function parseFrontmatter(text) {
+  const match = text.match(/^---\n([\s\S]*?)\n---/);
+  if (!match) return {};
+  const res = {};
+  for (const line of match[1].split("\n")) {
+    const i = line.indexOf(":");
+    if (i === -1) continue;
+    const k = line.slice(0, i).trim();
+    let v = line.slice(i + 1).trim();
+    if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) v = v.slice(1, -1);
+    res[k] = v;
+  }
+  return res;
+}
+
+function parseList(text, heading) {
+  const re = new RegExp(`##[^\\n]*${heading}[^\\n]*\\n([\\s\\S]*?)(?=\\n##|$)`, 'i');
+  const block = text.match(re);
+  if (!block) return [];
+  return block[1].split('\n').filter(l => l.trim().startsWith('-')).map(l => l.replace(/^[-*]\s*/, '').trim()).filter(Boolean);
+}
+
+function parseSection(text, heading) {
+  const re = new RegExp(`##[^\\n]*${heading}[^\\n]*\\n([\\s\\S]*?)(?=\\n##|$)`, 'i');
+  const block = text.match(re);
+  if (!block) return null;
+  return block[1].replace(/^---[\s\S]*?---/, '').trim().replace(/^\*+/, '').replace(/\*+$/, '').trim();
+}
+
+async function loadMissionDetail(mdPath) {
+  const url = `https://raw.githubusercontent.com/${REPO}/main/${mdPath}`;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return null;
+    return await res.text();
+  } catch { return null; }
+}
+
+async function findMdFile(mission) {
+  const folders = ['missions/active', 'missions/done', 'missions/review', 'missions/freeze', 'missions/queue', 'missions/backlog'];
+  const idNum = mission.id.replace('MIS-', '');
+  for (const folder of folders) {
+    // Try a few filename patterns
+    const patterns = [
+      `${folder}/${mission.id.toLowerCase()}.md`,
+      `${folder}/${mission.id.toLowerCase()}-${mission.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,30)}.md`,
+    ];
+    for (const p of patterns) {
+      const text = await loadMissionDetail(p);
+      if (text) return text;
+    }
+  }
+  return null;
+}
+
+async function render() {
+  const indexUrl = `https://raw.githubusercontent.com/${REPO}/main/missions-index.json`;
+  let missions;
+  try {
+    const res = await fetch(indexUrl);
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
+    missions = data.missions || [];
+  } catch (e) {
+    document.getElementById('loading-state').classList.add('hidden');
+    document.getElementById('error-state').classList.remove('hidden');
+    return;
+  }
+
+  const mission = missions.find(m => m.id.toLowerCase() === missionId.toLowerCase());
+  if (!mission) {
+    document.getElementById('loading-state').classList.add('hidden');
+    document.getElementById('error-state').classList.remove('hidden');
+    return;
+  }
+
+  // Populate badges
+  const badges = document.getElementById('mission-badges');
+  badges.innerHTML = `
+    <span class="font-mono text-[0.65rem] text-dim">${mission.id}</span>
+    <span class="inline-flex rounded-full px-2.5 py-0.5 font-mono text-[0.6rem] font-medium ${PRIORITY_COLOR[mission.priority] || ''}">
+      ${PRIORITY_ICON[mission.priority] || ''} ${mission.priority}
+    </span>
+    <span class="inline-flex rounded-full border border-border bg-card px-2.5 py-0.5 font-mono text-[0.6rem] text-muted-foreground">
+      ${TYPE_ICON[mission.type] || '🔀'} ${TYPE_LABEL[mission.type] || mission.type}
+    </span>
+    <span class="inline-flex rounded-full border border-border bg-card px-2.5 py-0.5 font-mono text-[0.6rem] text-muted-foreground">
+      ${mission.effort}
+    </span>
+  `;
+
+  document.getElementById('mission-title').textContent = mission.title;
+
+  const stCls = STATUS_CLASS[mission.status] || 'text-dim';
+  const stIcon = STATUS_ICON[mission.status] || '📋';
+  const stLabel = STATUS_LABEL[mission.status] || mission.status;
+  document.getElementById('mission-meta').innerHTML = `
+    <span>Area <span class="text-muted-foreground">${mission.area}</span></span>
+    <span>Guild <span class="text-muted-foreground">${mission.guild}</span></span>
+    <span>Status <span class="${stCls}">${stIcon} ${stLabel}</span></span>
+    ${mission.assignedTo ? `<span>Agent <span class="text-muted-foreground">🗡️ ${mission.assignedTo}</span></span>` : ''}
+    ${mission.completed ? `<span>Completed <span class="text-muted-foreground">${mission.completed}</span></span>` : ''}
+  `;
+
+  document.getElementById('mission-summary').textContent = mission.title;
+
+  // Try to load rich .md detail
+  let mdText = null;
+  if (mission.hasDetail) {
+    const folders = ['missions/active', 'missions/done', 'missions/review', 'missions/freeze', 'missions/queue'];
+    for (const folder of folders) {
+      const url = `https://raw.githubusercontent.com/${REPO}/main/${folder}/${mission.id}-${mission.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,40)}.md`
+        .replace(/--+/g, '-').replace(/-\.md$/, '.md');
+      // Try the listing approach — look for the file by fetching folder listing via API
+      break; // We'll try fetching the known active/done files directly below
+    }
+
+    // Try direct patterns by known status
+    const statusFolder = mission.status === 'done' ? 'done'
+      : mission.status === 'in-progress' ? 'active'
+      : mission.status === 'in-review' ? 'review'
+      : mission.status === 'freeze' ? 'freeze'
+      : 'queue';
+
+    // Try fetching from GitHub API to find the actual filename
+    try {
+      const apiUrl = `https://api.github.com/repos/${REPO}/contents/missions/${statusFolder}`;
+      const apiRes = await fetch(apiUrl);
+      if (apiRes.ok) {
+        const files = await apiRes.json();
+        const match = Array.isArray(files) && files.find(f => f.name.toLowerCase().startsWith(mission.id.toLowerCase() + '-') || f.name.toLowerCase() === mission.id.toLowerCase() + '.md');
+        if (match) {
+          const rawRes = await fetch(match.download_url);
+          if (rawRes.ok) mdText = await rawRes.text();
+        }
+      }
+    } catch {}
+  }
+
+  if (mdText) {
+    const fm = parseFrontmatter(mdText);
+    const criteria = parseList(mdText, 'Acceptance Criteria') || parseList(mdText, 'Criterios');
+    const epistemic = parseSection(mdText, 'Epistemic') || parseSection(mdText, 'Epistémico');
+    const pragmatic = parseSection(mdText, 'Pragmatic') || parseSection(mdText, 'Pragmático');
+
+    // Update summary with description if available
+    const description = fm.description || fm.descripcion || fm.summary;
+    if (description) document.getElementById('mission-summary').textContent = description;
+
+    const rich = document.getElementById('mission-rich');
+    rich.classList.remove('hidden');
+    document.getElementById('mission-minimal').classList.add('hidden');
+
+    // Criteria
+    if (criteria.length > 0) {
+      const done = mission.status === 'done';
+      document.getElementById('mission-criteria').innerHTML = criteria.map(c =>
+        `<li class="flex items-start gap-3">
+          <span class="mt-0.5 h-4 w-4 flex-shrink-0 flex items-center justify-center">
+            ${done ? '✅' : '<span class="h-4 w-4 rounded border border-border block"></span>'}
+          </span>
+          <span class="text-sm text-muted-foreground leading-relaxed">${c}</span>
+        </li>`
+      ).join('');
+    } else {
+      document.getElementById('mission-criteria-wrap').classList.add('hidden');
+    }
+
+    if (epistemic) document.getElementById('mission-epistemic').textContent = epistemic;
+    if (pragmatic) document.getElementById('mission-pragmatic').textContent = pragmatic;
+
+    // Execution block for done missions
+    if (mission.status === 'done') {
+      const execWrap = document.getElementById('mission-execution-wrap');
+      const execContent = document.getElementById('mission-execution-content');
+      const execFields = [
+        ['completed', 'Closed'],
+        ['assigned_to', 'Agent'],
+      ];
+      const rows = execFields.map(([key, label]) => fm[key] ? `
+        <div>
+          <p class="font-mono text-[0.6rem] text-green uppercase tracking-wider mb-1">${label}</p>
+          <p class="text-sm text-muted-foreground">${fm[key]}</p>
+        </div>` : '').filter(Boolean).join('');
+      if (rows) {
+        execContent.innerHTML = rows;
+        execWrap.classList.remove('hidden');
+      }
+    }
+  } else {
+    // Minimal fallback
+    const grid = document.getElementById('mission-minimal-grid');
+    grid.innerHTML = [
+      ['Area', mission.area],
+      ['Guild', mission.guild],
+      ['Effort', mission.effort],
+      ['Type', TYPE_LABEL[mission.type] || mission.type],
+      mission.assignedTo ? ['Agent', '🗡️ ' + mission.assignedTo] : null,
+      mission.completed ? ['Completed', mission.completed] : null,
+    ].filter(Boolean).map(([label, value]) =>
+      `<div>
+        <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-1">${label}</p>
+        <p class="font-mono text-[0.65rem] text-foreground">${value}</p>
+      </div>`
+    ).join('');
+  }
+
+  // Navigation
+  const idx = missions.findIndex(m => m.id.toLowerCase() === missionId.toLowerCase());
+  if (idx > 0) {
+    const prev = missions[idx - 1];
+    const navPrev = document.getElementById('nav-prev');
+    navPrev.href = `/missions/${prev.id.toLowerCase()}`;
+    navPrev.textContent = `← ${prev.id}`;
+    navPrev.classList.remove('hidden');
+    document.getElementById('nav-prev-empty').remove?.();
+  }
+  if (idx < missions.length - 1) {
+    const next = missions[idx + 1];
+    const navNext = document.getElementById('nav-next');
+    navNext.href = `/missions/${next.id.toLowerCase()}`;
+    navNext.textContent = `${next.id} →`;
+    navNext.classList.remove('hidden');
+    document.getElementById('nav-next-empty').remove?.();
+  }
+
+  // Show content
+  document.getElementById('loading-state').classList.add('hidden');
+  document.getElementById('mission-content').classList.remove('hidden');
+}
+
+render().catch(err => {
+  console.error(err);
+  document.getElementById('loading-state').classList.add('hidden');
+  document.getElementById('error-state').classList.remove('hidden');
+});
+</script>

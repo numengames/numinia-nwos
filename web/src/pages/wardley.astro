@@ -1,0 +1,554 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+const components = [
+  {
+    id: "narrative",
+    name: "Narrative Layer",
+    x: 12, y: 10,
+    layer: "frontier",
+    color: "#2dd4bf",
+    evolution: "Genesis",
+    visibility: "Max visible",
+    why: "The optional skin that makes the system feel alive. Guilds, lore, rituals. The highest differentiator — and the highest adoption risk.",
+    tension: "Users hit this first. They may reject before reaching the real value. That's why it's Layer 4, not Layer 0.",
+    moat: "High — nowhere else has this",
+  },
+  {
+    id: "rituals",
+    name: "Rituals",
+    x: 16, y: 18,
+    layer: "frontier",
+    color: "#2dd4bf",
+    evolution: "Genesis",
+    visibility: "Very visible",
+    why: "Daily standups, Dark Council (weekly strategy), Lunar Coven (creativity). Structured ceremonies with operational weight.",
+    tension: "High engagement, high churn risk if vocabulary isn't adopted. Must be optional to start.",
+    moat: "High — cultural adoption is a two-way commitment",
+  },
+  {
+    id: "missions",
+    name: "Mission System",
+    x: 26, y: 28,
+    layer: "differentiator",
+    color: "#a78bfa",
+    evolution: "Genesis → Custom",
+    visibility: "Visible",
+    why: "Every unit of work is a structured document: story, acceptance criteria, epistemic value, pragmatic value, and execution reality. Missions leave knowledge, not just checkmarks.",
+    tension: "This is the real moat. Not the lore. The window to establish it as a standard is 18–24 months.",
+    moat: "Very high — this design exists nowhere else",
+  },
+  {
+    id: "agents",
+    name: "Digital Agents (CAO)",
+    x: 21, y: 42,
+    layer: "differentiator",
+    color: "#a78bfa",
+    evolution: "Genesis → Custom",
+    visibility: "Mid visible",
+    why: "AI agents with persistent identity (SOUL.md, OPERATOR.md, MEMORY.md). They read and write the same files as humans. Not chatbots — long-running collaborators.",
+    tension: "The technology (LLMs) is commodity. The application layer — persistent identity, operational laws, guild assignment — is custom and defensible.",
+    moat: "Medium-high — competitors will copy the concept, not the coherence",
+  },
+  {
+    id: "blueprints",
+    name: "Blueprints",
+    x: 40, y: 48,
+    layer: "differentiator",
+    color: "#a78bfa",
+    evolution: "Custom",
+    visibility: "Mid",
+    why: "Living architecture docs. Current state, target state, gap delta, open questions. Updated every time the system changes.",
+    tension: "Similar to C4 model or arc42, but integrated with agents and missions. Converging toward product.",
+    moat: "Medium — the integration with the rest of the system is the differentiator",
+  },
+  {
+    id: "decisions",
+    name: "Decision Registry",
+    x: 45, y: 53,
+    layer: "differentiator",
+    color: "#a78bfa",
+    evolution: "Custom",
+    visibility: "Mid",
+    why: "Append-only log of architectural and strategic decisions. What was decided, why, and what was rejected. Immutable record.",
+    tension: "ADRs exist elsewhere. The narrative integration and the immutability principle make this different.",
+    moat: "Medium",
+  },
+  {
+    id: "identity",
+    name: "Agent Identity",
+    x: 10, y: 58,
+    layer: "frontier",
+    color: "#2dd4bf",
+    evolution: "Genesis",
+    visibility: "Mid",
+    why: "khepri@ai.numengames.com. Operational laws (Ley 0-3). SOUL.md. Agents have verifiable identity in the real world — email, calendar, git commits.",
+    tension: "No competitor has this today. The question is how long that window stays open.",
+    moat: "Very high now — rapidly narrowing",
+  },
+  {
+    id: "protocols",
+    name: "Protocols",
+    x: 50, y: 68,
+    layer: "structure",
+    color: "#fbbf24",
+    evolution: "Custom → Product",
+    visibility: "Low-mid",
+    why: "Operational procedures in markdown. Briefing an agent, onboarding a new member, closing a mission. Human and AI-readable.",
+    tension: "SOPs exist everywhere. The AI-readable format and git versioning are the differentiator.",
+    moat: "Low-medium",
+  },
+  {
+    id: "reports",
+    name: "Operational Reports",
+    x: 56, y: 73,
+    layer: "structure",
+    color: "#fbbf24",
+    evolution: "Custom",
+    visibility: "Low",
+    why: "Daily and weekly markdown files committed to git. Append-only. Searchable, diffable, permanent.",
+    tension: "Simple but unique in format and agent-readability. A git-native accountability layer without BI overhead.",
+    moat: "Low",
+  },
+  {
+    id: "files",
+    name: "File Layer (MD + Git)",
+    x: 72, y: 82,
+    layer: "foundation",
+    color: "#6b7280",
+    evolution: "Product",
+    visibility: "Low",
+    why: "All data lives in markdown files with YAML frontmatter. No proprietary formats. If the tool disappears, the knowledge survives.",
+    tension: "Commodity for developers. Genesis for traditional organizations. The ICP gap lives here.",
+    moat: "The principle is the moat, not the technology",
+  },
+  {
+    id: "llms",
+    name: "LLMs / APIs",
+    x: 85, y: 91,
+    layer: "commodity",
+    color: "#374151",
+    evolution: "Commodity",
+    visibility: "Infrastructure",
+    why: "Anthropic, Ollama, others. The raw intelligence layer. Replaceable.",
+    tension: "Not a moat. Cost optimization target. Ollama local reduces cost 60-70% when the on-premises PC arrives.",
+    moat: "None — that's the point",
+  },
+  {
+    id: "github",
+    name: "GitHub / Git",
+    x: 92, y: 93,
+    layer: "commodity",
+    color: "#374151",
+    evolution: "Commodity",
+    visibility: "Infrastructure",
+    why: "Version control, history, collaboration via PRs. Universal standard.",
+    tension: "No strategic dependency. Replaceable by any git host.",
+    moat: "None",
+  },
+];
+
+const layers = [
+  {
+    id: "commodity",
+    label: "The Foundation",
+    subtitle: "Already commodity. Available everywhere.",
+    color: "#374151",
+    bg: "bg-[#374151]/10",
+    border: "border-[#374151]/30",
+    ids: ["github", "llms"],
+    description: "Git and LLMs are infrastructure. Interchangeable, cost-optimizable, no strategic lock-in. Every competitor has access to the same foundation.",
+  },
+  {
+    id: "foundation",
+    label: "The Structure",
+    subtitle: "File-over-App. Converging toward standard.",
+    color: "#6b7280",
+    bg: "bg-[#6b7280]/10",
+    border: "border-[#6b7280]/30",
+    ids: ["files", "reports", "protocols"],
+    description: "Markdown files in git. No proprietary formats. If every tool disappears tomorrow, the knowledge survives. This principle is the lock-in that works for the user, not against them.",
+  },
+  {
+    id: "differentiator",
+    label: "The Differentiators",
+    subtitle: "Custom-built. Nowhere else.",
+    color: "#a78bfa",
+    bg: "bg-[#a78bfa]/10",
+    border: "border-[#a78bfa]/30",
+    ids: ["decisions", "blueprints", "agents", "missions"],
+    description: "Mission System, Blueprints, Decision Registry, Digital Agents. These components exist nowhere else in this combination. The Mission System is the real moat — it turns work into knowledge artifacts.",
+  },
+  {
+    id: "frontier",
+    label: "The Frontier",
+    subtitle: "Genesis zone. Highest risk. Highest reward.",
+    color: "#2dd4bf",
+    bg: "bg-[#2dd4bf]/10",
+    border: "border-[#2dd4bf]/30",
+    ids: ["identity", "rituals", "narrative"],
+    description: "Agent Identity, Rituals, Narrative Layer. The most differentiating — and the most fragile. Narrative is optional (Layer 4). Rituals require cultural buy-in. Agent Identity is the shortest competitive window.",
+  },
+];
+---
+
+<Layout
+  title="Wardley Map — Narrative Work OS · Numen Games"
+  description="A strategic map of the Narrative Work OS — what's visible, what's evolving, where the moat actually is."
+  canonicalPath="/wardley"
+  activeNav="wardley"
+>
+  <!-- Hero -->
+  <section class="pt-16 pb-12 border-b border-border">
+    <div class="mx-auto max-w-[800px] px-6">
+      <div class="flex flex-wrap items-center gap-2 mb-6">
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Numen Games · Strategy</span>
+      </div>
+      <h1 class="font-display text-4xl sm:text-5xl text-foreground mb-4">Wardley Map</h1>
+      <p class="text-lg text-muted-foreground leading-relaxed mb-6">
+        A strategic map of the Narrative Work OS. Two axes tell the full story: <strong class="text-foreground">how visible</strong> each component is to the user, and <strong class="text-foreground">how evolved</strong> it is in the market.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="rounded-xl border border-border bg-card p-5">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-2">Y axis — Visibility</p>
+          <p class="text-sm text-muted-foreground">From <span class="text-foreground">infrastructure</span> (invisible to users) to <span class="text-foreground">visible</span> (what users interact with directly).</p>
+        </div>
+        <div class="rounded-xl border border-border bg-card p-5">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-2">X axis — Evolution</p>
+          <p class="text-sm text-muted-foreground">From <span class="text-foreground">Genesis</span> (novel, unstable) → Custom → Product → <span class="text-foreground">Commodity</span> (standardized, available everywhere).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scroll story -->
+  <section class="py-16 border-b border-border">
+    <div class="mx-auto max-w-[800px] px-6 space-y-16">
+      {layers.map((layer, i) => (
+        <div class="story-layer opacity-0 translate-y-6 transition-all duration-700" data-layer={layer.id}>
+          <div class={`rounded-2xl border ${layer.border} ${layer.bg} p-8`}>
+            <div class="flex items-start gap-4 mb-4">
+              <span class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim mt-1">Layer {i + 1}</span>
+              <div>
+                <h2 class="font-display text-2xl mb-1" style={`color: ${layer.color}`}>{layer.label}</h2>
+                <p class="font-mono text-[0.7rem] text-muted-foreground">{layer.subtitle}</p>
+              </div>
+            </div>
+            <p class="text-sm text-muted-foreground leading-relaxed mb-5">{layer.description}</p>
+            <div class="flex flex-wrap gap-2">
+              {components.filter(c => layer.ids.includes(c.id)).map(c => (
+                <button
+                  class="component-pill font-mono text-[0.65rem] px-3 py-1.5 rounded-full border cursor-pointer transition-all hover:scale-105"
+                  style={`border-color: ${layer.color}40; color: ${layer.color}; background: ${layer.color}10`}
+                  data-id={c.id}
+                >
+                  {c.name}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Full interactive map -->
+  <section class="py-16">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <div class="mb-6 flex items-center gap-3">
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Full Map</span>
+        <span class="h-px flex-1 bg-border"></span>
+        <span class="font-mono text-[0.6rem] text-dim">Click any node for detail</span>
+      </div>
+
+      <div class="relative rounded-2xl border border-border bg-card overflow-hidden">
+        <!-- Axis labels -->
+        <div class="absolute left-0 top-0 bottom-8 w-8 flex items-center justify-center">
+          <span class="font-mono text-[0.55rem] uppercase tracking-[0.15em] text-dim rotate-[-90deg] whitespace-nowrap">Visible to user ↑</span>
+        </div>
+        <div class="absolute bottom-0 left-8 right-0 h-8 flex items-center justify-center gap-4">
+          <span class="font-mono text-[0.55rem] text-dim">Genesis</span>
+          <span class="h-px flex-1 bg-border/50"></span>
+          <span class="font-mono text-[0.55rem] text-dim">Custom</span>
+          <span class="h-px flex-1 bg-border/50"></span>
+          <span class="font-mono text-[0.55rem] text-dim">Product</span>
+          <span class="h-px flex-1 bg-border/50"></span>
+          <span class="font-mono text-[0.55rem] text-dim">Commodity</span>
+        </div>
+
+        <!-- SVG Map -->
+        <svg
+          id="wardley-svg"
+          viewBox="0 0 900 520"
+          class="w-full ml-8"
+          style="padding-bottom: 32px; height: 480px;"
+        >
+          <!-- Grid lines -->
+          <defs>
+            <pattern id="grid" width="90" height="52" patternUnits="userSpaceOnUse">
+              <path d="M 90 0 L 0 0 0 52" fill="none" stroke="#1f2937" stroke-width="0.5"/>
+            </pattern>
+          </defs>
+          <rect width="900" height="520" fill="url(#grid)" opacity="0.5"/>
+
+          <!-- Evolution zone labels -->
+          <text x="112" y="510" font-size="9" fill="#374151" font-family="monospace" text-anchor="middle">Genesis</text>
+          <text x="337" y="510" font-size="9" fill="#374151" font-family="monospace" text-anchor="middle">Custom</text>
+          <text x="562" y="510" font-size="9" fill="#374151" font-family="monospace" text-anchor="middle">Product</text>
+          <text x="787" y="510" font-size="9" fill="#374151" font-family="monospace" text-anchor="middle">Commodity</text>
+
+          <!-- Zone dividers -->
+          <line x1="225" y1="0" x2="225" y2="500" stroke="#1f2937" stroke-width="1" stroke-dasharray="4,4"/>
+          <line x1="450" y1="0" x2="450" y2="500" stroke="#1f2937" stroke-width="1" stroke-dasharray="4,4"/>
+          <line x1="675" y1="0" x2="675" y2="500" stroke="#1f2937" stroke-width="1" stroke-dasharray="4,4"/>
+
+          <!-- Dependency lines (subtle) -->
+          <g opacity="0.15" stroke="#6b7280" stroke-width="1" fill="none">
+            <!-- Narrative → Mission -->
+            <line x1="108" y1="52" x2="234" y2="145"/>
+            <!-- Mission → Agents -->
+            <line x1="234" y1="145" x2="189" y2="218"/>
+            <!-- Mission → Blueprints -->
+            <line x1="234" y1="145" x2="360" y2="249"/>
+            <!-- Mission → Decisions -->
+            <line x1="234" y1="145" x2="405" y2="275"/>
+            <!-- Agents → Files -->
+            <line x1="189" y1="218" x2="648" y2="426"/>
+            <!-- Files → GitHub -->
+            <line x1="648" y1="426" x2="828" y2="483"/>
+            <!-- Files → LLMs -->
+            <line x1="648" y1="426" x2="765" y2="472"/>
+          </g>
+
+          <!-- Nodes -->
+          {components.map((c) => {
+            const cx = (c.x / 100) * 900;
+            const cy = (c.y / 100) * 500;
+            const r = c.layer === "commodity" ? 6 : c.layer === "frontier" ? 10 : 8;
+            return (
+              <g
+                class="wardley-node cursor-pointer"
+                data-id={c.id}
+                transform={`translate(${cx}, ${cy})`}
+              >
+                <circle
+                  r={r + 6}
+                  fill={c.color}
+                  opacity="0.08"
+                  class="node-halo transition-all duration-200"
+                />
+                <circle
+                  r={r}
+                  fill={c.color}
+                  class="node-dot transition-all duration-200"
+                />
+                <text
+                  x="0"
+                  y={-(r + 8)}
+                  text-anchor="middle"
+                  font-size="9"
+                  fill={c.color}
+                  font-family="monospace"
+                  class="node-label pointer-events-none select-none"
+                >
+                  {c.name}
+                </text>
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+
+      <!-- Detail card (hidden by default) -->
+      <div id="detail-card" class="hidden mt-6 rounded-2xl border border-accent/30 bg-card p-6 transition-all">
+        <div class="flex items-start justify-between gap-4 mb-4">
+          <div>
+            <p id="detail-evolution" class="font-mono text-[0.6rem] text-dim mb-1"></p>
+            <h3 id="detail-name" class="font-display text-2xl text-foreground"></h3>
+          </div>
+          <button id="detail-close" class="font-mono text-[0.65rem] text-dim hover:text-foreground transition-colors">✕ close</button>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <div>
+            <p class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim mb-2">What it does</p>
+            <p id="detail-why" class="text-sm text-muted-foreground leading-relaxed"></p>
+          </div>
+          <div>
+            <p class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim mb-2">Strategic tension</p>
+            <p id="detail-tension" class="text-sm text-muted-foreground leading-relaxed"></p>
+          </div>
+          <div>
+            <p class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim mb-2">Moat</p>
+            <p id="detail-moat" class="text-sm text-muted-foreground leading-relaxed"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Strategic tensions summary -->
+  <section class="py-16 border-t border-border">
+    <div class="mx-auto max-w-[800px] px-6">
+      <div class="mb-6 flex items-center gap-3">
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Strategic Tensions</span>
+        <span class="h-px flex-1 bg-border"></span>
+      </div>
+      <div class="space-y-4">
+        {[
+          {
+            t: "Narrative first = adoption barrier",
+            d: "The most visible component is also the most Genesis. Users hit the lore before the value. The /nwos page is the mitigation — substance first, narrative optional.",
+            sev: "high",
+          },
+          {
+            t: "LLM commoditization window: 18–24 months",
+            d: "Notion AI, Confluence AI, and Microsoft Copilot will offer native agents with the same LLMs. Using AI is not a moat — it's table stakes. The real moat is what the system doesn't lose: every mission closed with an Execution Reality section, every decision with its rejected alternatives, every blueprint with its delta table. That knowledge can't live anywhere else. An organization with 1 year of NWOS has 365 days of structured institutional memory that can't be imported into Notion. That inertia grows with time.",
+            sev: "high",
+          },
+          {
+            t: "File Layer: commodity for devs, genesis for orgs",
+            d: "Markdown + git is standard for developers. For traditional organizations, it's an alien workflow. This is why startup ICPs succeed and PYME traditional fails at 10% rate.",
+            sev: "medium",
+          },
+          {
+            t: "Rituals are fragile at scale",
+            d: "Dark Council and Lunar Coven generate the highest cultural engagement. They also generate the highest churn risk if vocabulary isn't adopted quickly. Must be opt-in.",
+            sev: "medium",
+          },
+        ].map((item) => (
+          <div class={`rounded-xl border p-5 ${item.sev === "high" ? "border-red/20 bg-red/5" : "border-yellow/20 bg-yellow/5"}`}>
+            <div class="flex items-start gap-3">
+              <span class={`font-mono text-[0.6rem] mt-0.5 flex-shrink-0 ${item.sev === "high" ? "text-red" : "text-yellow"}`}>
+                {item.sev === "high" ? "⚠ High" : "△ Medium"}
+              </span>
+              <div>
+                <p class="font-semibold text-sm text-foreground mb-1">{item.t}</p>
+                <p class="text-sm text-muted-foreground leading-relaxed">{item.d}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- The Moat -->  
+  <section class="py-16 border-t border-border">
+    <div class="mx-auto max-w-[800px] px-6">
+      <div class="mb-6 flex items-center gap-3">
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">The strategic bet</span>
+        <span class="h-px flex-1 bg-border"></span>
+      </div>
+      <div class="rounded-2xl border border-accent/30 bg-accent/5 p-7 mb-6">
+        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent mb-4">The moat is what the system doesn't lose</p>
+        <p class="text-sm text-muted-foreground leading-relaxed mb-4">
+          Notion AI can answer questions about what you have in Notion. But it can't answer:
+        </p>
+        <div class="space-y-3 mb-6">
+          {[
+            { q: "\"Why did we make this decision 6 months ago, what alternatives did we reject, and what did we learn executing it?\"", why: "Notion has documents. NWOS has a Decision Registry — append-only, with rejected alternatives and explicit reasoning." },
+            { q: "\"What have we learned across the last 20 missions that should change how we approach the next ones?\"", why: "Notion has tasks with checkboxes. NWOS missions have Epistemic Value and Execution Reality — the learning is the artifact." },
+            { q: "\"What's the gap between where we are today and where we need to be, and which missions close it?\"", why: "Notion has pages. NWOS Blueprints have delta tables that map gaps to missions explicitly." },
+          ].map((item) => (
+            <div class="rounded-xl border border-border bg-card/50 p-4">
+              <p class="text-sm italic text-foreground/70 mb-2">{item.q}</p>
+              <p class="font-mono text-[0.6rem] text-accent">→ {item.why}</p>
+            </div>
+          ))}
+        </div>
+        <div class="border-t border-border/50 pt-5">
+          <p class="text-sm text-muted-foreground leading-relaxed mb-3">
+            <strong class="text-foreground">Notion stores what you did.</strong> The NWOS stores what you learned doing it. That difference can't be bridged with an AI plugin — it requires redesigning how the organization works from the root.
+          </p>
+          <p class="text-sm text-muted-foreground leading-relaxed">
+            An organization with 1 year of NWOS has 365 days of decisions with context, missions with Execution Reality, and blueprints updated week by week. That archive is irreplaceable. And it can't be imported into any other tool.
+          </p>
+        </div>
+      </div>
+      <div class="rounded-xl border border-border bg-card p-5">
+        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-3">The window: 18–24 months</p>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          The goal is to establish Mission System + Decision Registry + Blueprints as the standard for AI-integrated organizations before large players commoditize individual components. Not to be the first to use LLMs — to be the first to build knowledge infrastructure that compounds.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer link to repo -->
+  <section class="py-10 border-t border-border">
+    <div class="mx-auto max-w-[800px] px-6 flex flex-wrap items-center justify-between gap-4">
+      <p class="font-mono text-[0.65rem] text-dim">Wardley Map v0.1.0 · Nimrod 🗡️ · 2026-04-07</p>
+      <div class="flex gap-4">
+        <a href="https://github.com/numengames/numinia-digital-agents/blob/main/blueprints/WARDLEY-MAP.md" target="_blank" rel="noopener noreferrer" class="font-mono text-[0.65rem] text-accent hover:text-accent/80 transition-colors">
+          Source .md →
+        </a>
+        <a href="/nwos" class="font-mono text-[0.65rem] text-dim hover:text-foreground transition-colors">
+          NWOS overview →
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script define:vars={{ components }}>
+  // Scroll animation
+  const layers = document.querySelectorAll(".story-layer");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove("opacity-0", "translate-y-6");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+  layers.forEach((el) => observer.observe(el));
+
+  // Node interaction
+  const detailCard = document.getElementById("detail-card");
+  const detailName = document.getElementById("detail-name");
+  const detailEvolution = document.getElementById("detail-evolution");
+  const detailWhy = document.getElementById("detail-why");
+  const detailTension = document.getElementById("detail-tension");
+  const detailMoat = document.getElementById("detail-moat");
+  const detailClose = document.getElementById("detail-close");
+
+  function showDetail(id) {
+    const c = components.find((x) => x.id === id);
+    if (!c) return;
+    detailName.textContent = c.name;
+    detailEvolution.textContent = `${c.evolution} · ${c.visibility}`;
+    detailWhy.textContent = c.why;
+    detailTension.textContent = c.tension;
+    detailMoat.textContent = c.moat;
+    detailCard.classList.remove("hidden");
+    detailCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  // SVG nodes
+  document.querySelectorAll(".wardley-node").forEach((node) => {
+    node.addEventListener("click", () => showDetail(node.dataset.id));
+    node.addEventListener("mouseenter", () => {
+      node.querySelector(".node-dot").setAttribute("r", "12");
+      node.querySelector(".node-halo").setAttribute("r", "18");
+    });
+    node.addEventListener("mouseleave", () => {
+      const c = components.find((x) => x.id === node.dataset.id);
+      const r = c?.layer === "commodity" ? 6 : c?.layer === "frontier" ? 10 : 8;
+      node.querySelector(".node-dot").setAttribute("r", String(r));
+      node.querySelector(".node-halo").setAttribute("r", String(r + 6));
+    });
+  });
+
+  // Pills in story
+  document.querySelectorAll(".component-pill").forEach((pill) => {
+    pill.addEventListener("click", () => {
+      showDetail(pill.dataset.id);
+      document.getElementById("wardley-svg")?.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+  });
+
+  detailClose?.addEventListener("click", () => detailCard.classList.add("hidden"));
+</script>

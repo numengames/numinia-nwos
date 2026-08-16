@@ -1,0 +1,129 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { decisiones } from "@/data/decisiones";
+
+export function getStaticPaths() {
+  return decisiones.map((d) => ({
+    params: { id: d.id.toLowerCase() },
+    props: { decision: d },
+  }));
+}
+
+const { decision } = Astro.props;
+
+const estadoColor: Record<string, string> = {
+  activa: "bg-green/10 text-green border-green/20",
+  provisional: "bg-yellow/10 text-yellow border-yellow/20",
+  supersedida: "bg-muted text-muted-foreground border-border",
+};
+---
+
+<Layout
+  title={`${decision.id} — ${decision.titulo} · Numen Games`}
+  description={decision.decision}
+  canonicalPath={`/decisiones/${decision.id.toLowerCase()}`}
+>
+  <section class="pb-20 pt-16">
+    <div class="mx-auto max-w-[800px] px-6">
+
+      <a href="/decisiones" class="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-8">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="19 12 5 12"/><polyline points="12 5 5 12 12 19"/>
+        </svg>
+        Decisiones
+      </a>
+
+      <div class="mb-8">
+        <div class="flex flex-wrap items-center gap-2 mb-4">
+          <span class="font-mono text-[0.65rem] text-dim">{decision.id}</span>
+          <span class:list={["inline-flex rounded-full border px-2.5 py-0.5 font-mono text-[0.6rem] font-medium", estadoColor[decision.estado]]}>
+            {decision.estado}
+          </span>
+          {decision.pendienteDarkCouncil && (
+            <span class="inline-flex rounded-full bg-yellow/10 border border-yellow/20 px-2.5 py-0.5 font-mono text-[0.6rem] text-yellow">
+              Confirmar Dark Council
+            </span>
+          )}
+          <span class="font-mono text-[0.65rem] text-dim">{decision.area}</span>
+          <span class="font-mono text-[0.65rem] text-dim">{decision.fecha}</span>
+        </div>
+        <h1 class="font-display text-3xl sm:text-4xl text-foreground">{decision.titulo}</h1>
+      </div>
+
+      <div class="space-y-6">
+
+        <div class="rounded-xl border border-border bg-card p-6">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-3">📍 Contexto</p>
+          <p class="text-sm text-muted-foreground leading-relaxed">{decision.contexto}</p>
+        </div>
+
+        <div class="rounded-xl border border-accent/20 bg-accent/5 p-6">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent mb-3">✅ Decisión</p>
+          <p class="text-base text-foreground font-medium leading-relaxed">{decision.decision}</p>
+        </div>
+
+        <div class="rounded-xl border border-border bg-card p-6">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">🧠 Por qué</p>
+          <ul class="space-y-2">
+            {decision.porQue.map((r) => (
+              <li class="flex items-start gap-3">
+                <span class="text-accent mt-1 flex-shrink-0">→</span>
+                <span class="text-sm text-muted-foreground">{r}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="rounded-xl border border-border bg-card p-6">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">❌ Alternativas descartadas</p>
+          <ul class="space-y-2">
+            {decision.alternativas.map((a) => (
+              <li class="flex items-start gap-3">
+                <span class="text-muted-foreground mt-1 flex-shrink-0 line-through opacity-50">×</span>
+                <span class="text-sm text-muted-foreground">{a}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="rounded-xl border border-green/20 bg-green/5 p-6">
+            <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-green mb-3">✅ Consecuencias positivas</p>
+            <ul class="space-y-2">
+              {decision.prosContras.pros.map((p) => (
+                <li class="text-sm text-muted-foreground">+ {p}</li>
+              ))}
+            </ul>
+          </div>
+          <div class="rounded-xl border border-red/20 bg-red/5 p-6">
+            <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-red mb-3">⚠️ Consecuencias negativas</p>
+            <ul class="space-y-2">
+              {decision.prosContras.contras.map((c) => (
+                <li class="text-sm text-muted-foreground">- {c}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="flex justify-between border-t border-border pt-6 mt-8">
+        {decisiones.findIndex(d => d.id === decision.id) > 0 ? (
+          <a href={`/decisiones/${decisiones[decisiones.findIndex(d => d.id === decision.id) - 1].id.toLowerCase()}`} class="font-mono text-[0.7rem] text-dim hover:text-accent transition-colors">
+            ← {decisiones[decisiones.findIndex(d => d.id === decision.id) - 1].id}
+          </a>
+        ) : <span />}
+        {decisiones.findIndex(d => d.id === decision.id) < decisiones.length - 1 ? (
+          <a href={`/decisiones/${decisiones[decisiones.findIndex(d => d.id === decision.id) + 1].id.toLowerCase()}`} class="font-mono text-[0.7rem] text-dim hover:text-accent transition-colors">
+            {decisiones[decisiones.findIndex(d => d.id === decision.id) + 1].id} →
+          </a>
+        ) : <span />}
+      </div>
+
+      <div class="mt-6 border-t border-border pt-6">
+        <p class="font-mono text-xs text-dim">Centinela-01 · Numen Games · {decision.fecha}<br/>Las decisiones no se modifican — se superseden.</p>
+      </div>
+
+    </div>
+  </section>
+</Layout>
