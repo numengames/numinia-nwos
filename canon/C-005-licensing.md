@@ -1,8 +1,11 @@
 ---
 documento: Numinia · Canon de Licencias
 canon: C-005
-ruta: canon/C-005-licensing.md
-version: 1.0.0
+ruta_en_repositorio: canon/C-005-licensing.md   # NWOS dentro del repo
+archivo_distribuido: 2026_08_16-Numinia_Canon_C005_Licencias-v1.1.0.md   # Khepri §11 fuera de él
+guia_publica: 2026_08_16-Numinia_Guia_Licencias-v1.1.0.html
+edicion_razonada: 2026_08_16-Numinia_Legal_Book_Edicion_Razonada-v0.6.1.md
+version: 1.1.0
 fecha: 2026-08-16
 estado: canon — inmutable; su modificación exige consenso formal (NWOS)
 ambito: toda pieza creada a partir de esta fecha
@@ -52,13 +55,25 @@ describe, es borde.
 
 **4 · ¿Se puede deshacer?** Si no, la decisión la firma un Oráculo (§4).
 
+**El repositorio no es una unidad jurídica.** La licencia se determina por lo que se
+distribuye o se sirve, no por dónde vive el archivo. Un monorepo PUEDE contener
+`apps/*` bajo AGPL y `packages/*` bajo MIT, declarados por `REUSE.toml`. Lo que **DEBE**
+garantizarse es la **dirección de las dependencias**: MIT importado por AGPL es
+correcto —y el paquete MIT publicado aparte sigue siendo MIT—; AGPL importado por MIT
+está prohibido y una regla de lint lo impide.
+
+**Repositorio separado solo para copyleft heredado.** El copyleft de un tercero puede
+hacerse valer contra nosotros y su frontera de obra derivada es discutible: se aísla. El
+copyleft propio no tiene ese riesgo, porque somos titulares: basta declararlo por
+directorio.
+
 ### Rama de software
 
 | Caso | Licencia |
 |---|---|
-| Depende de un motor copyleft fuerte | la del motor, en **repositorio aislado** |
-| Plataforma, backend o servicio que **decide** | `AGPL-3.0-only` en repositorio propio |
-| Biblioteca, paquete, SDK, tipos, tokens, script, CI, infraestructura | `MIT` |
+| Depende de un motor copyleft **heredado de un tercero** | la del motor, en **repositorio separado** |
+| Aplicación desplegable: plataforma, backend o servicio que **decide** (`apps/*`) | `AGPL-3.0-only` |
+| Biblioteca, paquete, SDK, tipos, tokens, script, CI, infraestructura (`packages/*`) | `MIT` |
 | Prototipo o spike sin publicar | reservado hasta decidir |
 
 ### Rama de cultura
@@ -88,7 +103,7 @@ propios, no puede renunciar a los de otro.
 |---|---|
 | **Libremente** | `MIT` `ISC` `BSD-2-Clause` `BSD-3-Clause` `Apache-2.0` `0BSD` `CC0-1.0` `CC-BY-4.0` · `OFL-1.1` solo tipografías |
 | **Con aislamiento** | `MPL-2.0` `EPL-2.0` `LGPL-3.0` |
-| **Con decisión firmada y repositorio propio** | `GPL-3.0` `AGPL-3.0` |
+| **Con decisión firmada, aislado y declarado** | `GPL-3.0` `AGPL-3.0` — repositorio separado si es de un tercero (§2) |
 | **Nunca** | `BUSL` `SSPL` `Elastic` Commons Clause · propietario · `CC-BY-NC-*` `CC-BY-ND-*` · cualquier dependencia sin campo `license` |
 
 **Regla del suelo.** El copyleft más fuerte del árbol distribuido fija el mínimo de la
@@ -151,6 +166,12 @@ SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC0-1.0"
 ```
 
+**Excepción — archivos que no pueden modificarse.** Kits de terceros fijados por prueba
+de identidad byte a byte, código *vendored*, artefactos generados y binarios sin campo
+de metadatos **NO DEBEN** alterarse para insertar la cabecera: se declaran por
+`REUSE.toml` o por un archivo `.license` adjunto. Modificar un archivo pineado para
+cumplir esta norma es incumplir otra.
+
 **La licencia viaja dentro del archivo.** Un binario que sale del CDN pierde el README.
 Si la licencia no va dentro, deja de existir.
 
@@ -179,9 +200,14 @@ Error en `numinia.com`; aviso en `numinia.store`.
 
 | Dónde | Instrumento |
 |---|---|
-| Repositorio del núcleo AGPL | **CLA** tipo Apache: el contribuyente conserva su copyright y nos concede licencia amplia con sublicencia y patentes |
-| Monorepo MIT y documentación | **DCO**: firma `git commit -s` |
+| Todo repositorio que contenga código AGPL, aunque sea en una parte | **CLA** tipo Apache: el contribuyente conserva su copyright y nos concede licencia amplia con sublicencia y patentes |
+| Repositorios exclusivamente MIT y documentación | **DCO**: firma `git commit -s` |
 | Activos | Declaración explícita de CC0 en el PR |
+
+El CLA se exige **por repositorio, no por ruta**. Un CLA condicionado a qué archivos
+toca cada PR es confuso para quien contribuye y su fallo es silencioso: una aportación
+a código AGPL aceptada sin CLA elimina la doble licencia sobre ese archivo para
+siempre, sin que nadie lo note.
 
 ---
 
@@ -227,11 +253,14 @@ Se copia literal en cada repositorio. Si diverge, manda este canon. En inglés p
 ````markdown
 ## Licensing — from Numinia canon C-005 (source of truth; do not edit here)
 
-**Emit:** package/library/SDK/script/CI/infra → `MIT` · platform core that *decides*
-(identity, progression, billing), own repo → `AGPL-3.0-only` · code on a
-strong-copyleft engine, own repo → the engine's · assets/data/metadata/design tokens →
-`CC0-1.0` · docs/ADRs/specs → `CC-BY-4.0` · lore/brand/unpublished → none, all rights
-reserved.
+**Emit:** `packages/*` — library/SDK/types/tokens/script/CI/infra → `MIT` ·
+`apps/*` — deployable app that *decides* (identity, progression, billing) →
+`AGPL-3.0-only` · code on a third-party strong-copyleft engine, **separate repo** →
+the engine's · assets/data/metadata/design tokens → `CC0-1.0` · docs/ADRs/specs →
+`CC-BY-4.0` · lore/brand/unpublished → none, all rights reserved.
+
+A monorepo may mix these: declare per directory in `REUSE.toml`. Dependencies MUST
+flow apps → packages, never the reverse.
 
 Every code file starts with:
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
@@ -246,6 +275,14 @@ from the registry BEFORE adding it — never from memory.
 **Floor rule:** the strongest copyleft in the distributed tree sets the minimum
 outbound license — one GPL import excludes MIT output. devDependencies and build tools
 don't count; whatever ships in the client bundle does.
+
+**Contributions:** any repo containing AGPL code requires a CLA (per repo, not per
+path); MIT-only repos and docs use DCO (`git commit -s`); asset PRs need an explicit
+CC0 declaration.
+
+**Header exception:** never edit pinned third-party kits, vendored code, generated
+artifacts or metadata-less binaries to insert an SPDX header — declare them in
+`REUSE.toml` or an adjacent `.license` file.
 
 **Repo skeleton on creation:** `LICENSE` · `LICENSES/` · `REUSE.toml` ·
 `TRADEMARKS.md` · `NOTICE` if Apache-2.0 ships · `license` field in every
@@ -265,5 +302,6 @@ package.json. CI runs `license-check`: error on `.com`, warning on `.store`.
 
 | Versión | Fecha | Cambios |
 |---|---|---|
+| 1.1.0 | 2026-08-16 | Tres enmiendas tras el primer contacto con el código. **El repositorio no es una unidad jurídica** (§2): la frontera es `apps/*` AGPL / `packages/*` MIT declarada por `REUSE.toml`, con la dirección de dependencias como condición real; el repositorio separado queda reservado al copyleft **heredado**, que es el único que un tercero puede hacer valer. **Excepción de cabecera** (§5): los archivos que no pueden modificarse —kits pineados, *vendored*, generados, binarios— se declaran por `REUSE.toml` o `.license`. **CLA por repositorio, no por ruta** (§6): un CLA condicionado a rutas falla en silencio. El fragmento §9 incorpora contribuciones y excepciones, que antes solo vivían en el canon. |
 | 1.0.0 | 2026-08-16 | Entrada en canon como C-005. Se retira el razonamiento —alternativas descartadas, precedentes, justificaciones— que queda archivado en el Legal Book v0.6.1. Este canon contiene solo norma. |
 | 0.1.0 – 0.6.1 | 2026-08-16 | Elaboración. Ver Legal Book archivado. |
