@@ -6,7 +6,7 @@ version: "1.0.0"
 created: "2026-04-07T00:00:00Z"
 updated: "2026-04-07T22:30:00Z"
 author: "nimrod"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 
 # numinia-digital-agents
