@@ -1,0 +1,11 @@
+version = 1
+
+# TODO: the licence regime for the canon and lore paths (canon/, missions/,
+# guilds/, protocols/, operations/, decisions/, reports/, standards/,
+# blueprints/, agents/…) is an open decision — see C-005 Canon de Licencias.
+# They are deliberately left undeclared here until that decision lands.
+
+[[annotations]]
+path = "web/**"
+SPDX-FileCopyrightText = "2026 Numen Games S.L."
+SPDX-License-Identifier = "MIT"
