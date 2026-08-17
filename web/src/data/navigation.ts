@@ -12,7 +12,6 @@ export type NavItem =
 
 export const navItems: NavItem[] = [
   { label: "Missions", href: "/missions", id: "missions" },
-  { label: "Misiones", href: "/misiones", id: "misiones" },
   { label: "Decisiones", href: "/decisiones", id: "decisiones" },
   { label: "Planos", href: "/planos", id: "planos" },
   { label: "Reportes", href: "/reportes", id: "reportes" },

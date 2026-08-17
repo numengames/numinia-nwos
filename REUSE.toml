@@ -32,9 +32,9 @@ path = [
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC-BY-4.0"
 
-# --- Data, indexes and repo metadata → CC0-1.0 ---------------------------
+# --- Repo metadata → CC0-1.0 ---------------------------------------------
 [[annotations]]
-path = ["missions-index.json", ".gitignore"]
+path = ".gitignore"
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC0-1.0"
 

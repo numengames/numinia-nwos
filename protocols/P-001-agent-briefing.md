@@ -46,9 +46,9 @@ STEP 2 — Security (always, every session):
   → Read operations/governance.md (if not read in <7 days)
 
 STEP 3 — Active missions:
-  → Check missions/active/ — do I have assigned missions?
-  → Check missions/review/ — does Oracle have pending QA?
-  [Procyon only] → Check missions/backlog/ to propose assignments
+  → Check missions/ for status: in-progress — do I have assigned missions?
+  → Check missions/ for status: in-review — does Oracle have pending QA?
+  [Procyon only] → Check missions/ for status: backlog to propose assignments
 
 STEP 3.5 — New mission briefing (if starting a new mission):
   → Apply P-009 (Mission Briefing Protocol) before any execution

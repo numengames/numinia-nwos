@@ -143,23 +143,25 @@ guilds/
 
 ```
 missions/
-├── queue/    # To Do — defined, ready to start
-├── active/   # In Progress — being executed
-├── review/   # In Review — awaiting Oracle validation
-├── done/     # Done + Cancelled — immutable
-└── freeze/   # Freeze — intentionally paused
+├── TEMPLATE.md
+└── MIS-NNN-english-slug.md   # one flat folder; status lives in frontmatter
 ```
+
+**The `status:` frontmatter field is the only state surface** (MIS-066):
+no status directories, no index file. The board at numinia.org/missions
+builds from this folder on every deploy.
 
 **Mission states:**
 
-| State | Folder | Who sets it |
-|-------|--------|-------------|
-| `todo` | `queue/` | Oracle / Procyon |
-| `in-progress` | `active/` | Executor agent |
-| `in-review` | `review/` | Executor agent (after completing criteria) |
-| `done` | `done/` | Oracle (after validation) |
-| `freeze` | `freeze/` | Oracle (intentional pause) |
-| `cancelled` | `done/` | Oracle (with status: cancelled in frontmatter) |
+| State | Who sets it |
+|-------|-------------|
+| `draft` | Author (brief not yet approved) |
+| `backlog` | Oracle / Procyon |
+| `in-progress` | Executor agent |
+| `in-review` | Executor agent (after completing criteria) |
+| `done` | Oracle (after validation) — file immutable from then on |
+| `frozen` | Oracle (intentional pause) |
+| `cancelled` | Oracle |
 
 **Sub-missions:** `MIS-NNN.N` format. Max depth: 2 levels (mission → sub-mission only).
 
@@ -190,7 +192,7 @@ updated: "YYYY-MM-DDTHH:MM:SSZ"    # ISO 8601 UTC
 author: "{agent-id|oracle-id}"
 owner: "{oracle|agent}"
 tags: [tag1, tag2]
-license: "CC0-1.0"
+license: "CC-BY-4.0"   # per path regime in REUSE.toml (C-005)
 ---
 ```
 
@@ -199,10 +201,10 @@ license: "CC0-1.0"
 ```yaml
 area: "{Product|Infrastructure|CAO|Sales|Content|Funding|Documentation|Operations}"
 guild: "{Sentinels|Alchemists|Exegetes|Procurators}"
-tipo: "{biological|digital|hybrid}"
+type_execution: "{biological|digital|hybrid}"
 priority: "{critical|high|medium|low}"
 effort: "{XS|S|M|L|XL}"
-status: "{todo|in-progress|in-review|done|freeze|cancelled}"
+status: "{draft|backlog|in-progress|in-review|done|frozen|cancelled}"
 in_review_at: "YYYY-MM-DDTHH:MM:SSZ"   # set when → in-review
 freeze_reason: ""                        # required if status = freeze
 parent_mission: null                     # MIS-NNN if sub-mission
@@ -341,7 +343,7 @@ The value of OODA over BOOT/EXECUTE/COMMIT is the **explicit re-loop**: after AC
 **Optional field:**
 
 ```yaml
-generates_mission: "MIS-00059"  # mission born from what was learned in this one
+generates_mission: "MIS-059"  # mission born from what was learned in this one
 ```
 
 The epistemic value of the mission is the "Measure". The Real Execution is the "Learn". The `generates_mission` closes the loop: the learning generates the next hypothesis.

@@ -33,9 +33,9 @@ Rules derived from 100 mental simulations. Each rule includes the simulation tha
 | `agents/{other}/` | oracle | oracle | oracle | oracle |
 | `operations/` | oracle + custodian | oracle + custodian | oracle | oracle |
 | `protocols/` | oracle + custodian | New version = new file | Mark status: superseded | oracle |
-| `missions/active/` | active-agent + oracle | Only executor | Move to done/ | oracle |
-| `missions/done/` | Automatic on close | **Nobody** | oracle | N/A |
-| `missions/backlog/` | oracle + custodian | oracle | oracle | oracle |
+| `missions/` — status: backlog/draft | oracle + custodian | oracle | oracle | oracle |
+| `missions/` — status: in-progress/in-review | active-agent + oracle | Only executor | Oracle sets status: done | oracle |
+| `missions/` — status: done | Automatic on close | **Nobody** (Oracle-recorded overrides only, cf. MIS-066) | oracle | N/A |
 | `decisions/` | oracle + custodian | Only add superseded_by | **Never delete** | oracle |
 | `blueprints/` | oracle + agents | oracle + agents | oracle | oracle |
 | `reports/daily/` | active-agent + system | Same day only | custodian (90d retention) | Auto-merge |
