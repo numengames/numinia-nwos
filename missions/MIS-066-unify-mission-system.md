@@ -316,6 +316,14 @@ agents (the audit's readers) stop deriving four contradictory answers to
   from their origin (052/054/055) — js-yaml strict caught what looser
   parsers had let through. REUSE.toml/LICENSE updated (index's CC0
   annotation retired with it).
+- 2026-08-17 — Phase 5: /misiones retired. misiones.astro, its [id]
+  detail, misiones.ts (verified stale in Phase 3.1) and the orphan
+  missions.ts loader deleted; "Misiones" nav item removed; the two
+  live links rewired (idioma → /missions/mis-055, auditoria →
+  /missions). Astro redirects generate 68 meta-refresh pages with
+  canonical+noindex: /misiones → /missions and /misiones/[id] →
+  /missions/[id] for all 67 ids — every old URL keeps resolving.
+  Build: 109 pages.
 
 ## Execution Reality
 

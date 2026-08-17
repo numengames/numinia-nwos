@@ -14,6 +14,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
 	site: "https://numinia.org",
 	output: "static",
+	// /misiones merged into /missions (MIS-066); old URLs keep resolving.
+	redirects: {
+		"/misiones": "/missions",
+		"/misiones/[id]": "/missions/[id]",
+	},
 	integrations: [react(), tailwind(), sitemap()],
 	vite: {
 		resolve: {
