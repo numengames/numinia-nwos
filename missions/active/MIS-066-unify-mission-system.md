@@ -61,6 +61,28 @@ divergence_log: null
    instead of dead routes.
 5. `MIS-062` is unassigned (nimrod is not active) and its sub-missions
    are absorbed as noted below.
+6. **IDs stay sequential** (`MIS-NNN-english-slug.md`), the only declared
+   naming rule. Amendment ordered retiring a prior date-based ID decision
+   (`MIS-YYYYMMDD-slug`) in `DECISIONS.md`; verification 2026-08-17: no
+   such file or written decision exists in the tree — the date-based
+   pattern appears only in one immutable commit message and in the
+   unrelated `APR-{YYYYMMDD}` template. Nothing to retire; this brief is
+   now the single live naming rule (closes the F-4 exposure).
+7. **Oracle override, 2026-08-17 — `missions/done/` modification.**
+   `GOVERNANCE.md:37` declares done/ unmodifiable by anybody. The Oracle
+   authorises its modification exclusively for this mission's language
+   sweep (translation and rename; no semantic change, no deletion — G-05
+   respected). Recorded here so the repo does not visibly break an
+   unamended rule.
+8. **Board ordering is the frontend's concern.** No ordering logic in
+   the mission files.
+
+## Revert point
+
+Annotated tag **`mis-066-pre-unification`** = `d6aee9a` (main, 2026-08-17,
+nothing moved), pushed to origin. Rolling back the entire unification at
+any point: reset main to the tag, or discard this branch. Every phase is
+additionally its own commit; no history rewrite, ever.
 
 ## Canonical state set
 
@@ -160,11 +182,17 @@ All remaining files move from `missions/{queue,active,review,done}/` to
    retired (audit F-1: hand-maintained, internally inconsistent, blind to
    everything after MIS-056); TEMPLATE.md updated.
 2. **Merge duplicates** — the 15 IDs above become one file each; every
-   merge decision recorded in the commit message.
-3. **English rewrite** — the ~40 Spanish missions translated, frontmatter
-   normalized; the curated content that exists only in the viewer
-   (`web/src/data/misiones.ts`: stories, Execution Reality) is ported
-   into the matching missions first, translated.
+   merge decision recorded in the commit message. **Phase gate
+   (acceptance criterion, not a courtesy check):** grep the whole
+   repository for every affected ID — the renumbered MIS-058/MIS-00058
+   pair and all 15 merged duplicates — list every surviving reference
+   that now points at a dead ID or dead path, and fix them inside this
+   phase.
+3. **English rewrite — two separate commits.** First the `misiones.ts`
+   content migration (recovery of stories and Execution Reality that
+   exist nowhere else), verified on its own. Then the translation of the
+   ~40 Spanish missions with frontmatter normalization. Never mixed: if
+   a batch fails, it must be knowable which half broke it.
 4. **Single index** — `missions-index.json` retired (audit F-1: a
    hand-edited file wearing a fake `generated` stamp); `/missions` builds
    from the folder.
@@ -172,7 +200,22 @@ All remaining files move from `missions/{queue,active,review,done}/` to
    folder (absorbs the missions slice of MIS-065); `/misiones` redirects
    to `/missions`; `misiones.ts` deleted only after phase 3 ported it.
 6. **Docs sync** — README (`freeze/` promise), P-003, STANDARDS.md,
-   CLAUDE.md, CHANGELOG.
+   GOVERNANCE.md (its tables name `missions/active|done/` paths),
+   CLAUDE.md, CHANGELOG, and **P-001**, which exists under two declared
+   paths (`protocols/P-001-agent-briefing.md` per README:72,
+   `protocols/P-001-briefing-agente-v1.md` per CONTRIBUTING:39) — the
+   file every agent is told to read first must have exactly one path
+   (audit F-3).
+
+## Out of scope (Oracle, 2026-08-17)
+
+The rule for **selecting the next mission among eligible ones** is not
+absorbed here. It exists nowhere in the repo (audit F-6), belongs in
+P-003 or GOVERNANCE, and is queued separately. Known consequence,
+accepted: flattening the folder removes the implicit ordering signal
+that directory listings and INDEX.md line order used to provide — until
+that rule lands, the board is unordered by design (decision 8: ordering
+is the frontend's concern).
 
 ## Supersessions
 
@@ -198,7 +241,11 @@ All remaining files move from `missions/{queue,active,review,done}/` to
       present in the checkout.
 - [ ] `missions-index.json` and `queue/INDEX.md` gone; nothing references
       them.
-- [ ] Docs describe the real system.
+- [ ] Repo-wide grep of every merged/renumbered ID returns zero
+      references to dead IDs or dead paths (Phase 2 gate).
+- [ ] Docs describe the real system; P-001 has exactly one path.
+- [ ] The `mis-066-pre-unification` tag exists on origin and restores the
+      pre-unification state at any moment.
 
 ## Epistemic value
 
