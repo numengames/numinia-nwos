@@ -3,7 +3,7 @@ id: "ops-legal-privacy-policy-numengames"
 title: "Política de privacidad — Numen Games"
 type: legal
 status: active
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-17T00:00:00Z"
 updated: "2026-08-17T00:00:00Z"
 author: "oracle"
@@ -14,9 +14,10 @@ provenance: "human"
 language: "es-ES"
 restoration_note: "Ingested 2026-08-17 verbatim — unlike the T&C, no transport corruption was detected, so nothing was restored. Substantive anomalies were found and deliberately NOT fixed (legal substance is the lawyer's, not the archivist's); they are flagged in the review-flags block below and must be resolved before external use."
 review_flags: |
-  FLAG-1 (critical): §6 tells users to exercise GDPR rights via
-  hello@startupvalencia.org — a third organization's address, template
-  leftover. Contradicts §1 and §8 (legal@numengames.com).
+  FLAG-1 (critical): RESOLVED 2026-08-17 by Oracle order — §6 directed
+  GDPR rights exercise to hello@startupvalencia.org (third-party
+  template leftover); corrected to legal@numengames.com. The published
+  website copy must receive the same fix.
   FLAG-2: §3 numbers its purposes 1, 2, 7, 8 — purposes 3–6 are missing,
   suggesting the source was cut down from a longer template.
   FLAG-3: §5 mentions debt communication on unpaid "cuota de socio"
@@ -33,8 +34,9 @@ review_flags: |
 
 > **Summary:** La Política de Privacidad de www.numen.games (RGPD +
 > LOPDGDD). Artefacto legal exigible — todos los derechos reservados;
-> este texto no se ofrece bajo ninguna licencia abierta. **Contiene 6
-> flags de revisión en el frontmatter — resolver antes de uso externo.**
+> este texto no se ofrece bajo ninguna licencia abierta. **Contiene 5
+> flags de revisión abiertos en el frontmatter (FLAG-1 resuelto por
+> orden del Oráculo) — resolver antes de uso externo.**
 > **Epistemic:** El marco de protección de datos de Numen Games.
 > **Pragmatic:** Fuente canónica de la política publicada en la web.
 > **Audience:** Oracle · Legal · Agents (read-only reference)
@@ -184,11 +186,8 @@ puede retirarlo cuando lo desee, sin que ello afecte a la legalidad del
 tratamiento basado en el consentimiento previo a la retirada.
 
 Para ejercer sus derechos debes contactar con nosotros enviando un email
-a hello@startupvalencia.org o por escrito a la dirección postal que
-consta el apartado 1 de la presente política.
-
-*(Nota de archivo: esa dirección de correo es de una organización
-tercera — ver FLAG-1, crítico, en el frontmatter.)*
+a legal@numengames.com o por escrito a la dirección postal que consta el
+apartado 1 de la presente política.
 
 Siempre que lo considere oportuno puede presentar una reclamación ante la
 autoridad competente, en este caso, la Agencia Española de Protección de
