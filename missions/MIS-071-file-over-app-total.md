@@ -2,7 +2,7 @@
 id: "MIS-071"
 title: "File over App, total: every piece of the system exists as .md"
 type: mission
-status: backlog
+status: in-progress
 version: "1.0.0"
 created: "2026-08-17"
 updated: "2026-08-17"
@@ -16,12 +16,12 @@ guild: "Exegetes"
 type_execution: "digital"
 priority: "high"
 effort: "XL"
-assigned_to: null
+assigned_to: "claude-fable-5"
 requested_by: "oracle"
 requires_oracle_approval: true
 blocked_reason: null
 depends_on: ["MIS-065"]
-started: null
+started: "2026-08-17"
 completed: null
 divergence_log: null
 ---
@@ -133,7 +133,8 @@ next cold agent reads everything the visitor sees.
 
 ## Execution log
 
-*(Fill when executing)*
+- 2026-08-17 — Phase 1 started (audits/auditoria merge): auditoria.astro
+  content extraction to reports/audits/ in progress.
 
 ## Execution Reality
 

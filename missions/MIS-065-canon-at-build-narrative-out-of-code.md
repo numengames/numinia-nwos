@@ -2,7 +2,7 @@
 id: "MIS-065"
 title: "Canon at build time — narrative out of the code regime"
 type: mission
-status: backlog
+status: in-review
 version: "1.0.0"
 created: "2026-08-17"
 updated: "2026-08-17"
