@@ -28,6 +28,7 @@ path = [
   "missions/**", "blueprints/**", "standards/**",
   "README.md", "CHANGELOG.md", "CONTRIBUTING.md", "GOVERNANCE.md",
   "STANDARDS.md", "CLAUDE.md", "TRADEMARKS.md", "LEGAL_DEBT.md",
+  "GAPS.md",
 ]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC-BY-4.0"
@@ -37,6 +38,13 @@ SPDX-License-Identifier = "CC-BY-4.0"
 # This annotation comes after the docs block so it wins over operations/**.
 [[annotations]]
 path = "operations/legal/**"
+SPDX-FileCopyrightText = "2026 Numen Games S.L."
+SPDX-License-Identifier = "LicenseRef-Numen-AllRightsReserved"
+
+# Commercial strategy is born closed (C-005 §1) — MIS-071 phase 2,
+# Oracle-delegated regime decision 2026-08-17.
+[[annotations]]
+path = "operations/strategy/**"
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "LicenseRef-Numen-AllRightsReserved"
 
