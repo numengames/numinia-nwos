@@ -4,10 +4,13 @@ This repository holds work under several regimes, declared per path in
 REUSE.toml with full texts in LICENSES/ (Numinia canon C-005):
 
   - Viewer and scripts (web/**, scripts/**)         MIT
-  - Documentation, ADRs, specs, missions, reports   CC-BY-4.0
-  - Data and indexes (missions-index.json)          CC0-1.0
-  - Lore, narrative, brand (canon/**, guilds/**,
-    agents/**)                                      All rights reserved
+  - Documentation, ADRs, specs, missions, reports,
+    and the governance files inside canon/
+    (C-005-licensing.md, INDEX.md, README.md)       CC-BY-4.0
+  - Data, indexes and repo metadata
+    (missions-index.json, .gitignore)               CC0-1.0
+  - Lore, narrative, brand (canon/** except the
+    governance files above, guilds/**, agents/**)   All rights reserved
                                                     (LicenseRef-Numen-AllRightsReserved)
 
 Where REUSE.toml declares no license for a path, no rights are granted:

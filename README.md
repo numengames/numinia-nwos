@@ -106,4 +106,4 @@ This repository is written in **English** (per [DEC-006](decisions/DEC-006-engli
 
 ---
 
-*Numen Games — Narrative Work OS · CC0-1.0*
+*Numen Games — Narrative Work OS · licensed per path — see [LICENSE](LICENSE)*

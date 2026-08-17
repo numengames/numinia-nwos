@@ -3,7 +3,7 @@
 Per Numinia canon C-005 §7. In English per ADR-008: this is an enforceable
 artifact, not internal governance.
 
-The licenses in this repository (CC0-1.0, MIT) cover copyright. **They do not
+The licenses in this repository (CC0-1.0, CC-BY-4.0, MIT) cover copyright. **They do not
 grant trademark rights.** Excluded from every free license are:
 
 - The names **Numinia**, **Numen Games**, and **Khepri** as identifiers of
