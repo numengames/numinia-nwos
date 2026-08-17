@@ -306,6 +306,16 @@ agents (the audit's readers) stop deriving four contradictory answers to
   41 padded ids unpadded (MIS-000NN → MIS-0NN), tipo:→type_execution:
   ×42, stray phase: fields removed ×7, version: added where missing ×7,
   MIS-065's own summary labels englished. Zero Spanish titles remain.
+- 2026-08-17 — Phase 4: missions-index.json retired (hand-edited file
+  wearing a fake generated stamp, audit F-1). /missions board and
+  detail now build from the flat missions/ folder via Astro's Content
+  Layer (glob loader, base ../missions): board cards server-rendered
+  (filters/search stay client-side over the rendered DOM), detail pages
+  render the full mission markdown. Zero GitHub API calls in the built
+  pages. Fixed en route: three files carried a duplicate status: key
+  from their origin (052/054/055) — js-yaml strict caught what looser
+  parsers had let through. REUSE.toml/LICENSE updated (index's CC0
+  annotation retired with it).
 
 ## Execution Reality
 

@@ -18,7 +18,6 @@ guild: "Sentinels"
 type_execution: "digital"
 priority: "high"
 effort: "L"
-status: "in-progress"
 started: null
 completed: null
 blocked_reason: "PC in transit — pending physical arrival"

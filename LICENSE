@@ -7,8 +7,7 @@ REUSE.toml with full texts in LICENSES/ (Numinia canon C-005):
   - Documentation, ADRs, specs, missions, reports,
     and the governance files inside canon/
     (C-005-licensing.md, INDEX.md, README.md)       CC-BY-4.0
-  - Data, indexes and repo metadata
-    (missions-index.json, .gitignore)               CC0-1.0
+  - Repo metadata (.gitignore)                      CC0-1.0
   - Lore, narrative, brand (canon/** except the
     governance files above, guilds/**, agents/**)   All rights reserved
                                                     (LicenseRef-Numen-AllRightsReserved)

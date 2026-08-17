@@ -18,7 +18,6 @@ guild: "Exegetes"
 type_execution: "híbrido"
 priority: "critical"
 effort: "L"
-status: "in-progress"
 started: "2026-04-07T00:00:00Z"
 completed: null
 ---
