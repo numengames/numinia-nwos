@@ -166,6 +166,14 @@ const arranqueSteps = [
   { n: "03", cmd: "cat agents/guilds/{tu-gremio}/README.md", desc: "Tu rol define tu orden de lectura." },
   { n: "04", cmd: "ls missions/active/", desc: "¿Qué está en movimiento? Aquí empieza la sesión." },
 ];
+import { getCollection } from "astro:content";
+// MIS-065 phase C: the 3D graph data lives in blueprints/BP-archive-fondos.md
+const _bpFondos = (await getCollection("blueprints")).find(
+  (e) => e.data.id === "BP-archive-fondos"
+)!;
+const _graph = (_bpFondos.data as any).graph;
+const graphNodes = (_graph.nodes as any[]).map((n) => ({ ...n, color: Number(n.color) }));
+const graphEdges = _graph.edges as [string, string][];
 ---
 
 <Layout
@@ -613,7 +621,7 @@ const arranqueSteps = [
   }
 </style>
 
-<script is:inline>
+<script is:inline define:vars={{ graphNodes, graphEdges }}>
 (function () {
   // Dialog open/close
   document.querySelectorAll('[data-dialog]').forEach(function (btn) {
@@ -636,22 +644,8 @@ const arranqueSteps = [
   });
 
   // Three.js 3D diagram
-  var nodesData = [
-    { id: 'canon',      label: 'canon/',      subtitle: 'Memoria Inmutable',      color: 0x00ff88, x: 0,  y: 2,    z: 0,    relations: ['agents','missions'] },
-    { id: 'agents',     label: 'agents/',     subtitle: 'Entidades Vivas',        color: 0x00d9c4, x: 2,  y: 0.5,  z: 1,    relations: ['missions'] },
-    { id: 'missions',   label: 'missions/',   subtitle: 'Movimiento',             color: 0xffcc00, x: -2, y: 0.5,  z: 1,    relations: ['decisions','blueprints'] },
-    { id: 'protocols',  label: 'protocols/',  subtitle: 'Rituales Operativos',    color: 0x4488ff, x: 0,  y: 0.5,  z: -2.5, relations: ['agents','missions'] },
-    { id: 'decisions',  label: 'decisions/',  subtitle: 'Voluntad Cristalizada',  color: 0xaa44ff, x: 2,  y: -1,   z: -1,   relations: [] },
-    { id: 'blueprints', label: 'blueprints/', subtitle: 'Potencial',              color: 0x8844cc, x: -2, y: -1,   z: -1,   relations: ['missions','protocols'] },
-    { id: 'operations', label: 'operations/', subtitle: 'Sistema Circulatorio',   color: 0xff8800, x: 0,  y: -2,   z: 0.5,  relations: ['agents','missions'] },
-  ];
-  var edgesData = [
-    ['canon','agents'], ['canon','missions'],
-    ['protocols','agents'], ['protocols','missions'],
-    ['operations','agents'], ['operations','missions'],
-    ['missions','decisions'], ['missions','blueprints'],
-    ['agents','missions'],
-  ];
+  var nodesData = graphNodes;
+  var edgesData = graphEdges;
 
   function buildScene(THREE, el, w, h) {
     var scene = new THREE.Scene();

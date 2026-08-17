@@ -4,123 +4,19 @@
 import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
 
-const fondosData = [
-  {
-    id: 'canon',
-    titulo: 'Canon',
-    subtitulo: 'Memoria Inmutable',
-    icono: '📜',
-    color: 'green',
-    descripcion: 'Los 9 documentos fundacionales de Numinia. Inmutables por política y por técnica. Son el suelo sobre el que todo lo demás se construye.',
-    lore: 'El Archive no comenzó con código. Comenzó con nueve preguntas que nadie supo responder sin ponerse de acuerdo.',
-    governance: 'Solo Oracle puede modificar. CODEOWNERS bloqueante. Sin excepciones.',
-    documentos: [
-      { nombre: 'Welcome to Numinia', desc: 'Puerta de entrada al mundo. Contexto histórico y propósito del sistema.', file: 'welcome-to-numinia.md' },
-      { nombre: 'Numinia Brand & Culture', desc: 'Identidad visual, verbal y cultural de Numinia v0.1.2.', file: 'numinia-brand-and-culture.md' },
-      { nombre: 'Epistemic Relations', desc: 'La tríada OS→Modelo→Narrativa. Peirce + Jung aplicados a organizaciones.', file: 'epistemic-relations.md' },
-      { nombre: 'Compendium of Attributes', desc: 'Sistema de atributos, rangos y ficha de personaje del agente.', file: 'compendium-of-attributes.md' },
-      { nombre: 'Role Structure', desc: 'Teoría de roles: Nivel Básico (gremios) + Prototipo (facciones).', file: 'role-structure.md' },
-      { nombre: 'Platform Role System', desc: 'Rangos y permisos de la plataforma Digital Goods v2.', file: 'platform-role-system.md' },
-      { nombre: 'About Session Zero', desc: '4 escape rooms de introducción, sellos, Celdas Prisma.', file: 'about-session-zero.md' },
-      { nombre: 'Numinia — El Juego de Rol', desc: 'Manual RPG completo en español. ~4.600 líneas.', file: 'numinia-el-juego-de-rol.md' },
-      { nombre: 'Archive System', desc: 'El sistema de archivo documental de Numinia. Cómo se organiza el conocimiento.', file: 'archive-system.md' },
-    ]
-  },
-  {
-    id: 'agents',
-    titulo: 'Agentes',
-    subtitulo: 'Entidades Vivas',
-    icono: '🤖',
-    color: 'teal',
-    descripcion: 'Los agentes digitales que operan en el sistema. Organizados por gremio. Cada uno con identidad (SOUL), reglas (OPERATOR) y estado operativo (STATUS).',
-    lore: 'No son herramientas. Son funciones vivas que existen mientras operan dentro de sus reglas.',
-    governance: 'SOUL y OPERATOR solo los modifica Oracle. STATUS lo actualiza el propio agente.',
-    documentos: [
-      { nombre: 'Nimrod — SOUL.md', desc: 'Guardián de las Puertas. Centinela-01. Identidad, voz, valores, límites.', file: 'agents/guilds/centinelas/members/nimrod/SOUL.md' },
-      { nombre: 'Nimrod — OPERATOR.md', desc: 'Las 4 leyes operativas de Nimrod. Lo que puede y no puede hacer.', file: 'agents/guilds/centinelas/members/nimrod/OPERATOR.md' },
-      { nombre: 'Adonaz — SOUL.md', desc: 'Archivista General. Exégeta. El custodio del conocimiento de Numinia.', file: 'agents/guilds/exegetas/members/adonaz/SOUL.md' },
-      { nombre: 'Charter — Centinelas', desc: 'Reglas comunes del gremio Centinelas. Seguridad, guardia, puertas.', file: 'agents/guilds/centinelas/charter.md' },
-      { nombre: 'Charter — Exégetas', desc: 'Reglas comunes del gremio Exégetas. Conocimiento, archivo, narrativa.', file: 'agents/guilds/exegetas/charter.md' },
-    ]
-  },
-  {
-    id: 'missions',
-    titulo: 'Misiones',
-    subtitulo: 'Movimiento',
-    icono: '⚡',
-    color: 'yellow',
-    descripcion: 'Las tareas con criterios de aceptación verificables. Una misión es la unidad mínima de trabajo del sistema. Cuando se completa, permanece con su Ejecución Real documentada.',
-    lore: 'Una misión no termina cuando se cierra. Termina cuando se entiende por qué divergió del plan.',
-    governance: 'Solo el executor edita su misión activa. Done/ es inmutable.',
-    documentos: [
-      { nombre: 'Mission Template v2', desc: 'Plantilla estándar con divergence_log, executor, blocked_reason.', file: 'missions/TEMPLATE.md' },
-      { nombre: 'MIS-037 — Archive Summa', desc: 'La misión de crear este repositorio. En curso.', file: 'missions/MIS-037.md' },
-      { nombre: 'MIS-051 — Gmail/Drive/Calendar', desc: 'Integración de Google Workspace con gog CLI. Completada.', file: 'missions/MIS-051.md' },
-      { nombre: 'MIS-054 — Acceso multi-Oráculo', desc: 'Onboarding de Oráculos a Telegram con Nimrod. En curso.', file: 'missions/MIS-054.md' },
-    ]
-  },
-  {
-    id: 'protocols',
-    titulo: 'Protocolos',
-    subtitulo: 'Rituales Operativos',
-    icono: '📋',
-    color: 'blue',
-    descripcion: 'Los procedimientos exactos para iniciar sesiones, ejecutar misiones, coordinarse entre agentes y escalar decisiones. Nunca se editan — se versionan.',
-    lore: 'Un ritual no es burocracia. Es la forma en que el sistema recuerda cómo hacerlo bien.',
-    governance: 'Nueva versión = nuevo archivo. Nunca editar en sitio. Oracle aprueba.',
-    documentos: [
-      { nombre: 'P-001 Briefing de Agente v1', desc: 'El arranque canónico. 4 pasos inviolables para iniciar cualquier sesión.', file: 'protocols/P-001-briefing-agente-v1.md' },
-      { nombre: 'P-002 Onboarding de Agente v1', desc: 'Cómo incorporar un nuevo agente al sistema sin perder coherencia.', file: 'protocols/P-002-onboarding-agente-v1.md' },
-      { nombre: 'P-003 Ciclo de Misión v1', desc: 'Crear, ejecutar, documentar y cerrar una misión correctamente.', file: 'protocols/P-003-ciclo-mision-v1.md' },
-      { nombre: 'P-004 Inter-Agent v1', desc: 'Coordinación entre agentes sin ambigüedad ni conflictos de escritura.', file: 'protocols/P-004-inter-agent-v1.md' },
-      { nombre: 'P-005 Escalation v1', desc: 'Cuándo y cómo escalar al coordinador o al Oracle.', file: 'protocols/P-005-escalation-v1.md' },
-    ]
-  },
-  {
-    id: 'decisions',
-    titulo: 'Decisiones',
-    subtitulo: 'Voluntad Cristalizada',
-    icono: '🗿',
-    color: 'purple',
-    descripcion: 'Las decisiones arquitectónicas que no se revisan, solo se superan. Cada ADR existe porque alguien tuvo que elegir y lo hizo explícitamente. Son el registro permanente del por qué.',
-    lore: 'Una decisión no documentada es una deuda que otro pagará sin saber que existe.',
-    governance: 'Append-only. Nunca eliminar. Solo se puede añadir "superseded by ADR-XXX".',
-    documentos: [
-      { nombre: 'ADR-001 — GitHub como Archive', desc: '¿Por qué GitHub y no Notion, Confluence u otro sistema?', file: 'decisions/ADR-001-github-como-archivo.md' },
-      { nombre: 'ADR-002 — Markdown Universal', desc: '¿Por qué .md y no PDF, Word u otros formatos?', file: 'decisions/ADR-002-formato-markdown.md' },
-    ]
-  },
-  {
-    id: 'blueprints',
-    titulo: 'Blueprints',
-    subtitulo: 'Potencial No Manifestado',
-    icono: '🔮',
-    color: 'indigo',
-    descripcion: 'Los diseños y arquitecturas que están siendo pensados. El Archive Summa mismo comenzó como un blueprint. Aquí vive el futuro antes de ser presente.',
-    lore: 'Todo lo que existe fue primero potencial. Los blueprints son el lugar donde el potencial espera.',
-    governance: 'Oracle y agentes pueden crear. Oracle aprueba el merge.',
-    documentos: [
-      { nombre: 'Archive Summa — Arquitectura v0.1.0', desc: 'Estructura completa, governance, permisos y jerarquía de delegación.', file: 'archive-summa-arquitectura-v0.1.0.md', descargable: true, downloadPath: '/archive/archive-summa-arquitectura-v0.1.0.md' },
-      { nombre: 'Archive Summa — Fundacional v0.1.0', desc: '100 simulaciones, 12 principios operativos, protocolo de arranque canónico.', file: 'archive-summa-fundacional-v0.1.0.md', descargable: true, downloadPath: '/archive/archive-summa-fundacional-v0.1.0.md' },
-      { nombre: 'Prompt para IAs v0.1.0', desc: 'Prompt completo para estudiar el Archive Summa con cualquier IA externa.', file: 'archive-summa-prompt-v0.1.0.md', descargable: true, downloadPath: '/archive/archive-summa-prompt-v0.1.0.md' },
-    ]
-  },
-  {
-    id: 'operations',
-    titulo: 'Operaciones',
-    subtitulo: 'Sistema Circulatorio',
-    icono: '⚙️',
-    color: 'orange',
-    descripcion: 'Las reglas de quién puede hacer qué, los mapas de credenciales y las políticas de seguridad. Es el sistema circulatorio que mantiene todo cohesionado.',
-    lore: 'Sin governance explícita, el sistema se deteriora. Sin seguridad, el sistema se expone.',
-    governance: 'Oracle modifica. Agentes pueden proponer via PR.',
-    documentos: [
-      { nombre: 'Governance', desc: 'Tabla completa: quién puede crear, modificar, archivar cada tipo de documento.', file: 'operations/governance.md' },
-      { nombre: 'Security Policy', desc: 'Reglas de seguridad del sistema. Qué nunca va en el repo.', file: 'operations/security-policy.md' },
-      { nombre: 'Credential Map', desc: 'Estructura de credenciales sin valores reales. Mapa de dónde vive qué.', file: 'operations/credential-map.md' },
-    ]
-  }
-];
+import { getCollection } from "astro:content";
+
+// MIS-065 phase C: fondo data lives in blueprints/BP-archive-fondos.md
+// (CC-BY) and the lore lines in canon/archive-lore.md (reserved).
+const bpEntry = (await getCollection("blueprints")).find(
+  (e) => e.data.id === "BP-archive-fondos"
+)!;
+const loreEntry = (await getCollection("canonLore"))[0];
+const loreMap = ((loreEntry?.data as any)?.lore ?? {}) as Record<string, string>;
+const fondosData = ((bpEntry.data as any).fondos as any[]).map((f) => ({
+  ...f,
+  lore: loreMap[f.id] ?? "",
+}));
 
 export function getStaticPaths() {
   const fondos = [

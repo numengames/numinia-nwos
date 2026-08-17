@@ -70,4 +70,11 @@ const blueprints = defineCollection({
     .passthrough(),
 });
 
-export const collections = { missions, audits, decisions, blueprints };
+// The fondos' lore lines — reserved-regime canon content, kept in its own
+// file (one file, one regime; C-005 §5) and read here only for display.
+const canonLore = defineCollection({
+  loader: glob({ pattern: "archive-lore.md", base: "../canon" }),
+  schema: z.object({ lore: z.record(z.string(), z.string()) }).passthrough(),
+});
+
+export const collections = { missions, audits, decisions, blueprints, canonLore };
