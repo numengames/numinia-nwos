@@ -2,6 +2,12 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+**First instruction (AGT-01): audit the current branch state before assuming anything.** Never trust that the repo matches this file, a README, or a mission brief — read what is actually there first.
+
+## Engineering standards (adopted by reference)
+
+This repo adopts `standards/engineering-standards.md` by reference (its §6). Agents MUST follow its §7 application protocol: classify every task as cosmetic or irreversible; when in doubt it is irreversible and needs Oracle sign-off. Never change LICENSE/SPDX/REUSE structure, repo visibility, or secrets autonomously; never weaken a check to make a task pass. Reference practice IDs (e.g. `SEC-07`, `ARC-03`) in commits that touch them. The canonical copy of that document lives upstream (`numen-games-nwos-orgs/nwos-workspace-template`); do not edit the local copy — changes go upstream via ADR + PR. Scorecard checks in scope here: all except those requiring org-level settings (tracked in MIS-070).
+
 ## Repository layout
 
 This is the Numinia NWOS workspace: canon, lore, guilds, missions, protocols and operations live in the root directories (`canon/`, `missions/`, `guilds/`, `protocols/`, `operations/`, …). The public viewer for that canon is an Astro app in `web/`, extracted from `numinia-nwos-viewer`.
@@ -11,7 +17,7 @@ This is the Numinia NWOS workspace: canon, lore, guilds, missions, protocols and
 - `npm run dev` — dev server at http://localhost:4321
 - `npm run build` — production build to `web/dist/`
 
-No tests, lint, or CI. Node ≥ 22.12 required.
+No tests or lint yet (MIS-070). CI (`.github/workflows/ci.yml`) runs the licence-frontmatter guard (`node scripts/check-license-frontmatter.mjs`) and the web build on every push/PR; OpenSSF Scorecard runs weekly. Node ≥ 22.12 required.
 
 ## Stack & architecture (`web/`)
 

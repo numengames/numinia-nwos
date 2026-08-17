@@ -100,7 +100,30 @@ by a stricter parser stumbling over it months later.
 
 ## Execution log
 
-*(Fill when executing)*
+- 2026-08-17 — The Oracle delivered `standards/engineering-standards.md`
+  v0.1.0 (canonical upstream: `numen-games-nwos-orgs/
+  nwos-workspace-template`; this repo holds a downstream copy — do not
+  edit locally, §7.1). It IS the plan this mission was chartered to
+  maintain; this mission now tracks its adoption across repos.
+  Applied to numinia-nwos same day (cosmetic tier, §7.3): adopted by
+  reference in CLAUDE.md (AGT-01 first-instruction + AGT-06 stance);
+  first CI ever — `.github/workflows/ci.yml` (licence guard + build;
+  ARC-01 adapted, AGT-04, SEC-07 SHA-pinned, SEC-08 read-only token)
+  and `scorecard.yml` (§3.1, measurement before enforcement; SARIF
+  upload omitted while the GitHub API is unstable); SECURITY.md
+  (SEC-09, contact legal@numengames.com pending a dedicated security
+  alias); CODEOWNERS (SEC-10, needs branch protection to bite);
+  PR template with DoD + minimal issue template (PM-02).
+  **[MANUAL] debt observed, not touched (§7.4):** org 2FA/base
+  permissions (SEC-01/11), secret scanning + push protection + 
+  Dependabot toggles (SEC-02/03), branch protection on main — PRs are
+  not required today (ARC-02/DEV-07), repo About lacks homepage
+  (numinia.org) and topics (PM-01), no CODE_OF_CONDUCT (OSS-02 — CoC
+  choice is the Oracle's), no labels standard (PM-03), no conventional
+  commits/commitlint (ARC-06), no social preview (OSS-05), and this
+  repo went public before the LEG-01 gate existed (retroactive
+  checklist pending). Roadmap-as-file (PM-05) is satisfied by the
+  missions/ board itself.
 
 ## Execution Reality
 

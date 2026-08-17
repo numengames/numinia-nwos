@@ -1,0 +1,34 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: MIT
+#
+# ARC-01 (adapted): this repo's real pipeline today is licence-guard →
+# build; it has no type-check/lint/test stages yet (MIS-070 tracks
+# adding them). AGT-04: this workflow is the agents' feedback loop.
+# SEC-07: actions pinned by commit SHA. SEC-08: read-only token.
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions: read-all
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: licence-frontmatter guard (C-005 §5)
+        run: node scripts/check-license-frontmatter.mjs
+      - name: install
+        run: npm ci
+        working-directory: web
+      - name: build
+        run: npm run build
+        working-directory: web

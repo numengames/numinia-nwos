@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: MIT
+#
+# OpenSSF Scorecard — engineering-standards.md §3.1: measurement before
+# enforcement. Weekly + on push to main; results published to the
+# OpenSSF API (badge). SARIF upload to code scanning deliberately
+# omitted for now (GitHub API instability at adoption time); the raw
+# results are kept as a build artifact.
+name: scorecard
+
+on:
+  schedule:
+    - cron: "30 5 * * 1"
+  push:
+    branches: [main]
+
+permissions: read-all
+
+jobs:
+  analysis:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # required by publish_results
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
+      - uses: ossf/scorecard-action@05b42c624433fc40578a4040d5cf5e36ddca8cde # v2.4.2
+        with:
+          results_file: results.json
+          results_format: json
+          publish_results: true
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: scorecard-results
+          path: results.json
+          retention-days: 30
