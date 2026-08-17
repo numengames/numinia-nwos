@@ -133,8 +133,12 @@ next cold agent reads everything the visitor sees.
 
 ## Execution log
 
-- 2026-08-17 — Phase 1 started (audits/auditoria merge): auditoria.astro
-  content extraction to reports/audits/ in progress.
+- 2026-08-17 — Phase 1 DONE (audits/auditoria merge): all 16
+  divergences, root cause, score history, checklist and next steps
+  extracted verbatim to reports/audits/2026-04-07-auditoria-sistema.md
+  (supersedes the thinner blueprints/AUDIT-2026-04-07 record, which
+  stays as history); auditoria.astro deleted; /auditoria redirects to
+  /audits; nav duplicate removed. One page, one folder — as ordered.
 
 ## Execution Reality
 

@@ -16,6 +16,7 @@ export default defineConfig({
 	output: "static",
 	// /misiones merged into /missions (MIS-066); old URLs keep resolving.
 	redirects: {
+		"/auditoria": "/audits",
 		"/misiones": "/missions",
 		"/misiones/[id]": "/missions/[id]",
 	},
