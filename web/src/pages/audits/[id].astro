@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: MIT
 // Audit detail rendered at build from reports/audits/ (MIS-066 pattern).
 import Layout from "@/layouts/Layout.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -13,6 +14,8 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const f = entry.data as Record<string, any>;
+const mdFilename = (entry.filePath as string).split("/").pop()!;
+const mdUrl = `/audits/${entry.id}.md`;
 ---
 
 <Layout
@@ -40,6 +43,7 @@ const f = entry.data as Record<string, any>;
 
       <h1 class="font-display text-3xl sm:text-4xl text-foreground mb-8">{f.title}</h1>
 
+      <DocToolbar mdUrl={mdUrl} filename={mdFilename} />
       <article class="mission-md rounded-xl border border-border bg-card p-6 sm:p-8">
         <Content />
       </article>
