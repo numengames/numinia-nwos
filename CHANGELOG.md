@@ -14,6 +14,14 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-08-17 (MIS-066, mission system unification)
+- missions/ flattened: 81 files in 4 status directories → 66 unique missions in one folder; `status:` frontmatter is the only state surface
+- All missions in English; 15 duplicate IDs merged; MIS-00058 renumbered to MIS-067 (collision with MIS-058); padded IDs unpadded
+- States renamed: todo→backlog, freeze→frozen; draft added (P-003 v3.0.0, STANDARDS §4B/§5 updated)
+- /missions builds from missions/ at deploy; /misiones and missions-index.json retired (redirects in place)
+- queue/INDEX.md and protocols/P-001-briefing-agente-v1.md deleted (stale duplicates)
+- Earlier same day (LD-001 closure): presentation layer aligned with per-path licensing, SPDX headers in all first-party code, frontmatter license fields matched to REUSE.toml, license guard added to the build
+
 ## [0.5.0] — 2026-04-07 (evening)
 
 ### Added

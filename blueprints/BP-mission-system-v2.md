@@ -14,6 +14,13 @@ area: "CAO / Product"
 related_missions: ["MIS-057", "MIS-062"]
 license: "CC-BY-4.0"
 ---
+
+> **2026-08-17 — partially superseded by MIS-066:** the folder-per-state
+> layout described here was replaced by a flat `missions/` folder with
+> `status:` in frontmatter as the only state surface (P-003 v3.0.0).
+> States renamed todo→backlog, freeze→frozen. This document remains as
+> the v2 design record.
+
 # BP — Mission System v2
 
 > **Summary:** Complete redesign of the NWOS mission system — states, IDs, sub-missions, and Kanban board.

@@ -115,12 +115,8 @@ agents/nimrod/
 numinia-digital-agents/
 ├── agents/              ← Agent files (SOUL, OPERATOR, STATUS, MEMORY)
 ├── missions/
-│   ├── queue/           ← To Do
-│   ├── active/          ← In Progress (executor's file)
-│   ├── review/          ← In Review (Oracle QA pending)
-│   ├── done/            ← Completed — immutable
-│   └── freeze/          ← Intentionally paused
-├── missions-index.json  ← Machine-readable index (feeds pablofm.com/missions)
+│   └── MIS-NNN-*.md     ← flat; status: frontmatter is the only state
+│                          surface (MIS-066), board built from the folder
 ├── protocols/           ← P-001 through P-009+
 ├── blueprints/          ← System design documents
 ├── decisions/           ← ADRs and strategic decisions
@@ -186,10 +182,10 @@ P-006 (end — always)
 ### Mission lifecycle flow
 ```
 Oracle (Telegram) → Nimrod reads P-009 → Mission registered in repo
-→ Mission moves to active/ → Agent executes
-→ Mission moves to review/ → Oracle does QA
-→ Oracle approves → Mission moves to done/
-→ missions-index.json updated → pablofm.com/missions reflects change
+→ status: in-progress → Agent executes
+→ status: in-review → Oracle does QA
+→ Oracle approves → status: done (file immutable)
+→ push to main → numinia.org/missions rebuilds from missions/
 ```
 
 ### Daily report flow
@@ -238,7 +234,7 @@ CEO visits pablofm.com/velo → Fills DeployForm
 ## Metrics & observability
 
 ### Current (v0.1.0)
-- Mission count by status (via missions-index.json)
+- Mission count by status (frontmatter of missions/, rendered at numinia.org/missions)
 - Daily + weekly reports (cron)
 - Manual cost tracking (until MIS-048)
 

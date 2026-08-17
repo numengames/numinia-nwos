@@ -2,7 +2,7 @@
 id: "MIS-066"
 title: "Unify the mission system: one folder, one language, one page"
 type: mission
-status: in-progress
+status: in-review
 version: "1.0.0"
 created: "2026-08-17"
 updated: "2026-08-17"
@@ -21,6 +21,7 @@ requires_oracle_approval: true
 blocked_reason: null
 depends_on: []
 started: "2026-08-17"
+in_review_at: "2026-08-17"
 completed: null
 divergence_log: null
 ---
@@ -231,20 +232,21 @@ is the frontend's concern).
 
 ## Acceptance criteria
 
-- [ ] `missions/` is flat: 66 mission files + TEMPLATE.md, nothing else.
-- [ ] Every file is English (title, body, slug) with canonical frontmatter.
-- [ ] No duplicate IDs; old IDs resolve (only `MIS-00058` → `MIS-067`
+- [x] `missions/` is flat: 67 mission files (66 legacy + this brief) +
+      TEMPLATE.md, nothing else.
+- [x] Every file is English (title, body, slug) with canonical frontmatter.
+- [x] No duplicate IDs; old IDs resolve (only `MIS-00058` → `MIS-067`
       changed identity, recorded here).
-- [ ] One status vocabulary; directory no longer encodes state.
-- [ ] https://numinia.org/missions builds from the folder; `/misiones`
+- [x] One status vocabulary; directory no longer encodes state.
+- [x] https://numinia.org/missions builds from the folder; `/misiones`
       redirects to it; no client-side GitHub API hydration for content
       present in the checkout.
-- [ ] `missions-index.json` and `queue/INDEX.md` gone; nothing references
-      them.
-- [ ] Repo-wide grep of every merged/renumbered ID returns zero
+- [x] `missions-index.json` and `queue/INDEX.md` gone; nothing references
+      them outside historical records.
+- [x] Repo-wide grep of every merged/renumbered ID returns zero
       references to dead IDs or dead paths (Phase 2 gate).
-- [ ] Docs describe the real system; P-001 has exactly one path.
-- [ ] The `mis-066-pre-unification` tag exists on origin and restores the
+- [x] Docs describe the real system; P-001 has exactly one path.
+- [x] The `mis-066-pre-unification` tag exists on origin and restores the
       pre-unification state at any moment.
 
 ## Epistemic value
@@ -324,13 +326,42 @@ agents (the audit's readers) stop deriving four contradictory answers to
   canonical+noindex: /misiones → /missions and /misiones/[id] →
   /missions/[id] for all 67 ids — every old URL keeps resolving.
   Build: 109 pages.
+- 2026-08-17 — Phase 6: docs synchronized. P-003 → v3.0.0 (states
+  without folders); P-001's Spanish twin deleted (the English file is a
+  strict superset; MIS-064 had already claimed this deletion done —
+  now it is true) and CONTRIBUTING repointed — P-001 has exactly one
+  path; README (flat tree, real protocol links + P-009, board →
+  numinia.org/missions); GOVERNANCE mission rows keyed by status
+  (including retiring the missions/backlog/ row for a folder that
+  never existed); STANDARDS §4B/§5 (flat layout, canonical states,
+  type_execution, license example CC0→CC-BY per regime); CLAUDE.md
+  mission-data section; CHANGELOG [Unreleased] filled (audit F-1.4);
+  live references in P-001/P-009/BP-cao-architecture fixed;
+  BP-mission-system-v2 marked partially superseded (kept as v2 design
+  record); archive-summa v0.1.0 snapshots left as history. Follow-up
+  flagged, not absorbed: protocol filenames still carry Spanish slugs
+  (P-002-onboarding-agente-v1.md etc.) — a rename mission if the
+  Oracle wants filename-level English there too.
 
 ## Execution Reality
 
-*(Fill when closing the mission)*
-
-- **Technology/approach used:**
-- **Why it diverged:**
-- **Key learning:**
-- **Closing date:**
-- **Executing agent:**
+- **Technology/approach used:** Six phases, one commit or batch each,
+  Oracle gate between phases, on branch `mis-066-unify-missions` with
+  an annotated revert tag on main. git mv for history-preserving
+  renames; three parallel translation agents for the language sweep;
+  Astro 5 Content Layer (glob loader over ../missions) replaced both
+  the hand-kept index and the client-side GitHub hydration.
+- **Why it diverged:** MIS-038's merge moved from Phase 2 to Phase 1
+  (filename collision at flatten). The misiones.ts "recovery" turned
+  out to be verification — the repo already contained everything,
+  translated, which nobody knew until checked. Three files carried
+  duplicate status: keys that only the stricter build-time parser
+  caught. The 5-digit ID normalization from MIS-057 had to be reversed
+  file by file.
+- **Key learning:** the mission corpus had five state surfaces because
+  each generation added one without retiring the last. The unification
+  was mostly deletion — and the only content that existed nowhere else
+  was half a sentence. Surfaces rot; folders lie; frontmatter plus a
+  build from the folder cannot drift from itself.
+- **Closing date:** 2026-08-17 (pending Oracle approval)
+- **Executing agent:** claude-fable-5 (session agent), Oracle: Pablo

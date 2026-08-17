@@ -49,9 +49,9 @@ Apply P-009 when:
 Before reading the briefing, the mission must exist in the repo.
 
 ```
-IF missions/queue/MIS-NNN-*.md does not exist:
+IF missions/MIS-NNN-*.md does not exist:
   CREATE it following STANDARDS.md frontmatter schema
-  SET status: todo
+  SET status: backlog
   COMMIT to repo
   THEN proceed to Step 2
 
@@ -145,7 +145,7 @@ Feature: Mission Briefing Protocol
   Scenario: Agent receives a new mission and follows P-009
     Given a new mission "MIS-070" arrives via Oracle instruction
     When the agent applies P-009
-    Then the mission file exists in missions/active/ before any work begins
+    Then the mission file exists in missions/ with status: in-progress before any work begins
     And the agent can state the deliverable clearly
     And the agent can state what "done" looks like
 

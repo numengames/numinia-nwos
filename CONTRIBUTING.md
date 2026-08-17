@@ -36,7 +36,7 @@ This repository is the canonical truth of the Numinia Digital Agents system.
 
 ## For agents
 
-Read `protocols/P-001-briefing-agente-v1.md` before starting any work session.
+Read `protocols/P-001-agent-briefing.md` before starting any work session.
 
 ---
 

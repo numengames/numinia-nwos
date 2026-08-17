@@ -49,14 +49,8 @@ numinia-digital-agents/
 │   ├── nimrod/
 │   ├── adonaz/
 │   └── ...
-├── missions/            # Mission system (P-003)
-│   ├── queue/           # To Do
-│   ├── active/          # In Progress
-│   ├── review/          # In Review
-│   ├── done/            # Completed (immutable)
-│   └── freeze/          # Paused
-├── missions-index.json  # Machine-readable mission index (consumed by pablofm.com)
-├── protocols/           # Operational protocols (P-001 to P-008)
+├── missions/            # Mission system (P-003) — flat; status in frontmatter
+├── protocols/           # Operational protocols (P-001 to P-009)
 ├── operations/          # Security policy, credential map
 ├── blueprints/          # System design documents
 ├── decisions/           # Architectural Decision Records (ADR)
@@ -70,26 +64,30 @@ numinia-digital-agents/
 | Protocol | Purpose |
 |----------|---------|
 | [P-001](protocols/P-001-agent-briefing.md) | Session startup — mandatory for every agent |
-| [P-002](protocols/P-002-agent-onboarding.md) | New agent onboarding |
-| [P-003](protocols/P-003-mission-cycle.md) | Mission lifecycle (create → execute → close) |
-| [P-004](protocols/P-004-inter-agent-comms.md) | Inter-agent communication |
-| [P-005](protocols/P-005-escalation.md) | Escalation to Oracle |
-| [P-006](protocols/P-006-session-close.md) | Session close — mandatory |
-| [P-007](protocols/P-007-context-load.md) | Context load self-monitoring |
-| [P-008](protocols/P-008-approval-brief.md) | Approval request format |
+| [P-002](protocols/P-002-onboarding-agente-v1.md) | New agent onboarding |
+| [P-003](protocols/P-003-ciclo-mision-v1.md) | Mission lifecycle (create → execute → close) |
+| [P-004](protocols/P-004-inter-agent-v1.md) | Inter-agent communication |
+| [P-005](protocols/P-005-escalation-v1.md) | Escalation to Oracle |
+| [P-006](protocols/P-006-session-close-v1.md) | Session close — mandatory |
+| [P-007](protocols/P-007-context-load-v1.md) | Context load self-monitoring |
+| [P-008](protocols/P-008-approval-brief-v1.md) | Approval request format |
+| [P-009](protocols/P-009-mission-briefing.md) | Mission briefing format |
 
 ---
 
 ## Mission System
 
-Missions follow **P-003 v2.0.0**:
+Missions follow **P-003 v3.0.0** (MIS-066):
 
-- **IDs:** `MIS-NNN` (3 digits) · sub-missions `MIS-NNN.N`
-- **States:** `todo` → `in-progress` → `in-review` → `done` (also `freeze`, `cancelled`)
+- **One flat folder:** `missions/MIS-NNN-english-slug.md` — the `status:`
+  frontmatter field is the only state surface
+- **IDs:** `MIS-NNN` (3 digits, sequential) · sub-missions `MIS-NNN.N`
+- **States:** `draft` → `backlog` → `in-progress` → `in-review` → `done`
+  (also `frozen`, `cancelled`)
 - **Types:** `biological` 🧬 · `digital` 🤖 · `hybrid` 🔀
 - **Effort:** XS · S · M · L · XL
 
-Live mission board: [pablofm.com/missions](https://pablofm.com/missions)
+Live mission board: [numinia.org/missions](https://numinia.org/missions) — built from `missions/` on every deploy.
 
 ---
 
