@@ -1,44 +1,46 @@
 ---
-id: "MIS-00009"
-title: "Piloto cerrado con 5 usuarios beta"
+id: "MIS-009"
+title: "Closed pilot with 5 beta users"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Producto"
-guild: "Alquimistas"
-tipo: "híbrido"
+updated: "2026-08-17T00:00:00Z"
+area: "Product"
+guild: "Alchemists"
+type_execution: "hybrid"
 priority: "high"
 effort: "L"
 license: "CC-BY-4.0"
 ---
-# MIS-009 — Piloto cerrado con 5 usuarios beta
+# MIS-009 — Closed pilot with 5 beta users
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Producto · **Gremio:** Alquimistas · **Tipo:** 🔀 Híbrido · **Prioridad:** 🟠 Alta · **Esfuerzo:** L
+**Area:** Product · **Guild:** Alchemists · **Type:** 🔀 Hybrid · **Priority:** 🟠 High · **Effort:** L
 
-## Historia
+## Story
 
-Como equipo de producto, quiero ejecutar Numinia con 5 organizaciones reales en un piloto cerrado, para validar el modelo antes del lanzamiento.
+As a product team, I want to run Numinia with 5 real organizations in a closed pilot, to validate the model before launch.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] 5 organizaciones reclutadas y comprometidas
-- [ ] Al menos 2 sesiones por organización
-- [ ] Feedback estructurado recopilado post-sesión
-- [ ] NPS ≥ 8 en al menos 3 organizaciones
-- [ ] Case study de al menos 1 caso documentado
+- [ ] 5 organizations recruited and committed
+- [ ] At least 2 sessions per organization
+- [ ] Structured feedback collected post-session
+- [ ] NPS ≥ 8 in at least 3 organizations
+- [ ] Case study of at least 1 case documented
 
-## Valor epistémico
+## Epistemic value
 
-Valida si el modelo funciona fuera del equipo fundador.
+Validates whether the model works outside the founding team.
 
-## Valor pragmático
+## Pragmatic value
 
-Prueba social + aprendizaje real antes de escalar.
+Social proof + real learning before scaling.

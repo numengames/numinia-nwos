@@ -1,43 +1,45 @@
 ---
-id: "MIS-00013"
-title: "Sistema de monitoreo y alertas"
+id: "MIS-013"
+title: "Monitoring and alerts system"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Infraestructura"
-guild: "Centinelas"
-tipo: "digital"
+updated: "2026-08-17T00:00:00Z"
+area: "Infrastructure"
+guild: "Sentinels"
+type_execution: "digital"
 priority: "high"
 effort: "S"
 license: "CC-BY-4.0"
 ---
-# MIS-013 — Sistema de monitoreo y alertas
+# MIS-013 — Monitoring and alerts system
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Infraestructura · **Gremio:** Centinelas · **Tipo:** 🤖 Digital · **Prioridad:** 🟠 Alta · **Esfuerzo:** S
+**Area:** Infrastructure · **Guild:** Sentinels · **Type:** 🤖 Digital · **Priority:** 🟠 High · **Effort:** S
 
-## Historia
+## Story
 
-Como operador, quiero saber inmediatamente si un servicio cae, para restablecer operación antes de que afecte a usuarios.
+As an operator, I want to know immediately if a service goes down, to restore operation before it affects users.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] Uptime monitoring para pablofm.com, numengames.com, Umami, Cal.com
-- [ ] Alerta por Telegram en caída
-- [ ] Dashboard de estado visible
-- [ ] Tiempo de detección < 2 minutos
+- [ ] Uptime monitoring for pablofm.com, numengames.com, Umami, Cal.com
+- [ ] Telegram alert on outage
+- [ ] Visible status dashboard
+- [ ] Detection time < 2 minutes
 
-## Valor epistémico
+## Epistemic value
 
-Revela la estabilidad real de la infraestructura en producción.
+Reveals the real stability of the infrastructure in production.
 
-## Valor pragmático
+## Pragmatic value
 
-Cero downtime sin intervención humana permanente.
+Zero downtime without permanent human intervention.

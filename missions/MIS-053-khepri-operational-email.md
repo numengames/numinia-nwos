@@ -1,5 +1,5 @@
 ---
-id: "MIS-00053"
+id: "MIS-053"
 title: "Khepri — Numen Games email operational"
 type: mission
 status: done
@@ -15,10 +15,9 @@ assigned_to: "nimrod"
 requested_by: "oracle"
 area: "CAO"
 guild: "Sentinels"
-tipo: "digital"
+type_execution: "digital"
 priority: "high"
 effort: "S"
-phase: "done"
 started: "2026-04-05T00:00:00Z"
 completed: "2026-04-05T00:00:00Z"
 ---

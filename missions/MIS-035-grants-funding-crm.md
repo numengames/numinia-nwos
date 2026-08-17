@@ -1,43 +1,45 @@
 ---
-id: "MIS-00035"
-title: "CRM de grants y financiación"
+id: "MIS-035"
+title: "Grants and funding CRM"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Financiación"
-guild: "Procuradores"
-tipo: "digital"
+updated: "2026-08-17T00:00:00Z"
+area: "Funding"
+guild: "Procurators"
+type_execution: "digital"
 priority: "medium"
 effort: "S"
 license: "CC-BY-4.0"
 ---
-# MIS-035 — CRM de grants y financiación
+# MIS-035 — Grants and funding CRM
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Financiación · **Gremio:** Procuradores · **Tipo:** 🤖 Digital · **Prioridad:** 🟡 Media · **Esfuerzo:** S
+**Area:** Funding · **Guild:** Procurators · **Type:** 🤖 Digital · **Priority:** 🟡 Medium · **Effort:** S
 
-## Historia
+## Story
 
-Como equipo de financiación, quiero un tracker centralizado de todos los grants y fuentes de financiación, para no perder ninguna oportunidad por olvido.
+As the funding team, I want a centralized tracker of all grants and funding sources, so no opportunity is lost to oversight.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] Archivo GRANTS.md con todas las oportunidades identificadas
-- [ ] Campos: nombre, estado, deadline, monto, contacto, notas
-- [ ] Actualizado semanalmente
-- [ ] Alertas de deadline configuradas
+- [ ] GRANTS.md file with all identified opportunities
+- [ ] Fields: name, status, deadline, amount, contact, notes
+- [ ] Updated weekly
+- [ ] Deadline alerts configured
 
-## Valor epistémico
+## Epistemic value
 
-Visibilidad completa del pipeline de financiación.
+Full visibility of the funding pipeline.
 
-## Valor pragmático
+## Pragmatic value
 
-Cero deadlines perdidos por falta de seguimiento.
+Zero deadlines missed for lack of follow-up.

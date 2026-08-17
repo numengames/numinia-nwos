@@ -1,43 +1,45 @@
 ---
-id: "MIS-00006"
-title: "Arquitectura de experiencia: sesión Numinia"
+id: "MIS-006"
+title: "Experience architecture: Numinia session"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Producto"
-guild: "Exegetas"
-tipo: "biológico"
+updated: "2026-08-17T00:00:00Z"
+area: "Product"
+guild: "Exegetes"
+type_execution: "biological"
 priority: "high"
 effort: "M"
 license: "CC-BY-4.0"
 ---
-# MIS-006 — Arquitectura de experiencia: sesión Numinia
+# MIS-006 — Experience architecture: Numinia session
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Producto · **Gremio:** Exegetas · **Tipo:** 🧬 Biológico · **Prioridad:** 🟠 Alta · **Esfuerzo:** M
+**Area:** Product · **Guild:** Exegetes · **Type:** 🧬 Biological · **Priority:** 🟠 High · **Effort:** M
 
-## Historia
+## Story
 
-Como diseñador de producto, quiero definir la arquitectura completa de una sesión Numinia, para que el equipo sepa exactamente qué construir.
+As a product designer, I want to define the complete architecture of a Numinia session, so the team knows exactly what to build.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] Documento con flujo completo de una sesión: entrada, desarrollo, cierre
-- [ ] Roles definidos: facilitador, participantes, agente
-- [ ] Duración y estructura recomendada documentada
-- [ ] Validado con al menos 1 sesión piloto interna
+- [ ] Document with the full flow of a session: opening, development, closing
+- [ ] Roles defined: facilitator, participants, agent
+- [ ] Recommended duration and structure documented
+- [ ] Validated with at least 1 internal pilot session
 
-## Valor epistémico
+## Epistemic value
 
-Define qué es realmente Numinia en la práctica, no en teoría.
+Defines what Numinia really is in practice, not in theory.
 
-## Valor pragmático
+## Pragmatic value
 
-Base para el prototipo (MIS-003) y el piloto (MIS-009).
+Foundation for the prototype (MIS-003) and the pilot (MIS-009).

@@ -12,10 +12,9 @@ tags: [protocol, context, fatigue, session]
 license: "CC-BY-4.0"
 area: "CAO"
 guild: "Sentinels"
-tipo: "digital"
+type_execution: "digital"
 priority: "high"
 effort: "S"
-phase: "done"
 completed: "2026-04-07T14:45:00Z"
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: "MIS-00055"
+id: "MIS-055"
 title: "Dual Nomenclature System — Narrative Dial + Gamification Dial"
 type: mission
 status: in-progress
@@ -15,7 +15,7 @@ assigned_to: "nimrod"
 requested_by: "oracle"
 area: "CAO"
 guild: "Exegetes"
-tipo: "híbrido"
+type_execution: "híbrido"
 priority: "critical"
 effort: "L"
 status: "in-progress"

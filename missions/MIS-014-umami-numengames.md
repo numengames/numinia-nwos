@@ -1,43 +1,45 @@
 ---
-id: "MIS-00014"
-title: "Instalar Umami en numengames.com"
+id: "MIS-014"
+title: "Install Umami on numengames.com"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Infraestructura"
-guild: "Centinelas"
-tipo: "digital"
+updated: "2026-08-17T00:00:00Z"
+area: "Infrastructure"
+guild: "Sentinels"
+type_execution: "digital"
 priority: "high"
 effort: "XS"
 license: "CC-BY-4.0"
 ---
-# MIS-014 — Instalar Umami en numengames.com
+# MIS-014 — Install Umami on numengames.com
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Infraestructura · **Gremio:** Centinelas · **Tipo:** 🤖 Digital · **Prioridad:** 🟠 Alta · **Esfuerzo:** XS
+**Area:** Infrastructure · **Guild:** Sentinels · **Type:** 🤖 Digital · **Priority:** 🟠 High · **Effort:** XS
 
-## Historia
+## Story
 
-Como equipo de marketing, quiero analytics en numengames.com sin ceder datos a Google, para tomar decisiones basadas en datos reales.
+As a marketing team, I want analytics on numengames.com without handing data to Google, to make decisions based on real data.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] Snippet de Umami añadido a numengames.com
-- [ ] Website creado en panel Umami (analytics.pablofm.com)
-- [ ] Datos fluyendo correctamente
-- [ ] Sin banner de cookies (Umami es cookieless)
+- [ ] Umami snippet added to numengames.com
+- [ ] Website created in the Umami panel (analytics.pablofm.com)
+- [ ] Data flowing correctly
+- [ ] No cookie banner (Umami is cookieless)
 
-## Valor epistémico
+## Epistemic value
 
-Baseline de tráfico real de numengames.com antes de mejoras.
+Baseline of numengames.com's real traffic before improvements.
 
-## Valor pragmático
+## Pragmatic value
 
-Datos para medir el impacto de MIS-027 (mejora web).
+Data to measure the impact of MIS-027 (website improvement).

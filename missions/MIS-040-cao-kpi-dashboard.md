@@ -1,43 +1,45 @@
 ---
-id: "MIS-00040"
-title: "Dashboard CAO: definición de KPIs"
+id: "MIS-040"
+title: "CAO dashboard: KPI definition"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
+updated: "2026-08-17T00:00:00Z"
 area: "CAO"
-guild: "Centinelas"
-tipo: "híbrido"
+guild: "Sentinels"
+type_execution: "hybrid"
 priority: "high"
 effort: "M"
 license: "CC-BY-4.0"
 ---
-# MIS-040 — Dashboard CAO: definición de KPIs
+# MIS-040 — CAO dashboard: KPI definition
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** CAO · **Gremio:** Centinelas · **Tipo:** 🔀 Híbrido · **Prioridad:** 🟠 Alta · **Esfuerzo:** M
+**Area:** CAO · **Guild:** Sentinels · **Type:** 🔀 Hybrid · **Priority:** 🟠 High · **Effort:** M
 
-## Historia
+## Story
 
-Como Pablo, quiero un dashboard con los KPIs reales de la CAO, para evaluar el rendimiento del sistema de agentes.
+As Pablo, I want a dashboard with the CAO's real KPIs, in order to evaluate the performance of the agent system.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] KPIs definidos: misiones/semana, coste/misión, tiempo/misión, PR velocity
-- [ ] Dashboard actualizado automáticamente (o semiautomáticamente)
-- [ ] Visible en pablofm.com/cao
-- [ ] Comparativa semana a semana
+- [ ] KPIs defined: missions/week, cost/mission, time/mission, PR velocity
+- [ ] Dashboard updated automatically (or semi-automatically)
+- [ ] Visible at pablofm.com/cao
+- [ ] Week-over-week comparison
 
-## Valor epistémico
+## Epistemic value
 
-Sin KPIs, el sistema de agentes opera sin retroalimentación objetiva.
+Without KPIs, the agent system operates without objective feedback.
 
-## Valor pragmático
+## Pragmatic value
 
-Justificación cuantitativa del ROI de la CAO.
+Quantitative justification of the CAO's ROI.

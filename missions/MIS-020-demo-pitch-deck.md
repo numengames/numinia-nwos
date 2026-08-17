@@ -1,43 +1,45 @@
 ---
-id: "MIS-00020"
-title: "Demo / Pitch Deck interactivo"
+id: "MIS-020"
+title: "Interactive Demo / Pitch Deck"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Ventas"
-guild: "Alquimistas"
-tipo: "digital"
+updated: "2026-08-17T00:00:00Z"
+area: "Sales"
+guild: "Alchemists"
+type_execution: "digital"
 priority: "high"
 effort: "M"
 license: "CC-BY-4.0"
 ---
-# MIS-020 — Demo / Pitch Deck interactivo
+# MIS-020 — Interactive Demo / Pitch Deck
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Ventas · **Gremio:** Alquimistas · **Tipo:** 🤖 Digital · **Prioridad:** 🟠 Alta · **Esfuerzo:** M
+**Area:** Sales · **Guild:** Alchemists · **Type:** 🤖 Digital · **Priority:** 🟠 High · **Effort:** M
 
-## Historia
+## Story
 
-Como comercial, quiero un pitch deck que muestre Numinia en acción, para convertir interés en decisión de compra.
+As a salesperson, I want a pitch deck that shows Numinia in action, to turn interest into a purchase decision.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] Deck de 10-15 slides con narrative arc claro
-- [ ] Demo en vivo o video de 2-3 minutos integrado
-- [ ] Versión PDF exportable
-- [ ] Probado en 3 calls con feedback incorporado
+- [ ] 10-15 slide deck with a clear narrative arc
+- [ ] Live demo or 2-3 minute video integrated
+- [ ] Exportable PDF version
+- [ ] Tested in 3 calls with feedback incorporated
 
-## Valor epistémico
+## Epistemic value
 
-Revela qué parte del pitch engancha y qué parte pierde a la audiencia.
+Reveals which part of the pitch hooks the audience and which part loses it.
 
-## Valor pragmático
+## Pragmatic value
 
-Herramienta de cierre para conversaciones comerciales avanzadas.
+Closing tool for advanced sales conversations.

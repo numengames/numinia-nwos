@@ -1,43 +1,45 @@
 ---
-id: "MIS-00023"
-title: "Case Study inicial"
+id: "MIS-023"
+title: "Initial Case Study"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Ventas"
-guild: "Exegetas"
-tipo: "digital"
+updated: "2026-08-17T00:00:00Z"
+area: "Sales"
+guild: "Exegetes"
+type_execution: "digital"
 priority: "medium"
 effort: "S"
 license: "CC-BY-4.0"
 ---
-# MIS-023 — Case Study inicial
+# MIS-023 — Initial Case Study
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Ventas · **Gremio:** Exegetas · **Tipo:** 🤖 Digital · **Prioridad:** 🟡 Media · **Esfuerzo:** S
+**Area:** Sales · **Guild:** Exegetes · **Type:** 🤖 Digital · **Priority:** 🟡 Medium · **Effort:** S
 
-## Historia
+## Story
 
-Como prospecto, quiero ver cómo Numinia funcionó para otra organización, para reducir el riesgo percibido de adopción.
+As a prospect, I want to see how Numinia worked for another organization, to reduce the perceived risk of adoption.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] 1 caso documentado: organización, reto, solución, resultado
-- [ ] Aprobado por la organización cliente
-- [ ] Publicado en web y enviable en outreach
-- [ ] Métricas concretas incluidas (tiempo, NPS, coste)
+- [ ] 1 documented case: organization, challenge, solution, result
+- [ ] Approved by the client organization
+- [ ] Published on the web and sendable in outreach
+- [ ] Concrete metrics included (time, NPS, cost)
 
-## Valor epistémico
+## Epistemic value
 
-El primer case study revela qué resultados reales genera Numinia.
+The first case study reveals what real results Numinia generates.
 
-## Valor pragmático
+## Pragmatic value
 
-Prueba social más efectiva que cualquier copy de marketing.
+More effective social proof than any marketing copy.

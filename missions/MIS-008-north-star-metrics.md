@@ -1,43 +1,45 @@
 ---
-id: "MIS-00008"
-title: "Definir métricas North Star del producto"
+id: "MIS-008"
+title: "Define the product's North Star metrics"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Producto"
-guild: "Exegetas"
-tipo: "biológico"
+updated: "2026-08-17T00:00:00Z"
+area: "Product"
+guild: "Exegetes"
+type_execution: "biological"
 priority: "high"
 effort: "XS"
 license: "CC-BY-4.0"
 ---
-# MIS-008 — Definir métricas North Star del producto
+# MIS-008 — Define the product's North Star metrics
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Producto · **Gremio:** Exegetas · **Tipo:** 🧬 Biológico · **Prioridad:** 🟠 Alta · **Esfuerzo:** XS
+**Area:** Product · **Guild:** Exegetes · **Type:** 🧬 Biological · **Priority:** 🟠 High · **Effort:** XS
 
-## Historia
+## Story
 
-Como equipo, quiero una sola métrica North Star que todos podamos optimizar, para alinear decisiones sin reuniones.
+As a team, I want a single North Star metric we can all optimize, to align decisions without meetings.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] 1 métrica North Star definida y justificada
-- [ ] 3-5 métricas de input que la mueven
-- [ ] Aprobada por los 4 Oráculos
-- [ ] Documentada en METRICS.md
+- [ ] 1 North Star metric defined and justified
+- [ ] 3-5 input metrics that move it
+- [ ] Approved by the 4 Oracles
+- [ ] Documented in METRICS.md
 
-## Valor epistémico
+## Epistemic value
 
-Fuerza consenso sobre qué es el éxito real del producto.
+Forces consensus on what real product success is.
 
-## Valor pragmático
+## Pragmatic value
 
-Toda decisión de producto puede evaluarse contra ella.
+Every product decision can be evaluated against it.

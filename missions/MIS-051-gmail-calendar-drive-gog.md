@@ -1,5 +1,5 @@
 ---
-id: "MIS-00051"
+id: "MIS-051"
 title: "Gmail, Calendar and Drive integration with gog"
 type: mission
 status: done
@@ -15,10 +15,9 @@ assigned_to: "nimrod"
 requested_by: "oracle"
 area: "CAO"
 guild: "Sentinels"
-tipo: "digital"
+type_execution: "digital"
 priority: "critical"
 effort: "M"
-phase: "done"
 started: "2026-04-05T00:00:00Z"
 completed: "2026-04-05T00:00:00Z"
 ---

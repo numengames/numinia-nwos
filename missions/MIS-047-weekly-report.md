@@ -1,5 +1,5 @@
 ---
-id: "MIS-00047"
+id: "MIS-047"
 uid: "018ef820-0047-7000-8000-000000000047"
 title: "Configure automatic weekly report"
 type: mission

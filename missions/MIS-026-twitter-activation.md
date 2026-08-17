@@ -1,43 +1,45 @@
 ---
-id: "MIS-00026"
-title: "Activación del canal X/Twitter"
+id: "MIS-026"
+title: "X/Twitter channel activation"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Contenido"
-guild: "Alquimistas"
-tipo: "digital"
+updated: "2026-08-17T00:00:00Z"
+area: "Content"
+guild: "Alchemists"
+type_execution: "digital"
 priority: "high"
 effort: "S"
 license: "CC-BY-4.0"
 ---
-# MIS-026 — Activación del canal X/Twitter
+# MIS-026 — X/Twitter channel activation
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Contenido · **Gremio:** Alquimistas · **Tipo:** 🤖 Digital · **Prioridad:** 🟠 Alta · **Esfuerzo:** S
+**Area:** Content · **Guild:** Alchemists · **Type:** 🤖 Digital · **Priority:** 🟠 High · **Effort:** S
 
-## Historia
+## Story
 
-Como equipo de contenido, quiero activar @numengames en X/Twitter, para construir comunidad en el canal donde está nuestra audiencia objetivo.
+As the content team, I want to activate @numengames on X/Twitter, to build community on the channel where our target audience is.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] Perfil @numengames actualizado: bio, banner, link
-- [ ] 10 tweets publicados antes del lanzamiento
-- [ ] Primer hilo de "Building in Public" publicado
-- [ ] 100 seguidores en primeros 30 días
+- [ ] @numengames profile updated: bio, banner, link
+- [ ] 10 tweets published before launch
+- [ ] First "Building in Public" thread published
+- [ ] 100 followers in the first 30 days
 
-## Valor epistémico
+## Epistemic value
 
-Mide si X/Twitter es canal relevante para la audiencia de Numinia.
+Measures whether X/Twitter is a relevant channel for Numinia's audience.
 
-## Valor pragmático
+## Pragmatic value
 
-Presencia en el canal más activo de la comunidad indie/Web3.
+Presence on the most active channel of the indie/Web3 community.

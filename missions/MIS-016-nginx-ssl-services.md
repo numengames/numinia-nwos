@@ -1,5 +1,5 @@
 ---
-id: "MIS-00016"
+id: "MIS-016"
 title: "Caddy + SSL for all server services"
 type: mission
 status: done
@@ -15,10 +15,9 @@ assigned_to: "nimrod"
 requested_by: "oracle"
 area: "Infrastructure"
 guild: "Sentinels"
-tipo: "digital"
+type_execution: "digital"
 priority: "critical"
 effort: "M"
-phase: "done"
 started: "2026-04-04T00:00:00Z"
 completed: "2026-04-05T00:00:00Z"
 ---

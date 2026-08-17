@@ -1,5 +1,5 @@
 ---
-id: "MIS-00054"
+id: "MIS-054"
 title: "Multi-Oracle access to Nimrod via Telegram"
 type: mission
 status: in-progress
@@ -15,7 +15,7 @@ assigned_to: "nimrod"
 requested_by: "oracle"
 area: "CAO"
 guild: "Sentinels"
-tipo: "digital"
+type_execution: "digital"
 priority: "high"
 effort: "S"
 status: "in-progress"

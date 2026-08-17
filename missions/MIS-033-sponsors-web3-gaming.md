@@ -1,43 +1,45 @@
 ---
-id: "MIS-00033"
-title: "Identificar 10 sponsors Web3/Gaming"
+id: "MIS-033"
+title: "Identify 10 Web3/Gaming sponsors"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Financiación"
-guild: "Procuradores"
-tipo: "híbrido"
+updated: "2026-08-17T00:00:00Z"
+area: "Funding"
+guild: "Procurators"
+type_execution: "hybrid"
 priority: "high"
 effort: "M"
 license: "CC-BY-4.0"
 ---
-# MIS-033 — Identificar 10 sponsors Web3/Gaming
+# MIS-033 — Identify 10 Web3/Gaming sponsors
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Financiación · **Gremio:** Procuradores · **Tipo:** 🔀 Híbrido · **Prioridad:** 🟠 Alta · **Esfuerzo:** M
+**Area:** Funding · **Guild:** Procurators · **Type:** 🔀 Hybrid · **Priority:** 🟠 High · **Effort:** M
 
-## Historia
+## Story
 
-Como equipo de financiación, quiero identificar 10 sponsors potenciales del ecosistema Web3/Gaming, para diversificar ingresos más allá de clientes directos.
+As the funding team, I want to identify 10 potential sponsors from the Web3/Gaming ecosystem, in order to diversify revenue beyond direct clients.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] 10 sponsors identificados con: empresa, contacto, budget estimado, fit
-- [ ] Al menos 5 contactados con propuesta de sponsorship
-- [ ] Propuesta de sponsorship template creada
-- [ ] 2 conversaciones activas abiertas
+- [ ] 10 sponsors identified with: company, contact, estimated budget, fit
+- [ ] At least 5 contacted with a sponsorship proposal
+- [ ] Sponsorship proposal template created
+- [ ] 2 active conversations open
 
-## Valor epistémico
+## Epistemic value
 
-Valida si el modelo de sponsorship es viable para la fase actual.
+Validates whether the sponsorship model is viable for the current phase.
 
-## Valor pragmático
+## Pragmatic value
 
-Ingresos no dilutivos que pueden cubrir costes operativos.
+Non-dilutive revenue that can cover operating costs.

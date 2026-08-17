@@ -1,5 +1,5 @@
 ---
-id: "MIS-00052"
+id: "MIS-052"
 title: "On-premises infrastructure — Dedicated PC"
 type: mission
 status: in-progress
@@ -15,7 +15,7 @@ assigned_to: "nimrod"
 requested_by: "oracle"
 area: "Infrastructure"
 guild: "Sentinels"
-tipo: "digital"
+type_execution: "digital"
 priority: "high"
 effort: "L"
 status: "in-progress"

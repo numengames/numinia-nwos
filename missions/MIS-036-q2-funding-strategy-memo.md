@@ -1,43 +1,45 @@
 ---
-id: "MIS-00036"
-title: "Memo: Estrategia de financiación Q2 2026"
+id: "MIS-036"
+title: "Memo: Q2 2026 funding strategy"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Financiación"
-guild: "Procuradores"
-tipo: "digital"
+updated: "2026-08-17T00:00:00Z"
+area: "Funding"
+guild: "Procurators"
+type_execution: "digital"
 priority: "medium"
 effort: "S"
 license: "CC-BY-4.0"
 ---
-# MIS-036 — Memo: Estrategia de financiación Q2 2026
+# MIS-036 — Memo: Q2 2026 funding strategy
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Financiación · **Gremio:** Procuradores · **Tipo:** 🤖 Digital · **Prioridad:** 🟡 Media · **Esfuerzo:** S
+**Area:** Funding · **Guild:** Procurators · **Type:** 🤖 Digital · **Priority:** 🟡 Medium · **Effort:** S
 
-## Historia
+## Story
 
-Como equipo directivo, quiero un memo claro de estrategia de financiación para Q2 2026, para alinear prioridades y acciones.
+As the leadership team, I want a clear funding strategy memo for Q2 2026, in order to align priorities and actions.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] Análisis del estado financiero actual (runway, burn rate)
-- [ ] Priorización de fuentes: grants > sponsors > inversores > ingresos
-- [ ] Plan de acción con responsables y fechas
-- [ ] Aprobado por Pablo
+- [ ] Analysis of the current financial state (runway, burn rate)
+- [ ] Source prioritization: grants > sponsors > investors > revenue
+- [ ] Action plan with owners and dates
+- [ ] Approved by Pablo
 
-## Valor epistémico
+## Epistemic value
 
-Fuerza honestidad sobre el estado financiero real.
+Forces honesty about the real financial state.
 
-## Valor pragmático
+## Pragmatic value
 
-Alineación del equipo sobre prioridades de financiación.
+Team alignment on funding priorities.

@@ -1,43 +1,45 @@
 ---
-id: "MIS-00012"
-title: "Configurar pipeline CI/CD numengames.com"
+id: "MIS-012"
+title: "Set up CI/CD pipeline for numengames.com"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Infraestructura"
-guild: "Centinelas"
-tipo: "digital"
+updated: "2026-08-17T00:00:00Z"
+area: "Infrastructure"
+guild: "Sentinels"
+type_execution: "digital"
 priority: "high"
 effort: "M"
 license: "CC-BY-4.0"
 ---
-# MIS-012 — Configurar pipeline CI/CD numengames.com
+# MIS-012 — Set up CI/CD pipeline for numengames.com
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Infraestructura · **Gremio:** Centinelas · **Tipo:** 🤖 Digital · **Prioridad:** 🟠 Alta · **Esfuerzo:** M
+**Area:** Infrastructure · **Guild:** Sentinels · **Type:** 🤖 Digital · **Priority:** 🟠 High · **Effort:** M
 
-## Historia
+## Story
 
-Como agente, quiero poder hacer deploy de numengames.com via PR sin intervención manual, para reducir fricción de despliegue.
+As an agent, I want to deploy numengames.com via PR without manual intervention, to reduce deployment friction.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] GitHub Actions configurado para numengames.com
-- [ ] Deploy automático en merge a main
-- [ ] Tests de build obligatorios antes de merge
-- [ ] Notificación de deploy en Telegram
+- [ ] GitHub Actions configured for numengames.com
+- [ ] Automatic deploy on merge to main
+- [ ] Build tests required before merge
+- [ ] Deploy notification on Telegram
 
-## Valor epistémico
+## Epistemic value
 
-Mide la madurez del flujo de trabajo del equipo técnico.
+Measures the maturity of the technical team's workflow.
 
-## Valor pragmático
+## Pragmatic value
 
-Los agentes pueden hacer mejoras sin depender de Pablo para el deploy.
+Agents can ship improvements without depending on Pablo for the deploy.

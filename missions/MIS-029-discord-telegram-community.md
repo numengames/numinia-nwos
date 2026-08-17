@@ -1,43 +1,45 @@
 ---
-id: "MIS-00029"
-title: "Comunidad en Discord o Telegram"
+id: "MIS-029"
+title: "Community on Discord or Telegram"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Contenido"
-guild: "Centinelas"
-tipo: "biológico"
+updated: "2026-08-17T00:00:00Z"
+area: "Content"
+guild: "Sentinels"
+type_execution: "biological"
 priority: "medium"
 effort: "M"
 license: "CC-BY-4.0"
 ---
-# MIS-029 — Comunidad en Discord o Telegram
+# MIS-029 — Community on Discord or Telegram
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Contenido · **Gremio:** Centinelas · **Tipo:** 🧬 Biológico · **Prioridad:** 🟡 Media · **Esfuerzo:** M
+**Area:** Content · **Guild:** Sentinels · **Type:** 🧬 Biological · **Priority:** 🟡 Medium · **Effort:** M
 
-## Historia
+## Story
 
-Como interesado en Numinia, quiero un espacio para conectar con otros y con el equipo, para ser parte de la construcción del proyecto.
+As someone interested in Numinia, I want a space to connect with others and with the team, to be part of building the project.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] Decisión: Discord vs Telegram (DEC a crear)
-- [ ] Servidor/grupo creado con estructura básica de canales
-- [ ] 20 miembros en primeras 2 semanas
-- [ ] Rol de Nimrod como moderador/participante activo
+- [ ] Decision: Discord vs Telegram (DEC to be created)
+- [ ] Server/group created with a basic channel structure
+- [ ] 20 members in the first 2 weeks
+- [ ] Nimrod's role as moderator/active participant
 
-## Valor epistémico
+## Epistemic value
 
-Prueba si hay comunidad real o solo audiencia pasiva.
+Tests whether there is a real community or just a passive audience.
 
-## Valor pragmático
+## Pragmatic value
 
-Comunidad activa = feedback continuo + prueba social.
+Active community = continuous feedback + social proof.

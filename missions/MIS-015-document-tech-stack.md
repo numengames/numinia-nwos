@@ -1,43 +1,45 @@
 ---
-id: "MIS-00015"
-title: "Documentar stack tecnológico de Numinia"
+id: "MIS-015"
+title: "Document Numinia's tech stack"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Infraestructura"
-guild: "Alquimistas"
-tipo: "biológico"
+updated: "2026-08-17T00:00:00Z"
+area: "Infrastructure"
+guild: "Alchemists"
+type_execution: "biological"
 priority: "high"
 effort: "S"
 license: "CC-BY-4.0"
 ---
-# MIS-015 — Documentar stack tecnológico de Numinia
+# MIS-015 — Document Numinia's tech stack
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Infraestructura · **Gremio:** Alquimistas · **Tipo:** 🧬 Biológico · **Prioridad:** 🟠 Alta · **Esfuerzo:** S
+**Area:** Infrastructure · **Guild:** Alchemists · **Type:** 🧬 Biological · **Priority:** 🟠 High · **Effort:** S
 
-## Historia
+## Story
 
-Como nuevo agente o colaborador técnico, quiero entender el stack completo de Numinia, para contribuir sin preguntar lo básico.
+As a new agent or technical contributor, I want to understand the full Numinia stack, to contribute without asking the basics.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] STACK.md con: frontend, backend, DB, infra, herramientas de agentes
-- [ ] Diagrama de arquitectura actualizado
-- [ ] Decisiones de stack enlazadas a DEC-xxx
-- [ ] Publicado en el repo
+- [ ] STACK.md with: frontend, backend, DB, infra, agent tooling
+- [ ] Updated architecture diagram
+- [ ] Stack decisions linked to DEC-xxx
+- [ ] Published in the repo
 
-## Valor epistémico
+## Epistemic value
 
-Hace explícitas las decisiones técnicas implícitas.
+Makes implicit technical decisions explicit.
 
-## Valor pragmático
+## Pragmatic value
 
-Onboarding técnico en < 30 minutos.
+Technical onboarding in < 30 minutes.

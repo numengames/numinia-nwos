@@ -1,43 +1,45 @@
 ---
-id: "MIS-00024"
-title: "Sistema de seguimiento post-call"
+id: "MIS-024"
+title: "Post-call follow-up system"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Ventas"
-guild: "Centinelas"
-tipo: "digital"
+updated: "2026-08-17T00:00:00Z"
+area: "Sales"
+guild: "Sentinels"
+type_execution: "digital"
 priority: "medium"
 effort: "XS"
 license: "CC-BY-4.0"
 ---
-# MIS-024 — Sistema de seguimiento post-call
+# MIS-024 — Post-call follow-up system
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Ventas · **Gremio:** Centinelas · **Tipo:** 🤖 Digital · **Prioridad:** 🟡 Media · **Esfuerzo:** XS
+**Area:** Sales · **Guild:** Sentinels · **Type:** 🤖 Digital · **Priority:** 🟡 Medium · **Effort:** XS
 
-## Historia
+## Story
 
-Como comercial, quiero un sistema automático de seguimiento tras cada call, para no perder oportunidades por falta de seguimiento.
+As a salesperson, I want an automatic follow-up system after each call, so no opportunity is lost for lack of follow-up.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] Template de email post-call automatizado
-- [ ] Trigger: 24h después de reunión en Cal.com
-- [ ] Seguimiento a los 7 días si no hay respuesta
-- [ ] Log en CRM con estado de la oportunidad
+- [ ] Automated post-call email template
+- [ ] Trigger: 24h after a Cal.com meeting
+- [ ] Follow-up at 7 days if there is no reply
+- [ ] Log in CRM with the opportunity's status
 
-## Valor epistémico
+## Epistemic value
 
-Mide tasa de conversión post-call con y sin seguimiento sistemático.
+Measures post-call conversion rate with and without systematic follow-up.
 
-## Valor pragmático
+## Pragmatic value
 
-Elimina la dependencia de memoria humana para el seguimiento.
+Removes the dependency on human memory for follow-up.

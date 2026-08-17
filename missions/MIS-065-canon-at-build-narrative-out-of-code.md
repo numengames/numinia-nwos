@@ -17,7 +17,6 @@ priority: "medium"
 effort: "L"
 assigned_to: null
 requested_by: "oracle"
-phase: "backlog"
 executor: null
 requires_oracle_approval: true
 blocked_reason: null
@@ -31,12 +30,12 @@ divergence_log: null
 > **Resumen:** One refactor closes two debts: the viewer stops hydrating
 > mission data client-side against the GitHub API, and the culture-branch
 > narrative stops shipping under the `web/**` MIT annotation.
-> **Epistémico:** How File over App and C-005 §5 (one file, one regime)
+> **Epistemic:** How File over App and C-005 §5 (one file, one regime)
 > converge on the same architecture.
-> **Pragmático:** Routes read canon from the repo at build; narrative
+> **Pragmatic:** Routes read canon from the repo at build; narrative
 > content carries its own regime; the board works without JS and is
 > visible to crawlers.
-> **Audiencia:** Agentes · Oráculos
+> **Audience:** Agents · Oracles
 
 ---
 

@@ -1,43 +1,45 @@
 ---
-id: "MIS-00028"
-title: "Newsletter / Lista de correo fundacional"
+id: "MIS-028"
+title: "Founding Newsletter / Mailing list"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Contenido"
-guild: "Procuradores"
-tipo: "híbrido"
+updated: "2026-08-17T00:00:00Z"
+area: "Content"
+guild: "Procurators"
+type_execution: "hybrid"
 priority: "medium"
 effort: "S"
 license: "CC-BY-4.0"
 ---
-# MIS-028 — Newsletter / Lista de correo fundacional
+# MIS-028 — Founding Newsletter / Mailing list
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Contenido · **Gremio:** Procuradores · **Tipo:** 🔀 Híbrido · **Prioridad:** 🟡 Media · **Esfuerzo:** S
+**Area:** Content · **Guild:** Procurators · **Type:** 🔀 Hybrid · **Priority:** 🟡 Medium · **Effort:** S
 
-## Historia
+## Story
 
-Como equipo, quiero una lista de correo propia, para tener un canal directo con nuestra audiencia independiente de algoritmos.
+As a team, I want a mailing list of our own, to have a direct channel with our audience independent of algorithms.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] Herramienta self-hosted o con privacidad (Listmonk, etc.)
-- [ ] Formulario integrado en web
-- [ ] Primera newsletter enviada
-- [ ] 50 suscriptores en primeros 30 días
+- [ ] Self-hosted or privacy-friendly tool (Listmonk, etc.)
+- [ ] Form integrated on the web
+- [ ] First newsletter sent
+- [ ] 50 subscribers in the first 30 days
 
-## Valor epistémico
+## Epistemic value
 
-El email propio es el único canal que no puede ser censurado o shadowbanned.
+Owned email is the only channel that cannot be censored or shadowbanned.
 
-## Valor pragmático
+## Pragmatic value
 
-Audiencia directa para lanzamientos y anuncios.
+Direct audience for launches and announcements.

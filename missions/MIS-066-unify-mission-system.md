@@ -297,6 +297,15 @@ agents (the audit's readers) stop deriving four contradictory answers to
   ES+EN scope, superseded by DEC-006 (English only) — stale scope, not
   recovered. Consequence: misiones.ts can be deleted in Phase 5 with
   zero content loss.
+- 2026-08-17 — Phase 3, commit 2 (translation + frontmatter
+  normalization): the 27 Spanish-body files translated to English by
+  three parallel agents (batches A/B/C), verified by residual-language
+  scan — only proper names keep accents (María, Clio, Alquimista-01 as
+  a retired agent id). MIS-039's ported Spanish sections integrated
+  into English structure. Frontmatter normalized across all 67 files:
+  41 padded ids unpadded (MIS-000NN → MIS-0NN), tipo:→type_execution:
+  ×42, stray phase: fields removed ×7, version: added where missing ×7,
+  MIS-065's own summary labels englished. Zero Spanish titles remain.
 
 ## Execution Reality
 

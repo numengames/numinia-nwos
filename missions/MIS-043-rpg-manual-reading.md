@@ -1,5 +1,5 @@
 ---
-id: "MIS-00043"
+id: "MIS-043"
 title: "Complete reading of the Numinia RPG Manual"
 type: mission
 status: backlog
@@ -8,7 +8,7 @@ created: "2026-04-04T00:00:00Z"
 updated: "2026-04-07T18:00:00Z"
 area: "Documentation"
 guild: "Exegetes"
-tipo: "digital"
+type_execution: "digital"
 priority: "high"
 effort: "M"
 license: "CC-BY-4.0"

@@ -1,5 +1,5 @@
 ---
-id: "MIS-00049"
+id: "MIS-049"
 title: "DORA Metrics for numengames-web"
 type: mission
 status: backlog
@@ -8,7 +8,7 @@ created: "2026-04-04T00:00:00Z"
 updated: "2026-04-07T18:00:00Z"
 area: "Operations"
 guild: "Sentinels"
-tipo: "digital"
+type_execution: "digital"
 priority: "medium"
 effort: "M"
 license: "CC-BY-4.0"

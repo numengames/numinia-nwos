@@ -1,5 +1,5 @@
 ---
-id: "MIS-00041"
+id: "MIS-041"
 title: "Onboarding protocol for new agents"
 type: mission
 status: backlog
@@ -8,7 +8,7 @@ created: "2026-04-04T00:00:00Z"
 updated: "2026-04-07T18:00:00Z"
 area: "CAO"
 guild: "Sentinels"
-tipo: "digital"
+type_execution: "digital"
 priority: "medium"
 effort: "M"
 license: "CC-BY-4.0"

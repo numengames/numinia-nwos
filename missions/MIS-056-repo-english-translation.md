@@ -1,5 +1,5 @@
 ---
-id: "MIS-00056"
+id: "MIS-056"
 title: "Repo Translation to English — NWOS Canon in English Only"
 type: mission
 status: backlog
@@ -12,7 +12,7 @@ tags: [documentation, i18n, english, nwos, repo]
 license: "CC-BY-4.0"
 area: "Documentation"
 guild: "Exegetes"
-tipo: "híbrido"
+type_execution: "híbrido"
 priority: "high"
 effort: "L"
 ---

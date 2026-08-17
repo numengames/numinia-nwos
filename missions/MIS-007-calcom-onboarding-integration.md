@@ -1,43 +1,45 @@
 ---
-id: "MIS-00007"
-title: "Integrar Cal.com en onboarding de Numinia"
+id: "MIS-007"
+title: "Integrate Cal.com into Numinia onboarding"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Producto"
-guild: "Centinelas"
-tipo: "híbrido"
+updated: "2026-08-17T00:00:00Z"
+area: "Product"
+guild: "Sentinels"
+type_execution: "hybrid"
 priority: "high"
 effort: "S"
 license: "CC-BY-4.0"
 ---
-# MIS-007 — Integrar Cal.com en onboarding de Numinia
+# MIS-007 — Integrate Cal.com into Numinia onboarding
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Producto · **Gremio:** Centinelas · **Tipo:** 🔀 Híbrido · **Prioridad:** 🟠 Alta · **Esfuerzo:** S
+**Area:** Product · **Guild:** Sentinels · **Type:** 🔀 Hybrid · **Priority:** 🟠 High · **Effort:** S
 
-## Historia
+## Story
 
-Como prospecto, quiero reservar una sesión de onboarding directamente desde la web, para empezar sin fricción.
+As a prospect, I want to book an onboarding session directly from the website, so I can get started without friction.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] Cal.com configurado con tipo de reunión "Sesión Numinia"
-- [ ] Integrado en numengames.com/numinia
-- [ ] Confirmación automática por email
-- [ ] Recordatorio 24h antes
+- [ ] Cal.com configured with a "Numinia Session" meeting type
+- [ ] Integrated into numengames.com/numinia
+- [ ] Automatic confirmation by email
+- [ ] Reminder 24h in advance
 
-## Valor epistémico
+## Epistemic value
 
-Mide cuántos interesados reales convierten a sesión.
+Measures how many genuinely interested people convert into a session.
 
-## Valor pragmático
+## Pragmatic value
 
-Elimina el email de ida y vuelta para agendar.
+Eliminates the back-and-forth email to schedule.

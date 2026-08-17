@@ -1,43 +1,45 @@
 ---
-id: "MIS-00022"
-title: "Alianzas con estudios indie y DAOs"
+id: "MIS-022"
+title: "Alliances with indie studios and DAOs"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Ventas"
-guild: "Procuradores"
-tipo: "biológico"
+updated: "2026-08-17T00:00:00Z"
+area: "Sales"
+guild: "Procurators"
+type_execution: "biological"
 priority: "high"
 effort: "M"
 license: "CC-BY-4.0"
 ---
-# MIS-022 — Alianzas con estudios indie y DAOs
+# MIS-022 — Alliances with indie studios and DAOs
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Ventas · **Gremio:** Procuradores · **Tipo:** 🧬 Biológico · **Prioridad:** 🟠 Alta · **Esfuerzo:** M
+**Area:** Sales · **Guild:** Procurators · **Type:** 🧬 Biological · **Priority:** 🟠 High · **Effort:** M
 
-## Historia
+## Story
 
-Como equipo de desarrollo de negocio, quiero establecer alianzas estratégicas con estudios indie y DAOs gaming, para abrir canales de distribución alternativos.
+As the business development team, I want to establish strategic alliances with indie studios and gaming DAOs, to open alternative distribution channels.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] 5 alianzas potenciales identificadas y contactadas
-- [ ] Al menos 2 acuerdos de colaboración firmados
-- [ ] Modelo de alianza definido (rev share, co-marketing, etc.)
-- [ ] Documentado en PARTNERSHIPS.md
+- [ ] 5 potential alliances identified and contacted
+- [ ] At least 2 collaboration agreements signed
+- [ ] Alliance model defined (rev share, co-marketing, etc.)
+- [ ] Documented in PARTNERSHIPS.md
 
-## Valor epistémico
+## Epistemic value
 
-Valida si el canal de alianzas es viable para Numinia.
+Validates whether the alliance channel is viable for Numinia.
 
-## Valor pragmático
+## Pragmatic value
 
-Acceso a audiencias establecidas sin coste de adquisición propio.
+Access to established audiences with no acquisition cost of our own.

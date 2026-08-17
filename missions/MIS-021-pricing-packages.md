@@ -1,43 +1,45 @@
 ---
-id: "MIS-00021"
-title: "Definición de Pricing y Paquetes"
+id: "MIS-021"
+title: "Pricing and Packages Definition"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Ventas"
-guild: "Exegetas"
-tipo: "biológico"
+updated: "2026-08-17T00:00:00Z"
+area: "Sales"
+guild: "Exegetes"
+type_execution: "biological"
 priority: "high"
 effort: "S"
 license: "CC-BY-4.0"
 ---
-# MIS-021 — Definición de Pricing y Paquetes
+# MIS-021 — Pricing and Packages Definition
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Ventas · **Gremio:** Exegetas · **Tipo:** 🧬 Biológico · **Prioridad:** 🟠 Alta · **Esfuerzo:** S
+**Area:** Sales · **Guild:** Exegetes · **Type:** 🧬 Biological · **Priority:** 🟠 High · **Effort:** S
 
-## Historia
+## Story
 
-Como prospecto, quiero entender cuánto cuesta Numinia y qué incluye cada opción, para tomar una decisión de compra informada.
+As a prospect, I want to understand how much Numinia costs and what each option includes, to make an informed purchase decision.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] 2-3 paquetes definidos con nombre, precio y features
-- [ ] Pricing validado con benchmarks del mercado
-- [ ] Publicado en web (numengames.com/pricing)
-- [ ] Revisado por Pablo antes de publicar
+- [ ] 2-3 packages defined with name, price and features
+- [ ] Pricing validated against market benchmarks
+- [ ] Published on the web (numengames.com/pricing)
+- [ ] Reviewed by Pablo before publishing
 
-## Valor epistémico
+## Epistemic value
 
-Fuerza decisión sobre posicionamiento: premium vs. accesible.
+Forces a decision on positioning: premium vs. affordable.
 
-## Valor pragmático
+## Pragmatic value
 
-Sin pricing público, cada conversación comercial empieza desde cero.
+Without public pricing, every sales conversation starts from scratch.

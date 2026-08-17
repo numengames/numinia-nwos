@@ -1,43 +1,45 @@
 ---
-id: "MIS-00032"
-title: "Investigación: Ethereum Foundation ESP"
+id: "MIS-032"
+title: "Research: Ethereum Foundation ESP"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Financiación"
-guild: "Procuradores"
-tipo: "digital"
+updated: "2026-08-17T00:00:00Z"
+area: "Funding"
+guild: "Procurators"
+type_execution: "digital"
 priority: "high"
 effort: "S"
 license: "CC-BY-4.0"
 ---
-# MIS-032 — Investigación: Ethereum Foundation ESP
+# MIS-032 — Research: Ethereum Foundation ESP
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Financiación · **Gremio:** Procuradores · **Tipo:** 🤖 Digital · **Prioridad:** 🟠 Alta · **Esfuerzo:** S
+**Area:** Funding · **Guild:** Procurators · **Type:** 🤖 Digital · **Priority:** 🟠 High · **Effort:** S
 
-## Historia
+## Story
 
-Como equipo de financiación, quiero entender si el Ecosystem Support Program de Ethereum es viable para Numinia, para diversificar fuentes de grants.
+As the funding team, I want to understand whether Ethereum's Ecosystem Support Program is viable for Numinia, in order to diversify grant sources.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] Investigación: requisitos, plazos, montos típicos
-- [ ] Evaluación de fit entre Numinia y los criterios ESP
-- [ ] Recomendación: aplicar o no aplicar, con justificación
-- [ ] Documento GRANTS.md actualizado
+- [ ] Research: requirements, deadlines, typical amounts
+- [ ] Fit assessment between Numinia and the ESP criteria
+- [ ] Recommendation: apply or not, with justification
+- [ ] GRANTS.md document updated
 
-## Valor epistémico
+## Epistemic value
 
-Amplía el mapa de financiación más allá de Arbitrum.
+Broadens the funding map beyond Arbitrum.
 
-## Valor pragmático
+## Pragmatic value
 
-Potencial fuente de $50k-$500k sin dilución.
+Potential source of $50k-$500k without dilution.

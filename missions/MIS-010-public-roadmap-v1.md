@@ -1,43 +1,45 @@
 ---
-id: "MIS-00010"
-title: "Roadmap público de Numinia v1.0"
+id: "MIS-010"
+title: "Numinia public roadmap v1.0"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Producto"
-guild: "Exegetas"
-tipo: "híbrido"
+updated: "2026-08-17T00:00:00Z"
+area: "Product"
+guild: "Exegetes"
+type_execution: "hybrid"
 priority: "medium"
 effort: "S"
 license: "CC-BY-4.0"
 ---
-# MIS-010 — Roadmap público de Numinia v1.0
+# MIS-010 — Numinia public roadmap v1.0
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Producto · **Gremio:** Exegetas · **Tipo:** 🔀 Híbrido · **Prioridad:** 🟡 Media · **Esfuerzo:** S
+**Area:** Product · **Guild:** Exegetes · **Type:** 🔀 Hybrid · **Priority:** 🟡 Medium · **Effort:** S
 
-## Historia
+## Story
 
-Como interesado en Numinia, quiero ver hacia dónde va el producto, para decidir si invertir tiempo ahora o esperar.
+As someone interested in Numinia, I want to see where the product is heading, to decide whether to invest time now or wait.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] Roadmap con 3 horizontes: ahora, próximo, futuro
-- [ ] Publicado en numengames.com/roadmap
-- [ ] Actualizado mensualmente
-- [ ] Sin compromisos de fechas — solo prioridades
+- [ ] Roadmap with 3 horizons: now, next, later
+- [ ] Published at numengames.com/roadmap
+- [ ] Updated monthly
+- [ ] No date commitments — priorities only
 
-## Valor epistémico
+## Epistemic value
 
-Revela si hay visión compartida entre los Oráculos.
+Reveals whether the Oracles share a common vision.
 
-## Valor pragmático
+## Pragmatic value
 
-Herramienta de comunicación con comunidad e inversores.
+Communication tool for the community and investors.

@@ -1,5 +1,5 @@
 ---
-id: "MIS-00061"
+id: "MIS-061"
 title: "El Sistema — NWOS Web Visualization at pablofm.com/sistema"
 type: mission
 status: backlog
@@ -12,7 +12,7 @@ tags: [web, nwos, visualization, ux, i18n, sistema, pablofm]
 license: "CC-BY-4.0"
 area: "Product"
 guild: "Alquimistas"
-tipo: "técnico"
+type_execution: "técnico"
 priority: "high"
 effort: "XL"
 ---

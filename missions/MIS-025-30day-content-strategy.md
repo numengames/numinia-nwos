@@ -1,43 +1,45 @@
 ---
-id: "MIS-00025"
-title: "Estrategia de contenido 30 días"
+id: "MIS-025"
+title: "30-day content strategy"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Contenido"
-guild: "Exegetas"
-tipo: "híbrido"
+updated: "2026-08-17T00:00:00Z"
+area: "Content"
+guild: "Exegetes"
+type_execution: "hybrid"
 priority: "high"
 effort: "M"
 license: "CC-BY-4.0"
 ---
-# MIS-025 — Estrategia de contenido 30 días
+# MIS-025 — 30-day content strategy
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Contenido · **Gremio:** Exegetas · **Tipo:** 🔀 Híbrido · **Prioridad:** 🟠 Alta · **Esfuerzo:** M
+**Area:** Content · **Guild:** Exegetes · **Type:** 🔀 Hybrid · **Priority:** 🟠 High · **Effort:** M
 
-## Historia
+## Story
 
-Como equipo de marketing, quiero un calendario de contenido para los próximos 30 días, para construir presencia de forma consistente.
+As the marketing team, I want a content calendar for the next 30 days, to build presence consistently.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] 30 días de contenido planificado: canal, formato, tema, CTA
-- [ ] Mix de canales: X/Twitter, LinkedIn, newsletter
-- [ ] Al menos 4 piezas de contenido de liderazgo intelectual
-- [ ] Aprobado por Pablo antes de ejecutar
+- [ ] 30 days of content planned: channel, format, topic, CTA
+- [ ] Channel mix: X/Twitter, LinkedIn, newsletter
+- [ ] At least 4 thought leadership pieces
+- [ ] Approved by Pablo before executing
 
-## Valor epistémico
+## Epistemic value
 
-Define qué narrativa queremos construir y para quién.
+Defines what narrative we want to build and for whom.
 
-## Valor pragmático
+## Pragmatic value
 
-Sin calendario, el contenido se publica cuando hay tiempo — o sea, nunca.
+Without a calendar, content gets published when there is time — that is, never.

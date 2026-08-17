@@ -1,43 +1,45 @@
 ---
-id: "MIS-00034"
-title: "Deck para inversores ángel v1.0"
+id: "MIS-034"
+title: "Angel investor deck v1.0"
 type: mission
 status: backlog
+version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-area: "Financiación"
-guild: "Procuradores"
-tipo: "híbrido"
+updated: "2026-08-17T00:00:00Z"
+area: "Funding"
+guild: "Procurators"
+type_execution: "hybrid"
 priority: "high"
 effort: "L"
 license: "CC-BY-4.0"
 ---
-# MIS-034 — Deck para inversores ángel v1.0
+# MIS-034 — Angel investor deck v1.0
 
-> **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-**Area:** Financiación · **Gremio:** Procuradores · **Tipo:** 🔀 Híbrido · **Prioridad:** 🟠 Alta · **Esfuerzo:** L
+**Area:** Funding · **Guild:** Procurators · **Type:** 🔀 Hybrid · **Priority:** 🟠 High · **Effort:** L
 
-## Historia
+## Story
 
-Como fundador, quiero un deck de inversión que cuente la historia de Numen Games de forma convincente, para abrir conversaciones con inversores ángel.
+As founder, I want an investment deck that tells the Numen Games story convincingly, in order to open conversations with angel investors.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-- [ ] Deck de 12-15 slides: problema, solución, mercado, tracción, equipo, financials, ask
-- [ ] Revisado por mentor o inversor externo
-- [ ] Versión ejecutiva (5 slides) disponible
-- [ ] Modelo financiero a 3 años incluido
+- [ ] 12-15 slide deck: problem, solution, market, traction, team, financials, ask
+- [ ] Reviewed by a mentor or external investor
+- [ ] Executive version (5 slides) available
+- [ ] 3-year financial model included
 
-## Valor epistémico
+## Epistemic value
 
-Fuerza articulación honesta del tamaño de mercado y modelo de negocio.
+Forces an honest articulation of market size and business model.
 
-## Valor pragmático
+## Pragmatic value
 
-Herramienta para abrir conversaciones de inversión en cualquier momento.
+A tool to open investment conversations at any time.

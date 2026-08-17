@@ -4,9 +4,9 @@ uid: "018ef820-0039-7000-8000-000000000039"
 title: "Agent log system"
 type: mission
 status: in-review
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-04-07T00:00:00Z"
-updated: "2026-04-08T05:59:00Z"
+updated: "2026-08-17T00:00:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [cao, logs, observability, agents, sentinels]
@@ -31,9 +31,9 @@ completed: null
 
 ---
 
-## Historia
+## Story
 
-Como operador, quiero un log estructurado de cada acción ejecutada por cada agente, para auditar el sistema en cualquier momento.
+As operator, I want a structured log of every action executed by every agent, so I can audit the system at any time.
 
 ---
 
@@ -51,10 +51,10 @@ Como operador, quiero un log estructurado de cada acción ejecutada por cada age
 
 ---
 
-## Valor epistémico
+## Epistemic value
 
-Sin logs, no hay auditoría. Sin auditoría, no hay confianza.
+Without logs, there is no audit. Without an audit, there is no trust.
 
-## Valor pragmático
+## Pragmatic value
 
-Trazabilidad completa de qué hizo cada agente y cuánto costó.
+Full traceability of what each agent did and how much it cost.
