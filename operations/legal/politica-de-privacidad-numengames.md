@@ -16,8 +16,9 @@ restoration_note: "Ingested 2026-08-17 verbatim — unlike the T&C, no transport
 review_flags: |
   FLAG-1 (critical): RESOLVED 2026-08-17 by Oracle order — §6 directed
   GDPR rights exercise to hello@startupvalencia.org (third-party
-  template leftover); corrected to legal@numengames.com. The published
-  website copy must receive the same fix.
+  template leftover); corrected to legal@numengames.com. Per Oracle,
+  these texts are NOT yet published on any website — this archive copy
+  is the master; whatever gets published later must derive from it.
   FLAG-2: §3 numbers its purposes 1, 2, 7, 8 — purposes 3–6 are missing,
   suggesting the source was cut down from a longer template.
   FLAG-3: §5 mentions debt communication on unpaid "cuota de socio"
