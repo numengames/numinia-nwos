@@ -21,6 +21,7 @@ export const navItems: NavItem[] = [
     children: [
       { label: "Agente", href: "/agente", id: "agente" },
       { label: "Archive", href: "/archive", id: "archive" },
+      { label: "Audits", href: "/audits", id: "audits" },
       { label: "Auditoría", href: "/auditoria", id: "auditoria" },
       { label: "CAO", href: "/cao", id: "cao" },
       { label: "Continuidad", href: "/continuidad", id: "continuidad" },

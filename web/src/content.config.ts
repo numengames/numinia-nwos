@@ -23,4 +23,20 @@ const missions = defineCollection({
     .passthrough(),
 });
 
-export const collections = { missions };
+// Audit reports are read from the repo's reports/audits/ folder at build
+// time — same source-of-truth pattern as missions.
+const audits = defineCollection({
+  loader: glob({ pattern: "*.md", base: "../reports/audits" }),
+  schema: z
+    .object({
+      id: z.string(),
+      title: z.string(),
+      status: z.string().default("draft"),
+      created: z.string(),
+      author: z.string().optional(),
+      tags: z.array(z.string()).default([]),
+    })
+    .passthrough(),
+});
+
+export const collections = { missions, audits };
