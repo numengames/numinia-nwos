@@ -2,10 +2,10 @@
 id: "MIS-049"
 title: "DORA Metrics for numengames-web"
 type: mission
-status: backlog
+status: cancelled
 version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-updated: "2026-04-07T18:00:00Z"
+updated: "2026-08-17T00:00:00Z"
 area: "Operations"
 guild: "Sentinels"
 type_execution: "digital"
@@ -49,3 +49,14 @@ Identify bottlenecks in the development flow before they scale.
 
 - v1.0.0 (2026-04-04) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
+
+---
+
+## Closure (2026-08-17)
+
+Closed as **cancelled — obsolete**, board triage ordered and approved by the Oracle (2026-08-17).
+
+- **Reason:** Targets numengames-web, whose repo/worker is slated for strip+rename (nwos-site) and whose domain is gone.
+- **Evidence:** numengames.com returns 404; estado-merge-viewer plan.
+- **Rule:** file preserved per P-003/SIM-2.7 and GOVERNANCE G-05 — closed, never deleted.
+

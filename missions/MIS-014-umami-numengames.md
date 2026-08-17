@@ -2,7 +2,7 @@
 id: "MIS-014"
 title: "Install Umami on numengames.com"
 type: mission
-status: backlog
+status: cancelled
 version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
 updated: "2026-08-17T00:00:00Z"
@@ -43,3 +43,14 @@ Baseline of numengames.com's real traffic before improvements.
 ## Pragmatic value
 
 Data to measure the impact of MIS-027 (website improvement).
+
+---
+
+## Closure (2026-08-17)
+
+Closed as **cancelled — obsolete**, board triage ordered and approved by the Oracle (2026-08-17).
+
+- **Reason:** Target site no longer exists.
+- **Evidence:** numengames.com returns 404.
+- **Rule:** file preserved per P-003/SIM-2.7 and GOVERNANCE G-05 — closed, never deleted.
+

@@ -2,7 +2,7 @@
 id: "MIS-013"
 title: "Monitoring and alerts system"
 type: mission
-status: backlog
+status: cancelled
 version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
 updated: "2026-08-17T00:00:00Z"
@@ -43,3 +43,14 @@ Reveals the real stability of the infrastructure in production.
 ## Pragmatic value
 
 Zero downtime without permanent human intervention.
+
+---
+
+## Closure (2026-08-17)
+
+Closed as **cancelled — obsolete**, board triage ordered and approved by the Oracle (2026-08-17).
+
+- **Reason:** As written it targets numengames.com, which no longer serves.
+- **Evidence:** numengames.com returns 404; corporate site moved to numen.games.
+- **Rule:** file preserved per P-003/SIM-2.7 and GOVERNANCE G-05 — closed, never deleted.
+

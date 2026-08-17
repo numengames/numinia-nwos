@@ -2,10 +2,10 @@
 id: "MIS-056"
 title: "Repo Translation to English — NWOS Canon in English Only"
 type: mission
-status: backlog
+status: done
 version: "2.1.0"
 created: "2026-04-07T00:00:00Z"
-updated: "2026-04-07T18:45:00Z"
+updated: "2026-08-17T00:00:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [documentation, i18n, english, nwos, repo]
@@ -15,6 +15,7 @@ guild: "Exegetes"
 type_execution: "híbrido"
 priority: "high"
 effort: "L"
+completed: "2026-08-17"
 ---
 # MIS-056 — Repo Translation to English
 
@@ -125,3 +126,14 @@ The language of documentation defines who can contribute to a system. English-on
 ---
 
 *Nimrod 🗡️ — 2026-04-07 — v2.0.0 (replaces bilingual ES+EN scope)*
+
+---
+
+## Closure (2026-08-17)
+
+Closed as **done — achieved by reality**, board triage ordered and approved by the Oracle (2026-08-17).
+
+- **Reason:** The translation was executed in April and never closed; MIS-066 completed the corpus (all missions English, flat folder).
+- **Evidence:** 26 files carry 'Translated to English (MIS-056)' in their version history; DEC-006; MIS-066 PR #5.
+- **Rule:** file preserved per P-003/SIM-2.7 and GOVERNANCE G-05 — closed, never deleted.
+

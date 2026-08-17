@@ -2,7 +2,7 @@
 id: "MIS-025"
 title: "30-day content strategy"
 type: mission
-status: backlog
+status: cancelled
 version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
 updated: "2026-08-17T00:00:00Z"
@@ -43,3 +43,14 @@ Defines what narrative we want to build and for whom.
 ## Pragmatic value
 
 Without a calendar, content gets published when there is time — that is, never.
+
+---
+
+## Closure (2026-08-17)
+
+Closed as **cancelled — obsolete**, board triage ordered and approved by the Oracle (2026-08-17).
+
+- **Reason:** Time-boxed April 2026 strategy; the window and the epoch passed.
+- **Evidence:** Created 2026-04; product and web landscape changed entirely since.
+- **Rule:** file preserved per P-003/SIM-2.7 and GOVERNANCE G-05 — closed, never deleted.
+

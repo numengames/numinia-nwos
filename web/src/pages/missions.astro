@@ -62,6 +62,7 @@ const columns = [
 ];
 const byStatus = (key: string) => missions.filter((m) => m.status === key);
 const frozen = missions.filter((m) => m.status === "frozen");
+const cancelled = missions.filter((m) => m.status === "cancelled");
 
 const done = byStatus("done");
 const inProg = byStatus("in-progress");
@@ -268,6 +269,33 @@ const stats = [
         </div>
       )}
 
+      <!-- Cancelled (kept visible: closed, never deleted — P-003/SIM-2.7) -->
+      {cancelled.length > 0 && (
+        <div class="mt-8">
+          <button id="cancel-toggle" class="flex items-center gap-3 w-full text-left mb-3 group" aria-expanded="false">
+            <span class="font-mono text-[0.65rem] uppercase tracking-widest text-dim group-hover:text-foreground transition-colors">🚫 Cancelled</span>
+            <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-border font-mono text-[0.6rem] text-foreground">{cancelled.length}</span>
+            <span class="h-px flex-1 bg-border"></span>
+            <span id="cancel-chevron" class="font-mono text-[0.6rem] text-dim transition-all">▼ show</span>
+          </button>
+          <div id="cancel-cards" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {cancelled.map((m) => (
+              <a href={"/missions/" + m.id.toLowerCase()}
+                class="rounded-lg border border-dim/10 bg-dim/5 p-3.5 mission-card opacity-60 hover:opacity-100 transition-opacity block"
+                data-status={m.status} data-priority={m.priority} data-effort={m.effort} data-guild={m.guild}
+                data-searchable={[m.id, m.title, m.assignedTo || "", m.guild].join(" ").toLowerCase()}>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="font-mono text-[0.6rem] text-dim">{m.id}</span>
+                  <span class="font-mono text-[0.55rem] text-dim">{m.effort}</span>
+                </div>
+                <p class="text-sm text-foreground/60 leading-snug mb-2 line-through decoration-dim/40">{m.title}</p>
+                <span class="font-mono text-[0.55rem] text-dim">{m.guild}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
       <!-- Footer -->
       <div class="mt-12 grid sm:grid-cols-2 gap-4">
         <div class="rounded-xl border border-border/50 bg-card/50 p-5">
@@ -377,14 +405,16 @@ searchInput?.addEventListener("keydown", (e) => {
   if ((e as KeyboardEvent).key === "Escape") searchClear?.click();
 });
 
-document.getElementById("freeze-toggle")?.addEventListener("click", () => {
-  const content = document.getElementById("freeze-cards");
-  const chevron = document.getElementById("freeze-chevron");
-  const toggle = document.getElementById("freeze-toggle");
-  if (content && chevron) {
-    const hidden = content.classList.toggle("hidden");
-    chevron.textContent = hidden ? "▼ show" : "▲ hide";
-    toggle?.setAttribute("aria-expanded", hidden ? "false" : "true");
-  }
-});
+for (const key of ["freeze", "cancel"]) {
+  document.getElementById(key + "-toggle")?.addEventListener("click", () => {
+    const content = document.getElementById(key + "-cards");
+    const chevron = document.getElementById(key + "-chevron");
+    const toggle = document.getElementById(key + "-toggle");
+    if (content && chevron) {
+      const hidden = content.classList.toggle("hidden");
+      chevron.textContent = hidden ? "▼ show" : "▲ hide";
+      toggle?.setAttribute("aria-expanded", hidden ? "false" : "true");
+    }
+  });
+}
 </script>

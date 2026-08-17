@@ -2,10 +2,10 @@
 id: "MIS-061"
 title: "El Sistema — NWOS Web Visualization at pablofm.com/sistema"
 type: mission
-status: backlog
+status: cancelled
 version: "1.0.0"
 created: "2026-04-07T18:00:00Z"
-updated: "2026-04-07T18:00:00Z"
+updated: "2026-08-17T00:00:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [web, nwos, visualization, ux, i18n, sistema, pablofm]
@@ -176,3 +176,14 @@ Significant product build. UX/UI decisions require Pablo review before developme
 ---
 
 *Nimrod 🗡️ — 2026-04-07*
+
+---
+
+## Closure (2026-08-17)
+
+Closed as **cancelled — obsolete**, board triage ordered and approved by the Oracle (2026-08-17).
+
+- **Reason:** The NWOS web visualization exists — it is numinia.org itself; pablofm.com/sistema is superseded.
+- **Evidence:** numinia.org live, board built from the canonical repo (MIS-066).
+- **Rule:** file preserved per P-003/SIM-2.7 and GOVERNANCE G-05 — closed, never deleted.
+

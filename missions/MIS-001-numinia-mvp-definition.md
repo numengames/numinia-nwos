@@ -3,10 +3,10 @@ id: "MIS-001"
 uid: "018ef820-0001-7000-8000-000000000001"
 title: "Define the Numinia MVP in one page"
 type: mission
-status: backlog
+status: cancelled
 version: "1.0.0"
 created: "2026-04-07T19:43:00Z"
-updated: "2026-04-07T19:43:00Z"
+updated: "2026-08-17T00:00:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [product, mvp, strategy, alchemists]
@@ -58,3 +58,14 @@ Eliminates circular conversations. All subsequent work has a single reference po
 ---
 
 *Nimrod 🗡️ — recovered from pablofm-web (MIS-062.2) — 2026-04-07*
+
+---
+
+## Closure (2026-08-17)
+
+Closed as **cancelled — obsolete**, board triage ordered and approved by the Oracle (2026-08-17).
+
+- **Reason:** Defining an MVP one-pager is moot: the product is live and versioned well beyond MVP.
+- **Evidence:** numinia.com v0.39.2 — city, L.A.P. login, CC0 asset catalog, 5 languages; numinia.org live.
+- **Rule:** file preserved per P-003/SIM-2.7 and GOVERNANCE G-05 — closed, never deleted.
+

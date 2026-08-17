@@ -3,10 +3,10 @@ id: "MIS-044"
 uid: "018ef820-0044-7000-8000-000000000044"
 title: "GAPS.md — Numen Games capability map"
 type: mission
-status: backlog
+status: done
 version: "1.0.0"
 created: "2026-04-07T19:43:00Z"
-updated: "2026-04-07T19:43:00Z"
+updated: "2026-08-17T00:00:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [documentation, strategy, gaps, procurators]
@@ -18,7 +18,7 @@ effort: "S"
 assigned_to: "procurador-01"
 requested_by: "oracle"
 started: null
-completed: null
+completed: "2026-08-17"
 ---
 # MIS-044 — GAPS.md — Numen Games capability map
 
@@ -72,3 +72,14 @@ Identified on 2026-04-02. Promised to Pablo. Pending execution.
 
 - v1.0.0 (2026-04-04) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
+
+---
+
+## Closure (2026-08-17)
+
+Closed as **done — achieved by reality**, board triage ordered and approved by the Oracle (2026-08-17).
+
+- **Reason:** The gaps map exists and is published — as a rendered page rather than GAPS.md (an FT-05 case noted in AUDIT-navigability-2026-08-17).
+- **Evidence:** https://numinia.org/gaps live (web/src/pages/gaps.astro).
+- **Rule:** file preserved per P-003/SIM-2.7 and GOVERNANCE G-05 — closed, never deleted.
+

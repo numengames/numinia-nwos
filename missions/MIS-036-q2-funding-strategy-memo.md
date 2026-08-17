@@ -2,7 +2,7 @@
 id: "MIS-036"
 title: "Memo: Q2 2026 funding strategy"
 type: mission
-status: backlog
+status: cancelled
 version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
 updated: "2026-08-17T00:00:00Z"
@@ -43,3 +43,14 @@ Forces honesty about the real financial state.
 ## Pragmatic value
 
 Team alignment on funding priorities.
+
+---
+
+## Closure (2026-08-17)
+
+Closed as **cancelled — obsolete**, board triage ordered and approved by the Oracle (2026-08-17).
+
+- **Reason:** Q2 2026 has elapsed; a Q2 memo cannot be written in August.
+- **Evidence:** Calendar; mission created 2026-04.
+- **Rule:** file preserved per P-003/SIM-2.7 and GOVERNANCE G-05 — closed, never deleted.
+

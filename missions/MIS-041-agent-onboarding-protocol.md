@@ -2,16 +2,17 @@
 id: "MIS-041"
 title: "Onboarding protocol for new agents"
 type: mission
-status: backlog
+status: done
 version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
-updated: "2026-04-07T18:00:00Z"
+updated: "2026-08-17T00:00:00Z"
 area: "CAO"
 guild: "Sentinels"
 type_execution: "digital"
 priority: "medium"
 effort: "M"
 license: "CC-BY-4.0"
+completed: "2026-08-17"
 ---
 # MIS-041 — Onboarding protocol for new agents
 
@@ -49,3 +50,14 @@ Scale the CAO without setup friction for each new agent.
 
 - v1.0.0 (2026-04-04) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
+
+---
+
+## Closure (2026-08-17)
+
+Closed as **done — achieved by reality**, board triage ordered and approved by the Oracle (2026-08-17).
+
+- **Reason:** The deliverable exists as the onboarding protocol.
+- **Evidence:** protocols/P-002-onboarding-agente-v1.md — 'Agent Onboarding Protocol', active.
+- **Rule:** file preserved per P-003/SIM-2.7 and GOVERNANCE G-05 — closed, never deleted.
+
