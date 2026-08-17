@@ -5,7 +5,7 @@ type: mission
 status: in-progress
 version: "0.2.0"
 created: "2026-08-17"
-updated: "2026-08-17"
+updated: "2026-08-18"
 author: "oracle"
 owner: "oracle"
 tags: [web, platform, codex, lap, character-sheet, design, lore]
@@ -267,3 +267,41 @@ You are the implementation agent for the Numinia Codex Reader and the LAP (Lecto
 - All code, comments and commits in English. Report per phase with a 1–10 self-score and caveats.
 
 Begin with the audit.
+
+
+---
+
+# Execution log — 2026-08-18 (agent report)
+
+**Phases A–E SHIPPED and live on numinia.com** (v0.41.0 reader · v0.42.0
+editions · v0.43.0 sheet rules; every push deployed itself on green CI).
+
+- **A**: manual v0.6.0 split at build, byte-exact, Zod manifest; lore
+  `codex/` docs (glosario 79 sourced terms, hoja transcription, legal D10,
+  agradecimientos).
+- **B**: the book plane per the frozen mockup — Alegreya (D12), Diurno
+  default with the manual's own Nocturno (D13), bookmark (D3), chrome that
+  steps aside, self-drawing marcos, glosario, Umbral veiling the READER
+  only (D2+D6), .md downloads, print stylesheet, legacy reader retired.
+  WCAG gate forced an AA floor on the tertiary ink (both papers, both modes).
+- **C**: free PDF + EPUB (D6) baked by the site's own render engine — no
+  pandoc, epubcheck 5.1.0 clean and gated in CI; cover from the portada;
+  live-verified on /descargas/. **The brief's one mandatory question was
+  asked**: the Oracle chose to publish with «Alicia» a secas; canon updated
+  in numinia-lore (151b852).
+- **D**: creation rules as domain facts (competence triads, 16-pt buy,
+  position mechanics + full 4-axis affinity matrix — double-extracted,
+  0 mismatches), rules engine, gears 0–5 (§7.5), D11 this-device autosave +
+  sovereignty copy, sheet format v3. The Procurators tree renamed per the
+  manual (Legados / Mercuriales / Intendentes; glossary v1.1.0, ADR-007).
+  **14 manual gaps/contradictions await rulings:
+  numinia-web/docs/reference/sheet-rules-findings.md** (self-score 8/10
+  there, per §9).
+- **E**: substantively shipped — chapter pages are SSR and any SIWE
+  session unveils gated chapters (AuthProvider = the platform's existing
+  session system).
+
+**Remaining (Oracle acts):** F final art · sign the Khepri changelog row
+(draft: numinia-web/docs/design/khepri-changelog-book-plane.md, proposed
+4.3.0) · rule on the 14 findings · supply Alicia's surname (editions
+regenerate from the canonical MD).
