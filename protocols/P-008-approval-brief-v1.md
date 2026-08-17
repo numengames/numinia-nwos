@@ -9,7 +9,7 @@ updated: "2026-04-07T18:00:00Z"
 author: "nimrod"
 owner: "oracle"
 tags: [approval, human-in-the-loop, security, protocol]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 
 # P-008 — Approval Brief Protocol

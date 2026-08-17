@@ -12,7 +12,7 @@ owner: "oracle"
 tags: [blueprint, cao, agents, architecture]
 area: "CAO"
 semaforo: "amarillo"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # BP — CAO (Centralized Autonomous Organization)
 

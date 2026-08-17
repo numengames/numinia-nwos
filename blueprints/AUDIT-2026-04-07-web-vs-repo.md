@@ -13,7 +13,7 @@ tags: [audit, coherence, web, repo, divergences]
 scope: "pablofm.com vs numinia-digital-agents"
 score: 8.8
 score_prev: 9.5
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # Auditoría — Divergencias Web vs Repo
 

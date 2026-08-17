@@ -11,7 +11,7 @@ owner: "oracle"
 tags: [blueprint, cao, missions, system]
 area: "CAO"
 semaforo: "amarillo"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # BP — Sistema de Misiones
 

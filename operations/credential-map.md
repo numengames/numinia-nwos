@@ -9,7 +9,7 @@ updated: "2026-04-07T18:00:00Z"
 author: "nimrod"
 owner: "oracle"
 tags: [operations, security, credentials]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # Credential Map
 

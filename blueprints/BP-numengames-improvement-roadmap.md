@@ -11,7 +11,7 @@ author: "nimrod"
 owner: "oracle"
 tags: [numengames, web, seo, improvement, roadmap, content]
 area: "Content"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 mission: "MIS-027"
 input: "blueprints/AUDIT-numengames-2026-04-08.md"
 ---

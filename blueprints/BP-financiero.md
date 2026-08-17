@@ -11,7 +11,7 @@ owner: "oracle"
 tags: [blueprint, business, finance, costs]
 area: "Negocio"
 semaforo: "rojo"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # BP — Financiero
 

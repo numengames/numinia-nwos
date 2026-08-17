@@ -11,7 +11,7 @@ author: "nimrod"
 owner: "oracle"
 tags: [audit, numengames, infrastructure, seo, performance, web]
 scope: "numen.games (numengames.com)"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 mission: "MIS-011"
 ---
 # Technical Audit — numen.games

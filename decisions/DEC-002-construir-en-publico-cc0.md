@@ -11,7 +11,7 @@ owner: "oracle"
 tags: [decisions, strategy, culture, open-source, cc0]
 area: "Strategy / Culture"
 superseded_by: null
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # DEC-002 — Build in public with CC0 license
 

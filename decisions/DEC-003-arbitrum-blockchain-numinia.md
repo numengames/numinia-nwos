@@ -12,7 +12,7 @@ tags: [decisions, product, tech, blockchain, arbitrum]
 area: "Product / Tech"
 pending_dark_council: true
 superseded_by: null
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # DEC-003 — Arbitrum as Numinia blockchain
 

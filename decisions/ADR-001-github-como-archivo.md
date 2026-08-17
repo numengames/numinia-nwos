@@ -13,7 +13,7 @@ adr_id: "ADR-001"
 decision: "Use GitHub as the canonical repository for the Narrative Work OS"
 context: "The system needs a persistent, auditable, accessible source of truth for all agents and oracles"
 superseded_by: null
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # ADR-001 — GitHub as Archive Summa
 

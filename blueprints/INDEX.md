@@ -10,7 +10,7 @@ updated: "2026-04-07T19:03:00Z"
 author: "nimrod"
 owner: "oracle"
 tags: [blueprints, index]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # Blueprints — System Designs
 

@@ -11,7 +11,7 @@ owner: "oracle"
 tags: [decisions, cao, agents, architecture]
 area: "CAO / Agent system"
 superseded_by: null
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # DEC-004 — Hybrid CAO architecture
 

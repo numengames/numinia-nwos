@@ -11,7 +11,7 @@ owner: "oracle"
 tags: [decisions, documentation, i18n, english, nwos, language]
 area: "Documentation / Strategy"
 superseded_by: null
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # DEC-006 — English as the official language of the NWOS canonical repo
 

@@ -11,7 +11,7 @@ owner: "oracle"
 tags: [blueprint, product, web, pablofm, numengames]
 area: "Producto"
 semaforo: "verde"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # BP — Webs
 

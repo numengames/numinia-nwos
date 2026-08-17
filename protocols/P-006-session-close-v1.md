@@ -13,7 +13,7 @@ tags: [protocol, session, commit, memory, close]
 applies_to: [all-agents]
 mandatory: true
 human_approval_score: 7
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # P-006 — Session Close Protocol v1
 

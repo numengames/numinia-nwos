@@ -9,7 +9,7 @@ updated: "2026-04-07T18:45:00Z"
 author: "nimrod"
 owner: "oracle"
 tags: [decisions, index, adr]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # Decisions — Crystallized Will
 

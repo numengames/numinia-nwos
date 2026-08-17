@@ -9,7 +9,7 @@ updated: "2026-08-16T00:00:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [canon, index, seminal]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 changelog:
   - version: "1.2.1"
     date: "2026-08-16T00:00:00Z"

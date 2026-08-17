@@ -11,7 +11,7 @@ owner: "oracle"
 tags: [protocol, onboarding, agents]
 applies_to: [oracle, procyon]
 mandatory: true
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # P-002 — Agent Onboarding Protocol v1
 

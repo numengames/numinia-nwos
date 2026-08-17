@@ -11,7 +11,7 @@ owner: "oracle"
 tags: [blueprint, product, tech, data, blockchain, nft]
 area: "Producto / Tech"
 semaforo: "amarillo"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # BP — Modelo de Datos
 

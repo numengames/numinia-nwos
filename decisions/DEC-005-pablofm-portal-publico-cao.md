@@ -11,7 +11,7 @@ owner: "oracle"
 tags: [decisions, product, communication, web]
 area: "Product / Communication"
 superseded_by: null
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # DEC-005 — pablofm.com as the public CAO portal
 

@@ -9,7 +9,7 @@ updated: "2026-04-07T18:00:00Z"
 author: "nimrod"
 owner: "oracle"
 tags: [template, approval, human-in-the-loop]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # Template — Approval Request
 

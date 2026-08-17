@@ -11,7 +11,7 @@ owner: "oracle"
 tags: [protocol, missions, cycle]
 applies_to: [all-agents]
 mandatory: true
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # P-003 — Mission Cycle Protocol v1
 

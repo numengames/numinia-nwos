@@ -12,7 +12,7 @@ owner: "oracle"
 tags: [metrics, business, kpi, roi, cao, framework]
 area: "CAO / Business"
 related_missions: ["MIS-057", "MIS-048"]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # BP — Business Metrics Framework v0.1.0
 

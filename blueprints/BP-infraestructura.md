@@ -11,7 +11,7 @@ owner: "oracle"
 tags: [blueprint, ops, infrastructure, server]
 area: "Ops"
 semaforo: "amarillo"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # BP — Infraestructura
 

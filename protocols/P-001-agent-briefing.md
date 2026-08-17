@@ -12,7 +12,7 @@ owner: "oracle"
 tags: [protocol, briefing, startup, mandatory]
 applies_to: [all-agents]
 mandatory: true
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # P-001 — Agent Briefing Protocol
 

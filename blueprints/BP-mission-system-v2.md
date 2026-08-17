@@ -12,7 +12,7 @@ owner: "oracle"
 tags: [missions, kanban, system-design, architecture, sub-missions]
 area: "CAO / Product"
 related_missions: ["MIS-057", "MIS-062"]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # BP — Mission System v2
 

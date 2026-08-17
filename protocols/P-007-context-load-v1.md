@@ -12,7 +12,7 @@ tags: [protocol, context, fatigue, session, human-in-the-loop]
 applies_to: [all-agents]
 mandatory: true
 human_approval_score: 3
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 
 # P-007 — Context Load Protocol

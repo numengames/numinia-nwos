@@ -11,7 +11,7 @@ tags: [decisions, adr, format, markdown]
 adr_id: "ADR-002"
 decision: "All documents in the Archive Summa use Markdown (.md) as the primary format"
 superseded_by: null
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # ADR-002 — Markdown as Universal Format
 

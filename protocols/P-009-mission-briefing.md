@@ -10,7 +10,7 @@ updated: "2026-04-08T05:48:00Z"
 author: "nimrod"
 owner: "oracle"
 tags: [protocol, briefing, missions, agents, p003]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 mission: "MIS-038"
 ---
 # P-009 — Mission Briefing Protocol

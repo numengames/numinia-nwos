@@ -11,7 +11,7 @@ owner: "oracle"
 tags: [decisions, infrastructure, self-hosting, philosophy]
 area: "Infrastructure / Philosophy"
 superseded_by: null
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # DEC-001 — Self-hosting over SaaS for infrastructure
 

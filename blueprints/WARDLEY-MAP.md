@@ -11,7 +11,7 @@ author: "nimrod"
 owner: "oracle"
 tags: [blueprint, wardley, strategy, nwos]
 area: "Strategy"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # Wardley Map — Narrative Work OS
 
