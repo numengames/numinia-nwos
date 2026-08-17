@@ -1,131 +1,103 @@
 ---
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
+// Decision detail rendered at build from the repo's decisions/ folder
+// (MIS-065). The full markdown document is the page.
 import Layout from "@/layouts/Layout.astro";
-import { decisiones } from "@/data/decisiones";
+import DocToolbar from "@/components/DocToolbar.astro";
+import { getCollection, render } from "astro:content";
 
-export function getStaticPaths() {
-  return decisiones.map((d) => ({
-    params: { id: d.id.toLowerCase() },
-    props: { decision: d },
+export async function getStaticPaths() {
+  const entries = (await getCollection("decisions")).sort((a, b) =>
+    (a.data.id as string).localeCompare(b.data.id as string)
+  );
+  return entries.map((entry, i) => ({
+    params: { id: (entry.data.id as string).toLowerCase() },
+    props: {
+      entry,
+      prevId: i > 0 ? (entries[i - 1].data.id as string) : null,
+      nextId: i < entries.length - 1 ? (entries[i + 1].data.id as string) : null,
+    },
   }));
 }
 
-const { decision } = Astro.props;
+const { entry, prevId, nextId } = Astro.props;
+const { Content } = await render(entry);
+const f = entry.data as Record<string, any>;
+const decId = (f.id as string).toUpperCase();
+const mdFilename = (entry.filePath as string).split("/").pop()!;
+const mdUrl = `/decisiones/${decId.toLowerCase()}.md`;
 
-const estadoColor: Record<string, string> = {
-  activa: "bg-green/10 text-green border-green/20",
-  provisional: "bg-yellow/10 text-yellow border-yellow/20",
-  supersedida: "bg-muted text-muted-foreground border-border",
+const STATUS_COLOR: Record<string, string> = {
+  active: "text-green-400",
+  provisional: "text-yellow",
+  superseded: "text-dim",
 };
 ---
 
 <Layout
-  title={`${decision.id} — ${decision.titulo} · Numen Games`}
-  description={decision.decision}
-  canonicalPath={`/decisiones/${decision.id.toLowerCase()}`}
+  title={`${decId} — Numen Games CAO`}
+  description={`${decId} — ${f.title}`}
+  canonicalPath={`/decisiones/${decId.toLowerCase()}`}
 >
   <section class="pb-20 pt-16">
     <div class="mx-auto max-w-[800px] px-6">
 
       <a href="/decisiones" class="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-8">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <polyline points="19 12 5 12"/><polyline points="12 5 5 12 12 19"/>
+          <polyline points="19 12 5 12"/>
+          <polyline points="12 5 5 12 12 19"/>
         </svg>
         Decisiones
       </a>
 
-      <div class="mb-8">
-        <div class="flex flex-wrap items-center gap-2 mb-4">
-          <span class="font-mono text-[0.65rem] text-dim">{decision.id}</span>
-          <span class:list={["inline-flex rounded-full border px-2.5 py-0.5 font-mono text-[0.6rem] font-medium", estadoColor[decision.estado]]}>
-            {decision.estado}
-          </span>
-          {decision.pendienteDarkCouncil && (
-            <span class="inline-flex rounded-full bg-yellow/10 border border-yellow/20 px-2.5 py-0.5 font-mono text-[0.6rem] text-yellow">
-              Confirmar Dark Council
-            </span>
-          )}
-          <span class="font-mono text-[0.65rem] text-dim">{decision.area}</span>
-          <span class="font-mono text-[0.65rem] text-dim">{decision.fecha}</span>
-        </div>
-        <h1 class="font-display text-3xl sm:text-4xl text-foreground">{decision.titulo}</h1>
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="font-mono text-[0.65rem] text-accent">{decId}</span>
+        <span class="font-mono text-[0.6rem] text-dim">{String(f.created).slice(0, 10)}</span>
+        <span class={"font-mono text-[0.6rem] uppercase tracking-widest " + (STATUS_COLOR[f.status] || "text-dim")}>{f.status}</span>
+        {f.area && <span class="font-mono text-[0.6rem] text-dim">{f.area}</span>}
       </div>
 
-      <div class="space-y-6">
+      <h1 class="font-display text-3xl sm:text-4xl text-foreground mb-8">{f.title}</h1>
 
-        <div class="rounded-xl border border-border bg-card p-6">
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-3">📍 Contexto</p>
-          <p class="text-sm text-muted-foreground leading-relaxed">{decision.contexto}</p>
-        </div>
-
-        <div class="rounded-xl border border-accent/20 bg-accent/5 p-6">
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent mb-3">✅ Decisión</p>
-          <p class="text-base text-foreground font-medium leading-relaxed">{decision.decision}</p>
-        </div>
-
-        <div class="rounded-xl border border-border bg-card p-6">
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">🧠 Por qué</p>
-          <ul class="space-y-2">
-            {decision.porQue.map((r) => (
-              <li class="flex items-start gap-3">
-                <span class="text-accent mt-1 flex-shrink-0">→</span>
-                <span class="text-sm text-muted-foreground">{r}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div class="rounded-xl border border-border bg-card p-6">
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">❌ Alternativas descartadas</p>
-          <ul class="space-y-2">
-            {decision.alternativas.map((a) => (
-              <li class="flex items-start gap-3">
-                <span class="text-muted-foreground mt-1 flex-shrink-0 line-through opacity-50">×</span>
-                <span class="text-sm text-muted-foreground">{a}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div class="grid gap-4 sm:grid-cols-2">
-          <div class="rounded-xl border border-green/20 bg-green/5 p-6">
-            <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-green mb-3">✅ Consecuencias positivas</p>
-            <ul class="space-y-2">
-              {decision.prosContras.pros.map((p) => (
-                <li class="text-sm text-muted-foreground">+ {p}</li>
-              ))}
-            </ul>
-          </div>
-          <div class="rounded-xl border border-red/20 bg-red/5 p-6">
-            <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-red mb-3">⚠️ Consecuencias negativas</p>
-            <ul class="space-y-2">
-              {decision.prosContras.contras.map((c) => (
-                <li class="text-sm text-muted-foreground">- {c}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-      </div>
+      <DocToolbar mdUrl={mdUrl} filename={mdFilename} />
+      <article class="mission-md rounded-xl border border-border bg-card p-6 sm:p-8">
+        <Content />
+      </article>
 
       <div class="flex justify-between border-t border-border pt-6 mt-8">
-        {decisiones.findIndex(d => d.id === decision.id) > 0 ? (
-          <a href={`/decisiones/${decisiones[decisiones.findIndex(d => d.id === decision.id) - 1].id.toLowerCase()}`} class="font-mono text-[0.7rem] text-dim hover:text-accent transition-colors">
-            ← {decisiones[decisiones.findIndex(d => d.id === decision.id) - 1].id}
-          </a>
-        ) : <span />}
-        {decisiones.findIndex(d => d.id === decision.id) < decisiones.length - 1 ? (
-          <a href={`/decisiones/${decisiones[decisiones.findIndex(d => d.id === decision.id) + 1].id.toLowerCase()}`} class="font-mono text-[0.7rem] text-dim hover:text-accent transition-colors">
-            {decisiones[decisiones.findIndex(d => d.id === decision.id) + 1].id} →
-          </a>
-        ) : <span />}
-      </div>
-
-      <div class="mt-6 border-t border-border pt-6">
-        <p class="font-mono text-xs text-dim">Centinela-01 · Numen Games · {decision.fecha}<br/>Las decisiones no se modifican — se superseden.</p>
+        {prevId
+          ? <a href={"/decisiones/" + prevId.toLowerCase()} class="font-mono text-[0.7rem] text-dim hover:text-accent transition-colors">← {prevId}</a>
+          : <span />}
+        {nextId
+          ? <a href={"/decisiones/" + nextId.toLowerCase()} class="font-mono text-[0.7rem] text-dim hover:text-accent transition-colors">{nextId} →</a>
+          : <span />}
       </div>
 
     </div>
   </section>
 </Layout>
+
+<style is:global>
+  .mission-md > h1:first-child { display: none; }
+  .mission-md h2 { font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: rgb(var(--accent)); margin: 2rem 0 0.75rem; }
+  .mission-md h2:first-of-type { margin-top: 0.5rem; }
+  .mission-md h3 { font-size: 0.95rem; color: rgb(var(--text)); margin: 1.25rem 0 0.5rem; }
+  .mission-md p { font-size: 0.875rem; line-height: 1.7; color: rgb(var(--text-muted)); margin: 0.5rem 0; }
+  .mission-md ul, .mission-md ol { margin: 0.5rem 0 0.75rem; padding-left: 1.25rem; }
+  .mission-md li { font-size: 0.875rem; line-height: 1.65; color: rgb(var(--text-muted)); margin: 0.35rem 0; }
+  .mission-md ul { list-style: disc; }
+  .mission-md ol { list-style: decimal; }
+  .mission-md input[type="checkbox"] { margin-right: 0.5rem; accent-color: rgb(var(--accent)); }
+  .mission-md hr { border: 0; border-top: 1px solid rgb(var(--border)); margin: 1.5rem 0; }
+  .mission-md blockquote { border-left: 2px solid rgb(var(--accent) / 0.35); padding-left: 1rem; margin: 0.75rem 0; font-style: italic; }
+  .mission-md blockquote p { color: rgb(var(--text-muted)); }
+  .mission-md code { font-family: var(--font-mono); font-size: 0.8em; background: rgb(var(--border) / 0.5); padding: 0.1em 0.35em; border-radius: 0.25rem; }
+  .mission-md pre { overflow-x: auto; padding: 1rem; border-radius: 0.5rem; margin: 0.75rem 0; background: rgb(var(--bg-card-hover)); }
+  .mission-md pre code { background: none; padding: 0; }
+  .mission-md table { display: block; overflow-x: auto; font-size: 0.8rem; margin: 0.75rem 0; border-collapse: collapse; }
+  .mission-md th, .mission-md td { border: 1px solid rgb(var(--border)); padding: 0.4rem 0.6rem; text-align: left; color: rgb(var(--text-muted)); }
+  .mission-md th { font-family: var(--font-mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgb(var(--text)); }
+  .mission-md a { color: rgb(var(--accent)); text-decoration: underline; text-underline-offset: 2px; }
+  .mission-md strong { color: rgb(var(--text)); }
+</style>

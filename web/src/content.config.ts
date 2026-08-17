@@ -39,4 +39,35 @@ const audits = defineCollection({
     .passthrough(),
 });
 
-export const collections = { missions, audits };
+// Decision records — the root decisions/ folder is the source of truth
+// (MIS-065: the hardcoded decisiones.ts copy retires).
+const decisions = defineCollection({
+  loader: glob({ pattern: ["DEC-*.md", "ADR-*.md"], base: "../decisions" }),
+  schema: z
+    .object({
+      id: z.string(),
+      title: z.string(),
+      status: z.string().default("active"),
+      area: z.string().optional(),
+      created: z.string(),
+    })
+    .passthrough(),
+});
+
+// Blueprints/planos — the root blueprints/ folder is the source of truth
+// (MIS-065: the hardcoded planos.ts copy retires).
+const blueprints = defineCollection({
+  loader: glob({ pattern: ["BP-*.md", "WARDLEY-MAP.md"], base: "../blueprints" }),
+  schema: z
+    .object({
+      id: z.string(),
+      title: z.string(),
+      status: z.string().default("active"),
+      area: z.string().optional(),
+      semaforo: z.string().optional(),
+      created: z.string(),
+    })
+    .passthrough(),
+});
+
+export const collections = { missions, audits, decisions, blueprints };
