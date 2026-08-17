@@ -1,5 +1,5 @@
 ---
-id: "MIS-00058"
+id: "MIS-067"
 title: "Sistema de Inspecciones — tipo documental, directorio y primera inspección ISO 15489"
 type: mission
 status: backlog
@@ -10,7 +10,7 @@ author: "pablo-fm"
 owner: "oracle"
 tags: [cao, inspections, iso, standards, archive]
 license: "CC-BY-4.0"
-mission_id: "MIS-00058"
+mission_id: "MIS-067"
 assigned_to: "nimrod"
 requested_by: "oracle"
 area: "CAO"
@@ -21,7 +21,7 @@ effort: "M"
 phase: "backlog"
 human_approval_score: 5
 ---
-# MIS-00058 — Sistema de Inspecciones
+# MIS-067 — Sistema de Inspecciones
 
 > **Resumen:** Misión del sistema NWOS con criterios, valor epistémico y pragmático.
 > **Epistémico:** Qué aprendes leyendo este documento.

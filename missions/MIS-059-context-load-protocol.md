@@ -1,5 +1,5 @@
 ---
-id: "MIS-00059"
+id: "MIS-059"
 title: "P-007 — Context Load Protocol"
 type: mission
 status: done

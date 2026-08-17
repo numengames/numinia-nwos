@@ -2,7 +2,7 @@
 id: "MIS-00054"
 title: "Multi-Oracle access to Nimrod via Telegram"
 type: mission
-status: en-curso
+status: in-progress
 version: "1.1.0"
 created: "2026-04-06T00:00:00Z"
 updated: "2026-04-07T18:00:00Z"

@@ -3,7 +3,7 @@ id: "MIS-018"
 uid: "018ef820-0018-7000-8000-000000000018"
 title: "Commercial Value Proposition (One-Pager)"
 type: mission
-status: todo
+status: backlog
 version: "1.0.0"
 created: "2026-04-07T19:43:00Z"
 updated: "2026-04-07T19:43:00Z"

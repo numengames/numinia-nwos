@@ -3,7 +3,7 @@ id: "MIS-005"
 uid: "018ef820-0005-7000-8000-000000000005"
 title: "Numinia landing page with lead capture"
 type: mission
-status: todo
+status: backlog
 version: "1.0.0"
 created: "2026-04-07T19:43:00Z"
 updated: "2026-04-07T19:43:00Z"

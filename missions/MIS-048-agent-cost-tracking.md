@@ -3,7 +3,7 @@ id: "MIS-048"
 uid: "018ef820-0048-7000-8000-000000000048"
 title: "Agent cost tracking system"
 type: mission
-status: todo
+status: backlog
 version: "1.0.0"
 created: "2026-04-07T19:43:00Z"
 updated: "2026-04-07T19:43:00Z"

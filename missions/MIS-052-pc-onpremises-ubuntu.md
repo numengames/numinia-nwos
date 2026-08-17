@@ -2,7 +2,7 @@
 id: "MIS-00052"
 title: "On-premises infrastructure — Dedicated PC"
 type: mission
-status: en-curso
+status: in-progress
 version: "1.1.0"
 created: "2026-04-05T00:00:00Z"
 updated: "2026-04-07T18:00:00Z"

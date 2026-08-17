@@ -3,7 +3,7 @@ id: "MIS-004"
 uid: "018ef820-0004-7000-8000-000000000004"
 title: "Define monetization model v1"
 type: mission
-status: todo
+status: backlog
 version: "1.0.0"
 created: "2026-04-07T19:43:00Z"
 updated: "2026-04-07T19:43:00Z"

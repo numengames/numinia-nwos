@@ -263,6 +263,15 @@ agents (the audit's readers) stop deriving four contradictory answers to
 
 - 2026-08-17 — Phase 0: brief written, rename map approved-pending,
   MIS-062 unassigned, branch `mis-066-unify-missions` opened.
+- 2026-08-17 — Phase 0 addendum: Oracle amendments folded in, revert tag
+  `mis-066-pre-unification` pushed. Rename map approved by Oracle.
+- 2026-08-17 — Phase 1: folder flattened (81 files moved via git mv,
+  status directories removed), Spanish slugs renamed per map, statuses
+  normalized (todo→backlog ×15, en-curso→in-progress ×3), MIS-00058→
+  MIS-067 and MIS-00059→MIS-059 id fields updated, `queue/INDEX.md`
+  retired, MIS-038 review copy dropped early (filename collision at
+  flatten; byte-identical to the surviving done copy except status).
+  Duplicates from ES/EN pairs and MIS-027 remain on disk for Phase 2.
 
 ## Execution Reality
 

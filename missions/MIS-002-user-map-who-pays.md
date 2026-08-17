@@ -3,7 +3,7 @@ id: "MIS-002"
 uid: "018ef820-0002-7000-8000-000000000002"
 title: "User map: who pays and why"
 type: mission
-status: todo
+status: backlog
 version: "1.0.0"
 created: "2026-04-07T19:43:00Z"
 updated: "2026-04-07T19:43:00Z"

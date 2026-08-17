@@ -2,7 +2,7 @@
 id: "{MIS-XXX}"
 title: "{Mission Title}"
 type: mission
-status: draft
+status: draft   # draft|backlog|in-progress|in-review|done|frozen|cancelled
 version: "1.0.0"
 created: "{YYYY-MM-DD}"
 updated: "{YYYY-MM-DD}"
@@ -14,7 +14,6 @@ mission_id: "{MIS-XXX}"
 assigned_to: "{agent-id}"
 requested_by: "{oracle|agent}"
 priority: "{critical|high|medium|low}"
-phase: "{backlog|active|done|cancelled|blocked}"
 executor: "{agent-id}"
 requires_oracle_approval: false
 blocked_reason: null
