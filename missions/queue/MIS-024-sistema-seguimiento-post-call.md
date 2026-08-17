@@ -9,7 +9,7 @@ guild: "Centinelas"
 tipo: "digital"
 priority: "medium"
 effort: "XS"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-024 — Sistema de seguimiento post-call
 

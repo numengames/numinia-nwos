@@ -10,7 +10,7 @@ updated: "2026-04-07T19:43:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [web, content, seo, product, alchemists]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 area: "Content"
 guild: "Alchemists"
 priority: "critical"

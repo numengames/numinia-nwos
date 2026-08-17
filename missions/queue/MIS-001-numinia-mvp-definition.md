@@ -10,7 +10,7 @@ updated: "2026-04-07T19:43:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [product, mvp, strategy, alchemists]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 area: "Product"
 guild: "Alchemists"
 priority: "critical"

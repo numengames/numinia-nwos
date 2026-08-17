@@ -9,7 +9,7 @@ guild: "Exegetas"
 tipo: "digital"
 priority: "medium"
 effort: "S"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-023 — Case Study inicial
 

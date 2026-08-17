@@ -9,7 +9,7 @@ guild: "Procuradores"
 tipo: "híbrido"
 priority: "high"
 effort: "M"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-033 — Identificar 10 sponsors Web3/Gaming
 

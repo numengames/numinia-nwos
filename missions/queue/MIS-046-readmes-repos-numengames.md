@@ -11,7 +11,7 @@ guild: "Exegetes"
 tipo: "digital"
 priority: "medium"
 effort: "M"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-046 — READMEs for numengames org repos
 

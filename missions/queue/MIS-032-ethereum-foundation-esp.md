@@ -9,7 +9,7 @@ guild: "Procuradores"
 tipo: "digital"
 priority: "high"
 effort: "S"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-032 — Investigación: Ethereum Foundation ESP
 

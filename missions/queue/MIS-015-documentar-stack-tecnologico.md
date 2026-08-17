@@ -9,7 +9,7 @@ guild: "Alquimistas"
 tipo: "biológico"
 priority: "high"
 effort: "S"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-015 — Documentar stack tecnológico de Numinia
 

@@ -9,7 +9,7 @@ guild: "Procuradores"
 tipo: "digital"
 priority: "medium"
 effort: "S"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-036 — Memo: Estrategia de financiación Q2 2026
 

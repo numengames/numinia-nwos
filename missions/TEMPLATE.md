@@ -9,7 +9,7 @@ updated: "{YYYY-MM-DD}"
 author: "{oracle|procyon}"
 owner: "oracle"
 tags: [{area}, {guild}]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 mission_id: "{MIS-XXX}"
 assigned_to: "{agent-id}"
 requested_by: "{oracle|agent}"

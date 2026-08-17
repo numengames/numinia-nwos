@@ -9,7 +9,7 @@ guild: "Procuradores"
 tipo: "híbrido"
 priority: "medium"
 effort: "S"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-028 — Newsletter / Lista de correo fundacional
 

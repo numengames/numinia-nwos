@@ -11,7 +11,7 @@ guild: "Procurators"
 tipo: "híbrido"
 priority: "high"
 effort: "XS"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-050 — Backlog review ritual (Dark Council)
 

@@ -10,7 +10,7 @@ updated: "2026-04-08T05:57:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [documentation, cao, architecture, agents, sentinels]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 area: "Documentation"
 guild: "Sentinels"
 mission_id: "MIS-045"

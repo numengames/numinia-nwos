@@ -9,7 +9,7 @@ guild: "Procuradores"
 tipo: "biológico"
 priority: "critical"
 effort: "S"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-004 — Definir el modelo de monetización v1
 

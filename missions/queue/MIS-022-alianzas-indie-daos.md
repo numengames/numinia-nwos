@@ -9,7 +9,7 @@ guild: "Procuradores"
 tipo: "biológico"
 priority: "high"
 effort: "M"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-022 — Alianzas con estudios indie y DAOs
 

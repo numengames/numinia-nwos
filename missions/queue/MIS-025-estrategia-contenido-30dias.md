@@ -9,7 +9,7 @@ guild: "Exegetas"
 tipo: "híbrido"
 priority: "high"
 effort: "M"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-025 — Estrategia de contenido 30 días
 

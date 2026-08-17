@@ -9,7 +9,7 @@ guild: "Procuradores"
 tipo: "híbrido"
 priority: "critical"
 effort: "M"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-017 — Pipeline de Prospección B2B (50 leads)
 

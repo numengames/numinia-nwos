@@ -11,7 +11,7 @@ guild: "Procurators"
 tipo: "híbrido"
 priority: "critical"
 effort: "S"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-044 — GAPS.md — Numen Games gaps and weaknesses map
 

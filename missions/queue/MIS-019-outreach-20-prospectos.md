@@ -9,7 +9,7 @@ guild: "Procuradores"
 tipo: "híbrido"
 priority: "critical"
 effort: "M"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-019 — Outreach secuencial a 20 prospectos
 

@@ -9,7 +9,7 @@ updated: "2026-04-07T13:42:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [cao, inspections, iso, standards, archive]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 mission_id: "MIS-00058"
 assigned_to: "nimrod"
 requested_by: "oracle"

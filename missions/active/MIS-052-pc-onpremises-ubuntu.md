@@ -9,7 +9,7 @@ updated: "2026-04-07T18:00:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [infrastructure, hardware, ollama, sentinels]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 mission_id: "MIS-052"
 assigned_to: "nimrod"
 requested_by: "oracle"

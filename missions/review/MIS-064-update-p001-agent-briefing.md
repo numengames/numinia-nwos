@@ -10,7 +10,7 @@ updated: "2026-04-08T06:02:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [protocols, p001, briefing, startup, sentinels]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 area: "CAO"
 guild: "Sentinels"
 mission_id: "MIS-064"

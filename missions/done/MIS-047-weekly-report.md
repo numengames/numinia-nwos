@@ -10,7 +10,7 @@ updated: "2026-04-07T22:40:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [operations, reports, cron, automation, sentinels]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 area: "Operations"
 guild: "Sentinels"
 mission_id: "MIS-047"

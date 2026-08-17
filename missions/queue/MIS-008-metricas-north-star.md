@@ -9,7 +9,7 @@ guild: "Exegetas"
 tipo: "biológico"
 priority: "high"
 effort: "XS"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-008 — Definir métricas North Star del producto
 

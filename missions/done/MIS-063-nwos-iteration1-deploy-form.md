@@ -10,7 +10,7 @@ updated: "2026-04-07T23:00:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [nwos, pablofm-web, github-api, astro, react, product]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 area: "Product"
 guild: "Alchemists"
 mission_id: "MIS-063"

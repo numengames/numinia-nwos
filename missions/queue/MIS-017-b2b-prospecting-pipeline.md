@@ -10,7 +10,7 @@ updated: "2026-04-07T19:43:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [sales, b2b, pipeline, prospecting, procurators]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 area: "Sales"
 guild: "Procurators"
 priority: "critical"

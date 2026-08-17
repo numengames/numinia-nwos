@@ -9,7 +9,7 @@ guild: "Alquimistas"
 tipo: "digital"
 priority: "critical"
 effort: "M"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-027 — Mejora de numengames.com
 

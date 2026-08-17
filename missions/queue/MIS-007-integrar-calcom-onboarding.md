@@ -9,7 +9,7 @@ guild: "Centinelas"
 tipo: "híbrido"
 priority: "high"
 effort: "S"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-007 — Integrar Cal.com en onboarding de Numinia
 

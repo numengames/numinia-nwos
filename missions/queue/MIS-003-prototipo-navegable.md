@@ -9,7 +9,7 @@ guild: "Alquimistas"
 tipo: "híbrido"
 priority: "critical"
 effort: "M"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-003 — Prototipo navegable de Numinia
 

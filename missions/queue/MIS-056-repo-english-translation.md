@@ -9,7 +9,7 @@ updated: "2026-04-07T18:45:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [documentation, i18n, english, nwos, repo]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 area: "Documentation"
 guild: "Exegetes"
 tipo: "híbrido"

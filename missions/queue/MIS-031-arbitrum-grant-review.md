@@ -10,7 +10,7 @@ updated: "2026-04-07T19:43:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [funding, blockchain, arbitrum, grants, procurators]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 area: "Funding"
 guild: "Procurators"
 priority: "critical"

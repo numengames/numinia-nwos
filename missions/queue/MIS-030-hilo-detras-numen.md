@@ -9,7 +9,7 @@ guild: "Exegetas"
 tipo: "digital"
 priority: "medium"
 effort: "XS"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-030 — Hilo semanal "Detrás de Numen"
 

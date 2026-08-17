@@ -10,7 +10,7 @@ updated: "2026-04-07T22:35:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [documentation, readme, exegetes]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 area: "Documentation"
 guild: "Exegetes"
 mission_id: "MIS-042"

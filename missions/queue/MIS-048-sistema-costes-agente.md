@@ -11,7 +11,7 @@ guild: "Sentinels"
 tipo: "digital"
 priority: "critical"
 effort: "M"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-048 — Cost tracking system per agent
 

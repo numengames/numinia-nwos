@@ -9,7 +9,7 @@ guild: "Alquimistas"
 tipo: "híbrido"
 priority: "high"
 effort: "L"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-009 — Piloto cerrado con 5 usuarios beta
 

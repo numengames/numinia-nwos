@@ -9,7 +9,7 @@ updated: "2026-04-04T00:00:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [product, mvp, alchemists]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 area: "Producto"
 guild: "Alquimistas"
 tipo: "biológico"

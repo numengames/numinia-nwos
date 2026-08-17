@@ -10,7 +10,7 @@ updated: "2026-04-08T05:59:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [cao, logs, observability, agents, sentinels]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 area: "CAO"
 guild: "Sentinels"
 mission_id: "MIS-039"

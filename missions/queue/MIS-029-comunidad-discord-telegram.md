@@ -9,7 +9,7 @@ guild: "Centinelas"
 tipo: "biológico"
 priority: "medium"
 effort: "M"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-029 — Comunidad en Discord o Telegram
 

@@ -9,7 +9,7 @@ guild: "Alquimistas"
 tipo: "digital"
 priority: "high"
 effort: "M"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 ---
 # MIS-020 — Demo / Pitch Deck interactivo
 

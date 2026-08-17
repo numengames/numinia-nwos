@@ -9,7 +9,7 @@ updated: "2026-04-07T18:00:00Z"
 author: "nimrod"
 owner: "oracle"
 tags: [cao, sync, agents, architecture, workspace]
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 mission_id: "MIS-060"
 assigned_to: "nimrod"
 requested_by: "oracle"
