@@ -10,12 +10,9 @@
 name = "numinia-nwos"
 compatibility_date = "2026-08-16"
 
-# Serve the site at the apex and www; Cloudflare manages both DNS records.
-# Canonicals point at the apex (Layout.astro siteUrl), so www duplicating
-# content is harmless for SEO.
+# Serve the site at the apex; Cloudflare manages the DNS record.
 routes = [
-  { pattern = "numinia.org", custom_domain = true },
-  { pattern = "www.numinia.org", custom_domain = true }
+  { pattern = "numinia.org", custom_domain = true }
 ]
 
 # Fully static site: no `main` worker script, just static assets.
