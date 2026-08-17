@@ -85,9 +85,11 @@ is exactly as fresh as the deploy.
 
 ## Acceptance criteria
 
-- [ ] `/missions` (board and detail) is generated at build from
+- [ ] ~~`/missions` (board and detail) is generated at build from
       `missions/` in this repo; no client-side GitHub API hydration
-      remains for content that exists in the checkout.
+      remains for content that exists in the checkout.~~
+      **Moved to MIS-066 (2026-08-17)**, which owns everything
+      mission-shaped; this mission keeps the non-mission routes below.
 - [ ] `/misiones`, `/decisiones`, `/planos` read their content from
       root `missions/`, `decisions/`, `blueprints/` (or from extracted
       content files) instead of the hardcoded TS modules; the TS modules

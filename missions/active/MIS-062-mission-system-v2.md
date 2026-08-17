@@ -15,9 +15,10 @@ area: "CAO / Product"
 guild: "Sentinels"
 priority: "high"
 effort: "XL"
-assigned_to: "nimrod"
+assigned_to: null
 requested_by: "oracle"
 started: "2026-04-07T19:43:00Z"
+updated_note: "2026-08-17 — unassigned by Oracle (nimrod not active); execution of sub-missions absorbed by MIS-066"
 in_review_at: null
 completed: null
 human_approval_score: 8
@@ -44,6 +45,12 @@ sub_missions:
     effort: "S"
 ---
 # MIS-062 — Mission System v2
+
+> **2026-08-17 — Oracle note:** unassigned (nimrod not active). Execution
+> of all five sub-missions is absorbed by [MIS-066](MIS-066-unify-mission-system.md)
+> phases 1–6; the Kanban survives at numinia.org/missions, not
+> pablofm.com. This file remains open as the design record of the v2
+> state machine.
 
 > **Summary:** Implement the redesigned NWOS mission system — new states, sub-missions, simplified IDs, and Kanban board.
 > **Epistemic:** What changes when a mission system has a proper state machine with human review checkpoints.
