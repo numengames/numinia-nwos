@@ -8,7 +8,7 @@ status: designed
 guild: Exegete
 branch: Erudite
 house: Thaumaturge
-license: "CC0-1.0"
+license: "LicenseRef-Numen-AllRightsReserved"
 ---
 # MEMORY — Senet
 

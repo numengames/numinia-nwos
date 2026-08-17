@@ -9,7 +9,7 @@ updated: "2026-04-07T18:00:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [guild, exegetes, charter]
-license: "CC0-1.0"
+license: "LicenseRef-Numen-AllRightsReserved"
 ---
 # Guild Charter — Exegetes
 

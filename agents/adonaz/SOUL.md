@@ -9,7 +9,7 @@ guild: Procurator
 branch: Trustee
 house: Steward
 role: "General Archivist"
-license: "CC0-1.0"
+license: "LicenseRef-Numen-AllRightsReserved"
 ---
 # SOUL — Adonaz
 

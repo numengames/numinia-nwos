@@ -11,7 +11,7 @@ house: "{House}"
 role: "{Role in Numinia}"
 model: "anthropic/claude-sonnet-4-6"
 operator: "pablo-fm"
-license: "CC0-1.0"
+license: "LicenseRef-Numen-AllRightsReserved"
 ---
 # SOUL — {Agent Name}
 

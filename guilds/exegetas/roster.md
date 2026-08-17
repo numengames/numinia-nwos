@@ -7,7 +7,7 @@ version: "1.1.0"
 created: "2026-04-07T12:59:00Z"
 updated: "2026-04-07T18:00:00Z"
 author: "nimrod"
-license: "CC0-1.0"
+license: "LicenseRef-Numen-AllRightsReserved"
 ---
 # Roster — Exegetes
 

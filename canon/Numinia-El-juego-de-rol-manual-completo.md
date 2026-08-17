@@ -11,7 +11,7 @@ owner: "oracle"
 tags: [canon, rpg, manual, numinia, seminal]
 seminal_id: "S-008"
 note: "Versión .md del manual RPG. El .txt original también está en canon/. Esta versión es más legible para los agentes."
-license: "CC0-1.0"
+license: "LicenseRef-Numen-AllRightsReserved"
 ---
 # Numinia — El juego de rol (manual completo)
 

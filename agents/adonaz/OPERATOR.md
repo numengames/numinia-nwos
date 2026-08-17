@@ -8,7 +8,7 @@ status: active
 guild: Procurator
 branch: Trustee
 house: Steward
-license: "CC0-1.0"
+license: "LicenseRef-Numen-AllRightsReserved"
 ---
 # OPERATOR — Adonaz
 
