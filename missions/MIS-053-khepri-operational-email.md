@@ -66,7 +66,7 @@ Professional communication channel for the CAO at no additional tooling cost.
 
 - **Technology used:** Google Workspace — khepri@ai.numengames.com + gog CLI
 - **Why it diverged:** Auth process required SSH with port forwarding to the server since the browser flow does not work on a headless server.
-- **Key learning:** Digital agents need verifiable identity. Initial setup requires human presence (browser flow), but then operates autonomously.
+- **Key learning:** Digital agents need verifiable identity (email, calendar) to act professionally. Initial setup requires human presence (browser flow), but then operates autonomously.
 - **Closed:** 2026-04-05
 - **Executing agent:** Nimrod (Centinela-01)
 

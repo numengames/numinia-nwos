@@ -286,6 +286,17 @@ agents (the audit's readers) stop deriving four contradictory answers to
   page mirror, this brief). Known interim breakage, branch only: the
   /missions client-side hydration points at pre-flatten GitHub paths
   until Phases 4–5 land.
+- 2026-08-17 — Phase 3, commit 1 (misiones.ts recovery): verified entry
+  by entry against the canonical files. Finding: the viewer data is a
+  stale derived copy — every story, criterion, value and all four Real
+  execution blocks already exist in the repo, translated by the MIS-056
+  generation, with fresher states (the ts still shows MIS-038 backlog
+  and MIS-057 in progress; both are done on disk). One recovered
+  detail: MIS-053's key learning regains "(email, calendar) to act
+  professionally". The ts MIS-056 entry describes the old bilingual
+  ES+EN scope, superseded by DEC-006 (English only) — stale scope, not
+  recovered. Consequence: misiones.ts can be deleted in Phase 5 with
+  zero content loss.
 
 ## Execution Reality
 
