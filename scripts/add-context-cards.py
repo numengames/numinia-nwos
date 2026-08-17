@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: MIT
 """
 add-context-cards.py
 Añade la tarjeta de contexto estándar (Opción C, STANDARDS.md §8) a todos

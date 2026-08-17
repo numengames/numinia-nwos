@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
 import * as React from "react";
 
 import { cn } from "@/lib/utils";

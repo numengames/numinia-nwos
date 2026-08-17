@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
 import { cva } from "class-variance-authority";
 
 export const buttonVariants = cva(

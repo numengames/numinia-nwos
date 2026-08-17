@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: MIT
 """
 normalize-standards.py
 Normaliza el repositorio numinia-digital-agents según STANDARDS.md v1.0.0

@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
 // missions.ts — loads mission .md files at build time
 // Primary: this repo's own missions/ directory (canon lives here since the merge)
 // Fallback: GitHub API against https://github.com/numengames/numinia-nwos

@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
 // @ts-check
 import path from "node:path";
 import { fileURLToPath } from "node:url";

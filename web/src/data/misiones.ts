@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
 // Fuente de datos de misiones — futura: GitHub API de numinia-agents
 // Por ahora: datos completos inline
 
