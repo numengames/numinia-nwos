@@ -9,7 +9,8 @@ REUSE.toml with full texts in LICENSES/ (Numinia canon C-005):
     (C-005-licensing.md, INDEX.md, README.md)       CC-BY-4.0
   - Repo metadata (.gitignore)                      CC0-1.0
   - Lore, narrative, brand (canon/** except the
-    governance files above, guilds/**, agents/**)   All rights reserved
+    governance files above, guilds/**, agents/**)
+    and enforceable legal texts (operations/legal/**) All rights reserved
                                                     (LicenseRef-Numen-AllRightsReserved)
 
 Where REUSE.toml declares no license for a path, no rights are granted:
