@@ -341,7 +341,7 @@ The value of OODA over BOOT/EXECUTE/COMMIT is the **explicit re-loop**: after AC
 **Optional field:**
 
 ```yaml
-generates_mission: "MIS-00059"  # mission born from what was learned in this one
+generates_mission: "MIS-059"  # mission born from what was learned in this one
 ```
 
 The epistemic value of the mission is the "Measure". The Real Execution is the "Learn". The `generates_mission` closes the loop: the learning generates the next hypothesis.

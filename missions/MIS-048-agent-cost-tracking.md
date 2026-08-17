@@ -66,3 +66,16 @@ Difference between controlled spending and opaque spending.
 ---
 
 *Nimrod 🗡️ — recovered from pablofm-web (MIS-062.2) — 2026-04-07*
+
+---
+
+## Notes
+
+Blocked by: Anthropic API key with usage permissions (configured via SSH, never via chat).
+
+---
+
+## Version history
+
+- v1.0.0 (2026-04-04) — Initial creation.
+- v1.1.0 (2026-04-07) — Translated to English (MIS-056).

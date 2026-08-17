@@ -31,6 +31,12 @@ completed: null
 
 ---
 
+## Historia
+
+Como operador, quiero un log estructurado de cada acción ejecutada por cada agente, para auditar el sistema en cualquier momento.
+
+---
+
 ## Acceptance criteria
 
 - [x] Log format standard defined in STANDARDS.md (§10)
@@ -42,3 +48,13 @@ completed: null
 ---
 
 *Nimrod 🗡️ — started 2026-04-08*
+
+---
+
+## Valor epistémico
+
+Sin logs, no hay auditoría. Sin auditoría, no hay confianza.
+
+## Valor pragmático
+
+Trazabilidad completa de qué hizo cada agente y cuánto costó.

@@ -272,6 +272,20 @@ agents (the audit's readers) stop deriving four contradictory answers to
   retired, MIS-038 review copy dropped early (filename collision at
   flatten; byte-identical to the surviving done copy except status).
   Duplicates from ES/EN pairs and MIS-027 remain on disk for Phase 2.
+- 2026-08-17 — Phase 2: 14 duplicate files merged away; 67 files remain
+  (66 legacy missions + this brief), zero duplicate IDs. Nine ES twins
+  were pure translations (deleted); MIS-039 got Story/values ported from
+  its ES twin (verbatim, Phase 3 translates); MIS-044/048 got Notes +
+  Version history from their MIS-056-generation twins; MIS-027 merged
+  three generations — review content as base in the surviving filename,
+  Story/values from the queue copy, prior implementation-scope criteria
+  preserved under "Prior scope (superseded)". Gate grep ran over every
+  affected ID: one live reference fixed (STANDARDS.md:344
+  MIS-00059→MIS-059); remaining hits are historical records kept by
+  design (append-only reports, the 2026-04-07 audit and its auditoria
+  page mirror, this brief). Known interim breakage, branch only: the
+  /missions client-side hydration points at pre-flatten GitHub paths
+  until Phases 4–5 land.
 
 ## Execution Reality
 

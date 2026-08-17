@@ -59,3 +59,16 @@ Foundation for strategic decisions in Q2.
 ---
 
 *Nimrod 🗡️ — recovered from pablofm-web (MIS-062.2) — 2026-04-07*
+
+---
+
+## Notes
+
+Identified on 2026-04-02. Promised to Pablo. Pending execution.
+
+---
+
+## Version history
+
+- v1.0.0 (2026-04-04) — Initial creation.
+- v1.1.0 (2026-04-07) — Translated to English (MIS-056).
