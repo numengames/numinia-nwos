@@ -8,7 +8,8 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "check:license": "node ../scripts/check-license-frontmatter.mjs",
+    "build": "node ../scripts/check-license-frontmatter.mjs && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
