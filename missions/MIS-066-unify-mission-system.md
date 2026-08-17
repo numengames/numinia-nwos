@@ -2,7 +2,7 @@
 id: "MIS-066"
 title: "Unify the mission system: one folder, one language, one page"
 type: mission
-status: in-review
+status: done
 version: "1.0.0"
 created: "2026-08-17"
 updated: "2026-08-17"
@@ -22,7 +22,7 @@ blocked_reason: null
 depends_on: []
 started: "2026-08-17"
 in_review_at: "2026-08-17"
-completed: null
+completed: "2026-08-17"
 divergence_log: null
 ---
 # MIS-066 — Unify the mission system: one folder, one language, one page
@@ -363,5 +363,5 @@ agents (the audit's readers) stop deriving four contradictory answers to
   was mostly deletion — and the only content that existed nowhere else
   was half a sentence. Surfaces rot; folders lie; frontmatter plus a
   build from the folder cannot drift from itself.
-- **Closing date:** 2026-08-17 (pending Oracle approval)
+- **Closing date:** 2026-08-17 (Oracle approved via merge of PR #5, 2eef3cc)
 - **Executing agent:** claude-fable-5 (session agent), Oracle: Pablo
