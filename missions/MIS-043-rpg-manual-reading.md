@@ -3,9 +3,9 @@ id: "MIS-043"
 title: "Complete reading of the Numinia RPG Manual"
 type: mission
 status: backlog
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-04-04T00:00:00Z"
-updated: "2026-04-07T18:00:00Z"
+updated: "2026-08-17T00:00:00Z"
 area: "Documentation"
 guild: "Exegetes"
 type_execution: "digital"
@@ -26,11 +26,11 @@ license: "CC-BY-4.0"
 
 ## Story
 
-As Nimrod, I want to read the complete Numinia RPG manual (~4,600 lines), to have full lore context before acting as Procyon.
+As Nimrod, I want to read the complete Numinia RPG manual (~21,500 lines in v0.6.0), to have full lore context before acting as Procyon.
 
 ## Acceptance criteria
 
-- [ ] RPG manual read completely (seminal-documents/Numinia. El juego de rol.txt)
+- [ ] RPG manual read completely (`numengames/numinia-lore:seminal/Numinia_Manual_del_juego_de_rol_v0_6_0.md` — canonical since 2026-08-17; supersedes the old ~4,600-line copy)
 - [ ] Summary of key findings documented
 - [ ] Procyon context identified and recorded in MEMORY.md
 - [ ] Open lore questions registered
@@ -53,3 +53,4 @@ First ~100 lines read on 2026-04-02. ~4,500 lines pending.
 
 - v1.0.0 (2026-04-04) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
+- v1.2.0 (2026-08-17) — Manual source updated to v0.6.0 in `numinia-lore` (see MIS-085, the Codex Reader mission that publishes it).
