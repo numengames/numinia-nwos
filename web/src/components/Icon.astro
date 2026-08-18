@@ -1,10 +1,11 @@
 ---
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
-// The house Phosphor subset (Design System §7.3): self-hosted SVGs served
-// inline with currentColor. The 26 canonical glyphs plus the four proposed
-// in MIS-093 (copy, file-pdf, list, x) — expanding further is an Oracle
-// decision, not an import.
+// The house Phosphor subset (Design System §7.3), referenced from the
+// shared sprite at /icons.svg — one fetch for the whole site instead of
+// re-inlining every path (MIS-093 addendum: 141 KB of duplicated paths in
+// the mission board). Expanding the subset is a decision, not an import:
+// an unknown name breaks the build.
 interface Props {
   name: string;
   size?: number;
@@ -12,17 +13,16 @@ interface Props {
 }
 const { name, size = 16, class: className } = Astro.props;
 
-const icons = import.meta.glob<string>("../icons/*.svg", {
-  query: "?raw",
-  import: "default",
-  eager: true,
-});
-const raw = icons[`../icons/${name}.svg`];
-if (!raw) throw new Error(`Icon not in the house subset: ${name}`);
-const svg = raw.replace(
-  "<svg ",
-  `<svg width="${size}" height="${size}" aria-hidden="true"${className ? ` class="${className}"` : ""} `
-);
+const icons = import.meta.glob("../icons/*.svg", { query: "?raw", eager: true });
+if (!icons[`../icons/${name}.svg`]) {
+  throw new Error(`Icon not in the house subset: ${name}`);
+}
 ---
 
-<Fragment set:html={svg} />
+<svg
+  width={size}
+  height={size}
+  class={className}
+  aria-hidden="true"
+  focusable="false"
+><use href={`/icons.svg#i-${name}`}></use></svg>

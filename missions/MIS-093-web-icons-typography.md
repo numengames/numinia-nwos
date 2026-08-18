@@ -115,3 +115,17 @@ crosshair, snowflake, hourglass, upload-simple. Quedan emojis solo en las
 5 páginas diario-*.astro, sentenciadas a retirarse por MIS-089-D4 — no se
 migra lo que va a morir. Además: pasada de rendimiento (niebla+rejilla del
 Velo fusionadas en una sola capa fija).
+
+**Addendum 2 (2026-08-18) — la regresión de rendimiento y su arreglo.** El
+Oráculo reportó la web más lenta; medido: el board pesaba **293 KB, de los
+que 141 KB eran paths SVG duplicados** (280 iconos inline, el mismo glifo
+repetido en cada tarjeta). Corregido con **sprite externo**
+(`/icons.svg`, endpoint estático que define cada glifo una vez como
+`<symbol>`; `Icon.astro` emite `<use href="/icons.svg#i-name">`): board
+**293 → 181 KB** (−38 %), sprite de 35 KB cacheado `immutable` para todo
+el sitio, y `currentColor` sigue heredando (verificado en Chromium sobre
+el sitio construido). Además: las capas fijas del Velo y del ruido pasan a
+capa compositada propia (`translateZ(0)` + `contain: strict`) y el cielo
+baja a **30 fps** y se detiene con la pestaña oculta. Lección: inline por
+instancia es cómodo hasta que hay 280 instancias — el sprite es el patrón
+correcto para un subconjunto de 69 glifos.

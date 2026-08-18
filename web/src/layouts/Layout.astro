@@ -146,7 +146,18 @@ const resolvedOgImage = ogImage ?? `${siteUrl}/og-default.png`;
           }
         }
 
-        function draw() {
+        // The sky breathes at 30fps, not 60: at ±0.06px per frame nobody
+        // sees the difference, and it halves the animation's CPU cost.
+        // It also stops entirely when the tab is hidden.
+        const FRAME_MS = 1000 / 30;
+        let lastFrame = 0;
+
+        function draw(now) {
+          requestAnimationFrame(draw);
+          if (document.hidden) return;
+          if (now - lastFrame < FRAME_MS) return;
+          lastFrame = now;
+
           ctx.clearRect(0, 0, W, H);
 
           for (const s of stars) {
@@ -168,8 +179,6 @@ const resolvedOgImage = ogImage ?? `${siteUrl}/og-default.png`;
             ctx.fillStyle = `rgba(${TIERS[s.tierIdx].color}, ${s.alpha})`;
             ctx.fill();
           }
-
-          requestAnimationFrame(draw);
         }
 
         let resizeTimer;
@@ -184,8 +193,10 @@ const resolvedOgImage = ogImage ?? `${siteUrl}/og-default.png`;
 
         resize();
         initStars();
+        // Start through rAF so `draw` always receives a real timestamp —
+        // calling it directly would feed it undefined and defeat the cap.
         if (reducedMotion) drawStill();
-        else draw();
+        else requestAnimationFrame(draw);
       })();
     </script>
 
