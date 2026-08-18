@@ -2,10 +2,11 @@
 id: "MIS-090"
 title: "Workspace demo congelado: enseñar NWOS sin consumir tokens de IA"
 type: mission
-status: backlog
-version: "1.0.0"
+status: done
+version: "1.1.0"
 created: "2026-08-18"
 updated: "2026-08-18"
+completed: "2026-08-18"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [nwos, deploy, demo, marketing, cost, velo]
@@ -81,16 +82,46 @@ sustituto si el modo lectura pública se complica.
 
 ## Criterios de aceptación
 
-- [ ] Workspace demo generado una vez y congelado (sin regeneración periódica)
-- [ ] Navegable públicamente sin access key, solo lectura, solo ese slug
-- [ ] Ninguna visita al demo provoca llamadas a la API de Anthropic
-- [ ] Enlaces desde `/velo` e `/idioma`
-- [ ] El repo demo cumple C-005 (LICENSE del cliente ficticio instalada por el
-      flujo nuevo, molde retirado, PROVENANCE.md presente)
+- [x] Workspace demo generado una vez y congelado (sin regeneración periódica)
+      — repo `faro-austral` archivado en GitHub el 2026-08-18
+- [x] Navegable públicamente sin access key, solo lectura, solo ese slug —
+      `tree`/`file` eximen únicamente `DEMO_WORKSPACE_SLUG` (`src/lib/demo.ts`);
+      cualquier otro slug sigue en 403
+- [x] Ninguna visita al demo provoca llamadas a la API de Anthropic — el viewer
+      solo lee de GitHub; Anthropic vive únicamente en `/api/registro`
+- [x] Enlaces desde `/velo` (demo + numinia.org como referencia 5/5) e `/idioma`
+- [x] El repo demo cumple C-005 — LICENSE reservada a nombre de Faro Austral
+      sin placeholders, cero artefactos del molde, PROVENANCE.md presente
+
+## Execution Reality
+
+- **Organización elegida:** Faro Austral (ficticia; el Oráculo descartó usar
+  Numinia — habría producido un canon paralelo generado compitiendo con el
+  canon real consagrado). Navegable en
+  https://nwos.numen.games/workspace/faro-austral
+- **Dos defectos reales del flujo salieron a la luz y se corrigieron en
+  nwos-deploy:**
+  1. El strip borraba artefacto a artefacto con la API de contents (un commit
+     y 2+ subrequests por archivo); con el spec crecido del molde el primer
+     intento abortó a mitad, dejando huérfano. Ahora `buildInstallTree` (pura,
+     testeada) emite un único commit vía Git Data API — ~6 subrequests fijos.
+  2. Los workflows del molde disparaban runs zombis en el repo generado con
+     cada commit de personalización (fallando en cascada tras el strip). Ahora
+     el deploy desactiva Actions en el repo generado antes del primer push.
+- **Divergencia menor:** la generación inline de canon se atascó en C-003 y el
+  cliente HTTP agotó su timeout (el abort conocido del POST largo). C-003 y
+  C-004 se completaron con el mismo modelo, tool y prompts de `registro.ts`,
+  commiteados con los mismos mensajes del agente, antes de congelar. La
+  generación diferida (cola en vez de POST síncrono) queda como deuda conocida
+  del flujo, fuera del alcance de esta misión.
+- **Agente ejecutor:** claude-fable-5 (sesión de Pablo)
 
 ## Historial de versiones
 
 - v1.0.0 (2026-08-18) — Registro inicial. Decidido en la sesión MIS-055: se
   documenta, no se ejecuta todavía.
+- v1.1.0 (2026-08-18) — Ejecutada y cerrada el mismo día: demo `faro-austral`
+  generada, congelada y enlazada; dos fixes de flujo aterrizados en
+  nwos-deploy por el camino.
 
 *Claude (Fable 5) + Pablo — 2026-08-18*
