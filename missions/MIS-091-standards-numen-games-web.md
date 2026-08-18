@@ -3,7 +3,7 @@ id: "MIS-091"
 title: "El Sistema viste la casa: numen.games y nwos.numen.games adoptan los standards"
 type: mission
 status: in-review
-version: "1.2.0"
+version: "1.3.0"
 created: "2026-08-18"
 updated: "2026-08-18"
 started: "2026-08-18"
@@ -281,6 +281,26 @@ falla en una falla en las tres. El coste marginal de la cuarta superficie
   `astro check` a secas, con cero errores, como gate real.
 - Cifras en Mono tabular, enlace nocturno en Verdemar, y fuera la prop `px`
   que `Container` nunca tuvo.
+
+### Publicación (2026-08-18)
+
+- **`nwos-deploy`: cerrado.** La rama se mergeó a `main` (`528e7db`), otra
+  sesión le subió el puntero a **5.1.0** (`b016e62`) y restauró `.env.example`
+  sincronizado con `src/lib/env.ts` (`093ab65`). Está en `origin/main`.
+- **`numengames-web`: rama publicada** (`origin/feat/standards-v5`, cuatro
+  commits). PR pendiente de abrir a mano: `gh` no está autenticado en esta
+  máquina. Cuerpo del PR redactado y entregado al Oráculo.
+- **Re-fijado a 5.1.0 antes de publicar.** Para una superficie Umbral el delta
+  es documental: E1 reescribió el fragmento §19.5 (doce → **trece**
+  animaciones, con trazo y cielo, y retirada la 12) y E2 corrigió el `marco
+  10px` de la prosa al 8px que sus propios tokens ya decían. MIS-091 tomó los
+  valores de §19.3 y no de la prosa, así que el radio ya era correcto — el
+  casi-fallo queda registrado en MIS-102 como argumento a favor de fijar
+  tokens en vez de leer prosa.
+- **Errata detectada en el máster 5.1.0:** la primera línea de su propio
+  fragmento §19.5 sigue diciendo `v5.0.0`. Las copias de los consumidores la
+  conservan verbatim y lo declaran en su cabecera — una copia verbatim que
+  corrige en silencio deja de ser una copia. Corresponde un *patch* upstream.
 
 ### nwos-deploy · rama `feat/standards-v5` · 1 commit
 

@@ -86,6 +86,12 @@ fragment: the catalogue went from twelve animations to **thirteen**, naming
 so. That is not an argument against the copies; it is the argument for the
 manifest.
 
+A third errata is still live, found while re-pinning: **the 5.1.0 master's own
+§19.5 fragment names v5.0.0 in its first line.** The consumers' copies preserve
+it verbatim and declare it in their header, because a verbatim copy that
+corrects its source in silence stops being one. It needs a patch bump upstream
+— and it is one more argument for pinning a digest rather than trusting prose.
+
 Errata E2 is worth recording as a near miss: the 5.0.0 fragment said `marco
 10px` while its own §19.3 tokens said `8px` — a fossil from 4.0.0. MIS-091 took
 the value from the tokens, so both sites are correct by construction. Had the
