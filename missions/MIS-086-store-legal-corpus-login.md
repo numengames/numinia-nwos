@@ -2,7 +2,7 @@
 id: "MIS-086"
 title: "El corpus legal real entra en numinia.com y la puerta pide aceptarlo"
 type: mission
-status: backlog
+status: done
 version: "1.0.0"
 created: "2026-08-18"
 updated: "2026-08-18"
@@ -91,23 +91,23 @@ ni siquiera las erratas flageadas.
 
 ## Acceptance criteria
 
-- [ ] Copias verbatim de los dos másters en `apps/store/src/content/legal/`
+- [x] Copias verbatim de los dos másters en `apps/store/src/content/legal/`
       (frontmatter incluido), con anotación REUSE
       `LicenseRef-Numen-AllRightsReserved` para esa ruta.
-- [ ] `/legal/terms/` y `/legal/privacy/` renderizan el markdown real en los
+- [x] `/legal/terms/` y `/legal/privacy/` renderizan el markdown real en los
       5 locales; el banner DRAFT desaparece SOLO de esos dos documentos
       (cookies y legal-notice siguen en borrador con su banner).
-- [ ] Idiomas honestos: terms es EN-only → aviso de idioma en es/ja/ko/pt-br;
+- [x] Idiomas honestos: terms es EN-only → aviso de idioma en es/ja/ko/pt-br;
       privacy es ES-only → aviso en en/ja/ko/pt-br (FLAG-5 queda para el
       abogado; no traducir por cuenta propia).
-- [ ] `/lap/session/`: la isla de login no monta el widget de conexión hasta
+- [x] `/lap/session/`: la isla de login no monta el widget de conexión hasta
       que el usuario marque una casilla de aceptación con enlaces a
       `/legal/terms/` y `/legal/privacy/` (con `data-metric`, instrumentación
       obligatoria). Sesiones ya autenticadas no ven la casilla.
-- [ ] `npm run ci` (type-check → lint → test → build) en verde; presupuesto
+- [x] `npm run ci` (type-check → lint → test → build) en verde; presupuesto
       de peso y gates a11y respetados.
-- [ ] Desplegado a numinia.com y verificado en vivo.
-- [ ] Al cerrar: Execution Reality rellenada aquí, y aviso al Oráculo de que
+- [x] Desplegado a numinia.com y verificado en vivo.
+- [x] Al cerrar: Execution Reality rellenada aquí, y aviso al Oráculo de que
       CON-004/005 ganan una nota "publicado también en numinia.com".
 
 ---
@@ -128,7 +128,60 @@ onboarding real de ciudadanos.
 
 ## Execution log
 
-*(Fill when completing the mission)*
+**2026-08-18 — agente numinia-web (claude-opus-5), tres cortes revisables.**
+
+Tres decisiones se elevaron al Oráculo antes de escribir código, y las tres
+ampliaron el alcance escrito: (1) «registrable» significa registrado en la
+sesión, no solo un gate de UI; (2) el desajuste de ámbito se declara en una
+nota fuera del texto; (3) el banner de consentimiento entra en la misión.
+
+**Corte 1 — el corpus (`720588c`).** Copias byte a byte de los dos másters en
+`apps/store/src/content/legal/{terms,privacy}.md` (sha256 verificado contra
+`numinia-nwos:operations/legal/`). Registro por glob de Vite en
+`components/legal/content.ts` (patrón de `components/docs/`, porque el store
+no usa content collections). `LegalPage.astro` pasa a ser dispatcher puro y
+delega en `LegalCorpusDoc.astro` (real) o `LegalDraftDoc.astro` (cookies y
+aviso legal siguen en borrador, con su banner). Los borradores de terms y
+privacy se eliminaron de `i18n/legal.ts`: el texto real los sustituye.
+`lib/legal.ts` fija las versiones de los másters y un test unitario falla si
+una copia refrescada se desvía de ellas. REUSE: bloque para
+`apps/store/src/content/legal/**` con `LicenseRef-Numen-AllRightsReserved`
+DESPUÉS del bloque `content/**` (CC-BY) — last-match-wins; `reuse lint`
+confirma que ambos ficheros resuelven a reservado.
+
+**Corte 2 — la puerta (`380186f`).** `LegalConsentGate.tsx` (casilla + enlaces
+a los dos documentos, con `data-metric`); la isla no monta `ConnectEmbed`
+hasta que se marca, y a una sesión ya autenticada no se le pregunta. La
+cerradura real es el servidor: `POST /api/auth/login` responde 400 salvo que
+el cuerpo nombre `LEGAL_CORPUS_VERSION` (`terms@1.0.0+privacy@1.1.0`), y la
+comprobación va ANTES de verificar la firma, así que un login sin aceptar
+nunca llega al proveedor. La versión aceptada viaja dentro del payload
+firmado de sesión (`@numinia/auth`), opcional en el esquema para no invalidar
+sesiones en vuelo. `SessionPanel` salió a su fichero: la isla cruzó las 200
+líneas.
+
+**Corte 3 — el aviso (`bf0a139`).** El banner de Layer 0 dejó el lorem ipsum:
+copy real en cinco idiomas que nombra exactamente lo que la plataforma guarda
+(una cookie para el aviso, otra para la sesión, preferencias y ficha en el
+navegador, sin rastreo de terceros), enlace añadido a `/legal/privacy/` y
+`CONSENT_VERSION` a `2026-08-18` — toda aceptación del texto placebo se vuelve
+a pedir. El suite de aceptación falla si «lorem ipsum» reaparece en un build.
+
+**Release `v0.46.0` (`1243a07`)** con su tarjeta en la línea de tiempo.
+
+**En vivo (2026-08-18 11:36 UTC, SHA `1243a07`).** Comprobado contra
+numinia.com: `/legal/terms/` (v1.0.0, sin banner de borrador) y
+`/legal/privacy/` (v1.1.0) con nota de ámbito en los cinco locales y aviso de
+idioma en todos menos el propio; `/legal/cookies/` conserva su borrador; el
+banner sirve `data-consent-version="2026-08-18"` sin rastro de lorem ipsum; la
+puerta de `/es/lap/session/` llega ya con la casilla en el HTML servido; y
+`POST /api/auth/login` sin aceptación —o con una caducada— responde
+`400 {"error":"Legal acceptance is required","required":"terms@1.0.0+privacy@1.1.0"}`.
+
+Verificación: `npm run ci` en verde (28 tareas), 28 escenarios Gherkin, 180
+tests Playwright (los 2 fallos locales son el hueco conocido de `/descargas/`
+sin hornear, que CI sí hornea), `reuse lint` conforme con REUSE 3.3, WCAG
+A/AA sin violaciones en `/legal/terms/` y `/es/legal/privacy/`.
 
 ---
 
@@ -136,10 +189,23 @@ onboarding real de ciudadanos.
 
 *(Fill when closing the mission — the real plans vs the ideal plans)*
 
-- **Technology/approach used:** (vs what was planned)
-- **Why it diverged:** (what challenge modified the path)
-- **Key learning:** (the knowledge that lives in that gap)
-- **Closing date:** YYYY-MM-DD
-- **Executing agent:** (name / agent-id)
+- **Technology/approach used:** lo planificado (copias verbatim + glob de
+  Vite + gate en la isla), más dos cosas que el brief no pedía: la aceptación
+  registrada dentro de la sesión firmada y el banner de cookies real.
+- **Why it diverged:** el AC decía «ninguna sesión se crea sin aceptación
+  registrable» mientras el bullet solo describía un gate de UI. Preguntado al
+  Oráculo, eligió registrar de verdad — lo que obligó a tocar `@numinia/auth`.
+  El banner entró porque publicar el corpus real detrás de un aviso en latín
+  era una incoherencia visible en la misma pantalla.
+- **Key learning:** el CSS delata al dispatcher. Un componente que solo
+  renderiza una rama sigue enviando los estilos de la otra al bundle de la
+  ruta, así que un `html.includes('data-legal-draft')` daba falso positivo en
+  una página ya publicada. Las aserciones sobre marcado deben mirar el
+  elemento (`/<p[^>]*data-…/`), no el texto plano del HTML. Segundo hallazgo:
+  la isla se renderiza en servidor y se hidrata después — marcar la casilla
+  antes de la hidratación es un clic que React descarta, y el e2e tiene que
+  esperar a `networkidle`.
+- **Closing date:** 2026-08-18
+- **Executing agent:** claude-opus-5 (sesión numinia-web)
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*

@@ -74,6 +74,10 @@ entrada pasa a la sección "Resueltas" con la decisión y su fecha.
 - **Estado actual:** publicados en `/legal/terminos` y
   `/legal/privacidad` derivando del máster en build; los flags siguen
   abiertos en el frontmatter del máster.
+- **Alcance ampliado (2026-08-18, MIS-086):** publicados también en
+  numinia.com (`/legal/terms/`, `/legal/privacy/`, cinco locales), como
+  copias verbatim del máster en `apps/store/src/content/legal/`. La
+  excepción vale ahora para dos sitios: resolver los flags cierra ambos.
 
 ### CON-005 — Ámbito de los legales: numen.games vs numinia.org
 
@@ -87,6 +91,14 @@ entrada pasa a la sección "Resueltas" con la decisión y su fecha.
   antes del login en el flujo de onboarding; numinia.org no tiene
   login ni onboarding (sitio estático) — ese requisito queda pendiente
   para la app que implemente ese flujo.
+- **Estado actual (2026-08-18, MIS-086):** requisito cumplido en
+  numinia.com — `/lap/session/` no monta el widget hasta aceptar, y el
+  endpoint de login rechaza (400) cualquier alta que no nombre el corpus
+  vigente (`terms@1.0.0+privacy@1.1.0`), que viaja dentro de la sesión
+  firmada. El desajuste de ámbito sigue abierto: la página lo declara en
+  una nota fuera del texto ("Numinia está operada por Numen Games S.L.;
+  este texto se refiere a www.numen.games; su alcance está en revisión"),
+  sin tocar ni una coma del máster.
 
 ## Resueltas
 
