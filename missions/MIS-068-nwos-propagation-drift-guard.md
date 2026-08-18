@@ -84,6 +84,28 @@ multiplies silently-stale surfaces.
       fragment vs canon §9 — today verified only by hand).
 - [ ] Documented in STANDARDS.md: how a new consumer repo subscribes.
 
+## Context update (2026-08-18)
+
+Two things happened on the same day, in opposite directions.
+
+- **The doctrine shipped.** MIS-094 answered this mission's second criterion
+  for one artifact class: the design system is emitted to a versioned path
+  with a `manifest.json` carrying a sha256 per file, and `numinia-web` pins it
+  instead of copying. *The canon is not copied — it is pinned.* Whether that
+  model generalises to prose standards is **MIS-105**.
+- **Two new copies were created.** MIS-091 wrote the §19.5 fragment verbatim
+  into `docs/design-system-fragment.md` in `numengames-web` and `nwos-deploy`
+  — deliberately, so an agent would find the contract in the repo it works in.
+  Errata E1 of 5.1.0 changed that exact fragment (twelve animations → thirteen)
+  the same day. **Both copies are stale as of today, and nothing tells them
+  so.** This is the cleanest possible demonstration of this mission's premise,
+  produced by accident: a copy made with good reasons, wrong within hours.
+- The inventory criterion should therefore include: the §19.5 fragment (two
+  copies), the C-005 §9 block in `CLAUDE.md` (three copies), and the design
+  tokens hand-written in three repos (**MIS-102**).
+
+---
+
 ## Epistemic value
 
 Whether "the copy is the disease" generalizes: MIS-066 fixed drift by

@@ -5,7 +5,7 @@ type: mission
 status: backlog
 version: "1.0.0"
 created: "2026-08-17"
-updated: "2026-08-17"
+updated: "2026-08-18"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [testing, ci, best-practices, org, licensing]
@@ -87,6 +87,30 @@ whoever happens to be paying attention.
 - [ ] Also resolve: which repo feeds the nwos-web.pablofm.workers.dev
       Worker (stack audit 🔴 finding 3 — needs Oracle's dashboard
       access).
+
+## Context update (2026-08-18)
+
+Reality moved under three of this mission's criteria; recorded here rather
+than silently rewriting them.
+
+- **Pre-merge gate decision — taken in practice, not yet signed.** MIS-091
+  added a check-only GitHub Actions pipeline (`type-check → lint → test →
+  build`) to `numengames-web` and `nwos-deploy`; `numinia-nwos` already had
+  its licence guard and build. That is the "minimal check-only CI" option of
+  criterion 2, adopted by execution. What is still missing is the part that
+  makes it a gate: branch protection — **MIS-100**.
+- **Org review — two of three repos done.** MIS-091 produced the gap table for
+  `numengames-web` and `nwos-deploy` and closed both 🔴 findings it inherited:
+  `nwos-deploy` now has a LICENSE (C-005 regime declared) and the hardcoded
+  Anthropic model reads `claude-sonnet-5`. Finding 🔴 3 — which repo feeds
+  `nwos-web.pablofm.workers.dev` — is **MIS-104**.
+- **Scope, honestly stated:** this mission's org review covers three
+  repositories; the organization has around twenty-one. The full inventory is
+  **MIS-103**. This mission owns *what the checks are*; MIS-103 owns *who has
+  to pass them*.
+- The canonical repo failing its own checklist is **MIS-101**.
+
+---
 
 ## Epistemic value
 
