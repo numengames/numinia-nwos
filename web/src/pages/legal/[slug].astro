@@ -4,6 +4,7 @@
 // Legal pages rendered at build from operations/legal/ (the master copy;
 // MIS-066 pattern). Spanish slugs map to the archive filenames.
 import Layout from "@/layouts/Layout.astro";
+import Icon from "@/components/Icon.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
 import { getEntry, render } from "astro:content";
 
@@ -35,10 +36,7 @@ const mdUrl = `/legal/${slug}.md`;
     <div class="mx-auto max-w-[800px] px-6">
 
       <a href="/" class="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-8">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <polyline points="19 12 5 12"/>
-          <polyline points="12 5 5 12 12 19"/>
-        </svg>
+        <Icon name="caret-left" size={12} />
         Inicio
       </a>
 

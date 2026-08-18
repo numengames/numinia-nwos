@@ -6,10 +6,10 @@
 
 @layer base {
 	:root {
-		/* Font stacks — Geist (Vercel open source) */
-		--font-display: "Geist Variable", system-ui, sans-serif;
-		--font-sans: "Geist Variable", system-ui, sans-serif;
-		--font-mono: "Geist Mono Variable", ui-monospace, monospace;
+		/* Font stacks — §4.1: Geist con los fallbacks canónicos del sistema */
+		--font-display: "Geist Variable", Inter, Aptos, "Segoe UI", Arial, sans-serif;
+		--font-sans: "Geist Variable", Inter, Aptos, "Segoe UI", Arial, sans-serif;
+		--font-mono: "Geist Mono Variable", Consolas, "Courier New", monospace;
 
 		/* ── Core palette — RGB triplets for Tailwind opacity support ────────
 		   Canonical values from the Design System v5.0.0 §19.3 (MIS-090):
@@ -132,6 +132,12 @@
 	::selection {
 		background: rgba(1, 142, 161, 0.30);
 		color: rgb(249, 235, 220);
+	}
+
+	/* ── Focus ring — el foco canónico del kit (§13.1) ───────────────────── */
+	:focus-visible {
+		outline: 2px solid #018EA1;
+		outline-offset: 2px;
 	}
 
 	/* ── Animations ──────────────────────────────────────────────────────── */

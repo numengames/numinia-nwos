@@ -64,6 +64,12 @@ path = "web/public/diseno/**"
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC0-1.0"
 
+# Third-party: the house Phosphor icon subset (§7.3), self-hosted SVGs.
+[[annotations]]
+path = "web/src/icons/**"
+SPDX-FileCopyrightText = "Phosphor Icons (https://phosphoricons.com)"
+SPDX-License-Identifier = "MIT"
+
 # Third-party fonts self-hosted by the guide: Geist (Vercel/basement.
 # studio), Alegreya (Huerta Tipográfica), Pixelify Sans.
 [[annotations]]

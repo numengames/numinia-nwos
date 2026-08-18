@@ -4,6 +4,7 @@
 // Decision detail rendered at build from the repo's decisions/ folder
 // (MIS-065). The full markdown document is the page.
 import Layout from "@/layouts/Layout.astro";
+import Icon from "@/components/Icon.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
 import { getCollection, render } from "astro:content";
 
@@ -44,10 +45,7 @@ const STATUS_COLOR: Record<string, string> = {
     <div class="mx-auto max-w-[800px] px-6">
 
       <a href="/decisiones" class="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-8">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <polyline points="19 12 5 12"/>
-          <polyline points="12 5 5 12 12 19"/>
-        </svg>
+        <Icon name="caret-left" size={12} />
         Decisiones
       </a>
 

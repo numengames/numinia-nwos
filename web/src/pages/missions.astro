@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 import Layout from "@/layouts/Layout.astro";
+import Icon from "@/components/Icon.astro";
 import PageHero from "@/components/PageHero.astro";
 import { getCollection } from "astro:content";
 
@@ -111,9 +112,7 @@ const stats = [
       <div class="mb-6" id="search-container">
         <div class="relative">
           <span class="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-dim" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-            </svg>
+            <Icon name="magnifying-glass" size={14} />
           </span>
           <input
             id="search-input"
@@ -129,9 +128,7 @@ const stats = [
             aria-label="Clear search"
             tabindex="0"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
-            </svg>
+            <Icon name="x" size={14} />
           </button>
         </div>
       </div>
