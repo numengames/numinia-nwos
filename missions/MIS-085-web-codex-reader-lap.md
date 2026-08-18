@@ -305,3 +305,13 @@ editions · v0.43.0 sheet rules; every push deployed itself on green CI).
 (draft: numinia-web/docs/design/khepri-changelog-book-plane.md, proposed
 4.3.0) · rule on the 14 findings · supply Alicia's surname (editions
 regenerate from the canonical MD).
+
+**Addendum 2026-08-18 (night watch):** v0.44–0.45 shipped. El Narrador
+(Web Speech, block highlight + pace; also reads the glossary), glossary
+term links (site + EPUB), the truly-fixed compact chrome (a stacking rule
+had silently beaten `position:fixed` since the plane shipped), footer
+chapter jumps, end-of-page bookmark fix, **la Ficha imprimible (§4.9)** —
+annex page ×5 locales + .md + print + inside both editions — and REUSE
+3.3 compliance armed as CI in BOTH repos (numinia-web and numinia-lore,
+closing D1's last clause). Root-caused and fixed a three-red CI streak:
+hermetic fixture slugs, debugged inside the CI image via podman.
