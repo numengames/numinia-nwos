@@ -1,5 +1,5 @@
-/* GENERADO del §13.1 · Khepri v4.2.0 — no editar aquí: la fuente es el .md */
-/* Khepri v3.4.0 · kit de arranque */
+/* GENERADO de 2026_08_18-Sistema_de_Diseno-v5.1.0.md — Sistema de Diseño · v5.1.0 — no editar aquí: la fuente es el .md */
+/* Sistema de Diseño v5.0.0 · kit de arranque */
 @font-face{font-family:'Geist';src:url('assets/fonts/Geist-Variable.woff2') format('woff2');font-weight:100 900;font-display:swap}
 @font-face{font-family:'Geist Mono';src:url('assets/fonts/GeistMono-Variable.woff2') format('woff2');font-weight:100 900;font-display:swap}
 :root{
@@ -48,4 +48,3 @@ h1{font-size:2.986rem;font-weight:500}
   .reveal{opacity:0;transform:translateY(8px);transition:opacity 320ms var(--ciclo),transform 320ms var(--ciclo)}
   .reveal.visible{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}}
-@keyframes parpadeo{50%{opacity:0}}

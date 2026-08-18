@@ -1,0 +1,14 @@
+{
+  "sistema": "Numen Games · Sistema de Diseño",
+  "version": "5.1.0",
+  "master": {
+    "path": "standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md",
+    "url": "https://numinia.org/corpus/standards/2026_08_18-sistema_de_diseno-v510.md",
+    "sha256": "b599fc9a37bbf9759259b8c8dc1faa729aa906d4540302dbc257985a95cac1ab"
+  },
+  "files": {
+    "5.1.0/sistema.css": "6e0cfc5c904ed3641784741d6e5eaa1b4ffe117c8ee023f6c26d099d881acc63",
+    "5.1.0/sistema.js": "9dd32ead6eb58498f9db83d9d1fe5d625137188304c844fdb10d1c12aeb8e990",
+    "5.1.0/sistema.tokens.json": "9dc529b7d75987e69aefb405ea6e86be56abe8cbab95d8cec046b07c37aa7056"
+  }
+}

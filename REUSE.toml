@@ -53,7 +53,7 @@ SPDX-License-Identifier = "LicenseRef-Numen-AllRightsReserved"
 # canon (numinia-web REUSE, khepri/**). Not a new CC0 grant — preserving
 # the document's birth regime. After the docs block so it wins.
 [[annotations]]
-path = "standards/2026_08_18-Sistema_de_Diseno-v5.0.0.md"
+path = "standards/*Sistema_de_Diseno*.md"
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC0-1.0"
 

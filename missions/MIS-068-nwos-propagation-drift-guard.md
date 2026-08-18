@@ -2,10 +2,10 @@
 id: "MIS-068"
 title: "NWOS propagation: consumer repos never drift from the source of truth"
 type: mission
-status: backlog
+status: in-progress
 version: "1.0.0"
 created: "2026-08-17"
-updated: "2026-08-17"
+updated: "2026-08-18"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [nwos, propagation, drift, guard, c-005, tooling]
@@ -108,3 +108,19 @@ of a prayer.
 - **Key learning:**
 - **Closing date:**
 - **Executing agent:**
+
+---
+
+## Execution log
+
+- 2026-08-18 — **Primer caso ejecutado: el Sistema de Diseño** (encargo del
+  consumidor numinia-web tras su ADR-022). Modelo elegido para este
+  artefacto: *versioned export* — el máster vive en `standards/`, el kit
+  se genera por script (`scripts/generate-design-kit.mjs`) a
+  `numinia.org/diseno/kit/<version>/` con `manifest.json` (sha256 por
+  fichero + digest del máster); el consumidor fija versión+digest en
+  `design-source.json` y su `design:check` verifica deriva. Doctrina del
+  emisor escrita en `GOVERNANCE.md` (regla G-11).
+- Pendiente para cerrar la misión: inventario completo de artefactos que
+  propagan (C-005 §9, protocolos, STANDARDS, plantillas) con su modelo
+  firmado por el Oráculo, y el guard reutilizable genérico en `scripts/`.
