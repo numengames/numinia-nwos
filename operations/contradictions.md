@@ -3,9 +3,9 @@ id: "ops-contradictions"
 title: "Contradicciones pendientes — registro"
 type: documentation
 status: active
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-17T00:00:00Z"
-updated: "2026-08-17T00:00:00Z"
+updated: "2026-08-18T00:00:00Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [operations, contradictions, backlog, truth]
@@ -59,6 +59,34 @@ entrada pasa a la sección "Resueltas" con la decisión y su fecha.
   él, y numinia-nwos no es fork de nwos-workspace-template.
 - **Nota:** la corrección, si procede, va upstream vía ADR + PR
   (§7.1); la copia local no se edita.
+
+### CON-004 — Legales publicados con flags de revisión abiertos
+
+- **Detectada:** 2026-08-18 (publicación de legales en numinia.org)
+- **Fuente A:** `operations/legal/politica-de-privacidad-numengames.md`
+  — frontmatter: FLAG-2..6 abiertos, "must be resolved before external
+  use"; los T&C piden "verify against the original before external
+  use". Nota del Oráculo (registro FLAG-1): estos textos no estaban
+  publicados en ninguna web; el archivo es el máster.
+- **Fuente B:** orden del Oráculo (sesión 2026-08-18) — publicar ambos
+  documentos en numinia.org (footer + páginas) con los flags abiertos,
+  registrando aquí la excepción para tratarla más adelante.
+- **Estado actual:** publicados en `/legal/terminos` y
+  `/legal/privacidad` derivando del máster en build; los flags siguen
+  abiertos en el frontmatter del máster.
+
+### CON-005 — Ámbito de los legales: numen.games vs numinia.org
+
+- **Detectada:** 2026-08-18 (publicación de legales en numinia.org)
+- **Fuente A:** los dos documentos legales definen su ámbito como
+  `www.numen.games` ("These Terms … govern your access to and use of
+  our website www.numen.games"; la política de privacidad, ídem).
+- **Fuente B:** la orden los publica como legales del footer de
+  `numinia.org`, sitio que los textos no mencionan.
+- **Detalle:** la orden incluye además que los términos se acepten
+  antes del login en el flujo de onboarding; numinia.org no tiene
+  login ni onboarding (sitio estático) — ese requisito queda pendiente
+  para la app que implemente ese flujo.
 
 ## Resueltas
 

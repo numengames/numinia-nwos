@@ -77,4 +77,21 @@ const canonLore = defineCollection({
   schema: z.object({ lore: z.record(z.string(), z.string()) }).passthrough(),
 });
 
-export const collections = { missions, audits, decisions, blueprints, canonLore };
+// Legal artifacts — operations/legal/ is the master copy (per the FLAG-1
+// record): the published pages derive from it at build time. Reserved-
+// rights content, read here only for display (C-005 §5). Publication with
+// open review flags is an Oracle-ordered exception — see CON-004/CON-005.
+const legal = defineCollection({
+  loader: glob({ pattern: "*.md", base: "../operations/legal" }),
+  schema: z
+    .object({
+      id: z.string(),
+      title: z.string(),
+      status: z.string().default("active"),
+      version: z.string().optional(),
+      updated: z.string().optional(),
+    })
+    .passthrough(),
+});
+
+export const collections = { missions, audits, decisions, blueprints, canonLore, legal };
