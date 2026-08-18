@@ -25,6 +25,7 @@ export const navItems: NavItem[] = [
       { label: "CAO", href: "/cao", id: "cao" },
       { label: "Continuidad", href: "/continuidad", id: "continuidad" },
       { label: "Corpus", href: "/corpus", id: "corpus" },
+      { label: "Diseño", href: "/diseno", id: "diseno" },
       { label: "Gaps", href: "/gaps", id: "gaps" },
       { label: "Idioma", href: "/idioma", id: "idioma" },
       { label: "Simulaciones", href: "/simulaciones", id: "simulaciones" },

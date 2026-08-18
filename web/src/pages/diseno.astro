@@ -1,0 +1,256 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+// El Sistema de Diseño, renderizado (v5.0.0). Única página del sitio sin
+// el registro del Velo (excepción del Oráculo, 2026-08-18): aquí los
+// registros se muestran, no se habitan. Valores canónicos de §19.3 —
+// nada se inventa. Descargas: .md y PDF del máster en standards/.
+import Layout from "@/layouts/Layout.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
+import { getCollection } from "astro:content";
+
+const entries = await getCollection("corpus");
+const master = entries.find((e) =>
+  (e.filePath as string).endsWith("2026_08_18-Sistema_de_Diseno-v5.0.0.md")
+);
+if (!master) throw new Error("Design System master not found in corpus");
+const mdUrl = `/corpus/${master.id}.md`;
+const pdfUrl = `/pdf/corpus/${master.id}.pdf`;
+
+const MARCA = [
+  { name: "Verdemar", hex: "#A6DAD5" },
+  { name: "Turquesa", hex: "#018EA1" },
+  { name: "Ámbar", hex: "#EFA517" },
+  { name: "Arena", hex: "#F9EBDC" },
+  { name: "Coral", hex: "#F35059" },
+  { name: "Grana", hex: "#D33440" },
+];
+const NOCTURNO = [
+  { name: "Fondo", hex: "#14110F" },
+  { name: "Superficie", hex: "#1E1A17" },
+  { name: "Elevada", hex: "#292420" },
+  { name: "Texto", hex: "#F9EBDC" },
+  { name: "Texto 2º", hex: "#C4B5A6" },
+  { name: "Texto 3º", hex: "#8A7D72" },
+];
+const RAREZA = [
+  { name: "Pobre", hex: "#F9EBDC", peso: "—" },
+  { name: "Común", hex: "#8A7D72", peso: "60" },
+  { name: "Poco común", hex: "#8FC46B", peso: "25" },
+  { name: "Raro", hex: "#5D9BD6", peso: "10" },
+  { name: "Épico", hex: "#A98BE0", peso: "4" },
+  { name: "Legendario", hex: "#EFA517", peso: "1" },
+];
+const REGISTROS = [
+  {
+    n: "1",
+    name: "Umbral",
+    desc: "El registro general: web, deck, documento, factura. La casa en su voz neutra.",
+  },
+  {
+    n: "2",
+    name: "Velo",
+    desc: "La profundidad como registro: la atmósfera que se ve detrás y a través de las cosas. No añade hexes — añade alfa. Viste este sitio (salvo esta página).",
+  },
+  {
+    n: "3",
+    name: "Low-poly",
+    desc: "El cuerpo 3D del mundo: la malla es honesta, la geometría facetada se muestra.",
+  },
+  {
+    n: "4",
+    name: "Píxel",
+    desc: "La memoria 2D: herencia de las aventuras gráficas. Píxel-16, Nocturno siempre.",
+  },
+];
+---
+
+<Layout
+  title="Sistema de Diseño — Numen Games"
+  description="El Sistema de Diseño v5.0.0 de Numen Games, renderizado: registros, paleta canónica, el Velo en vivo y descarga del máster."
+  canonicalPath="/diseno"
+  activeNav="diseno"
+  velo={false}
+>
+  <section class="pb-24 pt-16">
+    <div class="mx-auto max-w-[1000px] px-6">
+
+      <!-- Hero -->
+      <div class="mb-14">
+        <div class="flex flex-wrap items-center gap-2 mb-4">
+          <span class="font-mono text-[0.65rem] text-accent">standards</span>
+          <span class="font-mono text-[0.65rem] text-dim">v5.0.0 · 2026-08-18</span>
+          <span class="inline-flex rounded-full border border-border bg-card px-2.5 py-0.5 font-mono text-[0.6rem] text-muted-foreground">propuesto — pendiente de firma</span>
+          <span class="font-mono text-[0.6rem] text-dim">CC0-1.0 · marcas excluidas</span>
+        </div>
+        <h1 class="font-display text-4xl sm:text-5xl text-foreground mb-4">Sistema de Diseño</h1>
+        <p class="text-muted-foreground max-w-2xl leading-relaxed">
+          Un único archivo maestro: todo lo que se diseña se deriva de él.
+          Dirección <span class="font-mono text-sm">Solarpunk 40 · Steampunk 40 · Cyberpunk 20</span>,
+          cuatro registros de renderizado, y el Velo como atmósfera de este archivo.
+        </p>
+        <div class="mt-6">
+          <DocToolbar mdUrl={mdUrl} filename="2026_08_18-Sistema_de_Diseno-v5.0.0.md" pdfUrl={pdfUrl} />
+        </div>
+      </div>
+
+      <!-- Registros -->
+      <h2 class="sd-h2">Los cuatro registros</h2>
+      <div class="grid gap-4 sm:grid-cols-2 mb-14">
+        {REGISTROS.map((r) => (
+          <div class="rounded-xl border border-border bg-card p-6">
+            <div class="flex items-baseline gap-3 mb-2">
+              <span class="font-mono text-[0.7rem] text-accent">{r.n}</span>
+              <h3 class="text-lg text-foreground">{r.name}</h3>
+            </div>
+            <p class="text-sm text-muted-foreground leading-relaxed">{r.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Paleta -->
+      <h2 class="sd-h2">Paleta canónica</h2>
+      <div class="mb-6">
+        <p class="font-mono text-[0.65rem] uppercase tracking-[0.15em] text-dim mb-3">Marca</p>
+        <div class="grid grid-cols-3 sm:grid-cols-6 gap-3">
+          {MARCA.map((c) => (
+            <div class="rounded-lg border border-border overflow-hidden">
+              <div class="h-16" style={`background:${c.hex}`}></div>
+              <div class="bg-card px-2 py-1.5">
+                <p class="text-xs text-foreground">{c.name}</p>
+                <p class="font-mono text-[0.6rem] text-dim">{c.hex}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="mb-14">
+        <p class="font-mono text-[0.65rem] uppercase tracking-[0.15em] text-dim mb-3">Nocturno</p>
+        <div class="grid grid-cols-3 sm:grid-cols-6 gap-3">
+          {NOCTURNO.map((c) => (
+            <div class="rounded-lg border border-border overflow-hidden">
+              <div class="h-16" style={`background:${c.hex}`}></div>
+              <div class="bg-card px-2 py-1.5">
+                <p class="text-xs text-foreground">{c.name}</p>
+                <p class="font-mono text-[0.6rem] text-dim">{c.hex}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Rareza -->
+      <h2 class="sd-h2">Escala de rareza — el cielo de este sitio</h2>
+      <p class="text-sm text-muted-foreground max-w-2xl leading-relaxed mb-4">
+        La distribución del cielo estelar de numinia.org es la escala de rareza (§2.7.1):
+        sesenta de cada cien estrellas son comunes y una es legendaria. Única aparición
+        sancionada de la rareza fuera del juego.
+      </p>
+      <div class="grid grid-cols-3 sm:grid-cols-6 gap-3 mb-14">
+        {RAREZA.map((c) => (
+          <div class="rounded-lg border border-border overflow-hidden">
+            <div class="h-16 flex items-end justify-end p-2" style={`background:${c.hex}`}>
+              {c.peso !== "—" && <span class="font-mono text-[0.6rem]" style="color:#14110F">{c.peso}%</span>}
+            </div>
+            <div class="bg-card px-2 py-1.5">
+              <p class="text-xs text-foreground">{c.name}</p>
+              <p class="font-mono text-[0.6rem] text-dim">{c.hex}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- El Velo en vivo -->
+      <h2 class="sd-h2">El registro del Velo, en vivo</h2>
+      <p class="text-sm text-muted-foreground max-w-2xl leading-relaxed mb-4">
+        La regla única: el Velo no añade hexes — añade alfa. Rejilla del Akasha
+        (Verdemar 2.5% a 40px), niebla de los corredores (Turquesa 6%), cristal.
+      </p>
+      <div class="grid gap-4 sm:grid-cols-3 mb-14">
+        <div class="rounded-xl border border-border overflow-hidden">
+          <div class="h-36 sd-velo-rejilla"></div>
+          <div class="bg-card px-3 py-2">
+            <p class="text-xs text-foreground">velo.rejilla</p>
+            <p class="font-mono text-[0.6rem] text-dim">rgba(166,218,213,.025) · 40px</p>
+          </div>
+        </div>
+        <div class="rounded-xl border border-border overflow-hidden">
+          <div class="h-36 sd-velo-niebla"></div>
+          <div class="bg-card px-3 py-2">
+            <p class="text-xs text-foreground">velo.niebla</p>
+            <p class="font-mono text-[0.6rem] text-dim">rgba(1,142,161,.06) · radial</p>
+          </div>
+        </div>
+        <div class="rounded-xl border border-border overflow-hidden">
+          <div class="h-36 sd-velo-fondo relative">
+            <div class="sd-velo-cristal absolute inset-4 rounded-lg flex items-center justify-center">
+              <span class="font-mono text-[0.65rem]" style="color:#F9EBDC">se lee a través</span>
+            </div>
+          </div>
+          <div class="bg-card px-3 py-2">
+            <p class="text-xs text-foreground">velo.cristal</p>
+            <p class="font-mono text-[0.6rem] text-dim">rgba(30,26,23,.65) + blur 12px</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tipografía -->
+      <h2 class="sd-h2">Tipografía</h2>
+      <div class="grid gap-4 sm:grid-cols-2 mb-14">
+        <div class="rounded-xl border border-border bg-card p-6">
+          <p class="text-3xl text-foreground mb-2" style="font-family:'Geist Variable',sans-serif">Geist</p>
+          <p class="text-sm text-muted-foreground">La voz del sistema: interfaz, documentos, titulares.</p>
+        </div>
+        <div class="rounded-xl border border-border bg-card p-6">
+          <p class="text-3xl text-foreground mb-2" style="font-family:'Geist Mono Variable',monospace">Geist Mono</p>
+          <p class="text-sm text-muted-foreground">Metadatos, código, importes, direcciones. La tercera voz (Alegreya) vive solo en el libro.</p>
+        </div>
+      </div>
+
+      <!-- Enlace al máster -->
+      <p class="font-mono text-[0.7rem] text-dim leading-relaxed border-t border-border/50 pt-6">
+        El máster vive en <a class="text-accent underline underline-offset-2" href={`/corpus/${master.id}`}>standards/2026_08_18-Sistema_de_Diseno-v5.0.0.md</a> —
+        deriva de Khepri v4.2.0 + Brand &amp; Culture v0.1.2; estado propuesto, pendiente de firma del Oráculo.
+        Esta página muestra; el documento manda.
+      </p>
+
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .sd-h2 {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgb(var(--accent));
+    margin-bottom: 1rem;
+  }
+  /* Valores canónicos exactos (§2.7) — sutiles a propósito: el Velo es
+     atmósfera, no adorno. Nada se amplifica para la demo. */
+  .sd-velo-rejilla {
+    background-color: #14110f;
+    background-image:
+      linear-gradient(rgba(166, 218, 213, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(166, 218, 213, 0.025) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .sd-velo-niebla {
+    background-color: #14110f;
+    background-image: radial-gradient(ellipse at 0% 100%, rgba(1, 142, 161, 0.06), transparent 60%);
+  }
+  .sd-velo-fondo {
+    background-color: #14110f;
+    background-image:
+      radial-gradient(ellipse at 0% 100%, rgba(1, 142, 161, 0.06), transparent 60%),
+      linear-gradient(rgba(166, 218, 213, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(166, 218, 213, 0.025) 1px, transparent 1px);
+    background-size: 100% 100%, 40px 40px, 40px 40px;
+  }
+  .sd-velo-cristal {
+    background: rgba(30, 26, 23, 0.65);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(166, 218, 213, 0.15);
+  }
+</style>

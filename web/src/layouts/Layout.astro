@@ -13,6 +13,7 @@ interface Props {
   canonicalPath?: string;
   ogImage?: string;
   activeNav?: string;
+  velo?: boolean;
 }
 
 const {
@@ -21,6 +22,9 @@ const {
   canonicalPath = "",
   ogImage,
   activeNav,
+  // Registro del Velo (Sistema de Diseño v5.0.0 §2.7): la atmósfera del
+  // sitio. La página de diseño es la excepción sancionada por el Oráculo.
+  velo = true,
 } = Astro.props;
 
 const siteUrl = "https://numinia.org";
@@ -67,12 +71,20 @@ const resolvedOgImage = ogImage ?? `${siteUrl}/og-default.png`;
     <slot name="head" />
   </head>
   <body class="relative overflow-x-hidden">
-    <!-- MMO Starfield background -->
+    <!-- El cielo del Velo (§2.7.1) -->
     <canvas
       id="starfield"
       class="pointer-events-none fixed inset-0 -z-10"
       aria-hidden="true"
     ></canvas>
+    {velo && (
+      <!-- Registro del Velo (§2.7): rejilla del Akasha + niebla de los
+           corredores. Solo alfas sobre canónicos — ningún hex nuevo. -->
+      <div
+        class="velo-atmosfera pointer-events-none fixed inset-0 -z-10"
+        aria-hidden="true"
+      ></div>
+    )}
 
     <Navigation activeNav={activeNav} />
 
@@ -90,14 +102,17 @@ const resolvedOgImage = ogImage ?? `${siteUrl}/og-default.png`;
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
 
-        // MMO Rarity tiers — mantener colores
+        // Escala de rareza canónica (Sistema de Diseño v5.0.0 §2.7.1/§3.6)
         const TIERS = [
-          { color: "255,255,255", weight: 60, minR: 0.3, maxR: 1.2 },  // Common — blanco
-          { color: "34,197,94",   weight: 25, minR: 0.5, maxR: 1.5 },  // Uncommon — verde
-          { color: "59,130,246",  weight: 10, minR: 0.6, maxR: 1.8 },  // Rare — azul
-          { color: "168,85,247",  weight: 4,  minR: 0.8, maxR: 2.5 },  // Epic — morado
-          { color: "249,115,22",  weight: 1,  minR: 1.0, maxR: 3.0 },  // Legendary — naranja
+          { color: "249,235,220", weight: 60, minR: 0.3, maxR: 1.2 },  // Común — Arena #F9EBDC
+          { color: "143,196,107", weight: 25, minR: 0.5, maxR: 1.5 },  // Poco común #8FC46B
+          { color: "93,155,214",  weight: 10, minR: 0.6, maxR: 1.8 },  // Raro #5D9BD6
+          { color: "169,139,224", weight: 4,  minR: 0.8, maxR: 2.5 },  // Épico #A98BE0
+          { color: "239,165,23",  weight: 1,  minR: 1.0, maxR: 3.0 },  // Legendario — Ámbar #EFA517
         ];
+        // §2.7.1: con prefers-reduced-motion el cielo se detiene y las
+        // estrellas quedan fijas a alfa media.
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
         // Weighted pool
         const pool = [];
@@ -131,6 +146,16 @@ const resolvedOgImage = ogImage ?? `${siteUrl}/og-default.png`;
           }
         }
 
+        function drawStill() {
+          ctx.clearRect(0, 0, W, H);
+          for (const s of stars) {
+            ctx.beginPath();
+            ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${TIERS[s.tierIdx].color}, 0.45)`;
+            ctx.fill();
+          }
+        }
+
         function draw() {
           ctx.clearRect(0, 0, W, H);
 
@@ -160,13 +185,31 @@ const resolvedOgImage = ogImage ?? `${siteUrl}/og-default.png`;
         let resizeTimer;
         window.addEventListener("resize", () => {
           clearTimeout(resizeTimer);
-          resizeTimer = setTimeout(() => { resize(); initStars(); }, 200);
+          resizeTimer = setTimeout(() => {
+            resize();
+            initStars();
+            if (reducedMotion) drawStill();
+          }, 200);
         });
 
         resize();
         initStars();
-        draw();
+        if (reducedMotion) drawStill();
+        else draw();
       })();
     </script>
+
+    <style is:global>
+      /* Registro del Velo (Sistema de Diseño v5.0.0 §2.7) — solo alfas
+         sobre canónicos: rejilla Verdemar 2.5% a 40px, niebla Turquesa 6%
+         radial desde abajo-izquierda. */
+      .velo-atmosfera {
+        background-image:
+          radial-gradient(ellipse at 0% 100%, rgba(1, 142, 161, 0.06), transparent 60%),
+          linear-gradient(rgba(166, 218, 213, 0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(166, 218, 213, 0.025) 1px, transparent 1px);
+        background-size: 100% 100%, 40px 40px, 40px 40px;
+      }
+    </style>
   </body>
 </html>

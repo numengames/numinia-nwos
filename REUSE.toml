@@ -48,6 +48,15 @@ path = "operations/strategy/**"
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "LicenseRef-Numen-AllRightsReserved"
 
+# The Design System master declares CC0 itself (its frontmatter: "CC0 1.0
+# Universal · marcas excluidas") and the design system is CC0 by prior
+# canon (numinia-web REUSE, khepri/**). Not a new CC0 grant — preserving
+# the document's birth regime. After the docs block so it wins.
+[[annotations]]
+path = "standards/2026_08_18-Sistema_de_Diseno-v5.0.0.md"
+SPDX-FileCopyrightText = "2026 Numen Games S.L."
+SPDX-License-Identifier = "CC0-1.0"
+
 # --- Repo metadata → CC0-1.0 ---------------------------------------------
 # (.github workflow/template files carry their own SPDX headers;
 # CODEOWNERS cannot, so it is declared here.)
