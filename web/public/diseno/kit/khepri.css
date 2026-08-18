@@ -1,0 +1,51 @@
+/* GENERADO del §13.1 · Khepri v4.2.0 — no editar aquí: la fuente es el .md */
+/* Khepri v3.4.0 · kit de arranque */
+@font-face{font-family:'Geist';src:url('assets/fonts/Geist-Variable.woff2') format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Geist Mono';src:url('assets/fonts/GeistMono-Variable.woff2') format('woff2');font-weight:100 900;font-display:swap}
+:root{
+  --verdemar:#A6DAD5;--turquesa:#018EA1;--ambar:#EFA517;--arena:#F9EBDC;--coral:#F35059;--grana:#D33440;
+  --fondo:#14110F;--superficie:#1E1A17;--elevada:#292420;--linea:#241F1B;--linea-f:#3A332D;
+  --texto:#F9EBDC;--texto-2:#C4B5A6;--texto-3:#8A7D72;
+  --sans:'Geist',system-ui,'Segoe UI',Arial,sans-serif;--mono:'Geist Mono','Consolas',monospace;
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;--s8:64px;--s9:96px;--s10:128px;
+  --radio-control:6px;--radio-marco:8px;--ciclo:cubic-bezier(.2,0,0,1);
+  --interactivo-fondo:#017C8D;--interactivo-hover:#016E7D;--interactivo-activo:#015866;
+  --enlace:#A6DAD5;
+  --tinte-confirmacion:#EFE9DB;--tinte-aviso:#F8D8CC;--tinte-critico:#F4D5C9;--tinte-interactivo:#DBE0D5
+}
+/* Diurno: documentos, o forzado con data-modo */
+[data-modo="diurno"]{--fondo:#F9EBDC;--superficie:#FDF6EE;--elevada:#FDF6EE;--linea:#E2D3C2;--linea-f:#E2D3C2;
+  --texto:#14110F;--texto-2:#4A423B;--texto-3:#6E6259;--turquesa:#016E7D;--grana:#B02330;--ambar:#7A5100;
+  --enlace:#016E7D;--verdemar:#1F6B5F}
+@media print{:root{--fondo:#F9EBDC;--superficie:#FDF6EE;--elevada:#FDF6EE;--linea:#E2D3C2;--linea-f:#E2D3C2;
+  --texto:#14110F;--texto-2:#4A423B;--texto-3:#6E6259;--turquesa:#016E7D;--grana:#B02330;--ambar:#7A5100}
+  body{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--texto);font-family:var(--sans);font-size:1rem;line-height:1.55}
+:focus-visible{outline:2px solid #018EA1;outline-offset:2px}
+a{color:var(--enlace)}
+h1,h2,h3{font-weight:600;letter-spacing:-.02em;line-height:1.1;margin:0 0 var(--s4)}
+h1{font-size:2.986rem;font-weight:500}
+.etiqueta{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ambar)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.binaria{font-family:var(--mono);font-size:.875rem;color:var(--linea-f);letter-spacing:.15em;white-space:nowrap;overflow:hidden;user-select:none}
+.tarjeta{background:var(--superficie);border:1px solid var(--linea);padding:var(--s5);border-radius:var(--radio-marco)}
+.btn{font:500 1rem var(--sans);min-height:40px;padding:10px var(--s6);border-radius:var(--radio-control);border:1px solid transparent;
+  cursor:pointer;display:inline-flex;align-items:center;gap:var(--s2);transition:background 120ms var(--ciclo),border-color 120ms var(--ciclo)}
+.btn-primario{background:var(--interactivo-fondo);color:#fff}.btn-primario:hover{background:var(--interactivo-hover)}.btn-primario:active{background:var(--interactivo-activo)}
+.btn-fantasma{background:transparent;border-color:var(--linea-f);color:var(--texto)}.btn-fantasma:hover{border-color:var(--verdemar);color:var(--verdemar)}
+.btn-silencioso{background:transparent;color:var(--verdemar);padding-inline:var(--s2)}
+.btn-destructivo{background:#D33440;color:#fff}.btn-destructivo:hover{background:#B02330}
+.btn:disabled{background:var(--superficie);border-color:var(--linea);color:var(--texto-2);cursor:not-allowed}
+/* Mensajes §9.7 */
+.aviso{position:fixed;right:var(--s5);bottom:var(--s5);max-width:360px;background:var(--elevada);border:1px solid var(--linea);border-left:2px solid var(--turquesa);border-radius:var(--radio-marco);padding:var(--s3) var(--s4);box-shadow:0 1px 2px rgba(20,17,15,.08),0 8px 24px rgba(20,17,15,.06)}
+.aviso[data-tono="exito"]{border-left-color:var(--verdemar)}
+.aviso[data-tono="aviso"]{border-left-color:#F35059}
+.aviso[data-tono="critico"]{border-left-color:var(--grana)}
+[data-tip]{position:relative}
+[data-tip]:hover::after,[data-tip]:focus-visible::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);white-space:nowrap;font-size:.875rem;padding:4px 10px;border-radius:var(--radio-control);background:var(--texto);color:var(--fondo);transition-delay:400ms}
+@media(prefers-reduced-motion:no-preference){
+  .reveal{opacity:0;transform:translateY(8px);transition:opacity 320ms var(--ciclo),transform 320ms var(--ciclo)}
+  .reveal.visible{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+@keyframes parpadeo{50%{opacity:0}}

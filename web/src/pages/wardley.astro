@@ -9,7 +9,7 @@ const components = [
     name: "Narrative Layer",
     x: 12, y: 10,
     layer: "frontier",
-    color: "#2dd4bf",
+    color: "#a6dad5",
     evolution: "Genesis",
     visibility: "Max visible",
     why: "The optional skin that makes the system feel alive. Guilds, lore, rituals. The highest differentiator — and the highest adoption risk.",
@@ -21,7 +21,7 @@ const components = [
     name: "Rituals",
     x: 16, y: 18,
     layer: "frontier",
-    color: "#2dd4bf",
+    color: "#a6dad5",
     evolution: "Genesis",
     visibility: "Very visible",
     why: "Daily standups, Dark Council (weekly strategy), Lunar Coven (creativity). Structured ceremonies with operational weight.",
@@ -33,7 +33,7 @@ const components = [
     name: "Mission System",
     x: 26, y: 28,
     layer: "differentiator",
-    color: "#a78bfa",
+    color: "#a98be0",
     evolution: "Genesis → Custom",
     visibility: "Visible",
     why: "Every unit of work is a structured document: story, acceptance criteria, epistemic value, pragmatic value, and execution reality. Missions leave knowledge, not just checkmarks.",
@@ -45,7 +45,7 @@ const components = [
     name: "Digital Agents (CAO)",
     x: 21, y: 42,
     layer: "differentiator",
-    color: "#a78bfa",
+    color: "#a98be0",
     evolution: "Genesis → Custom",
     visibility: "Mid visible",
     why: "AI agents with persistent identity (SOUL.md, OPERATOR.md, MEMORY.md). They read and write the same files as humans. Not chatbots — long-running collaborators.",
@@ -57,7 +57,7 @@ const components = [
     name: "Blueprints",
     x: 40, y: 48,
     layer: "differentiator",
-    color: "#a78bfa",
+    color: "#a98be0",
     evolution: "Custom",
     visibility: "Mid",
     why: "Living architecture docs. Current state, target state, gap delta, open questions. Updated every time the system changes.",
@@ -69,7 +69,7 @@ const components = [
     name: "Decision Registry",
     x: 45, y: 53,
     layer: "differentiator",
-    color: "#a78bfa",
+    color: "#a98be0",
     evolution: "Custom",
     visibility: "Mid",
     why: "Append-only log of architectural and strategic decisions. What was decided, why, and what was rejected. Immutable record.",
@@ -81,7 +81,7 @@ const components = [
     name: "Agent Identity",
     x: 10, y: 58,
     layer: "frontier",
-    color: "#2dd4bf",
+    color: "#a6dad5",
     evolution: "Genesis",
     visibility: "Mid",
     why: "khepri@ai.numengames.com. Operational laws (Ley 0-3). SOUL.md. Agents have verifiable identity in the real world — email, calendar, git commits.",
@@ -93,7 +93,7 @@ const components = [
     name: "Protocols",
     x: 50, y: 68,
     layer: "structure",
-    color: "#fbbf24",
+    color: "#efa517",
     evolution: "Custom → Product",
     visibility: "Low-mid",
     why: "Operational procedures in markdown. Briefing an agent, onboarding a new member, closing a mission. Human and AI-readable.",
@@ -105,7 +105,7 @@ const components = [
     name: "Operational Reports",
     x: 56, y: 73,
     layer: "structure",
-    color: "#fbbf24",
+    color: "#efa517",
     evolution: "Custom",
     visibility: "Low",
     why: "Daily and weekly markdown files committed to git. Append-only. Searchable, diffable, permanent.",
@@ -117,7 +117,7 @@ const components = [
     name: "File Layer (MD + Git)",
     x: 72, y: 82,
     layer: "foundation",
-    color: "#6b7280",
+    color: "#8a7d72",
     evolution: "Product",
     visibility: "Low",
     why: "All data lives in markdown files with YAML frontmatter. No proprietary formats. If the tool disappears, the knowledge survives.",
@@ -129,7 +129,7 @@ const components = [
     name: "LLMs / APIs",
     x: 85, y: 91,
     layer: "commodity",
-    color: "#374151",
+    color: "#3a332d",
     evolution: "Commodity",
     visibility: "Infrastructure",
     why: "Anthropic, Ollama, others. The raw intelligence layer. Replaceable.",
@@ -141,7 +141,7 @@ const components = [
     name: "GitHub / Git",
     x: 92, y: 93,
     layer: "commodity",
-    color: "#374151",
+    color: "#3a332d",
     evolution: "Commodity",
     visibility: "Infrastructure",
     why: "Version control, history, collaboration via PRs. Universal standard.",
@@ -155,9 +155,9 @@ const layers = [
     id: "commodity",
     label: "The Foundation",
     subtitle: "Already commodity. Available everywhere.",
-    color: "#374151",
-    bg: "bg-[#374151]/10",
-    border: "border-[#374151]/30",
+    color: "#3a332d",
+    bg: "bg-[#3a332d]/10",
+    border: "border-[#3a332d]/30",
     ids: ["github", "llms"],
     description: "Git and LLMs are infrastructure. Interchangeable, cost-optimizable, no strategic lock-in. Every competitor has access to the same foundation.",
   },
@@ -165,9 +165,9 @@ const layers = [
     id: "foundation",
     label: "The Structure",
     subtitle: "File-over-App. Converging toward standard.",
-    color: "#6b7280",
-    bg: "bg-[#6b7280]/10",
-    border: "border-[#6b7280]/30",
+    color: "#8a7d72",
+    bg: "bg-[#8a7d72]/10",
+    border: "border-[#8a7d72]/30",
     ids: ["files", "reports", "protocols"],
     description: "Markdown files in git. No proprietary formats. If every tool disappears tomorrow, the knowledge survives. This principle is the lock-in that works for the user, not against them.",
   },
@@ -175,9 +175,9 @@ const layers = [
     id: "differentiator",
     label: "The Differentiators",
     subtitle: "Custom-built. Nowhere else.",
-    color: "#a78bfa",
-    bg: "bg-[#a78bfa]/10",
-    border: "border-[#a78bfa]/30",
+    color: "#a98be0",
+    bg: "bg-[#a98be0]/10",
+    border: "border-[#a98be0]/30",
     ids: ["decisions", "blueprints", "agents", "missions"],
     description: "Mission System, Blueprints, Decision Registry, Digital Agents. These components exist nowhere else in this combination. The Mission System is the real moat — it turns work into knowledge artifacts.",
   },
@@ -185,9 +185,9 @@ const layers = [
     id: "frontier",
     label: "The Frontier",
     subtitle: "Genesis zone. Highest risk. Highest reward.",
-    color: "#2dd4bf",
-    bg: "bg-[#2dd4bf]/10",
-    border: "border-[#2dd4bf]/30",
+    color: "#a6dad5",
+    bg: "bg-[#a6dad5]/10",
+    border: "border-[#a6dad5]/30",
     ids: ["identity", "rituals", "narrative"],
     description: "Agent Identity, Rituals, Narrative Layer. The most differentiating — and the most fragile. Narrative is optional (Layer 4). Rituals require cultural buy-in. Agent Identity is the shortest competitive window.",
   },
@@ -288,24 +288,24 @@ const layers = [
           <!-- Grid lines -->
           <defs>
             <pattern id="grid" width="90" height="52" patternUnits="userSpaceOnUse">
-              <path d="M 90 0 L 0 0 0 52" fill="none" stroke="#1f2937" stroke-width="0.5"/>
+              <path d="M 90 0 L 0 0 0 52" fill="none" stroke="#292420" stroke-width="0.5"/>
             </pattern>
           </defs>
           <rect width="900" height="520" fill="url(#grid)" opacity="0.5"/>
 
           <!-- Evolution zone labels -->
-          <text x="112" y="510" font-size="9" fill="#374151" font-family="monospace" text-anchor="middle">Genesis</text>
-          <text x="337" y="510" font-size="9" fill="#374151" font-family="monospace" text-anchor="middle">Custom</text>
-          <text x="562" y="510" font-size="9" fill="#374151" font-family="monospace" text-anchor="middle">Product</text>
-          <text x="787" y="510" font-size="9" fill="#374151" font-family="monospace" text-anchor="middle">Commodity</text>
+          <text x="112" y="510" font-size="9" fill="#3a332d" font-family="monospace" text-anchor="middle">Genesis</text>
+          <text x="337" y="510" font-size="9" fill="#3a332d" font-family="monospace" text-anchor="middle">Custom</text>
+          <text x="562" y="510" font-size="9" fill="#3a332d" font-family="monospace" text-anchor="middle">Product</text>
+          <text x="787" y="510" font-size="9" fill="#3a332d" font-family="monospace" text-anchor="middle">Commodity</text>
 
           <!-- Zone dividers -->
-          <line x1="225" y1="0" x2="225" y2="500" stroke="#1f2937" stroke-width="1" stroke-dasharray="4,4"/>
-          <line x1="450" y1="0" x2="450" y2="500" stroke="#1f2937" stroke-width="1" stroke-dasharray="4,4"/>
-          <line x1="675" y1="0" x2="675" y2="500" stroke="#1f2937" stroke-width="1" stroke-dasharray="4,4"/>
+          <line x1="225" y1="0" x2="225" y2="500" stroke="#292420" stroke-width="1" stroke-dasharray="4,4"/>
+          <line x1="450" y1="0" x2="450" y2="500" stroke="#292420" stroke-width="1" stroke-dasharray="4,4"/>
+          <line x1="675" y1="0" x2="675" y2="500" stroke="#292420" stroke-width="1" stroke-dasharray="4,4"/>
 
           <!-- Dependency lines (subtle) -->
-          <g opacity="0.15" stroke="#6b7280" stroke-width="1" fill="none">
+          <g opacity="0.15" stroke="#8a7d72" stroke-width="1" fill="none">
             <!-- Narrative → Mission -->
             <line x1="108" y1="52" x2="234" y2="145"/>
             <!-- Mission → Agents -->

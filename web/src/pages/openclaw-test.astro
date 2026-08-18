@@ -422,7 +422,7 @@ function gameLoop() {
       hitCooldown = 1.5;
       playHit();
       healthFill.style.width = Math.max(0, health) + '%';
-      if (health <= 20) healthFill.style.backgroundColor = '#ff2d55';
+      if (health <= 20) healthFill.style.backgroundColor = '#f35059';
       if (health <= 0) { endGame(false); return; }
     }
   });

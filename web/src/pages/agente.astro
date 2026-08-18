@@ -8,7 +8,7 @@ const capas = [
     id: "L1",
     nombre: "Agente Digital",
     subtitulo: "El actor. El que piensa y actúa.",
-    color: "#3fb950",
+    color: "#8fc46b",
     icono: "🤖",
     componentes: ["Modelo de IA (LLM)", "Contexto activo (RAM de sesión)", "Memoria semántica (Vector DB)", "Orquestador (OpenClaw)"],
     epistemico: "El agente no tiene inteligencia propia — tiene acceso a un modelo de lenguaje y a las instrucciones que definen quién es. La inteligencia emerge de la combinación de modelo + instrucciones + contexto.",
@@ -19,7 +19,7 @@ const capas = [
     id: "L2",
     nombre: "Infraestructura",
     subtitulo: "El substrato. Donde el agente existe físicamente.",
-    color: "#f85149",
+    color: "#d33440",
     icono: "🖥️",
     componentes: ["Servidor VPS (161.35.215.224)", "GPU ≥32GB VRAM (on-premises, en camino)", "Tools & Skills (web, shell, APIs)", "Identity & Auth (permisos por agente)", "Observability (logs, trazas, métricas)"],
     epistemico: "La infraestructura define los límites de lo posible. Un agente sin GPU suficiente no puede ejecutar modelos locales. Sin Auth Layer, cualquier agente puede hacer cualquier cosa — eso es una vulnerabilidad.",
@@ -30,7 +30,7 @@ const capas = [
     id: "L3",
     nombre: "Archive Summa",
     subtitulo: "La memoria permanente. El sistema nervioso del NWOS.",
-    color: "#58a6ff",
+    color: "#5d9bd6",
     icono: "📚",
     componentes: ["GitHub (git repo)", "Archivos .md con YAML frontmatter", "SOUL.md — identidad del agente", "OPERATOR.md — leyes operativas", "Misiones, decisiones, planos, reportes", "Protocolos y memoria diaria"],
     epistemico: "El Archive no es un almacén — es la fuente de verdad. Lo que no está en el Archive no existe institucionalmente. Un agente que cierra sesión sin escribir pierde ese conocimiento para siempre. Por eso el COMMIT es el momento más crítico del ciclo.",
@@ -41,7 +41,7 @@ const capas = [
     id: "L4",
     nombre: "Assets Digitales",
     subtitulo: "El cuerpo. Los materiales de los que está hecho el mundo.",
-    color: "#d2a8ff",
+    color: "#a98be0",
     icono: "🎨",
     componentes: ["CDN (R2 / AWS S3)", "Imágenes (jpg, png, webp)", "Video (mp4, webm)", "Modelos 3D (glb, gltf)", "Avatares (vrm)", "Audio (mp3, ogg)"],
     epistemico: "Los assets son el conocimiento encarnado — la forma en que el sistema existe perceptualmente. Un avatar .vrm es la identidad visual del agente. Un .glb de Numinia es el espacio donde ocurren las interacciones.",
@@ -52,7 +52,7 @@ const capas = [
     id: "L5",
     nombre: "Agente Biológico",
     subtitulo: "La autoridad. El que decide, intuye y autoriza.",
-    color: "#ffa657",
+    color: "#efa517",
     icono: "👤",
     componentes: ["IQ + experiencia + intuición", "Posición (Oráculo, Ciudadano, etc.)", "Rol en el gremio", "Autoridad de aprobación", "Conocimiento tácito (no documentado)"],
     epistemico: "El Biológico tiene algo que el Digital nunca tendrá: conocimiento tácito — intuición construida por años de experiencia que no puede ser completamente documentada. Eso es irreemplazable. El riesgo: ese conocimiento muere con la persona si no se externaliza parcialmente al Archive.",
@@ -63,7 +63,7 @@ const capas = [
     id: "L6",
     nombre: "Organización",
     subtitulo: "El emergente. La suma que supera a sus partes.",
-    color: "#2dd4bf",
+    color: "#a6dad5",
     icono: "🏛️",
     componentes: ["No se instancia — emerge", "Es la suma de L1+L2+L3+L4+L5 en operación continua", "Cultura = comportamientos repetidos del sistema", "Memoria institucional = Archive Summa vivo", "Inteligencia colectiva = Digital + Biológico en loop"],
     epistemico: "La organización no es un objeto que puedes crear directamente. Es un patrón que emerge cuando todos los componentes operan juntos en el tiempo. Por eso 'deployar NWOS' no es suficiente — el sistema tiene que vivirse.",
@@ -76,7 +76,7 @@ const ciclo = [
   {
     fase: "BOOT",
     icono: "⬇️",
-    color: "#58a6ff",
+    color: "#5d9bd6",
     que: "El agente arranca y lee su identidad desde el Archive Summa.",
     como: "git pull → carga SOUL.md, OPERATOR.md, memoria del día anterior, protocolos activos.",
     epistemico: "El agente sin BOOT es amnésico. Sin identidad cargada, es un modelo genérico sin personalidad ni leyes. El BOOT transforma 'un LLM' en 'Nimrod'.",
@@ -86,7 +86,7 @@ const ciclo = [
   {
     fase: "EXECUTE",
     icono: "⚡",
-    color: "#3fb950",
+    color: "#8fc46b",
     que: "El agente recibe instrucción del Biológico y ejecuta usando tools.",
     como: "Biológico → Orquestador → Agente → Tools (web, shell, APIs, email, git) → Output → Biológico.",
     epistemico: "La ejecución es donde el conocimiento cargado en BOOT se convierte en acción real. Es también donde el conocimiento nuevo se genera — cada conversación, cada error, cada decisión tomada es conocimiento nuevo aún no persistido.",
@@ -96,7 +96,7 @@ const ciclo = [
   {
     fase: "COMMIT",
     icono: "⬆️",
-    color: "#ffa657",
+    color: "#efa517",
     que: "El agente escribe el conocimiento generado de vuelta al Archive Summa.",
     como: "git add → git commit → git push → el conocimiento es permanente.",
     epistemico: "Este es el momento más crítico del ciclo. El conocimiento que no se hace COMMIT desaparece cuando la sesión termina. No hay amnesia gradual — hay pérdida total. El COMMIT es el acto de convertir experiencia efímera en memoria institucional.",
@@ -148,69 +148,69 @@ const ciclo = [
       <!-- Stack visual -->
       <div class="space-y-1.5">
         <!-- L6 -->
-        <div class="rounded-xl border border-[#2dd4bf]/30 bg-[#2dd4bf]/5 px-6 py-4 text-center">
-          <p class="font-mono text-[0.6rem] text-[#2dd4bf] uppercase tracking-widest mb-1">L6 · Emergente</p>
-          <p class="font-display text-lg text-[#2dd4bf]">🏛️ ORGANIZACIÓN</p>
+        <div class="rounded-xl border border-[#a6dad5]/30 bg-[#a6dad5]/5 px-6 py-4 text-center">
+          <p class="font-mono text-[0.6rem] text-[#a6dad5] uppercase tracking-widest mb-1">L6 · Emergente</p>
+          <p class="font-display text-lg text-[#a6dad5]">🏛️ ORGANIZACIÓN</p>
           <p class="font-mono text-[0.6rem] text-dim mt-1">No se instancia — emerge de la operación continua del sistema</p>
         </div>
 
         <!-- L5 -->
-        <div class="rounded-xl border border-[#ffa657]/30 bg-[#ffa657]/5 px-6 py-4 flex flex-wrap items-center justify-between gap-3">
+        <div class="rounded-xl border border-[#efa517]/30 bg-[#efa517]/5 px-6 py-4 flex flex-wrap items-center justify-between gap-3">
           <div>
-            <p class="font-mono text-[0.6rem] text-[#ffa657] uppercase tracking-widest mb-1">L5 · Autoridad</p>
-            <p class="font-display text-lg text-[#ffa657]">👤 AGENTE BIOLÓGICO</p>
+            <p class="font-mono text-[0.6rem] text-[#efa517] uppercase tracking-widest mb-1">L5 · Autoridad</p>
+            <p class="font-display text-lg text-[#efa517]">👤 AGENTE BIOLÓGICO</p>
             <p class="font-mono text-[0.6rem] text-dim mt-1">IQ · Posición · Rol · Intuición · Aprobación</p>
           </div>
           <div class="flex flex-col items-center gap-1">
             <span class="font-mono text-[0.55rem] text-dim">instrucción ↓</span>
-            <span class="text-[#ffa657] text-xl">⇅</span>
+            <span class="text-[#efa517] text-xl">⇅</span>
             <span class="font-mono text-[0.55rem] text-dim">aprobación ↑</span>
           </div>
         </div>
 
         <!-- L3 — transversal -->
-        <div class="rounded-xl border-2 border-[#58a6ff]/50 bg-[#58a6ff]/8 px-6 py-5">
+        <div class="rounded-xl border-2 border-[#5d9bd6]/50 bg-[#5d9bd6]/8 px-6 py-5">
           <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
             <div>
-              <p class="font-mono text-[0.6rem] text-[#58a6ff] uppercase tracking-widest mb-1">L3 · Transversal — Bus de Estado</p>
-              <p class="font-display text-lg text-[#58a6ff]">📚 ARCHIVE SUMMA</p>
+              <p class="font-mono text-[0.6rem] text-[#5d9bd6] uppercase tracking-widest mb-1">L3 · Transversal — Bus de Estado</p>
+              <p class="font-display text-lg text-[#5d9bd6]">📚 ARCHIVE SUMMA</p>
             </div>
             <div class="flex gap-6 text-center">
               <div>
-                <p class="font-mono text-[0.55rem] text-[#58a6ff]">↓ BOOT</p>
+                <p class="font-mono text-[0.55rem] text-[#5d9bd6]">↓ BOOT</p>
                 <p class="font-mono text-[0.5rem] text-dim">git pull</p>
               </div>
               <div>
-                <p class="font-mono text-[0.55rem] text-[#ffa657]">↑ COMMIT</p>
+                <p class="font-mono text-[0.55rem] text-[#efa517]">↑ COMMIT</p>
                 <p class="font-mono text-[0.5rem] text-dim">git push</p>
               </div>
             </div>
           </div>
           <div class="flex flex-wrap gap-2">
             {["SOUL.md", "OPERATOR.md", "Misiones", "Decisiones", "Planos", "Reportes", "Protocolos", "Memoria"].map(t => (
-              <span class="font-mono text-[0.55rem] border border-[#58a6ff]/30 text-[#58a6ff]/70 rounded px-2 py-0.5">{t}</span>
+              <span class="font-mono text-[0.55rem] border border-[#5d9bd6]/30 text-[#5d9bd6]/70 rounded px-2 py-0.5">{t}</span>
             ))}
           </div>
         </div>
 
         <!-- L1 + L2 side by side -->
         <div class="grid sm:grid-cols-2 gap-1.5">
-          <div class="rounded-xl border border-[#3fb950]/30 bg-[#3fb950]/5 px-5 py-4">
-            <p class="font-mono text-[0.6rem] text-[#3fb950] uppercase tracking-widest mb-1">L1 · Runtime</p>
-            <p class="font-display text-base text-[#3fb950]">🤖 AGENTE DIGITAL</p>
+          <div class="rounded-xl border border-[#8fc46b]/30 bg-[#8fc46b]/5 px-5 py-4">
+            <p class="font-mono text-[0.6rem] text-[#8fc46b] uppercase tracking-widest mb-1">L1 · Runtime</p>
+            <p class="font-display text-base text-[#8fc46b]">🤖 AGENTE DIGITAL</p>
             <p class="font-mono text-[0.6rem] text-dim mt-1">Modelo IA · Orquestador · Contexto · Vector DB</p>
           </div>
-          <div class="rounded-xl border border-[#f85149]/30 bg-[#f85149]/5 px-5 py-4">
-            <p class="font-mono text-[0.6rem] text-[#f85149] uppercase tracking-widest mb-1">L2 · Substrato</p>
-            <p class="font-display text-base text-[#f85149]">🖥️ INFRAESTRUCTURA</p>
+          <div class="rounded-xl border border-[#d33440]/30 bg-[#d33440]/5 px-5 py-4">
+            <p class="font-mono text-[0.6rem] text-[#d33440] uppercase tracking-widest mb-1">L2 · Substrato</p>
+            <p class="font-display text-base text-[#d33440]">🖥️ INFRAESTRUCTURA</p>
             <p class="font-mono text-[0.6rem] text-dim mt-1">Servidor · GPU · Tools · Auth · Observability</p>
           </div>
         </div>
 
         <!-- L4 -->
-        <div class="rounded-xl border border-[#d2a8ff]/30 bg-[#d2a8ff]/5 px-6 py-4">
-          <p class="font-mono text-[0.6rem] text-[#d2a8ff] uppercase tracking-widest mb-1">L4 · Media</p>
-          <p class="font-display text-base text-[#d2a8ff]">🎨 ASSETS DIGITALES (CDN)</p>
+        <div class="rounded-xl border border-[#a98be0]/30 bg-[#a98be0]/5 px-6 py-4">
+          <p class="font-mono text-[0.6rem] text-[#a98be0] uppercase tracking-widest mb-1">L4 · Media</p>
+          <p class="font-display text-base text-[#a98be0]">🎨 ASSETS DIGITALES (CDN)</p>
           <p class="font-mono text-[0.6rem] text-dim mt-1">jpg · mp4 · glb · vrm · mp3 · R2 / AWS S3</p>
         </div>
       </div>

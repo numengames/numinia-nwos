@@ -230,64 +230,64 @@ const graphEdges = _graph.edges as [string, string][];
           <svg viewBox="0 0 320 520" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-[280px] mx-auto" style="font-family:monospace;font-size:9px" aria-label="Ciclo del agente">
             <defs>
               <marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-                <path d="M0,0 L0,6 L6,3 z" fill="#00d9c4"/>
+                <path d="M0,0 L0,6 L6,3 z" fill="#a6dad5"/>
               </marker>
             </defs>
-            <rect x="95" y="10" width="130" height="28" rx="14" fill="#001a14" stroke="#00d9c4" stroke-width="1.2"/>
-            <text x="160" y="28" text-anchor="middle" fill="#00d9c4">git pull</text>
-            <rect x="95" y="60" width="130" height="28" rx="6" fill="#0a1628" stroke="#334155" stroke-width="1"/>
-            <text x="160" y="78" text-anchor="middle" fill="#94a3b8">SOUL.md</text>
-            <rect x="95" y="110" width="130" height="28" rx="6" fill="#0a1628" stroke="#334155" stroke-width="1"/>
-            <text x="160" y="128" text-anchor="middle" fill="#94a3b8">OPERATOR.md</text>
-            <polygon points="160,158 220,185 160,212 100,185" fill="#0d1f33" stroke="#334155" stroke-width="1"/>
-            <text x="160" y="183" text-anchor="middle" fill="#94a3b8">Misión</text>
-            <text x="160" y="194" text-anchor="middle" fill="#94a3b8">asignada?</text>
-            <rect x="195" y="228" width="110" height="26" rx="5" fill="#0a1628" stroke="#334155" stroke-width="1"/>
-            <text x="250" y="245" text-anchor="middle" fill="#94a3b8">missions/active/</text>
-            <rect x="15" y="228" width="110" height="26" rx="5" fill="#0a1628" stroke="#334155" stroke-width="1"/>
-            <text x="70" y="245" text-anchor="middle" fill="#94a3b8">missions/backlog/</text>
-            <rect x="95" y="278" width="130" height="26" rx="5" fill="#0a1628" stroke="#334155" stroke-width="1"/>
-            <text x="160" y="295" text-anchor="middle" fill="#94a3b8">Ejecutar</text>
-            <polygon points="160,322 220,348 160,374 100,348" fill="#0d1f33" stroke="#334155" stroke-width="1"/>
-            <text x="160" y="346" text-anchor="middle" fill="#94a3b8">Divergencia?</text>
-            <rect x="230" y="384" width="80" height="26" rx="5" fill="#2d0011" stroke="#ff2d55" stroke-width="1"/>
-            <text x="270" y="401" text-anchor="middle" fill="#ff2d55">diverg_log</text>
-            <rect x="95" y="384" width="110" height="26" rx="5" fill="#0a1628" stroke="#334155" stroke-width="1"/>
-            <text x="150" y="401" text-anchor="middle" fill="#94a3b8">commit + PR</text>
-            <polygon points="160,424 215,447 160,470 105,447" fill="#0d1f33" stroke="#334155" stroke-width="1"/>
-            <text x="160" y="445" text-anchor="middle" fill="#94a3b8">Oracle</text>
-            <text x="160" y="456" text-anchor="middle" fill="#94a3b8">aprueba?</text>
-            <rect x="95" y="478" width="130" height="28" rx="14" fill="#001a14" stroke="#00d9c4" stroke-width="1.2"/>
-            <text x="160" y="496" text-anchor="middle" fill="#00d9c4">merge ✓</text>
-            <line x1="160" y1="38" x2="160" y2="58" stroke="#00d9c4" stroke-width="1" marker-end="url(#arr)"/>
-            <line x1="160" y1="88" x2="160" y2="108" stroke="#334155" stroke-width="1" marker-end="url(#arr)"/>
-            <line x1="160" y1="138" x2="160" y2="156" stroke="#334155" stroke-width="1" marker-end="url(#arr)"/>
-            <line x1="220" y1="185" x2="250" y2="185" stroke="#334155" stroke-width="1"/>
-            <line x1="250" y1="185" x2="250" y2="226" stroke="#334155" stroke-width="1" marker-end="url(#arr)"/>
-            <text x="228" y="181" fill="#64748b" font-size="7">Sí</text>
-            <line x1="100" y1="185" x2="70" y2="185" stroke="#334155" stroke-width="1"/>
-            <line x1="70" y1="185" x2="70" y2="226" stroke="#334155" stroke-width="1" marker-end="url(#arr)"/>
-            <text x="75" y="181" fill="#64748b" font-size="7">No</text>
-            <line x1="250" y1="254" x2="250" y2="268" stroke="#334155" stroke-width="1"/>
-            <line x1="250" y1="268" x2="182" y2="276" stroke="#334155" stroke-width="1" marker-end="url(#arr)"/>
-            <line x1="70" y1="254" x2="70" y2="268" stroke="#334155" stroke-width="1"/>
-            <line x1="70" y1="268" x2="138" y2="276" stroke="#334155" stroke-width="1" marker-end="url(#arr)"/>
-            <line x1="160" y1="304" x2="160" y2="320" stroke="#334155" stroke-width="1" marker-end="url(#arr)"/>
-            <line x1="220" y1="348" x2="270" y2="348" stroke="#ff2d55" stroke-width="1"/>
-            <line x1="270" y1="348" x2="270" y2="382" stroke="#ff2d55" stroke-width="1" marker-end="url(#arr)"/>
-            <text x="225" y="344" fill="#ff2d55" font-size="7">Sí</text>
-            <line x1="230" y1="397" x2="207" y2="397" stroke="#334155" stroke-width="1" marker-end="url(#arr)"/>
-            <line x1="100" y1="348" x2="70" y2="348" stroke="#334155" stroke-width="1"/>
-            <line x1="70" y1="348" x2="70" y2="397" stroke="#334155" stroke-width="1"/>
-            <line x1="70" y1="397" x2="93" y2="397" stroke="#334155" stroke-width="1" marker-end="url(#arr)"/>
-            <text x="75" y="344" fill="#64748b" font-size="7">No</text>
-            <line x1="160" y1="410" x2="160" y2="422" stroke="#334155" stroke-width="1" marker-end="url(#arr)"/>
-            <line x1="160" y1="470" x2="160" y2="476" stroke="#00d9c4" stroke-width="1" marker-end="url(#arr)"/>
-            <text x="165" y="474" fill="#00d9c4" font-size="7">Sí</text>
-            <line x1="215" y1="447" x2="298" y2="447" stroke="#334155" stroke-width="1"/>
-            <line x1="298" y1="447" x2="298" y2="291" stroke="#334155" stroke-width="1"/>
-            <line x1="298" y1="291" x2="227" y2="291" stroke="#334155" stroke-width="1" marker-end="url(#arr)"/>
-            <text x="218" y="443" fill="#64748b" font-size="7">No→</text>
+            <rect x="95" y="10" width="130" height="28" rx="14" fill="#14110f" stroke="#a6dad5" stroke-width="1.2"/>
+            <text x="160" y="28" text-anchor="middle" fill="#a6dad5">git pull</text>
+            <rect x="95" y="60" width="130" height="28" rx="6" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
+            <text x="160" y="78" text-anchor="middle" fill="#c4b5a6">SOUL.md</text>
+            <rect x="95" y="110" width="130" height="28" rx="6" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
+            <text x="160" y="128" text-anchor="middle" fill="#c4b5a6">OPERATOR.md</text>
+            <polygon points="160,158 220,185 160,212 100,185" fill="#1e1a17" stroke="#3a332d" stroke-width="1"/>
+            <text x="160" y="183" text-anchor="middle" fill="#c4b5a6">Misión</text>
+            <text x="160" y="194" text-anchor="middle" fill="#c4b5a6">asignada?</text>
+            <rect x="195" y="228" width="110" height="26" rx="5" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
+            <text x="250" y="245" text-anchor="middle" fill="#c4b5a6">missions/active/</text>
+            <rect x="15" y="228" width="110" height="26" rx="5" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
+            <text x="70" y="245" text-anchor="middle" fill="#c4b5a6">missions/backlog/</text>
+            <rect x="95" y="278" width="130" height="26" rx="5" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
+            <text x="160" y="295" text-anchor="middle" fill="#c4b5a6">Ejecutar</text>
+            <polygon points="160,322 220,348 160,374 100,348" fill="#1e1a17" stroke="#3a332d" stroke-width="1"/>
+            <text x="160" y="346" text-anchor="middle" fill="#c4b5a6">Divergencia?</text>
+            <rect x="230" y="384" width="80" height="26" rx="5" fill="#14110f" stroke="#f35059" stroke-width="1"/>
+            <text x="270" y="401" text-anchor="middle" fill="#f35059">diverg_log</text>
+            <rect x="95" y="384" width="110" height="26" rx="5" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
+            <text x="150" y="401" text-anchor="middle" fill="#c4b5a6">commit + PR</text>
+            <polygon points="160,424 215,447 160,470 105,447" fill="#1e1a17" stroke="#3a332d" stroke-width="1"/>
+            <text x="160" y="445" text-anchor="middle" fill="#c4b5a6">Oracle</text>
+            <text x="160" y="456" text-anchor="middle" fill="#c4b5a6">aprueba?</text>
+            <rect x="95" y="478" width="130" height="28" rx="14" fill="#14110f" stroke="#a6dad5" stroke-width="1.2"/>
+            <text x="160" y="496" text-anchor="middle" fill="#a6dad5">merge ✓</text>
+            <line x1="160" y1="38" x2="160" y2="58" stroke="#a6dad5" stroke-width="1" marker-end="url(#arr)"/>
+            <line x1="160" y1="88" x2="160" y2="108" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
+            <line x1="160" y1="138" x2="160" y2="156" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
+            <line x1="220" y1="185" x2="250" y2="185" stroke="#3a332d" stroke-width="1"/>
+            <line x1="250" y1="185" x2="250" y2="226" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
+            <text x="228" y="181" fill="#8a7d72" font-size="7">Sí</text>
+            <line x1="100" y1="185" x2="70" y2="185" stroke="#3a332d" stroke-width="1"/>
+            <line x1="70" y1="185" x2="70" y2="226" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
+            <text x="75" y="181" fill="#8a7d72" font-size="7">No</text>
+            <line x1="250" y1="254" x2="250" y2="268" stroke="#3a332d" stroke-width="1"/>
+            <line x1="250" y1="268" x2="182" y2="276" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
+            <line x1="70" y1="254" x2="70" y2="268" stroke="#3a332d" stroke-width="1"/>
+            <line x1="70" y1="268" x2="138" y2="276" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
+            <line x1="160" y1="304" x2="160" y2="320" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
+            <line x1="220" y1="348" x2="270" y2="348" stroke="#f35059" stroke-width="1"/>
+            <line x1="270" y1="348" x2="270" y2="382" stroke="#f35059" stroke-width="1" marker-end="url(#arr)"/>
+            <text x="225" y="344" fill="#f35059" font-size="7">Sí</text>
+            <line x1="230" y1="397" x2="207" y2="397" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
+            <line x1="100" y1="348" x2="70" y2="348" stroke="#3a332d" stroke-width="1"/>
+            <line x1="70" y1="348" x2="70" y2="397" stroke="#3a332d" stroke-width="1"/>
+            <line x1="70" y1="397" x2="93" y2="397" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
+            <text x="75" y="344" fill="#8a7d72" font-size="7">No</text>
+            <line x1="160" y1="410" x2="160" y2="422" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
+            <line x1="160" y1="470" x2="160" y2="476" stroke="#a6dad5" stroke-width="1" marker-end="url(#arr)"/>
+            <text x="165" y="474" fill="#a6dad5" font-size="7">Sí</text>
+            <line x1="215" y1="447" x2="298" y2="447" stroke="#3a332d" stroke-width="1"/>
+            <line x1="298" y1="447" x2="298" y2="291" stroke="#3a332d" stroke-width="1"/>
+            <line x1="298" y1="291" x2="227" y2="291" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
+            <text x="218" y="443" fill="#8a7d72" font-size="7">No→</text>
           </svg>
         </div>
 
@@ -525,62 +525,62 @@ const graphEdges = _graph.edges as [string, string][];
       <svg viewBox="0 0 320 520" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-[480px] mx-auto" style="font-family:monospace;font-size:9px">
         <defs>
           <marker id="arr2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L6,3 z" fill="#00d9c4"/>
+            <path d="M0,0 L0,6 L6,3 z" fill="#a6dad5"/>
           </marker>
         </defs>
-        <rect x="95" y="10" width="130" height="28" rx="14" fill="#001a14" stroke="#00d9c4" stroke-width="1.2"/>
-        <text x="160" y="28" text-anchor="middle" fill="#00d9c4">git pull</text>
-        <rect x="95" y="60" width="130" height="28" rx="6" fill="#0a1628" stroke="#334155" stroke-width="1"/>
-        <text x="160" y="78" text-anchor="middle" fill="#94a3b8">SOUL.md</text>
-        <rect x="95" y="110" width="130" height="28" rx="6" fill="#0a1628" stroke="#334155" stroke-width="1"/>
-        <text x="160" y="128" text-anchor="middle" fill="#94a3b8">OPERATOR.md</text>
-        <polygon points="160,158 220,185 160,212 100,185" fill="#0d1f33" stroke="#334155" stroke-width="1"/>
-        <text x="160" y="183" text-anchor="middle" fill="#94a3b8">Misión asignada?</text>
-        <rect x="195" y="228" width="110" height="26" rx="5" fill="#0a1628" stroke="#334155" stroke-width="1"/>
-        <text x="250" y="245" text-anchor="middle" fill="#94a3b8">missions/active/</text>
-        <rect x="15" y="228" width="110" height="26" rx="5" fill="#0a1628" stroke="#334155" stroke-width="1"/>
-        <text x="70" y="245" text-anchor="middle" fill="#94a3b8">missions/backlog/</text>
-        <rect x="95" y="278" width="130" height="26" rx="5" fill="#0a1628" stroke="#334155" stroke-width="1"/>
-        <text x="160" y="295" text-anchor="middle" fill="#94a3b8">Ejecutar</text>
-        <polygon points="160,322 220,348 160,374 100,348" fill="#0d1f33" stroke="#334155" stroke-width="1"/>
-        <text x="160" y="346" text-anchor="middle" fill="#94a3b8">Divergencia?</text>
-        <rect x="230" y="384" width="80" height="26" rx="5" fill="#2d0011" stroke="#ff2d55" stroke-width="1"/>
-        <text x="270" y="401" text-anchor="middle" fill="#ff2d55">diverg_log</text>
-        <rect x="95" y="384" width="110" height="26" rx="5" fill="#0a1628" stroke="#334155" stroke-width="1"/>
-        <text x="150" y="401" text-anchor="middle" fill="#94a3b8">commit + PR</text>
-        <polygon points="160,424 215,447 160,470 105,447" fill="#0d1f33" stroke="#334155" stroke-width="1"/>
-        <text x="160" y="445" text-anchor="middle" fill="#94a3b8">Oracle aprueba?</text>
-        <rect x="95" y="478" width="130" height="28" rx="14" fill="#001a14" stroke="#00d9c4" stroke-width="1.2"/>
-        <text x="160" y="496" text-anchor="middle" fill="#00d9c4">merge ✓</text>
-        <line x1="160" y1="38" x2="160" y2="58" stroke="#00d9c4" stroke-width="1" marker-end="url(#arr2)"/>
-        <line x1="160" y1="88" x2="160" y2="108" stroke="#334155" stroke-width="1" marker-end="url(#arr2)"/>
-        <line x1="160" y1="138" x2="160" y2="156" stroke="#334155" stroke-width="1" marker-end="url(#arr2)"/>
-        <line x1="220" y1="185" x2="250" y2="185" stroke="#334155" stroke-width="1"/>
-        <line x1="250" y1="185" x2="250" y2="226" stroke="#334155" stroke-width="1" marker-end="url(#arr2)"/>
-        <text x="228" y="181" fill="#64748b" font-size="7">Sí</text>
-        <line x1="100" y1="185" x2="70" y2="185" stroke="#334155" stroke-width="1"/>
-        <line x1="70" y1="185" x2="70" y2="226" stroke="#334155" stroke-width="1" marker-end="url(#arr2)"/>
-        <text x="75" y="181" fill="#64748b" font-size="7">No</text>
-        <line x1="250" y1="254" x2="250" y2="268" stroke="#334155" stroke-width="1"/>
-        <line x1="250" y1="268" x2="182" y2="276" stroke="#334155" stroke-width="1" marker-end="url(#arr2)"/>
-        <line x1="70" y1="254" x2="70" y2="268" stroke="#334155" stroke-width="1"/>
-        <line x1="70" y1="268" x2="138" y2="276" stroke="#334155" stroke-width="1" marker-end="url(#arr2)"/>
-        <line x1="160" y1="304" x2="160" y2="320" stroke="#334155" stroke-width="1" marker-end="url(#arr2)"/>
-        <line x1="220" y1="348" x2="270" y2="348" stroke="#ff2d55" stroke-width="1"/>
-        <line x1="270" y1="348" x2="270" y2="382" stroke="#ff2d55" stroke-width="1" marker-end="url(#arr2)"/>
-        <text x="225" y="344" fill="#ff2d55" font-size="7">Sí</text>
-        <line x1="230" y1="397" x2="207" y2="397" stroke="#334155" stroke-width="1" marker-end="url(#arr2)"/>
-        <line x1="100" y1="348" x2="70" y2="348" stroke="#334155" stroke-width="1"/>
-        <line x1="70" y1="348" x2="70" y2="397" stroke="#334155" stroke-width="1"/>
-        <line x1="70" y1="397" x2="93" y2="397" stroke="#334155" stroke-width="1" marker-end="url(#arr2)"/>
-        <text x="75" y="344" fill="#64748b" font-size="7">No</text>
-        <line x1="160" y1="410" x2="160" y2="422" stroke="#334155" stroke-width="1" marker-end="url(#arr2)"/>
-        <line x1="160" y1="470" x2="160" y2="476" stroke="#00d9c4" stroke-width="1" marker-end="url(#arr2)"/>
-        <text x="165" y="474" fill="#00d9c4" font-size="7">Sí</text>
-        <line x1="215" y1="447" x2="298" y2="447" stroke="#334155" stroke-width="1"/>
-        <line x1="298" y1="447" x2="298" y2="291" stroke="#334155" stroke-width="1"/>
-        <line x1="298" y1="291" x2="227" y2="291" stroke="#334155" stroke-width="1" marker-end="url(#arr2)"/>
-        <text x="218" y="443" fill="#64748b" font-size="7">No→</text>
+        <rect x="95" y="10" width="130" height="28" rx="14" fill="#14110f" stroke="#a6dad5" stroke-width="1.2"/>
+        <text x="160" y="28" text-anchor="middle" fill="#a6dad5">git pull</text>
+        <rect x="95" y="60" width="130" height="28" rx="6" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
+        <text x="160" y="78" text-anchor="middle" fill="#c4b5a6">SOUL.md</text>
+        <rect x="95" y="110" width="130" height="28" rx="6" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
+        <text x="160" y="128" text-anchor="middle" fill="#c4b5a6">OPERATOR.md</text>
+        <polygon points="160,158 220,185 160,212 100,185" fill="#1e1a17" stroke="#3a332d" stroke-width="1"/>
+        <text x="160" y="183" text-anchor="middle" fill="#c4b5a6">Misión asignada?</text>
+        <rect x="195" y="228" width="110" height="26" rx="5" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
+        <text x="250" y="245" text-anchor="middle" fill="#c4b5a6">missions/active/</text>
+        <rect x="15" y="228" width="110" height="26" rx="5" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
+        <text x="70" y="245" text-anchor="middle" fill="#c4b5a6">missions/backlog/</text>
+        <rect x="95" y="278" width="130" height="26" rx="5" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
+        <text x="160" y="295" text-anchor="middle" fill="#c4b5a6">Ejecutar</text>
+        <polygon points="160,322 220,348 160,374 100,348" fill="#1e1a17" stroke="#3a332d" stroke-width="1"/>
+        <text x="160" y="346" text-anchor="middle" fill="#c4b5a6">Divergencia?</text>
+        <rect x="230" y="384" width="80" height="26" rx="5" fill="#14110f" stroke="#f35059" stroke-width="1"/>
+        <text x="270" y="401" text-anchor="middle" fill="#f35059">diverg_log</text>
+        <rect x="95" y="384" width="110" height="26" rx="5" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
+        <text x="150" y="401" text-anchor="middle" fill="#c4b5a6">commit + PR</text>
+        <polygon points="160,424 215,447 160,470 105,447" fill="#1e1a17" stroke="#3a332d" stroke-width="1"/>
+        <text x="160" y="445" text-anchor="middle" fill="#c4b5a6">Oracle aprueba?</text>
+        <rect x="95" y="478" width="130" height="28" rx="14" fill="#14110f" stroke="#a6dad5" stroke-width="1.2"/>
+        <text x="160" y="496" text-anchor="middle" fill="#a6dad5">merge ✓</text>
+        <line x1="160" y1="38" x2="160" y2="58" stroke="#a6dad5" stroke-width="1" marker-end="url(#arr2)"/>
+        <line x1="160" y1="88" x2="160" y2="108" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
+        <line x1="160" y1="138" x2="160" y2="156" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
+        <line x1="220" y1="185" x2="250" y2="185" stroke="#3a332d" stroke-width="1"/>
+        <line x1="250" y1="185" x2="250" y2="226" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
+        <text x="228" y="181" fill="#8a7d72" font-size="7">Sí</text>
+        <line x1="100" y1="185" x2="70" y2="185" stroke="#3a332d" stroke-width="1"/>
+        <line x1="70" y1="185" x2="70" y2="226" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
+        <text x="75" y="181" fill="#8a7d72" font-size="7">No</text>
+        <line x1="250" y1="254" x2="250" y2="268" stroke="#3a332d" stroke-width="1"/>
+        <line x1="250" y1="268" x2="182" y2="276" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
+        <line x1="70" y1="254" x2="70" y2="268" stroke="#3a332d" stroke-width="1"/>
+        <line x1="70" y1="268" x2="138" y2="276" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
+        <line x1="160" y1="304" x2="160" y2="320" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
+        <line x1="220" y1="348" x2="270" y2="348" stroke="#f35059" stroke-width="1"/>
+        <line x1="270" y1="348" x2="270" y2="382" stroke="#f35059" stroke-width="1" marker-end="url(#arr2)"/>
+        <text x="225" y="344" fill="#f35059" font-size="7">Sí</text>
+        <line x1="230" y1="397" x2="207" y2="397" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
+        <line x1="100" y1="348" x2="70" y2="348" stroke="#3a332d" stroke-width="1"/>
+        <line x1="70" y1="348" x2="70" y2="397" stroke="#3a332d" stroke-width="1"/>
+        <line x1="70" y1="397" x2="93" y2="397" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
+        <text x="75" y="344" fill="#8a7d72" font-size="7">No</text>
+        <line x1="160" y1="410" x2="160" y2="422" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
+        <line x1="160" y1="470" x2="160" y2="476" stroke="#a6dad5" stroke-width="1" marker-end="url(#arr2)"/>
+        <text x="165" y="474" fill="#a6dad5" font-size="7">Sí</text>
+        <line x1="215" y1="447" x2="298" y2="447" stroke="#3a332d" stroke-width="1"/>
+        <line x1="298" y1="447" x2="298" y2="291" stroke="#3a332d" stroke-width="1"/>
+        <line x1="298" y1="291" x2="227" y2="291" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
+        <text x="218" y="443" fill="#8a7d72" font-size="7">No→</text>
       </svg>
     </div>
   </dialog>
@@ -738,7 +738,7 @@ const graphEdges = _graph.edges as [string, string][];
       if (hits.length > 0) {
         var nd = nodesData.find(function(n){ return meshMap[n.id] === hits[0].object; });
         if (nd) {
-          var rels = nd.relations.length > 0 ? nd.relations.map(function(r){ return '<span style="color:#00d9c4">' + r + '/</span>'; }).join(', ') : '<span style="color:#666">ninguna saliente</span>';
+          var rels = nd.relations.length > 0 ? nd.relations.map(function(r){ return '<span style="color:#a6dad5">' + r + '/</span>'; }).join(', ') : '<span style="color:#666">ninguna saliente</span>';
           panel.innerHTML = '<strong style="color:#' + nd.color.toString(16).padStart(6,'0') + '">' + nd.label + '</strong> <span style="color:#aaa">' + nd.subtitle + '</span><br>Conecta con: ' + rels;
           panel.style.display = 'block';
         }
