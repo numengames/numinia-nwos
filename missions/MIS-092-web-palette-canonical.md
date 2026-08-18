@@ -1,5 +1,5 @@
 ---
-id: "MIS-090"
+id: "MIS-092"
 title: "La paleta vuelve a casa: numinia.org migra a los canónicos del Sistema v5.0.0"
 type: mission
 status: done
@@ -12,7 +12,7 @@ author: "claude-fable-5"
 owner: "oracle"
 tags: [web, viewer, design-system, velo, palette]
 license: "CC-BY-4.0"
-mission_id: "MIS-090"
+mission_id: "MIS-092"
 area: "Viewer / numinia.org"
 guild: "Alchemists"
 type_execution: "digital"
@@ -23,7 +23,7 @@ assigned_to: "numinia-nwos"
 requires_oracle_approval: true
 depends_on: []
 ---
-# MIS-090 — La paleta vuelve a casa
+# MIS-092 — La paleta vuelve a casa
 
 > **Resumen:** El Sistema de Diseño v5.0.0 detecta en numinia.org una
 > "deriva mayor": paleta propia (teal `#2DD4BF`, terracota, ocre) fuera de

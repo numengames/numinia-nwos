@@ -75,6 +75,13 @@ y qué se descarta, en §7.
 `P-010-how-to-archive.md`. Sin espacios, sin caracteres especiales, sin
 versión ni fecha en el nombre (git y el frontmatter ya las llevan).
 
+**Asignación de IDs con agentes concurrentes.** El siguiente ID libre se
+calcula sobre lo COMMITEADO tras un `git pull`, no sobre el working tree.
+Si dos agentes colisionan, conserva el ID quien commiteó primero; el
+segundo renumera el suyo y corrige sus referencias. (Regla nacida de la
+colisión doble MIS-090/MIS-091 del 2026-08-18, resuelta renumerando a
+MIS-092/MIS-093.)
+
 ### 3.2 Fondos de archivo (artefactos congelados)
 
 Los documentos históricos que se archivan como artefacto — no evolucionan —

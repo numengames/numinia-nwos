@@ -1,5 +1,5 @@
 ---
-id: "MIS-091"
+id: "MIS-093"
 title: "Los iconos hablan Phosphor y la tipografía cierra filas con el sistema"
 type: mission
 status: done
@@ -10,7 +10,7 @@ author: "claude-fable-5"
 owner: "oracle"
 tags: [web, viewer, design-system, icons, typography]
 license: "CC-BY-4.0"
-mission_id: "MIS-091"
+mission_id: "MIS-093"
 area: "Viewer / numinia.org"
 guild: "Alchemists"
 type_execution: "digital"
@@ -20,9 +20,9 @@ requested_by: "oracle"
 assigned_to: "numinia-nwos"
 started: "2026-08-18"
 completed: "2026-08-18"
-depends_on: ["MIS-090"]
+depends_on: ["MIS-092"]
 ---
-# MIS-091 — Los iconos hablan Phosphor y la tipografía cierra filas
+# MIS-093 — Los iconos hablan Phosphor y la tipografía cierra filas
 
 > **Resumen:** numinia.org sustituye sus SVG sueltos por el subconjunto
 > Phosphor de la casa (§7.3, autoalojado, currentColor) y adopta los

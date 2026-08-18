@@ -4,7 +4,7 @@
 > master at `standards/2026_08_18-Sistema_de_Diseno-v5.0.0.md`, living guide
 > at https://numinia.org/diseno. This site wears the **Velo register** (§2.7)
 > with the §19.3 canonical palette; the old local palette (teal `#2DD4BF`,
-> terracota, ocre) is closed drift (MIS-090). What follows is kept as a
+> terracota, ocre) is closed drift (MIS-092). What follows is kept as a
 > historical reference of the viewer's layout/spacing conventions only —
 > where it contradicts the system, the system wins.
 
