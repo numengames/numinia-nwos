@@ -2,7 +2,7 @@
 id: "MIS-078"
 title: "Khepri: the platform dresses itself"
 type: mission
-status: in-progress
+status: done
 version: "1.0.0"
 created: "2026-08-15"
 updated: "2026-08-17"
@@ -34,7 +34,7 @@ effort: "L"
 
 > **Agent type:** 🤖 Digital (Oracle reviews each phase visually)
 > **Priority:** 🔴 Critical — THE priority by Oracle order (2026-08-15)
-> **Effort:** L · **Status:** 🔵 In progress — kit installed & verified 2026-08-15
+> **Effort:** L · **Status:** ✅ Done 2026-08-18 — ver Execution Reality
 > **Track:** `store` (all current surfaces live there)
 > **Governing document:** `design-system/2026_08_18-Sistema_de_Diseno-v5_0_0.md` (Sistema de
 > Diseño v5.0.0, CC0; marks excluded §15). **Actualizado 2026-08-18:** la v5.0.0 retira el
@@ -65,6 +65,58 @@ platform feels like one product built by one house, not an accretion of tools.
 - Companion docs received for the SEPARATE numen.games project (master prompt
   - marketing schema v0.6.0) — different repo, different constitution; not
     part of this mission.
+
+## Execution Reality (2026-08-18) — fases A y B cerradas
+
+**A.1 puente de tokens · A.2 adopción del kit:** hechas el 2026-08-15 y
+re-ancladas a la v5.0.0. El kit ya no se copia del repo: se **fija** por versión
+y digest (`design-source.json`, ADR-022), y dos guardianes lo protegen — un test
+que rompe el build si se edita una copia a mano y `npm run design:check` contra
+el maestro publicado.
+
+**A.3 auditoría de superficies:** hecha por medición, no por inspección.
+Resultado: la paleta ya estaba en casa (solo 7 hexes fuera de canon en todo el
+código, de los cuales 4 son legítimos — máscaras `#000`, que §2.7.2 especifica
+así — y 3 son tokens del libro pendientes de canonizar, reportados a nwos como
+H1) y el movimiento también (4 keyframes, todas del catálogo §10.1).
+
+**B — lo que sí faltaba: la mitad no medida.** El criterio de aceptación 2 pide
+AA «en Diurno y en Nocturno»; el gate medía un solo modo, así que la otra mitad
+del producto llevaba **cinco fallos AA en producción, en todas las páginas**.
+Ninguno era hueco del Sistema: los cinco eran mal uso nuestro de tokens
+canónicos, y el primero lo prohíbe la propia checklist §19.4.
+
+| Defecto | Medida | Superficies |
+| --- | --- | --- |
+| Tinta terciaria sobre superficie (§19.4: terciario solo sobre fondo base) | `#8A7D72` sobre `#1E1A17` = 4.32:1 | badges del archivo, píldoras de ajustes, tags de updates, nodos del mapa de portales |
+| Turquesa (relleno interactivo) usada como texto | `#018EA1` = 4.43:1 | badges, `.tag-new` |
+| Grana como etiqueta de botón | `#D33440` sobre `#14110F` = 3.88:1 | botón destructivo de la ficha |
+| Enlace distinguido solo por color (WCAG 1.4.1) | 2.58:1 contra su propia frase | firma del pie, todas las páginas |
+
+Arreglados con tokens del Sistema; el nodo dormido del mapa dice su estado con
+punto hueco en vez de tinta más apagada — **estado por forma, no por color
+ilegible**. El gate pasa a recorrer los dos modos: **66 comprobaciones en vez de
+33**. Un gate que mide un modo certifica medio producto.
+
+**Remate:** `/spike/auth` se retira (segunda puerta duplicada, con fallbacks
+legacy `#888`/`#666`; el login vive en el L.A.P.) y la ficha imprimible deja de
+imprimir en blanco puro: imprime en papel de la casa con tinta Noche, como el
+libro y como los PDF del corpus. Un solo criterio de papel.
+
+Entregado en `numinia-web` v0.47.0 (`f10d9d0` + release).
+
+- **Technology/approach used:** medición antes que inspección — axe en los dos
+  modos como forma de auditar superficies, en vez de revisarlas a ojo.
+- **Why it diverged:** la misión suponía «repasar cada familia de rutas y
+  reskinear»; la plataforma ya estaba vestida. Lo que faltaba no era pintura,
+  era una garantía: el gate certificaba medio producto.
+- **Key learning:** un criterio de aceptación que nadie mide es una opinión.
+  «AA en ambos modos» estuvo escrito desde el principio y falló desde el
+  principio, en silencio, porque el gate solo conocía un modo.
+- **Closing date:** 2026-08-18
+- **Executing agent:** claude-opus-5 (sesión numinia-web)
+
+---
 
 ## Phase A — Preparation (before touching any page)
 
