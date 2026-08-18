@@ -2,8 +2,8 @@
 id: "MIS-091"
 title: "El Sistema viste la casa: numen.games y nwos.numen.games adoptan los standards"
 type: mission
-status: in-progress
-version: "1.0.0"
+status: in-review
+version: "1.1.0"
 created: "2026-08-18"
 updated: "2026-08-18"
 started: "2026-08-18"
@@ -174,14 +174,22 @@ Feature: Los standards de la casa, aplicados a las dos superficies públicas
     And los reporta al Oráculo en el informe de cierre
 ```
 
-- [ ] Cero hex fuera de §19.3 en `numengames-web/src` (grep documentado)
-- [ ] Cero deriva de paleta en `nwos-deploy/src/styles/global.css`
-- [ ] Solo Geist y Geist Mono en ambos sitios
-- [ ] Pipeline `type-check → lint → test → build` verde en ambos repos
-- [ ] Checklist §4 completa en ambos repos (salvo lo gated por el Oráculo)
-- [ ] `permissions` de solo lectura y acciones por SHA en todos los workflows
-- [ ] `DESIGN.md` de `nwos-deploy` superseded, apuntando al máster
-- [ ] Deuda observada reportada, no arreglada por iniciativa propia (§7.4)
+- [x] Cero hex fuera de §19.3 en `numengames-web/src` — 23 hexes distintos
+      restantes, todos canónicos; los rgb() restantes son 7 tripletes, todos
+      canónicos (grep en el log)
+- [x] Cero deriva de paleta en `nwos-deploy/src/styles/global.css` — y en todo
+      `src`: ni un hex ni un rgb() fuera de §19.3
+- [x] Solo Geist y Geist Mono en ambos sitios (Inter e IBM Plex retiradas)
+- [x] Pipeline `type-check → lint → test → build` verde en local en ambos repos
+      (en `numengames-web` el type-check es un trinquete sobre 31 errores
+      preexistentes, ver Execution Reality)
+- [x] Checklist §4 completa en ambos repos salvo lo gated (branch protection,
+      ajustes de organización, C-005 en numengames-web)
+- [x] `permissions: read-all` y acciones pinneadas por SHA en los cinco
+      workflows de los dos repos
+- [x] `DESIGN.md` de `nwos-deploy` superseded, apuntando al máster
+- [x] Deuda observada reportada en los `TODO.md` de cada repo, no arreglada
+      por iniciativa propia (§7.4)
 
 ---
 
@@ -207,10 +215,105 @@ falla en una falla en las tres. El coste marginal de la cuarta superficie
   standards a toda la web numen.games y al subdominio nwos.numen.games").
   Auditoría de estado previo registrada en el contexto de arriba.
 
+### numengames-web · rama `feat/standards-v5` · 2 commits
+
+- **Capa de tokens.** `tailwind.config.cjs` pasa a ser el §19.3: marca,
+  texto-sobre-claro, interactivo con estados que oscurecen, enlace, Nocturno,
+  Diurno y la paleta de datos §3.8. Los nombres viejos (`primary.coralRed`,
+  `primary.panther`, `basics.white`…) sobreviven como alias apuntando al
+  canónico de su ROL, para no reescribir ~200 clases de golpe.
+- **Barrido cerrado deriva→canónico:** 298 sustituciones de color en `src/`
+  (44 del dorado `#D9B86A`, 20 de `#171717`, 84 de `rgb(217,184,106)`, 44 de
+  `rgb(255,255,255)`…) + 103 clases de la paleta por defecto de Tailwind
+  (`text-white`, `text-slate-*`, `bg-black`, `text-red-*`). **Verificación:**
+  23 hexes distintos y 7 tripletes rgb() en `src/`, todos de §19.3.
+- **Corrección de rol (§9.1).** Los rellenos de acción dejan de ser ámbar:
+  navbar CTA, CTAs de hero, variantes primary/outline de `Button.astro`,
+  la tarjeta VRM y el widget de chat pasan a Turquesa `#017C8D`. Tres casos de
+  Arena sobre Ámbar (1.9:1) se resuelven con tinta — la accesibilidad manda
+  sobre la paleta (§19.1).
+- **Tipografía.** Fuera Inter (dependencia y dos layouts) y fuera IBM Plex
+  Mono; Geist pasa de nueve cortes estáticos a una variable, y entra Geist Mono
+  autoalojada.
+- **Banner de cookies** tematizado por sus propias variables (sin tocar el CSS
+  de terceros): superficies canónicas, relleno Turquesa, Geist, dos radios.
+- **Ingeniería.** CI `type-check → lint → test → build` + job de presencia;
+  Scorecard semanal; Dependabot; `permissions: read-all`; acciones por SHA.
+  Nuevos: `CLAUDE.md`, `SECURITY.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`,
+  CODEOWNERS, plantillas, `.editorconfig`, `TODO.md`, README ejecutable con
+  badges. El paquete deja de llamarse `astroship`.
+- **Deuda de lint saldada, no silenciada:** 74 errores de ESLint a cero — 23
+  `{#each}` con clave, componentes e imports muertos retirados, `console.*`
+  sustituido por estado de error visible en el chat (§9.7), frontmatter YAML
+  con tabuladores corregido, y los `any` del contenido tipados una vez en su
+  frontera (`src/types/content.ts`) en vez de quince veces sueltos.
+
+### nwos-deploy · rama `feat/standards-v5` · 1 commit
+
+- **Capa de tokens** migrada en `src/styles/global.css`: acento teal `#2DD4BF`
+  y los sabores propios (terracota, ocre, cobre, bronce, salvia, azul-med)
+  pasan a canónicos conservando su nombre como alias. Entra `interactivo`.
+- **El cielo del Velo (§2.7.1)** deja de ser blanco: 175 estrellas, pesos
+  60/25/10/4/1, colores de la escala de rareza §3.6, y con
+  `prefers-reduced-motion` **se detiene** en vez de desaparecer.
+- **Se retira el overlay de ruido** (pintaba sobre todo a z-index 9999; §6 pide
+  superficies elevadas lisas y el grano es del papel).
+- **SRE-03 real:** `src/lib/log.ts` es el único sitio con `console`, y emite
+  JSON por evento. Los nueve `console.error` con concatenación de la ruta de
+  deploy son ahora eventos estructurados con claves estables.
+- **Type-check en cero:** 20 `any` fuera (contenido de GitHub tipado, cuerpo de
+  la petición tipado, resultado del deploy tipado) y los imports de fontsource
+  declarados. 26 tests en verde.
+- CI, Scorecard, Dependabot, SECURITY/CoC/CODEOWNERS/plantillas/.editorconfig/
+  TODO como en la otra casa; `license-check.yml` conserva lo suyo (guardia
+  C-005 y gate de CLA) y deja de duplicar los tests. `DESIGN.md` superseded.
+
 ---
 
 ## Execution Reality
 
-*(Se rellena al cerrar)*
+- **Technology/approach used:** el mismo método de dos capas que cerró MIS-090
+  —primero los tokens, después un mapeo cerrado hex/rgb→canónico verificado con
+  grep— pero aquí hubo una tercera capa que MIS-090 no tuvo: **las clases de la
+  paleta por defecto de Tailwind**. `text-white`, `text-slate-500`, `bg-black`
+  no son hexes, así que no aparecen en ningún grep de color y sin embargo son
+  deriva pura. Fueron 103 ocurrencias.
+- **Why it diverged (1):** el plan decía «capa de tokens y barrido». La realidad
+  añadió una corrección de ROL que no era mecánica: el sitio usaba el dorado
+  como relleno de acción, y §9.1 reserva los rellenos al Turquesa. Traducir
+  color a color habría dado un sitio con botones ámbar y texto claro — es decir,
+  1.9:1 de contraste. **La accesibilidad rompió el mapeo automático y obligó a
+  revisar botón a botón.**
+- **Why it diverged (2):** poner `lint` en el CI no es añadir un paso: es
+  descubrir 74 errores reales (cada uno con su decisión) y 51 de tipos. Los de
+  lint se saldaron. Los de tipos, no: **27 de los 31 que quedan son un solo
+  bug** —páginas que pasan `class="…"` a componentes Svelte que solo leen
+  `className`, de modo que esas clases nunca se aplican—. Arreglarlo cambia el
+  layout renderizado; borrarlo tira la intención del autor. Es una decisión de
+  producto, no una corrección mecánica, así que se reporta y se congela con un
+  **trinquete**: `pnpm type-check` falla si el número sube, y falla igual si
+  baja sin actualizar la línea base. La regla no es prosa aunque el bug siga.
+- **Key learning:** un estándar de diseño se aplica con un script; un estándar
+  de ingeniería se aplica descubriendo lo que el repositorio llevaba años sin
+  mirar. El coste de la migración no estuvo en los 298 colores —eso fueron
+  minutos— sino en los 125 defectos que el primer `lint` y el primer
+  `type-check` de la historia del repo pusieron encima de la mesa. **Encender la
+  luz es la parte cara; pintar es la barata.**
+- **Closing date:** pendiente (rama abierta, ver residuos)
+- **Executing agent:** claude-opus-5
+
+### Residuos y decisiones para el Oráculo
+
+1. **Nada está publicado.** Las dos ramas `feat/standards-v5` están en local:
+   sin `push`, sin PR, sin deploy. Es acto del Oráculo.
+2. **C-005 en `numengames-web`** sigue sin aplicar (LICENSE GPL-3.0 sin
+   `REUSE.toml`, sin `LICENSES/`, sin cabeceras SPDX, sin `TRADEMARKS.md`).
+   Nivel irreversible: no se ha tocado.
+3. **El bug de `class` vs `className`** (27 errores de tipo) espera decisión.
+4. **`DESIGN.md` de nwos-deploy** conserva su título heredado (*pablofm.com*);
+   su consolidación espera la lista de conservación del Oráculo, igual que la
+   de numinia.org en MIS-090.
+5. **Ajustes de organización y branch protection** (SEC-01/02/11, ARC-02) no son
+   accesibles desde el repo.
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
