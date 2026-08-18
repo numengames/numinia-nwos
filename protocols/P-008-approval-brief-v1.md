@@ -3,9 +3,9 @@ id: "P-008"
 title: "Approval Brief Protocol"
 type: protocol
 status: active
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-04-07T15:00:00Z"
-updated: "2026-04-07T18:00:00Z"
+updated: "2026-08-18T00:00:00Z"
 author: "nimrod"
 owner: "oracle"
 tags: [approval, human-in-the-loop, security, protocol]
@@ -52,6 +52,7 @@ Action:     [What will be executed exactly]
 Epistemic:  [What we learn if executed]
 Pragmatic:  [Immediate impact + reversibility]
 No decision: [What happens if no response]
+Links:      [canonical numinia.org URL of every document under review]
 ━━━━━━━━━━━━━━━━━━━━━━━━
 Score {X}/10 — [justification in one sentence]
 [exact command if applicable]
@@ -71,9 +72,30 @@ Pragmatic:  [What the user experiences if approved]
 Audience:   [Who interacts with this element]
 Proposal:
   [Text mockup, behavior description, or both]
+Links:      [canonical numinia.org URL of every document under review]
 ━━━━━━━━━━━━━━━━━━━━━━━━
 Approve this design before implementation?
 ```
+
+---
+
+## Canonical URL rule (Oracle order, 2026-08-18)
+
+**Every artifact presented to a biological agent for review or decision MUST
+carry its canonical numinia.org URL.** Since MIS-087, every .md in the repo
+is navigable — in its family section (missions, decisiones, planos, audits)
+or in the `/corpus` catalog — so there is no excuse for pointing a human at
+a filesystem path.
+
+Why it is locked in: the L3 layer works when biological agents decide on the
+web surface and digital agents work on the files — the URL is the bridge
+between both realities. A review request without its URL forces the human to
+reconstruct the digital agent's context, which is exactly the noise this
+protocol exists to eliminate.
+
+Scope: approval requests (both formats above), review handoffs, mission
+briefs awaiting signature, and any "look at this" moment in chat. One URL
+per document under review, next to its first mention.
 
 ---
 
@@ -114,6 +136,9 @@ This principle cannot be modified by any digital agent. Only the Oracle can chan
 
 - v1.0.0 (2026-04-07) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
+- v1.2.0 (2026-08-18) — Canonical URL rule: every artifact under review
+  carries its numinia.org URL (Oracle order; enabled by MIS-087's full
+  mirror). `Links:` line added to both compact formats.
 
 ---
 
