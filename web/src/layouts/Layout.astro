@@ -13,7 +13,6 @@ interface Props {
   canonicalPath?: string;
   ogImage?: string;
   activeNav?: string;
-  velo?: boolean;
 }
 
 const {
@@ -22,9 +21,6 @@ const {
   canonicalPath = "",
   ogImage,
   activeNav,
-  // Registro del Velo (Sistema de Diseño v5.0.0 §2.7): la atmósfera del
-  // sitio. La página de diseño es la excepción sancionada por el Oráculo.
-  velo = true,
 } = Astro.props;
 
 const siteUrl = "https://numinia.org";
@@ -40,7 +36,7 @@ const resolvedOgImage = ogImage ?? `${siteUrl}/og-default.png`;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="theme-color" content="#14110F" />
     <link rel="canonical" href={canonical} />
 
     <!-- Open Graph -->
@@ -77,14 +73,13 @@ const resolvedOgImage = ogImage ?? `${siteUrl}/og-default.png`;
       class="pointer-events-none fixed inset-0 -z-10"
       aria-hidden="true"
     ></canvas>
-    {velo && (
-      <!-- Registro del Velo (§2.7): rejilla del Akasha + niebla de los
-           corredores. Solo alfas sobre canónicos — ningún hex nuevo. -->
-      <div
-        class="velo-atmosfera pointer-events-none fixed inset-0 -z-10"
-        aria-hidden="true"
-      ></div>
-    )}
+    <!-- Registro del Velo (§2.7): la rejilla del Akasha. La niebla la
+         pinta body::before (veil-glow, alfa canónico). La página /diseno
+         no pasa por este Layout — es la guía viva standalone. -->
+    <div
+      class="velo-atmosfera pointer-events-none fixed inset-0 -z-10"
+      aria-hidden="true"
+    ></div>
 
     <Navigation activeNav={activeNav} />
 
@@ -201,14 +196,12 @@ const resolvedOgImage = ogImage ?? `${siteUrl}/og-default.png`;
 
     <style is:global>
       /* Registro del Velo (Sistema de Diseño v5.0.0 §2.7) — solo alfas
-         sobre canónicos: rejilla Verdemar 2.5% a 40px, niebla Turquesa 6%
-         radial desde abajo-izquierda. */
+         sobre canónicos: rejilla Verdemar 2.5% a celda de 40px. */
       .velo-atmosfera {
         background-image:
-          radial-gradient(ellipse at 0% 100%, rgba(1, 142, 161, 0.06), transparent 60%),
           linear-gradient(rgba(166, 218, 213, 0.025) 1px, transparent 1px),
           linear-gradient(90deg, rgba(166, 218, 213, 0.025) 1px, transparent 1px);
-        background-size: 100% 100%, 40px 40px, 40px 40px;
+        background-size: 40px 40px;
       }
     </style>
   </body>

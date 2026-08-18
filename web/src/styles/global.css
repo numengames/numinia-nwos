@@ -11,46 +11,46 @@
 		--font-sans: "Geist Variable", system-ui, sans-serif;
 		--font-mono: "Geist Mono Variable", ui-monospace, monospace;
 
-		/* ── Core palette — RGB triplets for Tailwind opacity support ──────── */
+		/* ── Core palette — RGB triplets for Tailwind opacity support ────────
+		   Canonical values from the Design System v5.0.0 §19.3 (MIS-090):
+		   Nocturno neutrals + Verdemar as the night link/accent voice. */
 
-		/* Fondo: negro espacio */
-		--bg: 10 10 10;
-		--bg-card: 10 12 14;
-		--bg-card-hover: 16 20 24;
-		--border: 35 42 50;
-		--text: 248 247 243;
-		--text-muted: 139 134 128;
-		--text-dim: 90 88 84;
+		/* Fondo: Noche #14110F · superficie #1E1A17 · elevada #292420 */
+		--bg: 20 17 15;
+		--bg-card: 30 26 23;
+		--bg-card-hover: 41 36 32;
+		--border: 58 51 45;        /* línea fuerte #3A332D */
+		--text: 249 235 220;       /* Arena #F9EBDC */
+		--text-muted: 196 181 166; /* #C4B5A6 */
+		--text-dim: 138 125 114;   /* #8A7D72 */
 
-		/* Accent principal: teal cálido */
-		--accent: 45 212 191;
+		/* Accent: Verdemar #A6DAD5 — el enlace nocturno del sistema */
+		--accent: 166 218 213;
 
-		/* ── Solarpunk mediterráneo ───────────────────────────────────────── */
-		--terracota: 193 123 74;   /* #C17B4A */
-		--ocre: 212 168 85;        /* #D4A855 */
-		--arena: 232 213 176;      /* #E8D5B0 */
-		--azul-med: 43 108 176;    /* #2B6CB0 */
-		--salvia: 107 143 94;      /* #6B8F5E */
+		/* ── Antiguos sabores propios, mapeados a canónicos (deriva cerrada) ── */
+		--terracota: 239 165 23;   /* → Ámbar #EFA517 */
+		--ocre: 239 165 23;        /* → Ámbar #EFA517 */
+		--arena: 249 235 220;      /* → Arena #F9EBDC */
+		--azul-med: 93 155 214;    /* → azul templado #5D9BD6 (§3.8 datos) */
+		--salvia: 143 196 107;     /* → verde #8FC46B (§3.8 datos) */
+		--cobre: 239 165 23;       /* → Ámbar #EFA517 */
+		--bronce: 122 81 0;        /* → ámbar-texto #7A5100 */
 
-		/* ── Steampunk ───────────────────────────────────────────────────── */
-		--cobre: 184 115 51;       /* #B87333 */
-		--bronce: 139 105 20;      /* #8B6914 */
+		/* ── Marca ───────────────────────────────────────────────────────── */
+		--teal: 1 142 161;         /* Turquesa #018EA1 */
+		--ambar: 239 165 23;       /* Ámbar #EFA517 */
 
-		/* ── Cyberpunk contenido ─────────────────────────────────────────── */
-		--teal: 45 212 191;        /* #2DD4BF */
-		--ambar: 245 158 11;       /* #F59E0B */
+		/* ── Semantic colors — paleta de datos §3.8 ──────────────────────── */
+		--green: 143 196 107;      /* #8FC46B */
+		--red: 211 52 64;          /* Grana #D33440 */
+		--yellow: 239 165 23;      /* Ámbar #EFA517 */
+		--blue: 93 155 214;        /* #5D9BD6 */
+		--purple: 169 139 224;     /* #A98BE0 */
 
-		/* ── Semantic colors ─────────────────────────────────────────────── */
-		--green: 34 197 94;
-		--red: 239 68 68;
-		--yellow: 234 179 8;
-		--blue: 59 130 246;
-		--purple: 168 85 247;
-
-		/* ── Glow (direct rgba for non-Tailwind use) ─────────────────────── */
-		--accent-glow: rgba(45, 212, 191, 0.10);
-		--veil-glow: rgba(45, 212, 191, 0.04);
-		--cobre-glow: rgba(45, 212, 191, 0.18);
+		/* ── Glow — el Velo: solo alfas sobre canónicos (§2.7) ───────────── */
+		--accent-glow: rgba(1, 142, 161, 0.10);
+		--veil-glow: rgba(1, 142, 161, 0.06);   /* velo.niebla */
+		--cobre-glow: rgba(1, 142, 161, 0.18);
 
 		/* ── Radius ──────────────────────────────────────────────────────── */
 		--radius: 0.75rem;
@@ -71,15 +71,15 @@
 	}
 
 	html {
-		background-color: #0a0a0a;
-		color: #F8F7F3;
+		background-color: #14110F;
+		color: #F9EBDC;
 		scroll-behavior: smooth;
 	}
 
 	body {
 		@apply min-h-screen font-sans text-foreground antialiased;
 		background-color: transparent;
-		color: #F8F7F3;
+		color: #F9EBDC;
 	}
 
 	/* ── Subtle ambient glow (no grid) ──────────────────────────────────── */
@@ -112,26 +112,26 @@
 		height: 6px;
 	}
 	::-webkit-scrollbar-track {
-		background: rgb(10 10 10);
+		background: rgb(20 17 15);
 	}
 	::-webkit-scrollbar-thumb {
-		background: rgba(45, 212, 191, 0.30);
+		background: rgba(1, 142, 161, 0.35);
 		border-radius: 3px;
 	}
 	::-webkit-scrollbar-thumb:hover {
-		background: rgba(45, 212, 191, 0.55);
+		background: rgba(1, 142, 161, 0.6);
 	}
 
 	/* Firefox scrollbar */
 	* {
 		scrollbar-width: thin;
-		scrollbar-color: rgba(45, 212, 191, 0.30) transparent;
+		scrollbar-color: rgba(1, 142, 161, 0.35) transparent;
 	}
 
 	/* ── Text selection ──────────────────────────────────────────────────── */
 	::selection {
-		background: rgba(45, 212, 191, 0.22);
-		color: rgb(241, 240, 235);
+		background: rgba(1, 142, 161, 0.30);
+		color: rgb(249, 235, 220);
 	}
 
 	/* ── Animations ──────────────────────────────────────────────────────── */

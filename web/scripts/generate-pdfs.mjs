@@ -66,7 +66,7 @@ const slugs = execFileSync("find", [printRoot, "-name", "index.html"], { encodin
   .sort();
 
 const footerTemplate = `
-  <div style="width:100%;font-size:6.5pt;font-family:monospace;color:#6b7876;
+  <div style="width:100%;font-size:6.5pt;font-family:monospace;color:#6E6259;
               padding:0 16mm;display:flex;justify-content:space-between;">
     <span>numinia.org/<span class="url-slug"></span> · ${new Date().toISOString().slice(0, 10)}</span>
     <span><span class="pageNumber"></span> / <span class="totalPages"></span></span>

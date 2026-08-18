@@ -1,4 +1,13 @@
 # DESIGN.md — pablofm.com
+
+> **SUPERSEDED (2026-08-18, Oracle order):** the Design System v5.0.0 rules —
+> master at `standards/2026_08_18-Sistema_de_Diseno-v5.0.0.md`, living guide
+> at https://numinia.org/diseno. This site wears the **Velo register** (§2.7)
+> with the §19.3 canonical palette; the old local palette (teal `#2DD4BF`,
+> terracota, ocre) is closed drift (MIS-090). What follows is kept as a
+> historical reference of the viewer's layout/spacing conventions only —
+> where it contradicts the system, the system wins.
+
 **Version:** v0.1.0
 **Format:** Google Stitch DESIGN.md (extended)
 **Last updated:** 2026-04-04

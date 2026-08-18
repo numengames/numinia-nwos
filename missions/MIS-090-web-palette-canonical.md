@@ -2,10 +2,11 @@
 id: "MIS-090"
 title: "La paleta vuelve a casa: numinia.org migra a los canónicos del Sistema v5.0.0"
 type: mission
-status: draft
-version: "1.0.0"
+status: in-progress
+version: "1.1.0"
 created: "2026-08-18"
 updated: "2026-08-18"
+started: "2026-08-18"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [web, viewer, design-system, velo, palette]
@@ -102,7 +103,25 @@ canónicos sin traducción.
 
 ## Execution log
 
-*(Fill when completing the mission)*
+- 2026-08-18 — **Firmada por orden directa del Oráculo** ("el sistema que te
+  he mandado manda… rediseña todo eso; si tu registro es el del Velo, la web
+  ha de cumplir con ese criterio").
+- 2026-08-18 — **Capa de tokens migrada** (`global.css`): fondos a
+  Noche/superficie/elevada, textos a Arena/secundario/terciario, borde a
+  línea-fuerte, `--accent` a Verdemar (el enlace nocturno), semánticos a la
+  paleta de datos §3.8, sabores propios (terracota/ocre/cobre/bronce/salvia/
+  azul-med) mapeados a canónicos, glows y scrollbar a Turquesa con alfa.
+  `body::before` pasa a ser la niebla canónica (`velo.niebla` 6 %); la
+  rejilla del Akasha la pinta el Layout. `theme-color` a `#14110F`.
+- 2026-08-18 — **/diseno es ahora la guía viva verbatim** (artefacto
+  generado del sistema, servido tal cual con sus assets y fuentes; la
+  aproximación Astro anterior se retira). PDFs migrados al Diurno-papel
+  del sistema (papel Arena, tinta Noche, turquesa-texto).
+- 2026-08-18 — **Pendiente (fase 2 de esta misión):** ~50 hexes distintos
+  incrustados página a página (wardley, visualizaciones, openclaw-test,
+  cao…) — migrarlos requiere pasada componente a componente con revisión
+  de contraste; `web/DESIGN.md` queda marcado superseded con nota, su
+  consolidación final espera la lista de conservación del Oráculo.
 
 ---
 

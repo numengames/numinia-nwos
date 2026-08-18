@@ -145,23 +145,23 @@ const { Content } = await render(entry);
 </html>
 
 <style is:global>
-  /* MIS-088 print variant: paper adaptation of web/DESIGN.md — white
-     ground, dark ink, teal reserved for headings, rules and labels. */
+  /* MIS-088/090 print variant — the system's Diurno-papel (§19.3 @media
+     print): Arena paper, Noche ink, turquesa-texto on headings/rules. */
   :root {
-    --ink: #16201f;
-    --ink-soft: #3d4a48;
-    --ink-dim: #6b7876;
-    --teal: #0f766e;
-    --teal-bright: #2dd4bf;
-    --paper-line: #d8dedd;
-    --paper-soft: #f2f5f4;
+    --ink: #14110F;
+    --ink-soft: #4A423B;
+    --ink-dim: #6E6259;
+    --teal: #016E7D;
+    --teal-bright: #018EA1;
+    --paper-line: #E2D3C2;
+    --paper-soft: #FDF6EE;
   }
   @page { size: A4; margin: 18mm 16mm 20mm; }
   * { box-sizing: border-box; }
   html, body {
     margin: 0;
     padding: 0;
-    background: #fff;
+    background: #F9EBDC;
     color: var(--ink);
     font-family: "Geist Variable", "Geist", system-ui, sans-serif;
     font-size: 10.5pt;
