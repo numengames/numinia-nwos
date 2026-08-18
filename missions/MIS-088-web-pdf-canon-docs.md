@@ -69,6 +69,12 @@ fuera de la web manteniendo su identidad y procedencia.
   ejecutar**: variante de impresión del sistema (recomendación: fondo
   claro, tinta oscura, acento teal en titulares y filetes, Geist Mono para
   metadatos).
+- Contexto del Oráculo (2026-08-18): `web/DESIGN.md` se integrará con el
+  sistema de diseño de numinia-web (Khepri, más trabajado), conservando
+  algunas piezas de este que el Oráculo señalará. La variante de impresión
+  debe diseñarse mirando Khepri (que ya tiene plano de libro/impreso, ver
+  MIS-085 "printable sheet") para no maquetar dos veces — qué piezas del
+  DESIGN.md local sobreviven es decisión del Oráculo, pendiente de lista.
 
 ## Formato del PDF (mínimos)
 

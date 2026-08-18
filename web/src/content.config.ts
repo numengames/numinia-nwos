@@ -94,4 +94,38 @@ const legal = defineCollection({
     .passthrough(),
 });
 
-export const collections = { missions, audits, decisions, blueprints, canonLore, legal };
+// The full-canon mirror (MIS-087): every repo .md outside the detail
+// collections above gets a generic corpus entry. Negated patterns keep
+// single ownership of a file between corpus and the typed collections
+// (canon/archive-lore.md is the deliberate exception: data in canonLore,
+// page in corpus). Schema is lax on purpose — frontmatter varies per
+// directory and some files (README, INDEX) carry none.
+const corpus = defineCollection({
+  loader: glob({
+    pattern: [
+      "*.md",
+      "agents/**/*.md",
+      "canon/**/*.md",
+      "guilds/**/*.md",
+      "operations/**/*.md",
+      "protocols/**/*.md",
+      "standards/**/*.md",
+      "reports/**/*.md",
+      "!reports/audits/**",
+      "decisions/**/*.md",
+      "!decisions/DEC-*.md",
+      "!decisions/ADR-*.md",
+      "blueprints/**/*.md",
+      "!blueprints/BP-*.md",
+      "!blueprints/WARDLEY-MAP.md",
+      "missions/**/*.md",
+      "!missions/MIS-*.md",
+    ],
+    base: "..",
+  }),
+  // Fully lax: agents/_template/STATUS.md carries `status:` as an object,
+  // and other outliers exist — pages type-guard what they display.
+  schema: z.object({}).passthrough(),
+});
+
+export const collections = { missions, audits, decisions, blueprints, canonLore, legal, corpus };

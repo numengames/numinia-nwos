@@ -2,10 +2,11 @@
 id: "MIS-087"
 title: "El reflejo completo: todo .md del canon navegable en numinia.org"
 type: mission
-status: backlog
-version: "1.0.0"
+status: done
+version: "1.1.0"
 created: "2026-08-18"
 updated: "2026-08-18"
+completed: "2026-08-18"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [web, viewer, canon, mirror]
@@ -105,18 +106,32 @@ URLs canónicas en vez de rutas de filesystem.
 
 ## Execution log
 
-*(Fill when completing the mission)*
+- 2026-08-18 — Colección `corpus` en `content.config.ts`: glob multi-patrón
+  con negaciones para propiedad única por fichero (los MIS-*/DEC-*/ADR-*/
+  BP-*/audits siguen en sus colecciones tipadas; excepción deliberada:
+  `canon/archive-lore.md` — datos en canonLore, página en corpus).
+- 2026-08-18 — `/corpus/[...slug]` (página de detalle con chips de
+  frontmatter y DocToolbar) + `/corpus/[...slug].md` (endpoint crudo) +
+  `/corpus` (índice: 211 documentos agrupados por directorio, exclusiones
+  explícitas al pie). Entrada "Corpus" en la navegación (Sistema).
+- 2026-08-18 — Desplegado y verificado en vivo.
 
 ---
 
 ## Execution Reality
 
-*(Fill when closing the mission — the real plans vs the ideal plans)*
-
-- **Technology/approach used:** (vs what was planned)
-- **Why it diverged:** (what challenge modified the path)
-- **Key learning:** (the knowledge that lives in that gap)
-- **Closing date:** YYYY-MM-DD
-- **Executing agent:** (name / agent-id)
+- **Technology/approach used:** el plan previsto (glob loader + páginas
+  genéricas, patrón MIS-066) sirvió sin cambios de arquitectura.
+- **Why it diverged:** dos sorpresas del mundo real: (1) el frontmatter del
+  corpus es salvaje — `agents/_template/STATUS.md` declara `status:` como
+  objeto, así que el esquema tipado se sustituyó por `passthrough` total con
+  type-guards en las páginas; (2) el glob loader mapea `INDEX.md` al id del
+  directorio ("agents/INDEX.md" → "agents"), lo que agrupaba los índices de
+  sección como ficheros de raíz — el grupo se deriva ahora de `filePath`.
+- **Key learning:** un espejo total no puede asumir esquema: valida lo
+  mínimo, protege tipos al renderizar, y deriva la estructura del filesystem
+  (filePath), no de los ids sluggificados.
+- **Closing date:** 2026-08-18
+- **Executing agent:** claude-fable-5 (numinia-nwos)
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
