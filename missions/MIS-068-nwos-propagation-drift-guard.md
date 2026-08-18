@@ -146,3 +146,11 @@ of a prayer.
 - Pendiente para cerrar la misión: inventario completo de artefactos que
   propagan (C-005 §9, protocolos, STANDARDS, plantillas) con su modelo
   firmado por el Oráculo, y el guard reutilizable genérico en `scripts/`.
+
+**Corrección de premisa (2026-08-18, Oráculo — CON-006 / G-12).** El
+título y la Story de esta misión asumen que «los repos consumidores nunca
+deben derivar». Bajo el principio de soberanía eso es falso para una
+organización con su propio repo NWOS: **puede** quedarse atrás o apartarse.
+Lo que el guard debe garantizar no es ausencia de deriva, sino **deriva
+consciente**: detectar, informar y dejar constancia — nunca romper el build
+ajeno por no estar al día. La reformulación completa va en MIS-096.

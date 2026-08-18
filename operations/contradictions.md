@@ -100,6 +100,29 @@ entrada pasa a la sección "Resueltas" con la decisión y su fecha.
   este texto se refiere a www.numen.games; su alcance está en revisión"),
   sin tocar ni una coma del máster.
 
+### CON-006 — Autoridad por fork vs soberanía del repo derivado
+
+- **Detectada:** 2026-08-18 (el Oráculo, sobre el borrador de MIS-095)
+- **Fuente A:** `standards/engineering-standards.md` §7.1 y cabecera —
+  numinia-nwos y «any workspace generated from the mould» son
+  **downstream forks** que «reciben este documento por la relación de
+  fork»; el mecanismo de sync queda abierto pero la autoridad se da por
+  supuesta: lo que se escribe upstream aplica abajo (MUST incluidos).
+- **Fuente B:** principio de soberanía (Oráculo, 2026-08-18): **una vez
+  una organización ha creado su repositorio NWOS, es soberana.** Lo que
+  tiene sentido es que el NWOS original esté **versionado** y que la
+  organización pueda **actualizarse** si quiere — no que reciba ley por
+  herencia de fork.
+- **Detalle:** el error de diseño se coló en el borrador de MIS-095, que
+  proponía escribir una práctica upstream «para que aplique a todas las
+  webs». Corregido allí. Emparenta con **CON-003** (procedencia: el
+  documento dice que numinia-nwos es fork del molde cuando es la fuente)
+  y con la doctrina **G-11** (el canon no se copia: se fija) — que ya
+  resolvía este patrón para el Sistema de Diseño y no se había aplicado
+  a los estándares mismos.
+- **Qué falta:** versionar el NWOS original y definir el modelo de
+  adopción soberana (MIS-096); la corrección de §7.1 va upstream vía ADR.
+
 ## Resueltas
 
 *(Ninguna todavía.)*

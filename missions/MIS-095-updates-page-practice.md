@@ -73,12 +73,20 @@ antigua parseada de un changelog portado.
 
 ## Lo que esta misión propone
 
-### 1. La práctica (upstream — requiere ADR + PR)
+### 1. La práctica
 
-`engineering-standards.md` es copia downstream inmutable aquí (CLAUDE.md
-§estándares): la práctica nueva **no se escribe en el fichero local**, va
-upstream a `numen-games-nwos-orgs/nwos-workspace-template` vía ADR + PR.
-Texto propuesto:
+> **Corrección de diseño (Oráculo, 2026-08-18 — CON-006, regla G-12).** El
+> primer borrador de esta misión proponía escribir PM-06 upstream «para que
+> aplique a todas las webs». Eso es el error que hay que vigilar: **una
+> organización con su propio repositorio NWOS es soberana** — no recibe ley
+> por relación de fork. Lo correcto: la práctica se publica en una
+> **versión** del estándar y cada organización **decide adoptarla**. Dentro
+> de Numen Games, quien firma la adopción es el Oráculo, repo a repo.
+
+El fichero local sigue siendo copia inmutable (CLAUDE.md §estándares): la
+redacción de la práctica va upstream vía ADR + PR **como propuesta para la
+siguiente versión del molde**, no como mandato descendente. Texto
+propuesto:
 
 > **PM-06 · Página pública de Updates** — Todo producto con superficie web
 > publica `/updates`: línea de tiempo de versiones descendente, cada una
@@ -87,8 +95,10 @@ Texto propuesto:
 > (`NEW`/`FIX`/`UPD`) **en lenguaje de usuario, no de commit**. La página
 > se deriva del CHANGELOG/releases del repo (PM-04) — no se mantiene a
 > mano en paralelo. Nivel: **SHOULD** para superficies internas, **MUST**
-> para producto público. Check: `[AUTO: presence check de /updates en el
-> build]` + `[MANUAL: revisión de que las entradas están en prosa]`.
+> para producto público **de la organización que adopte esta versión del
+> estándar** (G-12: la adopción es soberana). Check: `[AUTO: presence
+> check de /updates en el build]` + `[MANUAL: revisión de que las entradas
+> están en prosa]`.
 
 ### 2. El despliegue por parcelas
 
@@ -117,7 +127,9 @@ Texto propuesto:
 
 ## Acceptance criteria
 
-- [ ] ADR redactado y PR abierto upstream con PM-06 (o rechazo firmado).
+- [ ] ADR redactado y PR abierto upstream con PM-06 **como propuesta para
+      la siguiente versión del molde** (o rechazo firmado); ningún repo
+      ajeno queda obligado por el merge (G-12).
 - [ ] `numinia.org/updates` en vivo, derivado del CHANGELOG del repo, con
       versión, fecha real, chips de misión y entradas en prosa.
 - [ ] `CHANGELOG.md` de este repo alineado con el esquema (versiones

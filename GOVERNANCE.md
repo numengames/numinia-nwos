@@ -86,9 +86,38 @@ patching. A local copy is a fork waiting to happen.
 with `kit/manifest.json`; consumer pin in `numinia-web:design-source.json`
 guarded by their `design:check`.
 
+## Sovereignty of derived NWOS repositories
+
+*(2026-08-18, Oracle. Rule G-12. Registered contradiction: CON-006.)*
+
+**Once an organization has created its own NWOS repository, it is
+sovereign.** We publish; they adopt. Nothing we write becomes law inside
+their repo by inheritance, fork relationship, or template lineage.
+
+What that forbids and what it requires:
+
+| Not this | This |
+|---|---|
+| «It is a fork of the mould, so it receives our document» | The mould is **versioned**; the organization **pins a version** |
+| A practice written upstream is MUST downstream | A new version is **published and announced**; adopting it is the organization's decision |
+| «Consumer repos must never drift» | Drift is legitimate — what is illegitimate is drifting **silently** while claiming to be current |
+| Sync imposed | Update **offered**, with a changelog of what changes and why |
+
+The emitter's duties (G-11) hold unchanged — publish, version, sign,
+generate, notify. What G-12 adds is the limit of the emitter's authority:
+its duty ends at notification. A sovereign organization may stay on an old
+version forever, and that is not debt on their side — it is a fact our
+tooling must be able to read.
+
+**Watch for this error class:** any artifact that assumes authority over a
+repository it does not own — a MUST aimed downstream, a mandatory sync, a
+guard that fails someone else's build for not being current. When you
+find one, register it as a contradiction before acting on it.
+
 | Rule | Origin | Description |
 |------|--------|-------------|
 | G-11 | ADR-022 (numinia-web) + MIS-068 | Canon propagates by pin + digest, never by copy. The emitter publishes, versions, signs, generates and notifies; the consumer pins, verifies and reports upstream. |
+| G-12 | Oracle 2026-08-18 (CON-006) | A derived NWOS repository is sovereign. The original is versioned and its updates are offered, never imposed; the emitter's authority ends at notification. |
 
 ---
 
