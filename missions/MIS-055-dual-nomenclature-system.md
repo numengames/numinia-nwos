@@ -3,9 +3,9 @@ id: "MIS-055"
 title: "Dual Nomenclature System — Narrative Dial + Gamification Dial"
 type: mission
 status: in-progress
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-04-07T00:00:00Z"
-updated: "2026-04-07T18:00:00Z"
+updated: "2026-08-18T00:00:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [cao, nwos, nomenclature, gamification, narrative, system-design]
@@ -75,6 +75,11 @@ Gamification has qualitative jumps, not a smooth curve. 5 named thresholds defin
 > External face: 5 named thresholds (more understandable for clients).
 > Internally: mapped to 1-10 scale for granular technical configuration.
 
+> **Scale decision (Oracle, 2026-08-18):** the external selectors are **1–5**
+> for BOTH dials — five named levels each, no unnamed blends exposed. Each
+> external level maps internally to the 1-10 config scale as 1·3·5·7·10.
+> Implemented as the interactive configurator on `/idioma` (numinia.org).
+
 > **Numinia** = Narrative 10 · Gamification in design (target: 10)
 > **Standard Corp** = Narrative 1 · Gamification 1–3
 
@@ -85,7 +90,8 @@ Gamification has qualitative jumps, not a smooth curve. 5 named thresholds defin
 - [ ] Complete equivalence table: Numinia vocabulary ↔ business vocabulary for all 5 levels
 - [ ] Level 1 (Business) nomenclature proposal documented and approved by Pablo
 - [ ] Level 5 (Mixed) nomenclature proposal documented
-- [ ] Public page `/idioma` on pablofm.com explaining the system
+- [x] Public page `/idioma` (now on numinia.org) explaining the system, with
+      interactive 1–5 selectors for both dials (2026-08-18)
 - [ ] Decision DEC-006 created once the model is validated
 - [ ] Integrate in `/nwos` as an adaptability feature
 
@@ -177,5 +183,8 @@ The Narrative Dial is the immediate priority — resolves the most urgent adopti
 
 - v1.0.0 (2026-04-07) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
+- v1.2.0 (2026-08-18) — External scale fixed at 1–5 per dial (internal map
+  1·3·5·7·10); `/idioma` gets the interactive configurator. A token-free demo
+  workspace is registered separately as MIS-090.
 
 *Nimrod 🗡️ + Team — 2026-04-07*
