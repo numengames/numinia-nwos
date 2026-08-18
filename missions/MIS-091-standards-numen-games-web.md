@@ -3,7 +3,7 @@ id: "MIS-091"
 title: "El Sistema viste la casa: numen.games y nwos.numen.games adoptan los standards"
 type: mission
 status: in-review
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-18"
 updated: "2026-08-18"
 started: "2026-08-18"
@@ -180,9 +180,9 @@ Feature: Los standards de la casa, aplicados a las dos superficies públicas
 - [x] Cero deriva de paleta en `nwos-deploy/src/styles/global.css` — y en todo
       `src`: ni un hex ni un rgb() fuera de §19.3
 - [x] Solo Geist y Geist Mono en ambos sitios (Inter e IBM Plex retiradas)
-- [x] Pipeline `type-check → lint → test → build` verde en local en ambos repos
-      (en `numengames-web` el type-check es un trinquete sobre 31 errores
-      preexistentes, ver Execution Reality)
+- [x] Pipeline `type-check → lint → test → build` verde en local en ambos
+      repos, y en los dos con **cero errores de tipos** (el trinquete que
+      sostenía los 31 de `numengames-web` se retiró al arreglarlos)
 - [x] Checklist §4 completa en ambos repos salvo lo gated (branch protection,
       ajustes de organización, C-005 en numengames-web)
 - [x] `permissions: read-all` y acciones pinneadas por SHA en los cinco
@@ -248,6 +248,40 @@ falla en una falla en las tres. El coste marginal de la cuarta superficie
   con tabuladores corregido, y los `any` del contenido tipados una vez en su
   frontera (`src/types/content.ts`) en vez de quince veces sueltos.
 
+### numengames-web · segunda pasada (orden del Oráculo: «aplica el sistema de diseño a numen.games, las buenas prácticas etc»)
+
+- **El vocabulario deja de ser heredado.** 227 clases renombradas a los nombres
+  §19.3 y el bloque de alias eliminado del config: la paleta que un
+  desarrollador puede escribir es exactamente §19.3, nada más compila a color.
+- **Superficies (§6):** todas las sombras del repo eran resplandores —20
+  utilidades `shadow-[…]` y una docena de bloques `box-shadow` de hasta 70px—.
+  Quedan diez sombras y las diez son el halo legendario canónico.
+- **Movimiento (§10.1):** se retiran los pulsos ambientales de cuatro
+  componentes (6s infinite, incluido el que da nombre a `PulseAnimatedBtn`) y
+  dos animaciones muertas de la plantilla. Las dos marquesinas se conservan
+  como **desviación declarada** (son contenido, no decoración) y con
+  `prefers-reduced-motion` se detienen donde están en vez de saltar al último
+  fotograma.
+- **Iconografía (§7):** los iconos son Phosphor de verdad, pero venían con
+  relleno blanco puro —un valor que no existe en §19.3—. Los 21 usados pasan a
+  Arena, y los dos servidos por `astro-icon`, a `currentColor`. Siete chips de
+  icono sobre Ámbar (1.9:1) pasan a relleno Turquesa.
+- **Type-check 31 → 0.** Los 31 errores que el trinquete sostenía eran **dos
+  bugs reales**:
+  1. `class` nunca llegaba a `Container` (solo leía `className`). Dieciséis
+     llamadas llevaban años pasando clases al vacío. El componente ya acepta
+     ambas props; las dieciséis cadenas muertas **se retiran** en vez de
+     encenderse, porque encenderlas es un rediseño: cuatro pintaban el texto
+     de `text-nocturno-base` sobre fondo oscuro y `manifesto.astro` llevaba
+     `md:px-80`. Las cadenas quedan listadas en `TODO.md` y en el historial.
+  2. `locale` nunca llegaba a nueve componentes: **la ruta `/es/` renderiza
+     copy en inglés** por debajo del pliegue. Cada componente declara ahora la
+     prop con un `TODO(MIS-091)` en el punto exacto de la carencia.
+  El trinquete y su script se borran: `pnpm type-check` vuelve a ser
+  `astro check` a secas, con cero errores, como gate real.
+- Cifras en Mono tabular, enlace nocturno en Verdemar, y fuera la prop `px`
+  que `Container` nunca tuvo.
+
 ### nwos-deploy · rama `feat/standards-v5` · 1 commit
 
 - **Capa de tokens** migrada en `src/styles/global.css`: acento teal `#2DD4BF`
@@ -293,12 +327,21 @@ falla en una falla en las tres. El coste marginal de la cuarta superficie
   producto, no una corrección mecánica, así que se reporta y se congela con un
   **trinquete**: `pnpm type-check` falla si el número sube, y falla igual si
   baja sin actualizar la línea base. La regla no es prosa aunque el bug siga.
+- **Why it diverged (3):** en la segunda pasada, los 31 errores de tipos que
+  la primera había congelado resultaron ser **dos bugs de producto**, no deuda
+  cosmética: `class` que nunca llegaba a `Container` (dieciséis llamadas) y
+  `locale` que nunca llegaba a nueve componentes —es decir, **la web en
+  español no está traducida por debajo del pliegue**—. Ninguno de los dos se
+  ve mirando la web; los dos los encontró el type-check.
 - **Key learning:** un estándar de diseño se aplica con un script; un estándar
   de ingeniería se aplica descubriendo lo que el repositorio llevaba años sin
   mirar. El coste de la migración no estuvo en los 298 colores —eso fueron
   minutos— sino en los 125 defectos que el primer `lint` y el primer
   `type-check` de la historia del repo pusieron encima de la mesa. **Encender la
-  luz es la parte cara; pintar es la barata.**
+  luz es la parte cara; pintar es la barata.** Y el corolario de la segunda
+  pasada: **un error de tipos que nadie arregla acaba siendo un bug que nadie
+  ve** — el trinquete sirvió para no perderlos, pero el sitio donde debían
+  acabar era en cero.
 - **Closing date:** pendiente (rama abierta, ver residuos)
 - **Executing agent:** claude-opus-5
 
@@ -309,7 +352,11 @@ falla en una falla en las tres. El coste marginal de la cuarta superficie
 2. **C-005 en `numengames-web`** sigue sin aplicar (LICENSE GPL-3.0 sin
    `REUSE.toml`, sin `LICENSES/`, sin cabeceras SPDX, sin `TRADEMARKS.md`).
    Nivel irreversible: no se ha tocado.
-3. **El bug de `class` vs `className`** (27 errores de tipo) espera decisión.
+3. **Las dieciséis cadenas de layout retiradas** (el bug de `class` vs
+   `className`) esperan decisión: re-aplicarlas sección a sección con revisión
+   visual, o darlas por muertas. Están listadas en el `TODO.md` del repo.
+6. **La web en español no está traducida por debajo del pliegue** (nueve
+   componentes con copy en inglés fijo). Es tarea de contenido, no de código.
 4. **`DESIGN.md` de nwos-deploy** conserva su título heredado (*pablofm.com*);
    su consolidación espera la lista de conservación del Oráculo, igual que la
    de numinia.org en MIS-090.
