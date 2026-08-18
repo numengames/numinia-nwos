@@ -168,15 +168,15 @@ const gapsTeoría = [
 ];
 
 function scoreColor(n: number) {
-  if (n >= 9) return "text-red-400";
-  if (n >= 7) return "text-orange-400";
-  return "text-yellow-400";
+  if (n >= 9) return "text-red";
+  if (n >= 7) return "text-yellow";
+  return "text-yellow";
 }
 
 function bgColor(n: number) {
-  if (n >= 9) return "bg-red-400/10 border-red-400/30";
-  if (n >= 7) return "bg-orange-400/10 border-orange-400/30";
-  return "bg-yellow-400/10 border-yellow-400/30";
+  if (n >= 9) return "bg-red/10 border-red/30";
+  if (n >= 7) return "bg-yellow/10 border-yellow/30";
+  return "bg-yellow/10 border-yellow/30";
 }
 ---
 
@@ -210,9 +210,9 @@ function bgColor(n: number) {
   <section class="border-t border-border py-10">
     <div class="mx-auto max-w-[1100px] px-6">
       <div class="flex flex-wrap gap-6 text-sm text-muted-foreground">
-        <div class="flex items-center gap-2"><span class="font-bold text-red-400">■</span> Crítico (9-10)</div>
-        <div class="flex items-center gap-2"><span class="font-bold text-orange-400">■</span> Alto (7-8)</div>
-        <div class="flex items-center gap-2"><span class="font-bold text-yellow-400">■</span> Medio (≤6)</div>
+        <div class="flex items-center gap-2"><span class="font-bold text-red">■</span> Crítico (9-10)</div>
+        <div class="flex items-center gap-2"><span class="font-bold text-yellow">■</span> Alto (7-8)</div>
+        <div class="flex items-center gap-2"><span class="font-bold text-yellow">■</span> Medio (≤6)</div>
         <div class="ml-auto text-xs">Impacto = gravedad si no se resuelve · Criticidad = urgencia de resolución</div>
       </div>
     </div>
@@ -313,18 +313,18 @@ function bgColor(n: number) {
     <div class="mx-auto max-w-[1100px] px-6">
       <SectionHeader label="Síntesis" title="Los tres gaps que mandan sobre todos los demás" />
       <div class="mt-8 grid gap-6 sm:grid-cols-3">
-        <div class="rounded-lg border border-red-400/30 bg-red-400/5 p-6 space-y-3">
-          <div class="text-xs font-semibold uppercase tracking-wider text-red-400">Gap Crítico #1</div>
+        <div class="rounded-lg border border-red/30 bg-red/5 p-6 space-y-3">
+          <div class="text-xs font-semibold uppercase tracking-wider text-red">Gap Crítico #1</div>
           <h3 class="font-display text-base text-foreground">Sin validación externa</h3>
           <p class="text-sm text-muted-foreground">Ningún outsider ha probado el sistema sin que los fundadores estuvieran ahí para explicarlo. Todo lo demás es secundario hasta resolver esto.</p>
         </div>
-        <div class="rounded-lg border border-red-400/30 bg-red-400/5 p-6 space-y-3">
-          <div class="text-xs font-semibold uppercase tracking-wider text-red-400">Gap Crítico #2</div>
+        <div class="rounded-lg border border-red/30 bg-red/5 p-6 space-y-3">
+          <div class="text-xs font-semibold uppercase tracking-wider text-red">Gap Crítico #2</div>
           <h3 class="font-display text-base text-foreground">Sin comprador definido</h3>
           <p class="text-sm text-muted-foreground">No hay ICP. No hay línea de presupuesto. No hay métrica de éxito para el decisor. Sin esto, el go-to-market no puede existir.</p>
         </div>
-        <div class="rounded-lg border border-red-400/30 bg-red-400/5 p-6 space-y-3">
-          <div class="text-xs font-semibold uppercase tracking-wider text-red-400">Gap Crítico #3</div>
+        <div class="rounded-lg border border-red/30 bg-red/5 p-6 space-y-3">
+          <div class="text-xs font-semibold uppercase tracking-wider text-red">Gap Crítico #3</div>
           <h3 class="font-display text-base text-foreground">Burbuja fundacional</h3>
           <p class="text-sm text-muted-foreground">Los únicos usuarios del sistema son sus creadores. La coherencia interna puede ser total y la validez externa puede ser cero. No se puede saber sin salir.</p>
         </div>

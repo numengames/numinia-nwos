@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 import Layout from "@/layouts/Layout.astro";
+import Icon from "@/components/Icon.astro";
 
 const score_before = 5;
 const score_after = 9;
@@ -44,7 +45,7 @@ const gaps = [
 const ciclo_continuidad = [
   {
     fase: "BOOT",
-    icono: "⬇️",
+    icono: "download-simple",
     color: "#5d9bd6",
     pregunta: "¿Quién soy?",
     respuesta: "Lee SOUL.md, OPERATOR.md, MEMORY.md del repo. En 60 segundos tiene identidad, leyes y contexto.",
@@ -53,7 +54,7 @@ const ciclo_continuidad = [
   },
   {
     fase: "EXECUTE",
-    icono: "⚡",
+    icono: "lightning",
     color: "#8fc46b",
     pregunta: "¿Qué debo hacer?",
     respuesta: "Lee missions/active/, blueprints/, decisions/. Sabe qué está pendiente, qué se decidió y por qué.",
@@ -62,7 +63,7 @@ const ciclo_continuidad = [
   },
   {
     fase: "COMMIT",
-    icono: "⬆️",
+    icono: "upload-simple",
     color: "#efa517",
     pregunta: "¿Qué aprendí hoy?",
     respuesta: "git add memory/YYYY-MM-DD.md reports/daily/RPT-YYYY-MM-DD.md && git push. El conocimiento es permanente.",
@@ -72,14 +73,14 @@ const ciclo_continuidad = [
 ];
 
 const que_contiene = [
-  { carpeta: "agents/", icono: "🤖", desc: "Identidad completa de cada agente: SOUL, OPERATOR, STATUS, MEMORY.", critico: true },
-  { carpeta: "canon/", icono: "📜", desc: "Los 9 documentos fundacionales de Numinia. Inmutables. La Constitución.", critico: true },
-  { carpeta: "missions/", icono: "⚡", desc: "54 misiones con historia, criterios, valor epistémico y Ejecución Real.", critico: true },
-  { carpeta: "decisions/", icono: "🪨", desc: "Cada decisión con su contexto, alternativas rechazadas y por qué.", critico: true },
-  { carpeta: "blueprints/", icono: "📐", desc: "Estado actual y objetivo de cada subsistema. Gaps y dependencias.", critico: false },
-  { carpeta: "reports/", icono: "📋", desc: "Historial diario de operaciones. Qué pasó, cuánto costó, qué se aprendió.", critico: false },
-  { carpeta: "protocols/", icono: "📌", desc: "Procedimientos operativos. Cómo arrancar, cerrar, escalar, coordinar.", critico: false },
-  { carpeta: "operations/", icono: "⚙️", desc: "Governance, seguridad, mapa de credenciales.", critico: false },
+  { carpeta: "agents/", icono: "robot", desc: "Identidad completa de cada agente: SOUL, OPERATOR, STATUS, MEMORY.", critico: true },
+  { carpeta: "canon/", icono: "scroll", desc: "Los 9 documentos fundacionales de Numinia. Inmutables. La Constitución.", critico: true },
+  { carpeta: "missions/", icono: "lightning", desc: "54 misiones con historia, criterios, valor epistémico y Ejecución Real.", critico: true },
+  { carpeta: "decisions/", icono: "circle", desc: "Cada decisión con su contexto, alternativas rechazadas y por qué.", critico: true },
+  { carpeta: "blueprints/", icono: "ruler", desc: "Estado actual y objetivo de cada subsistema. Gaps y dependencias.", critico: false },
+  { carpeta: "reports/", icono: "clipboard-text", desc: "Historial diario de operaciones. Qué pasó, cuánto costó, qué se aprendió.", critico: false },
+  { carpeta: "protocols/", icono: "push-pin", desc: "Procedimientos operativos. Cómo arrancar, cerrar, escalar, coordinar.", critico: false },
+  { carpeta: "operations/", icono: "gear", desc: "Governance, seguridad, mapa de credenciales.", critico: false },
 ];
 ---
 
@@ -145,8 +146,9 @@ const que_contiene = [
                 <span class="font-mono text-[0.6rem] text-dim">{gap.id}</span>
                 <span class="font-semibold text-sm text-foreground">{gap.titulo}</span>
               </div>
-              <span class={`font-mono text-[0.6rem] flex-shrink-0 ${gap.estado === "resuelto" ? "text-green" : "text-yellow"}`}>
-                {gap.estado === "resuelto" ? "✅ Resuelto" : "⏳ En proceso"}
+              <span class={`font-mono text-[0.6rem] flex-shrink-0 inline-flex items-center gap-1 ${gap.estado === "resuelto" ? "text-green" : "text-yellow"}`}>
+                <Icon name={gap.estado === "resuelto" ? "check" : "hourglass"} size={11} />
+                {gap.estado === "resuelto" ? "Resuelto" : "En proceso"}
               </span>
             </div>
             <div class="grid sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-border/50">
@@ -176,7 +178,7 @@ const que_contiene = [
         {ciclo_continuidad.map((fase) => (
           <div class="rounded-xl border border-border bg-card overflow-hidden">
             <div class="px-5 py-3 border-b border-border/50 flex items-center gap-3" style={`background: ${fase.color}08`}>
-              <span>{fase.icono}</span>
+              <span style={`color: ${fase.color}`}><Icon name={fase.icono} size={16} /></span>
               <span class="font-display text-base" style={`color: ${fase.color}`}>{fase.fase}</span>
               <span class="font-mono text-[0.65rem] text-muted-foreground italic">"{fase.pregunta}"</span>
             </div>
@@ -186,11 +188,11 @@ const que_contiene = [
                 <p class="text-xs text-muted-foreground leading-relaxed">{fase.respuesta}</p>
               </div>
               <div class="rounded-lg border border-red/15 bg-red/5 p-3">
-                <p class="font-mono text-[0.55rem] text-red mb-1">❌ Sin repo</p>
+                <p class="font-mono text-[0.55rem] text-red mb-1 flex items-center gap-1"><Icon name="x" size={11} /> Sin repo</p>
                 <p class="text-xs text-muted-foreground italic">{fase.sin_repo}</p>
               </div>
               <div class="rounded-lg border border-green/15 bg-green/5 p-3">
-                <p class="font-mono text-[0.55rem] text-green mb-1">✅ Con repo</p>
+                <p class="font-mono text-[0.55rem] text-green mb-1 flex items-center gap-1"><Icon name="check" size={11} /> Con repo</p>
                 <p class="text-xs text-muted-foreground italic">{fase.con_repo}</p>
               </div>
             </div>
@@ -211,7 +213,7 @@ const que_contiene = [
         {que_contiene.map((item) => (
           <div class={`rounded-xl border p-5 ${item.critico ? "border-accent/30 bg-accent/5" : "border-border bg-card"}`}>
             <div class="flex items-start gap-3">
-              <span class="text-xl flex-shrink-0">{item.icono}</span>
+              <span class={`flex-shrink-0 ${item.critico ? "text-accent" : "text-dim"}`}><Icon name={item.icono} size={20} /></span>
               <div>
                 <div class="flex items-center gap-2 mb-1">
                   <code class="font-mono text-[0.7rem] text-accent">{item.carpeta}</code>
@@ -276,7 +278,7 @@ const que_contiene = [
             { text: "Knowledge Graph relacional (futuro)", ok: false },
           ].map((item) => (
             <div class="flex items-center gap-2">
-              <span class={item.ok ? "text-green" : "text-dim"}>{item.ok ? "✅" : "⏳"}</span>
+              <span class={item.ok ? "text-green" : "text-dim"}><Icon name={item.ok ? "check" : "hourglass"} size={12} /></span>
               <span class={`text-xs ${item.ok ? "text-muted-foreground" : "text-dim"}`}>{item.text}</span>
             </div>
           ))}

@@ -73,13 +73,8 @@ const resolvedOgImage = ogImage ?? `${siteUrl}/og-default.png`;
       class="pointer-events-none fixed inset-0 -z-10"
       aria-hidden="true"
     ></canvas>
-    <!-- Registro del Velo (§2.7): la rejilla del Akasha. La niebla la
-         pinta body::before (veil-glow, alfa canónico). La página /diseno
-         no pasa por este Layout — es la guía viva standalone. -->
-    <div
-      class="velo-atmosfera pointer-events-none fixed inset-0 -z-10"
-      aria-hidden="true"
-    ></div>
+    <!-- Registro del Velo (§2.7): niebla + rejilla las pinta body::before
+         en una sola capa (global.css). /diseno no pasa por este Layout. -->
 
     <Navigation activeNav={activeNav} />
 
@@ -194,15 +189,5 @@ const resolvedOgImage = ogImage ?? `${siteUrl}/og-default.png`;
       })();
     </script>
 
-    <style is:global>
-      /* Registro del Velo (Sistema de Diseño v5.0.0 §2.7) — solo alfas
-         sobre canónicos: rejilla Verdemar 2.5% a celda de 40px. */
-      .velo-atmosfera {
-        background-image:
-          linear-gradient(rgba(166, 218, 213, 0.025) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(166, 218, 213, 0.025) 1px, transparent 1px);
-        background-size: 40px 40px;
-      }
-    </style>
   </body>
 </html>

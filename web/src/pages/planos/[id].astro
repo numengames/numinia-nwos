@@ -27,7 +27,7 @@ const mdFilename = (entry.filePath as string).split("/").pop()!;
 const mdUrl = `/planos/${slug(f.id as string)}.md`;
 
 const SEMAFORO: Record<string, { dot: string; label: string }> = {
-  verde: { dot: "bg-green-400", label: "Verde" },
+  verde: { dot: "bg-green", label: "Verde" },
   amarillo: { dot: "bg-yellow", label: "Amarillo" },
   rojo: { dot: "bg-red", label: "Rojo" },
 };

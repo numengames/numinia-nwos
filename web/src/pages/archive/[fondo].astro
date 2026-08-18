@@ -2,7 +2,20 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 import Layout from "@/layouts/Layout.astro";
+import Icon from "@/components/Icon.astro";
 import PageHero from "@/components/PageHero.astro";
+
+// House Phosphor glyph per fondo (Design System §7.3). The blueprint's
+// emoji `icono` field is data we don't render directly anymore.
+const FONDO_ICON: Record<string, string> = {
+  canon: "scroll",
+  agents: "robot",
+  missions: "lightning",
+  protocols: "clipboard-text",
+  decisions: "bank",
+  blueprints: "sparkle",
+  operations: "gear",
+};
 
 import { getCollection } from "astro:content";
 
@@ -33,10 +46,10 @@ const colorMap: Record<string, { border: string; bg: string; text: string; badge
   green:  { border: 'border-green/20',   bg: 'bg-green/5',   text: 'text-green',        badge: 'text-green',        badgeBg: 'bg-green/10'  },
   teal:   { border: 'border-accent/20',  bg: 'bg-accent/5',  text: 'text-accent',       badge: 'text-accent',       badgeBg: 'bg-accent/10' },
   yellow: { border: 'border-yellow/20',  bg: 'bg-yellow/5',  text: 'text-yellow',       badge: 'text-yellow',       badgeBg: 'bg-yellow/10' },
-  blue:   { border: 'border-blue/20',    bg: 'bg-blue/5',    text: 'text-blue-400',     badge: 'text-blue-400',     badgeBg: 'bg-blue/10'   },
-  purple: { border: 'border-purple/20',  bg: 'bg-purple/5',  text: 'text-purple-400',   badge: 'text-purple-400',   badgeBg: 'bg-purple/10' },
-  indigo: { border: 'border-indigo/20',  bg: 'bg-indigo/5',  text: 'text-indigo-400',   badge: 'text-indigo-400',   badgeBg: 'bg-indigo/10' },
-  orange: { border: 'border-orange/20',  bg: 'bg-orange/5',  text: 'text-orange-400',   badge: 'text-orange-400',   badgeBg: 'bg-orange/10' },
+  blue:   { border: 'border-blue/20',    bg: 'bg-blue/5',    text: 'text-blue',     badge: 'text-blue',     badgeBg: 'bg-blue/10'   },
+  purple: { border: 'border-purple/20',  bg: 'bg-purple/5',  text: 'text-purple',   badge: 'text-purple',   badgeBg: 'bg-purple/10' },
+  indigo: { border: 'border-indigo/20',  bg: 'bg-indigo/5',  text: 'text-blue',   badge: 'text-blue',   badgeBg: 'bg-indigo/10' },
+  orange: { border: 'border-orange/20',  bg: 'bg-orange/5',  text: 'text-yellow',   badge: 'text-yellow',   badgeBg: 'bg-orange/10' },
 };
 
 const c = colorMap[fondo.color] ?? colorMap.teal;
@@ -50,7 +63,7 @@ const c = colorMap[fondo.color] ?? colorMap.teal;
 >
   <PageHero
     label={`Archive Summa · ${fondo.subtitulo}`}
-    title={`${fondo.icono} ${fondo.titulo}`}
+    title={fondo.titulo}
     description={fondo.descripcion}
   />
 
@@ -76,7 +89,7 @@ const c = colorMap[fondo.color] ?? colorMap.teal;
             <p class="text-base italic text-muted-foreground leading-relaxed mb-5">"{fondo.lore}"</p>
             <div class="flex items-start gap-2">
               <span class={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-mono text-[0.6rem] ${c.badgeBg} ${c.badge} border ${c.border} shrink-0`}>
-                🔒 Governance
+                <Icon name="lock-key" size={11} /> Governance
               </span>
               <p class="font-mono text-[0.65rem] text-dim leading-relaxed pt-1">{fondo.governance}</p>
             </div>
@@ -131,7 +144,7 @@ const c = colorMap[fondo.color] ?? colorMap.teal;
                   href={`/archive/${f.id}`}
                   class="flex items-center gap-2.5 rounded-lg border border-border bg-card px-3 py-2.5 hover:border-accent/50 hover:bg-accent/5 transition-all group"
                 >
-                  <span class="text-base">{f.icono}</span>
+                  <span class="text-dim shrink-0"><Icon name={FONDO_ICON[f.id] ?? "archive"} size={16} /></span>
                   <div class="min-w-0">
                     <p class="font-mono text-xs text-foreground group-hover:text-accent transition-colors truncate">{f.titulo}</p>
                     <p class="font-mono text-[0.5rem] text-dim truncate">{f.subtitulo}</p>
@@ -142,7 +155,7 @@ const c = colorMap[fondo.color] ?? colorMap.teal;
                 href="/archive"
                 class="flex items-center gap-2.5 rounded-lg border border-border/50 px-3 py-2.5 hover:border-accent/30 transition-all mt-2"
               >
-                <span class="text-base">🗂</span>
+                <span class="text-dim shrink-0"><Icon name="archive" size={16} /></span>
                 <p class="font-mono text-xs text-dim hover:text-foreground transition-colors">← Volver al índice</p>
               </a>
             </nav>

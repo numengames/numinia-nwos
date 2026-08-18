@@ -82,7 +82,8 @@
 		color: #F9EBDC;
 	}
 
-	/* ── Subtle ambient glow (no grid) ──────────────────────────────────── */
+	/* ── Registro del Velo (§2.7): niebla + rejilla del Akasha en UNA capa
+	   compuesta — menos capas fijas, menos coste de composición. ─────────── */
 	body::before {
 		content: "";
 		position: fixed;
@@ -90,8 +91,10 @@
 		z-index: 0;
 		pointer-events: none;
 		background-image:
-			radial-gradient(ellipse 80% 60% at 0% 100%, var(--veil-glow), transparent);
-		background-size: 100% 100%;
+			radial-gradient(ellipse 80% 60% at 0% 100%, var(--veil-glow), transparent),
+			linear-gradient(rgba(166, 218, 213, 0.025) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(166, 218, 213, 0.025) 1px, transparent 1px);
+		background-size: 100% 100%, 40px 40px, 40px 40px;
 	}
 
 	/* ── Noise texture overlay ───────────────────────────────────────────── */

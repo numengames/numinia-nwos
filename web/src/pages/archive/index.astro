@@ -2,12 +2,13 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 import Layout from "@/layouts/Layout.astro";
+import Icon from "@/components/Icon.astro";
 import PageHero from "@/components/PageHero.astro";
 
 const fondos = [
   {
     id: "canon",
-    icon: "📜",
+    icon: "scroll",
     nombre: "canon/",
     titulo: "Canon",
     lore: "Memoria Inmutable",
@@ -19,7 +20,7 @@ const fondos = [
   },
   {
     id: "agents",
-    icon: "🤖",
+    icon: "robot",
     nombre: "agents/guilds/",
     titulo: "Agentes",
     lore: "Entidades Vivas",
@@ -31,7 +32,7 @@ const fondos = [
   },
   {
     id: "missions",
-    icon: "⚡",
+    icon: "lightning",
     nombre: "missions/",
     titulo: "Misiones",
     lore: "Movimiento",
@@ -43,7 +44,7 @@ const fondos = [
   },
   {
     id: "protocols",
-    icon: "📋",
+    icon: "clipboard-text",
     nombre: "protocols/",
     titulo: "Protocolos",
     lore: "Rituales Operativos",
@@ -55,7 +56,7 @@ const fondos = [
   },
   {
     id: "decisions",
-    icon: "🗿",
+    icon: "bank",
     nombre: "decisions/",
     titulo: "Decisiones",
     lore: "Voluntad Cristalizada",
@@ -67,7 +68,7 @@ const fondos = [
   },
   {
     id: "blueprints",
-    icon: "🔮",
+    icon: "sparkle",
     nombre: "blueprints/",
     titulo: "Blueprints",
     lore: "Potencial No Manifestado",
@@ -79,7 +80,7 @@ const fondos = [
   },
   {
     id: "operations",
-    icon: "⚙️",
+    icon: "gear",
     nombre: "operations/",
     titulo: "Operaciones",
     lore: "Sistema Circulatorio",
@@ -108,31 +109,31 @@ const principios = [
 
 const fallos = [
   {
-    id: "F-01", nombre: "Canon Drift", icono: "🛡",
+    id: "F-01", nombre: "Canon Drift", icono: "shield-check",
     qué: "Alguien edita canon/ sin pasar por el protocolo de validación oracle.",
     impacto: "Pérdida de la identidad canónica del sistema. Todos los agentes operan sobre base corrupta.",
     prevención: "CODEOWNERS bloqueante en canon/. Sin oracle review, el PR no hace merge.",
   },
   {
-    id: "F-02", nombre: "Template Drift", icono: "🔄",
+    id: "F-02", nombre: "Template Drift", icono: "arrows-clockwise",
     qué: "Agentes usan templates obsoletos para crear misiones o reportes.",
     impacto: "Inconsistencia estructural. Misiones que no pueden ser parseadas por otros agentes.",
     prevención: "Versión en el header de cada template. CI falla si el schema no coincide.",
   },
   {
-    id: "F-03", nombre: "Oracle como SPOF", icono: "⏱",
+    id: "F-03", nombre: "Oracle como SPOF", icono: "hourglass",
     qué: "El sistema se paraliza porque el oracle no responde en <48h.",
     impacto: "Todo el pipeline bloqueado. Los agentes no pueden avanzar en misiones críticas.",
     prevención: "Timeout 48h: si no hay respuesta, el agente escala al siguiente nivel de la jerarquía.",
   },
   {
-    id: "F-04", nombre: "Credenciales en Commits", icono: "🔐",
+    id: "F-04", nombre: "Credenciales en Commits", icono: "lock-key",
     qué: "Un agente incluye tokens, API keys o secretos en un commit.",
     impacto: "Exposición de credenciales en un repositorio que puede hacerse público.",
     prevención: "pre-commit hook obligatorio con git-secrets o similar. CI bloquea el merge.",
   },
   {
-    id: "F-05", nombre: "Deriva Semántica del Canon", icono: "📅",
+    id: "F-05", nombre: "Deriva Semántica del Canon", icono: "calendar-blank",
     qué: "El canon pierde significado porque nadie lo revisa y la realidad operativa diverge.",
     impacto: "Los agentes operan en un sistema diferente al que el canon describe.",
     prevención: "Revisión cuatrimestral obligatoria del canon. ADR si algo cambia.",
@@ -258,7 +259,7 @@ const graphEdges = _graph.edges as [string, string][];
             <text x="160" y="445" text-anchor="middle" fill="#c4b5a6">Oracle</text>
             <text x="160" y="456" text-anchor="middle" fill="#c4b5a6">aprueba?</text>
             <rect x="95" y="478" width="130" height="28" rx="14" fill="#14110f" stroke="#a6dad5" stroke-width="1.2"/>
-            <text x="160" y="496" text-anchor="middle" fill="#a6dad5">merge ✓</text>
+            <text x="160" y="496" text-anchor="middle" fill="#a6dad5">merge</text>
             <line x1="160" y1="38" x2="160" y2="58" stroke="#a6dad5" stroke-width="1" marker-end="url(#arr)"/>
             <line x1="160" y1="88" x2="160" y2="108" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
             <line x1="160" y1="138" x2="160" y2="156" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
@@ -315,7 +316,7 @@ const graphEdges = _graph.edges as [string, string][];
         {fondos.map((f) => (
           <a href={`/archive/${f.id}`} class={`rounded-xl border p-5 ${f.accent} hover:border-accent/50 transition-all group block`}>
             <div class="flex items-start justify-between mb-3">
-              <span class="text-2xl">{f.icon}</span>
+              <span class={f.accentText}><Icon name={f.icon} size={22} /></span>
               <span class={`font-mono text-[0.55rem] uppercase tracking-[0.15em] ${f.accentText} opacity-70`}>{f.lore}</span>
             </div>
             <h3 class={`font-mono text-sm font-medium mb-1 ${f.accentText}`}>{f.nombre}</h3>
@@ -434,7 +435,7 @@ const graphEdges = _graph.edges as [string, string][];
               </div>
               <div class="border-t border-red/10 pt-3">
                 <div class="flex items-center gap-1.5 mb-1">
-                  <span>{f.icono}</span>
+                  <span class="text-green"><Icon name={f.icono} size={12} /></span>
                   <p class="font-mono text-[0.55rem] text-green uppercase tracking-[0.1em]">El sistema previene esto</p>
                 </div>
                 <p class="text-xs text-muted-foreground leading-relaxed">{f.prevención}</p>
@@ -503,7 +504,7 @@ const graphEdges = _graph.edges as [string, string][];
           <a href={`/archive/${d.file}`} download={d.file}
             class="rounded-xl border border-accent/20 bg-accent/5 p-5 hover:bg-accent/10 transition-colors block group">
             <div class="flex items-start justify-between mb-2">
-              <span class="font-mono text-[0.6rem] text-accent uppercase tracking-wider">📄 .md</span>
+              <span class="inline-flex items-center gap-1.5 font-mono text-[0.6rem] text-accent uppercase tracking-wider"><Icon name="file-text" size={11} /> .md</span>
               <span class="font-mono text-[0.55rem] text-dim group-hover:text-accent transition-colors">↓ descargar</span>
             </div>
             <p class="text-sm font-medium text-foreground mb-1">{d.titulo}</p>
@@ -520,7 +521,7 @@ const graphEdges = _graph.edges as [string, string][];
     <div class="archive-dialog-inner">
       <div class="flex items-center justify-between mb-4">
         <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent">Diagrama A — Ciclo del agente</p>
-        <button data-close-dialog class="font-mono text-xs text-dim hover:text-foreground transition-colors">✕ Cerrar</button>
+        <button data-close-dialog class="inline-flex items-center gap-1.5 font-mono text-xs text-dim hover:text-foreground transition-colors"><Icon name="x" size={12} /> Cerrar</button>
       </div>
       <svg viewBox="0 0 320 520" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-[480px] mx-auto" style="font-family:monospace;font-size:9px">
         <defs>
@@ -551,7 +552,7 @@ const graphEdges = _graph.edges as [string, string][];
         <polygon points="160,424 215,447 160,470 105,447" fill="#1e1a17" stroke="#3a332d" stroke-width="1"/>
         <text x="160" y="445" text-anchor="middle" fill="#c4b5a6">Oracle aprueba?</text>
         <rect x="95" y="478" width="130" height="28" rx="14" fill="#14110f" stroke="#a6dad5" stroke-width="1.2"/>
-        <text x="160" y="496" text-anchor="middle" fill="#a6dad5">merge ✓</text>
+        <text x="160" y="496" text-anchor="middle" fill="#a6dad5">merge</text>
         <line x1="160" y1="38" x2="160" y2="58" stroke="#a6dad5" stroke-width="1" marker-end="url(#arr2)"/>
         <line x1="160" y1="88" x2="160" y2="108" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
         <line x1="160" y1="138" x2="160" y2="156" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
@@ -590,7 +591,7 @@ const graphEdges = _graph.edges as [string, string][];
     <div class="archive-dialog-inner">
       <div class="flex items-center justify-between mb-4">
         <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent">Diagrama B — Relaciones entre fondos (3D)</p>
-        <button data-close-dialog class="font-mono text-xs text-dim hover:text-foreground transition-colors">✕ Cerrar</button>
+        <button data-close-dialog class="inline-flex items-center gap-1.5 font-mono text-xs text-dim hover:text-foreground transition-colors"><Icon name="x" size={12} /> Cerrar</button>
       </div>
       <div id="archive-3d-modal" style="width:100%;height:480px;"></div>
     </div>

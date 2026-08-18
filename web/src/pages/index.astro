@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 import Layout from "@/layouts/Layout.astro";
+import Icon from "@/components/Icon.astro";
 import PageHero from "@/components/PageHero.astro";
 
 const features = [
@@ -68,11 +69,12 @@ const features = [
 ];
 
 const layers = [
-  { level: "L0", name: "File Layer", desc: "All data is markdown files with YAML frontmatter. No proprietary formats.", icon: "📄" },
-  { level: "L1", name: "Version Layer", desc: "Git provides full history, branching, and collaboration via PRs.", icon: "🔀" },
-  { level: "L2", name: "Agent Layer", desc: "AI agents read and write files like any contributor.", icon: "🤖" },
-  { level: "L3", name: "Human Layer", desc: "Oracles (humans) approve decisions, set direction, and audit agent work.", icon: "🧬" },
-  { level: "L4", name: "Narrative Layer", desc: "Optional. Guilds, lore, and game mechanics that make the system engaging for humans.", icon: "🎭" },
+  // icon: house Phosphor glyph names (§7.3), rendered via <Icon />
+  { level: "L0", name: "File Layer", desc: "All data is markdown files with YAML frontmatter. No proprietary formats.", icon: "file-text" },
+  { level: "L1", name: "Version Layer", desc: "Git provides full history, branching, and collaboration via PRs.", icon: "git-branch" },
+  { level: "L2", name: "Agent Layer", desc: "AI agents read and write files like any contributor.", icon: "robot" },
+  { level: "L3", name: "Human Layer", desc: "Oracles (humans) approve decisions, set direction, and audit agent work.", icon: "dna" },
+  { level: "L4", name: "Narrative Layer", desc: "Optional. Guilds, lore, and game mechanics that make the system engaging for humans.", icon: "mask-happy" },
 ];
 
 const principles = [
@@ -148,7 +150,7 @@ const principles = [
           {layers.map((layer) => (
             <div class="flex items-start gap-4 rounded-xl border border-border bg-card p-5">
               <span class="font-mono text-[0.65rem] text-dim w-6 flex-shrink-0 mt-0.5">{layer.level}</span>
-              <span class="text-lg flex-shrink-0">{layer.icon}</span>
+              <span class="flex-shrink-0 text-accent mt-0.5"><Icon name={layer.icon} size={18} /></span>
               <div class="flex-1">
                 <p class="font-semibold text-sm text-foreground mb-1">{layer.name}</p>
                 <p class="text-sm text-muted-foreground">{layer.desc}</p>
@@ -239,7 +241,7 @@ const principles = [
               { req: "AI agent access", note: "Optional. Unlocks the agent layer." },
             ].map((r) => (
               <div class="flex items-start gap-3">
-                <span class="text-green mt-0.5 flex-shrink-0">✓</span>
+                <span class="text-green mt-0.5 flex-shrink-0"><Icon name="check" size={14} /></span>
                 <div>
                   <p class="text-sm font-medium text-foreground">{r.req}</p>
                   <p class="text-xs text-muted-foreground">{r.note}</p>

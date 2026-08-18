@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 import Layout from "@/layouts/Layout.astro";
+import Icon from "@/components/Icon.astro";
 import PageHero from "@/components/PageHero.astro";
 import SectionHeader from "@/components/SectionHeader.astro";
 import HighlightBox from "@/components/HighlightBox.astro";
@@ -15,10 +16,10 @@ const archetypes = [
     id: "A1",
     label: "Startup técnica 5–15p",
     color: "teal",
-    tw: "bg-teal-500",
-    twLight: "bg-teal-500/10",
-    twBorder: "border-teal-500/30",
-    twText: "text-teal-400",
+    tw: "bg-teal",
+    twLight: "bg-teal/10",
+    twBorder: "border-teal/30",
+    twText: "text-accent",
     n: 20,
     description: "Alta apertura al cambio, lenguaje tech-native, sin estructura previa. El perfil más natural para NWOS.",
     results: { exito: 11, parcial: 6, estancado: 2, fallo: 1 },
@@ -30,10 +31,10 @@ const archetypes = [
     id: "A2",
     label: "Startup mixta 15–50p",
     color: "blue",
-    tw: "bg-blue-500",
-    twLight: "bg-blue-500/10",
-    twBorder: "border-blue-500/30",
-    twText: "text-blue-400",
+    tw: "bg-blue",
+    twLight: "bg-blue/10",
+    twBorder: "border-blue/30",
+    twText: "text-blue",
     n: 20,
     description: "Perfiles técnicos y no técnicos. Tensión entre eficiencia operativa y capa narrativa. El caso más común en 2026.",
     results: { exito: 7, parcial: 8, estancado: 4, fallo: 1 },
@@ -45,10 +46,10 @@ const archetypes = [
     id: "A3",
     label: "PYME tradicional 50–150p",
     color: "orange",
-    tw: "bg-orange-500",
-    twLight: "bg-orange-500/10",
-    twBorder: "border-orange-500/30",
-    twText: "text-orange-400",
+    tw: "bg-yellow",
+    twLight: "bg-yellow/10",
+    twBorder: "border-yellow/30",
+    twText: "text-yellow",
     n: 20,
     description: "Jerarquía establecida, resistencia al cambio narrativo, HR involucrado en toda decisión de cultura.",
     results: { exito: 2, parcial: 5, estancado: 7, fallo: 6 },
@@ -60,10 +61,10 @@ const archetypes = [
     id: "A4",
     label: "Agencia creativa 10–30p",
     color: "purple",
-    tw: "bg-purple-500",
-    twLight: "bg-purple-500/10",
-    twBorder: "border-purple-500/30",
-    twText: "text-purple-400",
+    tw: "bg-purple",
+    twLight: "bg-purple/10",
+    twBorder: "border-purple/30",
+    twText: "text-purple",
     n: 20,
     description: "Alta tolerancia simbólica, cultura de proyecto, rotación elevada. Adoptan rápido pero sostener es el reto.",
     results: { exito: 8, parcial: 7, estancado: 4, fallo: 1 },
@@ -75,10 +76,10 @@ const archetypes = [
     id: "A5",
     label: "Equipo corporativo 100–500p",
     color: "red",
-    tw: "bg-red-500",
-    twLight: "bg-red-500/10",
-    twBorder: "border-red-500/30",
-    twText: "text-red-400",
+    tw: "bg-red",
+    twLight: "bg-red/10",
+    twBorder: "border-red/30",
+    twText: "text-red",
     n: 20,
     description: "Presupuesto aprobado por CHRO, implementación piloto en un equipo. El caso con mayor ROI potencial y mayor fricción.",
     results: { exito: 1, parcial: 5, estancado: 6, fallo: 8 },
@@ -151,31 +152,31 @@ const successPatterns = [
     nombre: "El Piloto Controlado",
     pct: 38,
     desc: "8 semanas, equipo de 5–12 personas, métricas pre-acordadas, validación externa antes. El patrón con mayor tasa de conversión a implementación completa.",
-    reqs: ["Validación externa ✓", "ICP definido ✓", "Org. sana ✓"],
+    reqs: ["Validación externa", "ICP definido", "Org. sana"],
   },
   {
     nombre: "El MVV (Mínimo Vocabulario Viable)",
     pct: 27,
     desc: "Solo 5 conceptos en semana 1. Misión, rol, decisión, ritual, agente. El resto del vocabulario emerge cuando se necesita, no antes.",
-    reqs: ["Adopción gradual ✓", "Champion interno ✓"],
+    reqs: ["Adopción gradual", "Champion interno"],
   },
   {
     nombre: "El Modo Corporativo",
     pct: 19,
     desc: "Numinia como capa profunda opcional. La estructura NWOS con vocabulario estándar de negocio en la interfaz. Abre el mercado enterprise sin sacrificar el núcleo.",
-    reqs: ["Traducción corporativa ✓", "Champion con autoridad ✓"],
+    reqs: ["Traducción corporativa", "Champion con autoridad"],
   },
   {
     nombre: "El Amplificador",
     pct: 11,
     desc: "NWOS no como solución al burnout sino como multiplicador cuando la organización ya está sana. Diagnóstico Maslach obligatorio previo.",
-    reqs: ["Diagnóstico previo ✓", "Org. sana ✓", "Gradual ✓"],
+    reqs: ["Diagnóstico previo", "Org. sana", "Gradual"],
   },
   {
     nombre: "El Nativo Digital",
     pct: 5,
     desc: "Equipos tech-first donde los agentes digitales se integran antes que los rituales. El sistema arranca desde la infraestructura y el lore llega después.",
-    reqs: ["Startup tech ✓", "Alta madurez IA ✓"],
+    reqs: ["Startup tech", "Alta madurez IA"],
   },
 ];
 
@@ -211,23 +212,23 @@ function pctBar(n: number, max = 100) {
       <SectionHeader label="Resultados globales" title="Las 100 simulaciones en conjunto" />
 
       <div class="mt-8 grid gap-4 sm:grid-cols-4">
-        <div class="rounded-xl border border-teal-500/30 bg-teal-500/10 p-6 text-center space-y-1">
-          <div class="text-4xl font-display font-bold text-teal-400">{totalExito}</div>
+        <div class="rounded-xl border border-teal/30 bg-teal/10 p-6 text-center space-y-1">
+          <div class="text-4xl font-display font-bold text-accent">{totalExito}</div>
           <div class="text-sm text-muted-foreground">Éxito completo</div>
           <div class="text-xs text-muted-foreground/60">Adopción sostenida 6+ meses</div>
         </div>
-        <div class="rounded-xl border border-blue-500/30 bg-blue-500/10 p-6 text-center space-y-1">
-          <div class="text-4xl font-display font-bold text-blue-400">{totalParcial}</div>
+        <div class="rounded-xl border border-blue/30 bg-blue/10 p-6 text-center space-y-1">
+          <div class="text-4xl font-display font-bold text-blue">{totalParcial}</div>
           <div class="text-sm text-muted-foreground">Éxito parcial</div>
           <div class="text-xs text-muted-foreground/60">Core adoptado, lore pendiente</div>
         </div>
-        <div class="rounded-xl border border-orange-500/30 bg-orange-500/10 p-6 text-center space-y-1">
-          <div class="text-4xl font-display font-bold text-orange-400">{totalEstancado}</div>
+        <div class="rounded-xl border border-yellow/30 bg-yellow/10 p-6 text-center space-y-1">
+          <div class="text-4xl font-display font-bold text-yellow">{totalEstancado}</div>
           <div class="text-sm text-muted-foreground">Estancado</div>
           <div class="text-xs text-muted-foreground/60">Entusiasmo inicial sin tracción</div>
         </div>
-        <div class="rounded-xl border border-red-500/30 bg-red-500/10 p-6 text-center space-y-1">
-          <div class="text-4xl font-display font-bold text-red-400">{totalFallo}</div>
+        <div class="rounded-xl border border-red/30 bg-red/10 p-6 text-center space-y-1">
+          <div class="text-4xl font-display font-bold text-red">{totalFallo}</div>
           <div class="text-sm text-muted-foreground">Abandono</div>
           <div class="text-xs text-muted-foreground/60">Descartado en menos de 3 meses</div>
         </div>
@@ -236,16 +237,16 @@ function pctBar(n: number, max = 100) {
       <!-- Barra global -->
       <div class="mt-8 max-w-[720px]">
         <div class="flex h-6 w-full overflow-hidden rounded-full">
-          <div class="bg-teal-500 transition-all" style={pctBar(totalExito)}></div>
-          <div class="bg-blue-500 transition-all" style={pctBar(totalParcial)}></div>
-          <div class="bg-orange-500 transition-all" style={pctBar(totalEstancado)}></div>
-          <div class="bg-red-500 transition-all" style={pctBar(totalFallo)}></div>
+          <div class="bg-teal transition-all" style={pctBar(totalExito)}></div>
+          <div class="bg-blue transition-all" style={pctBar(totalParcial)}></div>
+          <div class="bg-yellow transition-all" style={pctBar(totalEstancado)}></div>
+          <div class="bg-red transition-all" style={pctBar(totalFallo)}></div>
         </div>
         <div class="mt-2 flex flex-wrap gap-4 text-xs text-muted-foreground">
-          <span class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-teal-500"></span>Éxito {totalExito}%</span>
-          <span class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-blue-500"></span>Parcial {totalParcial}%</span>
-          <span class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-orange-500"></span>Estancado {totalEstancado}%</span>
-          <span class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-red-500"></span>Abandono {totalFallo}%</span>
+          <span class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-teal"></span>Éxito {totalExito}%</span>
+          <span class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-blue"></span>Parcial {totalParcial}%</span>
+          <span class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-yellow"></span>Estancado {totalEstancado}%</span>
+          <span class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-red"></span>Abandono {totalFallo}%</span>
         </div>
       </div>
 
@@ -281,29 +282,29 @@ function pctBar(n: number, max = 100) {
 
               <!-- Mini barra -->
               <div class="flex h-4 w-full max-w-[480px] overflow-hidden rounded-full bg-border/30 mb-4">
-                <div class="bg-teal-500" style={pctBar(a.results.exito, a.n)}></div>
-                <div class="bg-blue-500" style={pctBar(a.results.parcial, a.n)}></div>
-                <div class="bg-orange-400" style={pctBar(a.results.estancado, a.n)}></div>
-                <div class="bg-red-500" style={pctBar(a.results.fallo, a.n)}></div>
+                <div class="bg-teal" style={pctBar(a.results.exito, a.n)}></div>
+                <div class="bg-blue" style={pctBar(a.results.parcial, a.n)}></div>
+                <div class="bg-yellow" style={pctBar(a.results.estancado, a.n)}></div>
+                <div class="bg-red" style={pctBar(a.results.fallo, a.n)}></div>
               </div>
               <div class="flex flex-wrap gap-3 text-xs text-muted-foreground mb-4">
-                <span>✅ Éxito {a.results.exito}</span>
-                <span>🔵 Parcial {a.results.parcial}</span>
-                <span>🟠 Estancado {a.results.estancado}</span>
-                <span>🔴 Fallo {a.results.fallo}</span>
+                <span class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-teal"></span>Éxito {a.results.exito}</span>
+                <span class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-blue"></span>Parcial {a.results.parcial}</span>
+                <span class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-yellow"></span>Estancado {a.results.estancado}</span>
+                <span class="flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-red"></span>Fallo {a.results.fallo}</span>
               </div>
 
               <div class="grid gap-3 sm:grid-cols-2 text-sm">
                 <div>
-                  <div class="text-xs uppercase tracking-wider text-red-400 font-mono mb-1">Principales causas de fallo</div>
+                  <div class="text-xs uppercase tracking-wider text-red font-mono mb-1">Principales causas de fallo</div>
                   {a.topKillers.map(k => (
-                    <div class="text-muted-foreground flex gap-2"><span class="text-red-400 shrink-0">—</span>{k}</div>
+                    <div class="text-muted-foreground flex gap-2"><span class="text-red shrink-0">—</span>{k}</div>
                   ))}
                 </div>
                 <div>
-                  <div class="text-xs uppercase tracking-wider text-teal-400 font-mono mb-1">Factores de éxito diferencial</div>
+                  <div class="text-xs uppercase tracking-wider text-accent font-mono mb-1">Factores de éxito diferencial</div>
                   {a.topWinners.map(w => (
-                    <div class="text-muted-foreground flex gap-2"><span class="text-teal-400 shrink-0">+</span>{w}</div>
+                    <div class="text-muted-foreground flex gap-2"><span class="text-accent shrink-0">+</span>{w}</div>
                   ))}
                 </div>
               </div>
@@ -329,15 +330,15 @@ function pctBar(n: number, max = 100) {
             </div>
             <div class="space-y-1.5">
               <div class="flex items-center gap-3">
-                <div class="w-20 text-right text-xs text-teal-400 font-mono shrink-0">Sí: {v.exitoSi}%</div>
+                <div class="w-20 text-right text-xs text-accent font-mono shrink-0">Sí: {v.exitoSi}%</div>
                 <div class="flex-1 h-3 rounded-full bg-border/30 overflow-hidden">
-                  <div class="h-full bg-teal-500 rounded-full transition-all" style={`width:${v.exitoSi}%`}></div>
+                  <div class="h-full bg-teal rounded-full transition-all" style={`width:${v.exitoSi}%`}></div>
                 </div>
               </div>
               <div class="flex items-center gap-3">
-                <div class="w-20 text-right text-xs text-red-400 font-mono shrink-0">No: {v.exitoNo}%</div>
+                <div class="w-20 text-right text-xs text-red font-mono shrink-0">No: {v.exitoNo}%</div>
                 <div class="flex-1 h-3 rounded-full bg-border/30 overflow-hidden">
-                  <div class="h-full bg-red-500 rounded-full transition-all" style={`width:${v.exitoNo}%`}></div>
+                  <div class="h-full bg-red rounded-full transition-all" style={`width:${v.exitoNo}%`}></div>
                 </div>
               </div>
             </div>
@@ -364,7 +365,7 @@ function pctBar(n: number, max = 100) {
               </div>
             </div>
             <div class="h-2.5 rounded-full bg-border/30 overflow-hidden">
-              <div class="h-full bg-red-500/70 rounded-full" style={`width:${f.pct}%`}></div>
+              <div class="h-full bg-red/70 rounded-full" style={`width:${f.pct}%`}></div>
             </div>
           </div>
         ))}
@@ -383,12 +384,12 @@ function pctBar(n: number, max = 100) {
           <div class="rounded-xl border border-border bg-card p-5 space-y-3">
             <div class="flex justify-between items-start">
               <h3 class="font-display text-base text-foreground leading-snug">{p.nombre}</h3>
-              <span class="shrink-0 ml-2 text-xl font-display font-bold text-teal-400">{p.pct}%</span>
+              <span class="shrink-0 ml-2 text-xl font-display font-bold text-accent">{p.pct}%</span>
             </div>
             <p class="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
             <div class="flex flex-wrap gap-1.5 pt-2 border-t border-border/50">
               {p.reqs.map((r) => (
-                <span class="text-[0.6rem] font-mono rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 px-2 py-0.5">{r}</span>
+                <span class="text-[0.6rem] font-mono rounded-full bg-teal/10 border border-teal/20 text-accent px-2 py-0.5 inline-flex items-center gap-1"><Icon name="check" size={9} /> {r}</span>
               ))}
             </div>
           </div>

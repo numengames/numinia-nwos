@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 import Layout from "@/layouts/Layout.astro";
+import Icon from "@/components/Icon.astro";
 import PageHero from "@/components/PageHero.astro";
 
 const reportes = [
@@ -48,7 +49,7 @@ const reportes = [
     semana: "W14",
     agente: "Centinela-01",
     modelo: "claude-sonnet-4.6",
-    titulo: "Reporte Diario — 2026-04-03 🎉",
+    titulo: "Reporte Diario — 2026-04-03",
     resumen: "5 PRs mergeados. Umami Analytics y Cal.com self-hosted instalados. Primer reporte enviado por Telegram a las 8am.",
     prs: 5,
     misiones: 0,
@@ -56,7 +57,7 @@ const reportes = [
     destacado: [
       "Numen Games visible en pablofm.com como proyecto featured",
       "Fondo Velo de Numinia — identidad visual aplicada a un producto real por primera vez",
-      "Primer reporte diario enviado por Telegram 🎉",
+      "Primer reporte diario enviado por Telegram",
     ],
   },
   {
@@ -124,7 +125,7 @@ const tipoColor: Record<string, string> = {
                     {r.tipo}
                   </span>
                   <span class="font-mono text-[0.65rem] text-dim">Semana {r.semana}</span>
-                  <span class="font-mono text-[0.65rem] text-dim">🤖 {r.agente}</span>
+                  <span class="inline-flex items-center gap-1 font-mono text-[0.65rem] text-dim"><Icon name="robot" size={11} /> {r.agente}</span>
                 </div>
                 <h2 class="font-display text-xl text-foreground">{r.titulo}</h2>
                 <p class="mt-1 text-sm text-muted-foreground">{r.resumen}</p>
@@ -172,16 +173,16 @@ const tipoColor: Record<string, string> = {
         </div>
         <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { tipo: "Diario", schedule: "8:00am UTC+1", modelo: "claude-haiku-3.5", estado: "✅ Activo" },
-            { tipo: "Semanal", schedule: "Lunes antes del Dark Council", modelo: "claude-haiku-3.5", estado: "⏳ Pendiente" },
-            { tipo: "Mensual", schedule: "Día 1 de cada mes", modelo: "claude-sonnet-4.6", estado: "⏳ Pendiente" },
-            { tipo: "Anual", schedule: "1 enero + cierre fiscal", modelo: "claude-sonnet-4.6", estado: "⏳ Pendiente" },
+            { tipo: "Diario", schedule: "8:00am UTC+1", modelo: "claude-haiku-3.5", estado: "Activo", icono: "check" },
+            { tipo: "Semanal", schedule: "Lunes antes del Dark Council", modelo: "claude-haiku-3.5", estado: "Pendiente", icono: "circle" },
+            { tipo: "Mensual", schedule: "Día 1 de cada mes", modelo: "claude-sonnet-4.6", estado: "Pendiente", icono: "circle" },
+            { tipo: "Anual", schedule: "1 enero + cierre fiscal", modelo: "claude-sonnet-4.6", estado: "Pendiente", icono: "circle" },
           ].map((c) => (
             <div class="rounded-lg border border-border bg-card p-4">
               <p class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim mb-2">{c.tipo}</p>
               <p class="text-xs text-muted-foreground mb-1">{c.schedule}</p>
               <p class="font-mono text-[0.55rem] text-dim mb-2">{c.modelo}</p>
-              <p class="font-mono text-[0.6rem] text-accent">{c.estado}</p>
+              <p class="inline-flex items-center gap-1 font-mono text-[0.6rem] text-accent"><Icon name={c.icono} size={10} /> {c.estado}</p>
             </div>
           ))}
         </div>

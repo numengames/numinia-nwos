@@ -159,3 +159,11 @@ canónicos sin traducción.
 - **Executing agent:** claude-fable-5 (numinia-nwos)
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
+
+**Addendum (2026-08-18, tarde) — fase 3, el canal que faltaba.** La caza de
+hexes no veía las clases Tailwind de paleta por defecto (`bg-teal-500`,
+`text-red-400`…): 137 usos en 12 ficheros, migrados por script al mapa
+familia→token (teal/cyan→teal, blue/sky/indigo→blue, red/rose→red,
+orange/amber→yellow, green/emerald→green, purple/violet→purple;
+text-teal-*→text-accent). Verificación: cero clases de paleta por defecto
+en `web/src`.

@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 import Layout from "@/layouts/Layout.astro";
+import Icon from "@/components/Icon.astro";
 
 const components = [
   {
@@ -368,7 +369,7 @@ const layers = [
             <p id="detail-evolution" class="font-mono text-[0.6rem] text-dim mb-1"></p>
             <h3 id="detail-name" class="font-display text-2xl text-foreground"></h3>
           </div>
-          <button id="detail-close" class="font-mono text-[0.65rem] text-dim hover:text-foreground transition-colors">✕ close</button>
+          <button id="detail-close" class="inline-flex items-center gap-1.5 font-mono text-[0.65rem] text-dim hover:text-foreground transition-colors"><Icon name="x" size={11} /> close</button>
         </div>
         <div class="grid sm:grid-cols-3 gap-4">
           <div>
@@ -420,8 +421,9 @@ const layers = [
         ].map((item) => (
           <div class={`rounded-xl border p-5 ${item.sev === "high" ? "border-red/20 bg-red/5" : "border-yellow/20 bg-yellow/5"}`}>
             <div class="flex items-start gap-3">
-              <span class={`font-mono text-[0.6rem] mt-0.5 flex-shrink-0 ${item.sev === "high" ? "text-red" : "text-yellow"}`}>
-                {item.sev === "high" ? "⚠ High" : "△ Medium"}
+              <span class={`inline-flex items-center gap-1 font-mono text-[0.6rem] mt-0.5 flex-shrink-0 ${item.sev === "high" ? "text-red" : "text-yellow"}`}>
+                <Icon name={item.sev === "high" ? "warning" : "circle"} size={10} />
+                {item.sev === "high" ? "High" : "Medium"}
               </span>
               <div>
                 <p class="font-semibold text-sm text-foreground mb-1">{item.t}</p>
@@ -479,7 +481,7 @@ const layers = [
   <!-- Footer link to repo -->
   <section class="py-10 border-t border-border">
     <div class="mx-auto max-w-[800px] px-6 flex flex-wrap items-center justify-between gap-4">
-      <p class="font-mono text-[0.65rem] text-dim">Wardley Map v0.1.0 · Nimrod 🗡️ · 2026-04-07</p>
+      <p class="inline-flex items-center gap-1.5 font-mono text-[0.65rem] text-dim"><span>Wardley Map v0.1.0 · Nimrod</span> <Icon name="sword" size={11} /> <span>· 2026-04-07</span></p>
       <div class="flex gap-4">
         <a href="https://github.com/numengames/numinia-nwos/blob/main/blueprints/WARDLEY-MAP.md" target="_blank" rel="noopener noreferrer" class="font-mono text-[0.65rem] text-accent hover:text-accent/80 transition-colors">
           Source .md →

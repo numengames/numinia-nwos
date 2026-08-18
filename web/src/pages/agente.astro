@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 import Layout from "@/layouts/Layout.astro";
+import Icon from "@/components/Icon.astro";
 
 const capas = [
   {
@@ -9,7 +10,7 @@ const capas = [
     nombre: "Agente Digital",
     subtitulo: "El actor. El que piensa y actúa.",
     color: "#8fc46b",
-    icono: "🤖",
+    icono: "robot",
     componentes: ["Modelo de IA (LLM)", "Contexto activo (RAM de sesión)", "Memoria semántica (Vector DB)", "Orquestador (OpenClaw)"],
     epistemico: "El agente no tiene inteligencia propia — tiene acceso a un modelo de lenguaje y a las instrucciones que definen quién es. La inteligencia emerge de la combinación de modelo + instrucciones + contexto.",
     pragmatico: "Puede ejecutar tareas sin supervisión continua: escribir código, enviar emails, crear documentos, analizar datos. El límite es lo que el Biológico le autoriza.",
@@ -20,7 +21,7 @@ const capas = [
     nombre: "Infraestructura",
     subtitulo: "El substrato. Donde el agente existe físicamente.",
     color: "#d33440",
-    icono: "🖥️",
+    icono: "desktop",
     componentes: ["Servidor VPS (161.35.215.224)", "GPU ≥32GB VRAM (on-premises, en camino)", "Tools & Skills (web, shell, APIs)", "Identity & Auth (permisos por agente)", "Observability (logs, trazas, métricas)"],
     epistemico: "La infraestructura define los límites de lo posible. Un agente sin GPU suficiente no puede ejecutar modelos locales. Sin Auth Layer, cualquier agente puede hacer cualquier cosa — eso es una vulnerabilidad.",
     pragmatico: "El PC dedicado (Ryzen 9 7950X + RTX 4080) reducirá el coste de inferencia un 60-70% cuando llegue. La infraestructura es la diferencia entre $50/mes y $5/mes.",
@@ -31,7 +32,7 @@ const capas = [
     nombre: "Archive Summa",
     subtitulo: "La memoria permanente. El sistema nervioso del NWOS.",
     color: "#5d9bd6",
-    icono: "📚",
+    icono: "books",
     componentes: ["GitHub (git repo)", "Archivos .md con YAML frontmatter", "SOUL.md — identidad del agente", "OPERATOR.md — leyes operativas", "Misiones, decisiones, planos, reportes", "Protocolos y memoria diaria"],
     epistemico: "El Archive no es un almacén — es la fuente de verdad. Lo que no está en el Archive no existe institucionalmente. Un agente que cierra sesión sin escribir pierde ese conocimiento para siempre. Por eso el COMMIT es el momento más crítico del ciclo.",
     pragmatico: "Cualquier agente nuevo puede leer el Archive y operar con contexto completo en minutos. Git es el historial completo y auditable de cada decisión. No hay reunión de 'actualización' — el Archive es la actualización.",
@@ -42,7 +43,7 @@ const capas = [
     nombre: "Assets Digitales",
     subtitulo: "El cuerpo. Los materiales de los que está hecho el mundo.",
     color: "#a98be0",
-    icono: "🎨",
+    icono: "palette",
     componentes: ["CDN (R2 / AWS S3)", "Imágenes (jpg, png, webp)", "Video (mp4, webm)", "Modelos 3D (glb, gltf)", "Avatares (vrm)", "Audio (mp3, ogg)"],
     epistemico: "Los assets son el conocimiento encarnado — la forma en que el sistema existe perceptualmente. Un avatar .vrm es la identidad visual del agente. Un .glb de Numinia es el espacio donde ocurren las interacciones.",
     pragmatico: "Los assets se sirven via CDN — disponibles globalmente, sin latencia. Separados del Archive porque tienen ciclos de vida distintos: un .md se versiona con git, un .mp4 no.",
@@ -53,7 +54,7 @@ const capas = [
     nombre: "Agente Biológico",
     subtitulo: "La autoridad. El que decide, intuye y autoriza.",
     color: "#efa517",
-    icono: "👤",
+    icono: "user",
     componentes: ["IQ + experiencia + intuición", "Posición (Oráculo, Ciudadano, etc.)", "Rol en el gremio", "Autoridad de aprobación", "Conocimiento tácito (no documentado)"],
     epistemico: "El Biológico tiene algo que el Digital nunca tendrá: conocimiento tácito — intuición construida por años de experiencia que no puede ser completamente documentada. Eso es irreemplazable. El riesgo: ese conocimiento muere con la persona si no se externaliza parcialmente al Archive.",
     pragmatico: "El Biológico es el único que puede autorizar acciones de alto riesgo (Ley 1). También es el que detecta cuando el sistema está produciendo outputs correctos pero equivocados — el agente puede hacer exactamente lo que le pides y aun así estar equivocado.",
@@ -64,7 +65,7 @@ const capas = [
     nombre: "Organización",
     subtitulo: "El emergente. La suma que supera a sus partes.",
     color: "#a6dad5",
-    icono: "🏛️",
+    icono: "bank",
     componentes: ["No se instancia — emerge", "Es la suma de L1+L2+L3+L4+L5 en operación continua", "Cultura = comportamientos repetidos del sistema", "Memoria institucional = Archive Summa vivo", "Inteligencia colectiva = Digital + Biológico en loop"],
     epistemico: "La organización no es un objeto que puedes crear directamente. Es un patrón que emerge cuando todos los componentes operan juntos en el tiempo. Por eso 'deployar NWOS' no es suficiente — el sistema tiene que vivirse.",
     pragmatico: "Cuando el ciclo funciona (Biológico activa → Digital ejecuta → Archive recibe → Biológico revisa), la organización aprende. Cada misión completada hace al sistema ligeramente más inteligente. Esa es la promesa del NWOS.",
@@ -75,7 +76,7 @@ const capas = [
 const ciclo = [
   {
     fase: "BOOT",
-    icono: "⬇️",
+    icono: "download-simple",
     color: "#5d9bd6",
     que: "El agente arranca y lee su identidad desde el Archive Summa.",
     como: "git pull → carga SOUL.md, OPERATOR.md, memoria del día anterior, protocolos activos.",
@@ -85,7 +86,7 @@ const ciclo = [
   },
   {
     fase: "EXECUTE",
-    icono: "⚡",
+    icono: "lightning",
     color: "#8fc46b",
     que: "El agente recibe instrucción del Biológico y ejecuta usando tools.",
     como: "Biológico → Orquestador → Agente → Tools (web, shell, APIs, email, git) → Output → Biológico.",
@@ -95,7 +96,7 @@ const ciclo = [
   },
   {
     fase: "COMMIT",
-    icono: "⬆️",
+    icono: "upload-simple",
     color: "#efa517",
     que: "El agente escribe el conocimiento generado de vuelta al Archive Summa.",
     como: "git add → git commit → git push → el conocimiento es permanente.",
@@ -150,7 +151,7 @@ const ciclo = [
         <!-- L6 -->
         <div class="rounded-xl border border-[#a6dad5]/30 bg-[#a6dad5]/5 px-6 py-4 text-center">
           <p class="font-mono text-[0.6rem] text-[#a6dad5] uppercase tracking-widest mb-1">L6 · Emergente</p>
-          <p class="font-display text-lg text-[#a6dad5]">🏛️ ORGANIZACIÓN</p>
+          <p class="font-display text-lg text-[#a6dad5] flex items-center justify-center gap-2"><Icon name="bank" size={18} /> ORGANIZACIÓN</p>
           <p class="font-mono text-[0.6rem] text-dim mt-1">No se instancia — emerge de la operación continua del sistema</p>
         </div>
 
@@ -158,7 +159,7 @@ const ciclo = [
         <div class="rounded-xl border border-[#efa517]/30 bg-[#efa517]/5 px-6 py-4 flex flex-wrap items-center justify-between gap-3">
           <div>
             <p class="font-mono text-[0.6rem] text-[#efa517] uppercase tracking-widest mb-1">L5 · Autoridad</p>
-            <p class="font-display text-lg text-[#efa517]">👤 AGENTE BIOLÓGICO</p>
+            <p class="font-display text-lg text-[#efa517] flex items-center gap-2"><Icon name="user" size={18} /> AGENTE BIOLÓGICO</p>
             <p class="font-mono text-[0.6rem] text-dim mt-1">IQ · Posición · Rol · Intuición · Aprobación</p>
           </div>
           <div class="flex flex-col items-center gap-1">
@@ -173,7 +174,7 @@ const ciclo = [
           <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
             <div>
               <p class="font-mono text-[0.6rem] text-[#5d9bd6] uppercase tracking-widest mb-1">L3 · Transversal — Bus de Estado</p>
-              <p class="font-display text-lg text-[#5d9bd6]">📚 ARCHIVE SUMMA</p>
+              <p class="font-display text-lg text-[#5d9bd6] flex items-center gap-2"><Icon name="books" size={18} /> ARCHIVE SUMMA</p>
             </div>
             <div class="flex gap-6 text-center">
               <div>
@@ -197,12 +198,12 @@ const ciclo = [
         <div class="grid sm:grid-cols-2 gap-1.5">
           <div class="rounded-xl border border-[#8fc46b]/30 bg-[#8fc46b]/5 px-5 py-4">
             <p class="font-mono text-[0.6rem] text-[#8fc46b] uppercase tracking-widest mb-1">L1 · Runtime</p>
-            <p class="font-display text-base text-[#8fc46b]">🤖 AGENTE DIGITAL</p>
+            <p class="font-display text-base text-[#8fc46b] flex items-center gap-2"><Icon name="robot" size={16} /> AGENTE DIGITAL</p>
             <p class="font-mono text-[0.6rem] text-dim mt-1">Modelo IA · Orquestador · Contexto · Vector DB</p>
           </div>
           <div class="rounded-xl border border-[#d33440]/30 bg-[#d33440]/5 px-5 py-4">
             <p class="font-mono text-[0.6rem] text-[#d33440] uppercase tracking-widest mb-1">L2 · Substrato</p>
-            <p class="font-display text-base text-[#d33440]">🖥️ INFRAESTRUCTURA</p>
+            <p class="font-display text-base text-[#d33440] flex items-center gap-2"><Icon name="desktop" size={16} /> INFRAESTRUCTURA</p>
             <p class="font-mono text-[0.6rem] text-dim mt-1">Servidor · GPU · Tools · Auth · Observability</p>
           </div>
         </div>
@@ -210,7 +211,7 @@ const ciclo = [
         <!-- L4 -->
         <div class="rounded-xl border border-[#a98be0]/30 bg-[#a98be0]/5 px-6 py-4">
           <p class="font-mono text-[0.6rem] text-[#a98be0] uppercase tracking-widest mb-1">L4 · Media</p>
-          <p class="font-display text-base text-[#a98be0]">🎨 ASSETS DIGITALES (CDN)</p>
+          <p class="font-display text-base text-[#a98be0] flex items-center gap-2"><Icon name="palette" size={16} /> ASSETS DIGITALES (CDN)</p>
           <p class="font-mono text-[0.6rem] text-dim mt-1">jpg · mp4 · glb · vrm · mp3 · R2 / AWS S3</p>
         </div>
       </div>
@@ -233,7 +234,7 @@ const ciclo = [
           <div class="rounded-2xl border border-border bg-card overflow-hidden">
             <div class="p-6 border-b border-border/50">
               <div class="flex flex-wrap items-center gap-3 mb-3">
-                <span class="text-2xl">{capa.icono}</span>
+                <span style={`color: ${capa.color}`}><Icon name={capa.icono} size={22} /></span>
                 <span class="font-mono text-[0.6rem] font-bold px-2 py-0.5 rounded" style={`color: ${capa.color}; background: ${capa.color}15; border: 1px solid ${capa.color}30`}>{capa.id}</span>
                 <h3 class="font-display text-xl" style={`color: ${capa.color}`}>{capa.nombre}</h3>
               </div>
@@ -246,15 +247,15 @@ const ciclo = [
             </div>
             <div class="grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border/50">
               <div class="p-5">
-                <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-2">🧠 Valor epistémico</p>
+                <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-2 flex items-center gap-1.5"><Icon name="brain" size={10} /> Valor epistémico</p>
                 <p class="text-xs text-muted-foreground leading-relaxed">{capa.epistemico}</p>
               </div>
               <div class="p-5">
-                <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-2">⚡ Valor pragmático</p>
+                <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-2 flex items-center gap-1.5"><Icon name="lightning" size={10} /> Valor pragmático</p>
                 <p class="text-xs text-muted-foreground leading-relaxed">{capa.pragmatico}</p>
               </div>
               <div class="p-5 bg-card/30">
-                <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-2">📍 Caso real — Nimrod</p>
+                <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-2 flex items-center gap-1.5"><Icon name="map-pin" size={10} /> Caso real — Nimrod</p>
                 <p class="text-xs text-muted-foreground leading-relaxed italic">{capa.caso}</p>
               </div>
             </div>
@@ -277,7 +278,7 @@ const ciclo = [
         {ciclo.map((fase, i) => (
           <div class="flex-1 rounded-xl border p-5 relative" style={`border-color: ${fase.color}30; background: ${fase.color}08`}>
             <div class="flex items-center gap-2 mb-3">
-              <span class="text-xl">{fase.icono}</span>
+              <span style={`color: ${fase.color}`}><Icon name={fase.icono} size={18} /></span>
               <span class="font-display text-lg" style={`color: ${fase.color}`}>{fase.fase}</span>
             </div>
             <p class="text-sm text-muted-foreground leading-relaxed">{fase.que}</p>
@@ -296,20 +297,20 @@ const ciclo = [
         {ciclo.map((fase) => (
           <div class="rounded-xl border border-border bg-card overflow-hidden">
             <div class="px-5 py-3 border-b border-border/50 flex items-center gap-2" style={`background: ${fase.color}08`}>
-              <span>{fase.icono}</span>
+              <span style={`color: ${fase.color}`}><Icon name={fase.icono} size={14} /></span>
               <span class="font-display text-base" style={`color: ${fase.color}`}>{fase.fase}</span>
             </div>
             <div class="grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border/50">
               <div class="p-5">
-                <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-2">🧠 Valor epistémico</p>
+                <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-2 flex items-center gap-1.5"><Icon name="brain" size={10} /> Valor epistémico</p>
                 <p class="text-xs text-muted-foreground leading-relaxed">{fase.epistemico}</p>
               </div>
               <div class="p-5">
-                <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-2">⚡ Valor pragmático</p>
+                <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-2 flex items-center gap-1.5"><Icon name="lightning" size={10} /> Valor pragmático</p>
                 <p class="text-xs text-muted-foreground leading-relaxed">{fase.pragmatico}</p>
               </div>
               <div class="p-5 bg-card/30">
-                <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-2">📍 Caso real</p>
+                <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-2 flex items-center gap-1.5"><Icon name="map-pin" size={10} /> Caso real</p>
                 <p class="text-xs text-muted-foreground leading-relaxed italic">{fase.ejemplo}</p>
               </div>
             </div>
@@ -395,7 +396,7 @@ const ciclo = [
   <!-- Footer -->
   <section class="py-10">
     <div class="mx-auto max-w-[800px] px-6 flex flex-wrap items-center justify-between gap-4">
-      <p class="font-mono text-[0.65rem] text-dim">Diagrama C · Nimrod 🗡️ + Alquimista-01 + Exégeta-01 · 2026-04-07</p>
+      <p class="font-mono text-[0.65rem] text-dim inline-flex items-center gap-1.5">Diagrama C · Nimrod <Icon name="sword" size={10} /> + Alquimista-01 + Exégeta-01 · 2026-04-07</p>
       <div class="flex gap-4">
         <a href="/archive" class="font-mono text-[0.65rem] text-accent hover:text-accent/80 transition-colors">Archive Summa →</a>
         <a href="/nwos" class="font-mono text-[0.65rem] text-dim hover:text-foreground transition-colors">NWOS overview →</a>

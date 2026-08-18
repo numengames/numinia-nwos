@@ -61,6 +61,15 @@ necesita; entran como propone §7.3 — con su concepto declarado:
 Si el Oráculo los rechaza, cada uso vuelve al glifo del subconjunto que él
 designe.
 
+**Actualización (2026-08-18, mismo día):** el Oráculo autorizó ampliar el
+subconjunto libremente desde phosphoricons.com para erradicar los emojis
+del viewer («busca lo que necesites para usarlos en los tableros o donde
+consideres»). La propuesta de 4 glifos queda subsumida: el vocabulario
+vigente del viewer es el contenido de `web/src/icons/` (Phosphor regular,
+MIT, autoalojado), cada glifo entrando por un uso concreto — la disciplina
+de §7.3 (ampliar es decisión, no descuido) se cumple por esta orden y por
+el guard del componente (build roto si el nombre no existe).
+
 ## Execution log
 
 - 2026-08-18 — 30 SVG autoalojados en `web/src/icons/` (los 26 canónicos
@@ -90,3 +99,19 @@ designe.
   una tabla — auditarlo primero evita importar catálogos enteros.
 - **Closing date:** 2026-08-18
 - **Executing agent:** claude-fable-5 (numinia-nwos)
+
+**Addendum (2026-08-18, tarde) — el barrido de emojis.** Orden del Oráculo
+ejecutada en tres lotes paralelos: ~140 emojis sustituidos en 15 páginas
+(tablero y detalle de misiones, portada, agente, archive, wardley, ventas,
+continuidad, simulaciones, idioma, reportes, openclaw-test) por glifos del
+subconjunto, dots canónicos de estado o texto plano; dentro de los SVG de
+diagrama, texto plano (los componentes no entran en svg). Glifos añadidos
+en esta pasada: check, robot, lightning, git-branch, clipboard-text,
+desktop, push-pin, game-controller, mask-happy, brain, prohibit, scroll,
+books, map-pin, calendar-blank, file-text, coins, bank, palette, confetti,
+crane-tower, circle, warning, eye, lock-key, arrows-clockwise, chart-line,
+target, flask, dna, sparkle, buildings, note-pencil, ruler, shield-check,
+crosshair, snowflake, hourglass, upload-simple. Quedan emojis solo en las
+5 páginas diario-*.astro, sentenciadas a retirarse por MIS-089-D4 — no se
+migra lo que va a morir. Además: pasada de rendimiento (niebla+rejilla del
+Velo fusionadas en una sola capa fija).

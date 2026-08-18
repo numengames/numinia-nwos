@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 import Layout from "@/layouts/Layout.astro";
+import Icon from "@/components/Icon.astro";
 import PageHero from "@/components/PageHero.astro";
 import SectionHeader from "@/components/SectionHeader.astro";
 import HighlightBox from "@/components/HighlightBox.astro";
@@ -92,7 +93,7 @@ const blockers = [
     urgencia: 10,
     desc: "Nadie puede comprar lo que no ha visto funcionar fuera de los fundadores. Mientras no exista un caso real, el ciclo de ventas comienza con una pregunta sin respuesta.",
     accion: "Protocolo de exposición ciega: 2 personas externas, 48h, sin contexto previo. Esta semana.",
-    icon: "🔴",
+    dot: "bg-red",
   },
   {
     id: "B2",
@@ -100,7 +101,7 @@ const blockers = [
     urgencia: 9,
     desc: "Sin saber quién firma el cheque, qué métrica justifica la compra y desde qué línea de presupuesto, no hay go-to-market. Solo esperanza.",
     accion: "Apostar por UN perfil: CEO de startup técnica 5–15p. Diseñar todo el mensaje para él.",
-    icon: "🔴",
+    dot: "bg-red",
   },
   {
     id: "B3",
@@ -108,7 +109,7 @@ const blockers = [
     urgencia: 9,
     desc: "Si una empresa dice 'lo quiero' mañana, no hay nada que mandar, nada que cobrar, nadie libre para implementarlo.",
     accion: "Definir el producto mínimo vendible: piloto de 8 semanas con precio fijo, entregables y criterio de éxito.",
-    icon: "🔴",
+    dot: "bg-red",
   },
   {
     id: "B4",
@@ -116,7 +117,7 @@ const blockers = [
     urgencia: 7,
     desc: "El vocabulario completo de NWOS en la primera reunión cierra puertas. La barrera de adopción ocurre antes de que el cliente haya sentido valor.",
     accion: "Crear el deck de ventas con 5 conceptos máximo. Numinia es capa 3, no capa 1.",
-    icon: "🟠",
+    dot: "bg-yellow",
   },
   {
     id: "B5",
@@ -124,7 +125,7 @@ const blockers = [
     urgencia: 7,
     desc: "Un CHRO o CEO no puede aprobar un gasto sin saber qué número mejora. 'Más significado' no es una métrica de negocio.",
     accion: "Definir 3 KPIs pre-piloto que el cliente acuerda medir. Retención, velocidad de decisión, NPS interno.",
-    icon: "🟠",
+    dot: "bg-yellow",
   },
 ];
 
@@ -159,11 +160,11 @@ const valueProps = [
 ];
 
 const colorMap: Record<string, string> = {
-  teal: "text-teal-400 border-teal-500/30 bg-teal-500/10",
-  blue: "text-blue-400 border-blue-500/30 bg-blue-500/10",
-  purple: "text-purple-400 border-purple-500/30 bg-purple-500/10",
-  orange: "text-orange-400 border-orange-500/30 bg-orange-500/10",
-  red: "text-red-400 border-red-500/30 bg-red-500/10",
+  teal: "text-accent border-teal/30 bg-teal/10",
+  blue: "text-blue border-blue/30 bg-blue/10",
+  purple: "text-purple border-purple/30 bg-purple/10",
+  orange: "text-yellow border-yellow/30 bg-yellow/10",
+  red: "text-red border-red/30 bg-red/10",
 };
 ---
 
@@ -197,7 +198,7 @@ const colorMap: Record<string, string> = {
       <div class="mt-8 space-y-4">
         {blockers.map((b) => (
           <div class="rounded-xl border border-border bg-card p-5 flex gap-4">
-            <div class="text-2xl shrink-0 pt-0.5">{b.icon}</div>
+            <div class="shrink-0 pt-1.5"><span class={"inline-block h-2.5 w-2.5 rounded-full " + b.dot} title={"urgencia " + b.urgencia + "/10"}></span></div>
             <div class="flex-1 space-y-2">
               <div class="flex items-center gap-3">
                 <span class="font-mono text-xs text-muted-foreground/50">{b.id}</span>
@@ -290,8 +291,8 @@ const colorMap: Record<string, string> = {
                 <div class="text-xs font-mono text-muted-foreground/60 uppercase tracking-wider mb-1">Tu mensaje</div>
                 <p class="text-sm text-foreground leading-relaxed">{vp.message}</p>
               </div>
-              <div class="rounded-lg bg-teal-500/10 border border-teal-500/20 px-4 py-2.5">
-                <span class="text-xs text-teal-400 font-mono uppercase tracking-wider">KPI prometido → </span>
+              <div class="rounded-lg bg-teal/10 border border-teal/20 px-4 py-2.5">
+                <span class="text-xs text-accent font-mono uppercase tracking-wider">KPI prometido → </span>
                 <span class="text-sm text-foreground">{vp.metric}</span>
               </div>
             </div>
@@ -410,8 +411,8 @@ const colorMap: Record<string, string> = {
                 <span class="text-sm font-medium text-foreground">{step.accion}</span>
               </div>
               <div class="flex flex-wrap gap-4 text-xs text-muted-foreground">
-                <span>📅 {step.plazo}</span>
-                <span>👤 {step.owner}</span>
+                <span class="inline-flex items-center gap-1.5"><Icon name="calendar-blank" size={11} /> {step.plazo}</span>
+                <span class="inline-flex items-center gap-1.5"><Icon name="user" size={11} /> {step.owner}</span>
               </div>
             </div>
           </div>
