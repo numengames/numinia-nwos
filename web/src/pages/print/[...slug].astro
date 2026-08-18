@@ -1,0 +1,257 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+// Print variant of every mirrored canon document (MIS-088). These pages
+// exist only as Chromium print targets: scripts/generate-pdfs.mjs turns
+// /print/<slug>/ into /pdf/<slug>.pdf and removes /print/ from dist.
+// Design decision (Oracle, 2026-08-18): light print variant of the dark
+// system — white paper, dark ink, teal on headings and rules, Geist for
+// text, Geist Mono for metadata. Slugs mirror the public routes so the
+// PDF URL is always /pdf/<public-path>.pdf.
+import "@fontsource-variable/geist";
+import "@fontsource-variable/geist-mono";
+import { getCollection, render } from "astro:content";
+
+interface Meta {
+  label: string;
+  docId?: string;
+  status?: string;
+  version?: string;
+  updated?: string;
+  license?: string;
+  title: string;
+  canonicalPath: string;
+}
+
+export async function getStaticPaths() {
+  const str = (v: unknown) => (typeof v === "string" ? v : undefined);
+  const fmtDate = (v: unknown) => {
+    if (!v) return undefined;
+    const d = v instanceof Date ? v : new Date(String(v));
+    return Number.isNaN(d.getTime()) ? String(v) : d.toISOString().slice(0, 10);
+  };
+  const paths: { params: { slug: string }; props: { entry: any; meta: Meta } }[] = [];
+  const push = (slug: string, entry: any, meta: Omit<Meta, "canonicalPath">) =>
+    paths.push({ params: { slug }, props: { entry, meta: { ...meta, canonicalPath: `/${slug}` } } });
+
+  for (const e of await getCollection("missions")) {
+    const f = e.data as Record<string, unknown>;
+    push(`missions/${String(f.id).toLowerCase()}`, e, {
+      label: "missions",
+      docId: str(f.id),
+      status: str(f.status),
+      version: str(f.version),
+      updated: fmtDate(f.updated) ?? fmtDate(f.created),
+      license: str(f.license),
+      title: str(f.title) ?? String(f.id),
+    });
+  }
+  for (const e of await getCollection("audits")) {
+    const f = e.data as Record<string, unknown>;
+    push(`audits/${e.id}`, e, {
+      label: "reports/audits",
+      docId: str(f.id),
+      status: str(f.status),
+      updated: fmtDate(f.created),
+      license: str(f.license),
+      title: str(f.title) ?? e.id,
+    });
+  }
+  for (const e of await getCollection("decisions")) {
+    const f = e.data as Record<string, unknown>;
+    push(`decisiones/${String(f.id).toLowerCase()}`, e, {
+      label: "decisions",
+      docId: str(f.id),
+      status: str(f.status),
+      updated: fmtDate(f.created),
+      license: str(f.license),
+      title: str(f.title) ?? String(f.id),
+    });
+  }
+  for (const e of await getCollection("blueprints")) {
+    const f = e.data as Record<string, unknown>;
+    push(`planos/${String(f.id).replace(/^BP-/i, "").toLowerCase()}`, e, {
+      label: "blueprints",
+      docId: str(f.id),
+      status: str(f.status),
+      updated: fmtDate(f.created),
+      license: str(f.license),
+      title: str(f.title) ?? String(f.id),
+    });
+  }
+  for (const e of await getCollection("corpus")) {
+    const f = e.data as Record<string, unknown>;
+    const rel = (e.filePath as string).replace(/\\/g, "/");
+    const m = rel.match(
+      /(?:^|\/)(agents|blueprints|canon|decisions|guilds|missions|operations|protocols|reports|standards)\/(.+)$/
+    );
+    const dir = m ? [m[1], ...m[2].split("/").slice(0, -1)].join("/") : "raíz";
+    push(`corpus/${e.id}`, e, {
+      label: dir,
+      docId: str(f.id),
+      status: str(f.status),
+      version: str(f.version),
+      updated: fmtDate(f.updated) ?? fmtDate(f.created),
+      license: str(f.license),
+      title: str(f.title) ?? rel.split("/").pop()!,
+    });
+  }
+  const LEGAL_SLUGS: Record<string, string> = {
+    "terms-and-conditions-numengames": "legal/terminos",
+    "politica-de-privacidad-numengames": "legal/privacidad",
+  };
+  for (const e of await getCollection("legal")) {
+    const f = e.data as Record<string, unknown>;
+    const slug = LEGAL_SLUGS[e.id];
+    if (!slug) continue;
+    push(slug, e, {
+      label: "operations/legal",
+      status: str(f.status),
+      version: str(f.version),
+      updated: fmtDate(f.updated),
+      license: str(f.license),
+      title: str(f.title) ?? e.id,
+    });
+  }
+  return paths;
+}
+
+const { entry, meta } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>{meta.title}</title>
+  </head>
+  <body>
+    <header class="doc-head">
+      <div class="meta-row">
+        <span class="chip accent">{meta.label}</span>
+        {meta.docId && <span class="chip">{meta.docId}</span>}
+        {meta.status && <span class="chip">{meta.status}</span>}
+        {meta.version && <span class="chip">v{meta.version}</span>}
+        {meta.updated && <span class="chip">{meta.updated}</span>}
+        {meta.license && <span class="chip">{meta.license}</span>}
+      </div>
+      <h1>{meta.title}</h1>
+    </header>
+    <main class="doc-body">
+      <Content />
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  /* MIS-088 print variant: paper adaptation of web/DESIGN.md — white
+     ground, dark ink, teal reserved for headings, rules and labels. */
+  :root {
+    --ink: #16201f;
+    --ink-soft: #3d4a48;
+    --ink-dim: #6b7876;
+    --teal: #0f766e;
+    --teal-bright: #2dd4bf;
+    --paper-line: #d8dedd;
+    --paper-soft: #f2f5f4;
+  }
+  @page { size: A4; margin: 18mm 16mm 20mm; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    color: var(--ink);
+    font-family: "Geist Variable", "Geist", system-ui, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.65;
+  }
+  .doc-head { border-bottom: 2px solid var(--teal-bright); padding-bottom: 12pt; margin-bottom: 16pt; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 6pt; margin-bottom: 8pt; }
+  .chip {
+    font-family: "Geist Mono Variable", "Geist Mono", monospace;
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-dim);
+    border: 0.75pt solid var(--paper-line);
+    border-radius: 999px;
+    padding: 1.5pt 7pt;
+  }
+  .chip.accent { color: var(--teal); border-color: var(--teal); }
+  .doc-head h1 {
+    font-size: 20pt;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0;
+    color: var(--ink);
+  }
+  .doc-body > h1:first-child { display: none; }
+  .doc-body h2 {
+    font-family: "Geist Mono Variable", "Geist Mono", monospace;
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--teal);
+    margin: 18pt 0 6pt;
+    break-after: avoid;
+  }
+  .doc-body h3 { font-size: 11.5pt; margin: 12pt 0 4pt; break-after: avoid; }
+  .doc-body h4 { font-size: 10.5pt; margin: 10pt 0 4pt; break-after: avoid; }
+  .doc-body p { margin: 5pt 0; color: var(--ink-soft); }
+  .doc-body ul, .doc-body ol { margin: 5pt 0 8pt; padding-left: 16pt; color: var(--ink-soft); }
+  .doc-body li { margin: 2.5pt 0; }
+  .doc-body hr { border: 0; border-top: 0.75pt solid var(--paper-line); margin: 12pt 0; }
+  .doc-body blockquote {
+    border-left: 2pt solid var(--teal-bright);
+    padding-left: 10pt;
+    margin: 8pt 0;
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+  .doc-body code {
+    font-family: "Geist Mono Variable", "Geist Mono", monospace;
+    font-size: 0.85em;
+    background: var(--paper-soft);
+    border-radius: 3pt;
+    padding: 0.5pt 3pt;
+  }
+  .doc-body pre {
+    background: var(--paper-soft);
+    border: 0.75pt solid var(--paper-line);
+    border-radius: 4pt;
+    padding: 8pt;
+    overflow: hidden;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 8pt 0;
+  }
+  .doc-body pre code { background: none; padding: 0; }
+  .doc-body table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 8.5pt;
+    margin: 8pt 0;
+    break-inside: auto;
+  }
+  .doc-body th, .doc-body td {
+    border: 0.75pt solid var(--paper-line);
+    padding: 3pt 6pt;
+    text-align: left;
+    vertical-align: top;
+    color: var(--ink-soft);
+  }
+  .doc-body th {
+    font-family: "Geist Mono Variable", "Geist Mono", monospace;
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    background: var(--paper-soft);
+  }
+  .doc-body a { color: var(--teal); text-decoration: none; }
+  .doc-body strong { color: var(--ink); }
+  .doc-body img { max-width: 100%; }
+  .doc-body input[type="checkbox"] { accent-color: var(--teal); margin-right: 4pt; }
+</style>

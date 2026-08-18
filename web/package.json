@@ -10,6 +10,7 @@
     "dev": "astro dev",
     "check:license": "node ../scripts/check-license-frontmatter.mjs",
     "build": "node ../scripts/check-license-frontmatter.mjs && astro build",
+    "build:pdf": "node scripts/generate-pdfs.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3"
+    "@types/react-dom": "^19.2.3",
+    "playwright-core": "^1.62.1"
   }
 }

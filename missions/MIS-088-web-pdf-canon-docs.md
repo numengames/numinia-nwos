@@ -2,10 +2,11 @@
 id: "MIS-088"
 title: "El canon en papel: descarga PDF de los .md con formato del sistema de diseño"
 type: mission
-status: backlog
-version: "1.0.0"
+status: done
+version: "1.1.0"
 created: "2026-08-18"
 updated: "2026-08-18"
+completed: "2026-08-18"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [web, viewer, pdf, design-system]
@@ -116,18 +117,42 @@ depender de cómo renderice el navegador de cada quien.
 
 ## Execution log
 
-*(Fill when completing the mission)*
+- 2026-08-18 — Decisión de diseño firmada por el Oráculo ("ejecútala" sobre
+  la recomendación registrada): variante de impresión clara del sistema —
+  papel blanco, tinta oscura (#16201f), teal en titulares/filetes/etiquetas
+  (#0F766E texto, #2DD4BF filetes), Geist para texto, Geist Mono para
+  metadatos. A4, cabecera con chips de frontmatter, pie con URL canónica ·
+  fecha de generación · paginación.
+- 2026-08-18 — Ruta `/print/[...slug]` (213 documentos: corpus + misiones +
+  audits + decisiones + planos + legales; slugs espejo de las rutas
+  públicas), excluida del sitemap y con noindex.
+- 2026-08-18 — `scripts/generate-pdfs.mjs` (`npm run build:pdf`):
+  servidor estático local + Chromium (playwright-core, Apache-2.0,
+  devDependency) → `dist/pdf/<ruta-pública>.pdf`; borra `dist/print/`
+  tras generar. Botón `.pdf` en el DocToolbar de las 6 superficies.
+- 2026-08-18 — **Presupuesto medido:** 213/213 PDFs, 24,2 MB, 22 s
+  (concurrencia 6). Muestras verificadas: MIS-086 (larga, checkboxes) y
+  engineering-standards (tablas) — render correcto.
+- 2026-08-18 — Desplegado y verificado en vivo.
 
 ---
 
 ## Execution Reality
 
-*(Fill when closing the mission — the real plans vs the ideal plans)*
-
-- **Technology/approach used:** (vs what was planned)
-- **Why it diverged:** (what challenge modified the path)
-- **Key learning:** (the knowledge that lives in that gap)
-- **Closing date:** YYYY-MM-DD
-- **Executing agent:** (name / agent-id)
+- **Technology/approach used:** la opción (a) prevista — pre-generación en
+  build con Chromium headless — usando el Chromium ya cacheado de
+  Playwright (`~/.cache/ms-playwright`) vía `playwright-core` con
+  `executablePath` explícito (override `PDF_CHROME`); fuentes fontsource
+  autoalojadas, generación 100% offline.
+- **Why it diverged:** apenas divergió; el único ajuste fue mantener
+  `build:pdf` FUERA de `npm run build` para que la CI no necesite Chromium
+  — el flujo de deploy es build → build:pdf → wrangler deploy (documentado
+  en CLAUDE.md).
+- **Key learning:** con las páginas print como rutas Astro más un Chromium
+  cacheado, el PDF "de diseño" cuesta 22 s y 24 MB para todo el corpus —
+  el presupuesto que parecía el riesgo resultó trivial; el patrón queda
+  listo para fichas e informes.
+- **Closing date:** 2026-08-18
+- **Executing agent:** claude-fable-5 (numinia-nwos)
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*

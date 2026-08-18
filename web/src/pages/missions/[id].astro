@@ -99,7 +99,7 @@ const completed = f.completed ? String(f.completed).slice(0, 10) : null;
       </div>
 
       <!-- Full mission document -->
-      <DocToolbar mdUrl={mdUrl} filename={mdFilename} />
+      <DocToolbar mdUrl={mdUrl} filename={mdFilename} pdfUrl={"/pdf" + mdUrl.replace(/\.md$/, ".pdf")} />
       <article class="mission-md rounded-xl border border-border bg-card p-6 sm:p-8">
         <Content />
       </article>

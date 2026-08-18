@@ -20,7 +20,10 @@ export default defineConfig({
 		"/misiones": "/missions",
 		"/misiones/[id]": "/missions/[id]",
 	},
-	integrations: [react(), tailwind(), sitemap()],
+	// /print/* pages are PDF-generation intermediates (MIS-088): rendered at
+	// build, printed to /pdf/*.pdf by scripts/generate-pdfs.mjs, then removed
+	// from dist — they must never reach the sitemap.
+	integrations: [react(), tailwind(), sitemap({ filter: (page) => !page.includes("/print/") })],
 	vite: {
 		resolve: {
 			alias: {
