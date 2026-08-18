@@ -301,10 +301,25 @@ editions · v0.43.0 sheet rules; every push deployed itself on green CI).
   session unveils gated chapters (AuthProvider = the platform's existing
   session system).
 
-**Remaining (Oracle acts):** F final art · sign the Khepri changelog row
-(draft: numinia-web/docs/design/khepri-changelog-book-plane.md, proposed
-4.3.0) · rule on the 14 findings · supply Alicia's surname (editions
-regenerate from the canonical MD).
+**Remaining (Oracle acts):** F final art · ~~sign the Khepri changelog row~~
+**resuelto 2026-08-18: el plano libro es canon** — el Sistema de Diseño
+v5.0.0 lo absorbe entero (papel vivo §13.12, grano §6.5, tercera voz §4.6,
+componentes §9.9, iconos §7.5, velo de lectura §2.7.2, animaciones 12–14) y
+el borrador 4.3.0 queda superado; lo que sigue pendiente de firma es solo la
+consagración explícita de §4.6 y del alcance del renombrado (§16.15) · rule
+on the 14 findings · supply Alicia's surname (editions regenerate from the
+canonical MD).
+
+**Huecos detectados al incorporar la v5.0.0 (2026-08-18)** — producción tiene
+cosas que el documento no recoge, y viceversa: (1) las tintas terciarias AA
+del libro (`#75695E` Diurno / `#97897D` Nocturno, el hallazgo WCAG de la
+fase B) no están en §19.3 — un agente que reconstruya el libro desde el
+documento reintroduce el 3.7:1; (2) los engranajes 0–5 de la ficha no
+aparecen ni en §7.5 ni en §9.9; (3) el Narrador existe como icono, sin
+especificación de la pieza; (4) no hay plano de la variante impresa ni de
+las ediciones PDF/EPUB; (5) la animación 12 «paso de página» que el
+documento da por verificable contra el LAP **no existe en el código** —
+producción solo tiene el trazo (13).
 
 **Addendum 2026-08-18 (night watch):** v0.44–0.45 shipped. El Narrador
 (Web Speech, block highlight + pace; also reads the glossary), glossary

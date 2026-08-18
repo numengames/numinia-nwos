@@ -28,7 +28,7 @@ effort: "L"
 >
 > **Epistemic value.** Resolves what the platform looks like: Khepri canonizes the palette Numinia already wore and adds everything it lacked (modes, dual type, motion catalog, iconography, platform plan §13.11).
 > **Pragmatic value.** Every surface rebuilt or reskinned ships wearing Khepri; nothing new is built in the provisional style again.
-> **In the system.** Observes: khepri/2026_08_15-Numen_Design_System-v4.2.0.md (the law of design, §0.3 precedence). Regulates: packages/ui, every page's markup and styles. Coupled to: CLAUDE.md (Sistema de diseño block), MISSION-004 surfaces, MISSION-002 login UX.
+> **In the system.** Observes: design-system/2026_08_18-Sistema_de_Diseno-v5_0_0.md (the law of design, §0.3 precedence). Regulates: packages/ui, every page's markup and styles. Coupled to: CLAUDE.md (Sistema de diseño block), MISSION-004 surfaces, MISSION-002 login UX.
 >
 > _Part of the Law. Index: [docs/LEY.md](../docs/LEY.md)_
 
@@ -36,7 +36,13 @@ effort: "L"
 > **Priority:** 🔴 Critical — THE priority by Oracle order (2026-08-15)
 > **Effort:** L · **Status:** 🔵 In progress — kit installed & verified 2026-08-15
 > **Track:** `store` (all current surfaces live there)
-> **Governing document:** `khepri/2026_08_15-Numen_Design_System-v4.2.0.md` (Khepri v4.2.0, CC0; marks excluded §15)
+> **Governing document:** `design-system/2026_08_18-Sistema_de_Diseno-v5_0_0.md` (Sistema de
+> Diseño v5.0.0, CC0; marks excluded §15). **Actualizado 2026-08-18:** la v5.0.0 retira el
+> nombre clave «Khepri» (§0.4) y el directorio pasa a `design-system/`; el kit es
+> `kit/sistema.{css,js,tokens.json}`. Ninguna regla cambia con el renombrado, pero esta
+> misión gana un criterio: **declarar registro antes que medio (§2.8)** — numinia.com es
+> **Umbral**, y el Velo solo entra enmarcado con frontera visible. El catálogo de
+> movimiento ya no son nueve animaciones sino **catorce** (§10.1).
 
 ## 📖 Story Statement
 
