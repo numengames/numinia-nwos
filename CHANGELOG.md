@@ -14,6 +14,10 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-08-21 (P-011, security audit protocol)
+- protocols/P-011-security-audit.md v0.1.0 (draft) — how a security audit is scoped, executed, classified and closed: identity/authorization axes, phases A/B1/B2/C/D with a hard gate before any irreversible act, hot-finding incident path, output tiering (public/internal/hot), stable `FND-YYYY-NN` finding IDs, and three separate scores (doctrine, execution, coverage). Runs at least annually plus event triggers. Touches SEC-04, SEC-06, LEG-01
+- README protocol table completed: P-010 was missing from it, P-011 added
+
 ### Changed — 2026-08-17 (MIS-066, mission system unification)
 - missions/ flattened: 81 files in 4 status directories → 66 unique missions in one folder; `status:` frontmatter is the only state surface
 - All missions in English; 15 duplicate IDs merged; MIS-00058 renumbered to MIS-067 (collision with MIS-058); padded IDs unpadded

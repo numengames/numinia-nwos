@@ -50,7 +50,7 @@ numinia-digital-agents/
 │   ├── adonaz/
 │   └── ...
 ├── missions/            # Mission system (P-003) — flat; status in frontmatter
-├── protocols/           # Operational protocols (P-001 to P-009)
+├── protocols/           # Operational protocols (P-001 to P-011)
 ├── operations/          # Security policy, credential map
 ├── blueprints/          # System design documents
 ├── decisions/           # Architectural Decision Records (ADR)
@@ -72,6 +72,8 @@ numinia-digital-agents/
 | [P-007](protocols/P-007-context-load-v1.md) | Context load self-monitoring |
 | [P-008](protocols/P-008-approval-brief-v1.md) | Approval request format |
 | [P-009](protocols/P-009-mission-briefing.md) | Mission briefing format |
+| [P-010](protocols/P-010-how-to-archive.md) | Archive taxonomy, naming and document lifecycle (draft) |
+| [P-011](protocols/P-011-security-audit.md) | Security audit — identity, authorization and secrets (draft, annual) |
 
 ---
 
