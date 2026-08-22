@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **First instruction (AGT-01): audit the current branch state before assuming anything.** Never trust that the repo matches this file, a README, or a mission brief — read what is actually there first.
 
-## Engineering standards (adopted by reference)
+## Engineering standards (ours, proven here)
 
-This repo adopts `standards/engineering-standards.md` by reference (its §6). Agents MUST follow its §7 application protocol: classify every task as cosmetic or irreversible; when in doubt it is irreversible and needs Oracle sign-off. Never change LICENSE/SPDX/REUSE structure, repo visibility, or secrets autonomously; never weaken a check to make a task pass. Reference practice IDs (e.g. `SEC-07`, `ARC-03`) in commits that touch them. The canonical copy of that document lives upstream (`numen-games-nwos-orgs/nwos-workspace-template`); do not edit the local copy — changes go upstream via ADR + PR. Scorecard checks in scope here: all except those requiring org-level settings (tracked in MIS-070).
+`standards/engineering-standards.md` is **this repository's own operative standard** (its §6), not a copy of anyone else's. Agents MUST follow its §7 application protocol: classify every task as cosmetic or irreversible; when in doubt it is irreversible and needs Oracle sign-off. Never change LICENSE/SPDX/REUSE structure, repo visibility, or secrets autonomously; never weaken a check to make a task pass. Reference practice IDs (e.g. `SEC-07`, `ARC-03`) in commits that touch them. Numinia is NWOS's first client: practices are proven here and only then promoted to `numen-games-nwos-orgs/nwos-workspace-template` as a starting proposal that other organizations may adopt and then govern themselves (G-12). There is no upstream — changes to that document are a **local ADR + PR** in `decisions/`; never route them elsewhere. The mould's copy may diverge: that is adoption, not drift, and it is not to be synced (ADR-003). Scorecard checks in scope here: all except those requiring org-level settings (tracked in MIS-070).
 
 ## Repository layout
 

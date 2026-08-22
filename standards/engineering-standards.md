@@ -8,9 +8,10 @@ SPDX-License-Identifier: CC-BY-4.0
 **Version:** 0.1.0 (draft — pending Oracle review)
 **Status:** Proposal
 **Date:** 2026-08-17
-**Canonical location:** `numen-games-nwos-orgs/nwos-workspace-template` (the mould, upstream). Single source of truth for this document.
-**Downstream:** `numengames/numinia-nwos` is a fork of the mould and receives this document through the fork relationship. The upstream sync mechanism is an open Oracle decision — not defined here.
-**Change mechanism:** ADR + Pull Request against the canonical copy (upstream). See §5.
+**Origin:** `numengames/numinia-nwos`. Numinia is NWOS's first client: practices are proven here, in production, on real work — before they are proposed to anyone else.
+**This copy:** the operative standard of this repository. Edited here, by ADR + PR in `decisions/`. It is not downstream of anything.
+**Promotion:** what survives here is promoted to `numen-games-nwos-orgs/nwos-workspace-template` as a *starting proposal*. Whoever adopts it owns it — divergence there is adoption, not drift (G-12).
+**Change mechanism:** ADR + Pull Request against this file. See §5.
 
 ---
 
@@ -204,7 +205,7 @@ This document is a system with sensors, not a PDF that ages.
 
 ## 6. Adoption
 
-- **NWOS repos (`numen-games-nwos-orgs`):** enforced via the mould. Generated workspaces inherit Layer 3 checks at birth.
+- **NWOS repos (`numen-games-nwos-orgs`):** *offered* via the mould. Generated workspaces inherit Layer 3 checks at birth as a starting point, and may amend or drop them once born (G-12). Nothing here is enforced on a repository we do not own.
 - **Numinia repos (`numengames`):** adopt by reference — `CLAUDE.md` links to this document; the shared CI workflow and presence checks are added per repo. *(Scope pending Oracle confirmation.)*
 - **Personal repos (`PabloFMM`):** SHOULD, not MUST.
 
@@ -218,12 +219,18 @@ This document is meant to be **executed**, not just read. Any coding agent (Clau
 
 ### 7.1 Provenance — know which copy you are reading
 
-The canonical copy lives upstream in `numen-games-nwos-orgs/nwos-workspace-template`. `numengames/numinia-nwos` and any workspace generated from the mould are **downstream forks**: they receive this document through the fork relationship, and how upstream changes are pulled in is an open Oracle decision — do not invent a sync mechanism.
+Two repositories carry a copy of this document. **They are not the same document.**
+
+- **`numengames/numinia-nwos`** — the **operative standard**. Numinia is NWOS's first client and its proving ground. This copy binds this repository and the repositories that consume it. It is edited here.
+- **`numen-games-nwos-orgs/nwos-workspace-template`**, and every workspace born from it — a **starting proposal**. It binds nobody. Whoever adopts it owns it and governs it themselves (G-12: a derived NWOS repo is offered versions, never given law).
+
+Neither copy is downstream of the other. Identical bytes today are a coincidence of youth, not a dependency.
 
 Agent rules:
-- If you are **downstream** and asked to change this document: the change belongs upstream via ADR + PR. Refuse the local edit and offer to draft the upstream ADR instead. A local edit creates divergence that every future upstream sync will pay for.
-- If you are **upstream** (the mould) and the document changes: bump the version per §5.1 and note in the PR description that downstream forks will need to sync.
-- If a downstream copy's version lags upstream, flag it in your report (§7.4). Do not attempt the sync yourself unless the mission explicitly asks for it.
+- Read the header of the copy in front of you before concluding anything about who governs it. **Do not infer lineage from similarity**, and do not read a narrative statement elsewhere in the canon as an operative one.
+- In `numinia-nwos`: a change to this document is a local ADR + PR against this file. Do not refuse the edit and do not route it upstream — there is no upstream.
+- In an adopted workspace: the change is yours. Nobody upstream approves it, and nobody pulls it back.
+- Version differences between the two copies are **expected**. Do not report them as drift, and do not "sync" them.
 
 ### 7.2 Execution order for any task
 

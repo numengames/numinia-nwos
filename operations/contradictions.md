@@ -3,9 +3,9 @@ id: "ops-contradictions"
 title: "Contradicciones pendientes — registro"
 type: documentation
 status: active
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-17T00:00:00Z"
-updated: "2026-08-18T00:00:00Z"
+updated: "2026-08-20T00:00:00Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [operations, contradictions, backlog, truth]
@@ -46,19 +46,6 @@ entrada pasa a la sección "Resueltas" con la decisión y su fecha.
   12 componentes.
 - **Estado actual:** ambas versiones conviven en `WARDLEY-MAP.md`
   v0.2.0, las de la página marcadas "(según /wardley)".
-
-### CON-003 — Procedencia de engineering-standards.md
-
-- **Detectada:** 2026-08-17 (adopción del estándar)
-- **Fuente A:** `standards/engineering-standards.md` §Downstream y
-  §7.1 — afirma que `numengames/numinia-nwos` "is a fork of the mould"
-  (`numen-games-nwos-orgs/nwos-workspace-template`) y recibe el
-  documento por la relación de fork.
-- **Fuente B:** canon operativo del ecosistema — numinia-nwos ES la
-  fuente de verdad; los repos de `numen-games-nwos-orgs` no beben de
-  él, y numinia-nwos no es fork de nwos-workspace-template.
-- **Nota:** la corrección, si procede, va upstream vía ADR + PR
-  (§7.1); la copia local no se edita.
 
 ### CON-004 — Legales publicados con flags de revisión abiertos
 
@@ -121,8 +108,36 @@ entrada pasa a la sección "Resueltas" con la decisión y su fecha.
   resolvía este patrón para el Sistema de Diseño y no se había aplicado
   a los estándares mismos.
 - **Qué falta:** versionar el NWOS original y definir el modelo de
-  adopción soberana (MIS-096); la corrección de §7.1 va upstream vía ADR.
+  adopción soberana (MIS-096). La parte de §7.1 quedó resuelta en
+  **ADR-003** (2026-08-20): no va upstream porque no hay upstream — la
+  corrección es local y al molde se le **ofrece** (MIS-108).
 
 ## Resueltas
 
-*(Ninguna todavía.)*
+### CON-003 — Procedencia de engineering-standards.md
+
+- **Detectada:** 2026-08-17 (adopción del estándar)
+- **Fuente A:** `standards/engineering-standards.md` §Downstream y
+  §7.1 — afirma que `numengames/numinia-nwos` "is a fork of the mould"
+  (`numen-games-nwos-orgs/nwos-workspace-template`) y recibe el
+  documento por la relación de fork.
+- **Fuente B:** canon operativo del ecosistema — numinia-nwos ES la
+  fuente de verdad; los repos de `numen-games-nwos-orgs` no beben de
+  él, y numinia-nwos no es fork de nwos-workspace-template.
+- **Nota:** la corrección, si procede, va upstream vía ADR + PR
+  (§7.1); la copia local no se edita.
+- **Resuelta:** 2026-08-20 por **ADR-003**.
+- **Decisión:** no era una falsedad, era una **confusión de registro**
+  entre dos artefactos distintos. `engineering-standards.md` **se origina
+  aquí**: Numinia es el primer cliente de NWOS y su banco de pruebas. La
+  copia del molde es una **propuesta de partida** que no obliga a nadie y
+  que pasa a ser gobernada por quien la adopte (G-12). No son el mismo
+  documento; los bytes idénticos eran coincidencia de juventud, no
+  dependencia. La divergencia es adopción, no deriva, y no se sincroniza.
+- **Evidencia de linaje:** raíces git distintas — numinia-nwos `9f51ad1`
+  (2026-04-06), nwos-workspace-template `8f2037d` (2026-04-07, «Add files
+  via upload»). Sin historia compartida.
+- **Coste real antes de resolverse:** el §7.1 no solo no evitó el error,
+  lo **ordenó**: un agente leyó «refuse the local edit» y propuso enviar
+  la corrección al repo de otra organización.
+
