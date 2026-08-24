@@ -1,109 +1,150 @@
 ---
 id: "readme-main"
-title: "numinia-digital-agents"
+uid:
+title: "numinia-nwos"
 type: documentation
-version: "1.0.0"
-created: "2026-04-07T00:00:00Z"
-updated: "2026-04-07T22:30:00Z"
-author: "nimrod"
+status: active
+version: "2.0.0"
+created: "2026-04-07T22:30:00Z"
+updated: "2026-08-24T21:40:00Z"
+author: "ursa"
+owner: "oracle"
 license: "CC-BY-4.0"
 ---
+# numinia-nwos
 
-# numinia-digital-agents
+> The reference instance of the Narrative Work OS — the system that was used
+> to build itself.
 
-> The canonical archive of the Numen Games Digital Agent Operations system (NWOS).
+This is not documentation *about* a system. It is the system: the archive an
+organisation of humans and digital agents actually runs on. Missions are
+executed from here, decisions are recorded here, and the agents read these
+files to know who they are.
 
-This repository is the **single source of truth** for all digital agents, missions, protocols, and operational decisions of [Numen Games](https://numengames.com).
-
----
-
-## What is the NWOS?
-
-The **Narrative Work OS** (NWOS) is the operational system of Numen Games — a framework that turns work into a meaningful narrative. Digital agents are first-class participants: they hold roles, execute missions, follow protocols, and accumulate institutional memory.
-
-```
-Numen Games (OS) → Functional Model → Numinia (Narrative)
-```
+If that sounds like a claim, check it against [`debt/`](debt/) — the register
+of everything this archive knows it is missing. It is the honest part.
 
 ---
 
-## Active Agents
+## Start here
 
-| Agent | Guild | Branch | Role | Status |
-|-------|-------|--------|------|--------|
-| [Nimrod](agents/nimrod/) | Sentinels | Archangel | Guardian of the Gates | ✅ Active |
-| [Adonaz](agents/adonaz/) | Exegetes | Chronicler | General Archivist | ✅ Active |
-| [Ursa](agents/ursa/) | Alchemists | Engineer | Machine Whisperer | 📐 Designed |
-| [Senet](agents/senet/) | Exegetes | Chronicler | Game Master | 📐 Designed |
-| Procurador-01 | Procurators | Syndic | Business Lead | 📐 Designed |
-| Procyon | — | — | World Model / Coordinator | 📅 2028 |
+**Agents** open with [`P-001`](protocols/P-001-agent-briefing.md), then read
+[`CLAUDE.md`](CLAUDE.md). One path, no menu.
+
+**Humans** read [`S-001`](standards/S-001-glossary.md) — what each folder holds
+and what every field means — then whichever series they came for.
 
 ---
 
-## Repository Structure
+## Where things live
 
-```
-numinia-digital-agents/
-├── agents/              # Agent files (SOUL, OPERATOR, STATUS, MEMORY)
-│   ├── INDEX.md         # Agent registry
-│   ├── nimrod/
-│   ├── adonaz/
-│   └── ...
-├── missions/            # Mission system (P-003) — flat; status in frontmatter
-├── protocols/           # Operational protocols (P-001 to P-011)
-├── operations/          # Security policy, credential map
-├── blueprints/          # System design documents
-├── decisions/           # Architectural Decision Records (ADR)
-└── canon/               # Seminal philosophical documents
-```
+Each folder answers one question. [`S-001`](standards/S-001-glossary.md) is the
+full definition; this is only the map.
 
----
+| Series | Answers |
+|---|---|
+| [`canon/`](canon/) | What the system **is** — foundational documents |
+| [`standards/`](standards/) | What an artifact must **comply with** |
+| [`protocols/`](protocols/) | What an actor **executes**, step by step |
+| [`agents/`](agents/) | **Who** acts — one folder per digital agent |
+| [`guilds/`](guilds/) | How actors **group** |
+| [`missions/`](missions/) | The **work**: promised, done, and with what evidence |
+| [`decisions/`](decisions/) | **Why** something was chosen |
+| [`blueprints/`](blueprints/) | What **could** be — designs not yet executed |
+| [`reports/`](reports/) | What was **observed**, on a date, by someone |
+| [`operations/`](operations/) | What **sustains** the business — legal, security |
+| [`debt/`](debt/) | What we know is **missing** |
+| [`web/`](web/) | **This folder serves [numinia.org](https://numinia.org)** |
 
-## Protocols
-
-| Protocol | Purpose |
-|----------|---------|
-| [P-001](protocols/P-001-agent-briefing.md) | Session startup — mandatory for every agent |
-| [P-002](protocols/P-002-onboarding-agente-v1.md) | New agent onboarding |
-| [P-003](protocols/P-003-ciclo-mision-v1.md) | Mission lifecycle (create → execute → close) |
-| [P-004](protocols/P-004-inter-agent-v1.md) | Inter-agent communication |
-| [P-005](protocols/P-005-escalation-v1.md) | Escalation to Oracle |
-| [P-006](protocols/P-006-session-close-v1.md) | Session close — mandatory |
-| [P-007](protocols/P-007-context-load-v1.md) | Context load self-monitoring |
-| [P-008](protocols/P-008-approval-brief-v1.md) | Approval request format |
-| [P-009](protocols/P-009-mission-briefing.md) | Mission briefing format |
-| [P-010](protocols/P-010-how-to-archive.md) | Archive taxonomy, naming and document lifecycle (draft) |
-| [P-011](protocols/P-011-security-audit.md) | Security audit — identity, authorization and secrets (draft, annual) |
+That last row is the one people miss. The public site is built from this
+repository on every deploy — the mission board, the decision log and the corpus
+reader all read these files directly. There is no separate content system.
 
 ---
 
-## Mission System
+## Its place among the repositories
 
-Missions follow **P-003 v3.0.0** (MIS-066):
+| Repository | Relation |
+|---|---|
+| `nwos-workspace-template` | The upstream mould this instance was cast from |
+| **`numinia-nwos`** | **This one — the reference instance** |
+| `numinia-web` · `numengames-web` | Artifact repos: products built by the work recorded here |
+| `numinia-ops` | Operational data, private by design |
 
-- **One flat folder:** `missions/MIS-NNN-english-slug.md` — the `status:`
-  frontmatter field is the only state surface
-- **IDs:** `MIS-NNN` (3 digits, sequential) · sub-missions `MIS-NNN.N`
-- **States:** `draft` → `backlog` → `in-progress` → `in-review` → `done`
-  (also `frozen`, `cancelled`)
-- **Types:** `biological` 🧬 · `digital` 🤖 · `hybrid` 🔀
-- **Effort:** XS · S · M · L · XL
+**What is public here is structural and methodological**: the archive's shape,
+its vocabulary, its decisions and its procedures. **What is not public is
+operational**: credentials, client data, contracts — anything with a real
+person or a real invoice on the other side of it.
 
-Live mission board: [numinia.org/missions](https://numinia.org/missions) — built from `missions/` on every deploy.
-
----
-
-## Language
-
-This repository is written in **English** (per [DEC-006](decisions/DEC-006-english-as-repo-language.md)). Agent sessions with Pablo may be conducted in Spanish.
+A reader who does not know that split concludes the repository is incomplete.
+It is not incomplete — it is scoped.
 
 ---
 
-## Guiding principle
+## The mission system
 
-> *"I do not let through what must not pass. I do not hold back what must flow."*
-> — Nimrod, Guardian of the Gates
+Missions live in one flat folder. **State is a frontmatter field, never a
+path** — `missions/MIS-NNN-english-slug.md`, and `status:` is the only surface
+that says where a mission stands. Moving files between folders to signal state
+was tried and deliberately undone.
+
+The live board is [numinia.org/missions](https://numinia.org/missions), built
+from `missions/` on every deploy. States and lifecycle are defined in
+[`S-001`](standards/S-001-glossary.md) §7 and
+[`P-003`](protocols/P-003-ciclo-mision-v1.md).
 
 ---
 
-*Numen Games — Narrative Work OS · licensed per path — see [LICENSE](LICENSE)*
+## Agents
+
+Every agent is a folder under [`agents/`](agents/) holding `SOUL.md` (identity),
+`OPERATOR.md` (rules), `STATUS.md` (state) and `MEMORY.md`; the roster is
+[`agents/INDEX.md`](agents/INDEX.md).
+
+Digital agents here are not tooling. They hold roles, belong to guilds, execute
+missions and accumulate memory across sessions — which is why their identity
+documents are archived under the same rules as everything else.
+
+---
+
+## Licensing
+
+Regimes differ by folder, and the difference is deliberate: code, prose and lore
+are not offered on the same terms. Every file declares its own SPDX identifier,
+resolved through [`REUSE.toml`](REUSE.toml) following REUSE 3.3.
+
+See [`LICENSE`](LICENSE) and [`C-005`](canon/C-005-licensing.md). Do not infer a
+licence from a neighbouring file.
+
+---
+
+## What is verified, and what is not
+
+One rule in this repository is enforced by a machine: every document's declared
+licence must match `REUSE.toml`, checked by
+[`scripts/check-license-frontmatter.mjs`](scripts/check-license-frontmatter.mjs)
+on every push through [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
+The site build runs in the same pipeline, so a structural change that breaks
+[numinia.org](https://numinia.org) fails before it merges.
+
+**Everything else is convention, held by people and agents reading the rules.**
+Naming, vocabularies, identifiers, the states a mission may hold — none of it
+has a guard yet. [`debt/D-001`](debt/D-001-no-ci-guards.md) tracks that gap and
+[`debt/D-011`](debt/D-011-thresholds-unenforced.md) tracks the sharper version:
+the archive describes four levels of change control, and git enforces one.
+
+Stating this is not modesty. An archive that claims more verification than it
+performs is the failure mode this repository exists to avoid.
+
+---
+
+## Contributing
+
+Read [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`GOVERNANCE.md`](GOVERNANCE.md).
+Work enters through pull requests; the Oracle signs what changes the shape of
+the archive. The repository is written in English
+([`DEC-006`](decisions/DEC-006-english-official-repo-language.md)).
+
+---
+
+*Numen Games — Narrative Work OS · licensed per path, see [LICENSE](LICENSE)*
