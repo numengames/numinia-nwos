@@ -4,9 +4,9 @@ uid:
 title: "Glossary — the archive's own vocabulary"
 type: documentation
 status: draft
-version: "2.5.0"
+version: "2.6.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-08-25T01:35:00Z"
+updated: "2026-08-25T02:20:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -700,6 +700,41 @@ spaces in their names.
 
 ## 10. Reproducible evidence
 
+### 10.1 Every measurement declares where it measured `[MANUAL]`
+
+**Rule.** Every measuring script states in its output which `ROOT` and which
+`HEAD` it measured. **Without that line its result is not evidence.** And a
+result of zero is treated as suspect until the instrument is shown to have been
+pointing at the right place.
+
+Ruled by the Oracle on 2026-08-24, after the same fault occurred twice in one
+day:
+
+```
+cancel_to_frozen.py   run from /tmp  →  "0 misiones convertidas"
+resolve-citations.py  run from /tmp  →  "0 rotos, 0 citas"
+```
+
+Both computed `ROOT` from their own file location and measured the wrong
+directory. The second is the dangerous one:
+
+> **Zeros that look like success.** A verifier reporting "0 broken citations" is
+> indistinguishable from a clean corpus. That output was produced while a merge
+> decision was being taken on it.
+
+**Implemented** in `scripts/measuring_root.py`, used by every measuring script:
+
+- `cabecera(ROOT, ref)` prints `ROOT`, `HEAD`, whether the working tree is
+  dirty, and how many `.md` are tracked — and **exits 2** if `ROOT` is not a git
+  repository containing a corpus, rather than returning zeros.
+- `sospechoso_si_cero(n, etiqueta)` marks a zero as suspect in the output
+  instead of reporting it as a result.
+
+The rule is `[MANUAL]`: nothing prevents a new script from omitting the header.
+That is a guard worth writing, and it belongs with the others in `D-001`.
+
+---
+
 Every figure in this document comes from `scripts/count-evidence.py`, measured
 against HEAD `7d17b5a`:
 
@@ -770,6 +805,12 @@ gets filled differently by each person who meets it — which is how
 
 ## Version history
 
+- **v2.6.0** (2026-08-25) — §10.1: **every measurement declares which `ROOT`
+  and which `HEAD` it measured, and a zero is suspect until the instrument is
+  shown to have pointed at the right place.** Ruled after the same fault
+  occurred twice in one day — two scripts computing `ROOT` from their own
+  location and returning zeros that looked like success, one of them while a
+  merge decision was being taken on its output.
 - **v2.5.0** (2026-08-25) — `agents/` takes **`AG-NNN`**, not `A-NNN`
   (`ADR-005`). `A-001`…`A-016` already exist as audit findings, cited across
   documents; the ruling was given believing the prefix clean and corrected by
