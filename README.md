@@ -22,7 +22,7 @@ executed from here, decisions are recorded here, and the agents read these
 files to know who they are.
 
 If that sounds like a claim, check it against [`debt/`](debt/) — the register
-of everything this archive knows it is missing. It is the honest part.
+of everything this archive knows it is missing.
 
 ---
 
@@ -85,8 +85,8 @@ It is not incomplete — it is scoped.
 
 Missions live in one flat folder. **State is a frontmatter field, never a
 path** — `missions/MIS-NNN-english-slug.md`, and `status:` is the only surface
-that says where a mission stands. Moving files between folders to signal state
-was tried and deliberately undone.
+that says where a mission stands. Signalling state by moving files between
+folders was tried and deliberately undone.
 
 The live board is [numinia.org/missions](https://numinia.org/missions), built
 from `missions/` on every deploy. States and lifecycle are defined in
@@ -113,8 +113,8 @@ Regimes differ by folder, and the difference is deliberate: code, prose and lore
 are not offered on the same terms. Every file declares its own SPDX identifier,
 resolved through [`REUSE.toml`](REUSE.toml) following REUSE 3.3.
 
-See [`LICENSE`](LICENSE) and [`C-005`](canon/C-005-licensing.md). Do not infer a
-licence from a neighbouring file.
+See [`LICENSE`](LICENSE) and [`C-005`](canon/C-005-licensing.md) — do not infer
+a licence from a neighbouring file.
 
 ---
 
