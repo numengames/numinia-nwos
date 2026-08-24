@@ -4,9 +4,9 @@ uid:
 title: "Glossary — the archive's own vocabulary"
 type: documentation
 status: draft
-version: "2.3.0"
+version: "2.6.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-08-24T22:30:00Z"
+updated: "2026-08-25T02:20:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -382,10 +382,10 @@ filed for lack of its own.
 | `ADR-NNN` | `decisions/` | `ADR-004-identifier-convention.md` | 9/9 · 100 % |
 | `P-NNN` | `protocols/` | `P-010-how-to-archive.md` | 11/13 · 84.6 % |
 | `RPT-YYYY-MM-DD` | `reports/daily/` | `RPT-2026-04-07.md` | 8/8 · 100 % |
-| `AUD-YYYY-MM-DD` | `reports/audits/` | `AUD-2026-04-08-numengames.md` | 0/4 · in adoption |
+| `AUD-YYYY-MM-DD` | `reports/audits/` | `AUD-2026-08-24-canon-edit.md` | 2/6 · in adoption |
 | `BP-slug` | `blueprints/` | `BP-cao-architecture.md` | 16/22 · 72.7 % |
 | **`S-NNN`** | **`standards/`** | `S-001-glossary.md` | **0/3 · new** |
-| **`A-NNN`** | **`agents/`** | `A-001-nimrod/` (folder) | **0/17 · new** |
+| **`AG-NNN`** | **`agents/`** | `AG-001-nimrod/` (folder) | **0/5 · new** |
 | **`O-NNN`** | **`operations/`** | `O-001-governance.md` | **0/11 · new** |
 | **`D-NNN`** | **`debt/`** | `D-001-no-ci-guards.md` | **0/0 · new** |
 | `C-NNN` | `canon/` | `C-005-licensing.md` | 1/12 · 8.3 % — see §4.3 |
@@ -402,6 +402,41 @@ filed for lack of its own.
 `RPT-` and `AUD-` carry a date because a daily report or an audit **is** its
 date: the date is identity, not a mutable attribute. This is the only exception
 and it is one by nature, not convenience.
+
+> **`AG-`, not `A-`, and the reason is cost.** `A-001`…`A-016` already exist as
+> numbered findings inside two audits, cited from a different document than the
+> one defining them. They are section identifiers, not documents — but a reader
+> meeting `A-003` would have to work out from context whether it is an agent or
+> an audit finding.
+>
+> Changing it costs **zero**: `agents/` has issued no identifier. Ruled in
+> `ADR-005`, on the principle that an ambiguity is cheapest to avoid before the
+> first identifier exists — which is the opposite of the `D-` case, where 18
+> identifiers and 121 citations make renaming the wrong trade.
+
+> **`S-` is a live numbering in `canon/`, and `S-001` is taken twice.**
+> Measured 2026-08-25 against `canon/INDEX.md`: `S-001`…`S-010` are not stray
+> frontmatter. They are the canon's own registration, and **9 of the 10 resolve
+> to a file that exists**:
+>
+> | | | |
+> |---|---|---|
+> | `S-001` | Welcome to Numinia | **collides with this glossary** |
+> | `S-002` | Numinia Brand and Culture | exists |
+> | `S-003` | Epistemic Relations | filename drifted — `INDEX` points at a name that no longer exists |
+> | `S-004`…`S-010` | Compendium, Role Structure, Platform Roles, Session Zero, RPG Manual, Rank Specs, README | exist |
+>
+> `canon/INDEX.md` also carries a relationship graph built on these numbers
+> (`S-001 summarizes S-002, S-005, S-006`), and `STANDARDS.md` documents `S-` as
+> *Seminal* in its prefix table. **40 of the 88 unresolved citations in `D-018`
+> are this.**
+>
+> The Oracle's ruling stands — `S-` belongs to `standards/`, `seminal_id` is
+> retired — but its cost is now measured: **`MIS-109` must renumber canon to
+> `C-NNN` and rewrite the graph in `canon/INDEX.md`**, not merely delete a
+> frontmatter line. And `S-003` is a second finding: the index points at
+> `Epistemic relations between Numen Games and Numinia.md`, which was renamed to
+> `2026_04_15-Epistemic_Relations_…-v0.2.0.md` without updating the index.
 
 ### 4.3 Series below full coverage: the plan for each `[MANUAL]`
 
@@ -665,6 +700,41 @@ spaces in their names.
 
 ## 10. Reproducible evidence
 
+### 10.1 Every measurement declares where it measured `[MANUAL]`
+
+**Rule.** Every measuring script states in its output which `ROOT` and which
+`HEAD` it measured. **Without that line its result is not evidence.** And a
+result of zero is treated as suspect until the instrument is shown to have been
+pointing at the right place.
+
+Ruled by the Oracle on 2026-08-24, after the same fault occurred twice in one
+day:
+
+```
+cancel_to_frozen.py   run from /tmp  →  "0 misiones convertidas"
+resolve-citations.py  run from /tmp  →  "0 rotos, 0 citas"
+```
+
+Both computed `ROOT` from their own file location and measured the wrong
+directory. The second is the dangerous one:
+
+> **Zeros that look like success.** A verifier reporting "0 broken citations" is
+> indistinguishable from a clean corpus. That output was produced while a merge
+> decision was being taken on it.
+
+**Implemented** in `scripts/measuring_root.py`, used by every measuring script:
+
+- `cabecera(ROOT, ref)` prints `ROOT`, `HEAD`, whether the working tree is
+  dirty, and how many `.md` are tracked — and **exits 2** if `ROOT` is not a git
+  repository containing a corpus, rather than returning zeros.
+- `sospechoso_si_cero(n, etiqueta)` marks a zero as suspect in the output
+  instead of reporting it as a result.
+
+The rule is `[MANUAL]`: nothing prevents a new script from omitting the header.
+That is a guard worth writing, and it belongs with the others in `D-001`.
+
+---
+
 Every figure in this document comes from `scripts/count-evidence.py`, measured
 against HEAD `7d17b5a`:
 
@@ -702,16 +772,30 @@ against HEAD `7d17b5a`:
 
 ## 11. Open — the Oracle disposes
 
-1. **`human_approval_score`** (14 uses) — says `# 1-10` but not *what* it
-   measures. → **D-003**
+**The five undefined fields now have entries.** They were promised in v2.0 and
+written on 2026-08-25; until then this section pointed at nothing, which is the
+defect `D-018` exists to catch.
+
+1. **`human_approval_score`** (16 documents) — says `# 1-10` but not *what* it
+   measures. → [`D-003`](../debt/D-003-human-approval-score-undefined.md)
 2. **`semaforo`** (7) — verde/amarillo/rojo, in Spanish. What triggers each
-   colour, and who sets it. → **D-004**
-3. **`confidence_before` / `after`** (2) — scale, and who fills them. → **D-005**
-4. **`cost_estimate`** (2) — currency, compute, human time. → **D-006**
-5. **`week`** (7) — `W14`, `W15`. ISO week, of which year. → **D-007**
+   colour, and who sets it. → [`D-004`](../debt/D-004-semaforo-undefined.md)
+3. **`confidence_before` / `after`** (2) — scale, and who fills them.
+   → [`D-005`](../debt/D-005-confidence-scale-undefined.md)
+4. **`cost_estimate`** (2) — currency, compute, human time.
+   → [`D-006`](../debt/D-006-cost-estimate-no-unit.md)
+5. **`week`** (7) — `W14`, `W15`. ISO week, of which year.
+   → [`D-007`](../debt/D-007-week-no-year.md)
 6. **Canon registration** (§4.3) — register `C-NNN`, or withdraw the rule.
 7. **`guilds/` as a series** — charters to `standards/`, rosters as generated
    apparatus.
+
+Two more fields were named elsewhere in this document and now carry entries:
+`blocked_reason` → [`D-002`](../debt/D-002-blocked-reason-orphaned.md) (§7), and
+`cancelled` → [`D-016`](../debt/D-016-cancelled-status-retired.md), **which is
+filed RESOLVED**: the 12 missions were converted to `frozen` with
+`freeze_reason` on the Oracle's ruling. `debt/` is append-only, so a closed
+entry with its trace stays rather than disappearing.
 
 No definition is invented to close a table. A field whose meaning is not written
 gets filled differently by each person who meets it — which is how
@@ -721,6 +805,26 @@ gets filled differently by each person who meets it — which is how
 
 ## Version history
 
+- **v2.6.0** (2026-08-25) — §10.1: **every measurement declares which `ROOT`
+  and which `HEAD` it measured, and a zero is suspect until the instrument is
+  shown to have pointed at the right place.** Ruled after the same fault
+  occurred twice in one day — two scripts computing `ROOT` from their own
+  location and returning zeros that looked like success, one of them while a
+  merge decision was being taken on its output.
+- **v2.5.0** (2026-08-25) — `agents/` takes **`AG-NNN`**, not `A-NNN`
+  (`ADR-005`). `A-001`…`A-016` already exist as audit findings, cited across
+  documents; the ruling was given believing the prefix clean and corrected by
+  measurement. Cost of the change: zero, because no agent identifier had been
+  issued — which is the argument, and the opposite of the `D-` case.
+- **v2.4.0** (2026-08-25) — **the seven entries §11 promised now exist.** Until
+  today this document closed by pointing at `D-002`…`D-007`, none of which had
+  been written: the section listing what is unresolved was itself unresolved.
+  `D-016` (`cancelled`) is filed **RESOLVED** with its trace, because `debt/` is
+  append-only and a closed entry is worth more than one that never existed.
+  §4.1 gains the measured answer to `MIS-109`'s open question: `S-002`…`S-010`
+  are **not phantom citations** — 9 of 10 resolve to real canon files, and
+  `S-001` is taken twice. §4.1's `AUD-` example no longer points at a file from
+  an unmerged branch. `human_approval_score` corrected from 14 to 16 documents.
 - **v2.3.0** (2026-08-24) — §3 gains a step that was missing and cost a bad
   refactor: **verify the `type` before using the map to move anything.** Three
   documents in `operations/` declared `type: protocol` while being reference
