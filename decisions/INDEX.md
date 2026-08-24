@@ -32,6 +32,7 @@ Architectural Decision Records (ADR) of the Narrative Work OS. These records are
 | ADR-001 | GitHub as Archive Summa | ✅ Active | 2026-04-06 |
 | ADR-002 | Markdown as universal format | ✅ Active | 2026-04-06 |
 | ADR-003 | numinia-nwos is the origin of the engineering standards | ✅ Active | 2026-08-20 |
+| ADR-005 | Registration prefixes: `S-` stays with standards, agents take `AG-` | ✅ Active | 2026-08-25 |
 | DEC-001 | Self-hosting over SaaS | ✅ Active | 2026-04-03 |
 | DEC-002 | Build in public with CC0 license | ✅ Active | 2026-04-02 |
 | DEC-003 | Arbitrum as Numinia blockchain | ⚠️ Provisional | 2026-04-05 |
@@ -54,3 +55,4 @@ Architectural Decision Records (ADR) of the Narrative Work OS. These records are
 - v1.0.0 (2026-04-06) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
 - v1.3.0 (2026-08-20) — ADR-003 registered: provenance of the engineering standards (resolves CON-003).
+- v1.5.0 (2026-08-25) — ADR-005 registered: prefix ruling. `agents/` takes `AG-`, not `A-`; `S-` stays with `standards/` and canon renumbers to `C-NNN` inside MIS-109.
