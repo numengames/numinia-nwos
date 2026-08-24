@@ -17,6 +17,8 @@ acompaña. Una cifra reproducible necesita saber contra qué es reproducible.
 """
 import json, os, re, subprocess, sys
 from collections import Counter, defaultdict
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from measuring_root import cabecera, sospechoso_si_cero
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -148,13 +150,10 @@ def main():
 
     P = print
     P(f"\n{'='*78}")
-    medido = sh('rev-parse', '--short', REF or 'HEAD').strip()
-    P(f"  FASE 0 — INVENTARIO   ·   medido en {medido}"
-      f"{'' if REF else '  (working tree)'}")
-    P(f"  READ-ONLY · ningún fichero modificado")
+    P(cabecera(ROOT, REF, 'FASE 0 — INVENTARIO · READ-ONLY'))
     P(f"{'='*78}")
 
-    P(f"\n{len(docs)} documentos .md rastreados (excluye web/)")
+    P(f"\n{sospechoso_si_cero(len(docs), 'documentos')} documentos .md rastreados (excluye web/)")
     ops = Counter(d['op'] for d in docs)
     P(f"\n── OPERACIÓN PROPUESTA ──")
     for op, n in ops.most_common():

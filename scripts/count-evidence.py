@@ -12,6 +12,9 @@ se actualiza el glosario — nunca al revés.
     python3 scripts/count-evidence.py --json     # para consumo automático
 """
 import json, os, re, subprocess, sys
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from measuring_root import cabecera, sospechoso_si_cero
 from collections import Counter, defaultdict
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

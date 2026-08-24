@@ -10,3 +10,7 @@ dist/
 # The source is the .md; the view is rebuilt on demand and never committed,
 # so it cannot drift into a second source of truth.
 build/
+
+# Python bytecode
+__pycache__/
+*.pyc
