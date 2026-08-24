@@ -28,8 +28,7 @@ wins; this is a convenience, not a second source of truth.
 import argparse, hashlib, html, os, re, subprocess, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SOURCE = os.path.join(ROOT, 'standards', 'S-001-glossary.md')
-DEFAULT_OUT = os.path.join(ROOT, 'build', 'S-001-glossary.html')
+DEFAULT_SOURCE = os.path.join(ROOT, 'standards', 'S-001-glossary.md')
 
 # Design System v5.1.0 §19.3 — canonical tokens. Values are not invented here;
 # they are copied from standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md.
@@ -130,8 +129,23 @@ def frontmatter(text):
 
 
 def inline(s):
-    """Inline markdown → HTML. Order matters: code first, so its content is
-    not re-processed."""
+    """Inline markdown → HTML.
+
+    Links are extracted FIRST, before code spans, because the corpus writes
+    them as [`P-001`](path) — a code span inside the label. Splitting on code
+    first leaves the brackets orphaned and the link never renders. That bug
+    shipped once; the ordering below is the fix.
+    """
+    # 1. protect links, label rendered recursively
+    links = []
+
+    def _link(m):
+        links.append((m.group(1), m.group(2)))
+        return f'\x00LINK{len(links) - 1}\x00'
+
+    s = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', _link, s)
+
+    # 2. code spans on what remains
     out, i = [], 0
     for m in re.finditer(r'`([^`]+)`', s):
         out.append(('t', s[i:m.start()]))
@@ -145,14 +159,18 @@ def inline(s):
             res.append(f'<code>{html.escape(chunk)}</code>')
             continue
         c = html.escape(chunk)
-        c = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', c)
         c = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', c)
         c = re.sub(r'(?<!\*)\*([^*\n]+)\*(?!\*)', r'<em>\1</em>', c)
-        # enforcement markers get their chip
         c = c.replace('[CI]', '<span class="mk mk-ci">CI</span>')
         c = c.replace('[MANUAL]', '<span class="mk mk-man">MANUAL</span>')
         res.append(c)
-    return ''.join(res)
+    text = ''.join(res)
+
+    # 3. restore links; the label goes through inline() so `code` inside works
+    for n, (label, href) in enumerate(links):
+        text = text.replace(f'\x00LINK{n}\x00',
+                            f'<a href="{html.escape(href)}">{inline(label)}</a>')
+    return text
 
 
 def slug(s):
@@ -263,8 +281,9 @@ def render(md):
     return '\n'.join(out), headings
 
 
-def build():
-    md_raw = open(SOURCE, encoding='utf-8').read()
+def build(source):
+    rel_source = os.path.relpath(source, ROOT)
+    md_raw = open(source, encoding='utf-8').read()
     fm, body = frontmatter(md_raw)
     body_html, headings = render(body)
 
@@ -272,18 +291,24 @@ def build():
                           capture_output=True, text=True).stdout.strip() or '(no git)'
     digest = hashlib.sha256(md_raw.encode()).hexdigest()[:12]
 
-    nav = ''.join(
-        f'<a href="#{sid}">{html.escape(txt.split(".")[0].strip())}</a>'
-        for sid, txt in headings if re.match(r'^\d+\.', txt))
+    # Numbered sections make a nav; a document without them (a README) gets
+    # its H2s instead. Neither is invented: both come from the source.
+    numbered = [(s, t) for s, t in headings if re.match(r'^\d+\.', t)]
+    if numbered:
+        nav = ''.join(f'<a href="#{sid}">{html.escape(txt.split(".")[0].strip())}</a>'
+                      for sid, txt in numbered)
+    else:
+        nav = ''.join(f'<a href="#{sid}">{html.escape(txt[:22])}</a>'
+                      for sid, txt in headings[:7])
 
     return f"""<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{html.escape(fm.get('title', 'S-001'))} · generated view</title>
+<title>{html.escape(fm.get('title', os.path.basename(source)))} · generated view</title>
 <meta name="generator" content="scripts/render-glossary.py">
-<meta name="source" content="standards/S-001-glossary.md@{digest}">
+<meta name="source" content="{html.escape(rel_source)}@{digest}">
 <style>{CSS}</style>
 </head>
 <body>
@@ -296,21 +321,20 @@ def build():
 <main><div class="wrap">
   <div class="gen">
     <b>This page is generated.</b> Source:
-    <code>standards/S-001-glossary.md</code> — sha256 <code>{digest}</code>,
+    <code>{html.escape(rel_source)}</code> — sha256 <code>{digest}</code>,
     repository HEAD <code>{head}</code>. Produced by
     <code>scripts/render-glossary.py</code>. It cannot say anything the
     source does not: if the two disagree, this file is stale, and
     <code>--check</code> fails.
     <br><br>
-    The canonical published view is Astro, at
-    <code>/corpus/standards/s-001-glossary</code>. This one exists for reading
-    a draft before it is merged.
+    The canonical published view is Astro, on numinia.org. This one exists for
+    reading a document before it is merged.
   </div>
 {body_html}
 </div></main>
 
 <footer><div class="wrap">
-  <span>Generated view of <code>standards/S-001-glossary.md</code> ·
+  <span>Generated view of <code>{html.escape(rel_source)}</code> ·
   {html.escape(fm.get('author', '?'))}</span>
   <span class="mono">Design System v5.1.0 · Nocturno · Umbral · HEAD {head}</span>
 </div></footer>
@@ -320,29 +344,45 @@ def build():
 
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument('-o', '--output', default=DEFAULT_OUT)
+    ap = argparse.ArgumentParser(
+        description='Render a repository .md into an HTML view. '
+                    'The .md is the source; this output is never committed.')
+    ap.add_argument('source', nargs='?', default=DEFAULT_SOURCE,
+                    help='path to the .md (default: standards/S-001-glossary.md)')
+    ap.add_argument('-o', '--output',
+                    help='output path (default: build/<name>.html)')
     ap.add_argument('--check', action='store_true',
                     help='exit 1 if the output is missing or stale')
     a = ap.parse_args()
 
-    out = build()
+    source = os.path.abspath(a.source)
+    if not os.path.exists(source):
+        print(f'✗ source not found: {a.source}')
+        return 1
+    output = a.output or os.path.join(
+        ROOT, 'build',
+        os.path.splitext(os.path.basename(source))[0] + '.html')
+
+    out = build(source)
 
     if a.check:
-        if not os.path.exists(a.output):
-            print(f'✗ {a.output} does not exist. Run without --check.')
+        if not os.path.exists(output):
+            print(f'✗ {os.path.relpath(output, ROOT)} does not exist. '
+                  f'Run without --check.')
             return 1
-        if open(a.output, encoding='utf-8').read() != out:
-            print(f'✗ {a.output} is stale: the .md changed and the view did not.')
+        if open(output, encoding='utf-8').read() != out:
+            print(f'✗ {os.path.relpath(output, ROOT)} is stale: '
+                  f'the source changed and the view did not.')
             return 1
-        print(f'✓ {os.path.relpath(a.output, ROOT)} is up to date with the source.')
+        print(f'✓ {os.path.relpath(output, ROOT)} is up to date with '
+              f'{os.path.relpath(source, ROOT)}.')
         return 0
 
-    os.makedirs(os.path.dirname(a.output), exist_ok=True)
-    open(a.output, 'w', encoding='utf-8').write(out)
-    md = open(SOURCE, encoding='utf-8').read()
-    print(f'✓ {os.path.relpath(a.output, ROOT)}')
-    print(f'  source : standards/S-001-glossary.md ({len(md):,} chars)')
+    os.makedirs(os.path.dirname(output), exist_ok=True)
+    open(output, 'w', encoding='utf-8').write(out)
+    md = open(source, encoding='utf-8').read()
+    print(f'✓ {os.path.relpath(output, ROOT)}')
+    print(f'  source : {os.path.relpath(source, ROOT)} ({len(md):,} chars)')
     print(f'  output : {len(out):,} chars')
     print(f'  sections rendered: {len(re.findall(r"<h2 ", out))}')
     return 0
