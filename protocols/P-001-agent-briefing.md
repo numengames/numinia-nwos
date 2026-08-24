@@ -43,7 +43,7 @@ STEP 1 — Identity:
 
 STEP 2 — Security (always, every session):
   → Read operations/security-policy.md
-  → Read operations/governance.md (if not read in <7 days)
+  → Read GOVERNANCE.md (if not read in <7 days)
 
 STEP 3 — Active missions:
   → Check missions/ for status: in-progress — do I have assigned missions?
