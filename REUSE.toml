@@ -28,7 +28,7 @@ path = [
   "missions/**", "blueprints/**", "standards/**",
   "README.md", "CHANGELOG.md", "CONTRIBUTING.md", "GOVERNANCE.md",
   "STANDARDS.md", "CLAUDE.md", "TRADEMARKS.md", "LEGAL_DEBT.md",
-  "GAPS.md", "SECURITY.md",
+  "GAPS.md", "DEUDA-404.md", "SECURITY.md",
 ]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC-BY-4.0"

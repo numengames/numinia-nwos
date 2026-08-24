@@ -3,6 +3,13 @@ sistema: Numen Games · Sistema de Diseño
 version: 5.1.0
 fecha: 2026-08-18
 estado: propuesto — consolidado sobre v5.0.0, pendiente de firma de Oráculo
+supersedes: 2026_08_18-Sistema_de_Diseno-v5.0.0.md
+supersedes_note: >-
+  La v5.0.0 se retira del repositorio en esta misma decisión (borrado registrado).
+  Este documento pasa a ser la ÚNICA versión del Sistema de Diseño en numinia-nwos.
+  Consumidores pendientes de re-anclar: numinia-web/design-source.json sigue fijado
+  a la v5.0.0 (sha a075e215…) y su guard scripts/check-design-source.mjs fallará
+  con HTTP 404 hasta que se re-pinee a este documento. Ver DEUDA-404.md.
 deriva_de: 2026_08_15-Numen_Design_System-v4_2_0 + 2026_03_20-Numinia_Brand_and_Culture-v0.1.2
 registros: "1 Umbral · 2 Velo · 3 Low-poly · 4 Píxel" 
 idioma_canonico: es-ES
@@ -15,7 +22,7 @@ iconografia: Phosphor Icons (phosphoricons.com, MIT)
 licencia: CC0 1.0 Universal (Legal by Design) · marcas excluidas
 revision: cada seis meses, junto al Brand & Culture
 presupuesto_lectura:  # generado por script al versionar — nunca a mano
-  documento: "≈46k tokens (157.154 caracteres)"
+  documento: "≈47k tokens (161.461 caracteres)"
   contrato_s19: "≈7,5k tokens (25.636 caracteres)"
   fragmento_s19_5: "≈2,1k tokens (7.000 caracteres)"
 ---
