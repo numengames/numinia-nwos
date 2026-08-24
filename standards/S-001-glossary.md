@@ -4,9 +4,9 @@ uid:
 title: "Glossary — the archive's own vocabulary"
 type: documentation
 status: draft
-version: "2.1.0"
+version: "2.2.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-08-24T20:10:00Z"
+updated: "2026-08-24T21:10:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -31,8 +31,16 @@ evidence_head: "7d17b5a"
 
 ## 0. How to read this document
 
-**This file is the source.** The HTML rendering is a generated view, never the
-authority (Oracle, 2026-08-24).
+**This file is the source.** The HTML rendering is a generated view, produced by
+`scripts/render-glossary.py` — it cannot state anything this file does not say,
+and `--check` fails if the two drift apart. The canonical published view is
+Astro, at `/corpus/standards/s-001-glossary`.
+
+> That script did not exist when v2 was first submitted. The HTML was written by
+> hand and kept in sync from memory, while its own footer claimed to be
+> generated — and it had already drifted: it renumbered the sections and dropped
+> §9 (Naming) entirely. **The same violation as v1, with better wording.** The
+> Oracle asked for the generator; this is it.
 
 **Every number here is produced by `scripts/count-evidence.py`** and stamped with
 the HEAD it was measured against (`evidence_head` in the frontmatter). A figure
@@ -41,6 +49,8 @@ that cannot be reproduced is not evidence. To re-measure:
 ```bash
 python3 scripts/count-evidence.py          # human-readable
 python3 scripts/count-evidence.py --json   # machine-readable
+python3 scripts/render-glossary.py         # regenerate the view
+python3 scripts/render-glossary.py --check # fail if the view is stale
 ```
 
 **Enforcement markers.** Every rule below carries one:
@@ -70,7 +80,28 @@ not part of this document.
 
 ---
 
-## 1. Enforcement: what a machine actually checks
+## 1. What this document can and cannot enforce
+
+**Read this before anything else.** The whole of §2.1 — the change thresholds
+that are the central idea of this version — has **no mechanism behind it**.
+
+> To git, a `sealed` canon document and an `open` scratch file are the same
+> object with the same permissions. Measured 2026-08-24: **0 signed commits**,
+> **0 signed tags**, **no ruleset on `main`**, CODEOWNERS present but review not
+> required by any mechanism.
+>
+> A change to `canon/` needs, today, exactly what a typo fix needs: a push.
+>
+> **Four thresholds, one mechanism.** Registered as **D-011**, severity high.
+> Until it closes, §2.1 is a reading convention, not governance — and this
+> document will not pretend otherwise.
+
+That is not a reason to discard the thresholds. It is the reason they are
+written down: a gap you can name is a gap you can close, and `D-011` states
+exactly what closing it requires — a ruleset on `main`, commit signing, and a
+CODEOWNERS entry for `canon/`, all three needing repo admin.
+
+### The pipeline exists; its coverage is the problem
 
 **The premise that "there is no CI in this repo" is false.** Verified against the
 GitHub API on 2026-08-24:
@@ -125,6 +156,13 @@ it happens:
 **Neither of those edits was wrong.** Translating the corpus to English and
 retiring the emojis were correct operations. What was wrong was the word: the
 archive claimed an immutability it never had and never enforced.
+
+> **The canon edit has its own file.** `AUD-2026-08-24-canon-edit` asks the
+> three questions this paragraph does not: was it authorised, was it complete,
+> and does the canon say today what we believe it says. **The answer to the
+> third is no** — the edit was partial, `Welcome to Numinia` now uses both
+> terms in adjacent lines, and 21 documents still carry the term canon retired,
+> four of them canon itself. Registered as **D-012**.
 
 ### 2.1 Change thresholds instead
 
@@ -225,9 +263,16 @@ closed missions: it observes the system, not only the work.
 **Pragmatic.** Append-only like `decisions/`: an entry is marked RESOLVED, never
 deleted.
 
-### `guilds/` — under review
-`guild:` already works as a field. The `charter` files are norm; the `roster`
-files are a regenerable view. Resolution belongs to the folder phase.
+### `guilds/` — how actors **group** · `governed`
+**Epistemic.** The shared rules of each guild and who belongs to it.
+**Pragmatic.** Consulted when assigning work or resolving membership.
+
+⚠️ **Under review, and the review is specific.** `guild:` already works as a
+field — 124 documents, 4 canonical values plus 7 deviations. That makes half
+this folder redundant: the `charter` files are norm and belong in `standards/`;
+the `roster` files are **apparatus**, a regenerable view of a field that already
+exists on every agent. The folder stays until an ADR decides; it is listed here
+because it exists, not because it is settled.
 
 ---
 
@@ -255,18 +300,40 @@ document. Moving the document corrects the filing.
 
 **Canonical map** — a `type` not in this table has no valid home:
 
-| `type` | Series |
-|---|---|
-| `seminal` | `canon/` |
-| `documentation` (normative) | `standards/` |
-| `protocol` | `protocols/` |
-| `mission` | `missions/` |
-| `adr` | `decisions/` |
-| `blueprint` | `blueprints/` |
-| `report` | `reports/` |
-| `legal` | `operations/legal/` |
-| `charter` | `guilds/` (under review) |
-| `meta` | anywhere — it is apparatus, it accompanies its series |
+| `type` | Series | Guard can be strict? |
+|---|---|---|
+| `seminal` | `canon/` | yes |
+| `documentation` **normative** | `standards/` | **no** — see below |
+| `documentation` **explanatory** | the series it explains | **no** — see below |
+| `protocol` | `protocols/` | yes |
+| `mission` | `missions/` | yes |
+| `adr` | `decisions/` | yes |
+| `blueprint` | `blueprints/` | yes |
+| `report` | `reports/` | yes |
+| `legal` | `operations/legal/` | yes |
+| `charter` | `guilds/` (under review) | yes |
+| `meta` | anywhere | **no** — apparatus accompanies its series |
+
+### Two types a guard can never check strictly
+
+**`documentation`** does two jobs under one name. Normative documentation
+(`S-001` itself) belongs in `standards/`; explanatory documentation
+(`debt/D-001`, a `README`) belongs with whatever it explains. **The `type` alone
+cannot tell them apart** — only whether the document obliges anything can, and
+that is a reading, not a field.
+
+**`meta`** is apparatus: an `INDEX.md` lives beside the series it indexes, a
+`TEMPLATE.md` beside the series it templates. Mapping it to one folder would be
+wrong.
+
+**Consequence, stated so nobody discovers it later:** the guard proposed in
+`D-001` (`lint-type-vs-folder.mjs`) **can only be strict for 8 of the 11
+types.** For `documentation` and `meta` it can warn — flagging a
+`documentation` outside `standards/` that carries normative language, for
+example — but a warning is not a gate and must not be sold as one.
+
+The honest fix, if strictness is wanted, is to split `documentation` into two
+values (`standard` / `explainer`). That is an ADR, not a glossary edit.
 
 > **`meta` marks apparatus.** A *record* has probative value (`MIS-085`);
 > *apparatus* is the instrument for finding it (`INDEX.md`, `TEMPLATE.md`) and
@@ -314,25 +381,65 @@ filed for lack of its own.
 date: the date is identity, not a mutable attribute. This is the only exception
 and it is one by nature, not convenience.
 
-### 4.3 Canon: registration plan `[MANUAL]`
+### 4.3 Series below full coverage: the plan for each `[MANUAL]`
 
-Blocker 4. Today **1 of 12** canon documents carries `C-NNN`. Two ways out; this
-document proposes one and the Oracle disposes:
+Blocker 4 asked for canon. The same demand applies to every series that declares
+a scheme it does not meet — a rule honoured at 8 % is not a rule.
 
-**Proposal: register the canon, one identifier per seminal document.** Canon is
-the most-cited series in the corpus (`C-005` alone: 64 mentions) and the only one
+#### `canon/` — 1/12
+
+**Proposal: register the canon**, one identifier per seminal document. It is the
+most-cited series in the corpus (`C-005` alone: 64 mentions) and the only one
 without a stable handle. Filenames with spaces (`About Session Zero.md`) make it
 worse: they cannot be cited in plain text without ambiguity.
 
-Cost: 11 renames, plus updating references. The reference lint
-(`scripts/check-references.mjs`) makes the operation verifiable.
+Cost: 11 renames plus reference updates, verifiable with
+`scripts/check-references.mjs`.
 
-**Alternative, if the Oracle prefers:** withdraw the `id` requirement for `canon/`
-and declare the filename to be the identifier. Legitimate — but then the rule must
-say so, and citations of the form "see Welcome to Numinia" become normative.
+**Alternative, if the Oracle prefers:** withdraw the `id` requirement for
+`canon/` and declare the filename to be the identifier. Legitimate — but then
+the rule must say so, and citations of the form "see Welcome to Numinia" become
+normative.
 
-**What is not acceptable is the current state**: a rule declared mandatory and
-honoured at 8.3 %.
+#### `reports/audits/` — 0/4, and the fix is cheap
+
+Four audits, four naming conventions:
+
+```
+2026-04-07-auditoria-sistema.md      date · Spanish slug · no prefix
+2026-08-17-cold-agent-audit.md       date · English slug · no prefix
+2026-08-17-stack-audit.md            date · English slug · no prefix
+AUDIT-navigability-2026-08-17.md     wrong prefix · date at the end
+```
+
+Unlike canon, **nothing blocks this one**: audits are cited by path, not by
+identifier; the reference lint catches any link the rename breaks; and the Astro
+collection globs `*.md`, so no page disappears.
+
+```
+2026-04-07-auditoria-sistema.md   → AUD-2026-04-07-sistema.md
+2026-08-17-cold-agent-audit.md    → AUD-2026-08-17-cold-agent.md
+2026-08-17-stack-audit.md         → AUD-2026-08-17-stack.md
+AUDIT-navigability-2026-08-17.md  → AUD-2026-08-17-navigability.md
+```
+
+Three already carry the scheme, so the series would reach 7/7. **Not done in
+this PR** for the same reason as everything else: renaming files to match an
+unsigned rule is the mistake these debts exist to prevent. Registered as
+**D-013**.
+
+#### `blueprints/` 16/22 · `protocols/` 11/13
+
+The 2 non-conforming protocols are `INDEX` and `README` — they are `meta` and
+correctly outside the scheme, so **`protocols/` is effectively 11/11**. The
+counter measures apparatus as if it were record; that is a finding about
+`scripts/count-evidence.py`, noted in §10. The 6 blueprints are the
+`archive-summa-*` and `WARDLEY-MAP` files, which `MIS-089` §D3 already flags for
+relocation.
+
+> **What is not acceptable is a scheme declared mandatory and honoured at 8 %,
+> with no plan and no debt entry.** Every series below 100 % now has one or the
+> other.
 
 ### 4.4 Cross-repository citation `[MANUAL]`
 `ADR-006` exists here and in `numinia-web` with different meanings. Across the
@@ -560,6 +667,15 @@ against HEAD `7d17b5a`:
 > them were worse than reported.** That is precisely why the Oracle demanded the
 > script.
 
+> **A known flaw in the counter itself.** `count-evidence.py` measures
+> `INDEX.md` and `README.md` as if they were records, so `protocols/` reads
+> 11/13 when it is effectively 11/11 — the two "failures" are `meta`, correctly
+> outside the scheme. The counter should exclude apparatus before counting
+> registration coverage. Left uncorrected in this version deliberately: fixing
+> it would change a number the Oracle is reviewing, and a silent improvement to
+> a measurement mid-review is exactly the habit these debts exist to break.
+> Registered as **D-014**.
+
 ---
 
 ## 11. Open — the Oracle disposes
@@ -583,6 +699,18 @@ gets filled differently by each person who meets it — which is how
 
 ## Version history
 
+- **v2.2.0** (2026-08-24) — Oracle review, six findings. **The generator now
+  exists** (`scripts/render-glossary.py`): the HTML was hand-written while
+  claiming to be generated, and had already dropped §9 and renumbered the
+  sections — the v1 violation with better wording. `D-011` moved to §1 as the
+  first thing a reader meets, because the central idea of v2 has no mechanism
+  behind it. The canon edit gets its own file
+  (`AUD-2026-08-24-canon-edit`) and the finding is worse than the semantic
+  argument suggested: the edit was partial and the canon now contradicts itself
+  → `D-012`. `guilds/` restored to the series list with its review stated.
+  `documentation` split into normative and explanatory, with the admission that
+  a guard can never be strict for it or for `meta`. `AUD-` given a plan
+  → `D-013`. Counter bias registered → `D-014`.
 - **v2.1.0** (2026-08-24) — Oracle correction: **immutability withdrawn**. No
   document in the archive is immutable and the history proves it (14/14 canon
   documents edited; 9/33 `done` missions edited after closing). Replaced by
