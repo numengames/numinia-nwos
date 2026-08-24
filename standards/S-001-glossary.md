@@ -4,7 +4,7 @@ uid:
 title: "Glossary — the archive's own vocabulary"
 type: documentation
 status: draft
-version: "2.6.0"
+version: "2.8.0"
 created: "2026-08-24T16:00:00Z"
 updated: "2026-08-25T02:20:00Z"
 author: "ursa"
@@ -696,6 +696,59 @@ Violations today: `Definition_of_Done_v0.2.0.md`, `Mission_Template_v0_2_0.md`,
 `2026_04_14-Analogous_Terminology_Numina-v0.2.0.md`, and the canon files with
 spaces in their names.
 
+### 9.1 Citing an identifier vs mentioning one as data `[MANUAL]`
+
+**The problem.** A document that inventories broken references trips the guard
+that detects them. `D-018` lists `RPT-07` in a table of unresolved identifiers;
+`check-references.mjs` reads that table row as a citation and reports it as a
+new breakage.
+
+> **A report about broken citations is itself full of broken citations. That is
+> what it is for.**
+
+This is not a bug in the lint. It is a category the lint does not have: it
+cannot tell **citing** — *"per `ADR-004`, identifiers are never renumbered"* —
+from **mentioning as data** — *"`ADR-004` · 1 citation · recovered"*.
+
+It will recur. Every future audit of citations, every debt entry about a
+missing document, every session report quoting a figure lands the same way.
+
+**The convention.** An identifier mentioned as data is written **inside a code
+span**, and the surrounding structure makes it a table cell, a list item or a
+fenced block:
+
+| Intent | Written as | Resolves? |
+|---|---|---|
+| **Citation** — the document is the authority | `` per ADR-004 `` — bare, in prose | must resolve |
+| **Mention as data** — the identifier is the subject | `` `ADR-004` `` in a table cell, list item or fenced block | not checked |
+
+```
+✓ citation      Identifiers are never renumbered (ADR-004).
+✓ mention       | `RPT-07` | 1 | pre-existing |
+✓ mention       - `S-002`…`S-010` — the seminal numbering, 40 citations
+✗ ambiguous     RPT-07 appears once and does not resolve.
+```
+
+**Why a convention and not an exemption.** An exemption would name `D-018` in
+the lint's ignore list and be forgotten; the next report would trip the guard
+again and someone would add a second exemption. A format convention is
+inherited by every document that follows, and it is visible to a reader — which
+an ignore list buried in a script is not.
+
+**Why a code span specifically.** It is the mark the corpus already uses for
+"this is a literal, not prose", it renders correctly on numinia.org, and both
+linters can implement it as *skip identifiers inside backticks* — one rule, two
+instruments, no per-document state.
+
+**Applies to** `check-references.mjs` and `scripts/resolve-citations.py`.
+Neither implements it yet, which is why this is `[MANUAL]`. The change is small
+in both — strip code spans before scanning — and belongs with the guards in
+`D-001`.
+
+**Documents already affected:** `debt/D-018`, `reports/daily/RPT-2026-08-24.md`,
+`reports/audits/2026-08-17-stack-audit.md` and `S-001` itself. They are
+reformatted as the convention lands, not exempted.
+
 ---
 
 ## 10. Reproducible evidence
@@ -805,6 +858,11 @@ gets filled differently by each person who meets it — which is how
 
 ## Version history
 
+- **v2.8.0** (2026-08-24) — §9.1: **citing an identifier versus mentioning one
+  as data.** A document that inventories broken references trips the guard that
+  detects them; ruled as a format convention rather than a per-document
+  exemption, because an exemption is forgotten by the next report and a
+  convention is inherited by it.
 - **v2.6.0** (2026-08-25) — §10.1: **every measurement declares which `ROOT`
   and which `HEAD` it measured, and a zero is suspect until the instrument is
   shown to have pointed at the right place.** Ruled after the same fault
