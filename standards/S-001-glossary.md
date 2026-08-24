@@ -4,9 +4,9 @@ uid:
 title: "Glossary — the archive's own vocabulary"
 type: documentation
 status: draft
-version: "2.4.0"
+version: "2.5.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-08-25T00:45:00Z"
+updated: "2026-08-25T01:35:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -385,7 +385,7 @@ filed for lack of its own.
 | `AUD-YYYY-MM-DD` | `reports/audits/` | `AUD-2026-08-24-canon-edit.md` | 2/6 · in adoption |
 | `BP-slug` | `blueprints/` | `BP-cao-architecture.md` | 16/22 · 72.7 % |
 | **`S-NNN`** | **`standards/`** | `S-001-glossary.md` | **0/3 · new** |
-| **`A-NNN`** | **`agents/`** | `A-001-nimrod/` (folder) | **0/17 · new** |
+| **`AG-NNN`** | **`agents/`** | `AG-001-nimrod/` (folder) | **0/5 · new** |
 | **`O-NNN`** | **`operations/`** | `O-001-governance.md` | **0/11 · new** |
 | **`D-NNN`** | **`debt/`** | `D-001-no-ci-guards.md` | **0/0 · new** |
 | `C-NNN` | `canon/` | `C-005-licensing.md` | 1/12 · 8.3 % — see §4.3 |
@@ -402,6 +402,17 @@ filed for lack of its own.
 `RPT-` and `AUD-` carry a date because a daily report or an audit **is** its
 date: the date is identity, not a mutable attribute. This is the only exception
 and it is one by nature, not convenience.
+
+> **`AG-`, not `A-`, and the reason is cost.** `A-001`…`A-016` already exist as
+> numbered findings inside two audits, cited from a different document than the
+> one defining them. They are section identifiers, not documents — but a reader
+> meeting `A-003` would have to work out from context whether it is an agent or
+> an audit finding.
+>
+> Changing it costs **zero**: `agents/` has issued no identifier. Ruled in
+> `ADR-005`, on the principle that an ambiguity is cheapest to avoid before the
+> first identifier exists — which is the opposite of the `D-` case, where 18
+> identifiers and 121 citations make renaming the wrong trade.
 
 > **`S-` is a live numbering in `canon/`, and `S-001` is taken twice.**
 > Measured 2026-08-25 against `canon/INDEX.md`: `S-001`…`S-010` are not stray
@@ -759,6 +770,11 @@ gets filled differently by each person who meets it — which is how
 
 ## Version history
 
+- **v2.5.0** (2026-08-25) — `agents/` takes **`AG-NNN`**, not `A-NNN`
+  (`ADR-005`). `A-001`…`A-016` already exist as audit findings, cited across
+  documents; the ruling was given believing the prefix clean and corrected by
+  measurement. Cost of the change: zero, because no agent identifier had been
+  issued — which is the argument, and the opposite of the `D-` case.
 - **v2.4.0** (2026-08-25) — **the seven entries §11 promised now exist.** Until
   today this document closed by pointing at `D-002`…`D-007`, none of which had
   been written: the section listing what is unresolved was itself unresolved.
