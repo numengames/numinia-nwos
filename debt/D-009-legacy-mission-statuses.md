@@ -1,0 +1,72 @@
+---
+id: "D-009"
+uid:
+title: "45 missions carry statuses the vocabulary no longer admits"
+type: documentation
+status: open
+version: "1.0.0"
+created: "2026-08-24T19:42:00Z"
+updated: "2026-08-24T19:42:00Z"
+author: "ursa"
+owner: "oracle"
+guild: "Alchemists"
+territory: "Archive"
+tags: [debt, status, missions, vocabulary]
+license: "CC-BY-4.0"
+severity: medium
+opened_by: "S-001 §7"
+---
+# D-009 — 45 missions carry statuses the vocabulary no longer admits
+
+> **Summary:** `S-001` fixes five mission states. 45 missions still carry
+> withdrawn ones.
+> **Epistemic:** The board and the corpus disagree about what a mission's state
+> is.
+> **Pragmatic:** Until this closes, filtering by `status` returns different
+> answers depending on which value you ask for.
+
+## The gap, measured
+
+`scripts/count-evidence.py` against HEAD `7d17b5a`:
+
+| Status in the data | Missions | Should be |
+|---|--:|---|
+| `backlog` | 40 | `todo` |
+| `draft` | 4 | `todo` |
+| corrupt (comment inside the value) | 1 | `todo` |
+| `in-progress` · `in-review` · `done` · `frozen` | 61 | unchanged |
+
+**45 to migrate.** The corrupt one is `status: draft   # draft|backlog|…` — the
+comment ended up inside the value.
+
+## The corrupt one has a cause, not a culprit
+
+`missions/TEMPLATE.md` teaches the field like this:
+
+```yaml
+status: draft   # draft|backlog|in-progress|in-review|done|frozen|cancelled
+```
+
+Whoever copied the template copied the comment. **The template must be fixed in
+the same operation**, or the next mission reproduces the bug — and it will also
+teach `cancelled`, which no longer exists (blocker 1, executed).
+
+## Closing condition
+
+Marked RESOLVED when `count-evidence.py` reports only the five valid states, and
+`missions/TEMPLATE.md` no longer carries an inline comment in `status`.
+
+Migration is mechanical and idempotent, in the shape of
+`scripts/cancel_to_frozen.py`. It is not done in this operation because
+`S-001` is not signed: migrating the data to an unsigned rule is the mistake
+this debt exists to avoid.
+
+## State
+
+| | |
+|---|---|
+| Severity | medium — affects filtering and the board, not the evidence |
+| Owner | Oracle |
+| Blocked by | `S-001` unsigned |
+| Opened | 2026-08-24, by `S-001` §7 |
+| Closes when | only the 5 valid states remain, and the template is fixed |

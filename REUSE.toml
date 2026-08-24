@@ -25,7 +25,7 @@ SPDX-License-Identifier = "CC-BY-4.0"
 [[annotations]]
 path = [
   "decisions/**", "protocols/**", "operations/**", "reports/**",
-  "missions/**", "blueprints/**", "standards/**",
+  "missions/**", "blueprints/**", "standards/**", "debt/**",
   "README.md", "CHANGELOG.md", "CONTRIBUTING.md", "GOVERNANCE.md",
   "STANDARDS.md", "CLAUDE.md", "TRADEMARKS.md", "LEGAL_DEBT.md",
   "GAPS.md", "DEUDA-404.md", "SECURITY.md",

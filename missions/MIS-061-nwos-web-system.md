@@ -2,7 +2,8 @@
 id: "MIS-061"
 title: "El Sistema — NWOS Web Visualization at pablofm.com/sistema"
 type: mission
-status: cancelled
+status: frozen
+freeze_reason: cancelled
 version: "1.0.0"
 created: "2026-04-07T18:00:00Z"
 updated: "2026-08-17T00:00:00Z"

@@ -5,3 +5,8 @@ dist/
 .env
 .env.*
 !.env.example
+
+# Generated views — produced by scripts/render-glossary.py.
+# The source is the .md; the view is rebuilt on demand and never committed,
+# so it cannot drift into a second source of truth.
+build/
