@@ -5,9 +5,9 @@ title: "Phase 0 — Archive restructure inventory"
 type: report
 subtype: audit
 status: published
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-24T22:45:00Z"
-updated: "2026-08-24T23:15:00Z"
+updated: "2026-08-24T23:30:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -27,8 +27,11 @@ evidence_head: "64d7735"
 > does not exist until then.
 > **Status:** READ-ONLY. No file was moved, renamed or deleted.
 
-Reproduce with `python3 scripts/phase0-inventory.py` (`--json` for raw data),
-measured against HEAD `64d7735`.
+Reproduce with `python3 scripts/phase0-inventory.py --at 64d7735` (`--json` for
+raw data). **The `--at` matters:** this report is itself a corpus document, so
+publishing it adds three files to what it measures. Without pinning the commit,
+its own figures stop matching the moment it lands. A reproducible figure needs
+to say what it is reproducible against.
 
 ---
 
@@ -302,7 +305,20 @@ stops rediscovering the wall and improvising around it.
 ## Reproduce
 
 ```bash
-python3 scripts/phase0-inventory.py          # this report's figures
-python3 scripts/phase0-inventory.py --json   # raw, one record per document
-python3 scripts/count-evidence.py            # corpus-wide evidence
+python3 scripts/phase0-inventory.py --at 64d7735   # this report's figures
+python3 scripts/phase0-inventory.py                # the corpus as it is now
+python3 scripts/phase0-inventory.py --json         # raw, one record per document
+python3 scripts/count-evidence.py                  # corpus-wide evidence
 ```
+
+> **A flaw found in this instrument, after publication.** The first version had
+> no `--at`: it always measured the working tree. The moment this report was
+> committed, running it returned 249 documents instead of the 246 it states —
+> because the report, `MIS-109` and `D-017` are corpus documents and the script
+> counted them.
+>
+> The figures were never wrong; they were unpinnable. `D-014` records the same
+> class of defect in `count-evidence.py`, where apparatus is counted as record.
+> **Twice in one day the instrument was the thing that needed fixing**, which is
+> the argument for `evidence_script` and `evidence_head` being mandatory rather
+> than a courtesy.

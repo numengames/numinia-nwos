@@ -5,13 +5,25 @@ phase0-inventory.py — Fase 0 de la reestructuración del archivo.
 READ-ONLY. No escribe en el repo, no mueve nada, no commitea.
 Produce el inventario que el Oráculo firma antes de que exista la Fase 1.
 
-    python3 scripts/phase0-inventory.py            # informe legible
+    python3 scripts/phase0-inventory.py            # informe legible, HEAD actual
     python3 scripts/phase0-inventory.py --json     # datos crudos
+    python3 scripts/phase0-inventory.py --at REF   # medir contra un commit
+
+Sobre --at: este informe es un documento del corpus, así que al publicarse
+se añade a lo que mide. Sin --at, las cifras dejan de coincidir con las
+publicadas en el momento en que el informe entra en el repositorio. Para
+reproducir una cifra citada, se mide contra el evidence_head que la
+acompaña. Una cifra reproducible necesita saber contra qué es reproducible.
 """
 import json, os, re, subprocess, sys
 from collections import Counter, defaultdict
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Commit contra el que medir. Por defecto el working tree.
+REF = None
+if '--at' in sys.argv:
+    REF = sys.argv[sys.argv.index('--at') + 1]
 
 # S-001 §3 — mapa canónico type → serie. Los no estrictos van aparte.
 MAPA = {
@@ -37,14 +49,28 @@ def sh(*a):
                           capture_output=True, text=True).stdout
 
 
+def listar():
+    """Ficheros rastreados, en REF si se pidió, si no en el working tree."""
+    if REF:
+        return sh('ls-tree', '-r', REF, '--name-only')
+    return sh('ls-files')
+
+
+def leer(rel):
+    """Contenido de un fichero, en REF si se pidió."""
+    if REF:
+        return sh('show', f'{REF}:{rel}')
+    return open(os.path.join(ROOT, rel), encoding='utf-8').read()
+
+
 def main():
-    files = [f for f in sh('ls-files').split('\n')
+    files = [f for f in listar().split('\n')
              if f.endswith('.md') and not f.startswith('web/')]
 
     docs = []
     for rel in files:
         try:
-            txt = open(os.path.join(ROOT, rel), encoding='utf-8').read()
+            txt = leer(rel)
         except Exception:
             continue
         m = re.match(r'^---\s*\n(.*?)\n---', txt, re.S)
@@ -69,7 +95,7 @@ def main():
     todo_texto = {}
     for rel in files:
         try:
-            todo_texto[rel] = open(os.path.join(ROOT, rel), encoding='utf-8').read()
+            todo_texto[rel] = leer(rel)
         except Exception:
             pass
 
@@ -122,7 +148,9 @@ def main():
 
     P = print
     P(f"\n{'='*78}")
-    P(f"  FASE 0 — INVENTARIO   ·   HEAD {sh('rev-parse','--short','HEAD').strip()}")
+    medido = sh('rev-parse', '--short', REF or 'HEAD').strip()
+    P(f"  FASE 0 — INVENTARIO   ·   medido en {medido}"
+      f"{'' if REF else '  (working tree)'}")
     P(f"  READ-ONLY · ningún fichero modificado")
     P(f"{'='*78}")
 
