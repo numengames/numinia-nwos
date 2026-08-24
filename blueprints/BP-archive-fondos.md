@@ -97,7 +97,7 @@ fondos:
     descripcion: "Las reglas de quién puede hacer qué, los mapas de credenciales y las políticas de seguridad. Es el sistema circulatorio que mantiene todo cohesionado."
     governance: "Oracle modifica. Agentes pueden proponer via PR."
     documentos:
-      - { nombre: "Governance", desc: "Tabla completa: quién puede crear, modificar, archivar cada tipo de documento.", file: "operations/governance.md" }
+      - { nombre: "Governance", desc: "Tabla completa: quién puede crear, modificar, archivar cada tipo de documento.", file: "GOVERNANCE.md" }
       - { nombre: "Security Policy", desc: "Reglas de seguridad del sistema. Qué nunca va en el repo.", file: "operations/security-policy.md" }
       - { nombre: "Credential Map", desc: "Estructura de credenciales sin valores reales. Mapa de dónde vive qué.", file: "operations/credential-map.md" }
 graph:

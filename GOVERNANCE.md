@@ -28,18 +28,54 @@ Rules derived from 100 mental simulations. Each rule includes the simulation tha
 
 | Fund | Create | Modify | Archive/Delete | PR Approval |
 |-------|--------|--------|----------------|-------------|
-| `canon/` | oracle | **Nobody** | **Nobody** | N/A — immutable |
+| `canon/` | oracle | oracle | oracle | oracle — `sealed`, see below |
 | `agents/{own}/` | oracle | active-agent (own) + oracle | oracle | oracle |
 | `agents/{other}/` | oracle | oracle | oracle | oracle |
 | `operations/` | oracle + custodian | oracle + custodian | oracle | oracle |
 | `protocols/` | oracle + custodian | New version = new file | Mark status: superseded | oracle |
 | `missions/` — status: backlog/draft | oracle + custodian | oracle | oracle | oracle |
 | `missions/` — status: in-progress/in-review | active-agent + oracle | Only executor | Oracle sets status: done | oracle |
-| `missions/` — status: done | Automatic on close | **Nobody** (Oracle-recorded overrides only, cf. MIS-066) | oracle | N/A |
+| `missions/` — status: done | Automatic on close | Substance: nobody. Form: with the commit saying so | oracle | N/A |
 | `decisions/` | oracle + custodian | Only add superseded_by | **Never delete** | oracle |
 | `blueprints/` | oracle + agents | oracle + agents | oracle | oracle |
 | `reports/daily/` | active-agent + system | Same day only | custodian (90d retention) | Auto-merge |
 | `reports/weekly/` | custodian + system | Current week only | custodian (1y retention) | oracle |
+
+### Change thresholds
+
+The table above says **who**. `S-001` §2.1 says **how much agreement**, and the
+two must be read together:
+
+| Threshold | What it takes | Applies to |
+|---|---|---|
+| `sealed` | Oracle's signature + an ADR recording the reason; the previous version stays reachable | `canon/` |
+| `governed` | An ADR, or a PR the Oracle approves | `standards/` · `protocols/` · `decisions/` |
+| `closed` | Substance is not reopened; form may be corrected and the commit must say so | `missions/` done · `reports/` |
+| `open` | Normal PR | everything else |
+
+**Nothing here is immutable, and this document no longer claims otherwise.**
+An earlier version stated that `canon/` could be modified by "Nobody" and that
+CODEOWNERS enforced it technically. Both were false: 14 of 14 canon documents
+carry more than one commit, and `.github/CODEOWNERS` says in its own header
+that enforcement *"needs branch protection… tracked in MIS-070"*, which does
+not exist yet.
+
+The distance between what this table declares and what the repository can
+enforce is registered as [`debt/D-011`](debt/D-011-thresholds-unenforced.md).
+Until it closes, every row above is a convention held by people, not a
+mechanism.
+
+---
+
+## This is the governance document
+
+There were two. `operations/governance.md` (1,136 chars) covered the same
+ground as this file (6,413) and carried both false claims above. It was
+deleted by the Oracle on 2026-08-24; references now point here.
+
+`S-001` is the vocabulary — what each series holds and what every field means.
+This document is the authority — who may change what, and at what cost. They do
+not overlap and neither restates the other.
 
 ---
 

@@ -80,7 +80,7 @@ PASO 1 — Identidad:
   → Leer agents/guilds/{mi-guild}/members/{mi-nombre}/OPERATOR.md
 
 PASO 2 — Estado operativo:
-  → Leer operations/governance.md (si no lo he leído en <7 días)
+  → Leer GOVERNANCE.md (si no lo he leído en <7 días)
   → Leer operations/security.md (siempre)
   → Leer mi STATUS.md
 
@@ -183,7 +183,7 @@ El canon no se cuestiona en el trabajo diario. Se consulta. Si el trabajo diario
 
 ### CONSTRUIR SEGUNDO (operaciones reales):
 5. **missions/TEMPLATE.md v2** — con campos `divergence_log`, `executor`, `blocked_reason`, `requires_oracle_approval`.
-6. **operations/governance.md** — quién puede hacer qué, con origen en simulaciones.
+6. **GOVERNANCE.md** — quién puede hacer qué, con origen en simulaciones.
 7. **operations/credential-map.md** — estructura sin valores. Previene FALLO-4.
 8. **CHANGELOG.md** — vacío pero presente desde el día 1.
 

@@ -4,9 +4,9 @@ uid:
 title: "Glossary — the archive's own vocabulary"
 type: documentation
 status: draft
-version: "2.2.0"
+version: "2.3.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-08-24T21:10:00Z"
+updated: "2026-08-24T22:30:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -332,8 +332,30 @@ types.** For `documentation` and `meta` it can warn — flagging a
 `documentation` outside `standards/` that carries normative language, for
 example — but a warning is not a gate and must not be sold as one.
 
-The honest fix, if strictness is wanted, is to split `documentation` into two
-values (`standard` / `explainer`). That is an ADR, not a glossary edit.
+### Before using this map to move anything
+
+**A `type` can be wrong.** The map above assumes the declaration is accurate,
+and it is not always. Verified 2026-08-24: three documents in `operations/`
+declared `type: protocol` while being reference tables — `credential-map.md`
+is an inventory of which account is configured where. Nobody executes it.
+
+Moving them on the strength of their `type` would have propagated the error
+into `protocols/` and given a stale document the standing of a live procedure.
+One of the three also duplicated `GOVERNANCE.md` and asserted two things the
+repository disproves.
+
+**So the order is:**
+
+1. **Verify the `type` against the document.** Does it match the series
+   definition in §2 — an actor executing a sequence, an artifact complying with
+   a rule, evidence of an observation?
+2. If the `type` is wrong, **that is a genre ruling** and it needs an ADR. It
+   is not a frontmatter edit inside a refactor.
+3. Only once the `type` is known to be right does §3 apply, and then the file
+   moves.
+
+A mapping table is a filing instrument, not a judgement. It cannot tell you
+whether a document is what it says it is.
 
 > **`meta` marks apparatus.** A *record* has probative value (`MIS-085`);
 > *apparatus* is the instrument for finding it (`INDEX.md`, `TEMPLATE.md`) and
@@ -699,6 +721,12 @@ gets filled differently by each person who meets it — which is how
 
 ## Version history
 
+- **v2.3.0** (2026-08-24) — §3 gains a step that was missing and cost a bad
+  refactor: **verify the `type` before using the map to move anything.** Three
+  documents in `operations/` declared `type: protocol` while being reference
+  tables; moving them on that declaration would have propagated the error and
+  given a duplicated, factually wrong document the standing of a live protocol.
+  A mapping table is a filing instrument, not a judgement.
 - **v2.2.0** (2026-08-24) — Oracle review, six findings. **The generator now
   exists** (`scripts/render-glossary.py`): the HTML was hand-written while
   claiming to be generated, and had already dropped §9 and renumbered the
