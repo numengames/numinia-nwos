@@ -62,6 +62,25 @@ Three reasons, in order:
    only dev dependencies, or looked for false positives. **Stating them as
    measured would be exactly the failure `D-033` describes.**
 
+## Why this entry is public
+
+Signed by the Oracle, 2026-08-25:
+
+> **The advisories are public in the repository; restricting the record does not
+> restrict the fact — and it suggests there is something to protect where there
+> is not.**
+
+It is worth keeping the reasoning next to the entry rather than only in a
+frontmatter field, because the temptation runs the other way: an entry titled
+*"ten vulnerabilities"* reads as though it should be hidden. Anyone can read
+`/security/dependabot` on a public repository, and `git push` prints the count
+to the console of whoever pushes. Hiding our own record of a public fact buys
+no safety and costs the archive a page.
+
+And it would be the exact defect `D-033` registers, committed by us: a control
+that looks protective, protects nothing, and is never re-examined because
+nobody questions a restriction.
+
 ## What is NOT claimed here
 
 - Not that the site is exploitable. Most Astro-ecosystem advisories affect
