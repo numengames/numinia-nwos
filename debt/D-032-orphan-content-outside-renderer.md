@@ -54,10 +54,16 @@ evidence_head: "392ffc6"
 | Route served | Bytes | Class |
 |---|---:|---|
 | `/diseno/index.html` | 492,627 | orphan, declares **v5.0.0** |
-| `/archive/archive-summa-arquitectura-v0.1.0.md` | 11,008 | **divergent second copy** |
-| `/archive/archive-summa-fundacional-v0.1.0.md` | 10,840 | **divergent second copy** |
-| `/archive/archive-summa-prompt-v0.1.0.md` | 5,722 | **divergent second copy** |
+| `/archive/archive-summa-arquitectura-v0.1.0.md` | 11,008 | **RESOLVED 2026-08-25** |
+| `/archive/archive-summa-fundacional-v0.1.0.md` | 10,840 | **RESOLVED 2026-08-25** |
+| `/archive/archive-summa-prompt-v0.1.0.md` | 5,722 | **RESOLVED 2026-08-25** |
 | `/diseno/plantillas/2026_08_03-Plantilla_Factura-v1.0.0.html` | 12,615 | orphan |
+
+**Three of the five are closed.** `BP-archive-fondos.md`'s three download links
+were repointed at `/corpus/blueprints/archive-summa-*-v010.md` and the `public/`
+copies retired, in that order and in separate commits. The guard's allow-list
+drops from 5 entries to 2. **Two remain open**: `/diseno/index.html` and the
+invoice template.
 
 Assets (fonts, images, css, js, icons) are excluded on purpose: they carry no
 prose and make no claims.

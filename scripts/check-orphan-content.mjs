@@ -56,21 +56,12 @@ const ALLOWED = new Map([
     since: "2026-08-25",
     reason: "Invoice template, HTML artefact with no corpus counterpart. Tolerated pending a decision on where templates live.",
   }],
-  ["archive/archive-summa-arquitectura-v0.1.0.md", {
-    debt: "D-032",
-    since: "2026-08-25",
-    reason: "Divergent second copy of blueprints/archive-summa-arquitectura-v0.1.0.md (14 differing lines). Oracle ruled blueprints/ authoritative by construction; retire only after the divergence is read.",
-  }],
-  ["archive/archive-summa-fundacional-v0.1.0.md", {
-    debt: "D-032",
-    since: "2026-08-25",
-    reason: "Divergent second copy of blueprints/archive-summa-fundacional-v0.1.0.md (12 differing lines). Same ruling; retire only after the divergence is read.",
-  }],
-  ["archive/archive-summa-prompt-v0.1.0.md", {
-    debt: "D-032",
-    since: "2026-08-25",
-    reason: "Divergent second copy of blueprints/archive-summa-prompt-v0.1.0.md (8 differing lines). Same ruling; retire only after the divergence is read.",
-  }],
+  // RESOLVED 2026-08-25, and removed from this list rather than left to rot:
+  //   archive/archive-summa-{arquitectura,fundacional,prompt}-v0.1.0.md
+  // The three were divergent second copies of blueprints/archive-summa-*.
+  // BP-archive-fondos.md's download links were repointed at the corpus copies
+  // and the public/ files retired. An allow-list entry that outlives its case
+  // is the rot this list is meant to avoid.
 ]);
 
 // A public/ file whose basename also exists in the corpus is worse than an
