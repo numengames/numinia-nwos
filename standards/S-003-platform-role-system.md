@@ -14,7 +14,7 @@ owner: "oracle"
 guild: "Alchemists"
 territory: "Standards"
 tags: [standards, ranks, permissions, digital-goods, ADR-023]
-license: "CC-BY-4.0"
+license: "LicenseRef-Numen-AllRightsReserved"
 threshold: governed
 series_change:
   from: "canon/Platform Role System.md"
@@ -30,11 +30,22 @@ series_change:
     S-001 §2. Its twin C-007 Rank Specifications NAMES the ranks and stayed in
     canon; this one REGULATES them.
   regime_change: >
-    Leaving canon/ changes the licence from LicenseRef-Numen-AllRightsReserved
-    to CC-BY-4.0 per REUSE.toml. This is a legal consequence of the genre
-    ruling, not a separate decision: a standard is meant to be adopted by other
-    repositories, and reserved rights would prevent that. Recorded here because
-    the change is invisible in the diff — REUSE derives it from the path.
+    NONE. The file moves folder and KEEPS LicenseRef-Numen-AllRightsReserved,
+    declared explicitly here and pinned by a per-file exception in REUSE.toml.
+    Ruled by the Oracle 2026-08-25, reversing what this branch first did.
+
+    The move would otherwise have released it under CC-BY-4.0 by folder
+    inheritance — and CC-BY is irrevocable, the same mechanism as the CC0
+    incident recorded in LEGAL_DEBT.md. This document is not platform
+    mechanics: NOMAD, CITIZEN, PILGRIM, VERNACULAR, ARCHON and ORACLE are
+    Numinia's own rank names, and promotion is tied to Session Zero, guilds
+    and factions — all reserved canon. A document defining how one ascends
+    through reserved rites cannot live under an open, irrevocable licence.
+    "Maximum 4 Oracles, Oracles cannot be banned" is organisational
+    governance, not technical convention.
+
+    Genre and regime are two decisions. The Oracle signed the genre; the
+    regime travelled hidden inside it and nobody approved it. See D-029.
 ---
 
 # Sistema de Rangos y Permisos — Numinia Digital Goods

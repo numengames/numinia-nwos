@@ -33,6 +33,17 @@ path = [
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC-BY-4.0"
 
+# The rank system is Numinia's, not a platform convention: NOMAD, CITIZEN,
+# PILGRIM, VERNACULAR, ARCHON and ORACLE are the domain model's own names, and
+# promotion is tied to Session Zero, guilds and factions — reserved canon. It
+# left canon/ on a genre ruling (ADR-023) and keeps its birth regime: CC-BY is
+# irrevocable and would let anyone adapt Numinia's ranks. Oracle, 2026-08-25.
+# After the docs block so it wins over standards/**.
+[[annotations]]
+path = "standards/S-003-platform-role-system.md"
+SPDX-FileCopyrightText = "2026 Numen Games S.L."
+SPDX-License-Identifier = "LicenseRef-Numen-AllRightsReserved"
+
 # Enforceable legal texts of the company are not documentation: C-005 is
 # silent on their regime, so they stay in the birth regime (§1, reserved).
 # This annotation comes after the docs block so it wins over operations/**.
