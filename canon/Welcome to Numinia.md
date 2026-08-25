@@ -39,7 +39,7 @@ This relationship can be explained on three interconnected levels:
    → In Peirce's semiotic model, this is the Object.
 
 2. **Regulatory Model**
-   It is the organizational structure that responds to the needs of the operating system: a network of roles, spaces, tools, and concepts with pragmatic value.
+   It is the organizational structure that responds to the needs of the germinal motive: a network of roles, spaces, tools, and concepts with pragmatic value.
    → This is where the Ground is located, which gives meaning to the object by defining how it should work.
 
 3. **Numinia**
