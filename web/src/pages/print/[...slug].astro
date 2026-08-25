@@ -97,8 +97,8 @@ export async function getStaticPaths() {
     });
   }
   const LEGAL_SLUGS: Record<string, string> = {
-    "terms-and-conditions-numengames": "legal/terminos",
-    "politica-de-privacidad-numengames": "legal/privacidad",
+    "o-004-terms-and-conditions-numengames": "legal/terminos",
+    "o-003-privacy-policy-numengames": "legal/privacidad",
   };
   for (const e of await getCollection("legal")) {
     const f = e.data as Record<string, unknown>;

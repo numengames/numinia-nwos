@@ -1,5 +1,5 @@
 ---
-id: "ops-strategy-sales"
+id: "O-007"
 title: "Ventas — estrategia comercial"
 type: documentation
 status: active

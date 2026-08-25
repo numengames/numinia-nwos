@@ -1,5 +1,5 @@
 ---
-id: "AUD-2026-04-07-sistema"
+id: "AUD-2026-04-07"
 title: "Auditoría del sistema — 16 divergencias web vs repo"
 type: report
 subtype: audit

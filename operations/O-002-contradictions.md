@@ -1,5 +1,5 @@
 ---
-id: "ops-contradictions"
+id: "O-002"
 title: "Contradicciones pendientes — registro"
 type: documentation
 status: active
@@ -50,7 +50,7 @@ entrada pasa a la sección "Resueltas" con la decisión y su fecha.
 ### CON-004 — Legales publicados con flags de revisión abiertos
 
 - **Detectada:** 2026-08-18 (publicación de legales en numinia.org)
-- **Fuente A:** `operations/legal/politica-de-privacidad-numengames.md`
+- **Fuente A:** `operations/legal/O-003-privacy-policy-numengames.md`
   — frontmatter: FLAG-2..6 abiertos, "must be resolved before external
   use"; los T&C piden "verify against the original before external
   use". Nota del Oráculo (registro FLAG-1): estos textos no estaban

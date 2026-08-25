@@ -305,7 +305,7 @@ report) nor with `CON-XXX` (contradictions). This is what lets the next run be a
 diff instead of a snapshot.
 
 A finding that reveals the documentation contradicting reality gets **both**: an
-`FND-` in the report and a `CON-` in `operations/contradictions.md`, cross
+`FND-` in the report and a `CON-` in `operations/O-002-contradictions.md`, cross
 referenced. The finding closes when reality is fixed; the contradiction closes
 when the document is.
 

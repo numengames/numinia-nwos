@@ -68,8 +68,8 @@ El diagnóstico ya está hecho; el ejecutor debe re-auditar lo que toque
 4. El login es la isla `components/auth/LoginSpike.tsx` (thirdweb + SIWE),
    montada en `/lap/session/` vía `SessionPage.astro` y en `/spike/auth`.
 5. Los másters viven en `numinia-nwos:operations/legal/`
-   (`terms-and-conditions-numengames.md` v1.0.0 EN,
-   `politica-de-privacidad-numengames.md` v1.1.0 ES). La nota FLAG-1 del
+   (`O-004-terms-and-conditions-numengames.md` v1.0.0 EN,
+   `O-003-privacy-policy-numengames.md` v1.1.0 ES). La nota FLAG-1 del
    máster ordena: lo publicado DERIVA del máster, nunca al revés.
 6. El glob de docs (`components/docs/content.ts`) solo cubre
    `content/docs/**` — un `content/legal/` nuevo no colisiona.
@@ -82,7 +82,7 @@ El diagnóstico ya está hecho; el ejecutor debe re-auditar lo que toque
 El Oráculo ordenó publicar CON los flags de revisión abiertos
 (privacidad FLAG-2..6) y con el desajuste de ámbito (los textos dicen regir
 www.numen.games). Ambos están registrados en
-`numinia-nwos:operations/contradictions.md` como **CON-004** y **CON-005** —
+`numinia-nwos:operations/O-002-contradictions.md` como **CON-004** y **CON-005** —
 publicar es correcto; resolver los flags es de otra sesión (del abogado /
 Oráculo). Los textos se copian **verbatim**: ninguna corrección de contenido,
 ni siquiera las erratas flageadas.

@@ -1,5 +1,5 @@
 ---
-id: "ops-legal-privacy-policy-numengames"
+id: "O-003"
 title: "Política de privacidad — Numen Games"
 type: legal
 status: active
