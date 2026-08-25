@@ -2,27 +2,50 @@
 id: "S-003"
 uid:
 title: "Platform Role System"
-type: seminal
+type: standard
 status: active
 version: "1.0.0"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: "inferred"
-updated: "2026-04-07T12:34:04Z"
+updated: "2026-08-25T00:00:00Z"
 author: "Centinela-01"
 owner: "oracle"
-guild: "Exegetes"
-territory: "Canon"
-tags: [standards, ranks, permissions, digital-goods]
+guild: "Alchemists"
+territory: "Standards"
+tags: [standards, ranks, permissions, digital-goods, ADR-023]
 license: "LicenseRef-Numen-AllRightsReserved"
-registration: exempt
-registration_exemption: "moves-to-standards"
-registration_reason: >
-  Genre ruled by the Oracle 2026-08-25: this is a permissions matrix for an
-  artifact, not world vocabulary. It moves to standards/ in phase B and takes
-  S-003. The id is written now so phase B renames the file only — never the
-  identifier (ADR-004).
-threshold: sealed
+threshold: governed
+series_change:
+  from: "canon/Platform Role System.md"
+  from_series: "canon"
+  from_id: "S-006"
+  date: "2026-08-25"
+  decision: "Oracle ruling, 2026-08-25 — genre, not filing"
+  reason: >
+    A permissions matrix for an artifact, not world vocabulary. Its sections are
+    "Matriz de permisos por rango", "Cómo se determina el rango" and "Reglas de
+    promoción y degradación": 18 table rows, zero narrative markers. What a rank
+    may do is machine-verifiable, which is the definition of a standard in
+    S-001 §2. Its twin C-007 Rank Specifications NAMES the ranks and stayed in
+    canon; this one REGULATES them.
+  regime_change: >
+    NONE. The file moves folder and KEEPS LicenseRef-Numen-AllRightsReserved,
+    declared explicitly here and pinned by a per-file exception in REUSE.toml.
+    Ruled by the Oracle 2026-08-25, reversing what this branch first did.
+
+    The move would otherwise have released it under CC-BY-4.0 by folder
+    inheritance — and CC-BY is irrevocable, the same mechanism as the CC0
+    incident recorded in LEGAL_DEBT.md. This document is not platform
+    mechanics: NOMAD, CITIZEN, PILGRIM, VERNACULAR, ARCHON and ORACLE are
+    Numinia's own rank names, and promotion is tied to Session Zero, guilds
+    and factions — all reserved canon. A document defining how one ascends
+    through reserved rites cannot live under an open, irrevocable licence.
+    "Maximum 4 Oracles, Oracles cannot be banned" is organisational
+    governance, not technical convention.
+
+    Genre and regime are two decisions. The Oracle signed the genre; the
+    regime travelled hidden inside it and nobody approved it. See D-029.
 ---
 
 # Sistema de Rangos y Permisos — Numinia Digital Goods

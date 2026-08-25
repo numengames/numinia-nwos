@@ -52,7 +52,7 @@ Los 10 documentos fundacionales de Numinia. Son inmutables por política y por e
 | 3 | S-003 | Epistemic Relations | `Epistemic relations between Numen Games and Numinia.md` | EN | 10/10 |
 | 4 | S-004 | Compendium of Attributes | `C-003-attributes-and-ranks.md` | EN | 9/10 |
 | 5 | S-005 | Role Structure | `C-004-role-structure.md` | EN | 10/10 |
-| 6 | S-006 | Platform Role System | `Platform Role System.md` | EN | 8/10 |
+| 6 | S-006 | Platform Role System | ⇒ **left the canon 2026-08-25**, now `standards/S-003-platform-role-system.md` | EN | 8/10 |
 | 7 | S-007 | About Session Zero | `C-006-session-zero.md` | EN | 8/10 |
 | 8 | S-008 | Numinia — El Juego de Rol | ⇒ **no vive aquí**, ver «Manual del juego de rol» abajo | ES | — |
 | 9 | S-009 | Rank Specifications | `C-007-rank-specifications.md` | EN | 7/10 |
@@ -120,10 +120,31 @@ S-010 es un meta-documento: describe la carpeta canon en sí misma. Está inclui
 | S-004 Compendium | `extended_by` | S-009 Rank Specs |
 | S-003 Epistemic | `grounds` | S-005 Role Structure |
 | S-003 Epistemic | `grounds` | S-002 Brand & Culture |
-| S-005 Role Structure | `implements` | S-006 Platform Role System |
+| S-005 Role Structure | `implements` | `standards/S-003` Platform Role System |
 | S-007 Session Zero | `instantiates` | S-008 RPG Manual |
 | S-001 Welcome | `summarizes` | S-002, S-005, S-006 |
 | S-008 RPG Manual | `is_narrative_of` | S-003 Epistemic |
+
+> **`S-003` appears twice in this table and means two different things.**
+> Inside the canon it is *Epistemic Relations*, seminal numbering. In
+> `` `standards/S-003` `` it is *Platform Role System*, which left the canon on
+> 2026-08-25. The collision is real and is why `MIS-109` phase C renumbers the
+> seminal series to `C-NNN`: two live documents cannot share a number
+> (`ADR-005`). Until then, seminal references are bare and standards references
+> are written with their folder.
+
+## Documents that left the canon
+
+| Was | Left | Now | Why |
+|---|---|---|---|
+| `S-006` Platform Role System | 2026-08-25 | `standards/S-003-platform-role-system.md` | Genre, not filing: a permissions matrix for an artifact is a standard, not world vocabulary. Oracle ruling, `ADR-023` |
+
+**A series change with a file move is recorded here, in the index of origin —
+not with a tombstone in the folder.** `canon/` is `sealed`, and adding a file to
+signal that another one left is what that threshold exists to discourage. `git
+mv` keeps the history; the index is where a reader looks.
+
+`S-006` is not reissued. An identifier is a promise about the past (`ADR-004`).
 
 ---
 
