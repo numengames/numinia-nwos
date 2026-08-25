@@ -8,9 +8,9 @@ registration_reason: >
 title: "Credential Map"
 type: protocol
 status: active
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-04-06T00:00:00Z"
-updated: "2026-04-07T18:00:00Z"
+updated: "2026-08-25T00:00:00Z"
 author: "nimrod"
 owner: "oracle"
 tags: [operations, security, credentials]
@@ -47,7 +47,7 @@ Structure of credentials without real values. This document shows WHERE things l
 
 | Service | Notes |
 |---------|-------|
-| VPS server | IP documented privately. Not in this repo. |
+| VPS server | IP not documented here. **This row asserted "documented privately. Not in this repo." from 2026-04-06 to 2026-08-25; the assertion was false — see Correction record below.** |
 | OpenClaw config | /home/node/.openclaw/ on server |
 | Umami Analytics | Port configured via Caddy reverse proxy |
 | Cal.com | Port configured via Caddy reverse proxy |
@@ -61,7 +61,47 @@ Structure of credentials without real values. This document shows WHERE things l
 
 ---
 
-*Real values are NEVER documented here. This is structure only.*
+*Real values are NEVER documented here. This is structure only — an intent this
+document asserted while it was untrue elsewhere in the corpus; see below.*
+
+---
+
+## Correction record — 2026-08-25 (§2.1.2)
+
+**What this document asserted.** The `VPS server` row read *"IP documented
+privately. Not in this repo."* — from `84a9f71` (2026-04-06) to `392ffc6`
+(2026-08-25). **141 days.**
+
+**What was true.** The VPS IPv4 address was committed to this repository on
+`e56f6e8` (2026-04-07, *"migración completa desde pablofm.com"*) and was present
+in **7 tracked files**, reaching **13 built pages** and live on numinia.org at
+`/agente/`, `/corpus/agents/ursa/memory/` and `/corpus/agents/nimrod/status/`.
+**140 days published**, in a public repository with clonable history.
+
+**How it was detected.** Not by a guard — none covers this. It surfaced from a
+regex sweep for secret material across all 282 corpus documents while
+classifying this document at the Oracle's request. The sweep was looking for
+tokens and keys; the contradiction was incidental. **Nothing in the system was
+watching this claim.**
+
+**What was done.** The string was retired from the 6 `.md` files under
+`fix/retire-vps-ip-from-corpus` and replaced with an explicit pointer. One
+occurrence remains in `web/src/pages/agente.astro` — deliberately: it is not
+`.md`, no corpus measurement reaches it, and the orphan-content guard must be
+the thing that finds it. Tracked in the debt registered with this change.
+
+**What was NOT done, and why.** History was not rewritten. The address has been
+public for 140 days and is discoverable by DNS regardless; `filter-branch` would
+not unpublish it and would break every signature in the repository. The Oracle
+ruled it an **identifier, not a value** — no credential was exposed and no
+rotation is implied. The residual risk is aggregation: the address sat beside
+host sizing, internal ports and this very credential inventory. **That control
+is a network control, not a documentary one**, and is verified externally by the
+Oracle.
+
+**The general defect.** This document made a falsifiable compliance claim that
+nothing falsified. It is not unique — see the debt on unverified compliance
+assertions registered with this change.
 
 ---
 
@@ -69,3 +109,7 @@ Structure of credentials without real values. This document shows WHERE things l
 
 - v1.0.0 (2026-04-06) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
+- v1.2.0 (2026-08-25) — Correction record (§2.1.2): the `VPS server` row
+  asserted for 141 days that the address was not in this repository. It was.
+  Assertion corrected in place, not silently; the address retired from 6 `.md`
+  files. Detected incidentally, by no guard.

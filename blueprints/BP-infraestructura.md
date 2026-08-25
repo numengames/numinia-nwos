@@ -31,7 +31,7 @@ license: "CC-BY-4.0"
 
 ## Estado actual
 
-- VPS 161.35.215.224 — 7.8GB RAM, 4 CPUs, 154GB disco
+- VPS [VPS-IP redacted — see ops-credential-map] — 7.8GB RAM, 4 CPUs, 154GB disco
 - Umami Analytics corriendo en :3001 (analytics.pablofm.com via Caddy)
 - Cal.com corriendo en :3002 (cal.pablofm.com via Caddy)
 - Caddy como reverse proxy con SSL automático (Let's Encrypt)

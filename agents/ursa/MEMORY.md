@@ -55,7 +55,7 @@ Nómada → Ciudadano → Peregrino → Vernáculo → Arconte → Oráculo (má
 
 - **Hyperfy2** — especialización principal, entornos virtuales interactivos
 - **Repo principal:** https://github.com/numengames/numinia-digital-agents
-- **Infraestructura VPS:** 161.35.215.224 — Caddy gestiona HTTPS
+- **Infraestructura VPS:** [VPS-IP redacted — see ops-credential-map] — Caddy gestiona HTTPS
 - **PC on-premises en camino:** Ryzen 9 7950X + RTX 4080 + 32GB DDR5 + Ubuntu 24.04
 
 ---
