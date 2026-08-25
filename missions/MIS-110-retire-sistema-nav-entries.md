@@ -1,14 +1,14 @@
 ---
 id: "MIS-110"
 title: "Retire the thirteen Sistema entries from the nav, leaving their pages reachable"
-status: backlog
+status: done
 priority: medium
 effort: XS
 guild: alchemists
 area: web
 type_execution: digital
-assigned_to: null
-completed: null
+assigned_to: "ursa"
+completed: "2026-08-25"
 
 type: mission
 version: "1.0.0"
@@ -99,10 +99,43 @@ entries would rot as soon as the nav changes again.)*
 
 ## Closure
 
-*(Fill when the mission closes. Not before, and not with intentions.
-Add here — never edit `Scope` or the criteria to match what happened.)*
+*(Written at closing. Nothing above this line was edited.)*
 
-- **What was done:**
-- **What diverged, and why:**
-- **Evidence:**
-- **Closed:** YYYY-MM-DD · **by:**
+- **What was done:** the `Sistema` dropdown and its thirteen entries removed
+  from `navItems` in `web/src/data/navigation.ts`. One file, 13 insertions and
+  19 deletions, and the thirteen routes are listed in a comment in place of the
+  entries so the next reader knows what was there and why it went.
+
+  All five criteria met, measured after the change:
+
+  ```
+  nav links       5  ['/', '/missions', '/decisiones', '/planos', '/reportes']
+  13 pages        13 of 13 still built
+  page count      643, unchanged
+  pages/ + config diff empty
+  references      baseline 17, no new broken
+  ```
+
+- **What diverged, and why:** the plan said "one commit touching one file", and
+  that held — but it left the `NavChild` type and the `children` branch of the
+  `NavItem` union with no remaining user. The build passes (`exit 0`, 527
+  pages) because unused exported types are not an error, so **no criterion
+  caught it**.
+
+  Left in place deliberately rather than tidied: removing them is a change to
+  the nav's type contract, not to the nav's content, and this mission's scope
+  was the entries. **A criterion set that is fully green can still leave dead
+  code behind** — the criteria checked what the nav renders and what still
+  builds, which is what was asked, and neither question can see an unused type.
+
+  Worth stating because it is the same shape as everything else measured
+  today: the guard verifies what it was pointed at, and is silent about the
+  rest.
+
+- **Evidence:** `385c29d` is the base commit; every criterion above was run
+  before and after. Before: 18 nav links, 13/13 pages, 643 pages. After: 5, 13,
+  643. Pages confirmed still serving real content, not stubs — `/gaps` 50,861 B,
+  `/soluciones` 53,762 B, `/agente` 57,385 B, `/wardley` 48,269 B.
+  Guards: licence 265/288, references baseline 17 no new, orphan-content exit 0.
+
+- **Closed:** 2026-08-25 · **by:** ursa
