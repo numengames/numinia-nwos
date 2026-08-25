@@ -220,6 +220,31 @@ So:
 What `Welcome` lacks is not a correction but a sentence: nothing tells the
 reader that levels 2's two names are two aspects. `MIS-109` adds it.
 
+### If you must pick one, the source prefers `Regulatory`
+
+**Measured in phase D, 2026-08-25.** `Epistemic_Relations` — the document that
+introduced the distinction — states the scheme as:
+
+```
+GERMINAL MOTIVE → REGULATORY MODEL → NARRATIVE PROJECTION
+```
+
+and uses `Regulatory Model` **seven times**. `Functional Model` appears **zero
+times in it.**
+
+That does not narrow the ruling: both names remain valid, because they name two
+planes of one level and `Pragmatic Numen System` §2.3 is explicit that the
+planes are inseparable and not equivalent. `Functional Model` stays correct
+wherever the argument is about what runs — `MIS-085`'s *"Domain types =
+Functional Model"* is a good use, and `C-002`'s *"Structured Functional Model,
+Organizational Operating System, Gamified Narrative Projection"* states the
+whole triad correctly.
+
+**But when a writer has no reason to prefer one, the canonical scheme is the
+tiebreaker: write `Regulatory Model`.** The source names the middle slot that
+way throughout, and the corpus should not drift away from the document it
+derives from.
+
 ### How this propagates to agents — the part that was missing
 
 An ADR that changes the model and does not touch `MEMORY.md` **leaves the agents

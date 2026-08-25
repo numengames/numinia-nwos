@@ -3,8 +3,8 @@ id: "S-001"
 uid:
 title: "Glossary — the archive's own vocabulary"
 type: documentation
-status: draft
-version: "3.3.0"
+status: active
+version: "4.0.0"
 created: "2026-08-24T16:00:00Z"
 updated: "2026-08-25T02:20:00Z"
 author: "ursa"
@@ -474,6 +474,50 @@ whether a document is what it says it is.
 > is **derived** — rebuildable from the records. **If it can be regenerated from
 > the others, it is apparatus.** An out-of-date index is a bug; an out-of-date
 > record is history.
+
+### 3.1 One document, both natures: enumeration and relation `[MANUAL]`
+
+**The part that enumerates is apparatus. The part that relates and judges is
+record.**
+
+An `INDEX.md` is not one thing or the other — **it is both at once, and that is
+why nobody could see where it belonged.** Named by the Oracle on 2026-08-25 on
+being shown that four indexes contain nothing a machine could not derive, and
+one contains a great deal:
+
+| Index | Rows | Relations | Judgements | Explanations |
+|---|---:|---:|---:|---:|
+| `agents/` | 15 | 0 | 0 | 0 |
+| `decisions/` | 13 | 0 | 0 | 1 |
+| `blueprints/` | 7 | 0 | 0 | 0 |
+| `reports/` | 8 | 0 | 0 | 0 |
+| **`canon/`** | **41** | **7** | **6** | **8** |
+
+The first four list `id · title · status · version` — every field already in the
+frontmatter of the file being listed. **Hand-maintaining them is copying, and
+`D-031`'s 32 absences are what copying produces.**
+
+`canon/INDEX.md` also carries `C-001 summarizes C-002, C-004`, values like
+`9/10`, and reasons like *"genre: a permissions matrix regulates an artifact, it
+does not name the world"*. **None of that is in any file.** It is a judgement
+about the corpus, and generating the index would destroy it — along with the
+relation graph, which is the only thing that moves `E6`.
+
+So:
+
+- **Enumeration derives.** If every column comes from the frontmatter of the
+  documents listed, the table is apparatus and maintaining it by hand is a
+  source of omission, not of information.
+- **Relation and judgement do not.** `summarizes`, `grounds`, `supersedes`, a
+  score, the reason for a decision — these are assertions *about* the corpus
+  that no document makes about itself.
+
+> The test: **if deleting it loses nothing that cannot be rebuilt from the
+> files, it enumerates. If deleting it loses an assertion nobody else makes, it
+> records.**
+
+A document holding both should say which part is which — or be split. That
+decision, for `canon/INDEX.md`, is registered in `D-031` and not taken here.
 
 ---
 
@@ -1078,6 +1122,45 @@ plausible artefact is invisible to the layer that produced it.
 The fourth bullet has no mechanism yet: nothing lists what each guard is blind
 to. That is worth writing and belongs with `D-001`.
 
+### 10.0.1 Failure by omission `[MANUAL]`
+
+**A failure by omission produces no error. It produces a valid artefact that is
+smaller than it should be.**
+
+The general form of the plausible artefact, named by the Oracle on 2026-08-25
+after the third instance in one day:
+
+| Debt | What is missing | What the tooling sees |
+|---|---|---|
+| `D-023` | A series never reaches the site | A green build with less to build |
+| `D-028` | A page moves and its old URL dies | A green build with a different URL |
+| `D-031` | A document is absent from its index | Valid markdown either way |
+
+**An index cannot fail for what it omits.** Nothing distinguishes *"this series
+has three documents"* from *"this series has twenty-two and the index knows
+three"* — both are well-formed, and the smaller one is indistinguishable from a
+smaller truth.
+
+This is why omission outlives every other defect in this corpus. A broken link
+is reported by a linter. A wrong figure looks implausible to a reader. **An
+absence looks exactly like a smaller world**, and nobody is surprised by a world
+they have never seen the rest of.
+
+Two consequences for how guards are written here:
+
+1. **A guard that validates what is present cannot detect what is missing.**
+   Detecting omission requires an independent enumeration of what *should* be
+   there — the filesystem against the index, the glob against the folder list,
+   the renames against the redirect table. Every instance above was found that
+   way, and none by the tool that owned the artefact.
+2. **The count is the signal, and nobody watches counts.** `debt/` reaching the
+   site showed up as `515 → 559 pages`, noticed only because the number happened
+   to be under observation for another reason.
+
+> `S-001` §10.2 requires a figure to declare its unit. Omission is the case
+> where the unit is right, the figure is right, **and the denominator is
+> silently wrong.**
+
 
 
 ### 10.1 Every measurement declares where it measured `[MANUAL]`
@@ -1246,6 +1329,12 @@ gets filled differently by each person who meets it — which is how
 
 ## Version history
 
+- **v4.0.0** (2026-08-25) — **`status: active`.** MIS-109 closed: canon no longer
+  contradicts this document. The seminal series is `C-NNN`, `S-` is unambiguously
+  `standards/`, and the four terms of ADR-023 coexist with distinct senses. Adds
+  §3.1 (enumeration is apparatus, relation and judgement are record) and §10.0.1
+  (a failure by omission produces a valid artefact that is smaller than it should
+  be). The signature was this version's acceptance criterion, not a formality.
 - **v3.3.0** (2026-08-25) — §2.1.2: **`live`**, the threshold for state rather
   than record. A memory asserts something about the present, so correcting it
   falsifies nothing — but it corrects an actor in motion, and the correction is
