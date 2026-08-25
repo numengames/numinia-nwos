@@ -37,9 +37,40 @@ const PUBLIC = join(WEB, "public");
 const DIST = join(WEB, "dist");
 
 // Orphans acknowledged and tracked. Anything NOT here fails the guard.
-// Each entry must name the debt that tracks it.
+//
+// THIS LIST IS DEBT, NOT CONFIGURATION. Every entry carries a reason and the
+// date it was accepted, so it can be read as a register of what is owed rather
+// than as settings nobody revisits. An entry with no reason is a bug.
+//
+// What does NOT belong here: anything that must be fixed rather than tolerated.
+// web/src/pages/agente.astro carried the VPS address and was deliberately kept
+// out of this list — it was repaired instead (see D-032).
 const ALLOWED = new Map([
-  ["diseno/index.html", "D-032 — design system served from public/, v5.0.0 while the standard is v5.1.0"],
+  ["diseno/index.html", {
+    debt: "D-032",
+    since: "2026-08-25",
+    reason: "Design system served as raw HTML from public/. Declares v5.0.0 while the corpus standard is v5.1.0 (unsigned). Needs a version ruling before it moves.",
+  }],
+  ["diseno/plantillas/2026_08_03-Plantilla_Factura-v1.0.0.html", {
+    debt: "D-032",
+    since: "2026-08-25",
+    reason: "Invoice template, HTML artefact with no corpus counterpart. Tolerated pending a decision on where templates live.",
+  }],
+  ["archive/archive-summa-arquitectura-v0.1.0.md", {
+    debt: "D-032",
+    since: "2026-08-25",
+    reason: "Divergent second copy of blueprints/archive-summa-arquitectura-v0.1.0.md (14 differing lines). Oracle ruled blueprints/ authoritative by construction; retire only after the divergence is read.",
+  }],
+  ["archive/archive-summa-fundacional-v0.1.0.md", {
+    debt: "D-032",
+    since: "2026-08-25",
+    reason: "Divergent second copy of blueprints/archive-summa-fundacional-v0.1.0.md (12 differing lines). Same ruling; retire only after the divergence is read.",
+  }],
+  ["archive/archive-summa-prompt-v0.1.0.md", {
+    debt: "D-032",
+    since: "2026-08-25",
+    reason: "Divergent second copy of blueprints/archive-summa-prompt-v0.1.0.md (8 differing lines). Same ruling; retire only after the divergence is read.",
+  }],
 ]);
 
 // A public/ file whose basename also exists in the corpus is worse than an
@@ -128,8 +159,14 @@ if (asJson) {
 
   if (orphans.length === 0) console.log("  none.\n");
   for (const f of orphans) {
-    const why = ALLOWED.get(f);
-    console.log(`  ${why ? "[known]" : "[NEW]  "} /${f}${why ? `\n            ${why}` : ""}`);
+    const e = ALLOWED.get(f);
+    if (e) {
+      console.log(`  [known] /${f}`);
+      console.log(`            ${e.debt} · accepted ${e.since}`);
+      console.log(`            ${e.reason}`);
+    } else {
+      console.log(`  [NEW]   /${f}`);
+    }
   }
 
   if (verification) {
