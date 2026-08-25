@@ -2,10 +2,10 @@
 id: "MIS-074"
 title: "Progressive identity (Web2→Web3) for numinia.com"
 type: mission
-status: in-progress
+status: backlog
 version: "1.0.0"
 created: "2026-08-15"
-updated: "2026-08-17"
+updated: "2026-08-25"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [web, platform, auth, siwe]
@@ -122,3 +122,17 @@ Scenario: The Web3 boundary is one constant
 ## 🚫 Out of scope
 
 Session Zero verification, purchases, EIP-1271, on-chain state, deploy.
+
+---
+
+## Board triage — 2026-08-25
+
+Returned from `in-progress` to `backlog` by the Oracle, in the triage of the 111
+missions. **Nothing about the brief changed and the work is still wanted** —
+what changed is the claim that it was underway.
+
+- **Category:** D — stale. No commit outside a bulk maintenance commit, and the brief declares no acceptance criteria.
+- **Signal, not proof:** this mission was assigned to an agent whose identity is
+  in question (`D-026`, `D-027`). That is context; the evidence for this move is
+  the absence of its own commit, not who it was assigned to.
+- **Signed by:** Oracle, 2026-08-25.

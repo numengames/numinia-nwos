@@ -3,10 +3,10 @@ id: "MIS-062"
 uid: "018ef820-0062-7000-8000-000000000062"
 title: "Mission System v2 — States, Sub-missions, IDs, Kanban"
 type: mission
-status: in-progress
+status: backlog
 version: "1.0.0"
 created: "2026-04-07T19:43:00Z"
-updated: "2026-04-07T19:43:00Z"
+updated: "2026-08-25"
 author: "pablo-fm"
 owner: "oracle"
 tags: [missions, kanban, system-design, architecture, product]
@@ -129,3 +129,45 @@ A Kanban board backed by a real repo is the difference between a system that exi
 ---
 
 *Nimrod 🗡️ — 2026-04-07*
+
+---
+
+## Board triage — 2026-08-25: scope cut, signed
+
+**Category B — superseded, but not entirely.** Most of this mission was absorbed
+or contradicted by later work. What survives is one line of it, and this section
+records which, so nobody re-reads the brief above as if it were still the plan.
+
+The brief is untouched. This is the disposition, not a rewrite.
+
+| Criterion in the brief above | Verified state, 2026-08-25 | Disposition |
+|---|---|---|
+| Folder structure `queue/ active/ review/ done/ freeze/` | Those folders do not exist | **Contradicted.** `MIS-066` flattened `missions/` to a single folder on purpose. Not pending — decided against. |
+| `pablofm.com/missions` live with Kanban view | 5 references to a legacy domain | **Dead context.** The board lives at `numinia.org/missions`. |
+| `STANDARDS.md` §2 updated, MIS-NNN format | 3 mentions of `MIS-NNN` in `STANDARDS.md` | **Done.** |
+| `STANDARDS.md` — mission states documented | present | **Done.** |
+| `P-003` updated to v2 cycle | present | **Done.** |
+| All missions migrated to v2 frontmatter (**uid**) | **182 documents in the corpus have no `uid:`** | **SURVIVES.** This is the whole of what is left. |
+
+```bash
+grep -rL "^uid:" --include="*.md" canon standards decisions protocols \
+  blueprints missions debt operations agents reports | wc -l    # -> 182
+```
+
+### The surviving line, and how it will be executed
+
+The `uid` migration is re-executed **on current `main`**, with falsifiable
+criteria — the obvious one being that the command above returns **0**.
+
+**A first attempt exists and was not lost.** Branch `chore/uid-all-documents`
+(`5c5a32f`, 2026-08-24) carries the migration across 211 files. It was never
+pushed and never had a PR; its merge base is `7d17b5a`, **75 commits behind
+`main`**. Rescuing it would mean resolving that gap by hand, on a branch whose
+squash would conflict `add/add` against everything merged since.
+
+Oracle's ruling: **redo, do not rescue.** The branch stays as it is, undeleted,
+as the record of the first attempt. **No work was lost — an expensive rescue was
+avoided**, and the same result is cheaper to reproduce than to reconcile.
+
+Returned to `backlog` because what survives has not been started on this base.
+- **Signed by:** Oracle, 2026-08-25.

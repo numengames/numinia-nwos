@@ -2,10 +2,10 @@
 id: "MIS-065"
 title: "Canon at build time — narrative out of the code regime"
 type: mission
-status: in-review
+status: backlog
 version: "1.0.0"
 created: "2026-08-17"
-updated: "2026-08-17"
+updated: "2026-08-25"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [web, licensing, file-over-app, c-005]
@@ -138,3 +138,17 @@ snippet exceptions. One refactor, two debts closed.
 - **Executing agent:**
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
+
+---
+
+## Board triage — 2026-08-25
+
+Returned from `in-review` to `backlog` by the Oracle, in the triage of the 111
+missions. **Nothing about the brief changed and the work is still wanted** —
+what changed is the claim that it was underway.
+
+- **Category:** D — stale. Last activity 2026-08-17, unassigned.
+- **Signal, not proof:** this mission was assigned to an agent whose identity is
+  in question (`D-026`, `D-027`). That is context; the evidence for this move is
+  the absence of its own commit, not who it was assigned to.
+- **Signed by:** Oracle, 2026-08-25.
