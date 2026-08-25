@@ -15,6 +15,7 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [debt, instruments, measurement, counting, D-014, D-021]
 license: "CC-BY-4.0"
+visibility: "public"
 severity: medium
 opened_by: "Oracle, 2026-08-25 — sixth occurrence"
 evidence_script: "scripts/check-references.mjs"

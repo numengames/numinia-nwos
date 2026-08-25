@@ -15,10 +15,12 @@ guild: "Sentinels"
 territory: "Infrastructure"
 tags: [debt, security, dependencies, dependabot, astro, D-017]
 license: "CC-BY-4.0"
-visibility: "restricted-oracle"
+visibility: "public"
 visibility_reason: >
-  Enumerates unpatched advisory counts on a public repository's default branch.
-  Restricted until the advisories are triaged.
+  Dependabot advisories are PUBLIC on a public repository — anyone can read
+  /security/dependabot, and `git push` prints them. Restricting the record
+  does not restrict the fact; it only suggests there is something to protect
+  where there is not.
 severity: medium
 opened_by: "Ursa, 2026-08-25, from git push output"
 evidence_script: "git push (remote advisory banner) — counts not independently verified"

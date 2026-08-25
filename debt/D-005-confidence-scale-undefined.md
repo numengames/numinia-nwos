@@ -13,6 +13,7 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [debt, frontmatter, vocabulary, undefined, calibration]
 license: "CC-BY-4.0"
+visibility: "public"
 severity: low
 opened_by: "S-001 §11"
 evidence_script: "scripts/count-evidence.py"

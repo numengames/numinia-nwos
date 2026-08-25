@@ -13,6 +13,7 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [debt, identifiers, registration, archive]
 license: "CC-BY-4.0"
+visibility: "public"
 severity: medium
 opened_by: "S-001 §4.1"
 ---

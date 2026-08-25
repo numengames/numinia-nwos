@@ -15,6 +15,10 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [debt, registration, D-008, phase1, frozen-artifacts]
 license: "CC-BY-4.0"
+visibility: "public"
+visibility_reason: >
+  Cites `credential-map.md` by filename as a document awaiting a genre
+  ruling. It exposes no credential and no value.
 severity: low
 opened_by: "phase 1 registration backfill"
 evidence_script: "scripts/phase0-inventory.py"

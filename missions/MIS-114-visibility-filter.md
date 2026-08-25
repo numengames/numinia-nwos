@@ -196,6 +196,28 @@ before the work starts. Final states, not deltas.)*
 
 - **Evidence:** base `5abd27f`. Pages 660 → 660, unchanged: nothing was lost by
   putting `debt/` back. Guards: licence 271/294, references baseline 17 no new,
-  orphan-content exit 0. Production verification pending merge.
+  orphan-content exit 0.
+
+### Verified in production
+
+Merged as `ba3673c` (PR #62). The footer moved `5abd27f → ba3673c` on its own,
+no panel touched, and the deployed SHA equals `main`.
+
+```
+fail closed        /corpus/debt/d-033-…/   404
+                   /corpus/debt/d-028-…/   404
+                   /corpus/debt/d-001-…/   404
+
+the rest intact    /corpus/canon/c-001-welcome-to-numinia/     200
+                   /corpus/standards/s-001-glossary/           200
+                   /corpus/protocols/p-010-how-to-archive/     200
+                   /corpus/                                    200
+```
+
+**The second block is the one that matters.** A 404 on `debt/` proves nothing on
+its own — it is indistinguishable from the state before this mission, when the
+folder was simply out of the glob. What proves the filter is scoped correctly is
+that **the other 112 corpus pages still answer 200**: had the rule kept the
+brief's unscoped form, this deploy would have removed them.
 
 - **Closed:** 2026-08-25 · **by:** ursa

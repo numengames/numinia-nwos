@@ -15,13 +15,10 @@ guild: "Alchemists"
 territory: "Infrastructure"
 tags: [debt, web, pdf, build, deploy, D-028, D-032, D-033]
 license: "CC-BY-4.0"
-visibility: "internal"
+visibility: "public"
 visibility_reason: >
-  Nothing sensitive: broken links and unstyled print intermediates already
-  public. Internal because it describes build behaviour, not because it is
-  withheld. Recorded explicitly although debt/ is currently outside the corpus
-  glob (temporary, pending a visibility-aware filter) — the field is written so
-  it is right when the glob is restored.
+  Names 278 dead links and 278 reachable print intermediates. Both are
+  observable by any visitor with curl.
 severity: medium
 severity_reason: >
   Medium, not high: no data is lost, nothing is exploitable, and the sitemap

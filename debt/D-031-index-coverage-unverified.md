@@ -15,6 +15,7 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [debt, indexes, apparatus, guards, D-001, D-023, MIS-109]
 license: "CC-BY-4.0"
+visibility: "public"
 severity: high
 opened_by: "Oracle, 2026-08-25"
 evidence_script: "reports/audits/evidence/index-coverage.py"

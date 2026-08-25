@@ -17,8 +17,9 @@ tags: [debt, compliance, verification, guards, S-001, D-011, D-025, D-032]
 license: "CC-BY-4.0"
 visibility: "restricted-oracle"
 visibility_reason: >
-  This entry enumerates where the system states it is protected without being
-  protected. It is a map of unverified controls. Not for publication.
+  Enumerates 132 compliance controls the system claims to satisfy and does
+  not verify. That is finished reconnaissance, and F-48 is open. This one
+  stays.
 severity: high
 opened_by: "Oracle, 2026-08-25, on the credential-map contradiction"
 evidence_script: "salida/sesion-2026-08-25-fase0-websync/barrido-cumplimiento.py"

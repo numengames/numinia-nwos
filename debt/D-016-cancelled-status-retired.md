@@ -13,6 +13,7 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [debt, frontmatter, vocabulary, missions, resolved]
 license: "CC-BY-4.0"
+visibility: "public"
 severity: medium
 opened_by: "S-001 v1, Oracle feedback"
 resolved_by: "Oracle blocker 1, executed 2026-08-24"

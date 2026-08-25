@@ -13,6 +13,7 @@ guild: "Sentinels"
 territory: "Archive"
 tags: [debt, signing, hardware, yubikey, sealed, key-management]
 license: "CC-BY-4.0"
+visibility: "public"
 severity: medium
 opened_by: "Oracle, 2026-08-24 signing session"
 ---

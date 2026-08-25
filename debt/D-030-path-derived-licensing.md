@@ -15,6 +15,7 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [debt, licensing, open-question, REUSE, D-029, C-005]
 license: "CC-BY-4.0"
+visibility: "public"
 severity: medium
 opened_by: "Oracle, 2026-08-25"
 question_status: "open — no proposal by instruction"
