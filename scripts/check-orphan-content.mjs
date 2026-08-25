@@ -1,0 +1,172 @@
+#!/usr/bin/env node
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// Orphan-content guard — content served without passing through the renderer.
+//
+// WHY THIS EXISTS
+// Astro copies web/public/** into dist/ verbatim. Those files are served from
+// numinia.org with no frontmatter, no declared licence, invisible to
+// check-references.mjs and to every corpus measurement (which globs *.md).
+// D-023's mechanism, one level out: the omission produces no error, it
+// produces a valid site with content nobody is measuring.
+//
+// TWO INSTRUMENTS, DELIBERATELY
+//   ENUMERATION  public/** intersected with dist/**  -> NAMES the orphans.
+//                Depends on no log figure.
+//   VERIFICATION pages_in_dist - redirects - astro_declared  -> cardinality
+//                cross-check. Only runs when --declared is passed.
+// An aggregate identity can cancel errors out (two new orphans + one
+// miscounted page = zero). The enumeration cannot: it lists rutas. If the two
+// disagree, the finding is that one instrument is wrong.
+//
+// USAGE
+//   node scripts/check-orphan-content.mjs
+//   node scripts/check-orphan-content.mjs --declared 581
+//   node scripts/check-orphan-content.mjs --json
+//
+// EXIT CODES  0 = only allow-listed orphans · 1 = unlisted orphan · 2 = misuse
+
+import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
+import { join, relative, sep } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = fileURLToPath(new URL(".", import.meta.url));
+const WEB = join(__dirname, "..", "web");
+const PUBLIC = join(WEB, "public");
+const DIST = join(WEB, "dist");
+
+// Orphans acknowledged and tracked. Anything NOT here fails the guard.
+// Each entry must name the debt that tracks it.
+const ALLOWED = new Map([
+  ["diseno/index.html", "D-0XX — design system served from public/, v5.0.0 while the standard is v5.1.0"],
+]);
+
+// A public/ file whose basename also exists in the corpus is worse than an
+// orphan: it is a SECOND COPY on a divergent path. Report it as such.
+const CORPUS_DIRS = ["canon", "missions", "decisions", "protocols", "operations",
+                     "reports", "blueprints", "agents", "guilds", "standards", "debt"];
+
+// Assets are not orphan *content*: they carry no prose and make no claims.
+const ASSET_RE = /\.(woff2?|ttf|otf|eot|png|jpe?g|gif|svg|ico|webp|avif|mp4|webm|css|js|mjs|map|txt|xml|json|pdf|zip)$/i;
+
+function walk(dir, base = dir, out = []) {
+  if (!existsSync(dir)) return out;
+  for (const e of readdirSync(dir)) {
+    const p = join(dir, e);
+    if (statSync(p).isDirectory()) walk(p, base, out);
+    else out.push(relative(base, p).split(sep).join("/"));
+  }
+  return out;
+}
+
+const args = process.argv.slice(2);
+const asJson = args.includes("--json");
+const dIdx = args.indexOf("--declared");
+const declared = dIdx !== -1 ? Number(args[dIdx + 1]) : null;
+
+if (!existsSync(DIST)) {
+  console.error("orphan-content guard: web/dist not found — run `npm run build` in web/ first.");
+  process.exit(2);
+}
+
+// ---------- INSTRUMENT 1: ENUMERATION ----------
+const pub = walk(PUBLIC);
+const inDist = pub.filter((f) => existsSync(join(DIST, f)));
+const orphans = inDist.filter((f) => !ASSET_RE.test(f));
+
+const unlisted = orphans.filter((f) => !ALLOWED.has(f));
+const listed = orphans.filter((f) => ALLOWED.has(f));
+
+// ---------- duplicate detection: same basename inside the corpus? ----------
+import { createHash } from "node:crypto";
+const REPO = join(WEB, "..");
+const dupes = [];
+for (const f of orphans) {
+  const base = f.split("/").pop();
+  for (const d of CORPUS_DIRS) {
+    const cand = join(REPO, d, base);
+    if (existsSync(cand)) {
+      const h = (p) => createHash("sha256").update(readFileSync(p)).digest("hex").slice(0, 12);
+      dupes.push({
+        public: f,
+        corpus: `${d}/${base}`,
+        identical: h(cand) === h(join(PUBLIC, f)),
+      });
+      break;
+    }
+  }
+}
+
+// ---------- INSTRUMENT 2: VERIFICATION (the subtraction) ----------
+let verification = null;
+if (declared !== null) {
+  const all = walk(DIST).filter((f) => f.endsWith("index.html"));
+  let redirects = 0;
+  for (const f of all) {
+    const html = readFileSync(join(DIST, f), "utf8");
+    if (html.includes('http-equiv="refresh"')) redirects++;
+  }
+  const computed = all.length - redirects - declared;
+  verification = {
+    pages_in_dist: all.length,
+    redirects,
+    astro_declared: declared,
+    computed_orphans: computed,
+    enumerated_orphans: orphans.length,
+    agree: computed === orphans.length,
+  };
+}
+
+if (asJson) {
+  console.log(JSON.stringify({ orphans, unlisted, listed, verification }, null, 2));
+} else {
+  console.log("orphan-content guard — content served without the renderer\n");
+  console.log(`  files in public/            : ${pub.length}`);
+  console.log(`  of those, present in dist/  : ${inDist.length}`);
+  console.log(`  non-asset (orphan content)  : ${orphans.length}\n`);
+
+  if (orphans.length === 0) console.log("  none.\n");
+  for (const f of orphans) {
+    const why = ALLOWED.get(f);
+    console.log(`  ${why ? "[known]" : "[NEW]  "} /${f}${why ? `\n            ${why}` : ""}`);
+  }
+
+  if (verification) {
+    const v = verification;
+    console.log("\n  cross-check (the subtraction):");
+    console.log(`    ${v.pages_in_dist} pages - ${v.redirects} redirects - ${v.astro_declared} declared = ${v.computed_orphans}`);
+    console.log(`    enumerated: ${v.enumerated_orphans}`);
+    console.log(v.agree
+      ? "    -> instruments agree."
+      : "    -> INSTRUMENTS DISAGREE — expected, and the reason is known:\n" +
+        "       the subtraction counts index.html only, so it sees just the\n" +
+        "       orphans that occupy a route. Files served at their own name\n" +
+        "       (.md, .html templates) are invisible to it. The enumeration is\n" +
+        "       the measurement; the subtraction is a lower bound.");
+  }
+
+  if (dupes.length) {
+    console.log("\n  second copies — same basename also in the corpus:");
+    for (const d of dupes) {
+      console.log(`    /${d.public}`);
+      console.log(`      corpus: ${d.corpus}  ->  ${d.identical ? "identical" : "DIVERGENT"}`);
+    }
+    console.log("    A divergent second copy is worse than an orphan: two documents,");
+    console.log("    one address each, and no rule saying which one is true.");
+  }
+
+  if (unlisted.length) {
+    console.log(`\n  FAIL: ${unlisted.length} orphan(s) not in the allow-list:`);
+    for (const f of unlisted) console.log(`        /${f}`);
+    console.log("\n  Either register the debt that tracks it and add it to ALLOWED,");
+    console.log("  or move the content into the corpus so it carries frontmatter and a licence.");
+  } else {
+    console.log(`\n  OK — ${listed.length} orphan(s), all tracked.`);
+  }
+}
+
+// The subtraction is a lower bound, not an equality: it only sees orphans that
+// occupy a route (index.html). Disagreement is expected and does not fail the
+// guard — the enumeration is the measurement. Only an UNLISTED orphan fails.
+process.exit(unlisted.length ? 1 : 0);
