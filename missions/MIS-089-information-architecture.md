@@ -65,7 +65,7 @@ filesystem.
 
 | # | Hallazgo | Disposición propuesta |
 |---|---|---|
-| D1 | `canon/Numinia. El juego de rol (manual completo).txt` **y** `canon/Numinia-El-juego-de-rol-manual-completo.md` | El .md es canónico; verificar diff y retirar el .txt (borrado registrado o fondo, a decidir en F1) |
+| D1 | ~~`canon/Numinia. El juego de rol (manual completo).txt` **y** `canon/Numinia-El-juego-de-rol-manual-completo.md`~~ | ✅ **RESUELTO 2026-08-25 — la disposición propuesta era errónea.** «El .md es canónico» es falso: el .md eran 131 líneas que decían *«[Contenido completo del manual — ver el archivo adjunto]»*; el manual estaba en el .txt (4.667 líneas). Ejecutar D1 al pie de la letra habría **borrado el manual y conservado la nota**. Ambos retirados; el manual **no vuelve a este repo**: `canon/INDEX.md` apunta a `numinia-lore` (v0.6.0). |
 | D2 | `blueprints/AUDIT-2026-04-07-web-vs-repo.md` y `blueprints/AUDIT-numengames-2026-04-08.md` | Mover a `reports/audits/` con frontmatter adaptado al esquema de audits (IDs `AUD-…`) |
 | D3 | `blueprints/archive-summa-{fundacional,arquitectura,prompt}-v0.1.0.md` | Son fondo de archivo, no planos: mover a fondo (nomenclatura §3.2 de P-010); destino exacto en F1 |
 | D4 | `reports/daily/` (8 × RPT-*.md) vs 5 páginas `diario-*.astro` **hardcodeadas** en la web; 3 reportes ni se muestran | `/reportes` pasa a construirse de `reports/daily/` en build (cierra el flanco pendiente de MIS-065); las .astro hardcodeadas se retiran |

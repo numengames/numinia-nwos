@@ -151,7 +151,10 @@ Both would work. Canon renumbering was chosen because:
 
 - `canon/` renumbers `S-002`…`S-010` → `C-NNN`, and rewrites the relation graph
   in `canon/INDEX.md`.
-- `seminal_id` is retired from `canon/Numinia-El-juego-de-rol-manual-completo.md`.
+- ~~`seminal_id` is retired from `canon/Numinia-El-juego-de-rol-manual-completo.md`.~~
+  **Resolved 2026-08-25**: the file was retired entirely. The manual is not a
+  document in this repository any more — `canon/INDEX.md` points at
+  `numinia-lore`, so there is no `seminal_id` left to retire.
 - `STANDARDS.md`'s prefix table drops `S-` = *Seminal*.
 - 40 citations are updated, verified with `scripts/resolve-citations.py`.
 

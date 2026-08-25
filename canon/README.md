@@ -17,7 +17,7 @@ For AI agents: **read these documents before answering questions about Numinia l
 
 | # | File | Language | Content |
 |---|------|----------|---------|
-| 1 | `Numinia. El juego de rol (manual completo).txt` | Spanish | Complete RPG manual — lore, character creation, game system, geography, bestiary, adventure design |
+| 1 | ⇒ `numinia-lore` → `seminal/Numinia_Manual_del_juego_de_rol_v0_6_0.md` | Spanish | Complete RPG manual v0.6.0 — **not in this repo**, see "Canon que no vive en este repositorio" in `INDEX.md` |
 | 2 | `About Session Zero.md` | English | Session Zero tutorial — escape rooms introducing guilds and factions |
 | 3 | `Compendium of Attributes and Ranks in Numinia.md` | English | Agent attributes taxonomy, character sheet example, rank system |
 | 4 | `Epistemic relations between Numen Games and Numinia.md` | English | Philosophical framework — Peirce semiotics, archetypes, Operating System → Functional Model → Narrative Projection |
