@@ -15,23 +15,17 @@ export const navItems: NavItem[] = [
   { label: "Decisiones", href: "/decisiones", id: "decisiones" },
   { label: "Planos", href: "/planos", id: "planos" },
   { label: "Reportes", href: "/reportes", id: "reportes" },
-  {
-    label: "Sistema",
-    id: "numinia",
-    children: [
-      { label: "Agente", href: "/agente", id: "agente" },
-      { label: "Archive", href: "/archive", id: "archive" },
-      { label: "Audits", href: "/audits", id: "audits" },
-      { label: "CAO", href: "/cao", id: "cao" },
-      { label: "Continuidad", href: "/continuidad", id: "continuidad" },
-      { label: "Corpus", href: "/corpus", id: "corpus" },
-      { label: "Diseño", href: "/diseno", id: "diseno" },
-      { label: "Gaps", href: "/gaps", id: "gaps" },
-      { label: "Idioma", href: "/idioma", id: "idioma" },
-      { label: "Simulaciones", href: "/simulaciones", id: "simulaciones" },
-      { label: "Soluciones", href: "/soluciones", id: "soluciones" },
-      { label: "Ventas", href: "/ventas", id: "ventas" },
-      { label: "Wardley", href: "/wardley", id: "wardley" },
-    ],
-  },
+  // MIS-110 — the "Sistema" dropdown and its thirteen entries were retired
+  // from the nav on 2026-08-25:
+  //
+  //   /agente  /archive  /audits  /cao  /continuidad  /corpus
+  //   /diseno  /gaps     /idioma  /simulaciones  /soluciones
+  //   /ventas  /wardley
+  //
+  // NOTHING WAS DELETED. Every one of those pages still builds and still
+  // answers at its URL — they stopped being listed, not being served. Ten of
+  // the thirteen are orphan pages holding prose that exists in no .md
+  // (D-032), so deleting the file would destroy the only copy. Removing the
+  // nav entry gets the intended effect with none of that risk; deletion is a
+  // separate decision, to be taken with the classification in hand.
 ];
