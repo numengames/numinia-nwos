@@ -4,7 +4,7 @@ uid:
 title: "Glossary — the archive's own vocabulary"
 type: documentation
 status: draft
-version: "3.2.0"
+version: "3.3.0"
 created: "2026-08-24T16:00:00Z"
 updated: "2026-08-25T02:20:00Z"
 author: "ursa"
@@ -247,6 +247,64 @@ Two consequences already met:
 > Everything this glossary governs is mutable by agreement. The history under it
 > is not. **When the two disagree, the history is the record and the document is
 > the claim.**
+
+### 2.1.2 `live` — the threshold for state, not record
+
+**A fifth series-level threshold, for documents that assert something about the
+present rather than about the past.**
+
+Ruled by the Oracle on 2026-08-25, on finding that two agents' `MEMORY.md`
+carried a model the canon no longer holds:
+
+> *"`MEMORY.md` is neither `closed` nor `open`. A `closed` document asserts
+> something about the past — that is why it is not rewritten. A memory asserts
+> something about the present: it is **state, not record**. Correcting it from
+> outside falsifies nothing, but it corrects an actor in motion, and that needs
+> a name of its own."*
+
+| Threshold | What it takes | Series |
+|---|---|---|
+| **`live`** | Corrected when it contradicts canon or a signed decision. **The correction is recorded inside the document itself**, naming who corrected it and against which decision | `agents/*/MEMORY.md` · `operations/O-008-session-state.md` |
+
+**Why it is not `closed`.** `closed` protects a claim about the past: a `done`
+mission keeps saying what it achieved. A memory makes no claim about the past —
+it says *this is how things are*. Rewriting it cannot mislead a future reader
+about what happened, because it never testified about what happened.
+
+**Why it is not `open`.** An `open` document is changed by whoever has a reason.
+A memory is **written by its own agent**, and correcting it from outside is
+overriding an actor's understanding while it is acting. That is not a normal
+edit, and pretending it is hides the only thing that makes it consequential.
+
+**The rule, and the part that carries the weight:**
+
+```yaml
+# agents/nimrod/MEMORY.md
+corrections:
+  - date: "2026-08-25"
+    by: "oracle"
+    decision: "ADR-023"
+    what: >
+      The triad's first level was labelled "Operating System (Numen Games)".
+      Per Epistemic_Relations line 19, that name belongs to the whole. The
+      level is the germinal motive.
+```
+
+**A corrected agent must be able to see that it was corrected**, by whom, and
+against which decision. A memory silently rewritten from outside produces an
+actor that has changed its mind without knowing it did — indistinguishable, from
+the inside, from having always thought so. That is `D-021`'s defect applied to
+an agent instead of a date: **a state that looks like it was always the case.**
+
+Consequences:
+
+- A vocabulary decision is not complete when the ADR merges. **It is complete
+  when the memories that carry the old vocabulary are corrected**, or when it is
+  written down that they need not be.
+- `MEMORY.md` is exempt from `[CI]` checks that assume documents are records.
+  It has no `created_source` obligation (§6.2): it does not date events.
+- **A memory that contradicts canon is a defect with a severity, not a stale
+  file.** The agent is executing the old model right now.
 
 > An archive that claims immutability it cannot enforce is worse than one that
 > admits mutability and records who changed what. The first invites trust it
@@ -1141,6 +1199,11 @@ gets filled differently by each person who meets it — which is how
 
 ## Version history
 
+- **v3.3.0** (2026-08-25) — §2.1.2: **`live`**, the threshold for state rather
+  than record. A memory asserts something about the present, so correcting it
+  falsifies nothing — but it corrects an actor in motion, and the correction is
+  recorded inside the memory so the agent can see it was corrected and by whom.
+  Ruled while propagating `ADR-023` to two agents running the old model.
 - **v3.2.0** (2026-08-25) — §2.1.1: **git history is the fifth threshold and the
   only real one.** The four thresholds this section defines are social
   conventions written down; git's is imposed by the tool. Reframes the section:

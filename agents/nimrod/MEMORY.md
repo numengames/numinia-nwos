@@ -38,8 +38,15 @@ license: "LicenseRef-Numen-AllRightsReserved"
 
 ### The fundamental triad
 ```
-Operating System (Numen Games) → Functional Model → Narrative Projection (Numinia)
+germinal motive (Numen Games) → Functional Model → Narrative Projection (Numinia)
 ```
+
+> **Corrected 2026-08-25 by the Oracle, per `ADR-023`.** The first level was
+> labelled *Operating System (Numen Games)*. Per `Epistemic_Relations` line 19
+> that name belongs to **the whole** — the co-implication of the three — not to
+> the first level, which is the *germinal motive*. **The sequence was right; the
+> label was not.** `S-001` §2.1.2 (`live`) requires this note so a corrected
+> agent can see that it was corrected, by whom, and against which decision.
 
 ### The 4 Guilds
 - **Alchemists** — Creation, imagination, invention
