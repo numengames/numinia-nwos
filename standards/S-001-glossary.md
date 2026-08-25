@@ -750,6 +750,45 @@ first. See `D-027`.
 accounts keeps both listed, and retired identities stay resolvable.
 
 ---
+## 5.3 A rename propagates to pointers, never to records `[MANUAL]`
+
+**Rule.** When a file is renamed, update the documents that **point at** it.
+Never the documents that **record what it was called**.
+
+> This is the border between correcting and falsifying, and a bulk edit has
+> crossed it twice.
+
+Ruled by the Oracle on 2026-08-25, during `MIS-109` phase B. A reference-updating
+script touched 19 files; four were dated reports:
+
+```diff
+  reports/daily/RPT-2026-04-02.md
+- | 2 | About Session Zero.md | 8/10 |
++ | 2 | C-006-session-zero.md | 8/10 |
+```
+
+That makes an April report say the file was called `C-006-session-zero.md` in
+April. **It was not.** §2.1 gives `closed` documents protection of *substance*,
+and in an inventory table **"which files existed on this date" is the
+substance** — it is the entire point of the table.
+
+The test:
+
+| The document says | It is | On rename |
+|---|---|---|
+| *"see `canon/X.md`"* | a **pointer** — it wants the reader to reach a file | **update it** |
+| *"on 2026-04-02 the canon held `X.md`"* | a **record** — it testifies about a moment | **leave it** |
+
+**A broken link inside a dated report is not a defect.** It is a photograph of a
+corpus that no longer exists, and the reference lint counts such links among its
+known-broken baseline — which is exactly where a historical reference belongs.
+
+Practical consequence for any bulk rename: **exclude `reports/`, `CHANGELOG`,
+`debt/` entries that quote past states, and `reports/audits/evidence/`** before
+running the substitution, then read the diff of what remains. The mechanical
+part is the exclusion list; the judgement is deciding whether each remaining hit
+points or records.
+
 
 ## 6. Frontmatter fields
 
@@ -1204,6 +1243,11 @@ gets filled differently by each person who meets it — which is how
   falsifies nothing — but it corrects an actor in motion, and the correction is
   recorded inside the memory so the agent can see it was corrected and by whom.
   Ruled while propagating `ADR-023` to two agents running the old model.
+- **v3.3.0** (2026-08-25) — §5.3: **a rename propagates to pointers, never to
+  records.** The border between correcting and falsifying, crossed twice by bulk
+  edits: a script rewrote four dated reports so an April inventory claimed a
+  filename that did not exist in April. A broken link inside a dated report is a
+  photograph, not a defect.
 - **v3.2.0** (2026-08-25) — §2.1.1: **git history is the fifth threshold and the
   only real one.** The four thresholds this section defines are social
   conventions written down; git's is imposed by the tool. Reframes the section:
