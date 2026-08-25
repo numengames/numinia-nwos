@@ -15,6 +15,7 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [debt, dates, provenance, guards, self-application, D-012]
 license: "CC-BY-4.0"
+visibility: "public"
 severity: medium
 opened_by: "Oracle, 2026-08-24 close of session"
 evidence_script: "reports/audits/evidence/dates-vs-commits.py"

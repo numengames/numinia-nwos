@@ -15,6 +15,10 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [debt, guards, ci, blind-spots, plausible-artefacts, D-001]
 license: "CC-BY-4.0"
+visibility: "public"
+visibility_reason: >
+  Describes what guards cannot see, in the abstract. Publishing it is the
+  point: a guard that declares its blindness is more trustworthy, not less.
 severity: medium
 opened_by: "Oracle, 2026-08-25"
 evidence_script: "scripts/check-references.mjs"

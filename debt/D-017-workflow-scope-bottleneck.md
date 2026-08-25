@@ -13,6 +13,10 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [debt, ci, permissions, bottleneck, structural]
 license: "CC-BY-4.0"
+visibility: "public"
+visibility_reason: >
+  States that the agent lacks `workflow` scope. A limitation of ours, not a
+  way in.
 severity: medium
 opened_by: "Oracle, phase 0 review"
 ---

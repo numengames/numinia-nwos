@@ -15,7 +15,7 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [debt, web, urls, redirects, lifecycle, D-023, MIS-109]
 license: "CC-BY-4.0"
-visibility: "pending-oracle"
+visibility: "public"
 severity: medium
 opened_by: "Oracle, 2026-08-25"
 evidence_script: "cd web/dist && grep -rl 'http-equiv=\"refresh\"' --include=index.html . | wc -l"

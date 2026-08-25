@@ -13,6 +13,10 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [debt, governance, thresholds, signing, branch-protection]
 license: "CC-BY-4.0"
+visibility: "public"
+visibility_reason: >
+  Describes which controls are NOT enforced on `main`. The ruleset itself is
+  readable via the public API, so this adds a reading, not a disclosure.
 severity: high
 opened_by: "S-001 §2.1"
 ---

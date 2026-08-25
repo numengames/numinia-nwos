@@ -13,6 +13,7 @@ guild: "Exegetes"
 territory: "Archive"
 tags: [debt, readme, drift, entry-point]
 license: "CC-BY-4.0"
+visibility: "public"
 severity: medium
 opened_by: "README rewrite, 2026-08-24"
 ---

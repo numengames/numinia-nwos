@@ -15,6 +15,7 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [debt, identity, authority, governance, D-019, D-011]
 license: "CC-BY-4.0"
+visibility: "public"
 severity: medium
 opened_by: "Oracle, 2026-08-25"
 evidence_script: "git log --all --format='%an <%ae>'"

@@ -13,6 +13,10 @@ guild: "Sentinels"
 territory: "Archive"
 tags: [debt, signing, verification, sealed, governance, auditability]
 license: "CC-BY-4.0"
+visibility: "public"
+visibility_reason: >
+  Names a git configuration gap, not a key. The fix it asks for is
+  `gpg.ssh.allowedSignersFile`, which is public configuration.
 severity: high
 opened_by: "Oracle, 2026-08-24 signing session"
 ---

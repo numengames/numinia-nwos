@@ -13,6 +13,7 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [debt, ci, verification, glossary, guards]
 license: "CC-BY-4.0"
+visibility: "public"
 severity: high
 opened_by: "S-001 §1"
 ---

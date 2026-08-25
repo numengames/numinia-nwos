@@ -13,6 +13,7 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [debt, ci, citations, authority, guards]
 license: "CC-BY-4.0"
+visibility: "public"
 severity: high
 opened_by: "Oracle, phase 1 rev.2 brief"
 evidence_script: "scripts/resolve-citations.py"

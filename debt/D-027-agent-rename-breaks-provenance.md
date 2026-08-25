@@ -15,6 +15,7 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [debt, agents, identity, provenance, immutable-history, D-026]
 license: "CC-BY-4.0"
+visibility: "public"
 severity: high
 opened_by: "Oracle, 2026-08-25"
 evidence_script: "git log --all --author='Centinela-01'"

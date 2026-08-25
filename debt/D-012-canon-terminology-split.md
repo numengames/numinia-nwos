@@ -13,6 +13,7 @@ guild: "Exegetes"
 territory: "Archive"
 tags: [debt, canon, terminology, coherence]
 license: "CC-BY-4.0"
+visibility: "public"
 severity: high
 opened_by: "AUD-2026-08-24-canon-edit"
 ---

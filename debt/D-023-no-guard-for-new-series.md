@@ -15,6 +15,7 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [debt, web, publishing, guards, coverage, D-001]
 license: "CC-BY-4.0"
+visibility: "public"
 severity: high
 opened_by: "Oracle, 2026-08-25"
 evidence_script: "scripts/check-published-coverage.mjs"
