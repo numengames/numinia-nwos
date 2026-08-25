@@ -53,6 +53,24 @@ find web/dist/print -name index.html | wc -l    # -> 278 pages
 test -d web/dist/pdf && echo yes || echo no     # -> no
 ```
 
+### The figure drifts with the corpus, and that is the point
+
+Re-measured at `c2ee691` later the same day: **247**, not 278.
+
+Nothing was fixed in between — the count moved because documents were retired
+and others added. **Every published document generates one `/print/`
+intermediate**, so this number tracks the size of the corpus, not the size of
+the defect.
+
+The original figures are left standing with the HEAD they were taken at rather
+than overwritten: a measurement without its commit is not a measurement
+(`S-001` §10.2). What should be re-run rather than trusted is the command.
+
+**The defect is that the count is not zero.** Any specific value is a snapshot,
+and an acceptance criterion that hard-codes one has a shelf life — see the
+worked example in `missions/TEMPLATE-EXAMPLE.md`, whose `Closure` is exactly
+this mistake.
+
 Verified live, not only in `dist/`:
 
 ```
