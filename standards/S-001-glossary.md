@@ -549,6 +549,14 @@ and it is one by nature, not convenience.
 > frontmatter line. And `S-003` is a second finding: the index points at
 > `Epistemic relations between Numen Games and Numinia.md`, which was renamed to
 > `2026_04_15-Epistemic_Relations_…-v0.2.0.md` without updating the index.
+>
+> **CLOSED 2026-08-25 — `MIS-109` phase C.** The seminal series is now `C-001`…
+> `C-007`; `S-` is unambiguously `standards/`. Both collisions are gone: `S-001`
+> is this glossary alone, `S-003` is Platform Role System alone. The index keeps
+> the old number in an *Antes* column, because it is what pre-2026-08-25
+> documents cite and an identifier is a promise about the past (`ADR-004`).
+> Seven seminal documents, not ten: `S-006` changed series, `S-008` lives in
+> `numinia-lore`, `S-010` was apparatus. The broken `S-003` link is fixed.
 
 ### 4.3 Series below full coverage: the plan for each `[MANUAL]`
 
