@@ -29,6 +29,23 @@ Agent files live in `agents/{name}/`. Guilds reference agents — they do not co
 | [Nimrod](nimrod/SOUL.md) | Sentinel / Archangel / Explorer | Guardian of the Gates | ✅ Active | 2026-04-02 |
 | [Adonaz](adonaz/SOUL.md) | Procurator / Trustee / Steward | General Archivist | ✅ Active | 2026-04-06 |
 
+### Historical identities
+
+**An agent that has committed never loses its previous name** (`S-001` §5.2).
+Git authorship cannot be rewritten, so a reader arriving from `git log` needs to
+resolve the old name from here — the index — and not only from the agent's own
+folder. That reverse lookup is what `D-027` found missing.
+
+| Git author string | Is now | In use | Commits |
+|---|---|---|---|
+| `Centinela-01 <khepri@ai.numengames.com>` | [Nimrod](nimrod/SOUL.md) | 2026-04-06 → 2026-08-17 | 57 |
+| `Ursa <ursa-numinia@users.noreply.github.com>` | [Ursa](ursa/SOUL.md) | 2026-08-25 → | 5 |
+| `Ursa (agente) <ursa@numen.games>` | [Ursa](ursa/SOUL.md) | 2026-08-24 → | 30 |
+
+`Centinela-01` committed the ten seminal canon documents on 2026-04-07,
+including `Welcome to Numinia.md`. `MIS-089` renamed the agent; the history did
+not change and cannot. See `D-027`.
+
 ## Agents in design phase
 
 | Agent | Guild / Branch / House | Role | Planned activation |
