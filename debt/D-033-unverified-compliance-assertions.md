@@ -27,8 +27,9 @@ evidence_head: "392ffc6"
 # D-033 — The corpus asserts compliance, and nothing checks the assertions
 
 > **Summary:** **145 compliance assertions** across 282 documents. **132 (91%)
-> are falsifiable by command and nobody falsifies them.** One was tested, by
-> accident, and it was false.
+> are falsifiable by command and nobody falsifies them — and 61 of those are
+> not pending at all: they are refuted by `S-001` §2.0 and still written in the
+> present tense.** One assertion was tested, by accident, and it was false.
 > **Epistemic:** `S-001` §2.1.1 says the reality is the record and the document
 > is the claim. These are claims about the system's own state that the system
 > never reads back.
@@ -68,6 +69,33 @@ Script: `salida/sesion-2026-08-25-fase0-websync/barrido-cumplimiento.py`
 **The middle row is the debt.** It is the prose sibling of `[CI]` vs `[MANUAL]`:
 those tag rules by who enforces them; nothing tags *sentences*, so a sentence
 claiming enforcement reads exactly like a rule that has it.
+
+### The 132 are two different states, and lumping them hid the worse one
+
+```
+132  verifiable, not verified
+ 61  of those, CONTRADICTED by S-001 §2.0 — not pending: refuted
+ 71  genuinely pending verification
+```
+
+**"Not verified" and "known false" are not the same state.** The 61 that assert
+`immutable` (29) or `append-only` (32) are not awaiting a verdict: §2.0 already
+delivered one. It established that the archive *"claimed an immutability it
+never had and never enforced"*, and measured it — **9 of 33 `done` missions were
+edited after being marked done**.
+
+So those 61 sentences are **refuted and still written in the present tense**,
+spread across 40+ documents that §2.0 never reached. The standard was corrected;
+the corpus quoting the old rule was not.
+
+The 71 remainder — `read-only` (25), `must not` (15), `shall not` (9),
+`not in this repo` (4), `no exceptions` (3), `enforced via` (2), and the rest —
+are the ones where nobody knows, which is a milder and more honest problem.
+
+**Not corrected here, deliberately.** Fixing 61 assertions across 40+ documents
+is a mission of its own with its own review. This entry separates them so the
+next reader is not told that 132 things are unknown when 61 of them are known
+to be wrong.
 
 ### Where the unverified assertions live
 
@@ -157,10 +185,10 @@ single inconsistency in the corpus.
 
 Marked RESOLVED when:
 
-- [ ] The 132 have verdicts, recorded, not silently edited
+- [ ] The **71 pending** have verdicts, recorded, not silently edited
+- [ ] The **61 refuted** are reconciled with `S-001` §2.0 — own mission
 - [ ] Assertions of enforcement name their mechanism or are downgraded
 - [ ] A guard fails a PR introducing an unbacked compliance claim
-- [ ] The `immutable`/`append-only` population is reconciled with `S-001` §2.0
 
 | | |
 |---|---|

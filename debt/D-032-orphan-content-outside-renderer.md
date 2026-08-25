@@ -15,7 +15,17 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [debt, web, orphan-content, licensing, frontmatter, D-023, D-028, D-030]
 license: "CC-BY-4.0"
-visibility: "pending-oracle"
+visibility: "restricted-oracle"
+visibility_reason: >
+  TEMPORARY, WITH AN EXPIRY. Restricted not because orphan content is sensitive
+  — it is not — but because one of the five cases was web/src/pages/agente.astro,
+  which still held the VPS address when this entry was written.
+visibility_expires_when: >
+  The agente.astro occurrence is retired. DONE 2026-08-25 in
+  fix/retire-vps-ip-from-agente-astro; `git grep` returns zero tracked files.
+  ONCE THAT BRANCH IS MERGED, DOWNGRADE THIS ENTRY TO INTERNAL. If you are
+  reading this after the merge and it is still restricted, that is inertia,
+  not a decision.
 severity: medium
 opened_by: "Ursa, 2026-08-25, during the phase-0 web/corpus desync measurement"
 evidence_script: "node scripts/check-orphan-content.mjs"
@@ -68,6 +78,40 @@ done
 
 Stripping the corpus frontmatter still leaves 5 differing lines in `prompt`, so
 the divergence is in the body, not the metadata.
+
+### Correction — 2026-08-25, after reading the diffs
+
+Two claims made above and in `2ba3fea` are **wrong**, and the diffs say so:
+
+**1 · The corpus copies have no YAML frontmatter either.** All three
+`blueprints/archive-summa-*` files begin with an `#` heading. The
+licence-frontmatter guard counts them among its **26 undeclared** files, and
+both copies of all three appear in that set. So the corpus side is authoritative
+by *reachability* — it is inside the glob, the reference lint sees it, it has a
+published `/corpus/...` route — **not** because it carries metadata the other
+lacks. The distinction matters: adopting it does not, by itself, fix licensing.
+
+**2 · The divergence is not editorial.** In all three files it is the same
+mechanical pair:
+
+- the corpus copy gained the standard `> **Resumen:/Epistémico:/Pragmático:/
+  Audiencia:**` summary block and lost its `#` title line;
+- inside a fenced YAML *example* block, `created`/`updated`/`started` changed
+  from `"2026-04-06T00:00:00Z"` to `"2026-04-06"`.
+
+The second is inside a code sample showing what frontmatter should look like —
+it is illustrative text, not live metadata.
+
+**There is no unique work in the `public/` copies.** Nothing was written there
+that does not exist in `blueprints/`; the differences run the other way — the
+corpus copy is strictly ahead. The earlier framing, *"borrar una divergencia sin
+leerla es perder la única razón por la que alguien la escribió"*, was the right
+caution and the reading discharges it: **nothing is lost by retiring the
+`public/` copies**, and that conclusion is now evidence-backed rather than
+assumed.
+
+Retirement is still not done here — the Oracle rules on it — but the blocking
+question ("is there work only in the copy?") is answered: **no**.
 
 **Two documents, one address each, and no rule saying which is true.** The
 corpus copy is published at `/corpus/blueprints/archive-summa-*-v010`; the
