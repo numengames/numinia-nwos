@@ -120,6 +120,12 @@ const corpus = defineCollection({
       "!blueprints/WARDLEY-MAP.md",
       "missions/**/*.md",
       "!missions/MIS-*.md",
+      // debt/ — the register of what is known to be wrong. It was missing
+      // from this list until 2026-08-25, so 22 entries and 73,742 chars were
+      // invisible on numinia.org: the archive published what it had built and
+      // withheld what it knew was broken. Nothing excluded it deliberately —
+      // the folder was created after this glob was written and nobody added it.
+      "debt/**/*.md",
     ],
     base: "..",
   }),
