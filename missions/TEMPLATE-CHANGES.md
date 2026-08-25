@@ -248,16 +248,31 @@ interrupted states `input-required`, `auth-required`; terminal states
 | `frozen` | 13 | *(none)* | **No A2A equivalent.** Neither terminal nor interrupted: the work is deliberately parked, not waiting on input. A2A's closest, `rejected`, means the agent refused it — not the same thing. |
 
 **Two of our states do not map, and that is a finding, not a gap to fill.**
-`draft` and `frozen` cover **17 of 106 missions (16%)** and describe a state
-A2A has no concept of, because A2A models a task *in flight between agents*
-and we model a document *that exists before and after any execution*. A file-
-based archive keeps states that a message protocol does not need.
+`draft` and `frozen` cover **17 of 106 missions (16%)**.
 
-Also worth recording: A2A terminal states cannot restart — *"any subsequent
-interaction must initiate a new task"*. Our `done` missions **have** been
-edited after closing (`S-001` §2.0: 9 of 33). Under `closed` thresholds that
-is form, not substance — but an adapter must not present a NWOS `done` as an
-immutable A2A terminal state.
+> **They do not map because A2A models a task in flight and we model a document
+> that exists before and after any execution. That is not a hole — it is the
+> difference between an execution protocol and an archive.**
+
+Do not "fix" this mapping by forcing the two states into A2A's vocabulary. A
+file-based archive keeps states a message protocol does not need: a document
+that has not been submitted to anyone (`draft`) and one deliberately parked
+rather than waiting on input (`frozen`). A2A's nearest neighbour for the second,
+`rejected`, means *the agent refused it* — a different claim entirely.
+
+### The two details that break an integration at week three
+
+Worth more than the table itself, because both look like nothing until they
+cost a day:
+
+**1 · Spelling.** A2A writes `canceled` with one `l`; we write `cancelled`. An
+adapter that string-matches will silently drop the state.
+
+**2 · Terminal is not terminal here.** A2A terminal states cannot restart —
+*"any subsequent interaction must initiate a new task"*. Our `done` missions
+**have** been edited after closing (`S-001` §2.0: 9 of 33). Under `closed`
+thresholds that is form and not substance, but **an adapter must not present a
+NWOS `done` as an immutable A2A terminal state**, because it is not one.
 
 ## What was rejected, and why
 
@@ -268,7 +283,7 @@ A rejection without a reason gets reopened in a month.
 | **`exit_criteria` field** | Duplicates `Acceptance criteria`. With the falsifiability rule, the acceptance criteria **are** the exit criteria. One concept, one place. |
 | **`max_turns`, `escalate_to`** | Runtime orchestration, not mission document. `requires_oracle_approval` already covers the escalation we have. Revisit when a real orchestrator exists. |
 | **`protected` per mission** | Our protection is structural, not per-card: workflows never (`D-017`), thresholds per folder (`S-001` §2.1), CODEOWNERS when it arrives. A per-mission field invites believing protection is declared on the card — and the card is written by anyone. |
-| **Any external board** (Vibe Kanban, Agent Kanban, Hermes Kanban, Linear) | The board exists: `missions/` is the source of truth and `/missions` is its projection. File Over App. Adopting a board now is exactly the error the report opens by naming — tool before contract. |
+| **An external board as the source of state** (Vibe Kanban, Agent Kanban, Hermes Kanban, Linear) | The board exists: `missions/` is the source of truth and `/missions` is its projection. File Over App. Adopting one now is exactly the error the report opens by naming — tool before contract. **This rejects a board that *holds* state, not a viewer that *reads* it:** a read-only view over `missions/` is another projection of the same source, exactly as `/missions` already is, and is not rejected. The distinction matters because the first replaces the archive and the second cannot. Not work for now — `/missions` is the viewer that exists, and synchrony comes before improving it. |
 | **Promotion to standard (`C-00X` / `S-NNN`)** | A standard exists to be adopted by other repos; `S-003` showed the correct genesis. That day comes **after** the stability criterion is met. A one-day-old standard is not a standard. |
 
 ## Known risk, not debt

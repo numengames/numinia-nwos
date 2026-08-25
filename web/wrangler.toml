@@ -1,6 +1,19 @@
 # Declarative deploy config for the Numinia viewer on Cloudflare Workers.
 # Replaces manual dashboard setup — no dashboard-only configuration.
-# Deploy from web/: npx wrangler deploy
+#
+# Deploy is AUTOMATIC: Workers Builds listens to `main`, runs
+# `npm ci && npm run build`, then `npx wrangler deploy`. A merge reaches
+# production without anyone touching a panel, and the page footer prints the
+# commit it was built from, so the deployed SHA is checkable from outside.
+#
+# Correction record — 2026-08-25 (S-001 §2.1.2). This comment previously read
+# "Deploy from web/: npx wrangler deploy", describing a manual deploy. It was
+# true for eight days: the Workers Builds Git connection had silently dropped
+# ("This project is disconnected from your Git account"), production served a
+# build from 2026-08-17, and a local authenticated `wrangler deploy` was the
+# only path. Reconnected 2026-08-25 and verified: numinia.org serves c2ee691,
+# the HEAD of main. The manual command still works and remains the fallback if
+# the connection drops again — which it did once, silently, and nothing warned.
 #
 # Naming convention: the worker is named after its repository
 # (numengames/numinia-nwos) so dashboard and GitHub stay 1:1.

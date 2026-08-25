@@ -68,15 +68,22 @@ What someone would reasonably expect to be included and is not, and why. -->
 > **Every criterion must be FALSE at the base commit.** One that already
 > passes before the work starts graduates nothing — it is decoration. If a
 > criterion cannot be shown false today, it is not a criterion.
+>
+> **State the final state, not a delta.** The corpus moves under your feet:
+> a criterion that hard-codes a count expires between being written and being
+> checked. Assert what must be true at the end, not how much must change.
 
 ```
 ✓  curl -s numinia.org/print/missions/mis-109/ returns 404   (today: 200)
+✓  find web/dist/print -name index.html returns 0            (today: 247)
+✗  278 /print/ pages are retired                             (a delta — it rots)
 ✗  the site is more coherent                                 (not falsifiable)
 ```
 
 - [ ] Verifiable by someone who did not do the work
 - [ ] With the command that verifies it, when there is one
 - [ ] False at the base commit — say what it returns today
+- [ ] Phrased as a final state, not as a delta
 
 ---
 

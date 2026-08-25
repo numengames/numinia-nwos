@@ -127,15 +127,31 @@ a correct-looking artefact.
 
 > *"Deploy flow is build → build:pdf → `npx wrangler deploy`; CI runs build only."*
 
-The Workers Builds panel runs `npm ci && npm run build`, and `build` does not
-chain `build:pdf`. **The document and the reality disagree, and the reality is
-the record** (`S-001` §2.1.1).
+**Half of that line is now wrong, and the half that is wrong is not the half
+this entry is about.**
 
-Recorded, not silently corrected. And with a note on provenance: this same flow
-was written into an inventory delivered on 2026-08-25 citing `CLAUDE.md` as the
-source — **an unverified compliance assertion, written one day after opening
-`D-033` about exactly that**. The inventory reported what the document said, not
-what the panel does. The correction belongs here rather than in a footnote.
+**The deploy is no longer manual.** The Workers Builds Git connection had
+silently dropped — *"This project is disconnected from your Git account"* — and
+for eight days production served a build from 2026-08-17 while `main` moved on.
+Reconnected 2026-08-25 and verified from outside, with no panel interaction:
+`numinia.org` serves `c2ee691`, the HEAD of `main`, and the page footer prints
+the commit it was built from. **merge → build → deploy → checkable in the
+footer.** That claim was true when written and is not true now.
+
+**The `build:pdf` half stands.** The panel runs `npm ci && npm run build`, and
+`build` does not chain `build:pdf`. **The document and the reality disagree, and
+the reality is the record** (`S-001` §2.1.1).
+
+`CLAUDE.md` is an agent-instruction file and outside this agent's write
+permission; the corrected text is proposed in the PR body for the Oracle to
+apply, with its own §2.1.2 record. **It is not corrected in silence, and it is
+not corrected by me.**
+
+Recorded, and with a note on provenance: this same flow was written into an
+inventory delivered on 2026-08-25 citing `CLAUDE.md` as the source — **an
+unverified compliance assertion, written one day after opening `D-033` about
+exactly that**. The inventory reported what the document said, not what the
+panel does. The correction belongs here rather than in a footnote.
 
 ## Three ways out, with their cost. None recommended.
 
