@@ -26,6 +26,8 @@ jobs:
           cache-dependency-path: web/package-lock.json
       - name: licence-frontmatter guard (C-005 §5)
         run: node scripts/check-license-frontmatter.mjs
+      - name: reference lint (ADR-004 — plain-text IDs are invisible to link checkers)
+        run: node scripts/check-references.mjs
       - name: install
         run: npm ci
         working-directory: web
