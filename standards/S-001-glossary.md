@@ -4,7 +4,7 @@ uid:
 title: "Glossary — the archive's own vocabulary"
 type: documentation
 status: draft
-version: "3.0.0"
+version: "3.1.0"
 created: "2026-08-24T16:00:00Z"
 updated: "2026-08-25T02:20:00Z"
 author: "ursa"
@@ -611,6 +611,49 @@ supersedes: "BP-audit-numengames"
 > breaks the 1,617 plain-text references silently — the way this corpus breaks
 > worst.
 
+## 5.2 An agent that has committed never loses its name `[MANUAL]`
+
+**Rule.** When an agent is renamed, the new name is **added**. The old one stays
+declared in its record as a historical identity, with the dates it was in use
+and the git author string it committed under.
+
+Ruled by the Oracle on 2026-08-25, after `MIS-089` renamed Centinela-01 to
+Nimrod:
+
+```yaml
+# agents/nimrod/SOUL.md
+name: "Nimrod"
+historical_identities:
+  - name: "Centinela-01"
+    git_author: "Centinela-01 <khepri@ai.numengames.com>"
+    in_use: "2026-04-06 → 2026-08-17"
+    commits: 57
+```
+
+**Why this is a rule and not housekeeping.** 57 commits — including the ten
+seminal canon documents — are authored by `Centinela-01`, and **git authorship
+cannot be rewritten**. Rewriting it means new hashes for every commit since
+April, a broken signed tag, and every existing reference invalidated: the cure
+destroys more provenance than the disease.
+
+> Git history is the only genuinely immutable threshold in this repository.
+> `canon/` is `sealed` — a signature and an ADR can still change it. Commit
+> authorship cannot be changed at any price worth paying.
+
+So an agent's name is not a mutable attribute once it has acted. It is identity
+in the sense of `ADR-004` — **opaque, permanent, never reused** — and the same
+reasoning applies: renaming breaks references in silence, and here the
+references are in a history nobody can edit.
+
+**The reverse lookup is what must work.** A reader starts from `git log` with a
+name and an email, not from the agent's folder. Declaring the alias inside
+`agents/<current-name>/` is necessary and not sufficient: `agents/INDEX.md` must
+carry historical identities too, because the index is where a reader looks
+first. See `D-027`.
+
+**Applies to people as well as agents**, via `D-026`: a contributor with two
+accounts keeps both listed, and retired identities stay resolvable.
+
 ---
 
 ## 6. Frontmatter fields
@@ -1061,6 +1104,12 @@ gets filled differently by each person who meets it — which is how
 
 ## Version history
 
+- **v3.1.0** (2026-08-25) — §5.2: **an agent that has committed never loses its
+  name.** MIS-089 renamed Centinela-01 to Nimrod; 57 commits, including the ten
+  seminal canon documents, are authored under the old name and git authorship
+  cannot be rewritten. Git history is the only genuinely immutable threshold
+  here — `canon/` is `sealed`, which a signature and an ADR can still change.
+  See `D-027`.
 - **v3.0.0** (2026-08-25) — §10.0 names **plausible artefacts** as a class after
   the fourth instance in two days: a date that looks like a chronology, a figure
   that looks like a measurement, a run that looks like verification, a guard that
