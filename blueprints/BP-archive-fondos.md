@@ -86,9 +86,9 @@ fondos:
     descripcion: "Los diseños y arquitecturas que están siendo pensados. El Archive Summa mismo comenzó como un blueprint. Aquí vive el futuro antes de ser presente."
     governance: "Oracle y agentes pueden crear. Oracle aprueba el merge."
     documentos:
-      - { nombre: "Archive Summa — Arquitectura v0.1.0", desc: "Estructura completa, governance, permisos y jerarquía de delegación.", file: "blueprints/archive-summa-arquitectura-v0.1.0.md", descargable: true, downloadPath: "/archive/archive-summa-arquitectura-v0.1.0.md" }
-      - { nombre: "Archive Summa — Fundacional v0.1.0", desc: "100 simulaciones, 12 principios operativos, protocolo de arranque canónico.", file: "blueprints/archive-summa-fundacional-v0.1.0.md", descargable: true, downloadPath: "/archive/archive-summa-fundacional-v0.1.0.md" }
-      - { nombre: "Prompt para IAs v0.1.0", desc: "Prompt completo para estudiar el Archive Summa con cualquier IA externa.", file: "blueprints/archive-summa-prompt-v0.1.0.md", descargable: true, downloadPath: "/archive/archive-summa-prompt-v0.1.0.md" }
+      - { nombre: "Archive Summa — Arquitectura v0.1.0", desc: "Estructura completa, governance, permisos y jerarquía de delegación.", file: "blueprints/archive-summa-arquitectura-v0.1.0.md", descargable: true, downloadPath: "/corpus/blueprints/archive-summa-arquitectura-v010.md" }
+      - { nombre: "Archive Summa — Fundacional v0.1.0", desc: "100 simulaciones, 12 principios operativos, protocolo de arranque canónico.", file: "blueprints/archive-summa-fundacional-v0.1.0.md", descargable: true, downloadPath: "/corpus/blueprints/archive-summa-fundacional-v010.md" }
+      - { nombre: "Prompt para IAs v0.1.0", desc: "Prompt completo para estudiar el Archive Summa con cualquier IA externa.", file: "blueprints/archive-summa-prompt-v0.1.0.md", descargable: true, downloadPath: "/corpus/blueprints/archive-summa-prompt-v010.md" }
   - id: operations
     titulo: "Operaciones"
     subtitulo: "Sistema Circulatorio"
