@@ -57,7 +57,7 @@ Representación del stack visual de la página original (de arriba a abajo):
 
 *El substrato. Donde el agente existe físicamente.* (color `#f85149`)
 
-**Componentes:** Servidor VPS (161.35.215.224) · GPU ≥32GB VRAM (on-premises, en camino) · Tools & Skills (web, shell, APIs) · Identity & Auth (permisos por agente) · Observability (logs, trazas, métricas)
+**Componentes:** Servidor VPS ([VPS-IP redacted — see ops-credential-map]) · GPU ≥32GB VRAM (on-premises, en camino) · Tools & Skills (web, shell, APIs) · Identity & Auth (permisos por agente) · Observability (logs, trazas, métricas)
 
 - **🧠 Valor epistémico:** La infraestructura define los límites de lo posible. Un agente sin GPU suficiente no puede ejecutar modelos locales. Sin Auth Layer, cualquier agente puede hacer cualquier cosa — eso es una vulnerabilidad.
 - **⚡ Valor pragmático:** El PC dedicado (Ryzen 9 7950X + RTX 4080) reducirá el coste de inferencia un 60-70% cuando llegue. La infraestructura es la diferencia entre $50/mes y $5/mes.

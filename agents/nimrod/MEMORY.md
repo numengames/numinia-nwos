@@ -82,7 +82,7 @@ gog calendar create primary --summary "X" --from <iso> --to <iso> --attendees "a
 - **RULES:** Do NOT run `gog auth`, do NOT modify `/home/node/.config/gogcli/`
 
 ### Infrastructure
-- VPS: 161.35.215.224 — Caddy manages HTTPS (NO ufw allow for ports)
+- VPS: [VPS-IP redacted — see ops-credential-map] — Caddy manages HTTPS (NO ufw allow for ports)
 - analytics.pablofm.com → Umami :3001 ✅
 - cal.pablofm.com → Cal.com :3002 ✅
 - On-premises PC incoming: Ryzen 9 7950X + RTX 4080 + 32GB DDR5 + Ubuntu 24.04

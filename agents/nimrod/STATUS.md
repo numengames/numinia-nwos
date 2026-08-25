@@ -68,7 +68,7 @@ license: "LicenseRef-Numen-AllRightsReserved"
 
 | Servicio | URL | Estado |
 |---------|-----|--------|
-| Servidor VPS | 161.35.215.224 | ✅ |
+| Servidor VPS | [VPS-IP redacted — see ops-credential-map] | ✅ |
 | Umami Analytics | analytics.pablofm.com | ✅ |
 | Cal.com | cal.pablofm.com | ✅ |
 | pablofm.com | Vercel | ✅ |
