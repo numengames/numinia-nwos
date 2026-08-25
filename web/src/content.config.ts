@@ -125,9 +125,9 @@ const corpus = defineCollection({
       // invisible on numinia.org: the archive published what it had built and
       // withheld what it knew was broken. Nothing excluded it deliberately —
       // the folder was created after this glob was written and nobody added it.
-      "debt/**/*.md",
-    ],
-    base: "..",
+      // 2026-08-25: now withheld ON PURPOSE, pending a visibility filter
+      // that respects the frontmatter field. D-033 must not be published.
+    ],    base: "..",
   }),
   // Fully lax: agents/_template/STATUS.md carries `status:` as an object,
   // and other outliers exist — pages type-guard what they display.
