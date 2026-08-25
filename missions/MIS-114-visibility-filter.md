@@ -4,7 +4,7 @@ title: "Filter the build by visibility, so debt/ can return to the glob without 
 status: backlog
 priority: high
 effort: M
-guild: alchemists
+guild: "Alchemists"
 area: web
 type_execution: digital
 assigned_to: null

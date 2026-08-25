@@ -4,7 +4,7 @@ title: "Retire the thirteen Sistema entries from the nav, leaving their pages re
 status: done
 priority: medium
 effort: XS
-guild: alchemists
+guild: "Alchemists"
 area: web
 type_execution: digital
 assigned_to: "ursa"
