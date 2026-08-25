@@ -43,7 +43,29 @@ order in which a stranger should read them:
 | 3 | **Decisions** | 13 | what was chosen, and why |
 | 4 | **Protocols** | 14 | how things are done |
 | 5 | **Blueprints** | 24 | what is being built |
-| 6 | **Missions** | 111 | what is being done now |
+| 6 | **Debt** | 35 | what is known to be wrong |
+
+> **Correction — 2026-08-25, made in the MIS-114 branch (S-001 §2.1.2).**
+>
+> Row 6 read **`Missions | 111 | what is being done now`**. That number was
+> wrong in a way this mission could not have delivered: **the 111 `MIS-*`
+> documents are not in the corpus collection.** `content.config.ts` excludes
+> them with `!missions/MIS-*.md`; they have their own typed collection and
+> their index is the board at `/missions`, which `MIS-115` redesigns.
+>
+> What remains under `missions/` in the corpus is **5 system documents**
+> (`TEMPLATE`, `TEMPLATE-CHANGES`, `TEMPLATE-EXAMPLE`, `PROPOSAL-closure-guard`,
+> `ANNEX-mission-selection-draft`). A section built from this table would have
+> promised 111 and listed 5.
+>
+> Corrected here, in a brief that is otherwise untouched, because leaving it
+> would be **a plausible artefact**: a figure that looks measured, sitting in a
+> signed table, that nobody would re-check. `Debt` takes row 6 — no longer the
+> conditional seventh, because this branch is what unblocked it.
+>
+> `Missions` is not a corpus section. The reasoning is recorded in
+> `web/src/lib/corpus.ts` beside the four other folders that are not sections
+> either, so the next reader does not re-litigate it.
 
 **Debt is the seventh and is conditional.** It is out of the corpus glob today
 (PR #52) because `D-033` must not publish. It joins this set **only after

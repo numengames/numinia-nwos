@@ -7,9 +7,10 @@ import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
 import { getCollection, render } from "astro:content";
+import { getPublicCorpus } from "@/lib/corpus";
 
 export async function getStaticPaths() {
-  const entries = await getCollection("corpus");
+  const entries = await getPublicCorpus();
   return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
 }
 

@@ -11,6 +11,7 @@
 import "@fontsource-variable/geist";
 import "@fontsource-variable/geist-mono";
 import { getCollection, render } from "astro:content";
+import { getPublicCorpus } from "@/lib/corpus";
 
 interface Meta {
   label: string;
@@ -79,11 +80,11 @@ export async function getStaticPaths() {
       title: str(f.title) ?? String(f.id),
     });
   }
-  for (const e of await getCollection("corpus")) {
+  for (const e of await getPublicCorpus()) {
     const f = e.data as Record<string, unknown>;
     const rel = (e.filePath as string).replace(/\\/g, "/");
     const m = rel.match(
-      /(?:^|\/)(agents|blueprints|canon|decisions|guilds|missions|operations|protocols|reports|standards)\/(.+)$/
+      /(?:^|\/)(agents|blueprints|canon|debt|decisions|guilds|missions|operations|protocols|reports|standards)\/(.+)$/
     );
     const dir = m ? [m[1], ...m[2].split("/").slice(0, -1)].join("/") : "raíz";
     push(`corpus/${e.id}`, e, {

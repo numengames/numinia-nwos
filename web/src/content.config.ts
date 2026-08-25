@@ -125,8 +125,13 @@ const corpus = defineCollection({
       // invisible on numinia.org: the archive published what it had built and
       // withheld what it knew was broken. Nothing excluded it deliberately —
       // the folder was created after this glob was written and nobody added it.
-      // 2026-08-25: now withheld ON PURPOSE, pending a visibility filter
-      // that respects the frontmatter field. D-033 must not be published.
+      // 2026-08-25: withheld ON PURPOSE for a few hours, pending a filter.
+      // MIS-114: back in the glob. The folder is no longer the unit of the
+      // decision — the document is. What may be published is decided by
+      // `visibility` in web/src/lib/corpus.ts, and it fails closed: an entry
+      // with no field does not publish. Adding a file here no longer risks
+      // publishing it; forgetting the field only makes it invisible.
+      "debt/**/*.md",
     ],    base: "..",
   }),
   // Fully lax: agents/_template/STATUS.md carries `status:` as an object,

@@ -1,14 +1,14 @@
 ---
 id: "MIS-114"
 title: "Filter the build by visibility, so debt/ can return to the glob without publishing D-033"
-status: backlog
+status: done
 priority: high
 effort: M
 guild: "Alchemists"
 area: web
 type_execution: digital
-assigned_to: null
-completed: null
+assigned_to: "ursa"
+completed: "2026-08-25"
 
 type: mission
 version: "1.0.0"
@@ -122,10 +122,80 @@ before the work starts. Final states, not deltas.)*
 
 ## Closure
 
-*(Fill when the mission closes. Not before, and not with intentions.
-Add here — never edit `Scope` or the criteria to match what happened.)*
+*(Written at closing. Nothing above this line was edited.)*
 
-- **What was done:**
-- **What diverged, and why:**
-- **Evidence:**
-- **Closed:** YYYY-MM-DD · **by:**
+- **What was done:** `debt/**/*.md` is back in the corpus glob, and what may be
+  published is now decided per document by `visibility`, in
+  `web/src/lib/corpus.ts`. All four consumers of the collection go through
+  `getPublicCorpus()`; `grep -c 'getCollection("corpus")' web/src/pages/` returns
+  **0**. The rule fails closed: only `visibility: "public"` publishes.
+
+  Verified by breaking it on purpose, in both directions:
+
+  ```
+  base                          debt/ pages published: 0    D-033: not built
+  D-001 temporarily "public"    debt/ pages published: 1    D-001 built, D-033 still not
+  reverted                      debt/ pages published: 0    git diff debt/ empty
+  ```
+
+  A filter that has only ever been seen to hide is not verified. This one was
+  seen to let one through, and then seen to stop again.
+
+- **What diverged, and why — the brief asked for something impossible.**
+
+  The Summary says *"`D-028`, `D-032`, `D-034` publish, while `D-033` does
+  not"*. Measured at the base commit:
+
+  ```
+  D-028  pending-oracle       D-032  internal
+  D-034  restricted-oracle    D-033  restricted-oracle
+  ```
+
+  **`D-033` and `D-034` carry the same value.** No filter reading `visibility`
+  can publish one and withhold the other, and Out of scope forbids changing a
+  value to make a document publish. The three requested documents publish only
+  by marking them — which is the next change, not this one.
+
+  So this mission delivered the **mechanism**, and `debt/` publishes **nothing**
+  today. That is the fail-closed cost, stated in the brief and now real: 30 of
+  35 entries declare no field, and the five that do declare values that are not
+  `public`.
+
+  The second divergence is the one that mattered more: **the brief's rule had no
+  scope.** *"Absent `visibility` means not published"*, applied to the corpus
+  collection, would have removed **112 pages** in one commit — `visibility`
+  appears in exactly zero documents outside `debt/`. Scoped to `debt/` before a
+  line of the filter was written, on the Oracle's signature. Measured first, not
+  discovered after.
+
+- **The answer to "what counts as a section" — the input `MIS-113` depends on.**
+
+  **A section is a top-level corpus folder holding documents a reader is meant
+  to browse.** Six qualify: `canon`, `standards`, `decisions`, `protocols`,
+  `blueprints`, `debt` — in that order, least to most uncertain.
+
+  The test is the one-sentence blurb: if you cannot say what a folder contains
+  in one sentence, it is not a section. `agents/` (per-agent state files),
+  `operations/`, `guilds/` and `reports/` fail it — infrastructure, live
+  records, definitions cited from canon, and dated dailies that `/reportes`
+  already serves.
+
+  **`missions/` is not a section, and this is the finding.** The 111 `MIS-*`
+  documents are excluded from the collection by `!missions/MIS-*.md`; their
+  index is the board. What remains is 5 system documents about how missions are
+  written. `MIS-111`'s table claimed `Missions | 111`, and a section built from
+  it would have promised 111 and listed 5 — corrected in this branch with its
+  own record, as the exception to leaving briefs untouched.
+
+  **A document belongs to the section its path starts with.** One folder, one
+  section, no document in two places.
+
+- **Advances MIS-071:** the corpus regains 35 documents of `debt/` as governed
+  content rather than withheld content — the folder is no longer excluded
+  wholesale from the file-over-app surface. Published today: 0, by design.
+
+- **Evidence:** base `5abd27f`. Pages 660 → 660, unchanged: nothing was lost by
+  putting `debt/` back. Guards: licence 271/294, references baseline 17 no new,
+  orphan-content exit 0. Production verification pending merge.
+
+- **Closed:** 2026-08-25 · **by:** ursa
