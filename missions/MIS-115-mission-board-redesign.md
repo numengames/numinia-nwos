@@ -31,6 +31,32 @@ paths: [web/src/pages/missions.astro, web/src/pages/missions/, web/public/diseno
 
 ---
 
+> **Split into three missions — 2026-08-25, by the Oracle. Recorded, not
+> edited in silence.**
+>
+> This brief has three fronts inside it — group order, card, header — **and
+> they are three PRs, not one.** Each mergeable and deployable on its own:
+>
+> | | Front | Why in this order |
+> |---|---|---|
+> | **115a** | **Group and sort order** | Verifiable in `dist/`, zero visual judgement. Lands first because it can be proved without anyone looking at it. |
+> | **115b** | **Card hierarchy and legibility** | The visual judgement, reviewed by the Oracle by looking at it. Needs 115a's dates on the card to be worth judging. |
+> | **115c** | **Header counts what is actionable** | Smallest and most independent; last because nothing depends on it. |
+>
+> **The test for every brief from here on:** *if the criteria cannot be run
+> against the base commit in a minute, the mission is two missions.*
+>
+> `MIS-114` demonstrated it. The mechanism without the marking was the right
+> unit of work — it shipped a filter that published nothing, provably correct
+> and provably scoped — and the marking of 35 documents was its own branch.
+> Had they been one mission, the 112-page mistake would have been found while
+> 35 files were already modified.
+>
+> **This document stays as the parent.** Each of the three carries its own
+> criteria and its own `Closure`; this one is closed when the three are.
+
+---
+
 ## Scope
 
 `web/src/pages/missions.astro` (the board) and `web/src/pages/missions/[id].astro`

@@ -55,21 +55,66 @@ const missions = entries
       guild: (f.guild as string) || "—",
       assignedTo: f.assigned_to && f.assigned_to !== "null" ? (f.assigned_to as string) : null,
       type,
+      // MIS-115a — the dates the board sorts by, and shows. Trimmed to a day:
+      // frontmatter carries both "2026-08-25" and "2026-04-07T19:43:00Z".
+      updated: typeof f.updated === "string" ? f.updated.slice(0, 10) : null,
+      completed: typeof f.completed === "string" ? f.completed.slice(0, 10) : null,
       humanCostEur: HUMAN_COST[effort],
       computeCostEur: type === "biological" ? null : COMPUTE_MOCK[effort],
     };
-  })
-  .sort((a, b) => a.id.localeCompare(b.id));
+  });
+
+// MIS-115a — group order by operability, and the sort inside each group.
+//
+// WAS: columns ran backlog → in-progress → in-review → done, and every group
+// sorted by `a.id.localeCompare(b.id)` — creation order wearing a numeric
+// disguise, in which MIS-011 outranks MIS-110 forever regardless of what
+// happened to either.
+//
+// The order below is what a reader needs first: what is moving, then what is
+// waiting on someone, then what is available, then what shipped.
+const COLUMN_ORDER = ["in-progress", "in-review", "backlog", "done"];
+
+// Backlog is the exception and sorts by PRIORITY, not by date (Oracle,
+// 2026-08-25). A backlog sorted by date says which mission was WRITTEN most
+// recently, which tells a reader nothing about what to pick up. Sorted by
+// priority it is the queue it claims to be.
+const PRIORITY_RANK: Record<string, number> = {
+  critical: 0, high: 1, medium: 2, low: 3,
+};
+
+// Ties break on ID: arbitrary, and declared — the same tiebreak the selection
+// draft uses. Arbitrary-and-declared beats arbitrary-and-invented.
+const byId = (a: { id: string }, b: { id: string }) => a.id.localeCompare(b.id);
+
+const newestFirst = (field: "updated" | "completed") =>
+  (a: Record<string, any>, b: Record<string, any>) => {
+    const x = a[field] ?? a.updated ?? "";
+    const y = b[field] ?? b.updated ?? "";
+    if (x === y) return byId(a as any, b as any);
+    return y.localeCompare(x);           // descending: most recent first
+  };
+
+const byPriority = (a: Record<string, any>, b: Record<string, any>) => {
+  const d = (PRIORITY_RANK[a.priority] ?? 9) - (PRIORITY_RANK[b.priority] ?? 9);
+  return d !== 0 ? d : byId(a as any, b as any);
+};
+
+function sortForColumn(key: string, list: any[]) {
+  if (key === "backlog") return [...list].sort(byPriority);
+  if (key === "done") return [...list].sort(newestFirst("completed"));
+  return [...list].sort(newestFirst("updated"));
+}
 
 const columns = [
-  { key: "backlog", label: "Backlog", accent: "text-dim", counter: "bg-border" },
   { key: "in-progress", label: "In Progress", accent: "text-accent", counter: "bg-accent/20" },
   { key: "in-review", label: "In Review", accent: "text-yellow", counter: "bg-yellow/20" },
+  { key: "backlog", label: "Backlog", accent: "text-dim", counter: "bg-border" },
   { key: "done", label: "Done", accent: "text-green", counter: "bg-green/20" },
 ];
-const byStatus = (key: string) => missions.filter((m) => m.status === key);
-const frozen = missions.filter((m) => m.status === "frozen");
-const cancelled = missions.filter((m) => m.status === "cancelled");
+const byStatus = (key: string) => sortForColumn(key, missions.filter((m) => m.status === key));
+const frozen = sortForColumn("frozen", missions.filter((m) => m.status === "frozen"));
+const cancelled = sortForColumn("cancelled", missions.filter((m) => m.status === "cancelled"));
 
 const done = byStatus("done");
 const inProg = byStatus("in-progress");
@@ -229,6 +274,18 @@ const stats = [
                       <span class="font-mono text-[0.55rem] text-dim">{m.guild}</span>
                       {m.assignedTo && <span class="inline-flex items-center gap-1 font-mono text-[0.5rem] text-dim opacity-70"><Icon name="sword" size={9} /> {m.assignedTo}</span>}
                     </div>
+                    {/* MIS-115a — the date the card is sorted by, shown on the
+                        card. Without it the order is unverifiable by a reader:
+                        an order nobody can check is decoration. `Done` shows
+                        when it closed; everything else, when it last moved. */}
+                    {(m.status === "done" ? m.completed ?? m.updated : m.updated) && (
+                      <p class="mt-1.5 font-mono text-[0.5rem] text-dim">
+                        {m.status === "done" ? "closed" : "updated"}{" "}
+                        <time datetime={m.status === "done" ? m.completed ?? m.updated : m.updated}>
+                          {m.status === "done" ? m.completed ?? m.updated : m.updated}
+                        </time>
+                      </p>
+                    )}
                     <div class="mt-2 pt-2 border-t border-border/30 flex items-center justify-between gap-2">
                       <div class="flex items-center gap-1">
                         <span class="text-dim"><Icon name="user" size={9} /></span>
@@ -270,7 +327,17 @@ const stats = [
                   <span class="font-mono text-[0.55rem] text-dim">{m.effort}</span>
                 </div>
                 <p class="text-sm text-foreground/60 leading-snug mb-2">{m.title}</p>
-                <span class="font-mono text-[0.55rem] text-dim">{m.guild}</span>
+                <div class="flex items-center justify-between gap-2">
+                  <span class="font-mono text-[0.55rem] text-dim">{m.guild}</span>
+                  {/* MIS-115a — frozen and cancelled render in their own block,
+                      which is why they had no date while every column card did.
+                      Every card shows one, or the count is not "every card". */}
+                  {m.updated && (
+                    <span class="font-mono text-[0.5rem] text-dim">
+                      updated <time datetime={m.updated}>{m.updated}</time>
+                    </span>
+                  )}
+                </div>
               </div>
             ))}
           </div>
