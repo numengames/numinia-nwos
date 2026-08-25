@@ -3,10 +3,10 @@ id: "MIS-045"
 uid: "018ef820-0045-7000-8000-000000000045"
 title: "Document CAO architecture"
 type: mission
-status: in-review
+status: done
 version: "0.1.0"
 created: "2026-04-07T00:00:00Z"
-updated: "2026-04-08T05:57:00Z"
+updated: "2026-08-25"
 author: "pablo-fm"
 owner: "oracle"
 tags: [documentation, cao, architecture, agents, sentinels]
@@ -20,7 +20,7 @@ type_execution: "digital"
 assigned_to: "nimrod"
 requested_by: "oracle"
 started: "2026-04-08T05:57:00Z"
-completed: null
+completed: "2026-08-25"
 ---
 # MIS-045 — Document CAO architecture
 
@@ -47,3 +47,16 @@ completed: null
 ---
 
 *Nimrod 🗡️ — started 2026-04-08*
+
+---
+
+## Closure
+
+*(Administrative close. The brief above is untouched — not one line of Scope
+or of the criteria.)*
+
+- **Category:** A — done in fact. The reality already satisfies the brief.
+- **Evidence:** `blueprints/BP-cao-architecture.md` exists (10,382 chars). 6/6 criteria ticked.
+- **Signed by:** Oracle, 2026-08-25, as part of the board triage of the 111 missions.
+  Classified read-only first; nothing was closed on impression.
+- **Closed:** 2026-08-25 · **by:** ursa (administrative), on the Oracle's signature

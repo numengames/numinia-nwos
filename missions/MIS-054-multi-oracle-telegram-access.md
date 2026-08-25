@@ -2,10 +2,10 @@
 id: "MIS-054"
 title: "Multi-Oracle access to Nimrod via Telegram"
 type: mission
-status: in-progress
+status: backlog
 version: "1.1.0"
 created: "2026-04-06T00:00:00Z"
-updated: "2026-04-07T18:00:00Z"
+updated: "2026-08-25"
 author: "pablo-fm"
 owner: "oracle"
 tags: [cao, telegram, access, sentinels, multi-oracle]
@@ -79,3 +79,17 @@ Oracles can delegate tasks to Nimrod directly, without depending on Pablo as int
 
 - v1.0.0 (2026-04-06) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
+
+---
+
+## Board triage — 2026-08-25
+
+Returned from `in-progress` to `backlog` by the Oracle, in the triage of the 111
+missions. **Nothing about the brief changed and the work is still wanted** —
+what changed is the claim that it was underway.
+
+- **Category:** D — stale. Last activity 2026-08-17, inside the MIS-066 bulk renumbering. 2/4 criteria.
+- **Signal, not proof:** this mission was assigned to an agent whose identity is
+  in question (`D-026`, `D-027`). That is context; the evidence for this move is
+  the absence of its own commit, not who it was assigned to.
+- **Signed by:** Oracle, 2026-08-25.

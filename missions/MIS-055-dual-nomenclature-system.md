@@ -2,10 +2,10 @@
 id: "MIS-055"
 title: "Dual Nomenclature System — Narrative Dial + Gamification Dial"
 type: mission
-status: in-progress
+status: backlog
 version: "1.2.0"
 created: "2026-04-07T00:00:00Z"
-updated: "2026-08-18T00:00:00Z"
+updated: "2026-08-25"
 author: "pablo-fm"
 owner: "oracle"
 tags: [cao, nwos, nomenclature, gamification, narrative, system-design]
@@ -188,3 +188,17 @@ The Narrative Dial is the immediate priority — resolves the most urgent adopti
   workspace is registered separately as MIS-090.
 
 *Nimrod 🗡️ + Team — 2026-04-07*
+
+---
+
+## Board triage — 2026-08-25
+
+Returned from `in-progress` to `backlog` by the Oracle, in the triage of the 111
+missions. **Nothing about the brief changed and the work is still wanted** —
+what changed is the claim that it was underway.
+
+- **Category:** D — stale. Last own commit 2026-08-18. 1/6 criteria.
+- **Signal, not proof:** this mission was assigned to an agent whose identity is
+  in question (`D-026`, `D-027`). That is context; the evidence for this move is
+  the absence of its own commit, not who it was assigned to.
+- **Signed by:** Oracle, 2026-08-25.

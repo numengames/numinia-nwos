@@ -2,10 +2,10 @@
 id: "MIS-085"
 title: "Numinia Codex Reader + LAP (numinia.com/lap/)"
 type: mission
-status: in-progress
+status: backlog
 version: "0.2.0"
 created: "2026-08-17"
-updated: "2026-08-18"
+updated: "2026-08-25"
 author: "oracle"
 owner: "oracle"
 tags: [web, platform, codex, lap, character-sheet, design, lore]
@@ -330,3 +330,17 @@ annex page ×5 locales + .md + print + inside both editions — and REUSE
 3.3 compliance armed as CI in BOTH repos (numinia-web and numinia-lore,
 closing D1's last clause). Root-caused and fixed a three-red CI streak:
 hermetic fixture slugs, debugged inside the CI image via podman.
+
+---
+
+## Board triage — 2026-08-25
+
+Returned from `in-progress` to `backlog` by the Oracle, in the triage of the 111
+missions. **Nothing about the brief changed and the work is still wanted** —
+what changed is the claim that it was underway.
+
+- **Category:** D — stale. Last activity 2026-08-18, and the brief declares no acceptance criteria.
+- **Signal, not proof:** this mission was assigned to an agent whose identity is
+  in question (`D-026`, `D-027`). That is context; the evidence for this move is
+  the absence of its own commit, not who it was assigned to.
+- **Signed by:** Oracle, 2026-08-25.

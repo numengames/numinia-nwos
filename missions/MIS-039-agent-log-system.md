@@ -3,10 +3,10 @@ id: "MIS-039"
 uid: "018ef820-0039-7000-8000-000000000039"
 title: "Agent log system"
 type: mission
-status: in-review
+status: done
 version: "0.2.0"
 created: "2026-04-07T00:00:00Z"
-updated: "2026-08-17T00:00:00Z"
+updated: "2026-08-25"
 author: "pablo-fm"
 owner: "oracle"
 tags: [cao, logs, observability, agents, sentinels]
@@ -20,7 +20,7 @@ type_execution: "digital"
 assigned_to: "nimrod"
 requested_by: "oracle"
 started: "2026-04-08T05:59:00Z"
-completed: null
+completed: "2026-08-25"
 ---
 # MIS-039 — Agent log system
 
@@ -58,3 +58,16 @@ Without logs, there is no audit. Without an audit, there is no trust.
 ## Pragmatic value
 
 Full traceability of what each agent did and how much it cost.
+
+---
+
+## Closure
+
+*(Administrative close. The brief above is untouched — not one line of Scope
+or of the criteria.)*
+
+- **Category:** A — done in fact. The reality already satisfies the brief.
+- **Evidence:** `STANDARDS.md` carries `## 10. Agent log system` with entry-format and storage subsections. 5/5 criteria ticked.
+- **Signed by:** Oracle, 2026-08-25, as part of the board triage of the 111 missions.
+  Classified read-only first; nothing was closed on impression.
+- **Closed:** 2026-08-25 · **by:** ursa (administrative), on the Oracle's signature

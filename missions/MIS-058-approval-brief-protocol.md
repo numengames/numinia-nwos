@@ -2,14 +2,14 @@
 id: "MIS-058"
 title: "Approval Brief Protocol: Structured communication for human-machine approvals"
 type: mission
-status: in-progress
+status: backlog
 version: "1.2.0"
 assigned_to: "nimrod"
 guild: "Sentinels"
 priority: high
 effort: S
 created: "2026-04-07T14:00:00Z"
-updated: "2026-04-07T18:00:00Z"
+updated: "2026-08-25"
 license: "CC-BY-4.0"
 ---
 
@@ -58,3 +58,17 @@ When implementing this mission, a local protocol (C1–C5) was first created wit
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
 
 *Nimrod 🗡️ / Numen Games — 2026-04-07*
+
+---
+
+## Board triage — 2026-08-25
+
+Returned from `in-progress` to `backlog` by the Oracle, in the triage of the 111
+missions. **Nothing about the brief changed and the work is still wanted** —
+what changed is the claim that it was underway.
+
+- **Category:** D — stale. No commit has ever touched this mission outside a bulk maintenance commit. 6/8 criteria.
+- **Signal, not proof:** this mission was assigned to an agent whose identity is
+  in question (`D-026`, `D-027`). That is context; the evidence for this move is
+  the absence of its own commit, not who it was assigned to.
+- **Signed by:** Oracle, 2026-08-25.

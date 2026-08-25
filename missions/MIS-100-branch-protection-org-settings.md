@@ -5,7 +5,7 @@ type: mission
 status: backlog
 version: "1.0.0"
 created: "2026-08-18T14:47:39Z"
-updated: "2026-08-18T14:47:39Z"
+updated: "2026-08-25"
 author: "claude-opus-5"
 owner: "oracle"
 tags: [security, ci, governance, github, engineering-standards]
@@ -169,3 +169,43 @@ is done, each one has to argue for its own relevance.
 *(Fill when closing)*
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
+
+---
+
+## Board triage — 2026-08-25: stays open, with two scenarios resolved
+
+**Category E — alive.** Classified by running the brief's Gherkin scenarios
+against the ruleset that went live today (`infra/github/ruleset-protect-main.json`,
+ruleset `21281544`, `enforcement: active`). Three of five pass, one is covered by
+design, one cannot be checked without authentication.
+
+| Scenario | State | Evidence |
+|---|---|---|
+| A red pipeline cannot be merged | **passes** | `required_status_checks`: `build`, `Workers Builds: numinia-nwos` |
+| History on `main` is append-only | **passes** | `non_fast_forward: true`, `deletion: true`, `bypass_actors: []` |
+| The organization's floor is read | **passes** | org base permission read |
+| Nothing reaches `main` without review | **covered by design** | see below |
+| Secrets never enter the history | **unverified** | `security_and_analysis` is not visible without authentication |
+
+### Why `required_approving_review_count: 0` is not a failure
+
+I first read this as a failing criterion. **It is not.** GitHub does not let an
+author approve their own pull request, so on a single-operator repository a
+non-zero review requirement makes `main` unmergeable by the only person who can
+merge to it. Setting it to `0` is **the single-operator trap decided on purpose**,
+and the gate is carried by the required checks instead of by a reviewer.
+
+Recorded here rather than left as a red mark, because a criterion that cannot be
+satisfied by the current operator model is not evidence of a missing control —
+it is evidence that the criterion assumed more than one person.
+
+It becomes a real requirement the day a second person can merge. Until then:
+**covered by design, with the reason on the record.**
+
+### What remains
+
+Push protection / secret scanning: pending, and pending **authentication**, not
+work. The API hides `security_and_analysis` from unauthenticated reads, so the
+honest state is *unknown*, not *absent*.
+
+- **Signed by:** Oracle, 2026-08-25.

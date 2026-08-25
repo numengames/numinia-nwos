@@ -2,10 +2,10 @@
 id: "MIS-052"
 title: "On-premises infrastructure — Dedicated PC"
 type: mission
-status: in-progress
+status: backlog
 version: "1.1.0"
 created: "2026-04-05T00:00:00Z"
-updated: "2026-04-07T18:00:00Z"
+updated: "2026-08-25"
 author: "pablo-fm"
 owner: "oracle"
 tags: [infrastructure, hardware, ollama, sentinels]
@@ -83,3 +83,17 @@ PC in transit. When it arrives: install Ubuntu → CUDA → Ollama → connect t
 
 - v1.0.0 (2026-04-05) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
+
+---
+
+## Board triage — 2026-08-25
+
+Returned from `in-progress` to `backlog` by the Oracle, in the triage of the 111
+missions. **Nothing about the brief changed and the work is still wanted** —
+what changed is the claim that it was underway.
+
+- **Category:** D — stale. No commit has ever touched this mission outside a bulk maintenance commit.
+- **Signal, not proof:** this mission was assigned to an agent whose identity is
+  in question (`D-026`, `D-027`). That is context; the evidence for this move is
+  the absence of its own commit, not who it was assigned to.
+- **Signed by:** Oracle, 2026-08-25.

@@ -2,10 +2,10 @@
 id: "MIS-068"
 title: "NWOS propagation: consumer repos never drift from the source of truth"
 type: mission
-status: in-progress
+status: backlog
 version: "1.0.0"
 created: "2026-08-17"
-updated: "2026-08-18"
+updated: "2026-08-25"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [nwos, propagation, drift, guard, c-005, tooling]
@@ -154,3 +154,17 @@ organización con su propio repo NWOS: **puede** quedarse atrás o apartarse.
 Lo que el guard debe garantizar no es ausencia de deriva, sino **deriva
 consciente**: detectar, informar y dejar constancia — nunca romper el build
 ajeno por no estar al día. La reformulación completa va en MIS-096.
+
+---
+
+## Board triage — 2026-08-25
+
+Returned from `in-progress` to `backlog` by the Oracle, in the triage of the 111
+missions. **Nothing about the brief changed and the work is still wanted** —
+what changed is the claim that it was underway.
+
+- **Category:** D — stale. Last own commit 2026-08-18, unassigned.
+- **Signal, not proof:** this mission was assigned to an agent whose identity is
+  in question (`D-026`, `D-027`). That is context; the evidence for this move is
+  the absence of its own commit, not who it was assigned to.
+- **Signed by:** Oracle, 2026-08-25.

@@ -2,12 +2,12 @@
 id: "MIS-091"
 title: "El Sistema viste la casa: numen.games y nwos.numen.games adoptan los standards"
 type: mission
-status: in-review
+status: done
 version: "1.3.0"
 created: "2026-08-18"
-updated: "2026-08-18"
+updated: "2026-08-25"
 started: "2026-08-18"
-completed: null
+completed: "2026-08-25"
 author: "claude-opus-5"
 owner: "oracle"
 tags: [web, design-system, engineering-standards, numen-games, nwos]
@@ -384,3 +384,16 @@ falla en una falla en las tres. El coste marginal de la cuarta superficie
    accesibles desde el repo.
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
+
+---
+
+## Closure
+
+*(Administrative close. The brief above is untouched — not one line of Scope
+or of the criteria.)*
+
+- **Category:** A — done in fact. The reality already satisfies the brief.
+- **Evidence:** numen.games → 200 and nwos.numen.games → 200. 8/8 criteria ticked.
+- **Signed by:** Oracle, 2026-08-25, as part of the board triage of the 111 missions.
+  Classified read-only first; nothing was closed on impression.
+- **Closed:** 2026-08-25 · **by:** ursa (administrative), on the Oracle's signature
