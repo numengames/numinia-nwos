@@ -1,4 +1,9 @@
 ---
+registration: exempt
+registration_exemption: "frozen-artifact"
+registration_reason: >
+  Dated filename: a photograph of the design system at 2026-08-18, not a
+  living document (P-010 §3.2). Registration numbers living series.
 sistema: Numen Games · Sistema de Diseño
 version: 5.1.0
 fecha: 2026-08-18

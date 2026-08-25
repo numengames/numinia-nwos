@@ -1,5 +1,11 @@
 ---
 id: "ops-security"
+registration: exempt
+registration_exemption: "pending-genre-ruling"
+registration_reason: >
+  Declares type: protocol and is not one — it states what an artifact must
+  satisfy, which is the definition of a standard. Registering it as O-NNN
+  would file it under a genre nobody chose. Awaiting ADR. See D-024.
 title: "Security Policy"
 type: protocol
 status: active

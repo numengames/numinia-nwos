@@ -1,5 +1,10 @@
 ---
 id: "ops-credential-map"
+registration: exempt
+registration_exemption: "pending-genre-ruling"
+registration_reason: >
+  Declares type: protocol and is an inventory nobody executes. Same ADR as
+  security-policy. See D-024.
 title: "Credential Map"
 type: protocol
 status: active
