@@ -5,9 +5,10 @@
 import fs from "node:fs";
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
+import { getPublicCorpus } from "@/lib/corpus";
 
 export async function getStaticPaths() {
-  const entries = await getCollection("corpus");
+  const entries = await getPublicCorpus();
   return entries.map((entry) => ({
     params: { slug: entry.id },
     props: { filePath: entry.filePath as string },

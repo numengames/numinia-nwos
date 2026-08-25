@@ -8,6 +8,7 @@
 import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
 import { getCollection } from "astro:content";
+import { getPublicCorpus } from "@/lib/corpus";
 
 interface Item {
   href: string;
@@ -61,8 +62,8 @@ const str = (v: unknown) => (typeof v === "string" ? v : undefined);
 // a directory's INDEX.md to the bare directory id ("agents/INDEX.md" →
 // "agents"), which would mislabel section indexes as root files.
 const TOP_DIRS =
-  /(?:^|\/)(agents|blueprints|canon|decisions|guilds|missions|operations|protocols|reports|standards)\/(.+)$/;
-for (const e of await getCollection("corpus")) {
+  /(?:^|\/)(agents|blueprints|canon|debt|decisions|guilds|missions|operations|protocols|reports|standards)\/(.+)$/;
+for (const e of await getPublicCorpus()) {
   const f = e.data as Record<string, unknown>;
   const rel = (e.filePath as string).replace(/\\/g, "/");
   const m = rel.match(TOP_DIRS);
