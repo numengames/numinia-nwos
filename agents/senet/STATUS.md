@@ -40,7 +40,7 @@ license: "LicenseRef-Numen-AllRightsReserved"
 
 | Document | Path | Use |
 |----------|------|-----|
-| Complete RPG Manual | `canon/Numinia-El-juego-de-rol-manual-completo.md` | Main source of truth |
+| Complete RPG Manual **v0.6.0** | `numengames/numinia-lore` → `seminal/Numinia_Manual_del_juego_de_rol_v0_6_0.md` | Main source of truth. **Lives in `numinia-lore`, not in this repo.** |
 | About Session Zero | `canon/About Session Zero.md` | Introduction mechanics |
 | Compendium of Attributes and Ranks | `canon/Compendium of Attributes and Ranks in Numinia.md` | Attributes system |
 | Welcome to Numinia | `canon/Welcome to Numinia.md` | Lore and general culture |
