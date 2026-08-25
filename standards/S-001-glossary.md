@@ -167,7 +167,7 @@ it happens:
 
 | Claim | What the history shows |
 |---|---|
-| `canon/` "must not be modified" | **14 of 14** canon documents have more than one commit. `Welcome to Numinia.md` was edited on 2026-05-06 by a third party, changing *"operating system"* → *"germinal motive"* and *"Functional Model"* → *"Regulatory Model"* — definitions, not typos |
+| `canon/` "must not be modified" | **14 of 14** canon documents have more than one commit. `C-001-welcome-to-numinia.md` was edited on 2026-05-06 by a third party, changing *"operating system"* → *"germinal motive"* and *"Functional Model"* → *"Regulatory Model"* — definitions, not typos |
 | A `done` mission "is immutable" | **9 of 33** were edited after being marked `done` (MIS-066 Phase 3.2, the emoji retirement, the misiones.ts recovery) |
 
 **Neither of those edits was wrong.** Translating the corpus to English and
@@ -559,7 +559,7 @@ a scheme it does not meet — a rule honoured at 8 % is not a rule.
 
 **Proposal: register the canon**, one identifier per seminal document. It is the
 most-cited series in the corpus (`C-005` alone: 64 mentions) and the only one
-without a stable handle. Filenames with spaces (`About Session Zero.md`) make it
+without a stable handle. Filenames with spaces (`C-006-session-zero.md`) make it
 worse: they cannot be cited in plain text without ambiguity.
 
 Cost: 11 renames plus reference updates, verifiable with

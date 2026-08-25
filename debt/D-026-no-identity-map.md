@@ -39,7 +39,7 @@ Christian Märtens  christianmartens@numengames.com          2 commits
 Christian Numinia  129116311+ChristianNumenGames@users.…    7 commits
 ```
 
-Two accounts, similar names, and `canon/Numinia Brand and Culture.md:198` lists
+Two accounts, similar names, and `canon/C-002-brand-and-culture.md:198` lists
 **"Christian Martens | Oracle"** in a roles table — a third spelling, with no
 account attached.
 

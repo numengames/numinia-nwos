@@ -37,13 +37,13 @@ nothing to check them against**.
 ```
 2026_04_15-Epistemic_Relations_…-v0.2.0.md    15,619 chars   no frontmatter
 2026_04_15-Pragmatic_Numen_System-v0.2.0.md   11,364         no frontmatter
-About Session Zero.md                         24,132         no frontmatter
+C-006-session-zero.md                         24,132         no frontmatter
 Compendium of Attributes and Ranks…           9,042          no frontmatter
-Numinia Brand and Culture.md                  53,728         no frontmatter
+C-002-brand-and-culture.md                  53,728         no frontmatter
 Platform Role System.md                       8,176          no frontmatter
-Rank Specifications.md                        1,282          no frontmatter
-Role structure in the Numinia system.md       33,218         no frontmatter
-Welcome to Numinia.md                         30,433         no frontmatter
+C-007-rank-specifications.md                        1,282          no frontmatter
+C-004-role-structure.md       33,218         no frontmatter
+C-001-welcome-to-numinia.md                         30,433         no frontmatter
 ```
 
 **186,794 characters of foundational text with no `type`, no `id`, no
@@ -56,7 +56,7 @@ unclassifiable is not a restructure. It is filing the easy half.
 
 ## And one of them contradicts itself
 
-`D-012`: `Welcome to Numinia.md` says *germinal motive* on line 38 and
+`D-012`: `C-001-welcome-to-numinia.md` says *germinal motive* on line 38 and
 *operating system* on lines 25, 42 and 105. Line 41 announces the *Regulatory
 Model*; line 42 explains it in terms of the term line 38 replaced. Twenty-one
 documents corpus-wide still carry `Functional Model`, withdrawn from canon on
@@ -83,8 +83,8 @@ document out of `canon/`.
 ## The hard part is not the frontmatter
 
 **`type` and `status` are content judgements on foundational text.** Is
-`Rank Specifications.md` (1,282 chars, an operational table) the same genre as
-`Numinia Brand and Culture.md` (53,728 chars)? `S-001` §2 says `canon/` holds
+`C-007-rank-specifications.md` (1,282 chars, an operational table) the same genre as
+`C-002-brand-and-culture.md` (53,728 chars)? `S-001` §2 says `canon/` holds
 what the system **is** — and a rank table is arguably `standards/`.
 
 The agent can propose. **The Oracle decides**, because getting it wrong files

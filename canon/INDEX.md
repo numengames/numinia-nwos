@@ -47,15 +47,15 @@ Los 10 documentos fundacionales de Numinia. Son inmutables por política y por e
 
 | # | ID | Documento | Archivo | Idioma | Valor |
 |---|----|-----------|---------|--------|-------|
-| 1 | S-001 | Welcome to Numinia | `Welcome to Numinia.md` | EN | 9/10 |
-| 2 | S-002 | Numinia Brand & Culture | `Numinia Brand and Culture.md` | EN | 9/10 |
+| 1 | S-001 | Welcome to Numinia | `C-001-welcome-to-numinia.md` | EN | 9/10 |
+| 2 | S-002 | Numinia Brand & Culture | `C-002-brand-and-culture.md` | EN | 9/10 |
 | 3 | S-003 | Epistemic Relations | `Epistemic relations between Numen Games and Numinia.md` | EN | 10/10 |
-| 4 | S-004 | Compendium of Attributes | `Compendium of Attributes and Ranks in Numinia.md` | EN | 9/10 |
-| 5 | S-005 | Role Structure | `Role structure in the Numinia system.md` | EN | 10/10 |
+| 4 | S-004 | Compendium of Attributes | `C-003-attributes-and-ranks.md` | EN | 9/10 |
+| 5 | S-005 | Role Structure | `C-004-role-structure.md` | EN | 10/10 |
 | 6 | S-006 | Platform Role System | `Platform Role System.md` | EN | 8/10 |
-| 7 | S-007 | About Session Zero | `About Session Zero.md` | EN | 8/10 |
+| 7 | S-007 | About Session Zero | `C-006-session-zero.md` | EN | 8/10 |
 | 8 | S-008 | Numinia — El Juego de Rol | ⇒ **no vive aquí**, ver «Manual del juego de rol» abajo | ES | — |
-| 9 | S-009 | Rank Specifications | `Rank Specifications.md` | EN | 7/10 |
+| 9 | S-009 | Rank Specifications | `C-007-rank-specifications.md` | EN | 7/10 |
 | 10 | S-010 | Archive System | `README.md` (meta) | EN | — |
 
 ## Canon operativo (serie C)

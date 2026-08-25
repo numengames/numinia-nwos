@@ -61,10 +61,10 @@ Nómada → Ciudadano → Peregrino → Vernáculo → Arconte → Oráculo (má
 | Prioridad | Documento | Ruta | Contenido |
 |-----------|-----------|------|-----------|
 | 🔴 Crítico | Manual completo JdR **v0.6.0** | `numengames/numinia-lore` → `seminal/Numinia_Manual_del_juego_de_rol_v0_6_0.md` | Todo: lore, mecánicas, geografía, cultura, aventuras de ejemplo. **Vive en `numinia-lore`, no en este repo** — repo público, derechos reservados (C-005 §2). |
-| 🟠 Alta | About Session Zero | `canon/About Session Zero.md` | 4 escape rooms de introducción, estructura Revelación–Resolución–Elección |
-| 🟠 Alta | Compendium of Attributes and Ranks | `canon/Compendium of Attributes and Ranks in Numinia.md` | Sistema de atributos y rangos — no contradecir |
-| 🟡 Media | Welcome to Numinia | `canon/Welcome to Numinia.md` | Guía operativa: misiones, rituales, onboarding |
-| 🟡 Media | Numinia Brand and Culture | `canon/Numinia Brand and Culture.md` | Identidad, valores, tono del mundo |
+| 🟠 Alta | About Session Zero | `canon/C-006-session-zero.md` | 4 escape rooms de introducción, estructura Revelación–Resolución–Elección |
+| 🟠 Alta | Compendium of Attributes and Ranks | `canon/C-003-attributes-and-ranks.md` | Sistema de atributos y rangos — no contradecir |
+| 🟡 Media | Welcome to Numinia | `canon/C-001-welcome-to-numinia.md` | Guía operativa: misiones, rituales, onboarding |
+| 🟡 Media | Numinia Brand and Culture | `canon/C-002-brand-and-culture.md` | Identidad, valores, tono del mundo |
 
 **Regla crítica:** El canon es SOLO LECTURA. Nunca modificar. Si hay contradicción entre mi output y el canon, el canon gana — siempre.
 

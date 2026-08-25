@@ -43,7 +43,7 @@ folder. That reverse lookup is what `D-027` found missing.
 | `Ursa (agente) <ursa@numen.games>` | [Ursa](ursa/SOUL.md) | 2026-08-24 → | 30 |
 
 `Centinela-01` committed the ten seminal canon documents on 2026-04-07,
-including `Welcome to Numinia.md`. `MIS-089` renamed the agent; the history did
+including `C-001-welcome-to-numinia.md`. `MIS-089` renamed the agent; the history did
 not change and cannot. See `D-027`.
 
 ## Agents in design phase

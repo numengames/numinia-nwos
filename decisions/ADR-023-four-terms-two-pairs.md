@@ -34,7 +34,7 @@ evidence_head: "8770939"
 ## Context
 
 `D-012` recorded that the canon contradicts itself: 21 documents carried
-`Functional Model` and `operating system` while `canon/Welcome to Numinia.md`
+`Functional Model` and `operating system` while `canon/C-001-welcome-to-numinia.md`
 had been edited on 2026-05-06 to say `Regulatory Model` and `germinal motive`.
 The diagnosis was **a substitution left unfinished** — one line changed, three
 left behind.
@@ -80,7 +80,7 @@ thinking, not a rename.
 ### So what actually failed
 
 Not the canon, and not the 2026-04-15 rewrite. **The 2026-05-06 edit to
-`Welcome to Numinia.md`**, which took a correct distinction and applied it to a
+`C-001-welcome-to-numinia.md`**, which took a correct distinction and applied it to a
 line where the sense was operative:
 
 ```
@@ -104,7 +104,7 @@ propagating.
 is built. In the Peircean analogy, the Object.
 
 > *"It is the germinal motive: the set of ideas, principles, and organizational
-> needs that give rise to the model."* — `Welcome to Numinia.md` §38 ✓
+> needs that give rise to the model."* — `C-001-welcome-to-numinia.md` §38 ✓
 
 ### `operating system`
 
@@ -112,7 +112,7 @@ is built. In the Peircean analogy, the Object.
 purposes.
 
 > *"What defines a mission is not its size, but its purpose within the Numen
-> Games operating system."* — `Welcome to Numinia.md` §105 ✓
+> Games operating system."* — `C-001-welcome-to-numinia.md` §105 ✓
 
 **An origin has no inside; an operating system does.** That is the whole test.
 
@@ -213,7 +213,7 @@ So:
 - **`Regulatory Model` names the same slot under its validating aspect** — the
   invariant against which the structure is measured. Use it when the argument is
   about what governs, not about what runs.
-- **Neither replaces the other**, and `canon/Welcome to Numinia.md` line 41
+- **Neither replaces the other**, and `canon/C-001-welcome-to-numinia.md` line 41
   labelling the level `Regulatory Model` is correct, as is line 45 projecting
   `the functional model`. **They are the same level seen from its two planes.**
 
@@ -243,7 +243,7 @@ be able to see that it was corrected** — a memory silently rewritten produces 
 actor that changed its mind without knowing it did.
 
 Not corrected: `MIS-085:61` (`Domain types = Functional Model`) and
-`canon/Numinia Brand and Culture.md:1215` are **correct** under this ruling —
+`canon/C-002-brand-and-culture.md:1215` are **correct** under this ruling —
 both use `Functional Model` for the middle slot.
 
 ## Consequences
@@ -257,7 +257,7 @@ already.
 
 ### The Peircean trichotomy is restated with the terms separated
 
-`Welcome to Numinia.md` §36–44 lays out three levels mapped onto Peirce's
+`C-001-welcome-to-numinia.md` §36–44 lays out three levels mapped onto Peirce's
 Object / Ground / Representamen. With `germinal motive` and `operating system`
 now distinct, that passage needs rewriting — and it is canon, so it is `sealed`:
 this ADR authorises the rewrite, `MIS-109` executes it.
@@ -273,7 +273,7 @@ this ADR rests on.
 
 - **The 2026-04-15 deletion.** Christian had authority — the Oracle confirmed
   the two accounts are one person, listed as Oracle in
-  `canon/Numinia Brand and Culture.md`. What was missing was **trace**, not
+  `canon/C-002-brand-and-culture.md`. What was missing was **trace**, not
   permission. Registered as `D-026`.
 - **Whether `Welcome`'s three-level scheme should name the two planes.** This
   ADR establishes that level 2 has two aspects; adding a sentence to the canon

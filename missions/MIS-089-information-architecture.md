@@ -69,7 +69,7 @@ filesystem.
 | D2 | `blueprints/AUDIT-2026-04-07-web-vs-repo.md` y `blueprints/AUDIT-numengames-2026-04-08.md` | Mover a `reports/audits/` con frontmatter adaptado al esquema de audits (IDs `AUD-…`) |
 | D3 | `blueprints/archive-summa-{fundacional,arquitectura,prompt}-v0.1.0.md` | Son fondo de archivo, no planos: mover a fondo (nomenclatura §3.2 de P-010); destino exacto en F1 |
 | D4 | `reports/daily/` (8 × RPT-*.md) vs 5 páginas `diario-*.astro` **hardcodeadas** en la web; 3 reportes ni se muestran | `/reportes` pasa a construirse de `reports/daily/` en build (cierra el flanco pendiente de MIS-065); las .astro hardcodeadas se retiran |
-| D5 | Tres convenciones de nombre conviviendo (IDs, fechados, nombres libres con espacios: `About Session Zero.md`, `Numinia Brand and Culture.md`…) | Renombrado por lotes según P-010 §3, con registro de mapeo y redirects donde cambien URLs |
+| D5 | Tres convenciones de nombre conviviendo (IDs, fechados, nombres libres con espacios: `C-006-session-zero.md`, `C-002-brand-and-culture.md`…) | Renombrado por lotes según P-010 §3, con registro de mapeo y redirects donde cambien URLs |
 | D6 | `INDEX.md` manuales en `canon/`, `decisions/`, `blueprints/`, `reports/`, `agents/` que duplican lo que el build genera | Retirarlos cuando su sección web exista; conservar solo los que aporten curaduría real (convertidos a README de carpeta) |
 | D7 | `protocols/2026_04_14-Read_Me_How_to_Archive-v0.2.0.md` queda superseded por P-010 | Al firmarse P-010: marcar superseded y pasar a fondo según ciclo de vida §5 |
 | D8 | Ficheros sin frontmatter (~32 según guard: README, INDEX, plantillas…) | Dotar de frontmatter mínimo (P-010 §3.3) o declararlos plantilla/fondo explícitamente |

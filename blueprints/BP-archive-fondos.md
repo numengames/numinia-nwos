@@ -21,13 +21,13 @@ fondos:
     descripcion: "Los 9 documentos fundacionales de Numinia. Inmutables por política y por técnica. Son el suelo sobre el que todo lo demás se construye."
     governance: "Solo Oracle puede modificar. CODEOWNERS bloqueante. Sin excepciones."
     documentos:
-      - { nombre: "Welcome to Numinia", desc: "Puerta de entrada al mundo. Contexto histórico y propósito del sistema.", file: "canon/Welcome to Numinia.md" }
-      - { nombre: "Numinia Brand & Culture", desc: "Identidad visual, verbal y cultural de Numinia v0.1.2.", file: "canon/Numinia Brand and Culture.md" }
+      - { nombre: "Welcome to Numinia", desc: "Puerta de entrada al mundo. Contexto histórico y propósito del sistema.", file: "canon/C-001-welcome-to-numinia.md" }
+      - { nombre: "Numinia Brand & Culture", desc: "Identidad visual, verbal y cultural de Numinia v0.1.2.", file: "canon/C-002-brand-and-culture.md" }
       - { nombre: "Epistemic Relations", desc: "La tríada OS→Modelo→Narrativa. Peirce + Jung aplicados a organizaciones.", file: "canon/2026_04_15-Epistemic_Relations_Between_Numen_Games_and_Numina-v0.2.0.md" }
-      - { nombre: "Compendium of Attributes", desc: "Sistema de atributos, rangos y ficha de personaje del agente.", file: "canon/Compendium of Attributes and Ranks in Numinia.md" }
-      - { nombre: "Role Structure", desc: "Teoría de roles: Nivel Básico (gremios) + Prototipo (facciones).", file: "canon/Role structure in the Numinia system.md" }
+      - { nombre: "Compendium of Attributes", desc: "Sistema de atributos, rangos y ficha de personaje del agente.", file: "canon/C-003-attributes-and-ranks.md" }
+      - { nombre: "Role Structure", desc: "Teoría de roles: Nivel Básico (gremios) + Prototipo (facciones).", file: "canon/C-004-role-structure.md" }
       - { nombre: "Platform Role System", desc: "Rangos y permisos de la plataforma Digital Goods v2.", file: "canon/Platform Role System.md" }
-      - { nombre: "About Session Zero", desc: "4 escape rooms de introducción, sellos, Celdas Prisma.", file: "canon/About Session Zero.md" }
+      - { nombre: "About Session Zero", desc: "4 escape rooms de introducción, sellos, Celdas Prisma.", file: "canon/C-006-session-zero.md" }
       - { nombre: "Numinia — El Juego de Rol", desc: "Manual RPG completo en español, v0.6.0. Vive en numinia-lore, no en este repo.", file: "numinia-lore:seminal/Numinia_Manual_del_juego_de_rol_v0_6_0.md" }
       - { nombre: "Archive System", desc: "El sistema de archivo documental de Numinia. Cómo se organiza el conocimiento.", file: "archive-system.md" }
   - id: agents
