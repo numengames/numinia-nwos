@@ -1,3 +1,23 @@
+---
+id: "C-002"
+uid:
+title: "Numinia Brand and Culture"
+type: seminal
+status: active
+version: "1.0.0"
+created: "2026-04-07T12:34:04Z"
+created_source: "git:f765b99"
+created_confidence: "inferred"
+updated: "2026-04-07T12:34:04Z"
+author: "Centinela-01"
+owner: "oracle"
+guild: "Exegetes"
+territory: "Canon"
+tags: [canon, seminal, brand, culture, narrative]
+license: "LicenseRef-Numen-AllRightsReserved"
+threshold: sealed
+---
+
 # Numinia Brand & Culture
 
 > **Resumen:** Documento del sistema NWOS — Numinia Brand and Culture.

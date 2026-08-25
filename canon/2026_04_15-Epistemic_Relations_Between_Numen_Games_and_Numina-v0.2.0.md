@@ -1,3 +1,29 @@
+---
+id: "canon-epistemic-relations-v020"
+uid:
+title: "Epistemic Relations between Numen Games and Numinia"
+type: seminal
+status: active
+version: "1.0.0"
+created: "2026-04-15T16:25:05Z"
+created_source: "git:89404d7"
+created_confidence: "exact"
+updated: "2026-04-15T16:25:05Z"
+author: "Christian Numinia"
+owner: "oracle"
+guild: "Exegetes"
+territory: "Canon"
+tags: [canon, seminal, peirce, semiotics, ADR-023]
+license: "LicenseRef-Numen-AllRightsReserved"
+registration: exempt
+registration_exemption: "frozen-artifact"
+registration_reason: >
+  Dated filename: a photograph of the model at 2026-04-15, not a living
+  document (P-010 §3.2). It is the source of the Germinal Motive /
+  Regulatory Model distinction — see ADR-023.
+threshold: sealed
+---
+
 # Epistemic Relations between Numen Games and Numinia
 
 To begin with, it is important to clearly establish the principle of the relationship between Numen Games and Numinia: Numen Games is a brand, a project aimed at creating a gamified operating system permeated by narrative, whether as a specific framework or an organizational body within any type of project under development. To this end, Numen Games has created the universe of the city of Numinia, which constitutes the narrative projection of the concept. Numinia is the environment in which “the game” unfolds, forming the gamification of the operational and organizational framework as a role-playing game. The imagery implied by the narrative of Numinia is designed to function as a decentralized organizational model with epistemological and pragmatic values, which can be replicated with different narrative elements to apply the same regulatory model to other projects. This can be better understood with the following scheme:

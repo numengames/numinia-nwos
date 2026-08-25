@@ -1,3 +1,30 @@
+---
+id: "S-003"
+uid:
+title: "Platform Role System"
+type: seminal
+status: active
+version: "1.0.0"
+created: "2026-04-07T12:34:04Z"
+created_source: "git:f765b99"
+created_confidence: "inferred"
+updated: "2026-04-07T12:34:04Z"
+author: "Centinela-01"
+owner: "oracle"
+guild: "Exegetes"
+territory: "Canon"
+tags: [standards, ranks, permissions, digital-goods]
+license: "LicenseRef-Numen-AllRightsReserved"
+registration: exempt
+registration_exemption: "moves-to-standards"
+registration_reason: >
+  Genre ruled by the Oracle 2026-08-25: this is a permissions matrix for an
+  artifact, not world vocabulary. It moves to standards/ in phase B and takes
+  S-003. The id is written now so phase B renames the file only — never the
+  identifier (ADR-004).
+threshold: sealed
+---
+
 # Sistema de Rangos y Permisos — Numinia Digital Goods
 
 > **Resumen:** Documento del sistema NWOS — Platform Role System.
