@@ -8,7 +8,7 @@
 import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
 import { getCollection } from "astro:content";
-import { getPublicCorpus } from "@/lib/corpus";
+import { getPublicCorpus, SECTIONS } from "@/lib/corpus";
 
 interface Item {
   href: string;
@@ -104,6 +104,27 @@ const total = [...groups.values()].reduce((n, list) => n + list.length, 0);
 
   <section class="pb-24">
     <div class="mx-auto max-w-[800px] px-6 space-y-10">
+
+      <!-- MIS-111: the six section indexes. This page lists everything by
+           directory; those list one family each, and are where a reader who
+           knows what they are looking for should start. -->
+      <nav>
+        <h2 class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-accent mb-3">
+          Secciones
+        </h2>
+        <div class="grid gap-2 sm:grid-cols-2">
+          {SECTIONS.map((s) => (
+            <a
+              href={`/corpus/${s.slug}/`}
+              class="rounded-lg border border-border bg-card px-4 py-3 hover:bg-card-hover transition-colors"
+            >
+              <span class="text-sm text-foreground">{s.label}</span>
+              <span class="block font-mono text-[0.65rem] text-dim mt-1">{s.blurb}</span>
+            </a>
+          ))}
+        </div>
+      </nav>
+
       {groupNames.map((name) => (
         <div>
           <h2 class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-accent mb-3">

@@ -1,14 +1,14 @@
 ---
 id: "MIS-111"
 title: "Give each corpus section a real index, ordered from least to most uncertain"
-status: backlog
+status: done
 priority: high
 effort: L
 guild: "Alchemists"
 area: web
 type_execution: digital
-assigned_to: null
-completed: null
+assigned_to: "ursa"
+completed: "2026-08-25"
 
 type: mission
 version: "1.0.0"
@@ -130,10 +130,73 @@ before the work starts. Final states, not deltas.)*
 
 ## Closure
 
-*(Fill when the mission closes. Not before, and not with intentions.
-Add here — never edit `Scope` or the criteria to match what happened.)*
+*(Written at closing. Nothing above this line was edited except the row-6
+correction, which carries its own record and was made on the Oracle's
+signature.)*
 
-- **What was done:**
-- **What diverged, and why:**
-- **Evidence:**
-- **Closed:** YYYY-MM-DD · **by:**
+- **What was done:** six section indexes, one page
+  (`web/src/pages/corpus/[section]/index.astro`), every row derived from the
+  collections at build. Nothing is listed by hand — a hand-written index is
+  `D-031` again, stale the first time a document is added.
+
+  ```
+  /corpus/canon/        11 documents      /corpus/protocols/   14
+  /corpus/standards/     5                /corpus/blueprints/  23
+  /corpus/decisions/    12                /corpus/debt/        34
+  ```
+
+  `/corpus/` gains a grid linking the six, and **`/corpus` returns to the nav**
+  — retired by `MIS-110` with the other twelve because it led nowhere useful.
+  It leads somewhere now.
+
+- **What diverged, and why — a section is not one collection.**
+
+  The brief assumed each section was a folder of the corpus. Two are not:
+  `decisions` and `blueprints` are typed collections with their own routes
+  (`/decisiones/<id>`, `/planos/<id>`), and listing them under `/corpus/` would
+  have 404'd on every row.
+
+  Worse, each of those folders is **split**: 12 `ADR-`/`DEC-` typed plus
+  `INDEX.md` in the corpus; 16 `BP-*` typed plus 8 in the corpus (`AUDIT-*`,
+  `WARDLEY-MAP`, `archive-summa-*`, `INDEX`, `README`). The first version listed
+  only the typed half — 12 of 13 and **17 of 24** — and every omitted row was a
+  reachable page. **An index that omits reachable documents is the same lie as
+  one that lists none, only harder to notice.** The model now unions both halves
+  and dedupes by href.
+
+- **Three counts still differ from the brief, and all three are the brief's
+  numbers being file counts rather than document counts:**
+
+  - **canon 11, not 12** — `INDEX.md` is the folder's own index, and listing an
+    index inside itself is noise. `/corpus/canon/` serves **17** pages for 12
+    documents because six are alternate-slug redirects (`welcome-to-numinia` →
+    `c-001-welcome-to-numinia`, `<title>Redirecting to:`). The index lists
+    documents, not redirects — verified by reading the `<title>` of both.
+  - **decisions 12, not 13** — same reason, `INDEX.md`.
+  - **blueprints 23, not 24** — `/planos/meta` renders `WARDLEY-MAP.md` under a
+    second route. One document, two URLs; listed once.
+
+  The criteria were not edited to match. They are recorded here as measured, per
+  the rule that the brief is not rewritten to fit the outcome.
+
+- **A finding, noted and not chased:** `/planos/meta` is a page with no file of
+  its own — it renders `WARDLEY-MAP.md` at a second URL. That is `D-028`
+  territory (URLs not managed as a lifecycle), and it does not block this
+  mission.
+
+- **`NavChild` and the `children` branch:** still unused, still not removed. The
+  redesign this mission was expected to bring did not touch the nav's type
+  contract — `/corpus` was added as a flat item, like the other four. Removing
+  the dead type remains a decision for whoever changes the nav's shape, which
+  nobody has yet.
+
+- **Advances MIS-071:** 111 documents that could only be reached by knowing
+  their URL are now reachable by browsing. Published-and-unlinked is
+  functionally unpublished, and six families stopped being that.
+
+- **Evidence:** base `e84ee19`. Pages 728 → 730 (+2: `/corpus/decisions/` and
+  `/corpus/debt/` did not exist as indexes; the other four replaced catch-all
+  artefacts). Guards: licence 271/294, references baseline 17 no new,
+  orphan-content exit 0. Production verification pending merge.
+
+- **Closed:** 2026-08-25 · **by:** ursa
