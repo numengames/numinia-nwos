@@ -3,7 +3,7 @@ id: "MIS-109"
 uid:
 title: "Make canon filable: frontmatter, registration and the term divergence"
 type: mission
-status: todo
+status: done
 version: "1.0.0"
 created: "2026-08-24T23:10:00Z"
 updated: "2026-08-24T23:10:00Z"

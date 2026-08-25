@@ -3,7 +3,7 @@ id: "D-012"
 uid:
 title: "The canon contradicts itself on its own terminology"
 type: documentation
-status: open
+status: resolved
 version: "1.0.0"
 created: "2026-08-24T20:50:00Z"
 updated: "2026-08-24T20:50:00Z"
@@ -91,12 +91,57 @@ closes the vocabulary of the prose, which is where canon actually lives. A guard
 that fails when a retired term reappears is cheap — but it needs a list of
 retired terms, and that list is the output of step 1.
 
+## RESOLVED 2026-08-25 — rediagnosed, not executed
+
+**The diagnosis was wrong, and that is the finding.**
+
+This entry said the canon contradicted itself: an unfinished substitution, one
+line changed and three left behind. `MIS-109` phase D tested all **66 live uses**
+of the four terms against `ADR-023`'s rule.
+
+**65 of 66 are correct.** The retirement never happened because there was
+nothing to retire: `operating system`, `germinal motive`, `Functional Model` and
+`Regulatory Model` are **two pairs with distinct senses**, not one term replacing
+another.
+
+What actually happened, established by recovering the version deleted on
+2026-04-15:
+
+- **2026-04-15** — `Epistemic_Relations` v2 introduced the distinction, keeping
+  `operating system` five times *while* introducing `Germinal Motive`. A
+  substitution would have removed it.
+- **2026-05-06** — the edit to `Welcome to Numinia` applied that correct
+  distinction to a line whose sense was operative. **One edit misapplying a
+  correct distinction**, not a corpus in contradiction.
+
+### What was actually done
+
+| | |
+|---|---|
+| Corrections in canon | **2** — `C-001` line 62 (phase B) and line 66 (phase D) |
+| Documents needing change | **1** of the 21 this entry predicted |
+| Ruling | `ADR-023` — four terms, two pairs, with a disambiguation rule |
+| Propagated to | `agents/nimrod`, `agents/adonaz`, `canon/README.md`, each with a recorded correction (`S-001` §2.1.2) |
+
+### Why this stays open in the register rather than being deleted
+
+`debt/` is append-only. **An entry resolved with its trace is worth more than
+one that never existed** — and this one is worth more than most, because it
+records that a defect carried since May was misdiagnosed for four months and
+that measuring it dissolved it.
+
+The closing condition asked for *"one vocabulary, propagated, with counts
+recorded"*. The answer is that **one vocabulary was the wrong goal**: there are
+four terms, they are all live, and the corpus was already using them nearly
+correctly.
+
 ## State
 
 | | |
 |---|---|
-| Severity | **high** — canon is incoherent with itself |
+| Severity | ~~high~~ → **resolved** |
 | Owner | Oracle |
-| Blocked by | needs a ruling on the term; nobody else can make it |
+| Blocked by | — |
 | Opened | 2026-08-24, by `AUD-2026-08-24-canon-edit` |
-| Closes when | one vocabulary, propagated, with counts recorded |
+| Closed | 2026-08-25, `MIS-109` phase D — `ADR-023` |
+| Outcome | Rediagnosed: not a contradiction, a misapplied distinction |
