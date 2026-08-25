@@ -4,7 +4,7 @@ uid:
 title: "Four terms, two pairs: germinal motive / operating system, regulatory / functional model"
 type: adr
 status: active
-version: "1.0.0"
+version: "2.0.0"
 created: "2026-08-25T13:23:15Z"
 created_source: "git:d9ca672"
 created_confidence: "exact"
@@ -146,6 +146,106 @@ Four questions, in this order:
 The first question resolves most cases on its own, and it is the one the May
 edit did not ask.
 
+## The triad, and the label that did not belong to it
+
+**Ruled by the Oracle, 2026-08-25.** `Epistemic_Relations` line 19 governs:
+
+```
+operating system = the co-implication of the three
+  ├── germinal motive (Numen Games)      the origin
+  ├── Functional Model                   the structure that executes
+  └── Narrative Projection (Numinia)     the projection
+```
+
+### The two triads were never incompatible
+
+Two agents carry this in `MEMORY.md`:
+
+```
+Operating System (Numen Games) → Functional Model → Narrative Projection (Numinia)
+```
+
+It reads as a rival scheme where `operating system` is the *first level* rather
+than the whole. The Oracle's reading dissolves it:
+
+> *"One slot, two names. Line 19 says one of those names belongs to the whole.
+> Take it out of the slot and what is left is the same triad."*
+
+**The memories had the sequence right and the first level's label wrong.** That
+makes propagation a correction, not a rewrite — and it matters, because a
+rewrite would have meant the agents were operating on a different model, while a
+mislabel means they were operating on this one under a wrong name.
+
+### `Regulatory Model` is not a fourth element, and not a synonym
+
+The question left open: validating is not one of the three positions, so is
+`Regulatory` outside the triad or another name for `Functional`?
+
+**Neither. `Regulatory` and `Functional` are two descriptions of the same slot**,
+and the corpus says so twice.
+
+**First, in the definitions of the middle level:**
+
+| v1 (deleted) | v2 (live) |
+|---|---|
+| *"the purposes require a **structural model** upon which to be sustained"* | *"the **structure** that addresses these needs… an invariant of a hypothetical nature"* |
+
+Same slot, same job — *the structure that answers the origin's needs*. v2 adds
+the invariance argument; it does not move the level.
+
+**Second, and decisively — `Pragmatic_Numen_System` §2.3**, uploaded fifteen
+minutes after `Epistemic_Relations`:
+
+> *"Function and structure are **distinguishable planes, but not separable**.
+> There is no function without structure; no structure without function. But
+> they are not the same: function defines the elements, structure defines their
+> relationships."*
+
+That is the answer in the canon's own words. **`Functional` and `Regulatory` are
+two planes of one level, not two levels** — what the elements do, and what
+governs how they relate. Inseparable, and not equivalent.
+
+So:
+
+- **In the triad, the middle slot is one position.** Name it `Functional Model`
+  when the sequence is what matters (origin → executes → projects), which is
+  what the agents' memories do correctly.
+- **`Regulatory Model` names the same slot under its validating aspect** — the
+  invariant against which the structure is measured. Use it when the argument is
+  about what governs, not about what runs.
+- **Neither replaces the other**, and `canon/Welcome to Numinia.md` line 41
+  labelling the level `Regulatory Model` is correct, as is line 45 projecting
+  `the functional model`. **They are the same level seen from its two planes.**
+
+What `Welcome` lacks is not a correction but a sentence: nothing tells the
+reader that levels 2's two names are two aspects. `MIS-109` adds it.
+
+### How this propagates to agents — the part that was missing
+
+An ADR that changes the model and does not touch `MEMORY.md` **leaves the agents
+executing the previous one.** This is the first decision in this repository to
+require a memory correction, and there was no mechanism for it.
+
+`S-001` §2.1.2 now defines the `live` threshold: a memory is state, not record;
+it is corrected when it contradicts canon, and **the correction is recorded
+inside the memory itself**, naming who corrected it and against which decision.
+
+Required by this ADR:
+
+| File | Correction |
+|---|---|
+| `agents/nimrod/MEMORY.md:41` | First level relabelled: `Operating System (Numen Games)` → `germinal motive (Numen Games)`. Sequence unchanged |
+| `agents/adonaz/MEMORY.md:40` | Same |
+| `canon/README.md:23` | Same relabel in the summary table |
+
+Each carries a `corrections:` entry citing `ADR-023`. **A corrected agent must
+be able to see that it was corrected** — a memory silently rewritten produces an
+actor that changed its mind without knowing it did.
+
+Not corrected: `MIS-085:61` (`Domain types = Functional Model`) and
+`canon/Numinia Brand and Culture.md:1215` are **correct** under this ruling —
+both use `Functional Model` for the middle slot.
+
 ## Consequences
 
 ### `D-012` is rewritten, not closed
@@ -171,13 +271,13 @@ this ADR rests on.
 
 ## What this ADR does not decide
 
-- **Whether `Functional Model` is still needed.** It is preserved with a defined
-  sense, but nothing currently requires it. If a pass over the corpus finds no
-  correct use, retiring it is a separate decision.
 - **The 2026-04-15 deletion.** Christian had authority — the Oracle confirmed
   the two accounts are one person, listed as Oracle in
   `canon/Numinia Brand and Culture.md`. What was missing was **trace**, not
-  permission. Registered separately.
+  permission. Registered as `D-026`.
+- **Whether `Welcome`'s three-level scheme should name the two planes.** This
+  ADR establishes that level 2 has two aspects; adding a sentence to the canon
+  saying so is `MIS-109`'s work, under `sealed`.
 
 ## References
 
