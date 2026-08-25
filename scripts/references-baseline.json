@@ -1,0 +1,22 @@
+{
+  "_comment": "Known-broken references frozen at adoption time. The lint fails only on NEW breakage. This list should shrink over time and never grow. Regenerate only when fixing entries.",
+  "generated": "2026-08-24T15:57:41.978Z",
+  "count": 15,
+  "entries": [
+    "ID   reports/daily/RPT-2026-04-07-tarde.md -> RPT-07",
+    "LINK README.md -> decisions/DEC-006-english-as-repo-language.md",
+    "LINK missions/MIS-062-mission-system-v2.md -> ../../blueprints/BP-mission-system-v2.md",
+    "LINK missions/MIS-072-web-monorepo-foundations.md -> ../docs/LEY.md",
+    "LINK missions/MIS-073-web-cc0-archive.md -> ../docs/LEY.md",
+    "LINK missions/MIS-074-web-progressive-identity.md -> ../docs/LEY.md",
+    "LINK missions/MIS-075-web-parity-public-surface.md -> ../docs/LEY.md",
+    "LINK missions/MIS-076-web-three-pillars.md -> ../docs/LEY.md",
+    "LINK missions/MIS-077-web-data-dignity.md -> ../docs/LEY.md",
+    "LINK missions/MIS-078-web-khepri-execution.md -> ../docs/LEY.md",
+    "LINK missions/MIS-079-web-city-chronicle.md -> ../docs/LEY.md",
+    "LINK missions/MIS-080-web-lap-platform.md -> ../docs/LEY.md",
+    "LINK missions/MIS-081-web-codex-stats.md -> ../docs/LEY.md",
+    "LINK missions/MIS-082-web-settings-session.md -> ../docs/LEY.md",
+    "LINK missions/MIS-083-web-oracle-zone.md -> ../docs/LEY.md"
+  ]
+}
