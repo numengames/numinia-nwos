@@ -3,7 +3,7 @@ id: "MIS-TEMPLATE-CHANGES"
 title: "What changed in the mission template, and the figures that decided it"
 type: standard
 status: active
-version: "2.0.0"
+version: "1.1.0"
 created: "2026-08-25"
 updated: "2026-08-25"
 author: "ursa"
@@ -164,3 +164,134 @@ new template governs the ones that come. Normalising 106 documents is a mission
 of its own, and it should be weighed against what it would produce: the five
 closure headings are already documented above, so a reader is not lost without
 it.
+
+### The precondition, written so it can fire
+
+That mission opens **when the template is stable, not before**. Stability is
+not a feeling, so it has a falsifiable definition:
+
+```
+stable = 5 missions written with this template, with the template
+         unchanged across all five
+```
+
+`git log --follow --oneline missions/TEMPLATE.md` since the fifth mission was
+created must show **no commit**. One edit to the template resets the count to
+zero.
+
+**If you are reading this with the condition met and the normalisation mission
+still unopened, that is inertia, not a decision** — the same clause that took
+`D-032` out of `restricted-oracle` the day its condition was met.
+
+**Counter reset once, on 2026-08-25**, by the v1.1.0 review below. It is the
+only reset: from here the template is frozen until the five missions exist.
+
+---
+
+# v1.1.0 — the 2026 state of the art, filtered through what we measured
+
+A report on agent task formats (A2A v1.0, Symphony's skeleton, Atlassian's
+agent-ready ticket data, agent boards) was reviewed on 2026-08-25.
+
+**The report is input, not authority.** Our measurement of 106 missions
+governs. Two filters applied to everything in it: it must not contradict what
+was measured, and its adoption cost must be proportional to small, frequent
+missions. The report supplies the reason for that filter itself — Symphony's
+500% rested on months of prior repo preparation, and the failure mode it names
+is choosing a tool before defining the contract. **The contract is this
+document.**
+
+## What came in
+
+**1 · Criteria must be false at the base commit.** A criterion that already
+passes before the work starts graduates nothing. Written into the template
+beside `Acceptance criteria`, with one good and one bad example. Zero cost.
+
+It is our own rule — *a guard nobody has watched fail is not verified* —
+applied to acceptance criteria.
+
+**2 · The brief is not rewritten at closing.** From ClawTrol's separation of
+brief and result, adapted to File Over App: no extra table, just the rule that
+`Scope` and the criteria are written when the mission opens and are **not
+edited afterwards**. The outcome is added in `Closure`.
+
+Editing the brief to match what happened deletes the divergence — and the
+divergence is the knowledge. Written in both places it could be broken:
+under `Scope`, and in the `Closure` preamble.
+
+**3 · `paths` as an optional field.** Repo paths the executor starts from, so
+it does not scan everything. Commented in the optional block, described as a
+hint and not a fence.
+
+**4 · Title as verb + object + result.** A one-line guide in the template, not
+a rule. *"Retire the /print/ intermediates from the served site"*, not *"Print
+pages"* — a noun is not a mission.
+
+**5 · NWOS ↔ A2A state mapping, as a declared table.** **Nothing is renamed.**
+`status` is consumed by the Zod schema, the site paints with it, and 106
+missions use it. Renaming means touching `content.config.ts` and the whole
+corpus, and is forbidden here. The table exists so future interoperability is
+an adapter, not a migration.
+
+Source: `a2a-protocol.org/latest/topics/life-of-a-task/`, read 2026-08-25 —
+interrupted states `input-required`, `auth-required`; terminal states
+`completed`, `canceled`, `rejected`, `failed`.
+
+| NWOS `status` | Missions | A2A `TaskState` | Fit |
+|---|---:|---|---|
+| `draft` | 4 | *(none)* | **No A2A equivalent.** A2A tasks begin at `submitted`; a task that exists but has not been submitted is outside its model. |
+| `backlog` | 40 | `submitted` | Approximate. `submitted` implies an agent has received it; our backlog implies nobody has. |
+| `in-progress` | 9 | `working` | Direct. |
+| `in-review` | 6 | `input-required` | Direct in mechanism — the task is interrupted pending a human. |
+| `done` | 34 | `completed` | Direct, both terminal. |
+| `cancelled` | 0 | `canceled` | Direct. Spelling differs (A2A uses one `l`); note it before any adapter is written. |
+| `frozen` | 13 | *(none)* | **No A2A equivalent.** Neither terminal nor interrupted: the work is deliberately parked, not waiting on input. A2A's closest, `rejected`, means the agent refused it — not the same thing. |
+
+**Two of our states do not map, and that is a finding, not a gap to fill.**
+`draft` and `frozen` cover **17 of 106 missions (16%)**.
+
+> **They do not map because A2A models a task in flight and we model a document
+> that exists before and after any execution. That is not a hole — it is the
+> difference between an execution protocol and an archive.**
+
+Do not "fix" this mapping by forcing the two states into A2A's vocabulary. A
+file-based archive keeps states a message protocol does not need: a document
+that has not been submitted to anyone (`draft`) and one deliberately parked
+rather than waiting on input (`frozen`). A2A's nearest neighbour for the second,
+`rejected`, means *the agent refused it* — a different claim entirely.
+
+### The two details that break an integration at week three
+
+Worth more than the table itself, because both look like nothing until they
+cost a day:
+
+**1 · Spelling.** A2A writes `canceled` with one `l`; we write `cancelled`. An
+adapter that string-matches will silently drop the state.
+
+**2 · Terminal is not terminal here.** A2A terminal states cannot restart —
+*"any subsequent interaction must initiate a new task"*. Our `done` missions
+**have** been edited after closing (`S-001` §2.0: 9 of 33). Under `closed`
+thresholds that is form and not substance, but **an adapter must not present a
+NWOS `done` as an immutable A2A terminal state**, because it is not one.
+
+## What was rejected, and why
+
+A rejection without a reason gets reopened in a month.
+
+| Rejected | Reason |
+|---|---|
+| **`exit_criteria` field** | Duplicates `Acceptance criteria`. With the falsifiability rule, the acceptance criteria **are** the exit criteria. One concept, one place. |
+| **`max_turns`, `escalate_to`** | Runtime orchestration, not mission document. `requires_oracle_approval` already covers the escalation we have. Revisit when a real orchestrator exists. |
+| **`protected` per mission** | Our protection is structural, not per-card: workflows never (`D-017`), thresholds per folder (`S-001` §2.1), CODEOWNERS when it arrives. A per-mission field invites believing protection is declared on the card — and the card is written by anyone. |
+| **An external board as the source of state** (Vibe Kanban, Agent Kanban, Hermes Kanban, Linear) | The board exists: `missions/` is the source of truth and `/missions` is its projection. File Over App. Adopting one now is exactly the error the report opens by naming — tool before contract. **This rejects a board that *holds* state, not a viewer that *reads* it:** a read-only view over `missions/` is another projection of the same source, exactly as `/missions` already is, and is not rejected. The distinction matters because the first replaces the archive and the second cannot. Not work for now — `/missions` is the viewer that exists, and synchrony comes before improving it. |
+| **Promotion to standard (`C-00X` / `S-NNN`)** | A standard exists to be adopted by other repos; `S-003` showed the correct genesis. That day comes **after** the stability criterion is met. A one-day-old standard is not a standard. |
+
+## Known risk, not debt
+
+The report's Symphony data on prompt injection applies here: **missions are
+public, and the agent reads them in order to execute them.** That is `F-48` in
+our own house.
+
+**No template field fixes this.** A field declaring "this mission is trusted"
+is written by whoever writes the mission, which is the same surface. Recorded
+as a known risk of this class of system, referencing `F-48`. No debt opened.
