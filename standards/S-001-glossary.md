@@ -4,7 +4,7 @@ uid:
 title: "Glossary — the archive's own vocabulary"
 type: documentation
 status: draft
-version: "2.9.0"
+version: "3.0.0"
 created: "2026-08-24T16:00:00Z"
 updated: "2026-08-25T02:20:00Z"
 author: "ursa"
@@ -524,6 +524,69 @@ remains correct.
 
 ## 5. Changing series `[MANUAL]`
 
+### 5.0 Not registered, and why — `registration: exempt` `[MANUAL]`
+
+**A gap and a declared exception must not look alike.**
+
+`D-008` measures registration coverage by counting documents whose filename
+carries an identifier. Today a document without one is indistinguishable from a
+document that will never have one, and coverage figures read worse than the
+archive actually is.
+
+Ruled by the Oracle on 2026-08-25, generalising the same defect `D-023` found in
+the publishing glob — *"excluded on purpose" and "forgotten" were the same
+thing to a reader*:
+
+```yaml
+registration: exempt
+registration_reason: >
+  Renaming would break 18 citations and a scorecard.yml comment the agent
+  cannot edit (D-017). See D-024.
+```
+
+**Both fields or neither.** `exempt` without a reason is a gap with better
+manners.
+
+The reason must name what makes registration wrong — not that it is
+inconvenient. Three legitimate shapes, all present in the corpus today:
+
+| Shape | Example |
+|---|---|
+| **Frozen artifact** — a dated filename is a photograph, not a living document (`P-010` §3.2) | `2026_04_14-Analogous_Terminology_Numina-v0.2.0.md` |
+| **Apparatus of a registered document** — belongs to its parent, not to the series | `protocols/APPROVAL-REQUEST-template.md`, used by `P-008` |
+| **Consumers cannot all be updated** — see below | `standards/engineering-standards.md` |
+
+Counters read `registration: exempt` as **out of the denominator**, not as a
+miss. A series at `8/8 · 2 exempt` is fully registered; `8/10` is not, and the
+difference is a decision somebody made rather than work somebody skipped.
+
+### 5.0.1 A rename whose consumers cannot all be updated is not done `[MANUAL]`
+
+**Rule.** Before renaming, enumerate the consumers. If even one cannot be
+updated in the same change, the rename does not happen.
+
+Learned by doing it wrong on 2026-08-25:
+`standards/engineering-standards.md` was renamed to `S-002-…` and reverted in
+the same session. Measuring came *after* acting. What the measurement found:
+
+- **18 documents** cite it by filename
+- `CLAUDE.md` declares it *"this repository's own operative standard"*
+- `.github/workflows/scorecard.yml` names it in a comment — and the agent has no
+  `workflow` scope (`D-017`), so that reference **could not be updated at all**
+
+The last one is decisive and is not about effort. A consumer outside the
+agent's reach makes the rename **structurally incomplete**, not merely
+expensive. The correct outcome is `registration: exempt` with that reason
+written down.
+
+This is narrower than `ADR-004`'s *never renumber*: it governs renames that are
+not renumbering, where the cost sits in the citation graph rather than in the
+identifier.
+
+---
+
+## 5.1 Changing series
+
 Blocker 6. When a document moves from one series to another:
 
 1. **New identifier in the destination series.** The document is filed under the
@@ -781,6 +844,57 @@ reformatted as the convention lands, not exempted.
 
 ## 10. Reproducible evidence
 
+### 10.0 Plausible artefacts — the class `[MANUAL]`
+
+**An artefact that has the shape of evidence, and is not evidence.**
+
+Ruled by the Oracle on 2026-08-25, after the fourth instance in two days:
+
+> *"Fourth time with the same shape — a date that looks like a chronology, a
+> figure that looks like a measurement, a run that looks like verification, a
+> guard that looks like coverage. It deserves naming as a class, not as four
+> incidents."*
+
+The four:
+
+| Instance | Looks like | Is |
+|---|---|---|
+| `D-021` | A creation timeline: 00:30, 00:32, 00:34… | Ten hand-typed dates. The six files came from **one commit at 22:07** |
+| `D-022` | A measurement: `0/17`, `49 broken`, `19 entries` | Counts of the wrong unit — files not folders, rows not documents, lines not entries |
+| §10.3 | Verification: a green CI run | A run that is **identical with the guard and without it** |
+| Phase 1 | Coverage: `check-references.mjs` green | A markdown linter, blind to a **TypeScript slug map**. The site was broken while it passed |
+
+**The common mechanism, and why care does not fix it:**
+
+1. The artefact is **well-formed** — no crash, no zero, no empty output.
+2. Its shape matches the thing it is mistaken for — a plausible timeline, a
+   plausible count, a plausible pass.
+3. **Nothing checks the gap between shape and substance**, because the shape is
+   what any checker would look at.
+4. A reader accepts it, and it becomes the record.
+
+Every one of the four was caught by a **human finding the artefact
+implausible** — never by another instrument. That is the defining property: a
+plausible artefact is invisible to the layer that produced it.
+
+**What the corpus does about it**, and none of it is diligence:
+
+- **Name the unit** (§10.2) — `0/17 agent folders` is false on sight
+- **Declare the source** (§6.2, `created_source`) — a date traceable to a commit
+  cannot be typed
+- **Read the step, not the run** (§10.3) — the conclusion cannot distinguish the
+  two cases; the step list can
+- **Know what a guard does not check** — `check-references.mjs` reads markdown;
+  a slug map in `.ts` is outside its world, and only `npm run build` knew
+
+> A guard proves what it checks, never what it does not. **A green guard is
+> evidence about the guard, not about the repository.**
+
+The fourth bullet has no mechanism yet: nothing lists what each guard is blind
+to. That is worth writing and belongs with `D-001`.
+
+
+
 ### 10.1 Every measurement declares where it measured `[MANUAL]`
 
 **Rule.** Every measuring script states in its output which `ROOT` and which
@@ -947,6 +1061,12 @@ gets filled differently by each person who meets it — which is how
 
 ## Version history
 
+- **v3.0.0** (2026-08-25) — §10.0 names **plausible artefacts** as a class after
+  the fourth instance in two days: a date that looks like a chronology, a figure
+  that looks like a measurement, a run that looks like verification, a guard that
+  looks like coverage. §5.0 adds `registration: exempt` so a gap and a declared
+  exception stop looking alike, and §5.0.1 the rule learned by reverting a rename:
+  **a rename whose consumers cannot all be updated is not done.**
 - **v2.9.0** (2026-08-25) — §6.2's backfill rule gains the evidence that proves
   it necessary: it existed in draft while its own author wrote ten documents
   with hand-invented dates, in a sequence that read as a coherent timeline and

@@ -89,23 +89,39 @@ apparatus belonging to a registered protocol, not an unregistered document.
 
 ## Closure
 
+**The Oracle created the missing outcome on 2026-08-25.** `S-001` §5.0 now
+defines `registration: exempt` + `registration_reason`, on the same principle as
+`D-023`: *a gap and a declared exception must not look alike.*
+
+Applied to the four documents that carry frontmatter:
+
+| Document | Exemption |
+|---|---|
+| `operations/security-policy.md` | `pending-genre-ruling` |
+| `operations/credential-map.md` | `pending-genre-ruling` |
+| `protocols/APPROVAL-REQUEST-template.md` | `apparatus-of-registered-document` |
+| `standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md` | `frozen-artifact` |
+
+**Three could not be marked**: `engineering-standards.md` and the two
+`2026_04_14-*` files have **no frontmatter at all**. Giving them one to hold an
+exemption would be inventing metadata for a document in order to explain why it
+lacks metadata. They are listed here instead, and the two dated ones are frozen
+artifacts anyway.
+
 Marked RESOLVED when:
 
-- [ ] An ADR rules the genre of `security-policy` and `credential-map`, and they
-      are filed accordingly — with numbers or without
+- [x] A declared-exception value exists and is applied *(S-001 §5.0, 2026-08-25)*
+- [ ] An ADR rules the genre of `security-policy` and `credential-map`, and the
+      two `pending-genre-ruling` exemptions are removed or made permanent
 - [ ] `P-010-how-to-archive.md` and its dated twin declare their relation
-- [ ] The `S-` prefix is decided for `engineering-standards.md`: registered
-      with all 18 citations updated, or **left permanently unregistered with the
-      reason written down** — which is a legitimate outcome
-
-The third bullet matters most. `D-008` counts registration coverage, and a
-document that will never be registered should be declared as such rather than
-sitting in the gap forever making the figure look worse than it is.
+- [ ] `engineering-standards.md` gets frontmatter, or a written decision that it
+      stays without one — it is the repository's operative standard and the only
+      unexplained gap left in `standards/`
 
 | | |
 |---|---|
-| Severity | low — nothing is broken; five documents lack a number |
-| Owner | Oracle (two ADRs) |
+| Severity | low — nothing is broken; the coverage figure now reads honestly |
+| Owner | Oracle (genre ADR) |
 | Blocked by | genre ruling · `D-017` for the scorecard reference |
 | Opened | 2026-08-25, closing phase 1 |
-| Closes when | the genre is ruled and the exceptions are declared |
+| Closes when | the genre is ruled and no unexplained gap remains |

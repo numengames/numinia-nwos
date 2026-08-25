@@ -1,5 +1,10 @@
 ---
 id: "APR-TEMPLATE"
+registration: exempt
+registration_exemption: "apparatus-of-registered-document"
+registration_reason: >
+  The template P-008-approval-brief-v1.md uses. Apparatus belongs to its
+  parent document, not to the series. See S-001 §5.0.
 title: "Approval Request — Template"
 type: template
 status: active
