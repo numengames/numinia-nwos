@@ -15,17 +15,16 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [debt, web, orphan-content, licensing, frontmatter, D-023, D-028, D-030]
 license: "CC-BY-4.0"
-visibility: "restricted-oracle"
+visibility: "internal"
 visibility_reason: >
-  TEMPORARY, WITH AN EXPIRY. Restricted not because orphan content is sensitive
-  — it is not — but because one of the five cases was web/src/pages/agente.astro,
-  which still held the VPS address when this entry was written.
-visibility_expires_when: >
-  The agente.astro occurrence is retired. DONE 2026-08-25 in
-  fix/retire-vps-ip-from-agente-astro; `git grep` returns zero tracked files.
-  ONCE THAT BRANCH IS MERGED, DOWNGRADE THIS ENTRY TO INTERNAL. If you are
-  reading this after the merge and it is still restricted, that is inertia,
-  not a decision.
+  Downgraded from restricted-oracle on 2026-08-25. The restriction was
+  temporary and its expiry condition — retiring the VPS address from
+  web/src/pages/agente.astro — was met when PR #50 merged (aef34ae).
+  `git grep` returns zero tracked files carrying the address.
+visibility_was: >
+  restricted-oracle, 2026-08-25 to 2026-08-25. Not because orphan content is
+  sensitive — it is not — but because one of the five cases still held the VPS
+  address when this entry was written.
 severity: medium
 opened_by: "Ursa, 2026-08-25, during the phase-0 web/corpus desync measurement"
 evidence_script: "node scripts/check-orphan-content.mjs"
