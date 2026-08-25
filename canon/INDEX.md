@@ -54,7 +54,7 @@ Los 10 documentos fundacionales de Numinia. Son inmutables por política y por e
 | 5 | S-005 | Role Structure | `Role structure in the Numinia system.md` | EN | 10/10 |
 | 6 | S-006 | Platform Role System | `Platform Role System.md` | EN | 8/10 |
 | 7 | S-007 | About Session Zero | `About Session Zero.md` | EN | 8/10 |
-| 8 | S-008 | Numinia — El Juego de Rol | `Numinia. El juego de rol (manual completo).txt` | ES | 8/10 |
+| 8 | S-008 | Numinia — El Juego de Rol | ⇒ **no vive aquí**, ver «Manual del juego de rol» abajo | ES | — |
 | 9 | S-009 | Rank Specifications | `Rank Specifications.md` | EN | 7/10 |
 | 10 | S-010 | Archive System | `README.md` (meta) | EN | — |
 
@@ -67,6 +67,41 @@ naturaleza operativa, no seminal. Autoridad: Brand & Culture > C-001…C-004
 | # | ID | Documento | Archivo | Idioma | Versión |
 |---|----|-----------|---------|--------|---------|
 | 1 | C-005 | Canon de Licencias | `C-005-licensing.md` | ES | 1.1.0 |
+
+## Canon que no vive en este repositorio
+
+Documentos con rango de canon cuya **fuente de verdad está en otro repositorio**.
+No se copian aquí: se apuntan. Una copia sería una segunda variante que envejece
+por su cuenta — que es exactamente lo que produjo el stub retirado el 2026-08-25.
+
+| Documento | Fuente de verdad | `derived_from` | Régimen | Versión |
+|---|---|---|---|---|
+| Numinia — Manual del juego de rol | `numengames/numinia-lore` → `seminal/Numinia_Manual_del_juego_de_rol_v0_6_0.md` | — (**es** el original; este repo no deriva, apunta) | `LicenseRef-Numen-AllRightsReserved` (C-005 §2) | 0.6.0 |
+
+**Sustituye a** `Numinia. El juego de rol (manual completo).txt` (S-008, v0.1.0,
+4.667 líneas) y a `Numinia-El-juego-de-rol-manual-completo.md` (131 líneas, un
+stub que nunca contuvo el manual), ambos retirados el 2026-08-25.
+
+**Por qué un puntero y no un fichero.** El manual v0.6.0 son 129.087 palabras. En
+`canon/` lo globearía `web/src/content.config.ts` (patrón `canon/**/*.md`) y
+numinia.org publicaría una página de 890 KB — 2,6× la más pesada del sitio — más
+el `.md` crudo en abierto. Y habría dos copias del mismo documento en dos repos
+sin declarar cuál manda: la condición exacta que produjo el stub.
+
+**Por qué sin ID nuevo.** Un puntero no es un documento fundacional. Darle un
+`C-00N` y un fichero propio fabrica el mismo objeto que acabamos de retirar, con
+mejores intenciones. La entrada de índice basta y no consume identificador.
+
+**Verificado 2026-08-25:** `numinia-lore` es público (`visibility: public`,
+comprobado sin credenciales) y `seminal/**` declara reserva expresa de derechos en
+su `REUSE.toml` — decisión firmada por el Oráculo el 2026-08-17 (MIS-085 D1). El
+puntero resuelve para cualquier lector y el contenido conserva su régimen.
+
+**Anomalía del documento fuente, registrada sin corregir:** la numeración de
+«Fragmentos» del manual tiene huecos y un duplicado — cap. 2 salta del 5 al 7;
+cap. 3 salta del 5 al 8; cap. 4 tiene dos «Fragmento 6» (*Sistema de
+Enfrentamientos* y *Estados del PJ*). Viene así del original; corregirla es
+decisión editorial del Oráculo, no de archivo.
 
 ## Notas sobre S-009
 
