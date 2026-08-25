@@ -88,7 +88,7 @@ watching this claim.**
 `fix/retire-vps-ip-from-corpus` and replaced with an explicit pointer. One
 occurrence remains in `web/src/pages/agente.astro` — deliberately: it is not
 `.md`, no corpus measurement reaches it, and the orphan-content guard must be
-the thing that finds it. Tracked in the debt registered with this change.
+the thing that finds it. Tracked in `D-032`.
 
 **What was NOT done, and why.** History was not rewritten. The address has been
 public for 140 days and is discoverable by DNS regardless; `filter-branch` would
@@ -100,8 +100,8 @@ is a network control, not a documentary one**, and is verified externally by the
 Oracle.
 
 **The general defect.** This document made a falsifiable compliance claim that
-nothing falsified. It is not unique — see the debt on unverified compliance
-assertions registered with this change.
+nothing falsified. It is not unique: `D-033` measures **145 such assertions
+across the corpus, 132 of them unverified**.
 
 ---
 

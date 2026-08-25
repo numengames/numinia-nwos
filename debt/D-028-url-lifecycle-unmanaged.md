@@ -4,21 +4,22 @@ uid:
 title: "The site publishes URLs derived from filenames and nothing manages their lifecycle"
 type: documentation
 status: open
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-25T14:22:10Z"
 created_source: "git:a13366b"
 created_confidence: "exact"
-updated: "2026-08-25T14:22:10Z"
+updated: "2026-08-25T17:30:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
 territory: "Archive"
 tags: [debt, web, urls, redirects, lifecycle, D-023, MIS-109]
 license: "CC-BY-4.0"
+visibility: "pending-oracle"
 severity: medium
 opened_by: "Oracle, 2026-08-25"
-evidence_script: "git log --diff-filter=R --all"
-evidence_head: "5aa7c4c"
+evidence_script: "cd web/dist && grep -rl 'http-equiv=\"refresh\"' --include=index.html . | wc -l"
+evidence_head: "392ffc6"
 ---
 # D-028 — Published URLs derive from filenames, and nothing manages them
 
@@ -28,7 +29,8 @@ evidence_head: "5aa7c4c"
 > **Epistemic:** The filename is a **private** archival decision; the URL is a
 > **public** commitment. Today they are the same string.
 > **Pragmatic:** `git log` records **192 renames** across the repository's
-> history. `astro.config.mjs` declares **9 redirects**.
+> history. `astro.config.mjs` declares **9 redirect rules**, which the build
+> expands into **114 redirect pages** (measured 2026-08-25 — see Escalation).
 
 ## The finding
 
@@ -55,6 +57,55 @@ skipped.**
 The 192 is an upper bound: many are files that were never published (`scripts/`,
 `.github/`). The point is not the exact ratio but that **no one has ever
 compared the two numbers**, because nothing produces them.
+
+## Escalation — 2026-08-25: the figure was 9, it is 114
+
+The entry above counts **rules in the config**. That is not what the site
+serves. The build expands `/misiones/[id]` into one redirect page per mission,
+so the published surface is an order of magnitude larger than the entry
+claimed.
+
+Measured at `HEAD = 392ffc6`, `ROOT = numengames/numinia-nwos · main`:
+
+```bash
+cd web/dist && grep -rl 'http-equiv="refresh"' --include=index.html . \
+  | sed 's|^\./||;s|/index.html$||' \
+  | awk -F/ '{ if ($1=="misiones" && NF>1) print "misiones/<id>";
+               else if ($1=="corpus" && $2=="canon") print "corpus/canon/<slug>";
+               else print $0 }' \
+  | sort | uniq -c | sort -rn
+```
+
+```
+106 redirect pages   misiones/<id>          MIS-066 tail
+  6 redirect pages   corpus/canon/<slug>    MIS-109 phase B
+  1 redirect page    misiones                MIS-066 tail
+  1 redirect page    auditoria               origin not traced
+─────
+114 redirect pages   total
+```
+
+**Two populations, and the distinction is the point of this escalation:**
+
+| Population | Count | Has a knowable expiry? |
+|---|---:|---|
+| `MIS-066` tail (`/misiones*`) | **107** | **Yes.** A single decision retires all of them at once, once nothing links to `/misiones` |
+| Everything else | **7** | **No.** Six canon slugs from phase B plus `/auditoria`, each its own case |
+
+94% of the redirect surface is one mission's tail. Nobody has decided how long
+it lives, and **nothing measures whether anything still uses it** — the same
+gap this entry already describes, now with a denominator.
+
+### On counting the right unit
+
+The first pass counted redirects by file size (`-size -2k`) and also got 114.
+Same number, different claim: size is a proxy that a verbose redirect or a
+minimal legitimate page would break. The `http-equiv="refresh"` marker counts
+the thing itself. Recorded because a figure that happens to be right is not
+evidence — `S-001` §10.2.
+
+**This does not open a new entry.** It is the same debt, better measured, and
+the movement from 9 to 114 is part of what has to be known about it.
 
 ### Correction to how this entry was first framed
 

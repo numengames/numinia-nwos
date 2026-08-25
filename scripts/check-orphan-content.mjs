@@ -39,7 +39,7 @@ const DIST = join(WEB, "dist");
 // Orphans acknowledged and tracked. Anything NOT here fails the guard.
 // Each entry must name the debt that tracks it.
 const ALLOWED = new Map([
-  ["diseno/index.html", "D-0XX — design system served from public/, v5.0.0 while the standard is v5.1.0"],
+  ["diseno/index.html", "D-032 — design system served from public/, v5.0.0 while the standard is v5.1.0"],
 ]);
 
 // A public/ file whose basename also exists in the corpus is worse than an
