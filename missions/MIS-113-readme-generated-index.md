@@ -4,7 +4,7 @@ title: "Generate the README's index from the sections, instead of maintaining it
 status: draft
 priority: medium
 effort: M
-guild: alchemists
+guild: "Alchemists"
 area: web
 type_execution: digital
 assigned_to: null

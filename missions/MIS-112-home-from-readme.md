@@ -4,7 +4,7 @@ title: "Generate the home page from the README, so the site and the repo say the
 status: backlog
 priority: medium
 effort: M
-guild: alchemists
+guild: "Alchemists"
 area: web
 type_execution: digital
 assigned_to: null

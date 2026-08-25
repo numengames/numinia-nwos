@@ -4,7 +4,7 @@ title: "Give each corpus section a real index, ordered from least to most uncert
 status: backlog
 priority: high
 effort: L
-guild: alchemists
+guild: "Alchemists"
 area: web
 type_execution: digital
 assigned_to: null

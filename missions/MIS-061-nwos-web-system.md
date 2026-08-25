@@ -12,7 +12,7 @@ owner: "oracle"
 tags: [web, nwos, visualization, ux, i18n, sistema, pablofm]
 license: "CC-BY-4.0"
 area: "Product"
-guild: "Alquimistas"
+guild: "Alchemists"
 type_execution: "técnico"
 priority: "high"
 effort: "XL"

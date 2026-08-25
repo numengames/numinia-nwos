@@ -4,7 +4,7 @@ title: "Retire the thirteen Sistema entries from the nav, leaving their pages re
 status: done
 priority: medium
 effort: XS
-guild: alchemists
+guild: "Alchemists"
 area: web
 type_execution: digital
 assigned_to: "ursa"
@@ -137,5 +137,31 @@ entries would rot as soon as the nav changes again.)*
   643. Pages confirmed still serving real content, not stubs — `/gaps` 50,861 B,
   `/soluciones` 53,762 B, `/agente` 57,385 B, `/wardley` 48,269 B.
   Guards: licence 265/288, references baseline 17 no new, orphan-content exit 0.
+
+### Verified in production — the first complete chain
+
+Merged as `a3ccf34` (PR #58) and confirmed **from outside**, against
+`numinia.org` rather than `dist/`:
+
+```
+nav                5 links   /  /missions  /decisiones  /planos  /reportes
+the thirteen       13 of 13 return 200
+footer             v0.0.1 · a3ccf34  → github.com/…/commit/a3ccf34
+```
+
+The footer SHA equals the merge commit of this mission, so the page states
+which build it is and that statement is checkable by anyone.
+
+**This is the first time the chain ran end to end: merge → checks → deploy →
+verifiable in the footer.** Eight days earlier the same site served a build from
+2026-08-17 while `main` moved on, and nothing on the page said so; the only way
+to tell was probing URLs. Two of the four links in that chain were built today —
+the footer (`cecaae7`) and the reconnected Workers Builds integration — and this
+mission is the first to cross all four.
+
+Worth separating, because they are different claims: **the thirteen pages
+returning 200 is the mission's substance**, not a side effect. Removing an entry
+from a list and deleting a page look identical to a visitor reading the nav, and
+only the second is destructive. The 13/13 is what proves this was the first.
 
 - **Closed:** 2026-08-25 · **by:** ursa
