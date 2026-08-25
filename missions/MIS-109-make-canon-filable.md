@@ -92,6 +92,49 @@ the founding documents of the world under the wrong genre, permanently.
 
 `type_execution: hybrid` for exactly that reason.
 
+## Dates are corrected with three fields, never one
+
+**Inherited from `D-021`, and it is an acceptance criterion, not advice.**
+
+`D-012` records 121 documents carrying `created: …T00:00:00Z` — a midnight
+nobody wrote at. The tempting fix is to backfill `created` from git and move on.
+
+> **If `created` is filled without declaring which commit it came from, we have
+> swapped an invented date for a better-disguised one.**
+
+The reason this is not pedantry is what `D-021` measured. Ten documents written
+on 2026-08-24 declared dates their own commits contradicted, and **the sequence
+was coherent fiction**: each a plausible minute after the last, crossing
+midnight, when the six `D-00N` files had come out of a single commit at 22:07.
+
+**A future reader does not catch that. They take it as read.** A wrong date that
+looks arbitrary invites suspicion; a wrong date that looks like a timeline does
+not. That is why the provenance field matters more than the value.
+
+So every date this mission touches carries three fields:
+
+```yaml
+created: "2026-04-07T13:46:22Z"
+created_source: "git:a3f91c2"        # the commit the date came from
+created_confidence: "exact"          # or "inferred"
+```
+
+`created_confidence: inferred` is mandatory wherever the history crosses
+`MIS-066`, which renamed files in bulk: `git log --follow` may resolve to the
+rename rather than the original creation. **An inferred date declared as
+inferred is evidence. An inferred date declared as exact is a lie with a
+citation.**
+
+`D-021` is the worked example — the first document in the archive whose date was
+taken from its commit rather than typed. Its frontmatter is the template.
+
+### Acceptance
+
+- [ ] Zero documents in `canon/` with `created` lacking `created_source`
+- [ ] Every date that crosses `MIS-066` carries `created_confidence: inferred`
+- [ ] `reports/audits/evidence/dates-vs-commits.py` reports zero discrepancies
+      across `canon/`
+
 ## Acceptance criteria
 
 - [ ] 14/14 canon documents carry frontmatter valid under `S-001` §6.1

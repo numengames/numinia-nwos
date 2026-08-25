@@ -4,7 +4,7 @@ uid:
 title: "Glossary — the archive's own vocabulary"
 type: documentation
 status: draft
-version: "2.8.0"
+version: "2.9.0"
 created: "2026-08-24T16:00:00Z"
 updated: "2026-08-25T02:20:00Z"
 author: "ursa"
@@ -664,6 +664,17 @@ the same commit.
 
 ### Rule for the backfill `[MANUAL]`
 
+> **Proven necessary, 2026-08-24.** This rule existed in draft while its author
+> wrote ten documents with hand-invented dates — several of them inside the
+> entries defining it. What makes the case is not the count: **the sequence was
+> coherent fiction**, each a plausible minute after the last, crossing midnight,
+> when six of the files had come out of a single commit at 22:07.
+>
+> A future reader does not catch that. A wrong date that looks arbitrary invites
+> suspicion; a wrong date that looks like a timeline does not. **The provenance
+> field matters more than the value.** Registered as `D-021`; `MIS-109` inherits
+> this rule as an acceptance criterion.
+
 Three fields, not one:
 
 ```yaml
@@ -858,7 +869,14 @@ gets filled differently by each person who meets it — which is how
 
 ## Version history
 
-- **v2.8.0** (2026-08-24) — §9.1: **citing an identifier versus mentioning one
+- **v2.9.0** (2026-08-25) — §6.2's backfill rule gains the evidence that proves
+  it necessary: it existed in draft while its own author wrote ten documents
+  with hand-invented dates, in a sequence that read as a coherent timeline and
+  was not (`D-021`). `MIS-109` inherits the three-field rule as an acceptance
+  criterion, so the 121 `T00:00:00Z` documents are not corrected into
+  better-disguised fiction. Merged alongside v2.8.0, which was developed in
+  parallel from v2.6.0.
+- **v2.8.0** (2026-08-25) — §9.1: **citing an identifier versus mentioning one
   as data.** A document that inventories broken references trips the guard that
   detects them; ruled as a format convention rather than a per-document
   exemption, because an exemption is forgotten by the next report and a
