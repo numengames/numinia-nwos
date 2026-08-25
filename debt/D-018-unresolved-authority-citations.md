@@ -80,6 +80,17 @@ Measured at `9b45016`: **174 identifiers exist · 1,860 citations · 17 broken �
 | `P-012` | 1 | From the reverted relocation branch |
 | `RPT-07` | 1 | Pre-existing |
 
+> **This table trips the guard it describes.** Every identifier above is written
+> in a code span per `S-001` §9.1 — the convention that marks an identifier as
+> *data* rather than a citation. Neither linter implements the rule yet, so
+> `check-references.mjs` still reads the `RPT-07` row as a live citation and
+> reports it as new breakage.
+>
+> The convention exists precisely because this recurs: **a report about broken
+> citations is itself full of broken citations, and that is what it is for.**
+> Reformatting is the fix, not an exemption — an exemption would be forgotten by
+> the next report, a format convention is inherited by it.
+
 ### The finding inside the finding: `S-` is a live numbering, not a stray
 
 40 of the 88 broken citations are `S-002`…`S-010`. This is not one stale
