@@ -4,7 +4,7 @@ uid:
 title: "Glossary — the archive's own vocabulary"
 type: documentation
 status: draft
-version: "3.1.0"
+version: "3.2.0"
 created: "2026-08-24T16:00:00Z"
 updated: "2026-08-25T02:20:00Z"
 author: "ursa"
@@ -210,6 +210,43 @@ Three consequences worth stating plainly:
    CI checks who signed what. A `sealed` document and an `open` one are the same
    file to git. Enforcement depends on branch protection and signed commits,
    neither of which exists today — registered as **D-011**.
+
+### 2.1.1 The fifth threshold, and the only real one
+
+**Git history is immutable, and it is the only threshold here the tool enforces
+rather than the organisation.**
+
+| | Enforced by | Can be changed |
+|---|---|---|
+| `sealed` · `governed` · `closed` · `open` | agreement | **yes** — a signature and an ADR |
+| **git history** | the tool | **no**, at any price worth paying |
+
+The four thresholds above are **social conventions written down**. They describe
+how much agreement a change should take, and today nothing stops a push that
+ignores them — that is `D-011`. Even `sealed`, the strongest, is a door with a
+lock somebody holds the key to.
+
+Commit authorship and history are different in kind. Rewriting them means new
+hashes for every affected commit, an invalidated signed tag, and every existing
+reference broken. **The cure destroys more provenance than the disease**, which
+makes it immutable in practice even though `git filter-branch` exists.
+
+This reframes the whole section. **The archive's strongest guarantee is not the
+one it declares — it is the one it inherits.** What is *written* in a document
+can always be changed by agreement; **who wrote it, and when, cannot.**
+
+Two consequences already met:
+
+- **An agent's name is identity, not an attribute.** `MIS-089` renamed
+  Centinela-01 to Nimrod and 57 commits keep the old author string forever —
+  `D-027`, the corpus's first finding that cannot be fixed, only declared.
+- **A date derived from a commit is evidence; a typed one is a claim** (§6.2,
+  `created_source`). The difference is exactly that one lives in the immutable
+  layer and the other does not.
+
+> Everything this glossary governs is mutable by agreement. The history under it
+> is not. **When the two disagree, the history is the record and the document is
+> the claim.**
 
 > An archive that claims immutability it cannot enforce is worse than one that
 > admits mutability and records who changed what. The first invites trust it
@@ -1104,6 +1141,12 @@ gets filled differently by each person who meets it — which is how
 
 ## Version history
 
+- **v3.2.0** (2026-08-25) — §2.1.1: **git history is the fifth threshold and the
+  only real one.** The four thresholds this section defines are social
+  conventions written down; git's is imposed by the tool. Reframes the section:
+  the archive's strongest guarantee is not the one it declares but the one it
+  inherits — what is written can always change by agreement, who wrote it cannot.
+  Developed in parallel with v3.1.0 from v3.0.0.
 - **v3.1.0** (2026-08-25) — §5.2: **an agent that has committed never loses its
   name.** MIS-089 renamed Centinela-01 to Nimrod; 57 commits, including the ten
   seminal canon documents, are authored under the old name and git authorship
