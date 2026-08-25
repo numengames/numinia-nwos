@@ -63,10 +63,30 @@ This relationship can be explained on three interconnected levels:
    → This is where the Ground is located, which gives meaning to the object by defining how it should work.
 
 3. **Numinia**
-   It is the narrative projection of the functional model. A fantastical city that turns abstract structures into living and understandable experiences, where organizational functioning is narrated and played.
+   It is the narrative projection of the regulatory model — the same level as
+   above, named for what it does rather than for what it validates. A
+   fantastical city that turns abstract structures into living and
+   understandable experiences, where organizational functioning is narrated and
+   played.
    → It is the Representamen, the visible expression of the system.
 
 This structure is not linear, but cyclical: what is narrated affects the model, the model transforms the system, and the system gives rise to new narratives. Thus, to play in Numinia is to interpret, operate, and build the reality of the project.
+
+> **On the names of level 2.** It appears as *Regulatory Model* and as
+> *functional model*, and both are correct: they are **two planes of one
+> level**, not two levels. `Pragmatic Numen System` §2.3 states it — *"function
+> and structure are distinguishable planes, but not separable"*: function
+> defines the elements, structure defines their relationships. Say **regulatory**
+> when the argument is about what governs; **functional** when it is about what
+> runs.
+>
+> And **`operating system` names the whole**, not this or any other level:
+> `Epistemic Relations` — *"the Operating System of Numen Games consists of the
+> co-implication between a Germinal Motive, its Narrative Projection and a
+> Regulatory Structure"*. That is why line 45 above, and the missions heading
+> below, use it for the system one operates **within**.
+>
+> Ruled in `ADR-023`, 2026-08-25.
 
 ---
 
