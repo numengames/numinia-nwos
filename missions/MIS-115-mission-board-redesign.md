@@ -52,6 +52,33 @@ thing a reader meets is the pile nobody is touching.
 Within each group: **most recent first**, by `updated` — and `Done` by
 `completed`, because for a closed mission the useful date is when it closed.
 
+> **Scope extended — 2026-08-25, by the Oracle, after looking at the live
+> board.** Recorded here rather than edited in silence: the paragraph above
+> stands as it was signed, and what follows amends it.
+>
+> **The ordering is not uniform across groups, and the line above said it
+> wrong.** "Most recent first" is right for `In Progress`, `In Review` and
+> `Done` (by `completed`). **`Backlog` sorts by priority** —
+> `critical → high → medium → low`, with the tie broken by ID, the same
+> declared arbitrary tiebreak the selection draft uses.
+>
+> The reason is what each group answers. A backlog sorted by date says which
+> mission was *written* most recently, which tells a reader nothing about what
+> to pick up. Sorted by priority it becomes the queue it claims to be.
+>
+> Two more, from the same review:
+>
+> **The type is too small.** The card-hierarchy criterion gains an explicit
+> test: **the title must be readable without effort at normal screen distance.**
+> Today everything weighs the same and everything is small. This is a visual
+> judgement, reviewed by looking at it, and **the Oracle is the reviewer** — it
+> is not restated as a font-size assertion, for the reason already written under
+> Acceptance criteria.
+>
+> **Delivered missions, chronological by date of completion.** Already in the
+> brief; the Oracle confirms it as the thing most missing when looking at `Done`
+> today, so it is not an incidental detail of the sort but a stated requirement.
+
 Today the sort is `a.id.localeCompare(b.id)`, which is **creation order wearing
 a numeric disguise**: MIS-011 outranks MIS-110 forever, regardless of what
 happened yesterday.
@@ -120,6 +147,11 @@ visual judgement it is written as judgement — see below.)*
 - [ ] The first card of each group carries the most recent date in that group,
       by `updated` (`completed` for Done). **Today: unverifiable, because no
       card shows a date and the sort is by id.**
+- [ ] **`Backlog` is the exception and sorts by priority**, not by date:
+      reading the rendered group top to bottom, no `critical` card appears after
+      a `high`, none `high` after a `medium`, none `medium` after a `low`.
+      **Today: unverifiable — the group is sorted by id.**
+      *(Added 2026-08-25 with the Oracle's scope extension.)*
 - [ ] Every mission card shows a date: the count of cards carrying a date equals
       the count of cards. **Today: 0 of 111.**
       ```bash

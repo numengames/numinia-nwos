@@ -12,9 +12,15 @@ export type NavItem =
 
 export const navItems: NavItem[] = [
   { label: "Missions", href: "/missions", id: "missions" },
+  { label: "Corpus", href: "/corpus", id: "corpus" },
   { label: "Decisiones", href: "/decisiones", id: "decisiones" },
   { label: "Planos", href: "/planos", id: "planos" },
   { label: "Reportes", href: "/reportes", id: "reportes" },
+  // MIS-111 — `/corpus` returns to the nav, and this time it leads somewhere.
+  // MIS-110 retired it with the other twelve because it was a page nobody
+  // could navigate: section indexes existed and listed nothing. Now each
+  // section is a real index, and /corpus is the entry point to all six.
+  //
   // MIS-110 — the "Sistema" dropdown and its thirteen entries were retired
   // from the nav on 2026-08-25:
   //

@@ -81,15 +81,28 @@ export interface Section {
   label: string;
   /** what a reader finds here */
   blurb: string;
+  /**
+   * Where this section's documents actually live.
+   *
+   * Four sections resolve under /corpus/<path>. Two do NOT: decisions and
+   * blueprints are typed collections with their own detail routes
+   * (/decisiones/<id>, /planos/<id>), predating this model. An index that
+   * linked them under /corpus/ would 404 on every row — measured, not assumed:
+   * /decisiones has 12 pages and /planos 18, none of them under /corpus/.
+   *
+   * So a section index is not always a listing of its own subtree. It is a
+   * listing of a family of documents, wherever the site decided to serve them.
+   */
+  collection: "corpus" | "decisions" | "blueprints";
 }
 
 export const SECTIONS: Section[] = [
-  { prefix: "canon/",      slug: "canon",      label: "Canon",      blurb: "What is settled." },
-  { prefix: "standards/",  slug: "standards",  label: "Standards",  blurb: "How it is written." },
-  { prefix: "decisions/",  slug: "decisions",  label: "Decisions",  blurb: "What was chosen, and why." },
-  { prefix: "protocols/",  slug: "protocols",  label: "Protocols",  blurb: "How things are done." },
-  { prefix: "blueprints/", slug: "blueprints", label: "Blueprints", blurb: "What is being built." },
-  { prefix: "debt/",       slug: "debt",       label: "Debt",       blurb: "What is known to be wrong." },
+  { prefix: "canon/",      slug: "canon",      label: "Canon",      blurb: "What is settled.",            collection: "corpus" },
+  { prefix: "standards/",  slug: "standards",  label: "Standards",  blurb: "How it is written.",          collection: "corpus" },
+  { prefix: "decisions/",  slug: "decisions",  label: "Decisions",  blurb: "What was chosen, and why.",   collection: "decisions" },
+  { prefix: "protocols/",  slug: "protocols",  label: "Protocols",  blurb: "How things are done.",        collection: "corpus" },
+  { prefix: "blueprints/", slug: "blueprints", label: "Blueprints", blurb: "What is being built.",        collection: "blueprints" },
+  { prefix: "debt/",       slug: "debt",       label: "Debt",       blurb: "What is known to be wrong.",  collection: "corpus" },
 ];
 
 // NOT sections, and why — recorded so the next reader does not re-litigate it:
@@ -117,9 +130,99 @@ export function sectionOf(entry: Entry): Section | undefined {
   return SECTIONS.find((s) => entry.id.startsWith(s.prefix));
 }
 
-/** Public documents of one section. */
-export async function getSection(slug: string): Promise<Entry[]> {
+/** One row of a section index. */
+export interface SectionDoc {
+  href: string;
+  title: string;
+  docId?: string;
+  status?: string;
+  updated?: string;
+}
+
+const str = (v: unknown) => (typeof v === "string" ? v : undefined);
+
+/**
+ * The documents of one section, ready to list, sorted by identifier.
+ *
+ * Sorted by `docId` rather than by date: these are reference families, and a
+ * reader looking for C-005 wants it where C-005 belongs. The board at /missions
+ * is the surface where recency matters, and MIS-115 governs that.
+ */
+export async function getSectionDocs(slug: string): Promise<SectionDoc[]> {
   const section = SECTIONS.find((s) => s.slug === slug);
   if (!section) return [];
-  return (await getPublicCorpus()).filter((e) => e.id.startsWith(section.prefix));
+
+  let docs: SectionDoc[];
+
+  if (section.collection === "decisions") {
+    docs = (await getCollection("decisions")).map((e) => {
+      const f = e.data as Record<string, unknown>;
+      return {
+        href: `/decisiones/${String(f.id).toLowerCase()}`,
+        title: str(f.title) ?? String(f.id),
+        docId: str(f.id),
+        status: str(f.status),
+        updated: str(f.updated)?.slice(0, 10),
+      };
+    });
+  } else if (section.collection === "blueprints") {
+    docs = (await getCollection("blueprints")).map((e) => {
+      const f = e.data as Record<string, unknown>;
+      return {
+        href: `/planos/${String(f.id).replace(/^BP-/i, "").toLowerCase()}`,
+        title: str(f.title) ?? String(f.id),
+        docId: str(f.id),
+        status: str(f.status),
+        updated: str(f.updated)?.slice(0, 10),
+      };
+    });
+  } else {
+    docs = (await getPublicCorpus())
+      .filter((e) => e.id.startsWith(section.prefix))
+      .map((e) => {
+        const f = e.data as Record<string, unknown>;
+        return {
+          href: `/corpus/${e.id}`,
+          title: str(f.title) ?? e.id.split("/").pop() ?? e.id,
+          docId: str(f.id),
+          status: str(f.status),
+          updated: str(f.updated)?.slice(0, 10),
+        };
+      });
+  }
+
+  // A section is not one collection — it is a FOLDER, and two of them are split
+  // across a typed collection and the corpus catch-all. Measured, not assumed:
+  //
+  //   decisions/   12 ADR-/DEC- in the typed collection + INDEX.md in the corpus
+  //   blueprints/  16 BP-* typed + 8 in the corpus (AUDIT-*, WARDLEY-MAP,
+  //                archive-summa-*, INDEX, README)
+  //
+  // Listing only the typed half would have shown 12 of 13 and 16 of 24, and the
+  // missing rows are reachable pages — an index that omits reachable documents
+  // is the same lie as an index that lists none, only harder to notice.
+  //
+  // So for those sections the corpus remainder is appended. `debt/` and the
+  // rest are corpus-only and unaffected.
+  if (section.collection !== "corpus") {
+    const seen = new Set(docs.map((d) => d.href));
+    const rest = (await getPublicCorpus())
+      .filter((e) => e.id.startsWith(section.prefix))
+      .map((e) => {
+        const f = e.data as Record<string, unknown>;
+        return {
+          href: `/corpus/${e.id}`,
+          title: str(f.title) ?? e.id.split("/").pop() ?? e.id,
+          docId: str(f.id),
+          status: str(f.status),
+          updated: str(f.updated)?.slice(0, 10),
+        };
+      })
+      .filter((d) => !seen.has(d.href));
+    docs = docs.concat(rest);
+  }
+
+  return docs.sort((a, b) =>
+    (a.docId ?? a.title).localeCompare(b.docId ?? b.title, "en", { numeric: true }),
+  );
 }

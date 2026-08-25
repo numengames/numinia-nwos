@@ -220,4 +220,29 @@ folder was simply out of the glob. What proves the filter is scoped correctly is
 that **the other 112 corpus pages still answer 200**: had the rule kept the
 brief's unscoped form, this deploy would have removed them.
 
+### The pair that proves it discriminates — measured in production, `e84ee19`
+
+Once every entry was marked, the mechanism was checked against the live site
+rather than against `dist/`:
+
+```
+34  entries marked public   → 200
+ 1  entry restricted        → 404
+ 0  discrepancies
+```
+
+```
+/corpus/debt/d-034-dependabot-advisories-untriaged/    200
+/corpus/debt/d-033-unverified-compliance-assertions/   404
+```
+
+**Those two are the proof.** Before the marking they carried the *same*
+`restricted-oracle` value, which is why the brief's request to publish one and
+withhold the other was impossible as written. Today one serves and the other
+does not, and the only thing that differs between them is a field a human set on
+purpose, with a reason recorded in the document.
+
+A filter that only hides is a folder exclusion with extra steps. This one lets
+through what is marked, stops what is not, and the boundary is written down.
+
 - **Closed:** 2026-08-25 · **by:** ursa
