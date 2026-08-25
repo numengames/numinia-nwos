@@ -123,15 +123,32 @@ curl -s https://api.github.com/repos/numengames/numinia-nwos/actions/workflows/c
 
 ### The honest scoreboard
 
-**One rule in this glossary is machine-verified. Every other is `[MANUAL]`.**
+**Five rules in this glossary are machine-verified. Every other is `[MANUAL]`.**
 
 | Rule | Marker | Verified by |
 |---|---|---|
 | `license` matches `REUSE.toml` | **`[CI]`** | `scripts/check-license-frontmatter.mjs`, step in `ci.yml` |
+| References and cited identifiers resolve | **`[CI]`** | `scripts/check-references.mjs`, step in `ci.yml` *(2026-08-25)* |
 | Site builds after any structural change | **`[CI]`** | `npm run build` step |
+| Actions pinned by commit SHA (`SEC-07`) | **`[CI]`** | 5/5 `uses:` pinned across both workflows |
+| Workflow token is read-only (`SEC-08`) | **`[CI]`** | `permissions: read-all` in `ci.yml` and `scorecard.yml` |
 | Everything else in this document | **`[MANUAL]`** | nobody, automatically |
 
-> The absence of guards is not a missing CI — it is a CI with one guard.
+> **This count was wrong until 2026-08-25 — and wrong in both directions.** The
+> sentence said *one* while the table below it already listed two: the document
+> contradicted itself on the line that measures how much of it is enforced. And
+> the two security practices declared in `ci.yml`'s own header, `SEC-07` and
+> `SEC-08`, were never counted at all despite both being verifiably in force.
+>
+> The marker was **undercounting the pipeline**, which matters more than it
+> sounds: `D-001` is prioritised by this figure, and a corpus that believes it
+> has one guard when it has four will spend effort in the wrong place.
+>
+> **And this correction miscounted itself once before landing**: the sentence
+> was first rewritten as *four* against a table of five rows. Caught by reading
+> the table, which is exactly the `D-022` mechanism — a plausible number that
+> nothing checks. It is quoted here rather than fixed silently.
+>
 > Registered as **D-001** in `debt/`, with owner and closing condition.
 
 ---
@@ -796,6 +813,67 @@ directory. The second is the dangerous one:
 
 The rule is `[MANUAL]`: nothing prevents a new script from omitting the header.
 That is a guard worth writing, and it belongs with the others in `D-001`.
+
+### 10.2 Every figure declares its unit `[MANUAL]`
+
+**Rule.** A count states **what it counted**, in the output, beside `ROOT` and
+`HEAD`. `18` is not a measurement. `18 entries` is.
+
+Ruled by the Oracle on 2026-08-25, after the sixth miscount in two sessions:
+
+> *"The problem is not counting wrong, it is that no output declares WHAT it
+> counts. `0/17` and `0/5` are not two figures of the same fact: they are
+> different units with no label. If it said `0/5 agent folders`, the error is
+> visible by itself."*
+
+That is the correction to `D-022`'s original closing condition, which was
+*"re-measure instead of copying"* — a rule that depends on somebody remembering.
+**Naming the unit does not.** Three of the six miscounts were a container
+counted instead of its contents:
+
+```
+agents/ 0/17 unregistered  →  0/5    four files per agent folder
+citations 49 broken / 280  →  17/88  table rows counted as documents
+baseline 19 entries        →  15     lines of JSON
+```
+
+Every one of them reads as correct without a unit, and as obviously wrong with
+one. `0/17 agent folders` is false on its face: there are five agents.
+
+**Implemented** in `scripts/measuring_root.py` as `cifra(n, unidad)`, which
+refuses to format a number without a unit.
+
+### 10.3 A guard is verified by its step, never by the run `[MANUAL]`
+
+**Rule.** To confirm a CI guard runs, read the **step** in the job, not the
+**conclusion** of the workflow run.
+
+Found by the Oracle on 2026-08-25, wiring the reference lint:
+
+> *"The first attempt came back green without the step. The run passes
+> identically with the guard and without it — I caught it by looking at the
+> steps."*
+
+A green run means *nothing failed*. A workflow missing the guard entirely also
+has nothing fail. **The two are indistinguishable from the conclusion**, and the
+failure mode is silent in the direction that matters: a guard believed to be
+protecting the repository, protecting nothing.
+
+```bash
+# NOT this — proves only that something ran
+curl -s ".../actions/workflows/ci.yml/runs?per_page=1" | jq '.workflow_runs[0].conclusion'
+
+# This — proves the guard exists in the job and what it did
+curl -s ".../actions/runs/<RUN_ID>/jobs" \
+  | python3 -c "import sys,json; [print(s['name'],'·',s['conclusion']) for j in json.load(sys.stdin)['jobs'] for s in j['steps']]"
+```
+
+Expected: `reference lint (ADR-004 …) · success`.
+
+**Generalises beyond CI:** the same shape as `D-021` (a date that looks like a
+timeline) and `D-022` (a figure that looks like a measurement). Here, **a run
+that looks like verification.** In all three the artefact is plausible and the
+evidence for it is absent.
 
 ---
 

@@ -76,3 +76,30 @@ def sospechoso_si_cero(valor, etiqueta='resultado'):
               f'    sitio equivocado». Compruebe la cabecera ROOT/HEAD antes\n'
               f'    de tratar esto como evidencia.\n')
     return valor
+
+
+def cifra(n, unidad, total=None):
+    """Formatea una cuenta CON su unidad. S-001 §10.2.
+
+    Regla del Oráculo (2026-08-25): «el problema no es contar mal, es que
+    ninguna salida declara QUÉ cuenta. "0/17" y "0/5" no son dos cifras del
+    mismo hecho: son unidades distintas sin etiqueta. Si dijera "0/5 carpetas
+    de agente", el error se ve solo.»
+
+    Tres de los seis errores de conteo fueron un contenedor contado en lugar
+    de su contenido. Todos se leen como correctos sin unidad y como
+    evidentemente falsos con ella: «0/17 carpetas de agente» es falso a
+    simple vista, porque hay cinco agentes.
+
+    Levanta ValueError si no se da unidad: una cifra sin unidad no es una
+    medida, y este módulo no la formatea.
+
+        cifra(17, 'entradas')              -> '17 entradas'
+        cifra(0, 'carpetas de agente', 5)  -> '0/5 carpetas de agente'
+    """
+    if not unidad or not str(unidad).strip():
+        raise ValueError(
+            f'cifra({n!r}) sin unidad. S-001 §10.2: toda cuenta declara qué '
+            f'cuenta. Un número desnudo no es una medida.')
+    cuerpo = f'{n:,}' if total is None else f'{n:,}/{total:,}'
+    return f'{cuerpo} {unidad}'

@@ -77,28 +77,49 @@ instrument.**
 
 Not care. Care has failed six times.
 
-1. **A measuring function states its unit in its name or its output.**
-   `count_entries()` and `count_lines()` are different functions; a script that
-   prints `18` should print `18 entries`.
-2. **Any figure appearing in a document carries the command that produced it.**
-   Already required by `S-001` §10 for glossary figures; instances 2, 3 and 5
-   are all figures quoted in prose without their command.
-3. **A figure quoted from another document is re-measured, never copied.**
-   Instances 2, 3 and 5 were copies of a previously published number. `S-001`
-   §10.1 requires the `ROOT`/`HEAD` header; it does not yet require that a
-   quoted figure be re-derived.
+**The Oracle corrected this section on the day it was written**, and the
+correction is the entry's real content:
 
-Item 3 is the cheap one and closes half the cases.
+> *"The problem is not counting wrong, it is that no output declares WHAT it
+> counts. `0/17` and `0/5` are not two figures of the same fact: they are
+> different units with no label. If it said `0/5 agent folders`, the error is
+> visible by itself. That is a guard, unlike 're-measure instead of copying',
+> which still depends on somebody remembering."*
+
+The original closing condition — *re-measure rather than copy* — was a rule of
+diligence, and diligence is what already failed. **Naming the unit is
+mechanical: it makes the error self-evident at the point of reading**, with no
+second person and no second check.
+
+Test it against the three container/content errors:
+
+| Without unit | With unit |
+|---|---|
+| `0/17 unregistered` — plausible | `0/17 agent folders` — **false on sight**, there are five |
+| `49 broken / 280` — plausible | `49 broken documents` — **false on sight**, those are table rows |
+| `19 entries` — plausible | `19 lines of JSON` — **not the question asked** |
+
+So, in order of what actually closes cases:
+
+1. **Every figure declares its unit** (`S-001` §10.2, implemented as
+   `cifra(n, unidad)` in `scripts/measuring_root.py`, which raises rather than
+   format a bare number). Closes instances 1, 4 and 6.
+2. **Any figure in a document carries the command that produced it.** Already
+   required by `S-001` §10; instances 2, 3 and 5 are figures quoted in prose
+   without one.
+3. A figure quoted from another document is re-measured, never copied. Kept as
+   good practice, **not as a closing condition** — it cannot be enforced.
 
 ## Closure
 
 Marked RESOLVED when:
 
-- [ ] Every measuring script in `scripts/` states the unit alongside the count
-- [ ] `S-001` §10 carries the rule that a figure quoted from another document is
-      re-measured, not copied
+- [x] **`S-001` §10.2 carries the unit rule**, and `cifra(n, unidad)` exists in
+      `scripts/measuring_root.py` — it raises `ValueError` rather than format a
+      number without one *(2026-08-25)*
+- [ ] Every measuring script in `scripts/` routes its counts through `cifra()`
 - [ ] A pass over the corpus checks published figures against their scripts, and
-      records the discrepancies rather than silently correcting them
+      **records** the discrepancies rather than silently correcting them
 
 The third is the one that matters. Silently fixing the numbers would make the
 archive look as though it had always been right — the exact failure `D-014` was
