@@ -54,7 +54,7 @@ more provenance than the disease.**
 ```
 
 **The ten seminal canon documents were committed under this name** — including
-`Welcome to Numinia.md`, corrected today under `ADR-023`.
+`C-001-welcome-to-numinia.md`, corrected today under `ADR-023`.
 
 ## What the archive already does right
 

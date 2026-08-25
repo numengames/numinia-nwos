@@ -28,7 +28,7 @@ opened_by: "AUD-2026-08-24-canon-edit"
 ## The gap, measured
 
 Commit `fee903b` (2026-05-06) replaced two definitions in
-`canon/Welcome to Numinia.md`:
+`canon/C-001-welcome-to-numinia.md`:
 
 ```diff
 -  It is the operating system: the set of ideas...
@@ -52,8 +52,8 @@ Model* in terms of the *operating system* it replaced.
 
 **Four canon documents carry the withdrawn term:**
 
-- `canon/Numinia Brand and Culture.md`
-- `canon/Role structure in the Numinia system.md`
+- `canon/C-002-brand-and-culture.md`
+- `canon/C-004-role-structure.md`
 - `canon/2026_04_15-Epistemic_Relations_Between_Numen_Games_and_Numina-v0.2.0.md`
 - `canon/README.md`
 

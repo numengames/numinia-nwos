@@ -18,12 +18,12 @@ For AI agents: **read these documents before answering questions about Numinia l
 | # | File | Language | Content |
 |---|------|----------|---------|
 | 1 | ⇒ `numinia-lore` → `seminal/Numinia_Manual_del_juego_de_rol_v0_6_0.md` | Spanish | Complete RPG manual v0.6.0 — **not in this repo**, see "Canon que no vive en este repositorio" in `INDEX.md` |
-| 2 | `About Session Zero.md` | English | Session Zero tutorial — escape rooms introducing guilds and factions |
-| 3 | `Compendium of Attributes and Ranks in Numinia.md` | English | Agent attributes taxonomy, character sheet example, rank system |
+| 2 | `C-006-session-zero.md` | English | Session Zero tutorial — escape rooms introducing guilds and factions |
+| 3 | `C-003-attributes-and-ranks.md` | English | Agent attributes taxonomy, character sheet example, rank system |
 | 4 | `Epistemic relations between Numen Games and Numinia.md` | English | Philosophical framework — Peirce semiotics, archetypes, germinal motive → Functional Model → Narrative Projection |
-| 5 | `Role structure in the Numinia system.md` | English | Role theory — Basic Level Theory, Prototype Theory, systems thinking, semantic categorization |
-| 6 | `Welcome to Numinia.md` | English | Operational guide — guilds, factions, missions, rituals, onboarding/offboarding, cultural cartography |
-| 7 | `Numinia Brand and Culture.md` | English | Brand framework — narrative, business, brand identity, culture, values, visual/verbal identity, manifesto |
+| 5 | `C-004-role-structure.md` | English | Role theory — Basic Level Theory, Prototype Theory, systems thinking, semantic categorization |
+| 6 | `C-001-welcome-to-numinia.md` | English | Operational guide — guilds, factions, missions, rituals, onboarding/offboarding, cultural cartography |
+| 7 | `C-002-brand-and-culture.md` | English | Brand framework — narrative, business, brand identity, culture, values, visual/verbal identity, manifesto |
 
 ## Notes
 
