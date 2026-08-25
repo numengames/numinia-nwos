@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: MIT
 import { navItems } from "@/data/navigation";
 import { socialLinks } from "@/data/social-links";
+import { VERSION, COMMIT_SHA, COMMIT_URL } from "@/lib/build-info";
 ---
 
 <footer class="border-t border-border">
@@ -68,6 +69,23 @@ import { socialLinks } from "@/data/social-links";
     <div class="mt-12 border-t border-border/50 pt-6 text-center">
       <p class="font-mono text-xs text-dim">
         &copy; {new Date().getFullYear()} Numen Games. Todos los derechos reservados.
+      </p>
+      <p class="mt-2 font-mono text-[0.65rem] text-dim">
+        {VERSION}
+        {" · "}
+        {COMMIT_URL ? (
+          <a
+            href={COMMIT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="transition-colors hover:text-accent"
+            title="Ver este commit en GitHub"
+          >
+            {COMMIT_SHA}
+          </a>
+        ) : (
+          COMMIT_SHA
+        )}
       </p>
     </div>
   </div>
