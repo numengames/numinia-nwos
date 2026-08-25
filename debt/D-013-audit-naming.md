@@ -28,10 +28,10 @@ opened_by: "S-001 §4.3"
 ## The gap, measured
 
 ```
-2026-04-07-auditoria-sistema.md      date · Spanish slug · no prefix
-2026-08-17-cold-agent-audit.md       date · English slug · no prefix
-2026-08-17-stack-audit.md            date · English slug · no prefix
-AUDIT-navigability-2026-08-17.md     wrong prefix · date at the end
+AUD-2026-04-07-system-audit.md      date · Spanish slug · no prefix
+AUD-2026-08-17-cold-agent.md       date · English slug · no prefix
+AUD-2026-08-17-stack.md            date · English slug · no prefix
+AUD-2026-08-17-navigability.md     wrong prefix · date at the end
 AUD-2026-04-07-web-vs-repo.md        ✓ conforms
 AUD-2026-04-08-numengames.md         ✓ conforms
 ```
@@ -51,10 +51,10 @@ Unlike `canon/` (`D-008`, `S-001` §4.3), nothing blocks it:
 Proposed renames:
 
 ```
-2026-04-07-auditoria-sistema.md   → AUD-2026-04-07-sistema.md
-2026-08-17-cold-agent-audit.md    → AUD-2026-08-17-cold-agent.md
-2026-08-17-stack-audit.md         → AUD-2026-08-17-stack.md
-AUDIT-navigability-2026-08-17.md  → AUD-2026-08-17-navigability.md
+AUD-2026-04-07-system-audit.md   → AUD-2026-04-07-sistema.md
+AUD-2026-08-17-cold-agent.md    → AUD-2026-08-17-cold-agent.md
+AUD-2026-08-17-stack.md         → AUD-2026-08-17-stack.md
+AUD-2026-08-17-navigability.md  → AUD-2026-08-17-navigability.md
 ```
 
 After: **7/7**.

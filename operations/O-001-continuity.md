@@ -1,5 +1,5 @@
 ---
-id: "ops-continuity"
+id: "O-001"
 title: "Continuidad y adaptabilidad del sistema"
 type: documentation
 status: active

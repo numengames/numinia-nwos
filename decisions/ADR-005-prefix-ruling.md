@@ -60,7 +60,7 @@ had stated they were:
 
 ```
 blueprints/AUDIT-2026-04-07-web-vs-repo.md:43   ### A-001 — CAO dashboard frozen
-reports/audits/2026-04-07-auditoria-sistema.md  …resolves A-001, A-002, A-003…
+reports/audits/AUD-2026-04-07-system-audit.md  …resolves A-001, A-002, A-003…
 ```
 
 `A-001`…`A-016` are numbered findings inside two audits, **and they are cited

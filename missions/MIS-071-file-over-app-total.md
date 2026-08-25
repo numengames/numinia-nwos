@@ -135,14 +135,14 @@ next cold agent reads everything the visitor sees.
 
 - 2026-08-17 — Phase 1 DONE (audits/auditoria merge): all 16
   divergences, root cause, score history, checklist and next steps
-  extracted verbatim to reports/audits/2026-04-07-auditoria-sistema.md
+  extracted verbatim to reports/audits/AUD-2026-04-07-system-audit.md
   (supersedes the thinner blueprints/AUDIT-2026-04-07 record, which
   stays as history); auditoria.astro deleted; /auditoria redirects to
   /audits; nav duplicate removed. One page, one folder — as ordered.
 - 2026-08-17 — Phase 2 DONE (essay extraction, 4 parallel agents, 10
   pieces): `GAPS.md` at root (19 gaps, fulfils MIS-044's original
-  criterion); `operations/continuity.md`, `simulations.md`,
-  `solutions.md`; `operations/strategy/sales.md` under the reserved
+  criterion); `operations/O-001-continuity.md`, `O-005-simulations.md`,
+  `O-006-solutions.md`; `operations/strategy/O-007-sales.md` under the reserved
   regime (C-005 §1 born-closed, new REUSE annotation for
   `operations/strategy/**`); `blueprints/BP-nwos-system.md` (L0–L4
   layers + principles from index), `BP-agent-experience.md`,

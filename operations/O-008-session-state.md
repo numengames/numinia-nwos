@@ -1,5 +1,5 @@
 ---
-id: "ops-session-state"
+id: "O-008"
 title: "Estado de sesión — dónde retomar"
 type: documentation
 status: active

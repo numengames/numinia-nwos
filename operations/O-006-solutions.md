@@ -1,5 +1,5 @@
 ---
-id: "ops-solutions"
+id: "O-006"
 title: "Soluciones"
 type: documentation
 status: active

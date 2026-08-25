@@ -480,10 +480,10 @@ normative.
 Four audits, four naming conventions:
 
 ```
-2026-04-07-auditoria-sistema.md      date · Spanish slug · no prefix
-2026-08-17-cold-agent-audit.md       date · English slug · no prefix
-2026-08-17-stack-audit.md            date · English slug · no prefix
-AUDIT-navigability-2026-08-17.md     wrong prefix · date at the end
+AUD-2026-04-07-system-audit.md      date · Spanish slug · no prefix
+AUD-2026-08-17-cold-agent.md       date · English slug · no prefix
+AUD-2026-08-17-stack.md            date · English slug · no prefix
+AUD-2026-08-17-navigability.md     wrong prefix · date at the end
 ```
 
 Unlike canon, **nothing blocks this one**: audits are cited by path, not by
@@ -491,10 +491,10 @@ identifier; the reference lint catches any link the rename breaks; and the Astro
 collection globs `*.md`, so no page disappears.
 
 ```
-2026-04-07-auditoria-sistema.md   → AUD-2026-04-07-sistema.md
-2026-08-17-cold-agent-audit.md    → AUD-2026-08-17-cold-agent.md
-2026-08-17-stack-audit.md         → AUD-2026-08-17-stack.md
-AUDIT-navigability-2026-08-17.md  → AUD-2026-08-17-navigability.md
+AUD-2026-04-07-system-audit.md   → AUD-2026-04-07-sistema.md
+AUD-2026-08-17-cold-agent.md    → AUD-2026-08-17-cold-agent.md
+AUD-2026-08-17-stack.md         → AUD-2026-08-17-stack.md
+AUD-2026-08-17-navigability.md  → AUD-2026-08-17-navigability.md
 ```
 
 Three already carry the scheme, so the series would reach 7/7. **Not done in
@@ -774,7 +774,7 @@ in both — strip code spans before scanning — and belongs with the guards in
 `D-001`.
 
 **Documents already affected:** `debt/D-018`, `reports/daily/RPT-2026-08-24.md`,
-`reports/audits/2026-08-17-stack-audit.md` and `S-001` itself. They are
+`reports/audits/AUD-2026-08-17-stack.md` and `S-001` itself. They are
 reformatted as the convention lands, not exempted.
 
 ---

@@ -1,5 +1,5 @@
 ---
-id: "AUDIT-navigability-2026-08-17"
+id: "AUD-2026-08-17-navigability"
 title: "Audit — NWOS Navigability & Placement (read-only)"
 type: report
 subtype: audit

@@ -210,20 +210,20 @@ values plus 7 deviations).
 |--:|---|---|
 | 5 | `protocol` | `security-policy.md` ← conflict, §2 |
 | 4 | `protocol` | `credential-map.md` ← conflict, §2 |
-| 2 | `documentation` | `contradictions.md` |
-| 1 | `documentation` | `continuity.md` |
+| 2 | `documentation` | `O-002-contradictions.md` |
+| 1 | `documentation` | `O-001-continuity.md` |
 | 1 | `documentation` | `strategy/sales.md` |
 | 1 | `legal` | `legal/politica-de-privacidad-numengames.md` |
-| 0 | `documentation` | `session-state.md` |
-| 0 | `documentation` | `simulations.md` |
-| 0 | `documentation` | `solutions.md` |
+| 0 | `documentation` | `O-008-session-state.md` |
+| 0 | `documentation` | `O-005-simulations.md` |
+| 0 | `documentation` | `O-006-solutions.md` |
 | 0 | `legal` | `legal/terms-and-conditions-numengames.md` |
 
 Ten documents, five genres. `legal/` and `strategy/` are coherent
 sub-series. The four `documentation` files at the top level are the drawer
 proper — and three of them have **zero inbound references**.
 
-`contradictions.md` was previously identified as belonging in `debt/`. That is a
+`O-002-contradictions.md` was previously identified as belonging in `debt/`. That is a
 series change and belongs in phase 2, not here.
 
 **Proposed, not moved.**

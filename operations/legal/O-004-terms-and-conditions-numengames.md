@@ -1,5 +1,5 @@
 ---
-id: "ops-legal-terms-numengames"
+id: "O-004"
 title: "Terms and Conditions — Numen Games"
 type: legal
 status: active
