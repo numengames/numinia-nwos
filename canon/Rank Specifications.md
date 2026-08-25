@@ -1,3 +1,23 @@
+---
+id: "C-007"
+uid:
+title: "Rank Specifications"
+type: seminal
+status: active
+version: "1.0.0"
+created: "2026-04-07T12:34:04Z"
+created_source: "git:f765b99"
+created_confidence: "inferred"
+updated: "2026-04-07T12:34:04Z"
+author: "Centinela-01"
+owner: "oracle"
+guild: "Exegetes"
+territory: "Canon"
+tags: [canon, seminal, ranks, archon]
+license: "LicenseRef-Numen-AllRightsReserved"
+threshold: sealed
+---
+
 # Rank Specifications
 
 > **Resumen:** Documento del sistema NWOS — Rank Specifications.

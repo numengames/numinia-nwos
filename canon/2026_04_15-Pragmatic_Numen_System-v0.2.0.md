@@ -1,3 +1,28 @@
+---
+id: "canon-pragmatic-numen-system-v020"
+uid:
+title: "Pragmatic Numen System"
+type: seminal
+status: active
+version: "1.0.0"
+created: "2026-04-15T16:40:18Z"
+created_source: "git:b8f31d1"
+created_confidence: "exact"
+updated: "2026-04-15T16:40:18Z"
+author: "Christian Numinia"
+owner: "oracle"
+guild: "Exegetes"
+territory: "Canon"
+tags: [canon, seminal, function, structure, ADR-023]
+license: "LicenseRef-Numen-AllRightsReserved"
+registration: exempt
+registration_exemption: "frozen-artifact"
+registration_reason: >
+  Dated filename: a photograph at 2026-04-15 (P-010 §3.2). Its §2.3 is what
+  settled the Functional/Regulatory question in ADR-023.
+threshold: sealed
+---
+
 # Pragmatic Numen System
 
 ## 1. Foundational Principle
