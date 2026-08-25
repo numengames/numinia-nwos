@@ -1,10 +1,12 @@
 {
   "_comment": "Known-broken references frozen at adoption time. The lint fails only on NEW breakage. This list should shrink over time and never grow. Regenerate only when fixing entries.",
-  "generated": "2026-08-24T15:57:41.978Z",
-  "count": 15,
+  "generated": "2026-08-25T10:14:07.965Z",
+  "count": 17,
   "entries": [
+    "ID   debt/D-018-unresolved-authority-citations.md -> RPT-07",
     "ID   reports/daily/RPT-2026-04-07-tarde.md -> RPT-07",
-    "LINK README.md -> decisions/DEC-006-english-as-repo-language.md",
+    "ID   reports/daily/RPT-2026-08-24.md -> RPT-07",
+    "ID   standards/S-001-glossary.md -> RPT-07",
     "LINK missions/MIS-062-mission-system-v2.md -> ../../blueprints/BP-mission-system-v2.md",
     "LINK missions/MIS-072-web-monorepo-foundations.md -> ../docs/LEY.md",
     "LINK missions/MIS-073-web-cc0-archive.md -> ../docs/LEY.md",
