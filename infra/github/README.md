@@ -9,7 +9,7 @@ updated: "2026-08-25"
 author: "ursa"
 owner: "oracle"
 tags: [infrastructure, github, rulesets, governance, D-011]
-license: "CC-BY-4.0"
+license: "MIT"
 ---
 # `infra/github/` — repository configuration, written down
 
@@ -103,12 +103,30 @@ report, but a PR merges without them. Only `build` and `Workers Builds` gate.
 
 ---
 
-## A note on this folder's own visibility
+## A note on this folder's own visibility, and how its regime was set
 
 `infra/` is **not** in the corpus glob (`web/src/content.config.ts`), so this
 README does not reach numinia.org. That is correct — it is configuration, not
-corpus — but it is the same shape as `D-023`: a new top-level folder is
-invisible by default, and nothing announces it either way.
+corpus — and it is recorded here so the exemption is **declared rather than
+accidental**, which is the distinction `D-023` asks for.
 
-Recorded here so the exemption is **declared rather than accidental**, which is
-the distinction `D-023` asks for. No debt opened.
+**The licence regime of this folder was set by the guard, at the moment the
+folder was born.** `infra/**` had no `REUSE.toml` annotation, so
+`check-license-frontmatter.mjs` refused the first commit:
+
+```
+license-frontmatter guard: 1 file(s) contradict REUSE.toml
+  infra/github/README.md: frontmatter says CC-BY-4.0,
+                          regime is (no REUSE.toml annotation)
+```
+
+The Oracle ruled `infra/** = MIT` — same regime as the code that consumes it —
+and the annotation was added in this same branch.
+
+**This is `D-023` not happening.** A new top-level folder is invisible by
+default and, historically, that silence lasted 134 days before anyone noticed.
+This time the folder **never reached `main` undeclared**: the guard stopped it
+at the PR, a human decided the regime, and the decision is written down. The
+mechanism worked exactly as it was built to work, and the difference is worth
+recording — a guard that fires once and gets a real decision out of a human is
+worth more than the four months of quiet that preceded it.
