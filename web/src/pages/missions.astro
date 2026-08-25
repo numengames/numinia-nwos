@@ -74,18 +74,23 @@ const cancelled = missions.filter((m) => m.status === "cancelled");
 const done = byStatus("done");
 const inProg = byStatus("in-progress");
 const critical = missions.filter((m) => m.priority === "critical");
-const totalHuman = missions.reduce((s, m) => s + m.humanCostEur, 0);
-const totalCompute = missions.reduce((s, m) => s + (m.computeCostEur || 0), 0);
 const fmt = (n: number) => (n >= 1000 ? "€" + (n / 1000).toFixed(1) + "k" : "€" + Math.round(n));
 const fmtSmall = (n: number) => (n < 1 ? "€" + n.toFixed(2) : "€" + n.toFixed(1));
 
+// MIS-115 — the "Human est." and "Compute est." header boxes were retired on
+// 2026-08-25. They summed per-mission figures that are NOT real estimates, and
+// a total of invented numbers served in production is a false claim wearing the
+// shape of a datum. A legend asterisk was not enough: a header is read without
+// its legend, and the sum is the most authoritative-looking thing on the page.
+//
+// They come back when MIS-048 produces real estimates. Per-mission figures are
+// left untouched on the cards — this retires the AGGREGATE, which is the part
+// that reads as a measurement of the whole archive.
 const stats = [
   { value: String(missions.length), label: "Total", box: "border-border bg-card", text: "text-foreground" },
   { value: String(critical.length), label: "Critical", box: "border-red/20 bg-red/5", text: "text-red" },
   { value: String(inProg.length), label: "In Progress", box: "border-accent/20 bg-accent/5", text: "text-accent" },
   { value: String(done.length), label: "Done", box: "border-green/20 bg-green/5", text: "text-green" },
-  { value: fmt(totalHuman), label: "Human est.", box: "border-border bg-card", text: "text-foreground" },
-  { value: fmt(totalCompute), label: "Compute est.", box: "border-accent/10 bg-card", text: "text-accent" },
 ];
 ---
 
@@ -105,7 +110,7 @@ const stats = [
     <div class="mx-auto max-w-[1200px] px-4 sm:px-6">
 
       <!-- Stats -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-10">
+      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-3 mb-10">
         {stats.map((s) => (
           <div class={"rounded-xl border p-4 text-center " + s.box}>
             <p class={"font-display text-2xl sm:text-3xl " + s.text}>{s.value}</p>

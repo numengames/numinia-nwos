@@ -4,7 +4,7 @@ title: "Redesign the Mission Board so its order and cards say what is actionable
 status: backlog
 priority: medium
 effort: L
-guild: alchemists
+guild: "Alchemists"
 area: web
 type_execution: digital
 assigned_to: null
@@ -154,31 +154,65 @@ alchemists 5 · Alquimistas 1
 ```
 
 Six of 111 missions (5%) carry a variant, so any grouping or filter by guild is
-silently wrong for them. **Candidate for a vocabulary guard** — a check that a
-frontmatter field only takes values from a declared set. Not opened as debt here
-and not fixed in this mission; it needs a decision on the canonical form first
-(English lowercase, matching `area` and `type_execution`, would be the
-consistent choice).
+silently wrong for them.
+
+**Oracle decision, 2026-08-25: canonical form is English capitalised** —
+`Sentinels`, `Alchemists`, `Exegetes`, `Procurators`. Corrected in this
+mission's first commit as a bounded exception to the rule against touching
+existing missions: only the `guild` field, only the affected files.
+
+**It was seven, not six.** The count of six came from the 111 missions that
+existed when the finding was written; `MIS-115` itself carries `alchemists`,
+because it was written from the same template. Result: **6 spellings → 4**,
+across 112 missions.
+
+And the origin is worth recording rather than hiding: five of the seven are
+mine, written today, and they inherit the lowercase from
+`missions/TEMPLATE.md:10`, which reads
+`guild: alchemists  # alchemists|sentinels|exegetes|procurators`. **The
+template teaches the wrong form.** It is not corrected here — the template is
+frozen under the 5-mission stability count, and editing it resets the counter.
+It is the first item for the next template revision.
+
+**The vocabulary guard stays a candidate, not written today:** a check that a
+frontmatter field only takes values from a declared set. It would have caught
+all seven, and it would have caught the template as its source.
 
 **2 · The mock costs are public.** The header shows `Human est.` and
 `Compute est.` totals, summed from per-mission figures that are **not real
 estimates**. They are served on numinia.org today.
 
-**Open question for the Oracle, and this mission does not answer it:** do the
-cost figures stay, go, or get labelled as illustrative? All three are
-defensible — showing what work costs is part of what this archive demonstrates,
-and showing invented numbers unlabelled is exactly the class of claim `D-033`
-registers. **The redesign should not quietly drop them, and should not quietly
-dress them up either.**
+**Oracle decision, 2026-08-25: retired from the header.** A sum of invented
+numbers served in production is a false claim wearing the shape of a datum, and
+a legend asterisk does not fix it — **a header is read without its legend**,
+and the total is the most authoritative-looking thing on the page. They return
+when `MIS-048` produces real estimates.
+
+Done in this mission's first commit rather than deferred, because leaving it
+until the redesign lands would mean serving the false total for however long
+that takes. Per-mission figures on the cards are untouched: what was retired is
+the **aggregate**, which is the part that reads as a measurement of the whole
+archive.
 
 ---
 
 ## Closure
 
-*(Fill when the mission closes. Not before, and not with intentions.
-Add here — never edit `Scope` or the criteria to match what happened.)*
+*(Partial — this mission is not finished. The header retirement landed on
+2026-08-25; the redesign itself has not started.)*
 
-- **What was done:**
-- **What diverged, and why:**
-- **Evidence:**
-- **Closed:** YYYY-MM-DD · **by:**
+- **What was done so far:** `Human est.` and `Compute est.` removed from the
+  header (`missions.astro`), with the reason written in the code rather than in
+  a commit message nobody re-reads. Stat grid narrowed from six columns to four
+  so the row has no holes.
+
+- **What diverged, and why:** the mock costs were logged here as an *open
+  question for the Oracle*, expecting an answer during the redesign. The answer
+  came immediately and the retirement was carried out ahead of the rest of the
+  mission. **A finding that is filed as a question and answered as an
+  instruction does not wait for its mission's turn** — the false total was
+  being served while the document discussed it.
+
+- **Evidence:** to be completed when the redesign closes.
+
+- **Closed:** not yet.
