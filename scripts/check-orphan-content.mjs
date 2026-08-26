@@ -51,11 +51,6 @@ const ALLOWED = new Map([
     since: "2026-08-25",
     reason: "Design system served as raw HTML from public/. Declares v5.0.0 while the corpus standard is v5.1.0 (unsigned). Needs a version ruling before it moves.",
   }],
-  ["diseno/assets/fonts/REUSE.toml", {
-    debt: "D-032",
-    since: "2026-08-26",
-    reason: "REUSE metadata, not content. Declares OFL-1.1 and the real holders for the third-party typefaces sitting next to it (Vercel, Huerta Tipográfica, Pixelify). It must live in this directory — REUSE resolves per-directory annotations by proximity — and Astro copies public/** verbatim, so it reaches dist/ as a side effect. Replaced 10 adjacent .license files that had the same problem. Cannot be moved into the corpus without breaking the attribution it exists to declare.",
-  }],
   ["diseno/plantillas/2026_08_03-Plantilla_Factura-v1.0.0.html", {
     debt: "D-032",
     since: "2026-08-25",
@@ -76,6 +71,41 @@ const CORPUS_DIRS = ["canon", "missions", "decisions", "protocols", "operations"
 
 // Assets are not orphan *content*: they carry no prose and make no claims.
 const ASSET_RE = /\.(woff2?|ttf|otf|eot|png|jpe?g|gif|svg|ico|webp|avif|mp4|webm|css|js|mjs|map|txt|xml|json|pdf|zip)$/i;
+
+// ---------- DECLARATION FILES: a rule, not an allow-list entry ----------
+//
+// A licence sidecar is not content served without the renderer. It exists to
+// DECLARE, and REUSE requires it to sit next to what it declares — annotations
+// resolve by proximity (PrecedenceType.CLOSEST). Astro copies public/** into
+// dist/ verbatim, so a sidecar reaches the surface as a side effect of
+// complying with C-005 §5.
+//
+// This is a RULE because the alternative is an allow-list that grows by one
+// entry every time someone does the right thing. Lists grow and stop being
+// read; rules do not grow.
+//
+// The pairing condition is what stops the rule becoming a hiding place: a
+// `*.license` counts as a declaration only if the file it declares EXISTS
+// beside it. A sidecar pointing at nothing is not an exemption — it is a
+// defect of its own, and the guard must say so in red. Machine-verifiable,
+// no list required.
+//
+// Exempt is NOT invisible (D-025): these are still counted and named in their
+// own section of the output. A guard that stops reporting a whole file type is
+// blind to it.
+const DECLARATION_RE = /(^|\/)(REUSE\.toml|LICENSE(-[^/]*)?(\.[a-z0-9]+)?)$/i;
+const SIDECAR_RE = /\.license$/i;
+
+function classifyDeclaration(rel, publicDir) {
+  if (SIDECAR_RE.test(rel)) {
+    const target = rel.slice(0, -".license".length);
+    return existsSync(join(publicDir, target))
+      ? { kind: "sidecar", ok: true, target }
+      : { kind: "sidecar", ok: false, target };
+  }
+  if (DECLARATION_RE.test(rel)) return { kind: "declaration", ok: true };
+  return null;
+}
 
 function walk(dir, base = dir, out = []) {
   if (!existsSync(dir)) return out;
@@ -100,7 +130,18 @@ if (!existsSync(DIST)) {
 // ---------- INSTRUMENT 1: ENUMERATION ----------
 const pub = walk(PUBLIC);
 const inDist = pub.filter((f) => existsSync(join(DIST, f)));
-const orphans = inDist.filter((f) => !ASSET_RE.test(f));
+const nonAsset = inDist.filter((f) => !ASSET_RE.test(f));
+
+// Declaration files are exempt from FAIL by rule — but still counted and named.
+const declarations = [];
+const brokenSidecars = [];
+const orphans = [];
+for (const f of nonAsset) {
+  const d = classifyDeclaration(f, PUBLIC);
+  if (!d) { orphans.push(f); continue; }
+  if (d.ok) declarations.push({ file: f, kind: d.kind });
+  else brokenSidecars.push({ file: f, target: d.target });
+}
 
 const unlisted = orphans.filter((f) => !ALLOWED.has(f));
 const listed = orphans.filter((f) => ALLOWED.has(f));
@@ -146,12 +187,35 @@ if (declared !== null) {
 }
 
 if (asJson) {
-  console.log(JSON.stringify({ orphans, unlisted, listed, verification }, null, 2));
+  console.log(JSON.stringify({
+    orphans, unlisted, listed,
+    declarations, broken_sidecars: brokenSidecars,
+    verification,
+  }, null, 2));
 } else {
   console.log("orphan-content guard — content served without the renderer\n");
   console.log(`  files in public/            : ${pub.length}`);
   console.log(`  of those, present in dist/  : ${inDist.length}`);
+  console.log(`  declaration files (by rule) : ${declarations.length}`);
   console.log(`  non-asset (orphan content)  : ${orphans.length}\n`);
+
+  // Exempt is not invisible: named in their own section, never silently dropped.
+  if (declarations.length) {
+    console.log("  declaration files — exempt by rule, not by list:");
+    for (const d of declarations) {
+      console.log(`    [decl] /${d.file}${d.kind === "sidecar" ? "  → declares its neighbour" : ""}`);
+    }
+    console.log("");
+  }
+
+  if (brokenSidecars.length) {
+    console.log("  BROKEN DECLARATIONS — a sidecar pointing at nothing:");
+    for (const b of brokenSidecars) {
+      console.log(`    [BROKEN] /${b.file}`);
+      console.log(`             declares "${b.target}", which does not exist beside it`);
+    }
+    console.log("");
+  }
 
   if (orphans.length === 0) console.log("  none.\n");
   for (const f of orphans) {
@@ -189,17 +253,29 @@ if (asJson) {
     console.log("    one address each, and no rule saying which one is true.");
   }
 
-  if (unlisted.length) {
-    console.log(`\n  FAIL: ${unlisted.length} orphan(s) not in the allow-list:`);
-    for (const f of unlisted) console.log(`        /${f}`);
-    console.log("\n  Either register the debt that tracks it and add it to ALLOWED,");
-    console.log("  or move the content into the corpus so it carries frontmatter and a licence.");
+  if (unlisted.length || brokenSidecars.length) {
+    if (brokenSidecars.length) {
+      console.log(`\n  FAIL: ${brokenSidecars.length} broken declaration(s):`);
+      for (const b of brokenSidecars) console.log(`        /${b.file} → "${b.target}" missing`);
+      console.log("\n  A declaration exempt from the orphan rule must declare something.");
+      console.log("  Either restore the file it names, or delete the sidecar.");
+    }
+    if (unlisted.length) {
+      console.log(`\n  FAIL: ${unlisted.length} orphan(s) not in the allow-list:`);
+      for (const f of unlisted) console.log(`        /${f}`);
+      console.log("\n  Either register the debt that tracks it and add it to ALLOWED,");
+      console.log("  or move the content into the corpus so it carries frontmatter and a licence.");
+    }
   } else {
-    console.log(`\n  OK — ${listed.length} orphan(s), all tracked.`);
+    console.log(`\n  OK — ${listed.length} orphan(s), all tracked; ${declarations.length} declaration file(s) exempt by rule.`);
   }
 }
 
 // The subtraction is a lower bound, not an equality: it only sees orphans that
 // occupy a route (index.html). Disagreement is expected and does not fail the
-// guard — the enumeration is the measurement. Only an UNLISTED orphan fails.
-process.exit(unlisted.length ? 1 : 0);
+// guard — the enumeration is the measurement.
+//
+// Two things fail: an UNLISTED orphan, and a BROKEN DECLARATION. The second is
+// what stops the declaration rule becoming a hiding place — an exemption that
+// declares nothing is a defect, not an exemption.
+process.exit(unlisted.length || brokenSidecars.length ? 1 : 0);
