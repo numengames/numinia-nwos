@@ -159,6 +159,39 @@ stays `missions/TEMPLATE.md`, and git carries its history.
 
 ## Pending, not debt
 
+### The unfreezing list — what the next template revision must carry
+
+The template is frozen until five missions are written without it changing.
+Three items have accumulated against that revision. They are recorded here, in
+order of discovery, because a rule found and not written is a rule discovered
+again in a month.
+
+**1 · `guild:` is taught in the wrong case.** `TEMPLATE.md:10` reads
+`guild: alchemists`, and the canonical form is English capitalised —
+`Sentinels`, `Alchemists`, `Exegetes`, `Procurators` (Oracle, 2026-08-25). Five
+of the seven variants corrected that day were mine, written from this template
+the same afternoon. **Every mission written before the revision reintroduces
+it.**
+
+**2 · The vocabulary guard.** A check that a frontmatter field only takes values
+from a declared set. It would have caught all seven guild variants **and the
+template as their source** — which is why it waits for the same revision rather
+than landing first.
+
+**3 · `status` changes in the PR that starts the work.** *(Oracle, 2026-08-25.)*
+When the execution branch of a mission opens, its `status` moves to
+`in-progress` in that same PR — not after, not in a later tidy-up.
+
+The rule was found by the board contradicting itself: `MIS-115` was being
+executed across three PRs while its frontmatter still said `backlog`, so the
+board showed one mission in progress when two were. **The board can only tell
+the truth if the frontmatter tells it.** A board derived from documents is
+exactly as honest as the documents, and no more.
+
+Applied in practice from today; canonised with the other two.
+
+---
+
 **The 106 existing missions are not touched**, not even to normalise them. The
 new template governs the ones that come. Normalising 106 documents is a mission
 of its own, and it should be weighed against what it would produce: the five

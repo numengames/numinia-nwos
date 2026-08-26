@@ -153,6 +153,46 @@ Worth recording: the card previously carried `transition-all duration-150`.
 
 - **Evidence:** base `9769676`. Pages 733 → 733, no route added or removed.
   Guards: licence 272/295, references baseline 17 no new, orphan exit 0.
-  **The visual judgement remains the Oracle's**, in production, after merge.
+
+### Oracle's judgement in production, and the adjustment
+
+> **"Improved, but not there. Minor adjustments pending, noted."**
+
+One iteration, then on to `MIS-115c` regardless. Three things came out of it:
+
+**1 · The title dominated.** Stepped down one rung *within the scale*:
+`cuerpo.l` 1.44rem/23px → **`cuerpo.m` 1rem/16px**. The next token down, not an
+invented value.
+
+It is still read first, and now without shouting: it is **the only Sans on the
+card**, the only weight 600, and the only text at full foreground colour, while
+levels 2 and 3 are mono and dimmed. **Hierarchy does not need size alone to do
+the work** — that was the mistake in the first pass, treating "first read" as a
+synonym for "largest".
+
+Sizes are now `1 / 0.875 / 0.75rem` — still exactly three, still none below the
+floor, all five criteria unchanged.
+
+**2 · Typography, reported before touching anything.** §4.1 sets **Geist and
+Geist Mono** for the whole organisation, and §4.2 splits them: *Sans for what is
+asserted, Mono for what is measured.*
+
+```
+system     §4.1 Geist (sans) · Geist Mono
+the card   title inherits --font-sans = "Geist Variable"   → Sans
+           id, date, labels: font-mono = "Geist Mono"      → Mono
+```
+
+**They coincide, so nothing was touched.** The title asserts and is Sans; the
+id, the date and the labels measure and are Mono. If the Oracle's doubt survives
+this, it is a doubt about §4.2 itself — a design conversation, not a card
+change, and improvising it here would set an organisation-wide rule from one
+component.
+
+**3 · The board was lying about itself.** `MIS-115` was being executed across
+three PRs with `status: backlog`. Corrected to `in-progress` with `started`, and
+the rule it exposed is now item 3 of the unfreezing list in `TEMPLATE-CHANGES`:
+**a mission's `status` moves in the PR that starts its work.** A board derived
+from documents is exactly as honest as the documents.
 
 - **Closed:** 2026-08-25 · **by:** ursa
