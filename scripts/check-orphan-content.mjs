@@ -51,6 +51,11 @@ const ALLOWED = new Map([
     since: "2026-08-25",
     reason: "Design system served as raw HTML from public/. Declares v5.0.0 while the corpus standard is v5.1.0 (unsigned). Needs a version ruling before it moves.",
   }],
+  ["diseno/assets/fonts/REUSE.toml", {
+    debt: "D-032",
+    since: "2026-08-26",
+    reason: "REUSE metadata, not content. Declares OFL-1.1 and the real holders for the third-party typefaces sitting next to it (Vercel, Huerta Tipográfica, Pixelify). It must live in this directory — REUSE resolves per-directory annotations by proximity — and Astro copies public/** verbatim, so it reaches dist/ as a side effect. Replaced 10 adjacent .license files that had the same problem. Cannot be moved into the corpus without breaking the attribution it exists to declare.",
+  }],
   ["diseno/plantillas/2026_08_03-Plantilla_Factura-v1.0.0.html", {
     debt: "D-032",
     since: "2026-08-25",
