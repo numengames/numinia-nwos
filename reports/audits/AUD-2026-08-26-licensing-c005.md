@@ -902,6 +902,3 @@ IRRECOVERABLE      0     0.0%
 generate no copyright — so a CC0 declaration over them would be **void of object**, not
 merely premature. Criterion, alternatives rejected, and the exit threshold are in the
 provenance report. **Proposed, not applied.**
-
-
-
