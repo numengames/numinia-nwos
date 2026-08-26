@@ -5,11 +5,11 @@ title: "Licensing audit of numinia-nwos against C-005 v1.3.0, and the measured i
 type: report
 subtype: audit
 status: published
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-26T09:40:00Z"
 created_source: "git:8a529fa"
 created_confidence: "exact"
-updated: "2026-08-26T09:40:00Z"
+updated: "2026-08-26T11:55:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procuradores"
@@ -645,3 +645,82 @@ line.
 
 **Instrument caveat:** `reuse 6.2.0` was installed for this audit and is not pinned in
 the repository. A future run with a different version may differ.
+
+---
+
+## 7. Correction note — v1.1.0, 2026-08-26
+
+> Appended, not edited in place. This report is evidence; the superseded figure stays
+> visible so the correction is auditable.
+
+### C1 — Finding B1 understated its own scope: 50 files, not 119
+
+**What v1.0.0 said** (§2, block B1, table row 3):
+
+> `web/src/icons/**` → `MIT` (Phosphor) · 69 · `MIT` — correct by accident
+
+**That is false.** The audit compared the *licence* (`MIT` declared, `MIT` effective),
+concluded the row was harmless, and **never read the copyright line**. All 69 Phosphor
+SVGs carried:
+
+```
+FileName: ./web/src/icons/archive.svg
+LicenseInfoInFile: MIT
+FileCopyrightText: <text>SPDX-FileCopyrightText: 2026 Numen Games S.L.</text>
+```
+
+while `REUSE.toml` declares `SPDX-FileCopyrightText = "Phosphor Icons
+(https://phosphoricons.com)"` for that path. The same `["web/**", "scripts/**",
+"infra/**"] = MIT` block that swallowed the `OFL-1.1` annotation also replaced the
+Phosphor copyright holder with ours — the licence happened to coincide, the attribution
+did not.
+
+**Corrected count of B1:**
+
+| | v1.0.0 | v1.1.0 |
+|---|---|---|
+| Fonts, wrong licence **and** wrong holder | 7 | 7 (10 incl. their `LICENSE-*.txt`) |
+| Design system, wrong licence, holder correct (our work) | 43 | 43 |
+| **Icons, licence correct, wrong holder** | **0 — reported as compliant** | **69** |
+| **Total misdeclared** | **50** | **119** |
+| **Of which are third-party misattribution** | **7** | **76** |
+
+The false-attribution exposure was understated by a factor of ten: 7 files reported,
+76 actual.
+
+**How it was caught.** Not by re-reading the report — by executing the fix. Capturing
+the "before" state for the B1 correction surfaced the copyright column the audit had
+skipped. The audit checked one of the two fields REUSE resolves per file.
+
+**Method lesson, for the next audit.** §6 of this report claims regimes were taken from
+`reuse spdx` "not from reading `REUSE.toml`". True, but insufficient: the SBOM carries
+`LicenseInfoInFile` **and** `FileCopyrightText`, and only the first was compared.
+Reading the right instrument is not the same as reading all of it.
+
+### C2 — Status of the corrected finding
+
+Fixed in `fix/third-party-attribution` (merged, PR #69): 79 adjacent `.license` files
+plus `LICENSES/OFL-1.1.txt`. Verified by effect with
+`scripts/verify-third-party-attribution.py` — `OFL-1.1` occurrences in the SBOM went
+from **0 to 7**, and no third-party file claims Numen Games copyright.
+
+**Not fixed and still open:** the 43 own design-system files, which remain declared
+`CC0-1.0` and effective `MIT`. Deliberately excluded — they are our work and expose no
+third party. Separate PR.
+
+### C3 — Annexes moved into the repository
+
+Section 5 listed annex paths under `/tmp`, which does not survive. They now live in
+`reports/audits/AUD-2026-08-26-licensing-c005/`:
+
+| §5 said | Now at |
+|---|---|
+| `/tmp/aud26/reuse-lint.txt` | `AUD-2026-08-26-licensing-c005/reuse-lint.txt` |
+| `/tmp/aud26/sbom.spdx` | `AUD-2026-08-26-licensing-c005/sbom.spdx` |
+| `/tmp/aud26/robots/` | `AUD-2026-08-26-licensing-c005/robots/` |
+| `/tmp/aud26/cc0_irrevocable.json` | `AUD-2026-08-26-licensing-c005/cc0-irrevocable.json` |
+
+The `robots/` capture is the one that could not be reproduced later: the Oracle is
+expected to switch off the Cloudflare managed block, and this is the only record of the
+prior state that will exist.
+
