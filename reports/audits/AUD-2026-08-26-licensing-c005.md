@@ -897,8 +897,18 @@ NO_SIGNAL         40    21.1%   no author field — but all 40 have a git author
 IRRECOVERABLE      0     0.0%
 ```
 
-**Proposed cut: sweep 139 now (73.2%), hold 51 pending with a threshold (26.8%).** The
-51 are the LLM-authored files, where §2.6 warns that purely machine-generated work may
-generate no copyright — so a CC0 declaration over them would be **void of object**, not
-merely premature. Criterion, alternatives rejected, and the exit threshold are in the
-provenance report. **Proposed, not applied.**
+**Proposed cut: sweep 67 now (35.3%), hold 123 pending with a threshold (64.7%).**
+
+> **Corrected 2026-08-26** (provenance report v1.1.0 §6). The first partition said
+> 139/51: it held back files whose `author:` named a model and swept those whose
+> `author:` named an agent persona — but `agents/ursa/SOUL.md` and its siblings declare
+> `model: "anthropic/claude-sonnet-4-6"`. Same nature of authorship, opposite treatment,
+> decided by which string landed in the field. Reclassified by **nature**: HUMAN 66 ·
+> AI_PERSONA 72 · AI_MODEL 51 · DECLARED 1 · UNKNOWN 0.
+
+Only the 66 human-authored files (plus the 1 already declaring `ai-assisted`) are safe to
+sweep: a natural person authored them, so there are rights to waive. The 123 AI-authored
+ones wait, because §2.6 warns that purely machine-generated work may generate no
+copyright — a CC0 declaration over them would be **void of object**, not merely
+premature. Criterion, alternatives rejected, and the exit threshold are in the provenance
+report. **Proposed, not applied.**

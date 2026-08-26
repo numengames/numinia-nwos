@@ -5,11 +5,11 @@ title: "Provenance census over the 190 new CC0 grants, and a proposed cut"
 type: report
 subtype: audit
 status: published
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-26T14:20:00Z"
 created_source: "git:47c599e"
 created_confidence: "exact"
-updated: "2026-08-26T14:20:00Z"
+updated: "2026-08-26T14:45:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procuradores"
@@ -83,7 +83,10 @@ established from either frontmatter or `git log --follow`.
 
 ---
 
-## 3. Proposed cut
+## 3. Proposed cut — **superseded by §6. Read §6 first.**
+
+> The cut below was proposed in v1.0.0 of this report and is **wrong**. It is kept
+> visible because this report is evidence. The corrected partition is in §6.
 
 **Criterion: distinguish what can be waived from what merely lacks a form.**
 
@@ -140,3 +143,123 @@ of them the Oracle himself. Doubt would be manufactured, not found.
 - **Media assets.** Zero glTF/VRM/audio/video exist in this repository (v1.0.0 §D1), so
   the §2.6 media gate — consent, EXIF, voice — has no subject here. It will when the
   catalogue repositories are audited.
+
+---
+
+## 6. Correction — v1.1.0, 2026-08-26 · the partition was wrong
+
+> Appended, not edited in place. §3 stays visible; this supersedes it.
+> Evidence: `AUD-2026-08-26-licensing-c005/provenance-190.json` (v3 classification),
+> script `scripts/experiments/provenance-census.py`.
+
+### 6.1 What was wrong
+
+§3 held back 51 files because `author:` named a model, and swept 64 whose `author:`
+named an agent persona. **Both are LLM output.** The repository says so itself:
+
+```
+agents/ursa/SOUL.md      model: "anthropic/claude-sonnet-4-6"
+agents/nimrod/SOUL.md    model: "anthropic/claude-sonnet-4-6"
+agents/senet/SOUL.md     model: "anthropic/claude-sonnet-4-6"
+```
+
+A document authored by `claude-opus-5` was held; one authored by `ursa` was swept. Same
+nature of authorship, opposite treatment, decided by **which string landed in the
+field**. And 8 more entered the sweep through `git author: Ursa (agente)` — the same
+persona, arriving by a third route.
+
+**This is the fourth form of the day's pattern, in the measurement that gates the canon
+signature:** I compared the *string* and concluded about the *nature*. It was caught by
+the Oracle, not by me.
+
+### 6.2 The census, reclassified by nature
+
+```
+NEW GRANTS: 190
+
+  HUMAN          66    34.7%
+  AI_PERSONA     72    37.9%
+  AI_MODEL       51    26.8%
+  DECLARED        1     0.5%
+  UNKNOWN         0     0.0%
+
+  AI TOTAL      123    64.7%
+  HUMAN TOTAL    66    34.7%
+```
+
+| Nature | Who | Files | Signal |
+|---|---|---:|---|
+| **HUMAN** | `pablo-fm` | 33 | frontmatter |
+| | `PabloFM` | 32 | git author |
+| | `oracle` | 1 | frontmatter |
+| | **subtotal** | **66** | |
+| **AI_PERSONA** | `ursa` | 55 | frontmatter |
+| | `nimrod` | 9 | frontmatter |
+| | `Ursa (agente)` | 8 | git author |
+| | **subtotal** | **72** | |
+| **AI_MODEL** | `claude-fable-5` | 37 | frontmatter |
+| | `claude-opus-5` | 12 | frontmatter |
+| | `claude-opus` · `claude-fable` | 2 | frontmatter |
+| | **subtotal** | **51** | |
+| **DECLARED** | `ai-assisted` | 1 | frontmatter |
+
+**The 40 "no signal" files of §2 resolve cleanly:** 32 are `PabloFM` (human) and 8 are
+`Ursa (agente)` (AI persona). None is unknown. `UNKNOWN = 0` holds under the corrected
+classification too.
+
+### 6.3 The corrected partition
+
+**Criterion: nature of authorship, which is the axis §2.6 legislates.** Not which field
+carries the signal, and not whether the signal is a persona name or a model name.
+
+| Bucket | Files | Proposal |
+|---|---|---|
+| **HUMAN** (66) + **DECLARED `ai-assisted`** (1) | **67 (35.3%)** | **sweep now** |
+| **AI_PERSONA** (72) + **AI_MODEL** (51) | **123 (64.7%)** | **PENDING, with a threshold** |
+
+**The correction moves 72 files from "sweep" to "pending" and inverts the majority:**
+139/51 becomes 67/123.
+
+**Why the 66 human-authored files are safe to sweep.** A natural person authored them;
+ownership is demonstrable under §2 question 1, and CC0 waives rights we actually hold.
+The missing `provenance:` field is a §2.6 form defect, correctable at leisure, and it
+does not affect what can be waived. 32 of them evidence authorship through git rather
+than frontmatter, which is a weaker record but the same fact.
+
+**Why all 123 AI-authored files must wait.** §2.6: *"la obra puramente generada por
+máquina no genera derecho de autor, luego puede no haber titularidad que ceder ni que
+reclamar"*, and *"`ai-generated` puro no se declara obra de nadie"*. Whether each file is
+`ai-assisted` (substantial recorded human intervention → ours to waive) or `ai-generated`
+(nothing to waive) is a **legal judgement about substantiality**, not a measurement.
+Persona-authored files have no better claim than model-authored ones: `ursa` *is*
+`claude-sonnet-4-6` wearing a name.
+
+The asymmetry that decides it is unchanged and now applies to a larger set: **CC0 is
+irrevocable (§4 pos. 5); waiting costs nothing, waiving wrongly costs everything.**
+
+### 6.4 Exit threshold — unchanged in form, wider in scope
+
+Not a date. Each of the 123 is reclassified as `ai-assisted` or `ai-generated` per the
+§2.6 test, *per document*. The declaration is asserted for the former and **dropped**,
+not asserted, for the latter.
+
+Two observations that may make this cheaper than 123 individual judgements — offered as
+measurement, not as the judgement itself:
+
+- **The persona split may be legally irrelevant but is operationally useful.** All 72
+  persona-authored files were produced under a briefing protocol (P-003/P-009) that
+  records an Oracle who briefed, reviewed and approved. If the Oracle judges that this
+  constitutes *"intervención humana sustancial y registrada"*, it resolves 72 files with
+  one ruling rather than 72.
+- The same argument extends to the 37 `claude-fable-5` files in `missions/`, which carry
+  the same template.
+
+**Neither is mine to decide**, and neither was applied.
+
+### 6.5 What this does not change
+
+The rest of §4's reasoning stands: sweeping all 190 still fails §2.6's gate; holding the
+whole canon still resolves a question that bites on part of the corpus; and manufacturing
+doubt about the human-authored files would still be inventing a problem. What changed is
+**where the line falls**, not why there is a line.
+

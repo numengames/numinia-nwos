@@ -1,1142 +1,1522 @@
 [
  {
   "path": "DEUDA-404.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-opus"
+  "nature": "AI_MODEL",
+  "who": "claude-opus",
+  "source": "frontmatter",
+  "author_fm": "claude-opus",
+  "git_author": "Ursa"
  },
  {
   "path": "GAPS.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "nimrod"
+  "nature": "AI_PERSONA",
+  "who": "nimrod",
+  "source": "frontmatter",
+  "author_fm": "nimrod",
+  "git_author": "PabloFM"
  },
  {
   "path": "LEGAL_DEBT.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "SECURITY.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "blueprints/BP-agent-experience.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "nimrod"
+  "nature": "AI_PERSONA",
+  "who": "nimrod",
+  "source": "frontmatter",
+  "author_fm": "nimrod",
+  "git_author": "PabloFM"
  },
  {
   "path": "blueprints/BP-archive-fondos.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "blueprints/BP-cao-overview.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "nimrod"
+  "nature": "AI_PERSONA",
+  "who": "nimrod",
+  "source": "frontmatter",
+  "author_fm": "nimrod",
+  "git_author": "PabloFM"
  },
  {
   "path": "blueprints/BP-dual-nomenclature.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "nimrod"
+  "nature": "AI_PERSONA",
+  "who": "nimrod",
+  "source": "frontmatter",
+  "author_fm": "nimrod",
+  "git_author": "PabloFM"
  },
  {
   "path": "blueprints/BP-nwos-system.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-001-no-ci-guards.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-002-blocked-reason-orphaned.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-003-human-approval-score-undefined.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-004-semaforo-undefined.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-005-confidence-scale-undefined.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-006-cost-estimate-no-unit.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-007-week-no-year.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-008-series-prefixes-not-applied.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-009-legacy-mission-statuses.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-010-area-to-territory.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-011-thresholds-unenforced.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-012-canon-terminology-split.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-013-audit-naming.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-014-counter-counts-apparatus.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-015-readme-drift.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-016-cancelled-status-retired.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-017-workflow-scope-bottleneck.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-018-unresolved-authority-citations.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-019-signatures-not-third-party-verifiable.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-020-software-key-for-sealed.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-021-self-application-gap.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-022-counters-measure-wrong-unit.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-023-no-guard-for-new-series.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-024-registration-blocked-by-rulings.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-025-guards-declare-blindness.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-026-no-identity-map.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-027-agent-rename-breaks-provenance.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-028-url-lifecycle-unmanaged.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-029-decision-hidden-inside-another.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-030-path-derived-licensing.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-031-index-coverage-unverified.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-032-orphan-content-outside-renderer.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-033-unverified-compliance-assertions.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-034-dependabot-advisories-untriaged.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "debt/D-035-build-pdf-not-run.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "decisions/ADR-003-numinia-nwos-emisor-de-estandares.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-opus-5"
+  "nature": "AI_MODEL",
+  "who": "claude-opus-5",
+  "source": "frontmatter",
+  "author_fm": "claude-opus-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "decisions/ADR-004-identifier-convention.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "Ursa (agente)"
  },
  {
   "path": "decisions/ADR-005-prefix-ruling.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "decisions/ADR-023-four-terms-two-pairs.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/ANNEX-mission-selection-draft.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-001-numinia-mvp-definition.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "Ursa (agente)"
  },
  {
   "path": "missions/MIS-002-user-map-who-pays.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-003-numinia-navigable-prototype.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "Ursa (agente)"
  },
  {
   "path": "missions/MIS-004-monetization-model-v1.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-005-numinia-landing-page.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "Ursa (agente)"
  },
  {
   "path": "missions/MIS-006-session-experience-architecture.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "AI_PERSONA",
+  "who": "Ursa (agente)",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "Ursa (agente)"
  },
  {
   "path": "missions/MIS-007-calcom-onboarding-integration.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-008-north-star-metrics.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-009-closed-pilot-5-users.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-010-public-roadmap-v1.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-011-technical-audit-numengames.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-012-numengames-cicd.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "AI_PERSONA",
+  "who": "Ursa (agente)",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "Ursa (agente)"
  },
  {
   "path": "missions/MIS-013-monitoring-alerts-system.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "AI_PERSONA",
+  "who": "Ursa (agente)",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "Ursa (agente)"
  },
  {
   "path": "missions/MIS-014-umami-numengames.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "AI_PERSONA",
+  "who": "Ursa (agente)",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "Ursa (agente)"
  },
  {
   "path": "missions/MIS-015-document-tech-stack.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-016-nginx-ssl-services.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-017-b2b-prospecting-pipeline.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-018-commercial-value-proposition.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-019-outreach-20-prospects.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-020-demo-pitch-deck.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "AI_PERSONA",
+  "who": "Ursa (agente)",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "Ursa (agente)"
  },
  {
   "path": "missions/MIS-021-pricing-packages.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-022-indie-dao-alliances.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-023-initial-case-study.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-024-post-call-follow-up-system.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-025-30day-content-strategy.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "AI_PERSONA",
+  "who": "Ursa (agente)",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "Ursa (agente)"
  },
  {
   "path": "missions/MIS-026-twitter-activation.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-027-numengames-web-improvement.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-028-newsletter-mailing-list.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-029-discord-telegram-community.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-030-behind-numen-thread.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-031-arbitrum-grant-review.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-032-ethereum-foundation-esp.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-033-sponsors-web3-gaming.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-034-investor-deck.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-035-grants-funding-crm.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-036-q2-funding-strategy-memo.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "AI_PERSONA",
+  "who": "Ursa (agente)",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "Ursa (agente)"
  },
  {
   "path": "missions/MIS-037-create-archive-summa-repo.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-038-design-briefing-protocol.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-039-agent-log-system.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-040-cao-kpi-dashboard.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-041-agent-onboarding-protocol.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-042-readme-numinia-agents.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-043-rpg-manual-reading.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-044-gaps-capability-map.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-045-document-cao-architecture.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-046-numengames-repo-readmes.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-047-weekly-report.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-048-agent-cost-tracking.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-049-dora-metrics.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "AI_PERSONA",
+  "who": "Ursa (agente)",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "Ursa (agente)"
  },
  {
   "path": "missions/MIS-050-backlog-review-ritual.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-051-gmail-calendar-drive-gog.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-052-pc-onpremises-ubuntu.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-053-khepri-operational-email.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-054-multi-oracle-telegram-access.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-055-dual-nomenclature-system.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-056-repo-english-translation.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-057-deep-system-qa.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-058-approval-brief-protocol.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-059-context-load-protocol.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-060-agent-canon-repo-sync.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "nimrod"
+  "nature": "AI_PERSONA",
+  "who": "nimrod",
+  "source": "frontmatter",
+  "author_fm": "nimrod",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-061-nwos-web-system.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-062-mission-system-v2.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-063-nwos-iteration1-deploy-form.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-064-update-p001-agent-briefing.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-065-canon-at-build-narrative-out-of-code.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-066-unify-mission-system.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-067-inspections-system-iso-15489.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "pablo-fm"
+  "nature": "HUMAN",
+  "who": "pablo-fm",
+  "source": "frontmatter",
+  "author_fm": "pablo-fm",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-068-nwos-propagation-drift-guard.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-069-github-independent-continuity.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-070-testing-best-practices-org.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-071-file-over-app-total.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-072-web-monorepo-foundations.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-073-web-cc0-archive.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-074-web-progressive-identity.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-075-web-parity-public-surface.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-076-web-three-pillars.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-077-web-data-dignity.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-078-web-khepri-execution.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-079-web-city-chronicle.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-080-web-lap-platform.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-081-web-codex-stats.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-082-web-settings-session.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-083-web-oracle-zone.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-084-store-seo-migration.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-085-web-codex-reader-lap.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "oracle"
+  "nature": "HUMAN",
+  "who": "oracle",
+  "source": "frontmatter",
+  "author_fm": "oracle",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-086-store-legal-corpus-login.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-087-web-full-canon-mirror.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-088-web-pdf-canon-docs.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-089-information-architecture.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-090-token-free-demo-workspace.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-091-standards-numen-games-web.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-opus-5"
+  "nature": "AI_MODEL",
+  "who": "claude-opus-5",
+  "source": "frontmatter",
+  "author_fm": "claude-opus-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-092-web-palette-canonical.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-093-web-icons-typography.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-094-design-system-511-emitter.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-095-updates-page-practice.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-096-nwos-versioning-sovereign-adoption.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-100-branch-protection-org-settings.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-opus-5"
+  "nature": "AI_MODEL",
+  "who": "claude-opus-5",
+  "source": "frontmatter",
+  "author_fm": "claude-opus-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-101-the-mould-complies-with-itself.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-opus-5"
+  "nature": "AI_MODEL",
+  "who": "claude-opus-5",
+  "source": "frontmatter",
+  "author_fm": "claude-opus-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-102-consumers-pin-the-emitted-kit.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-opus-5"
+  "nature": "AI_MODEL",
+  "who": "claude-opus-5",
+  "source": "frontmatter",
+  "author_fm": "claude-opus-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-103-org-repo-inventory-adoption.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-opus-5"
+  "nature": "AI_MODEL",
+  "who": "claude-opus-5",
+  "source": "frontmatter",
+  "author_fm": "claude-opus-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-104-the-ghost-worker.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-opus-5"
+  "nature": "AI_MODEL",
+  "who": "claude-opus-5",
+  "source": "frontmatter",
+  "author_fm": "claude-opus-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-105-sign-the-standards-and-define-sync.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-opus-5"
+  "nature": "AI_MODEL",
+  "who": "claude-opus-5",
+  "source": "frontmatter",
+  "author_fm": "claude-opus-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-106-the-mould-carries-a-retired-name.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-opus-5"
+  "nature": "AI_MODEL",
+  "who": "claude-opus-5",
+  "source": "frontmatter",
+  "author_fm": "claude-opus-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-107-numen-games-speaks-spanish.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-opus-5"
+  "nature": "AI_MODEL",
+  "who": "claude-opus-5",
+  "source": "frontmatter",
+  "author_fm": "claude-opus-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-108-offer-the-mould-its-provenance.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-opus-5"
+  "nature": "AI_MODEL",
+  "who": "claude-opus-5",
+  "source": "frontmatter",
+  "author_fm": "claude-opus-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-109-make-canon-filable.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-110-retire-sistema-nav-entries.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-111-corpus-section-indexes.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-112-home-from-readme.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-113-readme-generated-index.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-114-visibility-filter.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-115-mission-board-redesign.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-115a-board-group-order.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/MIS-115b-card-hierarchy.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/PROPOSAL-closure-guard.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/TEMPLATE-CHANGES.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "missions/TEMPLATE-EXAMPLE.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "operations/O-001-continuity.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "nimrod"
+  "nature": "AI_PERSONA",
+  "who": "nimrod",
+  "source": "frontmatter",
+  "author_fm": "nimrod",
+  "git_author": "PabloFM"
  },
  {
   "path": "operations/O-002-contradictions.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "operations/O-005-simulations.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "nimrod"
+  "nature": "AI_PERSONA",
+  "who": "nimrod",
+  "source": "frontmatter",
+  "author_fm": "nimrod",
+  "git_author": "PabloFM"
  },
  {
   "path": "operations/O-006-solutions.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "nimrod"
+  "nature": "AI_PERSONA",
+  "who": "nimrod",
+  "source": "frontmatter",
+  "author_fm": "nimrod",
+  "git_author": "PabloFM"
  },
  {
   "path": "operations/O-008-session-state.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "protocols/P-010-how-to-archive.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "protocols/P-011-security-audit.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-opus-5"
+  "nature": "AI_MODEL",
+  "who": "claude-opus-5",
+  "source": "frontmatter",
+  "author_fm": "claude-opus-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "protocols/P-012-ruling-with-a-condition.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "Ursa (agente)"
  },
  {
   "path": "reports/audits/AUD-2026-04-07-system-audit.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "nimrod"
+  "nature": "AI_PERSONA",
+  "who": "nimrod",
+  "source": "frontmatter",
+  "author_fm": "nimrod",
+  "git_author": "PabloFM"
  },
  {
   "path": "reports/audits/AUD-2026-08-17-cold-agent.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable"
+  "nature": "AI_MODEL",
+  "who": "claude-fable",
+  "source": "frontmatter",
+  "author_fm": "claude-fable",
+  "git_author": "PabloFM"
  },
  {
   "path": "reports/audits/AUD-2026-08-17-navigability.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "reports/audits/AUD-2026-08-17-stack.md",
-  "class": "DECLARED_FORM",
-  "declared": "ai-assisted",
-  "author": "claude (a petici\u00f3n de Pablo)"
+  "nature": "DECLARED",
+  "who": "ai-assisted",
+  "source": "frontmatter",
+  "author_fm": "claude (a petici\u00f3n de Pablo)",
+  "git_author": "PabloFM"
  },
  {
   "path": "reports/audits/AUD-2026-08-24-canon-edit.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "Ursa (agente)"
  },
  {
   "path": "reports/audits/AUD-2026-08-24-phase0-inventory.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "reports/audits/evidence/canon-2026-04-15/Epistemic-relations-v1-deleted-2026-04-15.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "reports/audits/evidence/canon-2026-04-15/README.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "reports/audits/evidence/dates-vs-commits.py",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "reports/audits/evidence/index-coverage.py",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "reports/audits/evidence/regime-crossings.py",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  },
  {
   "path": "reports/daily/RPT-2026-08-17.md",
-  "class": "DECLARED_SUBST",
-  "declared": null,
-  "author": "claude-fable-5"
+  "nature": "AI_MODEL",
+  "who": "claude-fable-5",
+  "source": "frontmatter",
+  "author_fm": "claude-fable-5",
+  "git_author": "PabloFM"
  },
  {
   "path": "reports/daily/RPT-2026-08-24.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "reports/daily/RPT-2026-08-25.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "standards/S-001-glossary.md",
-  "class": "HUMAN_OR_AGENT",
-  "declared": null,
-  "author": "ursa"
+  "nature": "AI_PERSONA",
+  "who": "ursa",
+  "source": "frontmatter",
+  "author_fm": "ursa",
+  "git_author": "PabloFM"
  },
  {
   "path": "standards/engineering-standards.md",
-  "class": "NO_SIGNAL",
-  "declared": null,
-  "author": null
+  "nature": "HUMAN",
+  "who": "PabloFM",
+  "source": "git",
+  "author_fm": null,
+  "git_author": "PabloFM"
  }
 ]

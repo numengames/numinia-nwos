@@ -172,8 +172,9 @@ reason is exactly what §5.2 now turns into an explicit prohibition.
 | #22, report | the abstract I read (v1) | the paper at its bare URL | v2 had rewritten the claim |
 | PR #69 | the default precedence | **all** precedences | `override` defeats `.license` |
 | PR #71, `PROP-` | the convention **once** (for `AUD-`) | **every** identifier I would mint | `ADR-005` declares no `PROP-` |
+| Provenance census | the **string** in `author:` | the **nature** of the authorship | `ursa` *is* `claude-sonnet-4-6` |
 
-Same error in four domains: **verify one dimension, conclude about another.** The first
+Same error in five domains: **verify one dimension, conclude about another.** The first
 three are about *content* — I checked one field, one version, one mode. **The fourth is
 about *process*, and that makes it different in kind:** I performed the verification
 correctly, derived `AUD-2026-08-26-licensing-c005` from six precedents, and then treated
@@ -184,8 +185,17 @@ prefix would have worked perfectly — I simply did not do it the second time. *
 correction for the first three is a better instrument; for the fourth it is a checklist,
 because the failure is in the omission, not in the method.**
 
-The first three were caught by measuring rather than re-reading. The fourth was caught
-only because the Oracle asked me to audit my own process.
+**The fifth is the most expensive**, because it landed in the one measurement that gates
+the canon signature: the provenance census swept 72 files authored by agent personas and
+held 51 authored by named models, when `agents/ursa/SOUL.md` declares
+`model: "anthropic/claude-sonnet-4-6"`. The classifier read strings and reported on
+authorship. Corrected in `AUD-2026-08-26-provenance` v1.1.0 §6 — the partition inverted
+from 139/51 to 67/123.
+
+Three of the five were caught by measuring rather than re-reading. **Two — the fourth and
+the fifth — were caught by the Oracle**, and both are of the same subtype: not a wrong
+instrument, but a category confused for the thing it names.
+
 
 
 ---

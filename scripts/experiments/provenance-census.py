@@ -1,19 +1,24 @@
 #!/usr/bin/env python3
 # SPDX-FileCopyrightText: 2026 Numen Games S.L.
 # SPDX-License-Identifier: MIT
-"""Provenance census v2 — corrected classification.
+"""Provenance census v3 — classified by NATURE of authorship, not by string.
 
-v1 defect: files whose `author:` names an LLM (claude-fable-5, claude-opus-5...)
-were bucketed as EXPENSIVE, as if authorship were unknown. It is not unknown —
-it is AI provenance declared through a different field. C-005 §2.6 asks for
-human | ai-assisted | ai-generated; `author: claude-opus-5` states the fact in
-substance while failing the form.
+v2 defect (caught by the Oracle): it held back 51 files because `author:` named
+a model, and swept 64 files whose `author:` named an agent persona — when
+agents/{ursa,nimrod,senet}/SOUL.md each declare
+`model: "anthropic/claude-sonnet-4-6"`. Same nature of authorship, opposite
+treatment, decided by which string landed in the field.
 
-Buckets:
-  DECLARED_FORM  — explicit provenance field (§2.6 compliant)
-  DECLARED_SUBST — `author:` names an LLM  -> ai-generated/ai-assisted in substance
-  HUMAN_OR_AGENT — `author:` names a person or a Numinia agent persona
-  NO_SIGNAL      — no author field at all; only the git committer
+Nature buckets:
+  HUMAN        — a natural person authored it (pablo-fm, oracle, PabloFM commits)
+  AI_PERSONA   — a Numinia agent authored it; agents are LLM instances per their
+                 own SOUL.md
+  AI_MODEL     — the model is named directly in `author:`
+  DECLARED     — an explicit §2.6 provenance field exists
+
+HUMAN vs AI is the axis §2.6 cares about. Whether AI work is `ai-assisted`
+(ours to waive) or `ai-generated` (nothing to waive) is a legal judgement about
+substantiality, reserved to the Oracle — this script does not make it.
 
 Read-only.
 """
@@ -25,12 +30,14 @@ from collections import Counter
 
 ROOT = "/var/home/uruk/arkitecktonia-home/repos/numinia-nwos"
 SBOM = os.path.join(ROOT, "reports/audits/AUD-2026-08-26-licensing-c005/sbom.spdx")
-OUT = "/tmp/surf/provenance-190-v2.json"
+OUT = "/tmp/surf/provenance-190-v3.json"
 
 PROV_FIELDS = ("provenance", "procedencia", "ai_provenance")
-LLM_PAT = re.compile(r"(claude|gpt|opus|sonnet|fable|llm|gemini)", re.I)
-AGENTS = {"ursa", "nimrod", "senet", "adonaz", "procurador-01",
-          "centinela-01", "procyon", "oracle"}
+LLM_PAT = re.compile(r"(claude|gpt|opus|sonnet|fable|gemini|llm)", re.I)
+# Personas whose SOUL.md declares a model: -> LLM instances, verified 2026-08-26
+AI_PERSONAS = {"ursa", "nimrod", "senet", "adonaz", "procurador-01",
+               "centinela-01", "procyon", "khepri", "alquimista"}
+HUMANS = {"pablo-fm", "pablofm", "oracle", "pablo"}
 
 
 def sh(a):
@@ -45,10 +52,10 @@ for b in open(SBOM, encoding="utf-8").read().split("FileName: ")[1:]:
         ccby.append(n)
 
 old = set(sh(["git", "ls-tree", "-r", "2efd546", "--name-only"]).split())
-new_grants = sorted(set(ccby) - old)
+grants = sorted(set(ccby) - old)
 
 rows = []
-for p in new_grants:
+for p in grants:
     full = os.path.join(ROOT, p)
     declared = author = None
     if os.path.exists(full):
@@ -64,35 +71,44 @@ for p in new_grants:
         if ma:
             author = ma.group(1).strip().strip('"\'')
 
-    if declared:
-        cls = "DECLARED_FORM"
-    elif author and LLM_PAT.search(author):
-        cls = "DECLARED_SUBST"
-    elif author and (author.lower() in AGENTS or "pablo" in author.lower()):
-        cls = "HUMAN_OR_AGENT"
-    else:
-        cls = "NO_SIGNAL"
+    git_author = sh(["git", "log", "--follow", "--format=%an", "-1", "--", p]).strip()
+    src = "frontmatter" if author else ("git" if git_author else "none")
+    who = author or git_author
+    low = (who or "").lower()
 
-    rows.append({"path": p, "class": cls, "declared": declared, "author": author})
+    if declared:
+        nature, bucket = "DECLARED", declared
+    elif LLM_PAT.search(low):
+        nature, bucket = "AI_MODEL", who
+    elif any(a in low for a in AI_PERSONAS):
+        nature, bucket = "AI_PERSONA", who
+    elif any(h in low for h in HUMANS):
+        nature, bucket = "HUMAN", who
+    else:
+        nature, bucket = "UNKNOWN", who or "(none)"
+
+    rows.append({"path": p, "nature": nature, "who": bucket,
+                 "source": src, "author_fm": author, "git_author": git_author})
 
 json.dump(rows, open(OUT, "w"), indent=1)
-c = Counter(r["class"] for r in rows)
-print(f"NEW GRANTS: {len(rows)}\n")
-for k in ("DECLARED_FORM", "DECLARED_SUBST", "HUMAN_OR_AGENT", "NO_SIGNAL"):
-    print(f"  {k:<16} {c[k]:>4}   {100*c[k]/len(rows):5.1f}%")
+n = len(rows)
+c = Counter(r["nature"] for r in rows)
+print(f"NEW GRANTS: {n}\n")
+print("=== BY NATURE OF AUTHORSHIP ===")
+for k in ("HUMAN", "AI_PERSONA", "AI_MODEL", "DECLARED", "UNKNOWN"):
+    print(f"  {k:<12} {c[k]:>4}   {100*c[k]/n:5.1f}%")
+ai = c["AI_PERSONA"] + c["AI_MODEL"]
+print(f"\n  AI TOTAL     {ai:>4}   {100*ai/n:5.1f}%")
+print(f"  HUMAN TOTAL  {c['HUMAN']:>4}   {100*c['HUMAN']/n:5.1f}%")
 
-print("\n=== NO_SIGNAL por directorio ===")
-ns = [r for r in rows if r["class"] == "NO_SIGNAL"]
-for d, n in Counter(r["path"].split("/")[0] for r in ns).most_common():
-    print(f"  {d:<14} {n}")
+for k in ("HUMAN", "AI_PERSONA", "AI_MODEL", "DECLARED"):
+    sub = [r for r in rows if r["nature"] == k]
+    if not sub:
+        continue
+    print(f"\n=== {k} — who, and where the signal comes from ===")
+    for w, m in Counter(r["who"] for r in sub).most_common():
+        fm = sum(1 for r in sub if r["who"] == w and r["source"] == "frontmatter")
+        gt = sum(1 for r in sub if r["who"] == w and r["source"] == "git")
+        print(f"  {str(w)[:34]:<36} {m:>3}   (frontmatter {fm} · git {gt})")
 
-print("\n=== HUMAN_OR_AGENT: quién ===")
-for a, n in Counter(r["author"] for r in rows
-                    if r["class"] == "HUMAN_OR_AGENT").most_common():
-    print(f"  {a:<20} {n}")
-
-print("\n=== DECLARED_SUBST: qué modelos ===")
-for a, n in Counter(r["author"] for r in rows
-                    if r["class"] == "DECLARED_SUBST").most_common():
-    print(f"  {a:<24} {n}")
 print(f"\n-> {OUT}")
