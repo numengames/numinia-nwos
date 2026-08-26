@@ -7,6 +7,7 @@ freeze_reason: cancelled
 version: "1.1.0"
 created: "2026-04-04T00:00:00Z"
 updated: "2026-08-17T00:00:00Z"
+owner: "oracle"
 area: "Product"
 guild: "Exegetes"
 type_execution: "biological"
