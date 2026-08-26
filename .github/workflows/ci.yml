@@ -28,6 +28,8 @@ jobs:
         run: node scripts/check-license-frontmatter.mjs
       - name: reference lint (ADR-004 — plain-text IDs are invisible to link checkers)
         run: node scripts/check-references.mjs
+      - name: orphan-content guard (D-032 — nothing reaches the site unrendered)
+        run: node scripts/check-orphan-content.mjs
       - name: install
         run: npm ci
         working-directory: web
