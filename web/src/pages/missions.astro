@@ -289,12 +289,22 @@ const stats = [
                         smallest being `etiqueta` at 0.75rem/12px. Everything
                         here is a token that already exists.
 
-                        1 · title     cuerpo.l  1.44rem/23px  weight 600
+                        1 · title     cuerpo.m  1rem/16px     weight 600
                         2 · id, date  cuerpo.s  0.875rem/14px mono
-                        3 · the rest  etiqueta  0.75rem/12px  mono, uppercase */}
+                        3 · the rest  etiqueta  0.75rem/12px  mono, uppercase
 
-                    {/* LEVEL 1 — the title, and it is the only large thing. */}
-                    <p class="text-[1.44rem] font-semibold text-foreground leading-tight tracking-[-0.01em] mb-2.5">{m.title}</p>
+                        Title stepped DOWN from cuerpo.l (1.44rem) to cuerpo.m
+                        on the Oracle's judgement in production: at 23px it
+                        dominated the card instead of leading it. It is still
+                        read first — it is the only Sans, the only weight 600,
+                        and the only thing at full foreground colour, while
+                        levels 2 and 3 are mono and dimmed. Hierarchy does not
+                        need size alone to do the work. */}
+
+                    {/* LEVEL 1 — the title. Sans (inherited), per §4.2:
+                        "Sans for what is asserted, Mono for what is measured".
+                        The title asserts; the id, date and labels measure. */}
+                    <p class="text-[1rem] font-semibold text-foreground leading-snug tracking-[-0.01em] mb-2">{m.title}</p>
 
                     {/* LEVEL 2 — who it is and when it moved. */}
                     <div class="flex items-baseline justify-between gap-3 mb-2">
@@ -350,7 +360,7 @@ const stats = [
                 {/* MIS-115b — same three levels as the column cards. Frozen
                     renders in its own block, and applying the hierarchy only
                     to the columns would leave two card designs on one page. */}
-                <p class="text-[1.44rem] font-semibold text-foreground/60 leading-tight tracking-[-0.01em] mb-2.5">{m.title}</p>
+                <p class="text-[1rem] font-semibold text-foreground/60 leading-snug tracking-[-0.01em] mb-2">{m.title}</p>
                 <div class="flex items-baseline justify-between gap-3 mb-2">
                   <span class="font-mono text-[0.875rem] font-medium text-dim">{m.id}</span>
                   {m.updated && (

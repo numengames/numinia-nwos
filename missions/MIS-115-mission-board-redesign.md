@@ -1,13 +1,14 @@
 ---
 id: "MIS-115"
 title: "Redesign the Mission Board so its order and cards say what is actionable"
-status: backlog
+status: in-progress
 priority: medium
 effort: L
 guild: "Alchemists"
 area: web
 type_execution: digital
-assigned_to: null
+assigned_to: "ursa"
+started: "2026-08-25"
 completed: null
 
 type: mission
