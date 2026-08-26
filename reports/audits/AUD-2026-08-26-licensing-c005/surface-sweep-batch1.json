@@ -1,0 +1,112 @@
+[
+ {
+  "repo_path": "canon/C-001-welcome-to-numinia.md",
+  "url_html": "/corpus/canon/c-001-welcome-to-numinia/",
+  "code_html": 200,
+  "bytes_html": 59109,
+  "url_md": "/corpus/canon/c-001-welcome-to-numinia.md",
+  "code_md": 200,
+  "bytes_md": 31826,
+  "reachable": true
+ },
+ {
+  "repo_path": "canon/C-002-brand-and-culture.md",
+  "url_html": "/corpus/canon/c-002-brand-and-culture/",
+  "code_html": 200,
+  "bytes_html": 88273,
+  "url_md": "/corpus/canon/c-002-brand-and-culture.md",
+  "code_md": 200,
+  "bytes_md": 54150,
+  "reachable": true
+ },
+ {
+  "repo_path": "canon/C-003-attributes-and-ranks.md",
+  "url_html": "/corpus/canon/c-003-attributes-and-ranks/",
+  "code_html": 200,
+  "bytes_html": 31915,
+  "url_md": "/corpus/canon/c-003-attributes-and-ranks.md",
+  "code_md": 200,
+  "bytes_md": 9488,
+  "reachable": true
+ },
+ {
+  "repo_path": "canon/C-004-role-structure.md",
+  "url_html": "/corpus/canon/c-004-role-structure/",
+  "code_html": 200,
+  "bytes_html": 56717,
+  "url_md": "/corpus/canon/c-004-role-structure.md",
+  "code_md": 200,
+  "bytes_md": 33660,
+  "reachable": true
+ },
+ {
+  "repo_path": "canon/C-006-session-zero.md",
+  "url_html": "/corpus/canon/c-006-session-zero/",
+  "code_html": 200,
+  "bytes_html": 47716,
+  "url_md": "/corpus/canon/c-006-session-zero.md",
+  "code_md": 200,
+  "bytes_md": 24546,
+  "reachable": true
+ },
+ {
+  "repo_path": "canon/C-007-rank-specifications.md",
+  "url_html": "/corpus/canon/c-007-rank-specifications/",
+  "code_html": 200,
+  "bytes_html": 22817,
+  "url_md": "/corpus/canon/c-007-rank-specifications.md",
+  "code_md": 200,
+  "bytes_md": 1686,
+  "reachable": true
+ },
+ {
+  "repo_path": "canon/archive-lore.md",
+  "url_html": "/corpus/canon/archive-lore/",
+  "code_html": 200,
+  "bytes_html": 21739,
+  "url_md": "/corpus/canon/archive-lore.md",
+  "code_md": 200,
+  "bytes_md": 1667,
+  "reachable": true
+ },
+ {
+  "repo_path": "operations/legal/O-003-privacy-policy-numengames.md",
+  "url_html": "/corpus/operations/legal/o-003-privacy-policy-numengames/",
+  "code_html": 200,
+  "bytes_html": 33591,
+  "url_md": "/corpus/operations/legal/o-003-privacy-policy-numengames.md",
+  "code_md": 200,
+  "bytes_md": 12618,
+  "reachable": true
+ },
+ {
+  "repo_path": "operations/legal/O-004-terms-and-conditions-numengames.md",
+  "url_html": "/corpus/operations/legal/o-004-terms-and-conditions-numengames/",
+  "code_html": 200,
+  "bytes_html": 45181,
+  "url_md": "/corpus/operations/legal/o-004-terms-and-conditions-numengames.md",
+  "code_md": 200,
+  "bytes_md": 22027,
+  "reachable": true
+ },
+ {
+  "repo_path": "operations/strategy/O-007-sales.md",
+  "url_html": "/corpus/operations/strategy/o-007-sales/",
+  "code_html": 200,
+  "bytes_html": 32627,
+  "url_md": "/corpus/operations/strategy/o-007-sales.md",
+  "code_md": 200,
+  "bytes_md": 9107,
+  "reachable": true
+ },
+ {
+  "repo_path": "standards/S-003-platform-role-system.md",
+  "url_html": "/corpus/standards/s-003-platform-role-system/",
+  "code_html": 200,
+  "bytes_html": 35159,
+  "url_md": "/corpus/standards/s-003-platform-role-system.md",
+  "code_md": 200,
+  "bytes_md": 10270,
+  "reachable": true
+ }
+]
