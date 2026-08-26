@@ -5,11 +5,11 @@ title: "Provenance census over the 190 new CC0 grants, and a proposed cut"
 type: report
 subtype: audit
 status: published
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-26T14:20:00Z"
 created_source: "git:47c599e"
 created_confidence: "exact"
-updated: "2026-08-26T14:45:00Z"
+updated: "2026-08-26T15:10:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procuradores"
@@ -83,10 +83,11 @@ established from either frontmatter or `git log --follow`.
 
 ---
 
-## 3. Proposed cut — **superseded by §6. Read §6 first.**
+## 3. Proposed cut — **superseded. Read §7 for the final partition.**
 
-> The cut below was proposed in v1.0.0 of this report and is **wrong**. It is kept
-> visible because this report is evidence. The corrected partition is in §6.
+> The cut below was proposed in v1.0.0 and is **wrong** (it classified strings, not
+> authorship). §6 corrects it to 67/123; **§7 supersedes both** with the Oracle's ruling
+> on the P-003/P-009 cycle, giving 179/11. All three are kept visible: this is evidence.
 
 **Criterion: distinguish what can be waived from what merely lacks a form.**
 
@@ -262,4 +263,118 @@ The rest of §4's reasoning stands: sweeping all 190 still fails §2.6's gate; h
 whole canon still resolves a question that bites on part of the corpus; and manufacturing
 doubt about the human-authored files would still be inventing a problem. What changed is
 **where the line falls**, not why there is a line.
+
+---
+
+## 7. Protocol anchor — v1.2.0, 2026-08-26
+
+> The Oracle ruled that the P-003/P-009 cycle constitutes *"intervención humana
+> sustancial y registrada"* under §2.6, and instructed that the ruling covers **the
+> process, not the author's name**: a file only enters the sweep if it can be **shown**
+> to have been produced under that cycle. Measurement follows; the judgement was the
+> Oracle's.
+> Evidence: `AUD-2026-08-26-licensing-c005/protocol-anchor-123.json` ·
+> script `scripts/experiments/protocol-anchor.py`.
+
+### 7.1 What evidence the cycle leaves behind
+
+P-009 §Step 1 requires the mission to exist in the repository **before** any work, and
+P-003 assigns each state to an actor. So the traces are:
+
+| Trace | Strength |
+|---|---|
+| Mission file with lifecycle fields (`started`, `completed`, `assigned_to`…) | complete |
+| Non-mission document carrying `mission: "MIS-NNN"` (P-009 itself does this) | complete |
+| Creating commit naming a `MIS-` identifier | complete |
+| Mission file in an **Oracle-set state** (`done`/`frozen`/`cancelled`/`backlog` per P-003's own table) with `owner: oracle`, but no timestamps | complete — missing timestamps are a *form* defect, the same class as a missing `provenance:` field |
+| Same, but no `owner` field | **weak** |
+| No mission, no `mission:` field, no `MIS-` in history | **none** |
+
+### 7.2 Result over the 123
+
+```
+ANCHORED             99    80.5%
+ANCHORED_MIGRATED    13    10.6%
+ANCHORED_WEAK         8     6.5%
+NOT_ANCHORED          3     2.4%
+```
+
+**The 13 migrated files** (`MIS-072`…`MIS-084`, all `claude-fable-5`) were created in
+`numengames/numinia-web` and imported here. Their bodies state:
+
+> *"Migrated 2026-08-17 from `numengames/numinia-web:missions/MISSION-001.md`
+> (**Oracle order: missions centralize in NWOS L3**)"*
+
+The migration itself was an Oracle decision, all 13 carry `owner: oracle`, and 10 of the
+13 are in Oracle-set states. **Counted as anchored** — but flagged separately, because
+the cycle they passed through was another repository's, and that is a fact the Oracle
+should see rather than one I should smooth over.
+
+### 7.3 The 11 that stay pending
+
+| File | Why |
+|---|---|
+| `missions/MIS-006-session-experience-architecture.md` | `frozen`, no `owner` field |
+| `missions/MIS-012-numengames-cicd.md` | idem |
+| `missions/MIS-013-monitoring-alerts-system.md` | idem |
+| `missions/MIS-014-umami-numengames.md` | idem |
+| `missions/MIS-020-demo-pitch-deck.md` | idem |
+| `missions/MIS-025-30day-content-strategy.md` | idem |
+| `missions/MIS-036-q2-funding-strategy-memo.md` | idem |
+| `missions/MIS-049-dora-metrics.md` | idem |
+| `decisions/ADR-004-identifier-convention.md` | no mission, no `mission:` field, no `MIS-` in history |
+| `protocols/P-012-ruling-with-a-condition.md` | idem |
+| `reports/audits/AUD-2026-08-24-canon-edit.md` | idem |
+
+The 8 weak ones are in `frozen` — an Oracle-set state per P-003 — but carry no `owner`
+field, so the anchor rests on the state alone. **They stay pending on purpose:** the
+ruling covers the process, and "the state implies the Oracle touched it" is an inference,
+not evidence. Promoting them would be exactly the error just corrected, run in reverse —
+concluding about the process from a field that merely correlates with it.
+
+The last 3 are authored by `ursa` (me) with no protocol trace of any kind. Two of them —
+`P-012` and `AUD-2026-08-24-canon-edit` — are the kind of responsive work the process
+review identified as having no place in the mission model. **That gap and this pending
+bucket are the same gap.**
+
+### 7.4 Final partition
+
+| | Files |
+|---|---|
+| Human-authored | 66 |
+| Already declaring `ai-assisted` | 1 |
+| AI-authored, anchored to P-003/P-009 | 99 |
+| AI-authored, anchored via Oracle-ordered migration | 13 |
+| **SWEEP NOW** | **179 (94.2%)** |
+| AI-authored, weak anchor (state only, no `owner`) | 8 |
+| AI-authored, no anchor | 3 |
+| **PENDING, with threshold** | **11 (5.8%)** |
+| **Total** | **190** |
+
+Exit threshold for the 11 is unchanged in form: each is anchored to the cycle by
+evidence, or reclassified per §2.6 as `ai-assisted` or `ai-generated`. Eight of the
+eleven need only an `owner` field to resolve — which is a documentation task, not a legal
+one.
+
+### 7.5 Correction to my own argument, per the Oracle
+
+§3 and §6.3 leaned on this asymmetry: *"CC0 is irrevocable; waiting costs nothing,
+waiving wrongly costs everything."* **That argument is weak precisely where I applied it
+hardest.**
+
+If a work is purely machine-generated and therefore carries no copyright, a CC0
+declaration over it is **void of object** — and something void of object is also
+**harmless**: there are no rights being waived, neither ours nor a third party's. The
+risk is one of *form* (declaring something that declares nothing) and not of *substance*
+(giving away what was not ours to give).
+
+The asymmetry is strong for **human material of doubtful origin**, where a wrongful
+waiver would dispose of real rights — possibly someone else's. It is weak for AI material,
+which is where I invoked it most forcefully.
+
+**Recorded as a qualification, not as a refutation.** The conclusion is unchanged, but it
+now rests where it belongs: **the Oracle's ruling stands on §2.6 — the P-003/P-009 cycle
+constitutes recorded substantial human intervention — and not on an asymmetry of risk
+that does not hold in this case.**
+
 

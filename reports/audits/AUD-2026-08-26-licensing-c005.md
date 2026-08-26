@@ -5,11 +5,11 @@ title: "Licensing audit of numinia-nwos against C-005 v1.3.0, and the measured i
 type: report
 subtype: audit
 status: published
-version: "1.3.0"
+version: "1.4.0"
 created: "2026-08-26T09:40:00Z"
 created_source: "git:8a529fa"
 created_confidence: "exact"
-updated: "2026-08-26T14:25:00Z"
+updated: "2026-08-26T15:10:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procuradores"
@@ -897,18 +897,21 @@ NO_SIGNAL         40    21.1%   no author field — but all 40 have a git author
 IRRECOVERABLE      0     0.0%
 ```
 
-**Proposed cut: sweep 67 now (35.3%), hold 123 pending with a threshold (64.7%).**
+**Proposed cut: sweep 179 now (94.2%), hold 11 pending with a threshold (5.8%).**
 
-> **Corrected 2026-08-26** (provenance report v1.1.0 §6). The first partition said
-> 139/51: it held back files whose `author:` named a model and swept those whose
-> `author:` named an agent persona — but `agents/ursa/SOUL.md` and its siblings declare
-> `model: "anthropic/claude-sonnet-4-6"`. Same nature of authorship, opposite treatment,
-> decided by which string landed in the field. Reclassified by **nature**: HUMAN 66 ·
-> AI_PERSONA 72 · AI_MODEL 51 · DECLARED 1 · UNKNOWN 0.
+> **Two corrections, both visible in the provenance report.** The first partition
+> (139/51) classified strings, not authorship: it held files whose `author:` named a
+> model while sweeping those naming an agent persona, when `agents/ursa/SOUL.md` declares
+> `model: "anthropic/claude-sonnet-4-6"`. Reclassified by nature (§6): 67/123. Then the
+> **Oracle ruled** that the P-003/P-009 cycle constitutes *"intervención humana
+> sustancial y registrada"* under §2.6 — so what matters is the **process**, not the
+> author's name. Anchoring each AI-authored file to that cycle by evidence (§7) gives
+> the final figure.
 
-Only the 66 human-authored files (plus the 1 already declaring `ai-assisted`) are safe to
-sweep: a natural person authored them, so there are rights to waive. The 123 AI-authored
-ones wait, because §2.6 warns that purely machine-generated work may generate no
-copyright — a CC0 declaration over them would be **void of object**, not merely
-premature. Criterion, alternatives rejected, and the exit threshold are in the provenance
-report. **Proposed, not applied.**
+The 11 held back are AI-authored files that could **not** be anchored: 8 missions in
+`frozen` whose anchor rests on the state alone with no `owner` field, and 3 documents
+with no protocol trace of any kind. They stay pending because the ruling covers the
+process, and inferring the process from a correlated field would repeat the error it
+just corrected. Criterion, the 13 Oracle-ordered migrations, and the exit threshold are
+in the provenance report. **Proposed, not applied.**
+
