@@ -5,11 +5,11 @@ title: "Licensing audit of numinia-nwos against C-005 v1.3.0, and the measured i
 type: report
 subtype: audit
 status: published
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-26T09:40:00Z"
 created_source: "git:8a529fa"
 created_confidence: "exact"
-updated: "2026-08-26T11:55:00Z"
+updated: "2026-08-26T13:40:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procuradores"
@@ -723,4 +723,121 @@ Section 5 listed annex paths under `/tmp`, which does not survive. They now live
 The `robots/` capture is the one that could not be reproduced later: the Oracle is
 expected to switch off the Cloudflare managed block, and this is the only record of the
 prior state that will exist.
+
+---
+
+## 8. Correction note — v1.2.0, 2026-08-26 · surface sweep, batch 1
+
+> Appended, not edited in place. Batch 1 of the public-surface sweep. Later batches go
+> to v1.3.0 and successive versions.
+> **Scope of this measurement:** `numinia-nwos` @ `e4918fa` · public surface:
+> `numinia.org`. Evidence: `AUD-2026-08-26-licensing-c005/surface-sweep-batch1.json`.
+
+### C4 — The 11 "effective" reservations are not effective. None of them.
+
+§E4 of v1.0.0 concluded that of the 42 reserved files, 31 had already been published
+under root CC0 and **11 retained an effective reservation**. That conclusion measured
+history (`git`), not the live surface. Measured against production, it is wrong.
+
+**11 of 11 are reachable by URL. 22 probes, HTTP 200 on all of them.**
+
+| Document | HTML | raw `.md` |
+|---|---|---|
+| `canon/C-001-welcome-to-numinia.md` | 200 · 59 109 B | 200 · 31 826 B |
+| `canon/C-002-brand-and-culture.md` | 200 · 88 273 B | 200 · 54 150 B |
+| `canon/C-003-attributes-and-ranks.md` | 200 · 31 915 B | 200 · 9 488 B |
+| `canon/C-004-role-structure.md` | 200 · 56 717 B | 200 · 33 660 B |
+| `canon/C-006-session-zero.md` | 200 · 47 716 B | 200 · 24 546 B |
+| `canon/C-007-rank-specifications.md` | 200 · 22 817 B | 200 · 1 686 B |
+| `canon/archive-lore.md` | 200 · 21 739 B | 200 · 1 667 B |
+| `operations/legal/O-003-privacy-policy-numengames.md` | 200 · 33 591 B | 200 · 12 618 B |
+| `operations/legal/O-004-terms-and-conditions-numengames.md` | 200 · 45 181 B | 200 · 22 027 B |
+| `operations/strategy/O-007-sales.md` | 200 · 32 627 B | 200 · 9 107 B |
+| `standards/S-003-platform-role-system.md` | 200 · 35 159 B | 200 · 10 270 B |
+
+**Method note:** the URLs were **derived from the real routes in `dist/`** before
+probing, not guessed. Each document was requested twice — the rendered page and the raw
+markdown — because a document can be reachable as one and not the other. Both answered.
+
+**Corrected count: effective reservations in `numinia-nwos` = 0.**
+
+| | v1.0.0 | v1.2.0 |
+|---|---|---|
+| Reserved files | 42 | 42 |
+| Already published under root CC0 (§E4) | 31 | 31 |
+| **Retaining an effective reservation** | **11** | **0** |
+
+### C5 — We are publishing a file that says it is not published
+
+`S-003` is served in production and the served `.md` is **byte-for-byte identical** to
+the one in the repository (10 270 B, verified with `diff`). Its own frontmatter, visible
+to any reader, declares:
+
+```yaml
+license: "LicenseRef-Numen-AllRightsReserved"
+```
+
+**Estamos publicando un fichero que dice que no se publica.**
+
+C-005 §4 is explicit: turning a repository public **is** the grant — *"una oferta de
+licencia hecha públicamente con la obra disponible otorga derechos a quien los tome, sin
+necesidad de `npm publish` ni de Arweave"*. The reservation is not weakened by this; it
+is contradicted by it.
+
+**Effect on open question 6 (`S-003`).** Dissolved. The 2026-08-25 ruling recorded in
+`REUSE.toml` reasoned that CC-BY would let anyone adapt Numinia's ranks. Whatever the
+merits of that argument, it protects nothing: the six ranks — NOMAD, CITIZEN, PILGRIM,
+VERNACULAR, ARCHON, ORACLE — are legible today at
+`numinia.org/corpus/standards/s-003-platform-role-system.md`. There is nothing left to
+reserve.
+
+### C6 — The `precedence = "override"` prohibition stays narrow, and here is why
+
+The proposal for C-005 v2.0.0 §5.2 forbids `precedence = "override"` **on third-party
+paths only**. It was left open whether to extend the ban repository-wide.
+
+**This measurement settles it, and the answer is no.** The argument for extending it was
+that `override` could silently revoke the reserved-regime annotations on `canon/**`,
+`guilds/**` and `agents/**`. Those annotations protect nothing: 31 of the 42 files left
+under irrevocable CC0, and the remaining 11 are served in the open. **The wider ban would
+defend a surface that no longer exists.**
+
+The narrow ban stands on its own footing: Phosphor Icons, Vercel/basement.studio, Huerta
+Tipográfica and the Pixelify Sans authors hold **live** rights that an `override` line
+would silently revoke, and unlike ours those are not ours to waive.
+
+Recorded here so that whoever proposes widening it in a year finds the reason where they
+will look for it.
+
+---
+
+## 9. Escalation — a governance finding, not a licensing one
+
+> Separated deliberately. This is not about which regime a file carries.
+
+**`O-003` (privacy policy) and `O-004` (terms and conditions) are served in full,
+publicly, and no record shows anyone deciding it.**
+
+- `numinia.org/corpus/operations/legal/o-003-privacy-policy-numengames.md` — 12 618 B
+- `numinia.org/corpus/operations/legal/o-004-terms-and-conditions-numengames.md` — 22 027 B
+
+`REUSE.toml` reserves `operations/legal/**` with an explicit rationale: *"Enforceable
+legal texts of the company are not documentation: C-005 is silent on their regime, so
+they stay in the birth regime (§1, reserved)."* Someone reasoned about their **licence**.
+Nobody appears to have decided their **publication**.
+
+`O-007` (`operations/strategy/**`, commercial strategy, "born closed" per MIS-071 phase
+2) is likewise served: 9 107 B.
+
+**Why this is a distinct class of problem.** A licence regime governs what others may
+*do* with a text. Publication governs whether the text is *offered* at all, and an
+enforceable legal document — one the company would rely on against a third party — that
+reaches production without a decision is a governance failure regardless of its licence.
+Changing the licence would not address it; a CC0 sweep would not address it either.
+
+**Not resolved here.** It requires an Oracle decision on two separate questions: whether
+these three documents should be publicly served at all, and — if the answer is that some
+should — what gate their publication passes through, given that `C-005 §4` already
+defines a signed gate for irreversible exposure and it was not applied.
+
 

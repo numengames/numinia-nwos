@@ -56,6 +56,14 @@ scope: "numinia-nwos @ e4918fa · public surface: numinia.org"
 > `FileCopyrightText` per file. Reading `REUSE.toml` and finding it correct is not
 > verification: an annotation can be present, correct, and inert.
 >
+> *Worked example, from this repository.* Three `.license` files were written for
+> `LICENSE-Geist.txt`, `LICENSE-Alegreya.txt` and `LICENSE-PixelifySans.txt`. They are
+> correct in content and they do nothing: `reuse` does not cover files it recognises as
+> licence texts, so those three names appear in **no** SBOM — not today's, not the one
+> archived before the fix. The declaration looked like coverage and produced none. **Only
+> the effective regime showed it**, which is the whole reason this rule is written as a
+> verification method rather than as advice.
+>
 > **CI (DEBE).** A guard **DEBE** fail on the appearance of `precedence = "override"`
 > in any `REUSE.toml` of the repository, and **DEBE** assert that no file under a
 > declared third-party path carries a Numen Games copyright. **A prohibition no CI
@@ -184,14 +192,32 @@ the tree would follow a rule the canon does not yet state.
 
 ---
 
-## 5. Open question this raises for §5.2
+## 5. Why the prohibition is narrow — decided, not pending
 
-The prohibition on `precedence = "override"` is stated for **third-party paths**. Should
-it extend to the whole repository?
+The prohibition on `precedence = "override"` covers **third-party paths only**. This was
+initially left open. **It is now decided: it stays narrow**, and the reason is measured,
+not assumed.
 
-Argument for: the same flag can defeat any annotation, including the reserved-regime
-ones on `canon/**`, `guilds/**` and `agents/**`. Argument against: `override` is a
-legitimate REUSE feature and a blanket ban forecloses uses nobody has needed yet.
+The argument for widening it was that the same flag could defeat the reserved-regime
+annotations on `canon/**`, `guilds/**` and `agents/**`. The surface sweep of 2026-08-26
+(AUD-2026-08-26 v1.2.0 §C4, evidence in `surface-sweep-batch1.json`) shows those
+annotations protect nothing:
 
-**Not decided here.** The guard proposed in §5.2 detects every occurrence, so the
-narrow prohibition is enforceable today and can be widened later without rework.
+| Reserved files in `numinia-nwos` | 42 |
+|---|---|
+| Already published under root CC0, irrevocably (§E4) | 31 |
+| Reachable in production today, HTTP 200 on 22 probes | 11 |
+| **Retaining an effective reservation** | **0** |
+
+**A repository-wide ban would defend a surface that no longer exists.**
+
+The narrow ban stands on its own footing, and on a different kind of right: Phosphor
+Icons, Vercel/basement.studio, Huerta Tipográfica and the Pixelify Sans authors hold
+**live** rights. Ours were waived or published; theirs were never ours to waive. An
+`override` line would revoke their attribution silently, and that is the case §5.2
+exists to prevent.
+
+This is recorded here, in the section itself, so that whoever proposes widening the ban
+finds the reason where they will look for it — rather than re-deriving it from a sweep
+nobody remembers.
+
