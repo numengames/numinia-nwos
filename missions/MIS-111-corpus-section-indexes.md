@@ -197,6 +197,25 @@ signature.)*
 - **Evidence:** base `e84ee19`. Pages 728 → 730 (+2: `/corpus/decisions/` and
   `/corpus/debt/` did not exist as indexes; the other four replaced catch-all
   artefacts). Guards: licence 271/294, references baseline 17 no new,
-  orphan-content exit 0. Production verification pending merge.
+  orphan-content exit 0.
+
+### Verified in production, `6ff1ff9`
+
+Merged as PR #64; the footer moved `e84ee19 → 6ff1ff9` on its own.
+
+```
+/corpus/canon        200   11 documents      /corpus/protocols    200   14
+/corpus/standards    200    5                /corpus/blueprints   200   23
+/corpus/decisions    200   12                /corpus/debt         200   34
+                                             6 of 6 correct
+
+/corpus/             200   links all six sections
+random sample of 12 listed links             12 of 12 resolve, 0 broken
+```
+
+**The third check is the one `dist/` cannot give.** A row can render perfectly
+and still point at a URL the site does not serve — which is exactly what would
+have happened had `decisions` and `blueprints` been listed under `/corpus/`.
+Twelve links drawn at random from all six indexes, every one a 200.
 
 - **Closed:** 2026-08-25 · **by:** ursa
