@@ -5,11 +5,11 @@ title: "Licensing audit of numinia-nwos against C-005 v1.3.0, and the measured i
 type: report
 subtype: audit
 status: published
-version: "1.3.0"
+version: "1.4.0"
 created: "2026-08-26T09:40:00Z"
 created_source: "git:8a529fa"
 created_confidence: "exact"
-updated: "2026-08-26T14:25:00Z"
+updated: "2026-08-26T15:10:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procuradores"
@@ -897,8 +897,21 @@ NO_SIGNAL         40    21.1%   no author field — but all 40 have a git author
 IRRECOVERABLE      0     0.0%
 ```
 
-**Proposed cut: sweep 139 now (73.2%), hold 51 pending with a threshold (26.8%).** The
-51 are the LLM-authored files, where §2.6 warns that purely machine-generated work may
-generate no copyright — so a CC0 declaration over them would be **void of object**, not
-merely premature. Criterion, alternatives rejected, and the exit threshold are in the
-provenance report. **Proposed, not applied.**
+**Proposed cut: sweep 179 now (94.2%), hold 11 pending with a threshold (5.8%).**
+
+> **Two corrections, both visible in the provenance report.** The first partition
+> (139/51) classified strings, not authorship: it held files whose `author:` named a
+> model while sweeping those naming an agent persona, when `agents/ursa/SOUL.md` declares
+> `model: "anthropic/claude-sonnet-4-6"`. Reclassified by nature (§6): 67/123. Then the
+> **Oracle ruled** that the P-003/P-009 cycle constitutes *"intervención humana
+> sustancial y registrada"* under §2.6 — so what matters is the **process**, not the
+> author's name. Anchoring each AI-authored file to that cycle by evidence (§7) gives
+> the final figure.
+
+The 11 held back are AI-authored files that could **not** be anchored: 8 missions in
+`frozen` whose anchor rests on the state alone with no `owner` field, and 3 documents
+with no protocol trace of any kind. They stay pending because the ruling covers the
+process, and inferring the process from a correlated field would repeat the error it
+just corrected. Criterion, the 13 Oracle-ordered migrations, and the exit threshold are
+in the provenance report. **Proposed, not applied.**
+
