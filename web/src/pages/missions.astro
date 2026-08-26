@@ -23,11 +23,33 @@ const PRIORITY_DOT: Record<string, string> = {
   low: "bg-green",
 };
 const TYPE_ICON: Record<string, string> = { biological: "dna", digital: "robot", hybrid: "git-branch" };
+
+// MIS-115b — priority as TEXT, in level 3. The left border carries the same
+// datum as colour, and never alone: WCAG AA is a project standard, and a
+// greyscale print loses colour entirely. Colour reinforces, text states.
+const PRIORITY_TEXT: Record<string, string> = {
+  critical: "text-red",
+  high: "text-yellow",
+  medium: "text-dim",
+  low: "text-dim",
+};
+// The left border. Same four values, same meaning, redundant on purpose.
+const PRIORITY_BORDER: Record<string, string> = {
+  critical: "border-l-red",
+  high: "border-l-yellow",
+  medium: "border-l-border",
+  low: "border-l-border",
+};
+
 const STATUS_COLOR: Record<string, string> = {
-  "backlog": "border-border bg-card hover:bg-card-hover",
-  "in-progress": "border-accent/20 bg-accent/5 hover:bg-accent/10",
-  "in-review": "border-yellow/20 bg-yellow/5 hover:bg-yellow/10",
-  "done": "border-green/20 bg-green/5 hover:bg-green/10",
+  // Motion: Design System v5.1.0 §10.1-04 "Elevación" — 120ms, hover of
+  // surfaces, WITHOUT displacement. Not invented: it is the catalogue entry for
+  // exactly this case, and the catalogue is closed at fourteen. The global
+  // prefers-reduced-motion rule (§892) already collapses it to 0.001ms.
+  "backlog": "border-border bg-card hover:bg-card-hover transition-colors duration-[120ms]",
+  "in-progress": "border-accent/20 bg-accent/5 hover:bg-accent/10 transition-colors duration-[120ms]",
+  "in-review": "border-yellow/20 bg-yellow/5 hover:bg-yellow/10 transition-colors duration-[120ms]",
+  "done": "border-green/20 bg-green/5 hover:bg-green/10 transition-colors duration-[120ms]",
 };
 const STATUS_ID_COLOR: Record<string, string> = {
   "backlog": "text-dim",
@@ -254,50 +276,53 @@ const stats = [
                 ) : colMissions.map((m) => (
                   <a
                     href={"/missions/" + m.id.toLowerCase()}
-                    class={(STATUS_COLOR[m.status] || STATUS_COLOR["backlog"]) + " transition-all duration-150 rounded-lg border p-3.5 mission-card cursor-pointer block"}
+                    class={(STATUS_COLOR[m.status] || STATUS_COLOR["backlog"]) + " " + (PRIORITY_BORDER[m.priority] || "border-l-border") + " rounded-lg border border-l-[3px] p-4 mission-card cursor-pointer block"}
                     data-status={m.status}
                     data-priority={m.priority}
                     data-effort={m.effort}
                     data-guild={m.guild}
                     data-searchable={[m.id, m.title, m.assignedTo || "", m.guild].join(" ").toLowerCase()}
                   >
-                    <div class="flex items-center justify-between mb-2">
-                      <span class={"font-mono text-[0.6rem] font-medium " + (STATUS_ID_COLOR[m.status] || "text-dim")}>{m.id}</span>
-                      <div class="flex items-center gap-1.5">
-                        <span class="text-dim"><Icon name={TYPE_ICON[m.type] || "git-branch"} size={10} /></span>
-                        <span class="font-mono text-[0.55rem] text-dim">{m.effort}</span>
-                        <span class={"inline-block h-2 w-2 rounded-full " + (PRIORITY_DOT[m.priority] || "bg-border")} title={m.priority}></span>
-                      </div>
+                    {/* MIS-115b — three levels, and nothing below the scale.
+                        The card used 0.5/0.55/0.6rem (8/9/10px): three sizes
+                        the Design System v5.1.0 §4.3 does not define, its
+                        smallest being `etiqueta` at 0.75rem/12px. Everything
+                        here is a token that already exists.
+
+                        1 · title     cuerpo.l  1.44rem/23px  weight 600
+                        2 · id, date  cuerpo.s  0.875rem/14px mono
+                        3 · the rest  etiqueta  0.75rem/12px  mono, uppercase */}
+
+                    {/* LEVEL 1 — the title, and it is the only large thing. */}
+                    <p class="text-[1.44rem] font-semibold text-foreground leading-tight tracking-[-0.01em] mb-2.5">{m.title}</p>
+
+                    {/* LEVEL 2 — who it is and when it moved. */}
+                    <div class="flex items-baseline justify-between gap-3 mb-2">
+                      <span class={"font-mono text-[0.875rem] font-medium " + (STATUS_ID_COLOR[m.status] || "text-dim")}>{m.id}</span>
+                      {(m.status === "done" ? m.completed ?? m.updated : m.updated) && (
+                        <span class="font-mono text-[0.875rem] text-dim">
+                          <time datetime={m.status === "done" ? m.completed ?? m.updated : m.updated}>
+                            {m.status === "done" ? m.completed ?? m.updated : m.updated}
+                          </time>
+                        </span>
+                      )}
                     </div>
-                    <p class="text-sm font-medium text-foreground leading-snug mb-2.5">{m.title}</p>
-                    <div class="flex items-center justify-between">
-                      <span class="font-mono text-[0.55rem] text-dim">{m.guild}</span>
-                      {m.assignedTo && <span class="inline-flex items-center gap-1 font-mono text-[0.5rem] text-dim opacity-70"><Icon name="sword" size={9} /> {m.assignedTo}</span>}
-                    </div>
-                    {/* MIS-115a — the date the card is sorted by, shown on the
-                        card. Without it the order is unverifiable by a reader:
-                        an order nobody can check is decoration. `Done` shows
-                        when it closed; everything else, when it last moved. */}
-                    {(m.status === "done" ? m.completed ?? m.updated : m.updated) && (
-                      <p class="mt-1.5 font-mono text-[0.5rem] text-dim">
-                        {m.status === "done" ? "closed" : "updated"}{" "}
-                        <time datetime={m.status === "done" ? m.completed ?? m.updated : m.updated}>
-                          {m.status === "done" ? m.completed ?? m.updated : m.updated}
-                        </time>
-                      </p>
-                    )}
-                    <div class="mt-2 pt-2 border-t border-border/30 flex items-center justify-between gap-2">
-                      <div class="flex items-center gap-1">
-                        <span class="text-dim"><Icon name="user" size={9} /></span>
-                        <span class="font-mono text-[0.5rem] text-dim">{fmt(m.humanCostEur)}</span>
-                      </div>
-                      {m.computeCostEur != null ? (
-                        <div class="flex items-center gap-1">
-                          <span class="text-accent/60"><Icon name="robot" size={9} /></span>
-                          <span class={"font-mono text-[0.5rem] " + (m.status === "done" ? "text-accent" : "text-accent/50")}>{fmtSmall(m.computeCostEur)}{m.status !== "done" ? "*" : ""}</span>
-                        </div>
-                      ) : (
-                        <span class="font-mono text-[0.5rem] text-dim/40">no compute</span>
+
+                    {/* LEVEL 3 — everything else, one weight, one size.
+                        The priority is WRITTEN here as well as carried by the
+                        left border: colour is never the only bearer of the
+                        datum (WCAG AA, and a greyscale print loses it). */}
+                    <div class="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[0.75rem] uppercase tracking-[0.1em] text-dim">
+                      <span class={PRIORITY_TEXT[m.priority] || "text-dim"}>{m.priority}</span>
+                      <span class="inline-flex items-center gap-1">
+                        <Icon name={TYPE_ICON[m.type] || "git-branch"} size={11} />
+                        {m.effort}
+                      </span>
+                      <span>{m.guild}</span>
+                      {m.assignedTo && (
+                        <span class="inline-flex items-center gap-1">
+                          <Icon name="sword" size={11} /> {m.assignedTo}
+                        </span>
                       )}
                     </div>
                   </a>
@@ -322,21 +347,22 @@ const stats = [
               <div class="rounded-lg border border-dim/20 bg-dim/5 p-3.5 mission-card"
                 data-status={m.status} data-priority={m.priority} data-effort={m.effort} data-guild={m.guild}
                 data-searchable={[m.id, m.title, m.assignedTo || "", m.guild].join(" ").toLowerCase()}>
-                <div class="flex items-center justify-between mb-2">
-                  <span class="font-mono text-[0.6rem] text-dim">{m.id}</span>
-                  <span class="font-mono text-[0.55rem] text-dim">{m.effort}</span>
-                </div>
-                <p class="text-sm text-foreground/60 leading-snug mb-2">{m.title}</p>
-                <div class="flex items-center justify-between gap-2">
-                  <span class="font-mono text-[0.55rem] text-dim">{m.guild}</span>
-                  {/* MIS-115a — frozen and cancelled render in their own block,
-                      which is why they had no date while every column card did.
-                      Every card shows one, or the count is not "every card". */}
+                {/* MIS-115b — same three levels as the column cards. Frozen
+                    renders in its own block, and applying the hierarchy only
+                    to the columns would leave two card designs on one page. */}
+                <p class="text-[1.44rem] font-semibold text-foreground/60 leading-tight tracking-[-0.01em] mb-2.5">{m.title}</p>
+                <div class="flex items-baseline justify-between gap-3 mb-2">
+                  <span class="font-mono text-[0.875rem] font-medium text-dim">{m.id}</span>
                   {m.updated && (
-                    <span class="font-mono text-[0.5rem] text-dim">
-                      updated <time datetime={m.updated}>{m.updated}</time>
+                    <span class="font-mono text-[0.875rem] text-dim">
+                      <time datetime={m.updated}>{m.updated}</time>
                     </span>
                   )}
+                </div>
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[0.75rem] uppercase tracking-[0.1em] text-dim">
+                  <span class={PRIORITY_TEXT[m.priority] || "text-dim"}>{m.priority}</span>
+                  <span>{m.effort}</span>
+                  <span>{m.guild}</span>
                 </div>
               </div>
             ))}
