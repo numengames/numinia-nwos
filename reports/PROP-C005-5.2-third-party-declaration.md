@@ -171,9 +171,22 @@ reason is exactly what §5.2 now turns into an explicit prohibition.
 | B1, audit | the licence (`MIT == MIT`) | licence **and** attribution | 69 icons had a false holder |
 | #22, report | the abstract I read (v1) | the paper at its bare URL | v2 had rewritten the claim |
 | PR #69 | the default precedence | **all** precedences | `override` defeats `.license` |
+| PR #71, `PROP-` | the convention **once** (for `AUD-`) | **every** identifier I would mint | `ADR-005` declares no `PROP-` |
 
-Same error in three domains: **verify one dimension, conclude about another.** Each was
-caught by measuring rather than re-reading.
+Same error in four domains: **verify one dimension, conclude about another.** The first
+three are about *content* — I checked one field, one version, one mode. **The fourth is
+about *process*, and that makes it different in kind:** I performed the verification
+correctly, derived `AUD-2026-08-26-licensing-c005` from six precedents, and then treated
+the *act of having verified* as a property I now possessed rather than a step to repeat.
+
+A content error is caught by measuring again. A process error is not: measuring the
+prefix would have worked perfectly — I simply did not do it the second time. **The
+correction for the first three is a better instrument; for the fourth it is a checklist,
+because the failure is in the omission, not in the method.**
+
+The first three were caught by measuring rather than re-reading. The fourth was caught
+only because the Oracle asked me to audit my own process.
+
 
 ---
 

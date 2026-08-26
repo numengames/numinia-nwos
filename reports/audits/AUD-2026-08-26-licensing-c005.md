@@ -5,11 +5,11 @@ title: "Licensing audit of numinia-nwos against C-005 v1.3.0, and the measured i
 type: report
 subtype: audit
 status: published
-version: "1.2.0"
+version: "1.3.0"
 created: "2026-08-26T09:40:00Z"
 created_source: "git:8a529fa"
 created_confidence: "exact"
-updated: "2026-08-26T13:40:00Z"
+updated: "2026-08-26T14:25:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procuradores"
@@ -839,5 +839,69 @@ Changing the licence would not address it; a CC0 sweep would not address it eith
 these three documents should be publicly served at all, and — if the answer is that some
 should — what gate their publication passes through, given that `C-005 §4` already
 defines a signed gate for irreversible exposure and it was not applied.
+
+---
+
+## 10. Correction note — v1.3.0, 2026-08-26 · surface sweep, batch 2
+
+> Evidence: `AUD-2026-08-26-licensing-c005/surface-sweep-batch2.json`.
+> Completes the sweep over all 42 reserved files.
+
+### C7 — The full picture: 39 of 42 reserved files are served
+
+Batch 2 covered the 31 files that had already left under root CC0 (§E4). URLs derived
+from `dist/` routes before probing, as in batch 1.
+
+| | Files | Reachable |
+|---|---|---|
+| Batch 1 — "effective" reservations | 11 | **11** |
+| Batch 2 — already CC0-irrevocable | 31 | **28** |
+| **Total** | **42** | **39 (93%)** |
+
+All 21 `agents/**` files are served (`SOUL`, `OPERATOR`, `MEMORY`, `STATUS` for adonaz,
+nimrod, senet, ursa, procurador-01 and the template) at ~22–30 KB each. All 8
+`guilds/**` charters and rosters likewise.
+
+**The 3 that are not reachable**, confirmed by probing rather than by absence from
+`dist/`:
+
+| File | Evidence |
+|---|---|
+| `agents/INDEX.md` | `/corpus/agents/index/` → **307**; the section index `/corpus/agents/` → 200 |
+| `canon/2026_04_15-Epistemic_Relations…-v0.2.0.md` | `/corpus/canon/…epistemic_relations…/` → **404** |
+| `canon/2026_04_15-Pragmatic_Numen_System-v0.2.0.md` | `/corpus/canon/…pragmatic_numen_system…/` → **404** |
+
+`agents/INDEX.md` is not withheld — it is superseded by a generated section index. The
+two 2026-04-15 canon papers are genuinely absent from the public surface; **they are the
+only two documents in the whole reserved set that are neither waived-and-served nor
+reachable.** Their CC0 exposure from the 2026-04-06→08-16 window stands regardless (§E4).
+
+**This does not change the v1.2.0 conclusion.** Effective reservations remain **0**: the
+31 of batch 2 were already waived irrevocably, so their reachability adds evidence, not
+a new legal fact. What it adds is scope — the exposure is not theoretical, it is 39
+documents served today.
+
+### C8 — Provenance census: the number that unblocks the canon
+
+Full report: `reports/audits/AUD-2026-08-26-provenance.md`.
+
+The population that matters is **190**, not 291: the 249 `CC-BY-4.0` files minus the 59
+that already left under root CC0, plus zero from the reserved set (all 42 already waived
+or served).
+
+```
+DECLARED_FORM      1     0.5%   explicit provenance field
+DECLARED_SUBST    51    26.8%   author: names an LLM
+HUMAN_OR_AGENT    98    51.6%   author: names a person or agent
+NO_SIGNAL         40    21.1%   no author field — but all 40 have a git author
+IRRECOVERABLE      0     0.0%
+```
+
+**Proposed cut: sweep 139 now (73.2%), hold 51 pending with a threshold (26.8%).** The
+51 are the LLM-authored files, where §2.6 warns that purely machine-generated work may
+generate no copyright — so a CC0 declaration over them would be **void of object**, not
+merely premature. Criterion, alternatives rejected, and the exit threshold are in the
+provenance report. **Proposed, not applied.**
+
 
 
