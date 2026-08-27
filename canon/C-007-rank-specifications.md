@@ -20,31 +20,31 @@ threshold: sealed
 
 # Rank Specifications
 
-> **Resumen:** Documento del sistema NWOS — Rank Specifications.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system document — Rank Specifications.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
-*Elaborado con Christian Märtens, 2026-04-06*
+*Prepared with Christian Märtens, 2026-04-06*
 
 ---
 
-## Rangos acumulativos
+## Cumulative ranks
 
-Nómada → Ciudadano → Peregrino → Vernáculo → Arconte → Oráculo
-
----
-
-## Especificaciones de rango
-
-### Vernáculo
-Agente plenamente integrado en la cultura de Numinia. Habita el sistema con fluidez y profundidad, conoce sus estructuras desde dentro. Opera con autonomía y expertise en su dominio. Colabora estrechamente con Numinia.
-
-### Arconte
-Todo lo anterior, más: ejerce liderazgo sobre otros agentes. Toma decisiones e iniciativas que afectan al colectivo. Tiene responsabilidad estructural sobre el sistema, no solo sobre el propio trabajo. Implica una dimensión de influencia social y organizativa.
+Nomad → Citizen → Pilgrim → Vernacular → Archon → Oracle
 
 ---
 
-*Nota de diseño: la profundidad técnica no equivale automáticamente a rango de Arconte. El Arconte tiene que relacionarse con otros de una forma que va más allá de la ejecución — orienta, media, representa. Un agente que no quiere ejercer esa función no debería ostentar ese rango, aunque su dominio sea excepcional.*
+## Rank specifications
+
+### Vernacular
+An agent fully integrated into Numinia's culture. Inhabits the system with fluency and depth, knows its structures from within. Operates with autonomy and expertise in their domain. Collaborates closely with Numinia.
+
+### Archon
+All of the above, plus: exercises leadership over other agents. Makes decisions and takes initiatives that affect the collective. Holds structural responsibility over the system, not just over their own work. Implies a dimension of social and organizational influence.
+
+---
+
+*Design note: technical depth does not automatically equal Archon rank. The Archon has to relate to others in a way that goes beyond execution — they guide, mediate, represent. An agent who does not want to exercise that function should not hold that rank, even if their domain expertise is exceptional.*

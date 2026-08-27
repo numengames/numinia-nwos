@@ -3,14 +3,17 @@ id: "canon-index"
 title: "Canon — Index"
 type: seminal
 status: active
-version: "1.2.1"
+version: "1.2.2"
 created: "2026-04-06T00:00:00Z"
-updated: "2026-08-16T00:00:00Z"
+updated: "2026-08-27T00:00:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [canon, index, seminal]
 license: "CC-BY-4.0"
 changelog:
+  - version: "1.2.2"
+    date: "2026-08-27T00:00:00Z"
+    change: "Translated to English (MIS-116, ADR-024). C-005 listed as v1.4.0, language EN."
   - version: "1.2.1"
     date: "2026-08-16T00:00:00Z"
     change: "C-005 updated to v1.1.0 — repo is not a legal unit (apps/AGPL + packages/MIT via REUSE.toml), header exception for pinned files, CLA per repo."
@@ -24,157 +27,159 @@ changelog:
     date: "2026-04-06T00:00:00Z"
     change: "Initial canon with 9 documents."
 ---
-# Canon — Memoria Inmutable
+# Canon — Immutable Memory
 
-> **Resumen:** Documento fundacional del universo Numinia.
-> **Epistémico:** Conocimiento fundacional del universo Numinia.
-> **Pragmático:** Fuente de verdad canónica — consultar antes de crear lore.
-> **Audiencia:** Agentes · Oráculos · Externos
+> **Summary:** Foundational document of the Numinia universe.
+> **Epistemic:** Foundational knowledge of the Numinia universe.
+> **Pragmatic:** Canonical source of truth — consult before creating lore.
+> **Audience:** Agents · Oracles · External readers
 
 ---
 
 
-Los 10 documentos fundacionales de Numinia. Son inmutables por política y por enforcement técnico (CODEOWNERS). Son el suelo sobre el que todo lo demás se construye.
+The foundational documents of Numinia. They are immutable by policy and by technical enforcement (CODEOWNERS). They are the ground everything else is built upon.
 
-## Política de modificación
+## Modification policy
 
-**Nadie** puede modificar estos documentos una vez publicados. Si se encuentra una contradicción con la realidad operativa:
-1. Documentar la discrepancia en `decisions/` como ADR
-2. Decidir explícitamente: cambiar la práctica o actualizar el canon
-3. Actualizar el canon requiere consenso de Oráculos + label `canon-change`
+**Nobody** may modify these documents once published. If a contradiction with operational reality is found:
+1. Document the discrepancy in `decisions/` as an ADR
+2. Decide explicitly: change the practice or update the canon
+3. Updating the canon requires Oracle consensus + the `canon-change` label
 
-## Los documentos seminales — serie C
+## The seminal documents — C series
 
-> **Renumerado el 2026-08-25 (`MIS-109` fase C).** La serie seminal usaba
-> `S-NNN`, que `ADR-005` asignó a `standards/`: `S-001` y `S-003` significaban
-> dos documentos vivos cada uno. Ahora los seminales son `C-NNN`. **El número
-> viejo se conserva en la tabla**: es lo que citan los documentos anteriores a
-> esta fecha, y un identificador es una promesa sobre el pasado (`ADR-004`).
+> **Renumbered on 2026-08-25 (`MIS-109` phase C).** The seminal series used
+> `S-NNN`, which `ADR-005` assigned to `standards/`: `S-001` and `S-003` each
+> meant two living documents. The seminals are now `C-NNN`. **The old number
+> is kept in the table**: it is what documents prior to that date cite, and an
+> identifier is a promise about the past (`ADR-004`).
 
-| # | ID | Antes | Documento | Archivo | Idioma | Valor |
-|---|----|-------|-----------|---------|--------|-------|
+| # | ID | Was | Document | File | Language | Value |
+|---|----|-----|----------|------|----------|-------|
 | 1 | **C-001** | `S-001` | Welcome to Numinia | `C-001-welcome-to-numinia.md` | EN | 9/10 |
 | 2 | **C-002** | `S-002` | Numinia Brand & Culture | `C-002-brand-and-culture.md` | EN | 9/10 |
 | 3 | **C-003** | `S-004` | Compendium of Attributes | `C-003-attributes-and-ranks.md` | EN | 9/10 |
 | 4 | **C-004** | `S-005` | Role Structure | `C-004-role-structure.md` | EN | 10/10 |
-| 5 | **C-005** | — | Canon de Licencias | `C-005-licensing.md` | ES | — |
+| 5 | **C-005** | — | Licensing Canon | `C-005-licensing.md` | EN | — |
 | 6 | **C-006** | `S-007` | About Session Zero | `C-006-session-zero.md` | EN | 8/10 |
 | 7 | **C-007** | `S-009` | Rank Specifications | `C-007-rank-specifications.md` | EN | 7/10 |
 
-**Siete documentos seminales.** Empezaron siendo diez: uno cambió de serie, uno
-vive en otro repositorio y uno era aparato. Los tres están abajo, porque un
-lector que recuerde diez tiene derecho a saber dónde fueron.
+**Seven seminal documents.** They started as ten: one changed series, one
+lives in another repository and one was apparatus. All three are below,
+because a reader who remembers ten has the right to know where they went.
 
-### Documentos fechados, no numerados
+### Dated documents, not numbered
 
-Artefactos congelados (`P-010` §3.2): un nombre con fecha es una fotografía, y
-la matriculación numera series vivas. **No llevan `C-NNN`.**
+Frozen artifacts (`P-010` §3.2): a dated name is a photograph, and
+registration numbers living series. **They carry no `C-NNN`.**
 
-| Antes | Documento | Archivo |
-|-------|-----------|---------|
+| Was | Document | File |
+|-----|----------|------|
 | `S-003` | Epistemic Relations | `2026_04_15-Epistemic_Relations_Between_Numen_Games_and_Numina-v0.2.0.md` |
 | — | Pragmatic Numen System | `2026_04_15-Pragmatic_Numen_System-v0.2.0.md` |
 
-`Epistemic Relations` es la fuente de la distinción *Germinal Motive /
-Regulatory Model* (`ADR-023`), y **el enlace de este índice apuntó durante
-meses a `Epistemic relations between Numen Games and Numinia.md`**, un nombre
-retirado cuando el documento se resubió fechado el 2026-04-15. Corregido en
-esta fase.
+`Epistemic Relations` is the source of the *Germinal Motive /
+Regulatory Model* distinction (`ADR-023`), and **this index's link pointed for
+months at `Epistemic relations between Numen Games and Numinia.md`**, a name
+retired when the document was re-uploaded dated 2026-04-15. Corrected in
+that phase.
 
-### Los tres que ya no están en la serie
+### The three no longer in the series
 
-| Antes | Documento | Dónde está | Por qué |
-|-------|-----------|------------|---------|
-| `S-006` | Platform Role System | **`standards/S-003-platform-role-system.md`** | Género: una matriz de permisos regula un artefacto, no nombra el mundo. `ADR-023`. Conserva régimen reservado (`D-030`) |
-| `S-008` | Numinia — El Juego de Rol | **`numinia-lore`**, fuera de este repositorio | El manual vive en el repositorio de lore. Se conserva aquí como puntero externo: quien no lo encuentre concluiría que no existe, y existe |
-| `S-010` | Archive System | `canon/README.md` | **Aparato, no seminal**: es regenerable desde los demás. Un índice que se lista a sí mismo como fundacional confunde instrumento con registro |
+| Was | Document | Where it is | Why |
+|-----|----------|-------------|-----|
+| `S-006` | Platform Role System | **`standards/S-003-platform-role-system.md`** | Genre: a permissions matrix regulates an artifact, it does not name the world. `ADR-023`. Keeps its reserved regime (`D-030`) |
+| `S-008` | Numinia — The Role-Playing Game | **`numinia-lore`**, outside this repository | The manual lives in the lore repository. Kept here as an external pointer: whoever fails to find it would conclude it does not exist, and it does |
+| `S-010` | Archive System | `canon/README.md` | **Apparatus, not seminal**: it is regenerable from the others. An index that lists itself as foundational confuses instrument with record |
 
-### Documentos en `canon/` que este índice no listaba
+### Documents in `canon/` this index did not list
 
-Encontrados al verificar la cuenta de los diez, `MIS-109` fase C:
+Found while verifying the count of ten, `MIS-109` phase C:
 
-| Documento | En el canon desde |
-|-----------|-------------------|
-| `2026_04_15-Pragmatic_Numen_System-v0.2.0.md` | 2026-04-15 — **cuatro meses sin figurar** |
+| Document | In the canon since |
+|----------|--------------------|
+| `2026_04_15-Pragmatic_Numen_System-v0.2.0.md` | 2026-04-15 — **four months unlisted** |
 | `archive-lore.md` | 2026-08-17 |
 | `C-005-licensing.md` | 2026-08-16 |
 
-`Pragmatic Numen System` es el documento cuyo §2.3 resolvió la cuestión
-`Functional`/`Regulatory` en `ADR-023`: se usó como autoridad un documento que
-el índice del canon no reconocía.
+`Pragmatic Numen System` is the document whose §2.3 resolved the
+`Functional`/`Regulatory` question in `ADR-023`: a document the canon's index
+did not recognize was used as authority.
 
-## Canon operativo (serie C)
+## Operational canon (C series)
 
-Normas internas con rango de canon: inmutables salvo consenso formal, pero de
-naturaleza operativa, no seminal. Autoridad: Brand & Culture > C-001…C-004
-(canon de workspace NWOS) > serie C operativa > cualquier repositorio.
+Internal norms with canon rank: immutable except by formal consensus, but
+operational in nature, not seminal. Authority: Brand & Culture > C-001…C-004
+(NWOS workspace canon) > operational C series > any repository.
 
-| # | ID | Documento | Archivo | Idioma | Versión |
-|---|----|-----------|---------|--------|---------|
-| 1 | C-005 | Canon de Licencias | `C-005-licensing.md` | ES | 1.1.0 |
+| # | ID | Document | File | Language | Version |
+|---|----|----------|------|----------|---------|
+| 1 | C-005 | Licensing Canon | `C-005-licensing.md` | EN | 1.4.0 |
 
-## Canon que no vive en este repositorio
+## Canon that does not live in this repository
 
-Documentos con rango de canon cuya **fuente de verdad está en otro repositorio**.
-No se copian aquí: se apuntan. Una copia sería una segunda variante que envejece
-por su cuenta — que es exactamente lo que produjo el stub retirado el 2026-08-25.
+Documents with canon rank whose **source of truth is in another repository**.
+They are not copied here: they are pointed at. A copy would be a second variant
+aging on its own — which is exactly what produced the stub retired on 2026-08-25.
 
-| Documento | Fuente de verdad | `derived_from` | Régimen | Versión |
+| Document | Source of truth | `derived_from` | Regime | Version |
 |---|---|---|---|---|
-| Numinia — Manual del juego de rol | `numengames/numinia-lore` → `seminal/Numinia_Manual_del_juego_de_rol_v0_6_0.md` | — (**es** el original; este repo no deriva, apunta) | `LicenseRef-Numen-AllRightsReserved` (C-005 §2) | 0.6.0 |
+| Numinia — The role-playing game manual | `numengames/numinia-lore` → `seminal/Numinia_Manual_del_juego_de_rol_v0_6_0.md` | — (it **is** the original; this repo does not derive, it points) | `LicenseRef-Numen-AllRightsReserved` (C-005 §2) | 0.6.0 |
 
-**Sustituye a** `Numinia. El juego de rol (manual completo).txt` (S-008, v0.1.0,
-4.667 líneas) y a `Numinia-El-juego-de-rol-manual-completo.md` (131 líneas, un
-stub que nunca contuvo el manual), ambos retirados el 2026-08-25.
+**Replaces** `Numinia. El juego de rol (manual completo).txt` (S-008, v0.1.0,
+4,667 lines) and `Numinia-El-juego-de-rol-manual-completo.md` (131 lines, a
+stub that never contained the manual), both retired on 2026-08-25.
 
-**Por qué un puntero y no un fichero.** El manual v0.6.0 son 129.087 palabras. En
-`canon/` lo globearía `web/src/content.config.ts` (patrón `canon/**/*.md`) y
-numinia.org publicaría una página de 890 KB — 2,6× la más pesada del sitio — más
-el `.md` crudo en abierto. Y habría dos copias del mismo documento en dos repos
-sin declarar cuál manda: la condición exacta que produjo el stub.
+**Why a pointer and not a file.** The v0.6.0 manual is 129,087 words. In
+`canon/` it would be globbed by `web/src/content.config.ts` (pattern
+`canon/**/*.md`) and numinia.org would publish an 890 KB page — 2.6× the
+heaviest on the site — plus the raw `.md` in the open. And there would be two
+copies of the same document in two repos with no declaration of which rules:
+the exact condition that produced the stub.
 
-**Por qué sin ID nuevo.** Un puntero no es un documento fundacional. Darle un
-`C-00N` y un fichero propio fabrica el mismo objeto que acabamos de retirar, con
-mejores intenciones. La entrada de índice basta y no consume identificador.
+**Why no new ID.** A pointer is not a foundational document. Giving it a
+`C-00N` and its own file manufactures the same object we just retired, with
+better intentions. The index entry suffices and consumes no identifier.
 
-**Verificado 2026-08-25:** `numinia-lore` es público (`visibility: public`,
-comprobado sin credenciales) y `seminal/**` declara reserva expresa de derechos en
-su `REUSE.toml` — decisión firmada por el Oráculo el 2026-08-17 (MIS-085 D1). El
-puntero resuelve para cualquier lector y el contenido conserva su régimen.
+**Verified 2026-08-25:** `numinia-lore` is public (`visibility: public`,
+checked without credentials) and `seminal/**` declares an express reservation
+of rights in its `REUSE.toml` — a decision signed by the Oracle on 2026-08-17
+(MIS-085 D1). The pointer resolves for any reader and the content keeps its
+regime.
 
-**Anomalía del documento fuente, registrada sin corregir:** la numeración de
-«Fragmentos» del manual tiene huecos y un duplicado — cap. 2 salta del 5 al 7;
-cap. 3 salta del 5 al 8; cap. 4 tiene dos «Fragmento 6» (*Sistema de
-Enfrentamientos* y *Estados del PJ*). Viene así del original; corregirla es
-decisión editorial del Oráculo, no de archivo.
+**Source-document anomaly, recorded without correcting:** the manual's
+«Fragmentos» numbering has gaps and one duplicate — ch. 2 jumps from 5 to 7;
+ch. 3 jumps from 5 to 8; ch. 4 has two «Fragmento 6» (*Sistema de
+Enfrentamientos* and *Estados del PJ*). It comes that way from the original;
+correcting it is an editorial decision for the Oracle, not for the archive.
 
-## Notas sobre S-009
+## Notes on S-009
 
-`Rank Specifications` fue elaborado el 2026-04-06 con Christian Märtens. Define la **dimensión social del Arconte**: que la profundidad técnica por sí sola no confiere el rango — se requiere también capacidad de liderazgo y contribución a la comunidad. Complementa S-004 (Compendium) añadiendo el *por qué* detrás de las distinciones de rango.
+`Rank Specifications` was prepared on 2026-04-06 with Christian Märtens. It defines the **social dimension of the Archon**: that technical depth alone does not confer the rank — leadership capacity and contribution to the community are also required. It complements S-004 (Compendium) by adding the *why* behind the rank distinctions.
 
-Fue detectado en la auditoría de QA del 2026-04-07 como documento existente sin ID canónico asignado.
+It was detected in the QA audit of 2026-04-07 as an existing document with no canonical ID assigned.
 
-## Notas sobre S-010
+## Notes on S-010
 
-S-010 es un meta-documento: describe la carpeta canon en sí misma. Está incluido por completitud y navegabilidad, pero no es un seminal de contenido en el mismo sentido que S-001–S-009.
+S-010 is a meta-document: it describes the canon folder itself. It is included for completeness and navigability, but it is not a content seminal in the same sense as S-001–S-009.
 
-## Relaciones entre documentos (Knowledge Graph)
+## Relations between documents (Knowledge Graph)
 
-| Documento | Relación | Documento destino |
-|-----------|----------|-------------------|
+| Document | Relation | Target document |
+|----------|----------|-----------------|
 | **C-003** Compendium | `extended_by` | **C-007** Rank Specifications |
-| Epistemic Relations *(fechado)* | `grounds` | **C-004** Role Structure |
-| Epistemic Relations *(fechado)* | `grounds` | **C-002** Brand & Culture |
+| Epistemic Relations *(dated)* | `grounds` | **C-004** Role Structure |
+| Epistemic Relations *(dated)* | `grounds` | **C-002** Brand & Culture |
 | **C-004** Role Structure | `implements` | `standards/S-003` Platform Role System |
-| **C-006** Session Zero | `instantiates` | Manual del juego de rol *(`numinia-lore`)* |
+| **C-006** Session Zero | `instantiates` | The role-playing game manual *(`numinia-lore`)* |
 | **C-001** Welcome | `summarizes` | **C-002**, **C-004**, `standards/S-003` |
-| Manual del juego de rol *(`numinia-lore`)* | `is_narrative_of` | Epistemic Relations *(fechado)* |
+| The role-playing game manual *(`numinia-lore`)* | `is_narrative_of` | Epistemic Relations *(dated)* |
 
-> **La colisión de `S-003` está resuelta.** Hasta el 2026-08-25 este número
-> significaba dos documentos vivos: *Epistemic Relations* en el canon y
-> *Platform Role System* en `standards/`. La renumeración a `C-NNN` la cerró —
-> los seminales ya no usan `S-`, que `ADR-005` reservó para `standards/`.
-> `Epistemic Relations` no toma número: es un artefacto fechado.
+> **The `S-003` collision is resolved.** Until 2026-08-25 that number meant
+> two living documents: *Epistemic Relations* in the canon and *Platform Role
+> System* in `standards/`. The renumbering to `C-NNN` closed it — the
+> seminals no longer use `S-`, which `ADR-005` reserved for `standards/`.
+> `Epistemic Relations` takes no number: it is a dated artifact.
 
 ## Documents that left the canon
 
@@ -191,5 +196,5 @@ mv` keeps the history; the index is where a reader looks.
 
 ---
 
-*El canon no se cuestiona en el trabajo diario. Se consulta.*
-*Si el trabajo diario revela que el canon está equivocado, documenta la discrepancia y decide explícitamente.*
+*The canon is not questioned in daily work. It is consulted.*
+*If daily work reveals the canon is wrong, document the discrepancy and decide explicitly.*
