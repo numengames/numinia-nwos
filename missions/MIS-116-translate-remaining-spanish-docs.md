@@ -89,7 +89,11 @@ at once, so each PR stays small and reviewable.
       revoked C-005 §5's es-ES exception — amendment first, translation second.
       Sole language exception system-wide, recorded as debt in the ADR: the RPG
       manual (`numinia-lore`).
-- [ ] **`reports/`** — 5 files
+- [x] **`reports/`** — 5 files (`INDEX.md`, `RPT-2026-04-02`, `RPT-2026-04-03`,
+      `AUD-2026-04-07-system-audit`, `AUD-2026-08-17-stack`) — merged in
+      [PR #92](https://github.com/numengames/numinia-nwos/pull/92). Kept in
+      Spanish: verbatim quotes of Spanish sources, forensic evidence
+      (`audits/evidence/`), proper names, literal filenames.
 - [ ] **`operations/`** — 7 files (incl. the Spanish-language privacy policy)
 - [ ] **`blueprints/`** — 13 files
 - [ ] **`missions/`** — 12 files, range MIS-078…MIS-096 (already `done`;
@@ -138,6 +142,6 @@ smaller batch turns out more useful next.
 
 ## Closure
 
-*(Not yet closed — five of nine rows done. This section fills in once all
+*(Not yet closed — six of nine rows done. This section fills in once all
 nine checklist rows are checked, per this repo's own template rule:
 Closure is written at closing, not before.)*
