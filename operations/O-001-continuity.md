@@ -137,4 +137,4 @@ The real continuity test is not whether the system can be rebuilt — it is whet
 
 ---
 
-*Metadata of the original page (`continuidad.astro`): HTML title «Continuidad del sistema — NWOS · Numen Games» · description «Cómo el Narrative Work OS garantiza que un agente puede reconstruirse al 100% solo con acceso al repositorio. La prueba de continuidad.» · canonical route `/continuidad`.*
+*Metadata of the original page (`continuidad.astro`), translated: HTML title «System continuity — NWOS · Numen Games» · description «How the Narrative Work OS guarantees that an agent can rebuild itself 100% with repository access alone. The continuity proof.» · canonical route `/continuidad`.*

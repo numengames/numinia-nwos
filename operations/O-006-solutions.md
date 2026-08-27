@@ -284,4 +284,4 @@ Design an explicit 'canon guardian' role with recognized authority to arbitrate 
 
 ---
 
-*Metadata of the original page (`soluciones.astro`): HTML title «NWOS — Soluciones — Pablo FM» · description «Agrupación de gaps del Narrative Work OS y 3 soluciones propuestas por cluster. Firmadas por perspectiva de análisis.» · canonical route `/soluciones` · hero label «NWOS — Soluciones».*
+*Metadata of the original page (`soluciones.astro`), translated: HTML title «NWOS — Solutions — Pablo FM» · description «Grouping of Narrative Work OS gaps and 3 proposed solutions per cluster. Signed by analysis perspective.» · canonical route `/soluciones` · hero label «NWOS — Soluciones».*
