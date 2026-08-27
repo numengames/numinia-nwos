@@ -140,4 +140,4 @@ The sequence is: blind validation → confirmed ICP → pilot sold → documente
 
 ---
 
-*Metadata of the original page (`ventas.astro`): HTML title «NWOS — Estrategia de Ventas — Pablo FM» · description «Guía de ventas del Narrative Work OS para los Oráculos de Numen Games. ICP, funnel, bloqueadores y plan de piloto.» · canonical route `/ventas` · hero label «NWOS — Ventas».*
+*Metadata of the original page (`ventas.astro`), translated: HTML title «NWOS — Sales Strategy — Pablo FM» · description «Narrative Work OS sales guide for the Numen Games Oracles. ICP, funnel, blockers and pilot plan.» · canonical route `/ventas` · hero label «NWOS — Ventas».*

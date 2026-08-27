@@ -362,9 +362,9 @@ ask themselves.
 
 ---
 
-*Metadata from the original page (`gaps.astro`): HTML title "NWOS —
-Análisis de Gaps — Pablo FM" · description "Análisis crítico de los puntos
-ciegos del Narrative Work OS. Perspectivas de negocio, producto y teoría
-organizacional." · canonical path `/gaps` · hero "NWOS — Gaps · Los puntos
-ciegos que hay que ver antes de que te los señale el mercado". In the
+*Metadata from the original page (`gaps.astro`), translated: HTML title
+"NWOS — Gaps Analysis — Pablo FM" · description "Critical analysis of the
+Narrative Work OS blind spots. Business, product and organizational-theory
+perspectives." · canonical path `/gaps` · hero "NWOS — Gaps · The blind
+spots you must see before the market points them at you". In the
 source code the field shown as "Urgency" is called `criticidad`.*

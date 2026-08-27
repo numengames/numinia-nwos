@@ -29,7 +29,7 @@ license: "CC-BY-4.0"
 
 ---
 
-## Axes (según /wardley)
+## Axes (per /wardley)
 
 A strategic map of the Narrative Work OS. Two axes tell the full story: **how visible** each component is to the user, and **how evolved** it is in the market.
 
@@ -107,99 +107,99 @@ quadrantChart
 
 ---
 
-## Component Detail (según /wardley)
+## Component Detail (per /wardley)
 
-Full per-component analysis as published on the /wardley page: what it does, its strategic tension, and its moat. Coordinates are the page's (x, y) values on a 0–100 scale (x = evolution, y = distance from top / visibility); they differ by ±1 point from the Mermaid map above for some components — both are kept, the page values marked here (según /wardley).
+Full per-component analysis as published on the /wardley page: what it does, its strategic tension, and its moat. Coordinates are the page's (x, y) values on a 0–100 scale (x = evolution, y = distance from top / visibility); they differ by ±1 point from the Mermaid map above for some components — both are kept, the page values marked here (per /wardley).
 
 ### Narrative Layer
 
-- **Evolution:** Genesis · **Visibility:** Max visible · **Layer:** frontier · **Posición:** (12, 10) *(según /wardley)*
+- **Evolution:** Genesis · **Visibility:** Max visible · **Layer:** frontier · **Position:** (12, 10) *(per /wardley)*
 - **What it does:** The optional skin that makes the system feel alive. Guilds, lore, rituals. The highest differentiator — and the highest adoption risk.
 - **Strategic tension:** Users hit this first. They may reject before reaching the real value. That's why it's Layer 4, not Layer 0.
 - **Moat:** High — nowhere else has this
 
 ### Rituals
 
-- **Evolution:** Genesis · **Visibility:** Very visible · **Layer:** frontier · **Posición:** (16, 18) *(según /wardley)*
+- **Evolution:** Genesis · **Visibility:** Very visible · **Layer:** frontier · **Position:** (16, 18) *(per /wardley)*
 - **What it does:** Daily standups, Dark Council (weekly strategy), Lunar Coven (creativity). Structured ceremonies with operational weight.
 - **Strategic tension:** High engagement, high churn risk if vocabulary isn't adopted. Must be optional to start.
 - **Moat:** High — cultural adoption is a two-way commitment
 
 ### Mission System
 
-- **Evolution:** Genesis → Custom · **Visibility:** Visible · **Layer:** differentiator · **Posición:** (26, 28) *(según /wardley)*
+- **Evolution:** Genesis → Custom · **Visibility:** Visible · **Layer:** differentiator · **Position:** (26, 28) *(per /wardley)*
 - **What it does:** Every unit of work is a structured document: story, acceptance criteria, epistemic value, pragmatic value, and execution reality. Missions leave knowledge, not just checkmarks.
 - **Strategic tension:** This is the real moat. Not the lore. The window to establish it as a standard is 18–24 months.
 - **Moat:** Very high — this design exists nowhere else
 
 ### Digital Agents (CAO)
 
-- **Evolution:** Genesis → Custom · **Visibility:** Mid visible · **Layer:** differentiator · **Posición:** (21, 42) *(según /wardley)*
+- **Evolution:** Genesis → Custom · **Visibility:** Mid visible · **Layer:** differentiator · **Position:** (21, 42) *(per /wardley)*
 - **What it does:** AI agents with persistent identity (SOUL.md, OPERATOR.md, MEMORY.md). They read and write the same files as humans. Not chatbots — long-running collaborators.
 - **Strategic tension:** The technology (LLMs) is commodity. The application layer — persistent identity, operational laws, guild assignment — is custom and defensible.
 - **Moat:** Medium-high — competitors will copy the concept, not the coherence
 
 ### Blueprints
 
-- **Evolution:** Custom · **Visibility:** Mid · **Layer:** differentiator · **Posición:** (40, 48) *(según /wardley)*
+- **Evolution:** Custom · **Visibility:** Mid · **Layer:** differentiator · **Position:** (40, 48) *(per /wardley)*
 - **What it does:** Living architecture docs. Current state, target state, gap delta, open questions. Updated every time the system changes.
 - **Strategic tension:** Similar to C4 model or arc42, but integrated with agents and missions. Converging toward product.
 - **Moat:** Medium — the integration with the rest of the system is the differentiator
 
 ### Decision Registry
 
-- **Evolution:** Custom · **Visibility:** Mid · **Layer:** differentiator · **Posición:** (45, 53) *(según /wardley)*
+- **Evolution:** Custom · **Visibility:** Mid · **Layer:** differentiator · **Position:** (45, 53) *(per /wardley)*
 - **What it does:** Append-only log of architectural and strategic decisions. What was decided, why, and what was rejected. Immutable record.
 - **Strategic tension:** ADRs exist elsewhere. The narrative integration and the immutability principle make this different.
 - **Moat:** Medium
 
 ### Agent Identity
 
-- **Evolution:** Genesis · **Visibility:** Mid · **Layer:** frontier · **Posición:** (10, 58) *(según /wardley)*
+- **Evolution:** Genesis · **Visibility:** Mid · **Layer:** frontier · **Position:** (10, 58) *(per /wardley)*
 - **What it does:** khepri@ai.numengames.com. Operational laws (Ley 0-3). SOUL.md. Agents have verifiable identity in the real world — email, calendar, git commits.
 - **Strategic tension:** No competitor has this today. The question is how long that window stays open.
 - **Moat:** Very high now — rapidly narrowing
 
 ### Protocols
 
-- **Evolution:** Custom → Product · **Visibility:** Low-mid · **Layer:** structure · **Posición:** (50, 68) *(según /wardley)*
+- **Evolution:** Custom → Product · **Visibility:** Low-mid · **Layer:** structure · **Position:** (50, 68) *(per /wardley)*
 - **What it does:** Operational procedures in markdown. Briefing an agent, onboarding a new member, closing a mission. Human and AI-readable.
 - **Strategic tension:** SOPs exist everywhere. The AI-readable format and git versioning are the differentiator.
 - **Moat:** Low-medium
 
 ### Operational Reports
 
-- **Evolution:** Custom · **Visibility:** Low · **Layer:** structure · **Posición:** (56, 73) *(según /wardley)*
+- **Evolution:** Custom · **Visibility:** Low · **Layer:** structure · **Position:** (56, 73) *(per /wardley)*
 - **What it does:** Daily and weekly markdown files committed to git. Append-only. Searchable, diffable, permanent.
 - **Strategic tension:** Simple but unique in format and agent-readability. A git-native accountability layer without BI overhead.
 - **Moat:** Low
 
 ### File Layer (MD + Git)
 
-- **Evolution:** Product · **Visibility:** Low · **Layer:** foundation · **Posición:** (72, 82) *(según /wardley)*
+- **Evolution:** Product · **Visibility:** Low · **Layer:** foundation · **Position:** (72, 82) *(per /wardley)*
 - **What it does:** All data lives in markdown files with YAML frontmatter. No proprietary formats. If the tool disappears, the knowledge survives.
 - **Strategic tension:** Commodity for developers. Genesis for traditional organizations. The ICP gap lives here.
 - **Moat:** The principle is the moat, not the technology
 
 ### LLMs / APIs
 
-- **Evolution:** Commodity · **Visibility:** Infrastructure · **Layer:** commodity · **Posición:** (85, 91) *(según /wardley)*
+- **Evolution:** Commodity · **Visibility:** Infrastructure · **Layer:** commodity · **Position:** (85, 91) *(per /wardley)*
 - **What it does:** Anthropic, Ollama, others. The raw intelligence layer. Replaceable.
 - **Strategic tension:** Not a moat. Cost optimization target. Ollama local reduces cost 60-70% when the on-premises PC arrives.
 - **Moat:** None — that's the point
 
 ### GitHub / Git
 
-- **Evolution:** Commodity · **Visibility:** Infrastructure · **Layer:** commodity · **Posición:** (92, 93) *(según /wardley)*
+- **Evolution:** Commodity · **Visibility:** Infrastructure · **Layer:** commodity · **Position:** (92, 93) *(per /wardley)*
 - **What it does:** Version control, history, collaboration via PRs. Universal standard.
 - **Strategic tension:** No strategic dependency. Replaceable by any git host.
 - **Moat:** None
 
 ---
 
-## Layer Story (según /wardley)
+## Layer Story (per /wardley)
 
-The /wardley page narrates the map as four layers, from foundation to frontier. Note: this grouping places the Mission System in "The Differentiators", while the tables above group it under "Frontier (Genesis) — High Visibility" — both groupings are kept; this one is the page's (según /wardley).
+The /wardley page narrates the map as four layers, from foundation to frontier. Note: this grouping places the Mission System in "The Differentiators", while the tables above group it under "Frontier (Genesis) — High Visibility" — both groupings are kept; this one is the page's (per /wardley).
 
 ### Layer 1 — The Foundation
 
@@ -270,14 +270,14 @@ MD+Git is Product for developers, Genesis for non-technical organizations. The I
 ### Tension 4: Rituals in Genesis = fragility
 Rituals (Daily, Dark Council, Lunar Coven) are in Genesis and highly visible. They generate the highest cultural engagement but also the highest churn risk if the team doesn't adopt the vocabulary. **Mitigation:** make rituals optional, value-proof first.
 
-### Strategic Tensions — summary (según /wardley)
+### Strategic Tensions — summary (per /wardley)
 
-The /wardley page publishes a four-item tensions summary with severity levels. Where it contradicts the tensions above (the commoditization window: 18–24 months here vs. 12-18 months in Tension 2), both values are kept and the page's is marked (según /wardley).
+The /wardley page publishes a four-item tensions summary with severity levels. Where it contradicts the tensions above (the commoditization window: 18–24 months here vs. 12-18 months in Tension 2), both values are kept and the page's is marked (per /wardley).
 
 **⚠ High — Narrative first = adoption barrier**
 The most visible component is also the most Genesis. Users hit the lore before the value. The /nwos page is the mitigation — substance first, narrative optional.
 
-**⚠ High — LLM commoditization window: 18–24 months** *(según /wardley)*
+**⚠ High — LLM commoditization window: 18–24 months** *(per /wardley)*
 Notion AI, Confluence AI, and Microsoft Copilot will offer native agents with the same LLMs. Using AI is not a moat — it's table stakes. The real moat is what the system doesn't lose: every mission closed with an Execution Reality section, every decision with its rejected alternatives, every blueprint with its delta table. That knowledge can't live anywhere else. An organization with 1 year of NWOS has 365 days of structured institutional memory that can't be imported into Notion. That inertia grows with time.
 
 **△ Medium — File Layer: commodity for devs, genesis for orgs**
@@ -308,7 +308,7 @@ Dark Council and Lunar Coven generate the highest cultural engagement. They also
 
 ---
 
-## The Moat — "The moat is what the system doesn't lose" (según /wardley)
+## The Moat — "The moat is what the system doesn't lose" (per /wardley)
 
 Notion AI can answer questions about what you have in Notion. But it can't answer:
 
