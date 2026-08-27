@@ -181,7 +181,7 @@ This page documents a system design proposal that emerged from the Dark Council 
 
 Once validated, this becomes **DEC-006** — a decision that modifies the NWOS architecture to include the two-dial system as a standard configuration parameter.
 
-**Enlaces de la página original:**
+**Links from the original page:**
 
 - MIS-055 → `/missions/mis-055`
 - Decision Registry → `/decisiones`
@@ -189,4 +189,4 @@ Once validated, this becomes **DEC-006** — a decision that modifies the NWOS a
 
 ---
 
-*Metadatos de la página original (`idioma.astro`): título HTML «Narrative Dial — Language System · Numen Games» · descripción «Two dials. One system. Organizations choose their level of narrative and gamification. The NWOS speaks any language.» · ruta canónica `/idioma`.*
+*Metadata of the original page (`idioma.astro`): HTML title «Narrative Dial — Language System · Numen Games» · description «Two dials. One system. Organizations choose their level of narrative and gamification. The NWOS speaks any language.» · canonical route `/idioma`.*

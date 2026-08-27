@@ -1,118 +1,118 @@
-# Prompt — Archive Summa para análisis con otras IAs
+# Prompt — Archive Summa for analysis with other AIs
 
-> **Resumen:** Documento del sistema NWOS — archive-summa-prompt-v0.1.0.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
-
----
-
-**Versión:** v0.1.0 · 2026-04-06
-**Uso:** Pegar en cualquier IA para obtener análisis, críticas o mejoras
+> **Summary:** NWOS system document — archive-summa-prompt-v0.1.0.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
-## PROMPT COMPLETO
+**Version:** v0.1.0 · 2026-04-06
+**Use:** Paste into any AI to obtain analysis, critiques or improvements
+
+---
+
+## FULL PROMPT
 
 ```
-Estoy diseñando el repositorio GitHub que será la fuente de verdad canónica del sistema de agentes digitales de Numen Games — una empresa que construye Numinia, un sistema operativo organizacional con lore narrativo, roles por gremios y agentes digitales de IA.
+I am designing the GitHub repository that will be the canonical source of truth for the digital-agent system of Numen Games — a company building Numinia, an organizational operating system with narrative lore, guild-based roles and AI digital agents.
 
-CONTEXTO DE LA EMPRESA:
-- Numen Games opera con un sistema híbrido: 4 Oráculos humanos + agentes digitales de IA
-- Los agentes ejecutan "misiones" (tareas con criterios de aceptación verificables)
-- El sistema tiene 4 gremios: Centinelas, Exegetas, Alquimistas, Procuradores
-- Hay un coordinador supremo (Procyon, futuro) que coordina todos los agentes
-- Actualmente en fase Alpha — procesos validados pero bajo supervisión humana total
+COMPANY CONTEXT:
+- Numen Games operates a hybrid system: 4 human Oracles + AI digital agents
+- The agents execute "missions" (tasks with verifiable acceptance criteria)
+- The system has 4 guilds: Centinelas, Exegetas, Alquimistas, Procuradores
+- There is a supreme coordinator (Procyon, future) coordinating all the agents
+- Currently in Alpha phase — processes validated but under full human supervision
 
-FILOSOFÍA DEL REPO:
-"Este repositorio no documenta el sistema. Es el lugar donde el sistema ocurre."
-- git pull = alineación con el canon
-- commit = inscripción en la historia
-- merge = integración en la realidad del sistema
+REPO PHILOSOPHY:
+"This repository does not document the system. It is the place where the system happens."
+- git pull = alignment with the canon
+- commit = inscription into history
+- merge = integration into the system's reality
 
-ESTRUCTURA ACTUAL DISEÑADA (v0.1.0):
+CURRENT DESIGNED STRUCTURE (v0.1.0):
 
 numinia-agents/
-├── README.md               ← Portal ontológico (no documentación)
+├── README.md               ← Ontological portal (not documentation)
 ├── LICENSE (CC0)
 ├── CONTRIBUTING.md
-├── CHANGELOG.md            ← Resincronización temporal para agentes
-├── canon/                  ← Memoria Inmutable (9 documentos, CODEOWNERS bloqueante)
+├── CHANGELOG.md            ← Temporal resynchronization for agents
+├── canon/                  ← Immutable Memory (9 documents, blocking CODEOWNERS)
 ├── agents/
 │   └── guilds/
 │       ├── centinelas/charter.md + members/nimrod/{SOUL,OPERATOR,STATUS}.md
 │       ├── exegetas/charter.md + members/adonaz/{SOUL,OPERATOR,STATUS}.md
-│       ├── alquimistas/charter.md (futuro)
-│       └── coordinacion/charter.md + members/procyon/ (futuro)
+│       ├── alquimistas/charter.md (future)
+│       └── coordinacion/charter.md + members/procyon/ (future)
 ├── operations/             ← governance.md, security.md, credential-map.md
-├── protocols/              ← briefing, onboarding, ciclo-misión, inter-agent, escalation
+├── protocols/              ← briefing, onboarding, mission-cycle, inter-agent, escalation
 ├── missions/               ← active/, done/, backlog/ + TEMPLATE.md
 ├── decisions/              ← ADRs (append-only)
-├── blueprints/             ← diseños y arquitecturas
+├── blueprints/             ← designs and architectures
 └── reports/                ← daily/, weekly/
 
-FRONTMATTER YAML en cada .md:
+YAML FRONTMATTER in every .md:
 - id, title, type, status, version, created, updated, author, owner, tags, license
-- Misiones añaden: mission_id, executor, phase, divergence_log, requires_oracle_approval
+- Missions add: mission_id, executor, phase, divergence_log, requires_oracle_approval
 
 GOVERNANCE:
-- canon/ → inmutable, solo oracle con label canon-change
-- agents/*/SOUL.md → solo oracle (los agentes no se reescriben)
-- missions/active/ → crea oracle/procyon, edita solo el executor
-- missions/done/ → inmutable una vez cerrada
-- decisions/ → append-only, nunca eliminar
+- canon/ → immutable, oracle only with the canon-change label
+- agents/*/SOUL.md → oracle only (agents do not rewrite themselves)
+- missions/active/ → oracle/procyon creates, only the executor edits
+- missions/done/ → immutable once closed
+- decisions/ → append-only, never delete
 
-JERARQUÍA DE DELEGACIÓN:
-- Alpha: todo con supervisión oracle
-- Beta: agentes operan su dominio, oracle aprueba estructural
-- v1.0.0: sistema autónomo, oracle interviene en estratégico
-- canon/ → oracle, siempre, sin excepción
+DELEGATION HIERARCHY:
+- Alpha: everything under oracle supervision
+- Beta: agents operate their domain, oracle approves structural changes
+- v1.0.0: autonomous system, oracle intervenes on the strategic
+- canon/ → oracle, always, no exception
 
-PERMISOS TÉCNICOS NECESARIOS:
-- PAT GitHub fine-grained: contents:read (git pull) + contents:write + pull_requests:write (PRs)
-- CODEOWNERS en canon/ apuntando a owner inexistente (bloqueo físico)
-- Branch protection en main: require PR + 1 oracle approval
-- GitHub Actions: validar frontmatter YAML en PRs, detectar credenciales en commits
+REQUIRED TECHNICAL PERMISSIONS:
+- Fine-grained GitHub PAT: contents:read (git pull) + contents:write + pull_requests:write (PRs)
+- CODEOWNERS in canon/ pointing at a nonexistent owner (physical block)
+- Branch protection on main: require PR + 1 oracle approval
+- GitHub Actions: validate YAML frontmatter on PRs, detect credentials in commits
 
-FASES:
-- Alpha → Beta: 10 misiones completadas, 0 incidentes seguridad, 20 arranques canónicos exitosos
-- Beta → v1.0.0: 30 misiones autónomas, Procyon activo, ciclo completo <48h sin oracle
+PHASES:
+- Alpha → Beta: 10 completed missions, 0 security incidents, 20 successful canonical boots
+- Beta → v1.0.0: 30 autonomous missions, Procyon active, full cycle <48h without oracle
 
-HALLAZGOS DE SIMULACIONES (100 escenarios):
-Los 5 fallos más frecuentes encontrados:
-1. Urgencia rompe protocolos → arranque mínimo de 4 pasos inviolables
-2. Oracle como single point of failure → timeout 48h + Lead Oráculo delegado
-3. divergence_log ausente → campo obligatorio en template de misiones
-4. CHANGELOG no actualizado → agentes inactivos se convierten en entropía activa
-5. canon protegido solo por norma (no por técnica) → CODEOWNERS bloqueante obligatorio
+SIMULATION FINDINGS (100 scenarios):
+The 5 most frequent failures found:
+1. Urgency breaks protocols → minimum boot of 4 inviolable steps
+2. Oracle as a single point of failure → 48h timeout + delegated Lead Oracle
+3. Missing divergence_log → mandatory field in the mission template
+4. CHANGELOG not updated → inactive agents become active entropy
+5. canon protected only by norm (not by technique) → blocking CODEOWNERS mandatory
 
-PREGUNTAS PARA TI:
-1. ¿Qué fallos críticos ves en esta arquitectura que las simulaciones no capturaron?
-2. ¿La separación canon/operations/protocols es la correcta o hay superposición problemática?
-3. ¿Cómo escala esta estructura cuando hay 50+ agentes y 500+ misiones?
-4. ¿Qué mecanismo de coordinación inter-agente propones para cuando dos agentes necesitan el mismo recurso?
-5. ¿Hay algún patrón de repositorios similares (knowledge bases para IA, org wikis, multi-agent systems) del que podamos aprender?
-6. ¿Qué falta en el frontmatter YAML que necesitaremos cuando escalemos?
-7. ¿La licencia CC0 es la correcta para un sistema así, o CC BY-SA 4.0 protege mejor la identidad de Numen Games?
+QUESTIONS FOR YOU:
+1. What critical failures do you see in this architecture that the simulations did not capture?
+2. Is the canon/operations/protocols separation correct, or is there problematic overlap?
+3. How does this structure scale at 50+ agents and 500+ missions?
+4. What inter-agent coordination mechanism do you propose for when two agents need the same resource?
+5. Is there any pattern from similar repositories (AI knowledge bases, org wikis, multi-agent systems) we can learn from?
+6. What is missing from the YAML frontmatter that we will need when we scale?
+7. Is the CC0 license right for a system like this, or does CC BY-SA 4.0 better protect Numen Games' identity?
 
-CONTEXTO ADICIONAL:
-- Los agentes son LLMs (actualmente Claude Sonnet/Haiku de Anthropic)
-- El sistema opera sobre OpenClaw (framework de agentes) sobre Telegram como canal
-- El servidor es un VPS Ubuntu con Caddy, pronto migraremos a un PC on-premises con RTX 4080
-- Presupuesto actual: ~$3-5/día en tokens. Objetivo: reducir con modelos locales (Ollama)
-- Construimos en público — el repo será público desde el primer día
+ADDITIONAL CONTEXT:
+- The agents are LLMs (currently Anthropic's Claude Sonnet/Haiku)
+- The system runs on OpenClaw (agent framework) over Telegram as the channel
+- The server is an Ubuntu VPS with Caddy; we will soon migrate to an on-premises PC with an RTX 4080
+- Current budget: ~$3-5/day in tokens. Goal: reduce it with local models (Ollama)
+- We build in public — the repo will be public from day one
 
-Proporciona tu análisis estructurado con: críticas, lo que está bien, lo que cambiarías y por qué.
+Provide your structured analysis with: critiques, what is right, what you would change and why.
 ```
 
 ---
 
-## Instrucciones de uso
+## Usage instructions
 
-1. **Pegar el prompt completo** en la IA que quieras consultar
-2. Si la IA pide más contexto, puedes adjuntar también `archive-summa-fundacional-v0.1.0.md`
-3. Las respuestas interesantes se documentan como ADR o modifican este documento en v0.2.0
-4. El objetivo es llegar a la reunión de construcción con el diseño validado por múltiples perspectivas
+1. **Paste the full prompt** into the AI you want to consult
+2. If the AI asks for more context, you can also attach `archive-summa-fundacional-v0.1.0.md`
+3. Interesting answers are documented as ADRs or modify this document in v0.2.0
+4. The goal is to arrive at the build meeting with the design validated by multiple perspectives
 
 ---
 

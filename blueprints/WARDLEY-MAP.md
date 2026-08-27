@@ -15,10 +15,10 @@ license: "CC-BY-4.0"
 ---
 # Wardley Map — Narrative Work OS
 
-> **Resumen:** Plano del sistema: estado actual, objetivo, gaps y dependencias.
-> **Epistémico:** El estado real vs. el objetivo — dónde estamos y hacia dónde vamos.
-> **Pragmático:** Identificar qué misiones abren los gaps documentados.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** System blueprint: current state, target, gaps and dependencies.
+> **Epistemic:** The real state vs. the target — where we are and where we are going.
+> **Pragmatic:** Identify which missions close the documented gaps.
+> **Audience:** Agents · Oracles
 
 ---
 
@@ -338,7 +338,7 @@ The goal is to establish Mission System + Decision Registry + Blueprints as the 
 
 ---
 
-*Metadatos de la página original (`wardley.astro`): título HTML «Wardley Map — Narrative Work OS · Numen Games» · descripción «A strategic map of the Narrative Work OS — what's visible, what's evolving, where the moat actually is.» · ruta canónica `/wardley`.*
+*Metadata of the original page (`wardley.astro`): HTML title «Wardley Map — Narrative Work OS · Numen Games» · description «A strategic map of the Narrative Work OS — what's visible, what's evolving, where the moat actually is.» · canonical route `/wardley`.*
 
 ---
 

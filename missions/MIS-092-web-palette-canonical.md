@@ -1,6 +1,6 @@
 ---
 id: "MIS-092"
-title: "La paleta vuelve a casa: numinia.org migra a los canónicos del Sistema v5.0.0"
+title: "The palette comes home: numinia.org migrates to the System v5.0.0 canonicals"
 type: mission
 status: done
 version: "1.2.0"
@@ -23,17 +23,17 @@ assigned_to: "numinia-nwos"
 requires_oracle_approval: true
 depends_on: []
 ---
-# MIS-092 — La paleta vuelve a casa
+# MIS-092 — The palette comes home
 
-> **Resumen:** El Sistema de Diseño v5.0.0 detecta en numinia.org una
-> "deriva mayor": paleta propia (teal `#2DD4BF`, terracota, ocre) fuera de
-> los canónicos. Esta misión migra todo el sitio a §19.3 — es un restyle
-> integral y se firma antes de tocar.
-> **Epistémico:** Cuánta identidad visual del viewer era deriva y cuánta
-> era sistema.
-> **Pragmático:** Un solo vocabulario de color en toda la casa; el tema
-> Velo del template NWOS (§2.8.2) gana su primera implementación real.
-> **Audiencia:** Oráculo · Agente numinia-nwos
+> **Summary:** The Design System v5.0.0 detects a "major drift" on
+> numinia.org: its own palette (teal `#2DD4BF`, terracotta, ochre) outside
+> the canonicals. This mission migrates the whole site to §19.3 — it is an
+> integral restyle and is signed before touching.
+> **Epistemic:** How much of the viewer's visual identity was drift and how
+> much was system.
+> **Pragmatic:** A single color vocabulary across the house; the NWOS
+> template's Velo theme (§2.8.2) gains its first real implementation.
+> **Audience:** Oracle · numinia-nwos agent
 
 ---
 
@@ -47,123 +47,124 @@ depends_on: []
 
 ## Story
 
-Como Oráculo, quiero que numinia.org hable la paleta canónica del Sistema de
-Diseño v5.0.0, para que el archivo de la casa no sea la primera deriva que un
-visitante ve.
+As an Oracle, I want numinia.org to speak the Design System v5.0.0's
+canonical palette, so the house's archive is not the first drift a visitor
+sees.
 
 ---
 
-## Contexto (2026-08-18)
+## Context (2026-08-18)
 
-- El máster vive en `standards/2026_08_18-Sistema_de_Diseno-v5.0.0.md`
-  (estado: propuesto, pendiente de firma; el Oráculo ya ordenó aplicar el
-  registro del Velo a este sitio).
-- **Ya aplicado** (misma fecha, fuera de esta misión): atmósfera del Velo
-  (rejilla + niebla, alfas canónicos) en todo el sitio salvo `/diseno`;
-  cielo estelar recoloreado a la escala de rareza §3.6; regla
-  `prefers-reduced-motion` del §2.7.1; página `/diseno` con el sistema
-  renderizado y descargas del máster.
-- **Pendiente y objeto de esta misión** (la "deriva mayor" que marca §16.16
-  de la hoja de ruta del sistema): el resto de la paleta del sitio —
-  acento teal `#2DD4BF`, fondos/terracotas/ocres propios en
-  `web/src/styles/global.css` y `web/DESIGN.md` — no es canónica.
+- The master lives at `standards/2026_08_18-Sistema_de_Diseno-v5.0.0.md`
+  (state: proposed, awaiting signature; the Oracle already ordered applying
+  the Velo register to this site).
+- **Already applied** (same date, outside this mission): the Velo atmosphere
+  (grid + fog, canonical alphas) across the site except `/diseno`; the star
+  sky recolored to the §3.6 rarity scale; the §2.7.1
+  `prefers-reduced-motion` rule; the `/diseno` page with the rendered system
+  and master downloads.
+- **Pending, and this mission's object** (the "major drift" that §16.16 of
+  the system's roadmap flags): the rest of the site's palette — teal accent
+  `#2DD4BF`, its own backgrounds/terracottas/ochres in
+  `web/src/styles/global.css` and `web/DESIGN.md` — is not canonical.
 
-## Alcance
+## Scope
 
-- Mapear cada token actual de `global.css`/Tailwind a su canónico §19.3
-  (acento → Turquesa/Verdemar según rol; fondos → Noche/Basalto/Elevada;
-  textos → Arena/secundario/terciario; interactivo → `#017C8D` y estados).
-- Revisar componente a componente (nav, cards, chips, tablas, DocToolbar,
-  board de misiones, footer) el contraste tras el cambio.
-- `web/DESIGN.md` queda superseded: pasa a apuntar al máster del sistema y
-  conserva solo lo específico del viewer que el máster no cubre (lista de
-  piezas a conservar: pendiente del Oráculo, ver memoria de integración).
-- La variante de impresión de los PDFs (MIS-088) migra en la misma pasada.
+- Map every current token in `global.css`/Tailwind to its §19.3 canonical
+  (accent → Turquesa/Verdemar by role; backgrounds → Noche/Basalto/Elevada;
+  texts → Arena/secondary/tertiary; interactive → `#017C8D` and states).
+- Review component by component (nav, cards, chips, tables, DocToolbar,
+  missions board, footer) the contrast after the change.
+- `web/DESIGN.md` goes superseded: it points at the system's master and
+  keeps only what is viewer-specific and the master does not cover
+  (conservation list: pending from the Oracle, see integration memory).
+- The PDFs' print variant (MIS-088) migrates in the same pass.
 
 ## Acceptance criteria
 
-- [x] Ni un hex fuera de §19.3 en `web/src` (grep documentado en el log:
-      20 hexes distintos restantes, todos canónicos).
-- [x] Contraste revisado en el mapeo: cada sustituto conserva o sube el
-      contraste de su original sobre fondo oscuro (Verdemar > teal viejo,
-      Arena > blanco roto, secundarios §19.3 medidos por el sistema).
-- [x] `web/DESIGN.md` apunta al máster (nota superseded); su consolidación
-      final espera la lista de conservación del Oráculo (residuo aceptado).
-- [x] PDFs regenerados con la paleta canónica (Diurno-papel).
-- [x] Deploy verificado en vivo; el registro visual queda en la propia web
-      y en los PDFs (no se tomaron capturas antes/después — el diff de git
-      es el registro; residuo aceptado).
+- [x] Not one hex outside §19.3 in `web/src` (grep documented in the log:
+      20 distinct hexes remaining, all canonical).
+- [x] Contrast reviewed across the mapping: every substitute keeps or
+      raises its original's contrast on the dark background (Verdemar > old
+      teal, Arena > off-white, §19.3 secondaries measured by the system).
+- [x] `web/DESIGN.md` points at the master (superseded note); its final
+      consolidation awaits the Oracle's conservation list (accepted
+      residue).
+- [x] PDFs regenerated with the canonical palette (Diurno-paper).
+- [x] Deploy verified live; the visual record lives on the web itself and
+      in the PDFs (no before/after captures were taken — the git diff is
+      the record; accepted residue).
 
 ---
 
 ## Epistemic value
 
-Separar identidad de deriva: qué hizo único al viewer y qué era solo
-Tailwind por defecto.
+Separating identity from drift: what made the viewer unique and what was
+just default Tailwind.
 
 ## Pragmatic value
 
-El archivo de la casa viste el sistema de la casa; toda pieza nueva hereda
-canónicos sin traducción.
+The house's archive wears the house's system; every new piece inherits
+canonicals without translation.
 
 ---
 
 ## Execution log
 
-- 2026-08-18 — **Firmada por orden directa del Oráculo** ("el sistema que te
-  he mandado manda… rediseña todo eso; si tu registro es el del Velo, la web
+- 2026-08-18 — **Signed by direct Oracle order** ("el sistema que te he
+  mandado manda… rediseña todo eso; si tu registro es el del Velo, la web
   ha de cumplir con ese criterio").
-- 2026-08-18 — **Capa de tokens migrada** (`global.css`): fondos a
-  Noche/superficie/elevada, textos a Arena/secundario/terciario, borde a
-  línea-fuerte, `--accent` a Verdemar (el enlace nocturno), semánticos a la
-  paleta de datos §3.8, sabores propios (terracota/ocre/cobre/bronce/salvia/
-  azul-med) mapeados a canónicos, glows y scrollbar a Turquesa con alfa.
-  `body::before` pasa a ser la niebla canónica (`velo.niebla` 6 %); la
-  rejilla del Akasha la pinta el Layout. `theme-color` a `#14110F`.
-- 2026-08-18 — **/diseno es ahora la guía viva verbatim** (artefacto
-  generado del sistema, servido tal cual con sus assets y fuentes; la
-  aproximación Astro anterior se retira). PDFs migrados al Diurno-papel
-  del sistema (papel Arena, tinta Noche, turquesa-texto).
-- 2026-08-18 — **Fase 2 ejecutada:** 256 sustituciones en 7 ficheros
+- 2026-08-18 — **Token layer migrated** (`global.css`): backgrounds to
+  Noche/surface/elevated, texts to Arena/secondary/tertiary, border to
+  strong-line, `--accent` to Verdemar (the nocturnal link), semantics to
+  the §3.8 data palette, house flavors (terracotta/ochre/copper/bronze/
+  sage/med-blue) mapped to canonicals, glows and scrollbar to Turquesa with
+  alpha. `body::before` becomes the canonical fog (`velo.niebla` 6%); the
+  Akasha grid is painted by the Layout. `theme-color` to `#14110F`.
+- 2026-08-18 — **/diseno is now the living guide verbatim** (a generated
+  artifact of the system, served as-is with its assets and fonts; the
+  previous Astro approximation is retired). PDFs migrated to the system's
+  Diurno-paper (Arena paper, Noche ink, turquesa-text).
+- 2026-08-18 — **Phase 2 executed:** 256 substitutions across 7 files
   (agente, archive, continuidad, idioma, openclaw-test, ventas, wardley)
-  con mapeo cerrado deriva→canónico: slate→neutrales Nocturno,
-  teals viejos→Verdemar, ámbares/naranjas→Ámbar, rojos→Grana/Coral,
-  verdes→`#8FC46B`, azules→`#5D9BD6`, morados→`#A98BE0`, fondos
-  navy/granate→Noche/superficie. Verificación: grep final = 20 hexes
-  distintos en `web/src`, TODOS de §19.3 — cero fuera del sistema.
-- 2026-08-18 — **El kit se publica junto a la guía** (`/diseno/kit/`:
-  `khepri.css`, `khepri.js`, `khepri.tokens.json` — CC0; los SVG de marca
-  NO se publican: reservados y no referenciados por la guía).
-- 2026-08-18 — `web/DESIGN.md` marcado superseded; consolidación final
-  pendiente de la lista de conservación del Oráculo.
+  with a closed drift→canonical mapping: slate→Nocturno neutrals, old
+  teals→Verdemar, ambers/oranges→Ámbar, reds→Grana/Coral,
+  greens→`#8FC46B`, blues→`#5D9BD6`, purples→`#A98BE0`, navy/maroon
+  backgrounds→Noche/surface. Verification: final grep = 20 distinct hexes
+  in `web/src`, ALL from §19.3 — zero outside the system.
+- 2026-08-18 — **The kit publishes alongside the guide** (`/diseno/kit/`:
+  `khepri.css`, `khepri.js`, `khepri.tokens.json` — CC0; the brand SVGs are
+  NOT published: reserved and not referenced by the guide).
+- 2026-08-18 — `web/DESIGN.md` marked superseded; final consolidation
+  pending the Oracle's conservation list.
 
 ---
 
 ## Execution Reality
 
-- **Technology/approach used:** dos capas — primero los tokens de
-  `global.css` (que arrastran el 80 % del sitio), después un script de
-  mapeo cerrado hex→canónico sobre `web/src` (256 sustituciones, 7
-  ficheros). La página `/diseno` se resolvió sirviendo la guía viva
-  verbatim en vez de reconstruirla en Astro.
-- **Why it diverged:** el plan preveía revisión componente a componente;
-  el mapeo cerrado (cada hex viejo tiene un único canónico equivalente en
-  rol y contraste) lo hizo innecesario — el riesgo real no era el color a
-  color, sino los fondos tintados sin equivalente canónico (granate,
-  navy), que se resolvieron a Noche aceptando perder el matiz.
-- **Key learning:** una migración de paleta no es una lista de colores:
-  es un mapeo de ROLES (fondo/línea/texto/acento/dato); con los roles
-  claros del §19.3, 300 ocurrencias se migran con un script y un grep de
-  verificación en verde.
+- **Technology/approach used:** two layers — first the `global.css` tokens
+  (which carry 80% of the site), then a closed hex→canonical mapping script
+  over `web/src` (256 substitutions, 7 files). The `/diseno` page was
+  solved by serving the living guide verbatim instead of rebuilding it in
+  Astro.
+- **Why it diverged:** the plan called for component-by-component review;
+  the closed mapping (every old hex has a single canonical equivalent in
+  role and contrast) made it unnecessary — the real risk was not
+  color-for-color, but the tinted backgrounds with no canonical equivalent
+  (maroon, navy), which resolved to Noche accepting the loss of nuance.
+- **Key learning:** a palette migration is not a list of colors: it is a
+  mapping of ROLES (background/line/text/accent/data); with §19.3's roles
+  clear, 300 occurrences migrate with a script and a verification grep in
+  green.
 - **Closing date:** 2026-08-18
 - **Executing agent:** claude-fable-5 (numinia-nwos)
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
 
-**Addendum (2026-08-18, tarde) — fase 3, el canal que faltaba.** La caza de
-hexes no veía las clases Tailwind de paleta por defecto (`bg-teal-500`,
-`text-red-400`…): 137 usos en 12 ficheros, migrados por script al mapa
-familia→token (teal/cyan→teal, blue/sky/indigo→blue, red/rose→red,
+**Addendum (2026-08-18, evening) — phase 3, the missing channel.** The hex
+hunt did not see the default-palette Tailwind classes (`bg-teal-500`,
+`text-red-400`…): 137 uses in 12 files, migrated by script to the
+family→token map (teal/cyan→teal, blue/sky/indigo→blue, red/rose→red,
 orange/amber→yellow, green/emerald→green, purple/violet→purple;
-text-teal-*→text-accent). Verificación: cero clases de paleta por defecto
-en `web/src`.
+text-teal-*→text-accent). Verification: zero default-palette classes in
+`web/src`.

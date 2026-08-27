@@ -28,21 +28,21 @@ effort: "L"
 >
 > **Epistemic value.** Resolves what the platform looks like: Khepri canonizes the palette Numinia already wore and adds everything it lacked (modes, dual type, motion catalog, iconography, platform plan §13.11).
 > **Pragmatic value.** Every surface rebuilt or reskinned ships wearing Khepri; nothing new is built in the provisional style again.
-> **In the system.** Observes: design-system/2026_08_18-Sistema_de_Diseno-v5_0_0.md (the law of design, §0.3 precedence). Regulates: packages/ui, every page's markup and styles. Coupled to: CLAUDE.md (Sistema de diseño block), MISSION-004 surfaces, MISSION-002 login UX.
+> **In the system.** Observes: design-system/2026_08_18-Sistema_de_Diseno-v5_0_0.md (the law of design, §0.3 precedence). Regulates: packages/ui, every page's markup and styles. Coupled to: CLAUDE.md (design-system block), MISSION-004 surfaces, MISSION-002 login UX.
 >
 > _Part of the Law. Index: [docs/LEY.md](../docs/LEY.md)_
 
 > **Agent type:** 🤖 Digital (Oracle reviews each phase visually)
 > **Priority:** 🔴 Critical — THE priority by Oracle order (2026-08-15)
-> **Effort:** L · **Status:** ✅ Done 2026-08-18 — ver Execution Reality
+> **Effort:** L · **Status:** ✅ Done 2026-08-18 — see Execution Reality
 > **Track:** `store` (all current surfaces live there)
-> **Governing document:** `design-system/2026_08_18-Sistema_de_Diseno-v5_0_0.md` (Sistema de
-> Diseño v5.0.0, CC0; marks excluded §15). **Actualizado 2026-08-18:** la v5.0.0 retira el
-> nombre clave «Khepri» (§0.4) y el directorio pasa a `design-system/`; el kit es
-> `kit/sistema.{css,js,tokens.json}`. Ninguna regla cambia con el renombrado, pero esta
-> misión gana un criterio: **declarar registro antes que medio (§2.8)** — numinia.com es
-> **Umbral**, y el Velo solo entra enmarcado con frontera visible. El catálogo de
-> movimiento ya no son nueve animaciones sino **catorce** (§10.1).
+> **Governing document:** `design-system/2026_08_18-Sistema_de_Diseno-v5_0_0.md` (Design
+> System v5.0.0, CC0; marks excluded §15). **Updated 2026-08-18:** v5.0.0 retires the
+> «Khepri» codename (§0.4) and the directory becomes `design-system/`; the kit is
+> `kit/sistema.{css,js,tokens.json}`. No rule changes with the rename, but this
+> mission gains one criterion: **declare register before medium (§2.8)** — numinia.com is
+> **Umbral**, and the Velo only enters framed with a visible boundary. The motion
+> catalog is no longer nine animations but **fourteen** (§10.1).
 
 ## 📖 Story Statement
 
@@ -66,55 +66,55 @@ platform feels like one product built by one house, not an accretion of tools.
   - marketing schema v0.6.0) — different repo, different constitution; not
     part of this mission.
 
-## Execution Reality (2026-08-18) — fases A y B cerradas
+## Execution Reality (2026-08-18) — phases A and B closed
 
-**A.1 puente de tokens · A.2 adopción del kit:** hechas el 2026-08-15 y
-re-ancladas a la v5.0.0. El kit ya no se copia del repo: se **fija** por versión
-y digest (`design-source.json`, ADR-022), y dos guardianes lo protegen — un test
-que rompe el build si se edita una copia a mano y `npm run design:check` contra
-el maestro publicado.
+**A.1 token bridge · A.2 kit adoption:** done on 2026-08-15 and re-anchored to
+v5.0.0. The kit is no longer copied from the repo: it is **pinned** by version
+and digest (`design-source.json`, ADR-022), and two guardians protect it — a
+test that breaks the build if a copy is hand-edited and `npm run design:check`
+against the published master.
 
-**A.3 auditoría de superficies:** hecha por medición, no por inspección.
-Resultado: la paleta ya estaba en casa (solo 7 hexes fuera de canon en todo el
-código, de los cuales 4 son legítimos — máscaras `#000`, que §2.7.2 especifica
-así — y 3 son tokens del libro pendientes de canonizar, reportados a nwos como
-H1) y el movimiento también (4 keyframes, todas del catálogo §10.1).
+**A.3 surface audit:** done by measurement, not inspection. Result: the palette
+was already home (only 7 hexes off-canon in the whole codebase, of which 4 are
+legitimate — `#000` masks, which §2.7.2 specifies that way — and 3 are tokens
+of the book pending canonization, reported to nwos as H1) and so was motion
+(4 keyframes, all from the §10.1 catalog).
 
-**B — lo que sí faltaba: la mitad no medida.** El criterio de aceptación 2 pide
-AA «en Diurno y en Nocturno»; el gate medía un solo modo, así que la otra mitad
-del producto llevaba **cinco fallos AA en producción, en todas las páginas**.
-Ninguno era hueco del Sistema: los cinco eran mal uso nuestro de tokens
-canónicos, y el primero lo prohíbe la propia checklist §19.4.
+**B — what was actually missing: the unmeasured half.** Acceptance criterion 2
+asks for AA «in Diurno and in Nocturno»; the gate measured a single mode, so
+the product's other half carried **five AA failures in production, on every
+page**. None was a gap in the System: all five were our misuse of canonical
+tokens, and the first is forbidden by the §19.4 checklist itself.
 
-| Defecto | Medida | Superficies |
+| Defect | Measurement | Surfaces |
 | --- | --- | --- |
-| Tinta terciaria sobre superficie (§19.4: terciario solo sobre fondo base) | `#8A7D72` sobre `#1E1A17` = 4.32:1 | badges del archivo, píldoras de ajustes, tags de updates, nodos del mapa de portales |
-| Turquesa (relleno interactivo) usada como texto | `#018EA1` = 4.43:1 | badges, `.tag-new` |
-| Grana como etiqueta de botón | `#D33440` sobre `#14110F` = 3.88:1 | botón destructivo de la ficha |
-| Enlace distinguido solo por color (WCAG 1.4.1) | 2.58:1 contra su propia frase | firma del pie, todas las páginas |
+| Tertiary ink on surface (§19.4: tertiary only on base background) | `#8A7D72` on `#1E1A17` = 4.32:1 | archive badges, settings pills, updates tags, portal-map nodes |
+| Turquesa (interactive fill) used as text | `#018EA1` = 4.43:1 | badges, `.tag-new` |
+| Grana as a button label | `#D33440` on `#14110F` = 3.88:1 | the sheet's destructive button |
+| Link distinguished by color alone (WCAG 1.4.1) | 2.58:1 against its own sentence | footer signature, every page |
 
-Arreglados con tokens del Sistema; el nodo dormido del mapa dice su estado con
-punto hueco en vez de tinta más apagada — **estado por forma, no por color
-ilegible**. El gate pasa a recorrer los dos modos: **66 comprobaciones en vez de
-33**. Un gate que mide un modo certifica medio producto.
+Fixed with System tokens; the map's dormant node states itself with a hollow
+dot instead of dimmer ink — **state by shape, not by illegible color**. The
+gate now walks both modes: **66 checks instead of 33**. A gate that measures
+one mode certifies half a product.
 
-**Remate:** `/spike/auth` se retira (segunda puerta duplicada, con fallbacks
-legacy `#888`/`#666`; el login vive en el L.A.P.) y la ficha imprimible deja de
-imprimir en blanco puro: imprime en papel de la casa con tinta Noche, como el
-libro y como los PDF del corpus. Un solo criterio de papel.
+**Finishing touch:** `/spike/auth` is retired (a duplicated second door, with
+legacy `#888`/`#666` fallbacks; login lives in the L.A.P.) and the printable
+sheet stops printing on pure white: it prints on the house's paper with Noche
+ink, like the book and like the corpus PDFs. A single paper criterion.
 
-Entregado en `numinia-web` v0.47.0 (`f10d9d0` + release).
+Delivered in `numinia-web` v0.47.0 (`f10d9d0` + release).
 
-- **Technology/approach used:** medición antes que inspección — axe en los dos
-  modos como forma de auditar superficies, en vez de revisarlas a ojo.
-- **Why it diverged:** la misión suponía «repasar cada familia de rutas y
-  reskinear»; la plataforma ya estaba vestida. Lo que faltaba no era pintura,
-  era una garantía: el gate certificaba medio producto.
-- **Key learning:** un criterio de aceptación que nadie mide es una opinión.
-  «AA en ambos modos» estuvo escrito desde el principio y falló desde el
-  principio, en silencio, porque el gate solo conocía un modo.
+- **Technology/approach used:** measurement before inspection — axe in both
+  modes as the way to audit surfaces, instead of reviewing them by eye.
+- **Why it diverged:** the mission assumed «walk every route family and
+  reskin»; the platform was already dressed. What was missing was not paint,
+  it was a guarantee: the gate certified half a product.
+- **Key learning:** an acceptance criterion nobody measures is an opinion.
+  «AA in both modes» was written from the start and failed from the start,
+  silently, because the gate only knew one mode.
 - **Closing date:** 2026-08-18
-- **Executing agent:** claude-opus-5 (sesión numinia-web)
+- **Executing agent:** claude-opus-5 (numinia-web session)
 
 ---
 
