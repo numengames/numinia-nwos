@@ -56,4 +56,4 @@ Metrics of Numen Games' CAO (Centralized Autonomous Organization). The digital a
 
 ---
 
-*Metadata of the original page (`cao.astro`): HTML title «CAO Dashboard — Numen Games» · description «Panel de métricas de la Organización Autónoma Centralizada de Numen Games. Agentes digitales, misiones, costes y ROI.» · canonical route `/cao`.*
+*Metadata of the original page (`cao.astro`), translated: HTML title «CAO Dashboard — Numen Games» · description «Metrics panel of the Numen Games Centralized Autonomous Organization. Digital agents, missions, costs and ROI.» · canonical route `/cao`.*

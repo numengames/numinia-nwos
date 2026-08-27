@@ -179,4 +179,4 @@ The previous 9.5/10 score counted the missions as if they were in the repo. In r
 
 ---
 
-*Metadata of the original page (`auditoria.astro`): HTML title «Auditoría del sistema — NWOS · Numen Games» · description «Divergencias entre pablofm.com y el repositorio numinia-nwos. Transparencia radical: no nos avergonzamos de los gaps, los estudiamos y los resolvemos.» · canonical route `/auditoria`.*
+*Metadata of the original page (`auditoria.astro`), translated: HTML title «System audit — NWOS · Numen Games» · description «Divergences between pablofm.com and the numinia-nwos repository. Radical transparency: we are not ashamed of the gaps, we study them and we resolve them.» · canonical route `/auditoria`.*

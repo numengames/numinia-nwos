@@ -177,4 +177,4 @@ The system is an **amplifier**, not a repairer. And the sequence matters: first 
 
 ---
 
-*Metadata of the original page (`simulaciones.astro`): HTML title «NWOS — 100 Simulaciones — Pablo FM» · description «Estudio de resultados de 100 simulaciones de implementación del Narrative Work OS en organizaciones reales. Patrones de éxito, modos de fallo y variables críticas.» · canonical route `/simulaciones` · hero label «NWOS — 100 Simulaciones».*
+*Metadata of the original page (`simulaciones.astro`), translated: HTML title «NWOS — 100 Simulations — Pablo FM» · description «Results study of 100 simulations of Narrative Work OS implementation in real organizations. Success patterns, failure modes and critical variables.» · canonical route `/simulaciones` · hero label «NWOS — 100 Simulaciones».*

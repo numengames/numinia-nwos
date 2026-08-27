@@ -46,7 +46,7 @@ entry moves to the "Resolved" section with the decision and its date.
   System under "The Differentiators"; coordinates with ±1 jitter on 7
   of 12 components.
 - **Current state:** both versions coexist in `WARDLEY-MAP.md`
-  v0.2.0, the page's marked "(según /wardley)".
+  v0.2.0, the page's marked "(per /wardley)".
 
 ### CON-004 — Legal texts published with open review flags
 

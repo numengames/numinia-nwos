@@ -20,10 +20,10 @@ threshold: sealed
 
 # Introduction to the Gamified System
 
-> **Resumen:** Documento del sistema NWOS — Welcome to Numinia.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system document — Welcome to Numinia.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 

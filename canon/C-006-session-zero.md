@@ -20,10 +20,10 @@ threshold: sealed
 
 # About Session Zero
 
-> **Resumen:** Documento del sistema NWOS — About Session Zero.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system document — About Session Zero.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 

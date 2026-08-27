@@ -114,7 +114,7 @@ wrong radius today. **Pinning tokens beats reading prose.**
   digest, or a pointer to the versioned URL. A verbatim copy with no guard is
   the thing this mission exists to remove.
 - **Re-pin from 5.0.0 to 5.1.0** and apply the delta that touches an Umbral
-  surface. Most of 5.1.0 is the book register (tintas del libro, engranajes,
+  surface. Most of 5.1.0 is the book register (the book inks, the gears,
   the Narrator, the editions) and does not reach these three; E1 does, and the
   retirement of animation 12 must be checked against each site's motion.
 - **Keep the colour guard** each repo already has, promoted from a grep in a

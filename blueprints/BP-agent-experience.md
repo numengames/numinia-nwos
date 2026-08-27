@@ -182,4 +182,4 @@ Every Monday, the agent generates the previous week's report. Every day it close
 
 ---
 
-*Metadata of the original page (`agente.astro`): HTML title «Cómo funciona un agente — NWOS · Numen Games» · description «Arquitectura completa de un agente digital en el Narrative Work OS. Capas, ciclo de vida, casos prácticos y valor epistémico por etapa.» · canonical route `/agente`.*
+*Metadata of the original page (`agente.astro`), translated: HTML title «How an agent works — NWOS · Numen Games» · description «Complete architecture of a digital agent in the Narrative Work OS. Layers, life cycle, practical cases and epistemic value per stage.» · canonical route `/agente`.*
