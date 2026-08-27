@@ -1,0 +1,164 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+// Site search (MIS-117). Pagefind JS API + system-native markup — the stock
+// @pagefind/default-ui stylesheet is drift by construction (Design System
+// v5.1.0 §2.7: Velo adds alphas over canonicals, no foreign CSS). Input per
+// §9.3, results per §9.8: canonical veil rgba(20,17,15,.72), 40px rows,
+// trapped focus, Esc closes, background does not scroll.
+import Icon from "@/components/Icon.astro";
+---
+
+<button
+  data-search-open
+  aria-label="Search"
+  class="flex items-center gap-1 rounded-full border border-transparent px-3 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-muted-foreground transition-all hover:border-border hover:bg-card hover:text-foreground"
+>
+  <Icon name="magnifying-glass" size={14} />
+  <span class="hidden md:inline">Search</span>
+</button>
+
+<div
+  data-search-modal
+  class="fixed inset-0 z-[60] hidden items-start justify-center pt-[12vh]"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Site search"
+>
+  <!-- §9.8: the canonical veil, the same piece that founds every modal -->
+  <div data-search-veil class="absolute inset-0" style="background: rgba(20,17,15,.72)"></div>
+
+  <div class="relative mx-4 w-full max-w-xl rounded-xl border border-border bg-background shadow-xl">
+    <!-- Input per §9.3: base bg, linea.fuerte border via border-border, Turquesa focus -->
+    <div class="flex items-center gap-3 border-b border-border px-4">
+      <Icon name="magnifying-glass" size={16} class="shrink-0 text-muted-foreground" />
+      <input
+        data-search-input
+        type="search"
+        placeholder="Search the archive…"
+        autocomplete="off"
+        spellcheck="false"
+        class="h-12 w-full bg-transparent font-mono text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
+      />
+      <kbd class="hidden rounded border border-border px-1.5 py-0.5 font-mono text-[0.6rem] text-muted-foreground sm:inline">ESC</kbd>
+    </div>
+
+    <div data-search-results class="max-h-[50vh] overflow-y-auto overscroll-contain p-2" role="listbox">
+      <p data-search-empty class="px-3 py-6 text-center font-mono text-xs text-muted-foreground">
+        Type to search every published page.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Pagefind's JS API. The bundle only exists after `astro build` (the
+  // integration indexes dist/), so dev mode degrades to a notice.
+  let pagefind: { search: (q: string) => Promise<{ results: PagefindResult[] }> } | null = null;
+  type PagefindResult = { id: string; data: () => Promise<{ url: string; meta: { title?: string }; excerpt: string }> };
+
+  const modal = document.querySelector<HTMLElement>("[data-search-modal]")!;
+  const input = document.querySelector<HTMLInputElement>("[data-search-input]")!;
+  const results = document.querySelector<HTMLElement>("[data-search-results]")!;
+  const emptyMsg = document.querySelector<HTMLElement>("[data-search-empty]")!;
+  let lastFocus: HTMLElement | null = null;
+
+  async function ensurePagefind() {
+    if (pagefind) return true;
+    try {
+      // Path built at runtime — the bundle only exists after `astro build`,
+      // so the specifier is kept opaque to Rollup's static analysis.
+      const bundle = "/pagefind/pagefind.js";
+      pagefind = await import(/* @vite-ignore */ bundle);
+      return true;
+    } catch {
+      emptyMsg.textContent = "Search index not built yet (production only).";
+      return false;
+    }
+  }
+
+  function openModal() {
+    lastFocus = document.activeElement as HTMLElement;
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+    document.body.style.overflow = "hidden"; // §9.8: background does not scroll
+    input.focus(); // §9.8: first focus on the safe control
+    void ensurePagefind();
+  }
+
+  function closeModal() {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+    document.body.style.overflow = "";
+    input.value = "";
+    renderEmpty("Type to search every published page.");
+    lastFocus?.focus();
+  }
+
+  function renderEmpty(text: string) {
+    results.innerHTML = "";
+    const p = document.createElement("p");
+    p.className = "px-3 py-6 text-center font-mono text-xs text-muted-foreground";
+    p.setAttribute("data-search-empty", "");
+    p.textContent = text;
+    results.appendChild(p);
+  }
+
+  async function runSearch(query: string) {
+    if (!query.trim()) return renderEmpty("Type to search every published page.");
+    if (!(await ensurePagefind())) return;
+    const search = await pagefind!.search(query);
+    if (search.results.length === 0) return renderEmpty(`Nothing found for “${query}”.`);
+
+    const top = await Promise.all(search.results.slice(0, 10).map((r) => r.data()));
+    results.innerHTML = "";
+    for (const item of top) {
+      // §9.8: 40px rows; active = ink treatment via hover states
+      const a = document.createElement("a");
+      a.href = item.url;
+      a.setAttribute("role", "option");
+      a.className =
+        "flex min-h-10 flex-col justify-center gap-0.5 rounded-lg px-3 py-2 transition-colors hover:bg-card focus:bg-card focus:outline-none";
+      const title = document.createElement("span");
+      title.className = "font-mono text-xs text-foreground";
+      title.textContent = item.meta.title ?? item.url;
+      const excerpt = document.createElement("span");
+      excerpt.className = "line-clamp-1 text-[0.7rem] text-muted-foreground";
+      excerpt.innerHTML = item.excerpt; // Pagefind excerpts carry <mark> only
+      a.append(title, excerpt);
+      results.appendChild(a);
+    }
+  }
+
+  let debounce: ReturnType<typeof setTimeout>;
+  input.addEventListener("input", () => {
+    clearTimeout(debounce);
+    debounce = setTimeout(() => void runSearch(input.value), 150);
+  });
+
+  document.querySelectorAll("[data-search-open]").forEach((el) => el.addEventListener("click", openModal));
+  modal.querySelector("[data-search-veil]")!.addEventListener("click", closeModal);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal.classList.contains("hidden")) closeModal(); // §9.8
+    if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+      e.preventDefault();
+      modal.classList.contains("hidden") ? openModal() : closeModal();
+    }
+  });
+
+  // §9.8: focus trapped inside the dialog
+  modal.addEventListener("keydown", (e) => {
+    if (e.key !== "Tab") return;
+    const focusables = modal.querySelectorAll<HTMLElement>("input, a[href], kbd, button");
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  });
+</script>

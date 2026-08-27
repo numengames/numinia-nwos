@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
+import pagefind from "astro-pagefind";
 import { defineConfig } from "astro/config";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -34,7 +35,10 @@ export default defineConfig({
 	// /print/* pages are PDF-generation intermediates (MIS-088): rendered at
 	// build, printed to /pdf/*.pdf by scripts/generate-pdfs.mjs, then removed
 	// from dist — they must never reach the sitemap.
-	integrations: [react(), tailwind(), sitemap({ filter: (page) => !page.includes("/print/") })],
+	// pagefind (MIS-117) indexes dist/ after the build; /print/* is excluded
+	// at the source (data-pagefind-body only on Layout's article) and the
+	// intermediates are deleted before deploy anyway.
+	integrations: [react(), tailwind(), sitemap({ filter: (page) => !page.includes("/print/") }), pagefind()],
 	vite: {
 		resolve: {
 			alias: {

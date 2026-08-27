@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 import Icon from "@/components/Icon.astro";
+import SiteSearch from "@/components/SiteSearch.astro";
 import { navItems } from "@/data/navigation";
 
 interface Props {
@@ -24,6 +25,7 @@ const numaniaActive = numaniaIds.includes(activeNav ?? "");
 
     <!-- Desktop nav -->
     <div class="hidden items-center gap-1 sm:flex">
+      <SiteSearch />
       {navItems.map((item) => {
         if (item.children) {
           return (
