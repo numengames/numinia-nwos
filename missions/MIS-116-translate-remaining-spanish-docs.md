@@ -58,9 +58,11 @@ per checklist row** (or two adjacent small rows together), never all nine
 at once, so each PR stays small and reviewable.
 
 - [x] **`agents/`** — 5 files (`_template/OPERATOR.md`, `_template/STATUS.md`,
-      `nimrod/STATUS.md`, `senet/MEMORY.md`, `ursa/MEMORY.md`) — merged this PR
-- [ ] **root** — 3 files (`DEUDA-404.md`, `GAPS.md`, `LEGAL_DEBT.md`)
-- [ ] **`protocols/`** — 1 file (`P-010-how-to-archive.md`)
+      `nimrod/STATUS.md`, `senet/MEMORY.md`, `ursa/MEMORY.md`) — merged
+      in [PR #82](https://github.com/numengames/numinia-nwos/pull/82)
+- [x] **root** — 3 files (`DEUDA-404.md`, `GAPS.md`, `LEGAL_DEBT.md`) —
+      merged in [PR #83](https://github.com/numengames/numinia-nwos/pull/83)
+- [x] **`protocols/`** — 1 file (`P-010-how-to-archive.md`) — this PR
 - [ ] **`standards/`** — 2 files (incl. `2026_08_18-Sistema_de_Diseno-v5.1.0.md`)
 - [ ] **`canon/`** — 3 files (`C-005-licensing.md`, `C-007-rank-specifications.md`, `INDEX.md`)
 - [ ] **`reports/`** — 5 files
