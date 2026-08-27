@@ -1,161 +1,161 @@
 # LEGAL_DEBT
 
-Registro de deuda legal por C-005 §3/§5. Cada entrada lleva umbral de salida
-expresado como condición, no como fecha — salvo donde ninguna salida existe,
-que se registra para acotar el alcance.
+Register of legal debt under C-005 §3/§5. Each entry carries an exit
+threshold expressed as a condition, not a date — except where no exit
+exists, which is recorded to bound the scope.
 
-## LD-001 · CC0 arrastrado sobre el lore (2026-08-16)
+## LD-001 · CC0 carried over onto the lore (2026-08-16)
 
-**Qué pasó.** El repositorio se publicó con `LICENSE` raíz CC0-1.0 heredado
-del régimen del catálogo (ver DEC-002, construir en público CC0), sin
-partición por regímenes. El CC0 sobre el lore no fue un acto deliberado: se
-arrastró. Mientras el repo fue público con ese LICENSE, todo su contenido
-quedó ofrecido bajo CC0 — incluido lo que C-005 §2 clasifica como reservado.
+**What happened.** The repository was published with a root `LICENSE`
+CC0-1.0 inherited from the catalogue's regime (see DEC-002, build in
+public CC0), with no partition by regime. CC0 over the lore was not a
+deliberate act: it was carried over. While the repo was public under that
+LICENSE, all its content was offered under CC0 — including what C-005 §2
+classifies as reserved.
 
-**Qué quedó publicado bajo CC0.** Todo el historial hasta el commit
-`0157be9` inclusive. En particular, del régimen que hoy es reservado:
-`canon/` (manual del juego de rol de Numinia, Welcome to Numinia, Brand and
-Culture, Compendium of Attributes and Ranks, Rank Specifications, Role
-structure, Platform Role System, About Session Zero, papers epistémico y
-pragmático), `guilds/` (alquimistas, centinelas, exegetas, procuradores) y
-`agents/` (personas de adonaz, nimrod, procurador-01, senet y la plantilla).
-También la documentación y las misiones, hoy CC-BY-4.0.
+**What was published under CC0.** The entire history up to and including
+commit `0157be9`. In particular, from what is today the reserved regime:
+`canon/` (Numinia's TTRPG manual, Welcome to Numinia, Brand and Culture,
+Compendium of Attributes and Ranks, Rank Specifications, Role structure,
+Platform Role System, About Session Zero, epistemic and pragmatic papers),
+`guilds/` (alchemists, sentinels, exegetes, procurators), and `agents/`
+(personas of adonaz, nimrod, procurador-01, senet, and the template). Also
+the documentation and missions, today CC-BY-4.0.
 
-**Resolución (firmada por Oráculo, 2026-08-16).** Lo publicado queda CC0 y
-no se intenta revocar — C-005 §4: la renuncia es irrevocable. El grifo se
-cierra hacia adelante: `LICENSE` raíz deja de ser CC0, `REUSE.toml` declara
-los paths por régimen y lo reservado se expresa con
-`LicenseRef-Numen-AllRightsReserved`. Las versiones posteriores al corte ya
-no se ofrecen bajo CC0.
+**Resolution (signed by Oracle, 2026-08-16).** What was published stays
+CC0 and no attempt is made to revoke it — C-005 §4: the waiver is
+irrevocable. The tap is closed going forward: the root `LICENSE` stops
+being CC0, `REUSE.toml` declares paths by regime, and reserved content is
+expressed with `LicenseRef-Numen-AllRightsReserved`. Versions after the
+cutoff are no longer offered under CC0.
 
-**Umbral de salida.** No existe: la renuncia sobre lo publicado es
-irrevocable por construcción. La entrada permanece para acotar el alcance
-temporal del grant (hasta `0157be9`) y como insumo de la compuerta de
-cambio de visibilidad (§4) de futuros repositorios: la verificación de
-directorios sensibles contra listado real existe porque este incidente
-ocurrió.
+**Exit threshold.** None exists: the waiver over what was published is
+irrevocable by construction. The entry remains to bound the temporal scope
+of the grant (up to `0157be9`) and as input for the visibility-change gate
+(§4) of future repositories: the check of sensitive directories against a
+real listing exists because this incident happened.
 
-**Consecuencia operativa.** Cualquier tercero puede usar, bifurcar o
-redistribuir el contenido de esas versiones bajo CC0, lore incluido. La
-marca no: CC0 nunca cedió Numinia, Numen Games ni Khepri (§7,
+**Operational consequence.** Any third party can use, fork, or
+redistribute the content of those versions under CC0, lore included. The
+brand: no — CC0 never granted Numinia, Numen Games, or Khepri (§7,
 `TRADEMARKS.md`).
 
 ---
 
-## LD-002 · `NOTICE` ausente con Apache-2.0 en el árbol (2026-08-26)
+## LD-002 · `NOTICE` missing with Apache-2.0 in the tree (2026-08-26)
 
-**Qué pasó.** C-005 §5 exige `NOTICE` en todo repositorio público «si
-distribuye alguna dependencia Apache-2.0». El árbol contiene **11 paquetes
-Apache-2.0**, dos de ellos directos (`class-variance-authority`,
-`playwright-core`). `NOTICE` no existe.
+**What happened.** C-005 §5 requires a `NOTICE` in every public repository
+"if it distributes any Apache-2.0 dependency." The tree contains **11
+Apache-2.0 packages**, two of them direct (`class-variance-authority`,
+`playwright-core`). `NOTICE` does not exist.
 
-**Estado medido** (AUD-2026-08-26 §C3, evidencia en
-`reports/audits/AUD-2026-08-26-licensing-c005/`). La prueba se hizo sobre el
-**contenido** de `dist/`, como manda §3, no sobre nombres del árbol:
+**Measured state** (AUD-2026-08-26 §C3, evidence in
+`reports/audits/AUD-2026-08-26-licensing-c005/`). The test was run against
+`dist/`'s **content**, as §3 mandates, not against tree names:
 
 ```
 dist/: 737 html · 290 md · 35 png · 18 woff2 · 4 txt · 3 js · 3 css · 2 xml · 2 svg · 2 json
-binarios nativos (.node/.so/.wasm): 0
-ficheros .js que mencionan Apache-2.0 o su aviso: 0 de 3
+native binaries (.node/.so/.wasm): 0
+.js files mentioning Apache-2.0 or its notice: 0 of 3
 ```
 
-`playwright-core` es herramienta de build (`build:pdf`);
-`class-variance-authority` es MIT-compatible en su uso y no emite aviso al
-bundle. **Presente, no distribuido** (§3).
+`playwright-core` is a build tool (`build:pdf`);
+`class-variance-authority` is MIT-compatible in its usage and emits no
+notice to the bundle. **Present, not distributed** (§3).
 
-**Umbral de salida.** `NOTICE` pasa a ser obligatorio en el momento en que
-un artefacto servido desde `web/dist/` incorpore código Apache-2.0 —
-condición verificable inspeccionando el contenido del bundle, no el árbol de
-dependencias. Hoy la condición no se cumple.
+**Exit threshold.** `NOTICE` becomes mandatory the moment an artefact
+served from `web/dist/` incorporates Apache-2.0 code — a condition
+verifiable by inspecting the bundle's content, not the dependency tree.
+Today the condition is not met.
 
-**Guardia.** No existe. §3 exige que el umbral lo evalúe el CI en cada
-build; hoy nadie lo mide. Registrado como parte de D-001 (ausencia de
-guardias de CI).
+**Guard.** None exists. §3 requires CI to evaluate the threshold on every
+build; today nobody measures it. Recorded as part of D-001 (absent CI
+guards).
 
 ---
 
-## LD-003 · LGPL-3.0-or-later presente en el árbol de dependencias (2026-08-26)
+## LD-003 · LGPL-3.0-or-later present in the dependency tree (2026-08-26)
 
-**Qué pasó.** `@img/sharp-libvips-linux-x64` declara `LGPL-3.0-or-later`.
-C-005 §3 sitúa `LGPL-3.0` en el nivel «con aislamiento», no en «libremente».
+**What happened.** `@img/sharp-libvips-linux-x64` declares
+`LGPL-3.0-or-later`. C-005 §3 places `LGPL-3.0` at the "with isolation"
+level, not "freely."
 
-**Por qué no bloquea.** `sharp` es dependencia **opcional** de `astro`, usada
-en build para procesar imágenes; `output: "static"`. Prueba sobre el
-contenido del artefacto (§3, «nunca cadenas de comentario»):
+**Why it doesn't block.** `sharp` is an **optional** dependency of
+`astro`, used at build time for image processing; `output: "static"`.
+Test against the artefact's content (§3, "never comment strings"):
 
 ```
-ficheros .js de dist/ que contienen "libvips" o "sharp": 0 de 3
-ficheros .js de dist/ que contienen "GPL" o "LGPL":      0 de 3
-binarios nativos en dist/:                               0
+dist/ .js files containing "libvips" or "sharp": 0 of 3
+dist/ .js files containing "GPL" or "LGPL":      0 of 3
+native binaries in dist/:                        0
 ```
 
-**Presente no es distribuido** (§3). El componente LGPL no alcanza el
-artefacto servido.
+**Present is not distributed** (§3). The LGPL component does not reach the
+served artefact.
 
-**Umbral de salida.** La excepción decae si `dist/` pasa a contener un
-binario nativo o cualquier módulo que enlace `libvips` — es decir, si el
-proyecto adopta `output: "server"`, un adaptador con SSR, o procesamiento de
-imagen en runtime. Condición, no fecha.
+**Exit threshold.** The exception lapses if `dist/` starts containing a
+native binary or any module linking `libvips` — that is, if the project
+adopts `output: "server"`, an SSR adapter, or runtime image processing.
+Condition, not date.
 
-**Guardia.** No existe. §3 la exige y debe inspeccionar el **contenido** del
-bundle (metafile o rutas de módulo). Mientras no exista, este umbral es un
-deseo, no una salida — exactamente lo que §5 advierte.
+**Guard.** None exists. §3 requires it and it must inspect the bundle's
+**content** (metafile or module paths). Until it exists, this threshold is
+a wish, not an exit — exactly what §5 warns against.
 
-**Nota colateral.** `zod-to-ts` figura sin campo `license` en la declaración
-de `astro`, pero **no está instalado** en el árbol. Señal de higiene (§3),
-sin efecto: no se depende de términos que nadie ha leído porque no se depende
-del paquete.
+**Side note.** `zod-to-ts` appears with no `license` field in `astro`'s
+declaration, but **is not installed** in the tree. A hygiene signal (§3),
+with no effect: nothing depends on terms nobody has read, because nothing
+depends on the package.
 
 ---
 
-## LD-004 · El instrumento de verificación no está pineado (2026-08-26)
+## LD-004 · The verification instrument is not pinned (2026-08-26)
 
-**Qué pasó.** La auditoría AUD-2026-08-26 se realizó con `reuse 6.2.0`,
-instalado *ad hoc* en el entorno del agente. El repositorio no fija esa
-versión en ningún sitio: ni `package.json`, ni CI, ni un fichero de
-requisitos.
+**What happened.** The AUD-2026-08-26 audit was carried out with
+`reuse 6.2.0`, installed *ad hoc* in the agent's environment. The
+repository does not pin that version anywhere: not in `package.json`, not
+in CI, not in a requirements file.
 
-**Por qué importa.** Las cifras del informe —510 ficheros, 2 expresiones
-inválidas, `OFL-1.1` de 0 a 7 apariciones— sólo son comparables entre
-iteraciones si el instrumento es el mismo. Una versión distinta puede
-resolver la precedencia de anotaciones o el parseo de expresiones de otra
-forma, y entonces un cambio de cifra no distingue entre «el repositorio
-cambió» y «la herramienta cambió».
+**Why it matters.** The report's figures — 510 files, 2 invalid
+expressions, `OFL-1.1` going from 0 to 7 occurrences — are only comparable
+across iterations if the instrument is the same. A different version may
+resolve annotation precedence or expression parsing differently, and then
+a change in figures cannot distinguish between "the repository changed"
+and "the tool changed."
 
-**Umbral de salida.** Se cierra cuando `reuse` quede fijado a una versión
-concreta y ejecutable por CI, de modo que el SBOM sea reproducible por un
-tercero sin depender del entorno local de quien audita.
+**Exit threshold.** Closes when `reuse` is pinned to a concrete version
+runnable by CI, so the SBOM is reproducible by a third party without
+depending on the auditor's local environment.
 
-**Alcance.** Afecta a la comparabilidad de futuras auditorías, no a la
-validez de la de hoy: el SBOM literal queda archivado en
-`reports/audits/AUD-2026-08-26-licensing-c005/sbom.spdx` con la versión
-declarada.
+**Scope.** Affects the comparability of future audits, not the validity of
+today's: the literal SBOM is archived at
+`reports/audits/AUD-2026-08-26-licensing-c005/sbom.spdx` with the declared
+version.
 
 ---
 
-## LD-005 · El canon cita un commit de corte que no es el efectivo (2026-08-26)
+## LD-005 · The canon cites a cutoff commit that isn't the effective one (2026-08-26)
 
-**Qué pasó.** `REUSE.toml` y LD-001 sitúan el cierre del grifo CC0 en el
-commit `0157be9`. El commit que **realmente sustituye** el `LICENSE` raíz
-CC0-1.0 es `2efd546`, seis minutos posterior:
+**What happened.** `REUSE.toml` and LD-001 place the closing of the CC0
+tap at commit `0157be9`. The commit that **actually replaces** the root
+CC0-1.0 `LICENSE` is `2efd546`, six minutes later:
 
 ```
 0157be9  2026-08-16 19:52:03 +0200  Apply C-005 v1.3.0 mechanically: REUSE skeleton, trademark notice
 2efd546  2026-08-16 19:58:17 +0200  Close the CC0 tap forward: per-regime licensing per C-005, Oráculo-signed
 ```
 
-**Efecto medido.** La ventana CC0 real va de `9f51ad1` (2026-04-06 19:14:26)
-a `2efd546` (2026-08-16 19:58:17): **82 commits, 282 ficheros presentes al
-cierre**. Citar `0157be9` deja fuera seis minutos de historial en el que el
-`LICENSE` raíz seguía siendo CC0.
+**Measured effect.** The real CC0 window runs from `9f51ad1`
+(2026-04-06 19:14:26) to `2efd546` (2026-08-16 19:58:17): **82 commits, 282
+files present at closing**. Citing `0157be9` leaves out six minutes of
+history in which the root `LICENSE` was still CC0.
 
-**Severidad: baja.** Ningún commit intermedio añade contenido — la diferencia
-es de precisión documental, no de alcance del grant. Pero LD-001 acota el
-alcance temporal de una renuncia irrevocable, y ese acotamiento debe citar el
-commit efectivo.
+**Severity: low.** No intermediate commit adds content — the difference is
+one of documentary precision, not scope of the grant. But LD-001 bounds
+the temporal scope of an irrevocable waiver, and that bounding must cite
+the effective commit.
 
-**Umbral de salida.** Se cierra cuando la referencia de corte en `REUSE.toml`
-y en LD-001 cite `2efd546`, o cuando quede documentado por qué `0157be9` es
-la referencia correcta pese a la evidencia. La corrección toca canon y
-`REUSE.toml`: es decisión del Oráculo, no higiene de agente.
-
+**Exit threshold.** Closes when the cutoff reference in `REUSE.toml` and in
+LD-001 cites `2efd546`, or when it is documented why `0157be9` is the
+correct reference despite the evidence. The correction touches canon and
+`REUSE.toml`: it is the Oracle's decision, not agent hygiene.
