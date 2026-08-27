@@ -94,7 +94,12 @@ at once, so each PR stays small and reviewable.
       [PR #92](https://github.com/numengames/numinia-nwos/pull/92). Kept in
       Spanish: verbatim quotes of Spanish sources, forensic evidence
       (`audits/evidence/`), proper names, literal filenames.
-- [ ] **`operations/`** — 7 files (incl. the Spanish-language privacy policy)
+- [x] **`operations/`** — 7 files (incl. the privacy policy) — merged in
+      [PR #94](https://github.com/numengames/numinia-nwos/pull/94). O-003
+      privacy policy: English declared the MASTER by Oracle decision,
+      FLAG-5 resolved (v2.0.0). Pending cross-repo: numinia.com
+      (`apps/store`) still carries Spanish copies pinned to
+      `privacy@1.1.0` (CON-004).
 - [ ] **`blueprints/`** — 13 files
 - [ ] **`missions/`** — 12 files, range MIS-078…MIS-096 (already `done`;
       translating a closed mission is form, not substance — `S-001` §2.1.1
@@ -142,6 +147,6 @@ smaller batch turns out more useful next.
 
 ## Closure
 
-*(Not yet closed — six of nine rows done. This section fills in once all
+*(Not yet closed — seven of nine rows done. This section fills in once all
 nine checklist rows are checked, per this repo's own template rule:
 Closure is written at closing, not before.)*
