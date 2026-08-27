@@ -83,7 +83,12 @@ at once, so each PR stays small and reviewable.
             I/II register examples that demonstrate Spanish-language
             copy. Frontmatter `idioma_canonico` updated to `en` with the
             history noted inline.
-- [ ] **`canon/`** — 3 files (`C-005-licensing.md`, `C-007-rank-specifications.md`, `INDEX.md`)
+- [x] **`canon/`** — 3 files (`C-005-licensing.md`, `C-007-rank-specifications.md`, `INDEX.md`)
+      — merged in [PR #90](https://github.com/numengames/numinia-nwos/pull/90).
+      Required a prior canon-change: `ADR-024` ([PR #89](https://github.com/numengames/numinia-nwos/pull/89))
+      revoked C-005 §5's es-ES exception — amendment first, translation second.
+      Sole language exception system-wide, recorded as debt in the ADR: the RPG
+      manual (`numinia-lore`).
 - [ ] **`reports/`** — 5 files
 - [ ] **`operations/`** — 7 files (incl. the Spanish-language privacy policy)
 - [ ] **`blueprints/`** — 13 files
@@ -133,6 +138,6 @@ smaller batch turns out more useful next.
 
 ## Closure
 
-*(Not yet closed — four of nine rows done. This section fills in once all
+*(Not yet closed — five of nine rows done. This section fills in once all
 nine checklist rows are checked, per this repo's own template rule:
 Closure is written at closing, not before.)*
