@@ -11,7 +11,7 @@ assigned_to: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-28"
 updated: "2026-08-28"
 author: "ursa"
@@ -81,6 +81,33 @@ by design).
 `dist/` is searchable. `/print/` intermediates are removed from `dist/`
 before deploy (MIS-088), but the exclusion must be verified in the acceptance
 criteria, not assumed.
+
+---
+
+## Design System compliance (v5.1.0) — added 2026-08-28
+
+*Amendment note (S-001 §2.1.2): added after the Oracle asked whether the
+mission complied with the Design System; the original draft did not cite it.
+Version bumped 1.0.0 → 1.1.0.*
+
+The standard is `standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md`. It binds
+this mission because numinia.org is a **Velo-register surface** (§2.7, §2.8):
+
+- **Pagefind's stock UI (`@pagefind/default-ui`) ships its own CSS and is
+  therefore drift by construction** — the same class of drift §2.7.1 already
+  marks `[FIX]` on the sky's Tailwind hexes. The executor MUST either style
+  the UI entirely with §19.3 canonical tokens or use Pagefind's JS API with
+  system-native markup. No stock stylesheet reaches production.
+- **Search input** follows §9.3: `base` background, `linea.fuerte` border,
+  `control` radius, label above in `type.etiqueta`, focus = Turquesa outline.
+- **Results surface** follows §9.8: if modal, canonical veil
+  `rgba(20,17,15,.72)`, trapped focus, Esc closes, background does not
+  scroll; result rows 40 px; active/chosen = ink pill. Velo nuance applies
+  (crystallization §10.1-11 allowed; the orchestrated moment is still one).
+- **Velo hard rules** (§2.7): no new hexes — alphas over canonicals only;
+  atmosphere behind, never over reading text; AA against the worst background.
+- **Pre-delivery:** the §19.4 checklist runs before the implementation PR
+  opens, and the mission's Closure records it.
 
 ---
 
