@@ -4,7 +4,7 @@
   "master": {
     "path": "standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md",
     "url": "https://numinia.org/corpus/standards/2026_08_18-sistema_de_diseno-v510.md",
-    "sha256": "b599fc9a37bbf9759259b8c8dc1faa729aa906d4540302dbc257985a95cac1ab"
+    "sha256": "7c7b1a002e41340f90ce5d60f2ccc514b3ea56728a7bc294b831f0b2b1d7d6f3"
   },
   "files": {
     "5.1.0/sistema.css": "6e0cfc5c904ed3641784741d6e5eaa1b4ffe117c8ee023f6c26d099d881acc63",
