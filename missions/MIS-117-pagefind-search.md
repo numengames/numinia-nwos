@@ -1,17 +1,17 @@
 ---
 id: "MIS-117"
 title: "Add client-side search to numinia.org with Pagefind"
-status: backlog
+status: in-progress
 priority: medium
 effort: S
 guild: alchemists
 area: web
 type_execution: digital
-assigned_to: null
+assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-28"
 updated: "2026-08-28"
 author: "ursa"
@@ -19,6 +19,7 @@ owner: "oracle"
 tags: [web, alchemists]
 license: "CC-BY-4.0"
 
+mission_mode: spike     # first use — Oracle 2026-08-28: talk, design and build in one pass; a spike must close into a report or a planned mission
 paths: [web/astro.config.mjs, web/package.json, web/src/components/, web/src/pages/]
 ---
 # MIS-117 — Add client-side search to numinia.org with Pagefind
@@ -127,4 +128,44 @@ Every criterion is FALSE at base commit 40d0eb0 (no search exists).
 
 ## Closure
 
-*(written when the mission closes)*
+**Spike executed in one pass (Oracle instruction, 2026-08-28) — mission doc
+and implementation land in the same PR.** First use of `mission_mode: spike`.
+
+**What was built** (base for implementation: `efd4bc3`, merge of main):
+
+- `astro-pagefind@2.0.1` + `pagefind@1.5.2` (devDependencies); integration
+  appended last in `astro.config.mjs` so it indexes the final `dist/`.
+- `web/src/components/SiteSearch.astro` — Pagefind **JS API** with
+  system-native markup; the stock `@pagefind/default-ui` CSS never loads
+  (the compliance section's binding rule). Input per §9.3, modal per §9.8
+  (canonical veil `rgba(20,17,15,.72)`, trapped focus, Esc closes, body
+  scroll locked, 40px result rows), Cmd/Ctrl+K shortcut, ESC hint.
+  Icon: `magnifying-glass`, already in the house Phosphor subset (§7.3).
+- Mounted in `Navigation.astro` (desktop nav).
+
+**The acceptance criterion that earned its keep:** the first build indexed
+**761 pages including 301 `/print/` intermediates** — the risk the research
+section said must be verified, verified. Fixed at the source:
+`data-pagefind-ignore="all"` on the print variant's `<body>`
+(`src/pages/print/[...slug].astro`). Second build: **336 fragments, zero
+`/print/`**, `/missions/mis-117/` indexed and findable.
+
+**Verification status: [MANUAL] local build only — an INTENTO until Workers
+Builds goes green on main.** Criteria state at close (local evidence):
+
+- `dist/pagefind/pagefind.js` exists ✓ (was 404)
+- Search UI in the site header ✓ (was none)
+- "MIS-117" findable ✓ (`/missions/mis-117/` in index)
+- Zero `/print/` results ✓ (was 301 — caught and fixed in this spike)
+- `npm run build` completes with the integration ✓
+
+**Deviation from the research note:** the research assumed `/print/` was
+excluded because MIS-088 deletes it from `dist/` before deploy — but the
+PDF-generation step runs *after* the index is built, so Pagefind saw the
+intermediates. The `data-pagefind-ignore` fix makes the exclusion true at
+index time, independent of pipeline order. The plan/reality difference this
+mission teaches: **"removed later" is not "absent when measured".**
+
+**One dependency choice to record:** `pagefind` pins the Rust binary as a
+devDependency so Workers Builds (`npm ci`) gets a deterministic version —
+nothing global, nothing manual.
