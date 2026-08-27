@@ -99,5 +99,5 @@ package.json. CI runs `license-check`: error on `.com`, warning on `.store`.
 neither deploy to production nor publish. Severity follows exposure, not directory or
 domain names; if exposure can't be determined, error.
 
-Full canon: `C-005 · Canon de Licencias`. This block is authoritative for day-to-day
+Full canon: `C-005 · Licensing Canon`. This block is authoritative for day-to-day
 work; when it is silent, ask rather than infer.
