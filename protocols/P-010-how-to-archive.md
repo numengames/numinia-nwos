@@ -1,6 +1,6 @@
 ---
 id: "P-010"
-title: "How to Archive — el protocolo de archivo de NWOS"
+title: "How to Archive — the NWOS archival protocol"
 type: protocol
 status: draft
 version: "0.3.0"
@@ -15,125 +15,127 @@ review_next: "2027-02-18"
 ---
 # P-010 — How to Archive (v0.3.0, draft)
 
-> **Resumen:** Cómo se nombra, dónde vive y cómo envejece cada documento del
-> archivo NWOS. Sucede a `Read_Me_How_to_Archive` v0.2.0 (era Drive),
-> adaptándolo a la realidad git + web del sistema.
-> **Epistémico:** La taxonomía y el ciclo de vida documental del sistema.
-> **Pragmático:** Ante cualquier fichero nuevo: qué nombre, qué carpeta, qué
-> frontmatter. Ante cualquier duda de archivo: este protocolo decide.
-> **Audiencia:** Agentes · Oráculo
-> **Estado:** BORRADOR — pendiente de firma del Oráculo (MIS-089 fase 0).
+> **Summary:** How every document in the NWOS archive is named, where it
+> lives, and how it ages. Succeeds `Read_Me_How_to_Archive` v0.2.0 (formerly
+> Drive), adapting it to the system's git + web reality.
+> **Epistemic:** The system's document taxonomy and lifecycle.
+> **Pragmatic:** For any new file: what name, what folder, what
+> frontmatter. For any archival doubt: this protocol decides.
+> **Audience:** Agents · Oracle
+> **Status:** DRAFT — pending Oracle signature (MIS-089 phase 0).
 
 ---
 
-## 0. Linaje y regla de contradicción
+## 0. Lineage and contradiction rule
 
-Desciende de `Read me How to archive` v0.1.12 (2024, Drive) y v0.2.0
-(2026-04-14, este repo). **En caso de contradicción con esas versiones,
-prevalece el criterio de hoy** (orden del Oráculo, 2026-08-18). Qué se hereda
-y qué se descarta, en §7.
+Descends from `Read me How to archive` v0.1.12 (2024, Drive) and v0.2.0
+(2026-04-14, this repo). **In case of contradiction with those versions,
+today's criterion prevails** (Oracle's order, 2026-08-18). What is
+inherited and what is discarded, in §7.
 
-## 1. Principios
+## 1. Principles
 
-1. **File Over App.** El documento es el entregable; el repo es el archivo.
-2. **Una fuente, cero copias.** Se enlaza, nunca se copia. Una copia derivada
-   en otro repo declara su máster (patrón FLAG-1 de operations/legal).
-3. **Git versiona el contenido; el frontmatter versiona el documento.** La
-   versión semántica vive en `version:` del frontmatter — nunca en el nombre
-   del fichero de un documento operativo.
-4. **Carpetas por tipo; gremio en metadato.** La estructura primaria es el
-   tipo de documento (decisión del Oráculo 2026-08-18); la dimensión guild se
-   expresa en `guild:` del frontmatter, no en carpetas.
-5. **Espejo web 1:1.** Cada carpeta de tipo tiene su sección en numinia.org;
-   `/corpus` es el catálogo global transversal.
-6. **Profundidad limitada.** Máximo dos niveles bajo la raíz
-   (`reports/daily/`, `operations/legal/`). Heredado de v0.1.12 y vigente.
+1. **File Over App.** The document is the deliverable; the repo is the
+   archive.
+2. **One source, zero copies.** Link, never copy. A derived copy in
+   another repo declares its master (FLAG-1 pattern from operations/legal).
+3. **Git versions the content; the frontmatter versions the document.**
+   Semantic version lives in the frontmatter's `version:` — never in an
+   operational document's filename.
+4. **Folders by type; guild in metadata.** The primary structure is
+   document type (Oracle's decision, 2026-08-18); the guild dimension is
+   expressed in `guild:` in the frontmatter, not in folders.
+5. **1:1 web mirror.** Each type folder has its section on numinia.org;
+   `/corpus` is the global cross-cutting catalogue.
+6. **Limited depth.** Maximum two levels under root (`reports/daily/`,
+   `operations/legal/`). Inherited from v0.1.12 and still in force.
 
-## 2. Taxonomía: tipo → carpeta → ID → sección web
+## 2. Taxonomy: type → folder → ID → web section
 
-| Tipo | Carpeta | Esquema de ID | Sección web |
+| Type | Folder | ID scheme | Web section |
 |---|---|---|---|
-| Canon | `canon/` | `C-XXX` | `/canon` (pendiente, MIS-089 F2) |
-| Misión | `missions/` | `MIS-XXX` | `/missions` ✓ |
-| Decisión | `decisions/` | `DEC-XXX` / `ADR-XXX` | `/decisiones` ✓ |
-| Plano | `blueprints/` | `BP-<slug>` | `/planos` ✓ |
-| Protocolo | `protocols/` | `P-XXX` | `/protocolos` (pendiente) |
-| Reporte diario | `reports/daily/` | `RPT-YYYY-MM-DD` | `/reportes` (hoy hardcodeado — MIS-065) |
-| Auditoría | `reports/audits/` | `AUD-YYYY-MM-DD-<slug>` | `/audits` ✓ |
-| Agente | `agents/<nombre>/` | nombre del agente | `/agentes` (pendiente) |
-| Guild | `guilds/` | nombre del guild | `/guilds` (pendiente) |
-| Operación | `operations/` | por subcarpeta | `/operaciones` (pendiente) |
-| Estándar | `standards/` | por documento | `/estandares` (pendiente) |
-| Gobernanza raíz | `/` (README, GOVERNANCE…) | nombre convencional | catálogo `/corpus` |
-| Fondo de archivo | según origen (`archive-*` / fechados) | ver §3.2 | `/archive` ✓ |
+| Canon | `canon/` | `C-XXX` | `/canon` (pending, MIS-089 F2) |
+| Mission | `missions/` | `MIS-XXX` | `/missions` ✓ |
+| Decision | `decisions/` | `DEC-XXX` / `ADR-XXX` | `/decisiones` ✓ |
+| Blueprint | `blueprints/` | `BP-<slug>` | `/planos` ✓ |
+| Protocol | `protocols/` | `P-XXX` | `/protocolos` (pending) |
+| Daily report | `reports/daily/` | `RPT-YYYY-MM-DD` | `/reportes` (hardcoded today — MIS-065) |
+| Audit | `reports/audits/` | `AUD-YYYY-MM-DD-<slug>` | `/audits` ✓ |
+| Agent | `agents/<name>/` | agent name | `/agentes` (pending) |
+| Guild | `guilds/` | guild name | `/guilds` (pending) |
+| Operation | `operations/` | by subfolder | `/operaciones` (pending) |
+| Standard | `standards/` | by document | `/estandares` (pending) |
+| Root governance | `/` (README, GOVERNANCE…) | conventional name | `/corpus` catalogue |
+| Archive fund | by origin (`archive-*` / dated) | see §3.2 | `/archive` ✓ |
 
-## 3. Nombres
+## 3. Names
 
-### 3.1 Documentos operativos (vivos)
+### 3.1 Operational documents (living)
 
-`<ID>-<slug-en-kebab-case>.md` — ejemplo: `MIS-089-information-architecture.md`,
-`P-010-how-to-archive.md`. Sin espacios, sin caracteres especiales, sin
-versión ni fecha en el nombre (git y el frontmatter ya las llevan).
+`<ID>-<slug-in-kebab-case>.md` — example: `MIS-089-information-architecture.md`,
+`P-010-how-to-archive.md`. No spaces, no special characters, no version or
+date in the filename (git and the frontmatter already carry them).
 
-**Asignación de IDs con agentes concurrentes.** El siguiente ID libre se
-calcula sobre lo COMMITEADO tras un `git pull`, no sobre el working tree.
-Si dos agentes colisionan, conserva el ID quien commiteó primero; el
-segundo renumera el suyo y corrige sus referencias. (Regla nacida de la
-colisión doble MIS-090/MIS-091 del 2026-08-18, resuelta renumerando a
+**ID assignment with concurrent agents.** The next free ID is computed
+against what is COMMITTED after a `git pull`, not the working tree. If two
+agents collide, whoever committed first keeps the ID; the second
+renumbers theirs and fixes their references. (Rule born from the double
+collision MIS-090/MIS-091 on 2026-08-18, resolved by renumbering to
 MIS-092/MIS-093.)
 
-### 3.2 Fondos de archivo (artefactos congelados)
+### 3.2 Archive funds (frozen artefacts)
 
-Los documentos históricos que se archivan como artefacto — no evolucionan —
-conservan la convención heredada `YYYY_MM_DD-Titulo_Con_Guiones_Bajos-vX.Y.Z.md`.
-Es la marca visible de "esto es una foto, no un documento vivo".
+Historical documents archived as an artefact — that do not evolve —
+keep the inherited convention `YYYY_MM_DD-Title_With_Underscores-vX.Y.Z.md`.
+It is the visible mark of "this is a photograph, not a living document."
 
-### 3.3 Frontmatter mínimo obligatorio
+### 3.3 Mandatory minimum frontmatter
 
-`id`, `title`, `type`, `status`, `version`, `created`, `updated`, `license`,
-`tags`. Opcionales normalizados: `guild`, `owner`, `author`, `supersedes`,
-`review_next`. (El guard de CI hoy exige `license`; extenderlo al mínimo
-completo es trabajo de MIS-089 F3.)
+`id`, `title`, `type`, `status`, `version`, `created`, `updated`,
+`license`, `tags`. Normalized optionals: `guild`, `owner`, `author`,
+`supersedes`, `review_next`. (The CI guard today only requires `license`;
+extending it to the full minimum is MIS-089 F3's job.)
 
-## 4. Versionado semántico documental
+## 4. Documentary semantic versioning
 
-Heredado de v0.1.12, vigente, pero en frontmatter:
+Inherited from v0.1.12, still in force, but in the frontmatter:
 
-- **Major** — reestructuración o cambio no retrocompatible del contenido.
-- **Minor** — secciones o mejoras retrocompatibles.
-- **Patch** — correcciones que no cambian el sentido.
+- **Major** — restructuring or non-backward-compatible content change.
+- **Minor** — backward-compatible sections or improvements.
+- **Patch** — corrections that don't change the meaning.
 
-## 5. Ciclo de vida
+## 5. Lifecycle
 
-`draft → active → superseded | frozen → fondo de archivo`
+`draft → active → superseded | frozen → archive fund`
 
-- Un documento **superseded** no se borra: declara `supersedes`/sucesor y,
-  cuando deja de consultarse, pasa al fondo con nombre de artefacto (§3.2).
-- **Borrar** solo duplicados exactos verificados (diff limpio), con registro
-  en la misión que lo ordena.
-- Cadencia de revisión: `review_next` en frontmatter (heredado del
-  "NEXT REVIEW ON" de v0.1.12); las inspecciones ISO 15489 (MIS-067) lo
-  auditan.
+- A **superseded** document is not deleted: it declares
+  `supersedes`/successor and, once no longer consulted, moves to the fund
+  under an artefact name (§3.2).
+- **Deletion** only for exact verified duplicates (clean diff), logged in
+  the mission that orders it.
+- Review cadence: `review_next` in frontmatter (inherited from v0.1.12's
+  "NEXT REVIEW ON"); ISO 15489 inspections (MIS-067) audit it.
 
-## 6. Cumplimiento
+## 6. Compliance
 
-- **ISO 15489** (gestión documental) como marco de las inspecciones — MIS-067.
-- El catálogo `/corpus` es el inventario vivo (sucede al árbol-en-Excel de
-  v0.1.12); cero exclusiones silenciosas.
-- Guard de CI: hoy licencia-frontmatter; candidatos futuros: lint de nombres
-  y de frontmatter mínimo (MIS-089 F3).
+- **ISO 15489** (records management) as the inspections' framework —
+  MIS-067.
+- The `/corpus` catalogue is the living inventory (succeeds v0.1.12's
+  tree-in-Excel); zero silent exclusions.
+- CI guard: today license-frontmatter; future candidates: name lint and
+  minimum-frontmatter lint (MIS-089 F3).
 
-## 7. Qué se hereda y qué se descarta de v0.1.12 / v0.2.0
+## 7. What is inherited and what is discarded from v0.1.12 / v0.2.0
 
-**Vive:** semver documental (§4) · reglas de caracteres en nombres (§3) ·
-profundidad limitada (§1.6) · unicidad por enlace (§1.2) · ciclo de vida y
-disposición (§5) · cadencia de revisión (§5) · marco ISO (§6) · onboarding de
-agentes (ya encarnado en P-002).
+**Lives on:** documentary semver (§4) · filename character rules (§3) ·
+limited depth (§1.6) · one-source-by-link (§1.2) · lifecycle and
+disposition (§5) · review cadence (§5) · ISO framework (§6) · agent
+onboarding (already embodied in P-002).
 
-**Se descarta (criterio de hoy prevalece):** carpetas por gremio → carpetas
-por tipo + `guild:` en metadato · versión y fecha en el nombre de operativos
-→ frontmatter + git · árbol exportado a Excel para Adonaz → catálogo
-`/corpus` generado en build · cifrado/MFA/roles de Drive → visibilidad del
-repo + firmas del Oráculo (C-005: lo público es oferta de licencia viva) ·
-formación mensual presencial → protocolos P-002/P-007 ejecutables por
-agentes.
+**Discarded (today's criterion prevails):** folders by guild → folders by
+type + `guild:` in metadata · version and date in operational filenames →
+frontmatter + git · tree exported to Excel for Adonaz → `/corpus`
+catalogue generated at build · Drive encryption/MFA/roles → repo
+visibility + Oracle signatures (C-005: what is public is a living license
+offer) · monthly in-person training → protocols P-002/P-007 executable by
+agents.
