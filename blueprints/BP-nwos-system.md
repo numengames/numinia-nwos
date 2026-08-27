@@ -155,4 +155,4 @@ If you want the system without the narrative, it's still the same files, the sam
 
 ---
 
-*Metadatos de la página original (`index.astro`): título HTML «Narrative Work OS — Numen Games» · descripción «A file-based operating system for organizations that need alignment, memory, and AI agent integration. No proprietary formats. No lock-in.» · ruta canónica `/`.*
+*Metadata of the original page (`index.astro`): HTML title «Narrative Work OS — Numen Games» · description «A file-based operating system for organizations that need alignment, memory, and AI agent integration. No proprietary formats. No lock-in.» · canonical route `/`.*

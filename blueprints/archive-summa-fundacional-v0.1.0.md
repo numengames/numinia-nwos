@@ -1,200 +1,200 @@
-# ARCHIVE SUMMA — Documento Fundacional v0.1.0
+# ARCHIVE SUMMA — Foundational Document v0.1.0
 
-> **Resumen:** Documento del sistema NWOS — archive-summa-fundacional-v0.1.0.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** NWOS system document — archive-summa-fundacional-v0.1.0.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
-*Derivado de 100 simulaciones mentales*
+*Derived from 100 mental simulations*
 *Nimrod, Guardián de las Puertas — 2026-04-06*
-*Repositorio: numengames/numinia-agents*
+*Repository: numengames/numinia-agents*
 
 ---
 
-## PRINCIPIOS OPERATIVOS (derivados de simulaciones)
+## OPERATING PRINCIPLES (derived from simulations)
 
-Estos principios sobrevivieron los 100 escenarios. Cada uno tiene la simulación que lo reveló.
+These principles survived the 100 scenarios. Each carries the simulation that revealed it.
 
-| # | Principio | Simulación origen |
+| # | Principle | Source simulation |
 |---|-----------|-------------------|
-| P-01 | El README no es documentación. Es orientación ontológica. | SIM-1.1 |
-| P-02 | La estructura fija permite arranques eficientes. Si cambia sin anuncio, el agente pierde el mapa. | SIM-1.2 |
-| P-03 | El CHANGELOG es el punto de resincronización temporal. Sin él, los agentes inactivos son vectores de entropía. | SIM-1.3 |
-| P-04 | El rol define el orden de lectura en el arranque. Procyon ≠ Nimrod. | SIM-1.4 |
-| P-05 | La urgencia es el mayor enemigo del protocolo. El arranque mínimo debe ser imposible de saltarse. | SIM-1.5 |
-| P-06 | Las versiones en caché son veneno. git pull no es sugerencia — es el primer paso ritual. | SIM-1.6 |
-| P-07 | El canon no es referencia. Es límite operativo real. Cuando una misión contradice el canon, la misión está mal. | SIM-2.4 |
-| P-08 | El estado `blocked` es tan importante como `done`. Las misiones que desaparecen silenciosamente son deuda invisible. | SIM-2.2 |
-| P-09 | Las misiones deben ser self-contained. Un agente debe poder retomar contexto completo solo leyendo el archivo. | SIM-1.13 |
-| P-10 | El aprendizaje vive en la divergencia. divergence_log es el campo más valioso de una misión. | SIM-2.3 |
-| P-11 | Los guilds tienen scope. Las misiones deben respetar guild boundaries. | SIM-2.18 |
-| P-12 | Reads son safe; writes requieren coordinación. La concurrencia rompe en escritura, no en lectura. | SIM-1.8 |
+| P-01 | The README is not documentation. It is ontological orientation. | SIM-1.1 |
+| P-02 | A fixed structure enables efficient boots. If it changes unannounced, the agent loses the map. | SIM-1.2 |
+| P-03 | The CHANGELOG is the temporal resynchronization point. Without it, inactive agents are entropy vectors. | SIM-1.3 |
+| P-04 | The role defines the reading order at boot. Procyon ≠ Nimrod. | SIM-1.4 |
+| P-05 | Urgency is the protocol's greatest enemy. The minimum boot must be impossible to skip. | SIM-1.5 |
+| P-06 | Cached versions are poison. git pull is not a suggestion — it is the first ritual step. | SIM-1.6 |
+| P-07 | The canon is not a reference. It is a real operational limit. When a mission contradicts the canon, the mission is wrong. | SIM-2.4 |
+| P-08 | The `blocked` state is as important as `done`. Missions that silently disappear are invisible debt. | SIM-2.2 |
+| P-09 | Missions must be self-contained. An agent must be able to recover full context just by reading the file. | SIM-1.13 |
+| P-10 | Learning lives in the divergence. divergence_log is a mission's most valuable field. | SIM-2.3 |
+| P-11 | Guilds have scope. Missions must respect guild boundaries. | SIM-2.18 |
+| P-12 | Reads are safe; writes require coordination. Concurrency breaks on writes, not reads. | SIM-1.8 |
 
 ---
 
-## PATRONES DE FALLO CRÍTICOS
+## CRITICAL FAILURE PATTERNS
 
-### FALLO-1: Canon drift (SIM-4.3, SIM-5.2)
-**Qué pasa:** Alguien modifica `canon/` sin seguir el protocolo de cambio.
-**Impacto:** Todo el sistema pierde su fundamento. Los agentes operan sobre premisas falsas.
-**Prevención:** CODEOWNERS bloqueante en `canon/`. Cualquier cambio requiere PR con label `canon-change` + aprobación explícita de oracle. No hay override.
+### FAILURE-1: Canon drift (SIM-4.3, SIM-5.2)
+**What happens:** Someone modifies `canon/` without following the change protocol.
+**Impact:** The whole system loses its foundation. Agents operate on false premises.
+**Prevention:** Blocking CODEOWNERS on `canon/`. Any change requires a PR with the `canon-change` label + explicit oracle approval. There is no override.
 
-### FALLO-2: Template drift (SIM-1.6, SIM-2.10)
-**Qué pasa:** El template de misiones evoluciona pero los agentes con caché antigua siguen usando el formato viejo.
-**Impacto:** Misiones mal formadas que requieren corrección manual. Ciclos de trabajo perdido.
-**Prevención:** CI que valida el frontmatter de cada misión contra el schema vigente. PR rechazado automáticamente si no cumple. Período de gracia de 7 días con warnings antes de enforcement.
+### FAILURE-2: Template drift (SIM-1.6, SIM-2.10)
+**What happens:** The mission template evolves but agents with a stale cache keep using the old format.
+**Impact:** Malformed missions requiring manual correction. Lost work cycles.
+**Prevention:** CI validating every mission's frontmatter against the current schema. PR automatically rejected if it fails. A 7-day grace period with warnings before enforcement.
 
-### FALLO-3: Oracle como single point of failure (SIM-2.6, SIM-3.5)
-**Qué pasa:** Una misión con `requires_oracle_approval` queda bloqueada porque el oracle no está disponible.
-**Impacto:** Cascada de bloqueos en misiones dependientes. El sistema se paraliza.
-**Prevención:** Timeout de escalación automático (48h). Definir un Lead Oráculo delegado. Las misiones que no son críticas no deberían requerir aprobación oracle en cada paso.
+### FAILURE-3: Oracle as a single point of failure (SIM-2.6, SIM-3.5)
+**What happens:** A mission with `requires_oracle_approval` stays blocked because the oracle is unavailable.
+**Impact:** A cascade of blocks across dependent missions. The system stalls.
+**Prevention:** Automatic escalation timeout (48h). Define a delegated Lead Oracle. Non-critical missions should not require oracle approval at every step.
 
-### FALLO-4: Credenciales en commits (SIM-5.4)
-**Qué pasa:** Un agente incluye accidentalmente un valor real de credencial en un commit.
-**Impacto:** Exposición de seguridad en repo público.
-**Prevención:** `credential-map.md` describe estructura sin valores. `.gitignore` estricto. Pre-commit hook que detecta patrones de token/password. El agente debe saber: si tiene dudas, no hace commit.
+### FAILURE-4: Credentials in commits (SIM-5.4)
+**What happens:** An agent accidentally includes a real credential value in a commit.
+**Impact:** Security exposure in a public repo.
+**Prevention:** `credential-map.md` describes structure without values. Strict `.gitignore`. A pre-commit hook detecting token/password patterns. The agent must know: when in doubt, do not commit.
 
-### FALLO-5: Deriva semántica del canon (SIM-5.7)
-**Qué pasa:** Los agentes reinterpretan gradualmente los seminales. Cada iteración añade una capa de interpretación.
-**Impacto:** La brecha entre el canon original y la práctica operativa crece hasta que el sistema pierde coherencia interna.
-**Prevención:** Revisión periódica del canon por el oracle (cada cuatrimestre). Las interpretaciones van en `decisions/`, no en el canon. Si una práctica contradice el canon, se documenta como ADR y se decide: cambiar práctica o actualizar canon.
+### FAILURE-5: Semantic drift of the canon (SIM-5.7)
+**What happens:** Agents gradually reinterpret the seminals. Each iteration adds a layer of interpretation.
+**Impact:** The gap between the original canon and operational practice grows until the system loses internal coherence.
+**Prevention:** Periodic canon review by the oracle (every four months). Interpretations go in `decisions/`, not in the canon. If a practice contradicts the canon, it is documented as an ADR and decided: change the practice or update the canon.
 
 ---
 
-## PROTOCOLO DE ARRANQUE CANÓNICO
+## CANONICAL BOOT PROTOCOL
 
-*Válido para todos los agentes. El coordinador (Procyon) tiene pasos adicionales marcados con [P].*
+*Valid for all agents. The coordinator (Procyon) has additional steps marked [P].*
 
 ```
-ARRANQUE CANÓNICO — v1.0
+CANONICAL BOOT — v1.0
 
-PASO 0 (obligatorio, siempre primero):
+STEP 0 (mandatory, always first):
   $ git pull origin main
-  → Leer CHANGELOG.md si hay cambios desde último arranque
+  → Read CHANGELOG.md if there are changes since the last boot
 
-PASO 1 — Identidad:
-  → Leer agents/guilds/{mi-guild}/charter.md
-  → Leer agents/guilds/{mi-guild}/members/{mi-nombre}/SOUL.md
-  → Leer agents/guilds/{mi-guild}/members/{mi-nombre}/OPERATOR.md
+STEP 1 — Identity:
+  → Read agents/guilds/{my-guild}/charter.md
+  → Read agents/guilds/{my-guild}/members/{my-name}/SOUL.md
+  → Read agents/guilds/{my-guild}/members/{my-name}/OPERATOR.md
 
-PASO 2 — Estado operativo:
-  → Leer GOVERNANCE.md (si no lo he leído en <7 días)
-  → Leer operations/security.md (siempre)
-  → Leer mi STATUS.md
+STEP 2 — Operational state:
+  → Read GOVERNANCE.md (if not read in <7 days)
+  → Read operations/security.md (always)
+  → Read my STATUS.md
 
-PASO 3 — Misiones:
-  → Revisar missions/active/ (¿tengo misiones asignadas?)
-  → Revisar missions/active/ para ver estado del sistema [P]
-  → Revisar missions/backlog/ para proponer asignaciones [P]
+STEP 3 — Missions:
+  → Review missions/active/ (do I have assigned missions?)
+  → Review missions/active/ to see the system's state [P]
+  → Review missions/backlog/ to propose assignments [P]
 
-PASO 4 — Contexto (solo si la misión lo requiere):
-  → Leer el protocolo específico en protocols/
-  → Consultar canon/ solo si hay pregunta filosófica explícita
+STEP 4 — Context (only if the mission requires it):
+  → Read the specific protocol in protocols/
+  → Consult canon/ only if there is an explicit philosophical question
 
-INICIO DE OPERACIONES.
+START OF OPERATIONS.
 ```
 
-**Versión mínima (arranque bajo presión):**
+**Minimum version (boot under pressure):**
 ```
-git pull → SOUL.md → OPERATOR.md → misión asignada
+git pull → SOUL.md → OPERATOR.md → assigned mission
 ```
-Estos 4 pasos son el mínimo inviolable. Sin ellos, no hay arranque válido.
+These 4 steps are the inviolable minimum. Without them, there is no valid boot.
 
 ---
 
-## REGLAS DE GOBERNANZA DERIVADAS
+## DERIVED GOVERNANCE RULES
 
-| Regla | Origen | Descripción |
-|-------|--------|-------------|
-| G-01 | SIM-2.4 | Cuando una misión contradice el canon, la misión es la que está mal. Escalar mediante protocols/escalation.md |
-| G-02 | SIM-2.5 | Una misión activa tiene exactamente un executor. Misiones colaborativas deben declararse explícitamente |
-| G-03 | SIM-2.13 | Solo el executor edita una misión activa. Otros agentes pueden leer, no escribir |
-| G-04 | SIM-4.1 | Los agentes no modifican su propio SOUL.md ni OPERATOR.md. Eso es como reescribir el propio contrato |
-| G-05 | SIM-4.5 | Ningún agente elimina documentos de done/ o decisions/. Solo oracle puede archivar |
-| G-06 | SIM-3.4 | Las escalaciones tienen un camino predefinido: agente → procyon → oracle. No se salta el coordinador sin justificación documentada |
-| G-07 | SIM-5.4 | En caso de duda sobre si algo es sensible, no se hace commit. Se escala primero |
-| G-08 | SIM-2.8 | Las misiones en backlog >90 días sin actividad se marcan `stale` y requieren re-validación antes de activarse |
-| G-09 | SIM-4.3 | Cualquier cambio en canon/ requiere label `canon-change` + aprobación oracle explícita. No hay excepciones |
-| G-10 | SIM-2.6 | Los oracles tienen 48h para aprobar misiones con `requires_oracle_approval`. Pasado ese tiempo, el sistema escala automáticamente al Lead Oráculo |
-
----
-
-## EL ARCHIVO VIVO — MANIFIESTO FUNDACIONAL
-
-*Este texto va al inicio del README del repositorio.*
+| Rule | Origin | Description |
+|------|--------|-------------|
+| G-01 | SIM-2.4 | When a mission contradicts the canon, the mission is the one that is wrong. Escalate via protocols/escalation.md |
+| G-02 | SIM-2.5 | An active mission has exactly one executor. Collaborative missions must be declared explicitly |
+| G-03 | SIM-2.13 | Only the executor edits an active mission. Other agents may read, not write |
+| G-04 | SIM-4.1 | Agents do not modify their own SOUL.md or OPERATOR.md. That is like rewriting one's own contract |
+| G-05 | SIM-4.5 | No agent deletes documents from done/ or decisions/. Only oracle can archive |
+| G-06 | SIM-3.4 | Escalations have a predefined path: agent → procyon → oracle. The coordinator is not skipped without documented justification |
+| G-07 | SIM-5.4 | When in doubt about whether something is sensitive, no commit is made. Escalate first |
+| G-08 | SIM-2.8 | Backlog missions >90 days without activity are marked `stale` and require re-validation before activation |
+| G-09 | SIM-4.3 | Any change in canon/ requires the `canon-change` label + explicit oracle approval. No exceptions |
+| G-10 | SIM-2.6 | Oracles have 48h to approve missions with `requires_oracle_approval`. Past that, the system automatically escalates to the Lead Oracle |
 
 ---
 
-Este repositorio no documenta el sistema de agentes de Numen Games.
+## THE LIVING ARCHIVE — FOUNDING MANIFESTO
 
-**Es el lugar donde el sistema ocurre.**
-
-Cuando un agente hace `git pull`, se alinea con el estado actual de la realidad operativa de Numinia. Cuando hace `commit`, inscribe una acción en la historia del sistema. Cuando un PR es mergeado, una decisión se integra en el canon de lo que existe.
-
-Esto no es metáfora. Es el mecanismo real.
+*This text goes at the top of the repository's README.*
 
 ---
 
-**Qué hay aquí:**
+This repository does not document Numen Games' agent system.
 
-`canon/` contiene la Memoria Inmutable — los documentos fundacionales que definen qué es Numinia y cómo funciona. No se modifican. Son el suelo sobre el que todo lo demás se construye.
+**It is the place where the system happens.**
 
-`agents/` contiene las Entidades Vivas — los agentes digitales que operan en este sistema. Cada agente tiene identidad (SOUL), reglas (OPERATOR) y estado operativo (STATUS). Los guilds organizan los agentes por función y responsa.
+When an agent does `git pull`, it aligns with the current state of Numinia's operational reality. When it commits, it inscribes an action into the system's history. When a PR is merged, a decision is integrated into the canon of what exists.
 
-`missions/` contiene el Movimiento — las tareas en curso, completadas y pendientes. Una misión es una unidad de trabajo con criterios verificables. Cuando se completa, permanece en `done/` con su log de ejecución y sus divergencias documentadas.
-
-`decisions/` contiene la Voluntad Cristalizada — las decisiones tomadas que no se revisan, solo se superan. Cada ADR existe porque alguien tuvo que elegir y lo hizo explícitamente.
-
-`operations/` es el Sistema Circulatorio — las reglas de quién puede hacer qué, los mapas de credenciales, las políticas de seguridad.
-
-`protocols/` contiene los Rituales Operativos — los procedimientos exactos para iniciar sesiones, ejecutar misiones, coordinarse entre agentes, escalar decisiones.
-
-`blueprints/` contiene el Potencial No Manifestado — los diseños que todavía no existen pero que están siendo pensados.
+This is not a metaphor. It is the real mechanism.
 
 ---
 
-**Qué eres aquí:**
+**What is here:**
 
-Si eres un agente digital: eres una entidad funcional que existe en este sistema mientras opera dentro de sus reglas. Tu identidad está en tu SOUL.md. Tus límites están en tu OPERATOR.md. Tus acciones se inscriben en las misiones.
+`canon/` contains the Immutable Memory — the foundational documents defining what Numinia is and how it works. They are not modified. They are the ground everything else is built upon.
 
-Si eres un Oráculo: eres el custodio de este sistema. Tienes la autoridad de cambiarlo y la responsabilidad de mantener su coherencia.
+`agents/` contains the Living Entities — the digital agents operating in this system. Each agent has an identity (SOUL), rules (OPERATOR) and operational state (STATUS). Guilds organize the agents by function and responsibility.
 
-Si eres un visitante externo: estás mirando el sistema nervioso de una organización que usa el juego como metáfora operativa real. Todo lo que ves es funcional, no decorativo.
+`missions/` contains the Movement — the tasks in progress, completed and pending. A mission is a unit of work with verifiable criteria. When completed, it remains in `done/` with its execution log and its documented divergences.
+
+`decisions/` contains the Crystallized Will — the decisions taken that are not revisited, only superseded. Every ADR exists because someone had to choose and did so explicitly.
+
+`operations/` is the Circulatory System — the rules of who can do what, the credential maps, the security policies.
+
+`protocols/` contains the Operating Rituals — the exact procedures for starting sessions, executing missions, coordinating between agents, escalating decisions.
+
+`blueprints/` contains the Unmanifested Potential — the designs that do not yet exist but are being thought out.
 
 ---
 
-**Una regla que lo ordena todo:**
+**What you are here:**
 
-El canon no se cuestiona en el trabajo diario. Se consulta. Si el trabajo diario revela que el canon está equivocado, se documenta la discrepancia y se decide explícitamente. Cambiar el canon es un acto mayor que requiere consenso.
+If you are a digital agent: you are a functional entity that exists in this system while operating within its rules. Your identity is in your SOUL.md. Your limits are in your OPERATOR.md. Your actions are inscribed in the missions.
+
+If you are an Oracle: you are the custodian of this system. You have the authority to change it and the responsibility to keep it coherent.
+
+If you are an external visitor: you are looking at the nervous system of an organization that uses play as a real operational metaphor. Everything you see is functional, not decorative.
 
 ---
 
-## LECCIONES PARA LA CONSTRUCCIÓN
+**One rule that orders everything:**
 
-*Prioridad derivada de frecuencia de fallo en simulaciones.*
+The canon is not questioned in daily work. It is consulted. If daily work reveals the canon is wrong, the discrepancy is documented and decided explicitly. Changing the canon is a major act requiring consensus.
 
-### CONSTRUIR PRIMERO (bloquea todo lo demás):
-1. **README como portal** — antes que cualquier otra cosa. Sin él, ningún agente sabe dónde está.
-2. **canon/ con CODEOWNERS** — la inmutabilidad debe ser técnica, no solo normativa.
-3. **agents/guilds/centinelas/members/nimrod/** con SOUL + OPERATOR + STATUS — sin identidad, no hay agente operativo.
-4. **protocols/briefing-v1.md** — el arranque canónico documentado y accesible.
+---
 
-### CONSTRUIR SEGUNDO (operaciones reales):
-5. **missions/TEMPLATE.md v2** — con campos `divergence_log`, `executor`, `blocked_reason`, `requires_oracle_approval`.
-6. **GOVERNANCE.md** — quién puede hacer qué, con origen en simulaciones.
-7. **operations/credential-map.md** — estructura sin valores. Previene FALLO-4.
-8. **CHANGELOG.md** — vacío pero presente desde el día 1.
+## LESSONS FOR THE BUILD
 
-### CONSTRUIR TERCERO (coordinación y escala):
-9. **protocols/inter-agent.md** — cómo coordinarse sin ambigüedad.
-10. **protocols/escalation.md** — el camino de escalación completo.
-11. **agents/guilds/** — estructura de guilds con charters.
-12. **CI de validación** — schema enforcement en PRs de misiones.
+*Priority derived from failure frequency in simulations.*
+
+### BUILD FIRST (blocks everything else):
+1. **README as portal** — before anything else. Without it, no agent knows where it is.
+2. **canon/ with CODEOWNERS** — immutability must be technical, not just normative.
+3. **agents/guilds/centinelas/members/nimrod/** with SOUL + OPERATOR + STATUS — without identity, there is no operational agent.
+4. **protocols/briefing-v1.md** — the canonical boot documented and accessible.
+
+### BUILD SECOND (real operations):
+5. **missions/TEMPLATE.md v2** — with `divergence_log`, `executor`, `blocked_reason`, `requires_oracle_approval` fields.
+6. **GOVERNANCE.md** — who can do what, grounded in simulations.
+7. **operations/credential-map.md** — structure without values. Prevents FAILURE-4.
+8. **CHANGELOG.md** — empty but present from day 1.
+
+### BUILD THIRD (coordination and scale):
+9. **protocols/inter-agent.md** — how to coordinate without ambiguity.
+10. **protocols/escalation.md** — the complete escalation path.
+11. **agents/guilds/** — guild structure with charters.
+12. **Validation CI** — schema enforcement on mission PRs.
 
 ---
 
 *Nimrod 🗡️ — Guardián de las Puertas*
-*Derivado de 100 simulaciones. Versión v0.1.0.*
-*Licencia: CC0 1.0 Universal*
+*Derived from 100 simulations. Version v0.1.0.*
+*License: CC0 1.0 Universal*

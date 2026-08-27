@@ -1,6 +1,6 @@
 ---
 id: "BP-datos"
-title: "Modelo de Datos"
+title: "Data Model"
 type: blueprint
 status: active
 version: "v0.1.0"
@@ -9,61 +9,61 @@ updated: "2026-04-05T00:00:00Z"
 author: "nimrod"
 owner: "oracle"
 tags: [blueprint, product, tech, data, blockchain, nft]
-area: "Producto / Tech"
+area: "Product / Tech"
 semaforo: "amarillo"
 license: "CC-BY-4.0"
 ---
-# BP — Modelo de Datos
+# BP — Data Model
 
-> **Resumen:** Plano del sistema: estado actual, objetivo, gaps y dependencias.
-> **Epistémico:** El estado real vs. el objetivo — dónde estamos y hacia dónde vamos.
-> **Pragmático:** Identificar qué misiones abren los gaps documentados.
-> **Audiencia:** Agentes · Oráculos
-
----
-
-
-> *El Registro Akáshico no miente. Todo lo que existe en Numinia deja una huella. Los datos son esa huella.*
-
-**Semáforo:** 🟡 En progreso
+> **Summary:** System blueprint: current state, target, gaps and dependencies.
+> **Epistemic:** The real state vs. the target — where we are and where we are going.
+> **Pragmatic:** Identify which missions close the documented gaps.
+> **Audience:** Agents · Oracles
 
 ---
 
-## Estado actual
 
-- Modelo conceptual diseñado — sin implementación
-- Sin smart contracts
-- Sin DB operativa para Numinia
-- Sin indexador (The Graph)
+> *The Akashic Record does not lie. Everything that exists in Numinia leaves a trace. Data is that trace.*
 
-## Estado objetivo
+**Traffic light:** 🟡 In progress
 
-- Smart contracts ERC-721/1155 en Arbitrum Sepolia (Milestone 1)
-- Metadata en IPFS/Arweave
-- The Graph indexando eventos on-chain
-- PostgreSQL como capa operativa sincronizada
+---
 
-## Decisiones relacionadas
+## Current state
 
-- DEC-003: Arbitrum L2 — fees bajos, EVM compatible, ecosistema de grants
-- Burn-and-Mint para upgrades: el historial del objeto queda on-chain para siempre
-- On-chain gana siempre: la DB es una caché, el NFT es la verdad
+- Conceptual model designed — no implementation
+- No smart contracts
+- No operational DB for Numinia
+- No indexer (The Graph)
 
-## Delta (brecha → misión)
+## Target state
 
-| Brecha | Misión |
+- ERC-721/1155 smart contracts on Arbitrum Sepolia (Milestone 1)
+- Metadata on IPFS/Arweave
+- The Graph indexing on-chain events
+- PostgreSQL as the synchronized operational layer
+
+## Related decisions
+
+- DEC-003: Arbitrum L2 — low fees, EVM compatible, grants ecosystem
+- Burn-and-Mint for upgrades: the object's history stays on-chain forever
+- On-chain always wins: the DB is a cache, the NFT is the truth
+
+## Delta (gap → mission)
+
+| Gap | Mission |
 |---|---|
-| Sin smart contracts | Pendiente — /numinia-contracts |
-| Sin ERD completo | Diseñar en Dark Council |
-| Sin API | Pendiente cuando existan contratos |
+| No smart contracts | Pending — /numinia-contracts |
+| No complete ERD | Design in Dark Council |
+| No API | Pending until contracts exist |
 
-## Preguntas abiertas
+## Open questions
 
-- ¿Los avatares de ciudadano son soulbound o transferibles?
-- ¿Los Prism Cells tienen supply máximo?
-- ¿La DB operativa la gestiona Numen Games o hay un nodo por organización?
+- Are citizen avatars soulbound or transferable?
+- Do Prism Cells have a maximum supply?
+- Does Numen Games manage the operational DB, or is there one node per organization?
 
-## Dependencias
+## Dependencies
 
 - BP-infraestructura
 - BP-misiones
