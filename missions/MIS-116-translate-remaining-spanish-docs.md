@@ -64,10 +64,11 @@ at once, so each PR stays small and reviewable.
       merged in [PR #83](https://github.com/numengames/numinia-nwos/pull/83)
 - [x] **`protocols/`** — 1 file (`P-010-how-to-archive.md`) — merged in
       [PR #85](https://github.com/numengames/numinia-nwos/pull/85)
-- [ ] **`standards/`** — split into two sub-PRs (small file first):
+- [x] **`standards/`** — split into two sub-PRs (small file first):
       - [x] `S-003-platform-role-system.md` — merged in
             [PR #86](https://github.com/numengames/numinia-nwos/pull/86)
-      - [x] `2026_08_18-Sistema_de_Diseno-v5.1.0.md` — this PR, largest
+      - [x] `2026_08_18-Sistema_de_Diseno-v5.1.0.md` — merged in
+            [PR #87](https://github.com/numengames/numinia-nwos/pull/87), largest
             file in the repo (1521 lines, ~5,440 ES words). Code blocks
             (CSS/JS/JSON/SVG/binary) kept byte-identical: the kit
             generator (`scripts/generate-design-kit.mjs`) extracts them
@@ -132,6 +133,6 @@ smaller batch turns out more useful next.
 
 ## Closure
 
-*(Not yet closed — two of nine rows done. This section fills in once all
+*(Not yet closed — four of nine rows done. This section fills in once all
 nine checklist rows are checked, per this repo's own template rule:
 Closure is written at closing, not before.)*
