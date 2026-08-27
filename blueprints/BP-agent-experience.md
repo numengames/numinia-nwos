@@ -1,6 +1,6 @@
 ---
 id: "BP-agent-experience"
-title: "El Ciclo del Agente — experiencia y operación"
+title: "The Agent Cycle — experience and operation"
 type: blueprint
 status: active
 version: "1.0.0"
@@ -11,170 +11,170 @@ owner: "oracle"
 tags: [blueprint, agents, cycle, experience]
 area: "CAO"
 license: "CC-BY-4.0"
-extraction_note: "Extracted verbatim from web/src/pages/agente.astro (MIS-071 phase 2 — File over App): the agent cycle and operating presentation."
+extraction_note: "Extracted verbatim from web/src/pages/agente.astro (MIS-071 phase 2 — File over App): the agent cycle and operating presentation. Translated to English under MIS-116 (ADR-024) — language only."
 ---
 
-# Cómo funciona un agente
+# How an agent works
 
-> **Numen Games · NWOS · Diagrama C**
+> **Numen Games · NWOS · Diagram C**
 
-Un agente digital no es un chatbot. Es un colaborador con identidad persistente, leyes operativas, memoria institucional y acceso a herramientas reales. Esta página explica cómo está construido — y cómo aprende.
+A digital agent is not a chatbot. It is a collaborator with persistent identity, operational laws, institutional memory and access to real tools. This page explains how it is built — and how it learns.
 
-**Claves:** 6 capas · 3 fases de ciclo de vida · Casos reales de Nimrod
-
----
-
-## Diagrama C — Arquitectura de capas
-
-Representación del stack visual de la página original (de arriba a abajo):
-
-| Capa | Etiqueta | Nombre | Detalle en el diagrama |
-|------|----------|--------|------------------------|
-| L6 | L6 · Emergente | 🏛️ ORGANIZACIÓN | No se instancia — emerge de la operación continua del sistema |
-| L5 | L5 · Autoridad | 👤 AGENTE BIOLÓGICO | IQ · Posición · Rol · Intuición · Aprobación — flujo: «instrucción ↓» / «aprobación ↑» (⇅) |
-| L3 | L3 · Transversal — Bus de Estado | 📚 ARCHIVE SUMMA | «↓ BOOT (git pull)» · «↑ COMMIT (git push)» — etiquetas: SOUL.md · OPERATOR.md · Misiones · Decisiones · Planos · Reportes · Protocolos · Memoria |
-| L1 | L1 · Runtime | 🤖 AGENTE DIGITAL | Modelo IA · Orquestador · Contexto · Vector DB |
-| L2 | L2 · Substrato | 🖥️ INFRAESTRUCTURA | Servidor · GPU · Tools · Auth · Observability |
-| L4 | L4 · Media | 🎨 ASSETS DIGITALES (CDN) | jpg · mp4 · glb · vrm · mp3 · R2 / AWS S3 |
-
-*L3 (Archive Summa) es transversal — no está encima ni debajo, conecta todas las capas*
+**Keys:** 6 layers · 3 lifecycle phases · Real cases from Nimrod
 
 ---
 
-## Las 6 capas — detalle
+## Diagram C — Layer architecture
 
-### L1 — 🤖 Agente Digital
+Representation of the original page's visual stack (top to bottom):
 
-*El actor. El que piensa y actúa.* (color `#3fb950`)
+| Layer | Label | Name | Detail in the diagram |
+|-------|-------|------|-----------------------|
+| L6 | L6 · Emergent | 🏛️ ORGANIZATION | Not instantiated — it emerges from the system's continuous operation |
+| L5 | L5 · Authority | 👤 BIOLOGICAL AGENT | IQ · Position · Role · Intuition · Approval — flow: «instrucción ↓» / «aprobación ↑» (⇅) |
+| L3 | L3 · Transversal — State Bus | 📚 ARCHIVE SUMMA | «↓ BOOT (git pull)» · «↑ COMMIT (git push)» — labels: SOUL.md · OPERATOR.md · Missions · Decisions · Blueprints · Reports · Protocols · Memory |
+| L1 | L1 · Runtime | 🤖 DIGITAL AGENT | AI model · Orchestrator · Context · Vector DB |
+| L2 | L2 · Substrate | 🖥️ INFRASTRUCTURE | Server · GPU · Tools · Auth · Observability |
+| L4 | L4 · Media | 🎨 DIGITAL ASSETS (CDN) | jpg · mp4 · glb · vrm · mp3 · R2 / AWS S3 |
 
-**Componentes:** Modelo de IA (LLM) · Contexto activo (RAM de sesión) · Memoria semántica (Vector DB) · Orquestador (OpenClaw)
+*L3 (Archive Summa) is transversal — it is neither above nor below, it connects all the layers*
 
-- **🧠 Valor epistémico:** El agente no tiene inteligencia propia — tiene acceso a un modelo de lenguaje y a las instrucciones que definen quién es. La inteligencia emerge de la combinación de modelo + instrucciones + contexto.
-- **⚡ Valor pragmático:** Puede ejecutar tareas sin supervisión continua: escribir código, enviar emails, crear documentos, analizar datos. El límite es lo que el Biológico le autoriza.
-- **📍 Caso real — Nimrod:** Nimrod (Centinela-01) arranca a las 8am, carga SOUL.md y OPERATOR.md, y ejecuta el reporte diario. No hay humano en el loop hasta que el reporte llega a Telegram.
+---
 
-### L2 — 🖥️ Infraestructura
+## The 6 layers — detail
 
-*El substrato. Donde el agente existe físicamente.* (color `#f85149`)
+### L1 — 🤖 Digital Agent
 
-**Componentes:** Servidor VPS ([VPS-IP redacted — see ops-credential-map]) · GPU ≥32GB VRAM (on-premises, en camino) · Tools & Skills (web, shell, APIs) · Identity & Auth (permisos por agente) · Observability (logs, trazas, métricas)
+*The actor. The one that thinks and acts.* (color `#3fb950`)
 
-- **🧠 Valor epistémico:** La infraestructura define los límites de lo posible. Un agente sin GPU suficiente no puede ejecutar modelos locales. Sin Auth Layer, cualquier agente puede hacer cualquier cosa — eso es una vulnerabilidad.
-- **⚡ Valor pragmático:** El PC dedicado (Ryzen 9 7950X + RTX 4080) reducirá el coste de inferencia un 60-70% cuando llegue. La infraestructura es la diferencia entre $50/mes y $5/mes.
-- **📍 Caso real — Nimrod:** Cuando Nimrod ejecuta `gog gmail send`, el orquestador verifica los permisos del agente antes de ejecutar la tool. Si la Ley 1 no está autorizada, la acción no ocurre.
+**Components:** AI model (LLM) · Active context (session RAM) · Semantic memory (Vector DB) · Orchestrator (OpenClaw)
+
+- **🧠 Epistemic value:** The agent has no intelligence of its own — it has access to a language model and to the instructions defining who it is. Intelligence emerges from the combination of model + instructions + context.
+- **⚡ Pragmatic value:** It can execute tasks without continuous supervision: write code, send emails, create documents, analyze data. The limit is what the Biological authorizes.
+- **📍 Real case — Nimrod:** Nimrod (Centinela-01) boots at 8am, loads SOUL.md and OPERATOR.md, and executes the daily report. There is no human in the loop until the report reaches Telegram.
+
+### L2 — 🖥️ Infrastructure
+
+*The substrate. Where the agent physically exists.* (color `#f85149`)
+
+**Components:** VPS server ([VPS-IP redacted — see ops-credential-map]) · GPU ≥32GB VRAM (on-premises, on the way) · Tools & Skills (web, shell, APIs) · Identity & Auth (per-agent permissions) · Observability (logs, traces, metrics)
+
+- **🧠 Epistemic value:** The infrastructure defines the limits of the possible. An agent without enough GPU cannot run local models. Without an Auth Layer, any agent can do anything — that is a vulnerability.
+- **⚡ Pragmatic value:** The dedicated PC (Ryzen 9 7950X + RTX 4080) will cut inference cost by 60-70% when it arrives. Infrastructure is the difference between $50/month and $5/month.
+- **📍 Real case — Nimrod:** When Nimrod runs `gog gmail send`, the orchestrator verifies the agent's permissions before executing the tool. If Law 1 is not authorized, the action does not happen.
 
 ### L3 — 📚 Archive Summa
 
-*La memoria permanente. El sistema nervioso del NWOS.* (color `#58a6ff`)
+*The permanent memory. The nervous system of the NWOS.* (color `#58a6ff`)
 
-**Componentes:** GitHub (git repo) · Archivos .md con YAML frontmatter · SOUL.md — identidad del agente · OPERATOR.md — leyes operativas · Misiones, decisiones, planos, reportes · Protocolos y memoria diaria
+**Components:** GitHub (git repo) · .md files with YAML frontmatter · SOUL.md — the agent's identity · OPERATOR.md — operational laws · Missions, decisions, blueprints, reports · Protocols and daily memory
 
-- **🧠 Valor epistémico:** El Archive no es un almacén — es la fuente de verdad. Lo que no está en el Archive no existe institucionalmente. Un agente que cierra sesión sin escribir pierde ese conocimiento para siempre. Por eso el COMMIT es el momento más crítico del ciclo.
-- **⚡ Valor pragmático:** Cualquier agente nuevo puede leer el Archive y operar con contexto completo en minutos. Git es el historial completo y auditable de cada decisión. No hay reunión de 'actualización' — el Archive es la actualización.
-- **📍 Caso real — Nimrod:** Esta sesión de hoy: Nimrod escribió RPT-2026-04-07.md al Archive. La próxima sesión, aunque sea en otro modelo o en otra máquina, arrancará leyendo ese reporte y tendrá contexto de lo que pasó.
+- **🧠 Epistemic value:** The Archive is not a warehouse — it is the source of truth. What is not in the Archive does not exist institutionally. An agent that closes a session without writing loses that knowledge forever. That is why COMMIT is the most critical moment of the cycle.
+- **⚡ Pragmatic value:** Any new agent can read the Archive and operate with full context in minutes. Git is the complete, auditable history of every decision. There is no 'update' meeting — the Archive is the update.
+- **📍 Real case — Nimrod:** Today's session: Nimrod wrote RPT-2026-04-07.md to the Archive. The next session, even on another model or another machine, will boot by reading that report and have context of what happened.
 
-### L4 — 🎨 Assets Digitales
+### L4 — 🎨 Digital Assets
 
-*El cuerpo. Los materiales de los que está hecho el mundo.* (color `#d2a8ff`)
+*The body. The materials the world is made of.* (color `#d2a8ff`)
 
-**Componentes:** CDN (R2 / AWS S3) · Imágenes (jpg, png, webp) · Video (mp4, webm) · Modelos 3D (glb, gltf) · Avatares (vrm) · Audio (mp3, ogg)
+**Components:** CDN (R2 / AWS S3) · Images (jpg, png, webp) · Video (mp4, webm) · 3D models (glb, gltf) · Avatars (vrm) · Audio (mp3, ogg)
 
-- **🧠 Valor epistémico:** Los assets son el conocimiento encarnado — la forma en que el sistema existe perceptualmente. Un avatar .vrm es la identidad visual del agente. Un .glb de Numinia es el espacio donde ocurren las interacciones.
-- **⚡ Valor pragmático:** Los assets se sirven via CDN — disponibles globalmente, sin latencia. Separados del Archive porque tienen ciclos de vida distintos: un .md se versiona con git, un .mp4 no.
-- **📍 Caso real — Nimrod:** El juego 'El Velo' en pablofm.com/openclaw-test usa Three.js con geometrías procedurales. Cuando haya avatares .vrm reales, se servirán desde R2 y el agente digital podrá 'encarnarlos' en sesiones de Numinia.
+- **🧠 Epistemic value:** Assets are knowledge embodied — the way the system exists perceptually. A .vrm avatar is the agent's visual identity. A .glb of Numinia is the space where interactions happen.
+- **⚡ Pragmatic value:** Assets are served via CDN — globally available, no latency. Separate from the Archive because they have different lifecycles: an .md is versioned with git, an .mp4 is not.
+- **📍 Real case — Nimrod:** The game 'El Velo' at pablofm.com/openclaw-test uses Three.js with procedural geometries. When there are real .vrm avatars, they will be served from R2 and the digital agent will be able to 'embody' them in Numinia sessions.
 
-### L5 — 👤 Agente Biológico
+### L5 — 👤 Biological Agent
 
-*La autoridad. El que decide, intuye y autoriza.* (color `#ffa657`)
+*The authority. The one that decides, intuits and authorizes.* (color `#ffa657`)
 
-**Componentes:** IQ + experiencia + intuición · Posición (Oráculo, Ciudadano, etc.) · Rol en el gremio · Autoridad de aprobación · Conocimiento tácito (no documentado)
+**Components:** IQ + experience + intuition · Position (Oracle, Citizen, etc.) · Role in the guild · Approval authority · Tacit knowledge (undocumented)
 
-- **🧠 Valor epistémico:** El Biológico tiene algo que el Digital nunca tendrá: conocimiento tácito — intuición construida por años de experiencia que no puede ser completamente documentada. Eso es irreemplazable. El riesgo: ese conocimiento muere con la persona si no se externaliza parcialmente al Archive.
-- **⚡ Valor pragmático:** El Biológico es el único que puede autorizar acciones de alto riesgo (Ley 1). También es el que detecta cuando el sistema está produciendo outputs correctos pero equivocados — el agente puede hacer exactamente lo que le pides y aun así estar equivocado.
-- **📍 Caso real — Nimrod:** Pablo aprueba cada PR antes de mergear. Nimrod puede proponer 10 cambios correctos técnicamente — pero Pablo sabe si 'esto no es el momento' por razones que no están en ningún documento. Eso es el Biológico.
+- **🧠 Epistemic value:** The Biological has something the Digital will never have: tacit knowledge — intuition built by years of experience that cannot be fully documented. That is irreplaceable. The risk: that knowledge dies with the person if it is not partially externalized into the Archive.
+- **⚡ Pragmatic value:** The Biological is the only one who can authorize high-risk actions (Law 1). They are also the one who detects when the system is producing correct-but-wrong outputs — the agent can do exactly what you ask and still be wrong.
+- **📍 Real case — Nimrod:** Pablo approves every PR before merging. Nimrod can propose 10 technically correct changes — but Pablo knows when 'this is not the moment' for reasons that are in no document. That is the Biological.
 
-### L6 — 🏛️ Organización
+### L6 — 🏛️ Organization
 
-*El emergente. La suma que supera a sus partes.* (color `#2dd4bf`)
+*The emergent. The sum that exceeds its parts.* (color `#2dd4bf`)
 
-**Componentes:** No se instancia — emerge · Es la suma de L1+L2+L3+L4+L5 en operación continua · Cultura = comportamientos repetidos del sistema · Memoria institucional = Archive Summa vivo · Inteligencia colectiva = Digital + Biológico en loop
+**Components:** Not instantiated — it emerges · It is the sum of L1+L2+L3+L4+L5 in continuous operation · Culture = the system's repeated behaviors · Institutional memory = a living Archive Summa · Collective intelligence = Digital + Biological in a loop
 
-- **🧠 Valor epistémico:** La organización no es un objeto que puedes crear directamente. Es un patrón que emerge cuando todos los componentes operan juntos en el tiempo. Por eso 'deployar NWOS' no es suficiente — el sistema tiene que vivirse.
-- **⚡ Valor pragmático:** Cuando el ciclo funciona (Biológico activa → Digital ejecuta → Archive recibe → Biológico revisa), la organización aprende. Cada misión completada hace al sistema ligeramente más inteligente. Esa es la promesa del NWOS.
-- **📍 Caso real — Nimrod:** Numen Games lleva 5 días operando con este sistema. 54 misiones documentadas, 32 PRs, 5 reportes, 5 decisiones. Eso no es una empresa de 5 días — es una organización con memoria de años si el sistema se mantiene.
+- **🧠 Epistemic value:** The organization is not an object you can create directly. It is a pattern that emerges when all the components operate together over time. That is why 'deploying NWOS' is not enough — the system has to be lived.
+- **⚡ Pragmatic value:** When the cycle works (Biological activates → Digital executes → Archive receives → Biological reviews), the organization learns. Every completed mission makes the system slightly more intelligent. That is the promise of the NWOS.
+- **📍 Real case — Nimrod:** Numen Games has been operating with this system for 5 days. 54 documented missions, 32 PRs, 5 reports, 5 decisions. That is not a 5-day-old company — it is an organization with years of memory if the system is maintained.
 
 ---
 
-## Ciclo de vida — BOOT · EXECUTE · COMMIT
+## Lifecycle — BOOT · EXECUTE · COMMIT
 
-Secuencia visual de la página: **⬇️ BOOT → ⚡ EXECUTE → ⬆️ COMMIT**
+Visual sequence on the page: **⬇️ BOOT → ⚡ EXECUTE → ⬆️ COMMIT**
 
 ### ⬇️ BOOT (color `#58a6ff`)
 
-- **Qué:** El agente arranca y lee su identidad desde el Archive Summa.
-- **Cómo:** git pull → carga SOUL.md, OPERATOR.md, memoria del día anterior, protocolos activos.
-- **🧠 Valor epistémico:** El agente sin BOOT es amnésico. Sin identidad cargada, es un modelo genérico sin personalidad ni leyes. El BOOT transforma 'un LLM' en 'Nimrod'.
-- **⚡ Valor pragmático:** El arranque en frío toma 30-60 segundos. Con el Archive bien estructurado, el agente opera con contexto completo desde el primer mensaje.
-- **📍 Caso real:** 07:00 UTC — Nimrod arranca para el reporte diario. Lee MEMORY.md (contexto de sesiones anteriores), HEARTBEAT.md (tareas pendientes), y los últimos reportes. En 45 segundos tiene todo el contexto de los últimos 5 días.
+- **What:** The agent boots and reads its identity from the Archive Summa.
+- **How:** git pull → loads SOUL.md, OPERATOR.md, the previous day's memory, active protocols.
+- **🧠 Epistemic value:** An agent without BOOT is amnesiac. Without loaded identity, it is a generic model with no personality and no laws. BOOT transforms 'an LLM' into 'Nimrod'.
+- **⚡ Pragmatic value:** Cold boot takes 30-60 seconds. With a well-structured Archive, the agent operates with full context from the first message.
+- **📍 Real case:** 07:00 UTC — Nimrod boots for the daily report. It reads MEMORY.md (context from previous sessions), HEARTBEAT.md (pending tasks), and the latest reports. In 45 seconds it has the full context of the last 5 days.
 
 ### ⚡ EXECUTE (color `#3fb950`)
 
-- **Qué:** El agente recibe instrucción del Biológico y ejecuta usando tools.
-- **Cómo:** Biológico → Orquestador → Agente → Tools (web, shell, APIs, email, git) → Output → Biológico.
-- **🧠 Valor epistémico:** La ejecución es donde el conocimiento cargado en BOOT se convierte en acción real. Es también donde el conocimiento nuevo se genera — cada conversación, cada error, cada decisión tomada es conocimiento nuevo aún no persistido.
-- **⚡ Valor pragmático:** El agente puede operar en paralelo con múltiples herramientas. El límite no es la velocidad de pensamiento sino la latencia de APIs y la ventana de contexto del modelo.
-- **📍 Caso real:** Esta sesión: Pablo dice 'haz el Wardley Map'. Nimrod lee el estado de todas las páginas, invoca al equipo (Alquimista-01, Exégeta-01), sintetiza sus análisis, escribe la página, crea el PR, y hace el merge. Todo en 15 minutos.
+- **What:** The agent receives an instruction from the Biological and executes using tools.
+- **How:** Biological → Orchestrator → Agent → Tools (web, shell, APIs, email, git) → Output → Biological.
+- **🧠 Epistemic value:** Execution is where the knowledge loaded at BOOT turns into real action. It is also where new knowledge is generated — every conversation, every error, every decision taken is new knowledge not yet persisted.
+- **⚡ Pragmatic value:** The agent can operate multiple tools in parallel. The limit is not thinking speed but API latency and the model's context window.
+- **📍 Real case:** This session: Pablo says 'do the Wardley Map'. Nimrod reads the state of all the pages, summons the team (Alquimista-01, Exégeta-01), synthesizes their analyses, writes the page, creates the PR, and merges it. All in 15 minutes.
 
 ### ⬆️ COMMIT (color `#ffa657`)
 
-- **Qué:** El agente escribe el conocimiento generado de vuelta al Archive Summa.
-- **Cómo:** git add → git commit → git push → el conocimiento es permanente.
-- **🧠 Valor epistémico:** Este es el momento más crítico del ciclo. El conocimiento que no se hace COMMIT desaparece cuando la sesión termina. No hay amnesia gradual — hay pérdida total. El COMMIT es el acto de convertir experiencia efímera en memoria institucional.
-- **⚡ Valor pragmático:** Cada COMMIT es un punto de recuperación. Si mañana hay que reconstruir el sistema desde cero, el Archive tiene todo. Los commits son también auditables — se puede ver exactamente qué hizo qué agente en qué momento.
-- **📍 Caso real:** Al final de cada sesión, Nimrod escribe RPT-YYYY-MM-DD.md con lo que hizo, cuánto costó y qué quedó pendiente. Ese archivo persiste para siempre. En 6 meses, cualquier Oráculo puede leer el historial completo sin preguntar.
+- **What:** The agent writes the generated knowledge back to the Archive Summa.
+- **How:** git add → git commit → git push → the knowledge is permanent.
+- **🧠 Epistemic value:** This is the most critical moment of the cycle. Knowledge that is not COMMITted disappears when the session ends. There is no gradual amnesia — there is total loss. COMMIT is the act of turning ephemeral experience into institutional memory.
+- **⚡ Pragmatic value:** Every COMMIT is a recovery point. If the system has to be rebuilt from scratch tomorrow, the Archive has everything. Commits are also auditable — you can see exactly which agent did what and when.
+- **📍 Real case:** At the end of every session, Nimrod writes RPT-YYYY-MM-DD.md with what was done, what it cost and what remained pending. That file persists forever. In 6 months, any Oracle can read the full history without asking.
 
 ---
 
-## Caso práctico — Organización externa
+## Practical case — External organization
 
-**Acme Studio — Estudio indie de videojuegos, 12 personas, Madrid**
+**Acme Studio — indie game studio, 12 people, Madrid**
 
-### Semana 1 — Setup
+### Week 1 — Setup
 
-El equipo clona el repo de referencia NWOS. Cada persona crea su SOUL.md con su rol y gremio. El CTO configura el orquestador con el agente Centinela.
+The team clones the NWOS reference repo. Each person creates their SOUL.md with their role and guild. The CTO configures the orchestrator with the Centinela agent.
 
-→ *El Archive Summa de Acme Studio tiene identidades documentadas. El agente sabe quién es cada persona y cuál es su autoridad.*
+→ *Acme Studio's Archive Summa has documented identities. The agent knows who each person is and what their authority is.*
 
-### Semana 2 — Primera misión
+### Week 2 — First mission
 
-El CEO instruye al agente: 'Crea las 20 misiones más críticas para lanzar nuestro juego en Steam en 3 meses.' El agente lee el contexto del equipo, genera las misiones con criterios de aceptación y valor por cada una.
+The CEO instructs the agent: 'Create the 20 most critical missions to launch our game on Steam in 3 months.' The agent reads the team's context, generates the missions with acceptance criteria and value for each one.
 
-→ *20 misiones en el Archive. El CEO revisa, aprueba 18, modifica 2. El backlog está documentado y el agente puede actualizarlo.*
+→ *20 missions in the Archive. The CEO reviews, approves 18, modifies 2. The backlog is documented and the agent can keep it updated.*
 
-### Semana 4 — Ciclo funcionando
+### Week 4 — Cycle running
 
-Cada lunes, el agente genera el reporte de la semana anterior. Cada día cierra las misiones completadas con Ejecución Real. El Archive crece con cada sesión.
+Every Monday, the agent generates the previous week's report. Every day it closes the completed missions with Real Execution. The Archive grows with every session.
 
-→ *En 4 semanas, Acme Studio tiene más documentación institucional que en sus 2 años anteriores. Cualquier miembro nuevo entiende el estado del proyecto leyendo el Archive.*
-
----
-
-## Lo que aún falta en este diagrama
-
-| Componente | Descripción | Estado |
-|------------|-------------|--------|
-| Vector DB / Memoria semántica | Git es para instrucciones. Para búsqueda por similitud ('¿qué decidimos sobre X?') se necesita un vector store. | pendiente |
-| Event Bus inter-agente | ¿Cómo se comunican Nimrod y Alquimista-01 sin polling? Necesitan un bus de mensajes. | pendiente |
-| Mission State Machine | El ciclo IDLE → BOOTING → ACTIVE → CLOSING → ARCHIVED necesita representación explícita. | pendiente |
-| Knowledge Graph relacional | Los .md son planos. El conocimiento real de Numinia es un grafo de entidades relacionadas. | futuro |
-| Observability Stack | Logs estructurados, trazas de decisión, métricas por agente. Sin esto el agente es caja negra. | futuro |
-| Conocimiento tácito del Biológico | La intuición y experiencia no documentada que entra al sistema sin pasar por el agente. | filosófico |
+→ *In 4 weeks, Acme Studio has more institutional documentation than in its previous 2 years. Any new member understands the project's state by reading the Archive.*
 
 ---
 
-## Enlaces y pie de la página original
+## What is still missing from this diagram
 
-**Firma:** Diagrama C · Nimrod 🗡️ + Alquimista-01 + Exégeta-01 · 2026-04-07
+| Component | Description | State |
+|-----------|-------------|-------|
+| Vector DB / Semantic memory | Git is for instructions. Similarity search ('what did we decide about X?') needs a vector store. | pending |
+| Inter-agent Event Bus | How do Nimrod and Alquimista-01 communicate without polling? They need a message bus. | pending |
+| Mission State Machine | The IDLE → BOOTING → ACTIVE → CLOSING → ARCHIVED cycle needs explicit representation. | pending |
+| Relational Knowledge Graph | The .md files are flat. Numinia's real knowledge is a graph of related entities. | future |
+| Observability Stack | Structured logs, decision traces, per-agent metrics. Without this the agent is a black box. | future |
+| The Biological's tacit knowledge | The undocumented intuition and experience that enters the system without passing through the agent. | philosophical |
+
+---
+
+## Links and footer of the original page
+
+**Signature:** Diagram C · Nimrod 🗡️ + Alquimista-01 + Exégeta-01 · 2026-04-07
 
 - Archive Summa → `/archive`
 - NWOS overview → `/nwos`
@@ -182,4 +182,4 @@ Cada lunes, el agente genera el reporte de la semana anterior. Cada día cierra 
 
 ---
 
-*Metadatos de la página original (`agente.astro`): título HTML «Cómo funciona un agente — NWOS · Numen Games» · descripción «Arquitectura completa de un agente digital en el Narrative Work OS. Capas, ciclo de vida, casos prácticos y valor epistémico por etapa.» · ruta canónica `/agente`.*
+*Metadata of the original page (`agente.astro`): HTML title «Cómo funciona un agente — NWOS · Numen Games» · description «Arquitectura completa de un agente digital en el Narrative Work OS. Capas, ciclo de vida, casos prácticos y valor epistémico por etapa.» · canonical route `/agente`.*

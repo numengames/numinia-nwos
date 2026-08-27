@@ -9,61 +9,61 @@ updated: "2026-04-07T00:00:00Z"
 author: "nimrod"
 owner: "oracle"
 tags: [blueprint, product, web, pablofm, numengames]
-area: "Producto"
+area: "Product"
 semaforo: "verde"
 license: "CC-BY-4.0"
 ---
 # BP — Webs
 
-> **Resumen:** Plano del sistema: estado actual, objetivo, gaps y dependencias.
-> **Epistémico:** El estado real vs. el objetivo — dónde estamos y hacia dónde vamos.
-> **Pragmático:** Identificar qué misiones abren los gaps documentados.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** System blueprint: current state, target, gaps and dependencies.
+> **Epistemic:** The real state vs. the target — where we are and where we are going.
+> **Pragmatic:** Identify which missions close the documented gaps.
+> **Audience:** Agents · Oracles
 
 ---
 
 
-> *Plano de las superficies digitales de Numen Games. La cara visible del sistema.*
+> *Blueprint of Numen Games' digital surfaces. The visible face of the system.*
 
-**Semáforo:** 🟢 Operativo
+**Traffic light:** 🟢 Operational
 
 ---
 
-## Estado actual
+## Current state
 
-- **pablofm.com:** 32+ PRs mergeados, Umami activo, Cal.com integrado
+- **pablofm.com:** 32+ PRs merged, Umami active, Cal.com integrated
   - /cao · /misiones · /reportes · /planos · /decisiones · /archive
-  - DESIGN.md: sistema de diseño completo para agentes
-  - Cucumber BDD: 10 escenarios de tests
-- **numengames.com:** Astro 4.16, 5/10 en auditoría técnica (MIS-011)
-- **pablofm.com/archive:** Three.js 3D · 7 subfondos · labels visibles
+  - DESIGN.md: complete design system for agents
+  - Cucumber BDD: 10 test scenarios
+- **numengames.com:** Astro 4.16, 5/10 in the technical audit (MIS-011)
+- **pablofm.com/archive:** Three.js 3D · 7 subfondos · visible labels
 
-## Estado objetivo
+## Target state
 
-- pablofm.com: portal público completo de la CAO
-- numengames.com: migrado a Astro 5, i18n nativo, Schema.org
-- Ambas webs con Caddy + SSL ✅ (ya resuelto)
+- pablofm.com: complete public portal of the CAO
+- numengames.com: migrated to Astro 5, native i18n, Schema.org
+- Both webs with Caddy + SSL ✅ (already solved)
 
-## Decisiones relacionadas
+## Related decisions
 
-- Astro 5 sobre Next.js: SSG por defecto, bundle mínimo, componentes islas
-- DEC-005: pablofm.com como portal CAO temporal
-- DESIGN.md como sistema: cualquier agente puede generar UI coherente
+- Astro 5 over Next.js: SSG by default, minimal bundle, island components
+- DEC-005: pablofm.com as the temporary CAO portal
+- DESIGN.md as a system: any agent can generate coherent UI
 
-## Delta (brecha → misión)
+## Delta (gap → mission)
 
-| Brecha | Misión |
+| Gap | Mission |
 |---|---|
-| og-default.png no existe | Crear 1200×630px |
-| numengames.com al 5/10 | MIS-027 + MIS-011 |
-| Sin Umami en numengames | MIS-014 |
+| og-default.png does not exist | Create 1200×630px |
+| numengames.com at 5/10 | MIS-027 + MIS-011 |
+| No Umami on numengames | MIS-014 |
 
-## Preguntas abiertas
+## Open questions
 
-- ¿Modo papiro + toggle dark/light en pablofm.com?
-- ¿numengames.com migra a Vercel o se hospeda en servidor propio?
+- Papyrus mode + dark/light toggle on pablofm.com?
+- Does numengames.com migrate to Vercel or is it hosted on our own server?
 
-## Dependencias
+## Dependencies
 
 - BP-infraestructura
 

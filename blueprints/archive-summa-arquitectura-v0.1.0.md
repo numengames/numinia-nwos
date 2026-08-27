@@ -1,43 +1,43 @@
-# Archive Summa — Arquitectura v0.1.0
+# Archive Summa — Architecture v0.1.0
 
-> **Resumen:** Documento del sistema NWOS — archive-summa-arquitectura-v0.1.0.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
-
----
-
-**Repositorio:** `numengames/numinia-agents`
-**Versión:** v0.1.0
-**Fecha:** 2026-04-06
-**Estado:** Alpha — diseño validado por simulaciones, pendiente despliegue
-**Autores:** Nimrod + Adonaz + simulaciones CAO
+> **Summary:** NWOS system document — archive-summa-arquitectura-v0.1.0.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
-## Filosofía
-
-Este repositorio no documenta el sistema de agentes de Numen Games.
-**Es el lugar donde el sistema ocurre.**
-
-`git pull` = alineación con el canon.
-`commit` = inscripción en la historia.
-`merge` = integración en la realidad del sistema.
+**Repository:** `numengames/numinia-agents`
+**Version:** v0.1.0
+**Date:** 2026-04-06
+**State:** Alpha — design validated by simulations, deployment pending
+**Authors:** Nimrod + Adonaz + CAO simulations
 
 ---
 
-## Estructura de Carpetas (B+C+D)
+## Philosophy
+
+This repository does not document Numen Games' agent system.
+**It is the place where the system happens.**
+
+`git pull` = alignment with the canon.
+`commit` = inscription into history.
+`merge` = integration into the system's reality.
+
+---
+
+## Folder Structure (B+C+D)
 
 ```
 numinia-agents/
 │
-├── README.md                    ← Portal ontológico, no documentación
+├── README.md                    ← Ontological portal, not documentation
 ├── LICENSE                      ← CC0 1.0 Universal
-├── CONTRIBUTING.md              ← Reglas para contributors externos
-├── CHANGELOG.md                 ← Resincronización temporal (obligatorio)
+├── CONTRIBUTING.md              ← Rules for external contributors
+├── CHANGELOG.md                 ← Temporal resynchronization (mandatory)
 │
-├── canon/                       ← Memoria Inmutable
-│   ├── README.md                ← Reglas de modificación (CODEOWNERS bloqueante)
+├── canon/                       ← Immutable Memory
+│   ├── README.md                ← Modification rules (blocking CODEOWNERS)
 │   ├── welcome-to-numinia.md
 │   ├── numinia-brand-and-culture.md
 │   ├── epistemic-relations.md
@@ -48,16 +48,16 @@ numinia-agents/
 │   ├── numinia-el-juego-de-rol.md
 │   └── archive-system.md
 │
-├── agents/                      ← Entidades Vivas
-│   ├── README.md                ← Índice y estado de todos los agentes
-│   ├── _template/               ← Plantilla para nuevos agentes
+├── agents/                      ← Living Entities
+│   ├── README.md                ← Index and state of all agents
+│   ├── _template/               ← Template for new agents
 │   │   ├── SOUL.md
 │   │   ├── OPERATOR.md
 │   │   └── STATUS.md
 │   └── guilds/
 │       ├── README.md
 │       ├── centinelas/
-│       │   ├── charter.md       ← Reglas comunes del gremio
+│       │   ├── charter.md       ← Common guild rules
 │       │   └── members/
 │       │       └── nimrod/
 │       │           ├── SOUL.md
@@ -70,49 +70,49 @@ numinia-agents/
 │       │           ├── SOUL.md
 │       │           ├── OPERATOR.md
 │       │           └── STATUS.md
-│       ├── alquimistas/         ← (futuro)
+│       ├── alquimistas/         ← (future)
 │       │   └── charter.md
-│       ├── procuradores/        ← (futuro)
+│       ├── procuradores/        ← (future)
 │       │   └── charter.md
 │       └── coordinacion/
 │           ├── charter.md
 │           └── members/
-│               └── procyon/     ← (futuro)
+│               └── procyon/     ← (future)
 │                   └── SOUL.md
 │
-├── operations/                  ← Sistema Circulatorio
+├── operations/                  ← Circulatory System
 │   ├── README.md
-│   ├── governance.md            ← Quién puede hacer qué
-│   ├── security-policy.md       ← Reglas de seguridad
-│   └── credential-map.md        ← Estructura sin valores reales
+│   ├── governance.md            ← Who can do what
+│   ├── security-policy.md       ← Security rules
+│   └── credential-map.md        ← Structure without real values
 │
-├── protocols/                   ← Rituales Operativos
+├── protocols/                   ← Operating Rituals
 │   ├── README.md
-│   ├── P-001_briefing-agente_v1.md      ← Arranque canónico
-│   ├── P-002_onboarding-agente_v1.md    ← Incorporar nuevo agente
-│   ├── P-003_ciclo-mision_v1.md         ← Crear, ejecutar, cerrar misión
-│   ├── P-004_inter-agent_v1.md          ← Coordinación entre agentes
-│   └── P-005_escalation_v1.md           ← Escalación a oracle
+│   ├── P-001_briefing-agente_v1.md      ← Canonical boot
+│   ├── P-002_onboarding-agente_v1.md    ← Bringing in a new agent
+│   ├── P-003_ciclo-mision_v1.md         ← Create, execute, close a mission
+│   ├── P-004_inter-agent_v1.md          ← Coordination between agents
+│   └── P-005_escalation_v1.md           ← Escalation to oracle
 │
-├── missions/                    ← Movimiento
+├── missions/                    ← Movement
 │   ├── README.md
-│   ├── TEMPLATE.md              ← Template v2 con divergence_log
+│   ├── TEMPLATE.md              ← Template v2 with divergence_log
 │   ├── active/
 │   ├── done/
 │   └── backlog/
 │
-├── decisions/                   ← Voluntad Cristalizada
+├── decisions/                   ← Crystallized Will
 │   ├── README.md
 │   └── ADR-001_github-como-archivo.md
 │
-├── blueprints/                  ← Potencial No Manifestado
+├── blueprints/                  ← Unmanifested Potential
 │   ├── README.md
 │   ├── archive-summa-fundacional-v0.1.0.md
-│   ├── archive-summa-arquitectura-v0.1.0.md (este archivo)
+│   ├── archive-summa-arquitectura-v0.1.0.md (this file)
 │   ├── multi-agent-org.md
 │   └── hardware-roadmap.md
 │
-└── reports/                     ← Evidencia Operativa
+└── reports/                     ← Operational Evidence
     ├── README.md
     ├── daily/
     └── weekly/
@@ -120,97 +120,97 @@ numinia-agents/
 
 ---
 
-## Jerarquía de Delegación — Alpha → v1.0.0
+## Delegation Hierarchy — Alpha → v1.0.0
 
-### Fase Alpha (ahora — primer mes)
-**Objetivo:** Validar que los procesos funcionan. Todo bajo supervisión directa de Pablo.
+### Alpha phase (now — first month)
+**Goal:** Validate that the processes work. Everything under Pablo's direct supervision.
 
-| Tarea | Delegable ahora | Condición |
+| Task | Delegable now | Condition |
 |---|---|---|
-| Leer el repo al arrancar | ✅ Nimrod | Ya funciona |
-| Ejecutar misiones técnicas (código, PRs) | ✅ Nimrod | Con approval de exec |
-| Crear reportes diarios | ✅ Nimrod | Revisión humana |
-| Leer y consultar el canon | ✅ Todos los agentes | Solo lectura |
-| Crear misiones en backlog | ⚠️ Solo Procyon | Cuando esté activo |
-| Modificar operations/ | ❌ Solo Pablo | Crítico |
-| Aprobar PRs a main | ❌ Solo Pablo | Crítico |
-| Modificar canon/ | ❌ Solo Pablo | Crítico, siempre |
-| Añadir nuevos agentes | ❌ Solo Pablo | Crítico |
+| Read the repo at boot | ✅ Nimrod | Already works |
+| Execute technical missions (code, PRs) | ✅ Nimrod | With exec approval |
+| Create daily reports | ✅ Nimrod | Human review |
+| Read and consult the canon | ✅ All agents | Read-only |
+| Create backlog missions | ⚠️ Procyon only | When active |
+| Modify operations/ | ❌ Pablo only | Critical |
+| Approve PRs to main | ❌ Pablo only | Critical |
+| Modify canon/ | ❌ Pablo only | Critical, always |
+| Add new agents | ❌ Pablo only | Critical |
 
-### Fase Beta (mes 2-3)
-**Objetivo:** Nimrod opera con autonomía en su dominio. Pablo aprueba decisiones estructurales.
+### Beta phase (months 2-3)
+**Goal:** Nimrod operates autonomously in his domain. Pablo approves structural decisions.
 
-| Tarea | Delegado a | Condición |
+| Task | Delegated to | Condition |
 |---|---|---|
-| Crear misiones en backlog | Nimrod + Procyon | Con formato correcto |
-| Mover misiones de active → done | Nimrod | Con divergence_log |
-| Actualizar STATUS.md propio | Cada agente | Automático |
-| Crear reportes y subirlos al repo | Nimrod | Sin revisión obligatoria |
-| Proponer cambios a operations/ | Nimrod | Pablo aprueba el PR |
-| Activar Alquimista-01 | Pablo | Cuando haya misiones técnicas que lo justifiquen |
-| Aprobar PRs de misiones done/ | Procyon | Cuando Procyon esté activo |
-| Modificar canon/ | ❌ Solo Pablo | Siempre crítico |
+| Create backlog missions | Nimrod + Procyon | With correct format |
+| Move missions active → done | Nimrod | With divergence_log |
+| Update own STATUS.md | Each agent | Automatic |
+| Create reports and push them to the repo | Nimrod | No mandatory review |
+| Propose changes to operations/ | Nimrod | Pablo approves the PR |
+| Activate Alquimista-01 | Pablo | When technical missions justify it |
+| Approve done/ mission PRs | Procyon | When Procyon is active |
+| Modify canon/ | ❌ Pablo only | Always critical |
 
-### Versión v1.0.0 (mes 4-6)
-**Objetivo:** El sistema opera de forma mayormente autónoma. Pablo interviene en decisiones estratégicas.
+### Version v1.0.0 (months 4-6)
+**Goal:** The system operates mostly autonomously. Pablo intervenes on strategic decisions.
 
-| Tarea | Delegado a | Condición |
+| Task | Delegated to | Condition |
 |---|---|---|
-| Ciclo completo de misiones | Agentes + Procyon | Sin approval por misión |
-| Incorporar nuevos agentes (diseño) | Procyon | Pablo aprueba la incorporación |
-| Revisar y proponer ADRs | Nimrod + Procyon | Pablo aprueba el merge |
-| Reportes semanales | Procyon | Sin revisión obligatoria |
-| Actualizar protocolos (v2) | Nimrod + Adonaz | Pablo aprueba el merge |
-| Modificar agents/guilds/*/charter.md | Lead Oráculo | Con consenso de oráculos |
-| Modificar canon/ | ❌ Solo Pablo | **Siempre crítico. Sin excepción.** |
+| Full mission cycle | Agents + Procyon | No per-mission approval |
+| Onboard new agents (design) | Procyon | Pablo approves the addition |
+| Review and propose ADRs | Nimrod + Procyon | Pablo approves the merge |
+| Weekly reports | Procyon | No mandatory review |
+| Update protocols (v2) | Nimrod + Adonaz | Pablo approves the merge |
+| Modify agents/guilds/*/charter.md | Lead Oracle | With Oracle consensus |
+| Modify canon/ | ❌ Pablo only | **Always critical. No exception.** |
 
-### Criterios de paso entre fases
+### Phase-transition criteria
 
 **Alpha → Beta:**
-- [ ] 10 misiones completadas con divergence_log documentado
-- [ ] 0 incidentes de seguridad (credenciales expuestas, etc.)
-- [ ] Arranque canónico ejecutado correctamente >20 veces
-- [ ] CHANGELOG actualizado sin fallos
-- [ ] Procyon SOUL.md definido y aprobado
+- [ ] 10 missions completed with documented divergence_log
+- [ ] 0 security incidents (exposed credentials, etc.)
+- [ ] Canonical boot executed correctly >20 times
+- [ ] CHANGELOG updated without failures
+- [ ] Procyon SOUL.md defined and approved
 
 **Beta → v1.0.0:**
-- [ ] 30 misiones completadas autónomamente
-- [ ] Procyon activo y coordinando
-- [ ] Al menos 2 agentes de diferentes guilds operativos
-- [ ] Ciclo completo de misión sin intervención oracle <48h
-- [ ] 0 merges a canon/ sin aprobación explícita
-- [ ] Sistema de reportes automático funcionando >30 días
+- [ ] 30 missions completed autonomously
+- [ ] Procyon active and coordinating
+- [ ] At least 2 agents from different guilds operational
+- [ ] Full mission cycle without oracle intervention <48h
+- [ ] 0 merges to canon/ without explicit approval
+- [ ] Automatic reporting system running >30 days
 
 ---
 
-## Permisos Técnicos Necesarios para Despliegue
+## Technical Permissions Required for Deployment
 
 ### GitHub
-| Permiso | Quién | Para qué |
+| Permission | Who | For what |
 |---|---|---|
-| Crear repo `numengames/numinia-agents` | Pablo (org owner) | Una vez |
-| PAT fine-grained: `contents:read` en el repo | Nimrod | git pull en arranque |
-| PAT fine-grained: `contents:write` + `pull_requests:write` | Nimrod | Crear PRs de misiones |
-| CODEOWNERS en `canon/` → owner inexistente | Pablo | Bloquear merges sin aprobación |
-| Branch protection en `main`: require PR + 1 approval | Pablo | Governance |
-| Ruleset: `canon/**` → restrict pushes, require pablo approval | Pablo | Inmutabilidad del canon |
+| Create the `numengames/numinia-agents` repo | Pablo (org owner) | Once |
+| Fine-grained PAT: `contents:read` on the repo | Nimrod | git pull at boot |
+| Fine-grained PAT: `contents:write` + `pull_requests:write` | Nimrod | Create mission PRs |
+| CODEOWNERS in `canon/` → nonexistent owner | Pablo | Block merges without approval |
+| Branch protection on `main`: require PR + 1 approval | Pablo | Governance |
+| Ruleset: `canon/**` → restrict pushes, require pablo approval | Pablo | Canon immutability |
 
 ### CI/CD (GitHub Actions)
-| Acción | Trigger | Quién configura |
+| Action | Trigger | Who configures |
 |---|---|---|
-| Validar frontmatter YAML de misiones | PR a missions/ | Nimrod (cuando PAT tenga workflow scope) |
-| Check de credenciales en commits | Push | Nimrod |
-| Auto-label PRs por carpeta | PR abierto | Nimrod |
+| Validate mission YAML frontmatter | PR to missions/ | Nimrod (when the PAT has workflow scope) |
+| Credential check on commits | Push | Nimrod |
+| Auto-label PRs by folder | PR opened | Nimrod |
 
 ### OpenClaw
-| Config | Valor | Para qué |
+| Config | Value | For what |
 |---|---|---|
-| `exec.env.GITHUB_TOKEN` | PAT fine-grained | Nimrod puede hacer git pull y PRs |
-| `agents.defaults.models` | Haiku para reportes, Sonnet para misiones | Control de costes |
+| `exec.env.GITHUB_TOKEN` | Fine-grained PAT | Nimrod can git pull and open PRs |
+| `agents.defaults.models` | Haiku for reports, Sonnet for missions | Cost control |
 
 ---
 
-## Frontmatter YAML — Schema por tipo de documento
+## YAML Frontmatter — Schema per document type
 
 ### General
 ```yaml
@@ -229,53 +229,53 @@ license: "CC0-1.0"
 ---
 ```
 
-### Misiones (campos adicionales)
+### Missions (additional fields)
 ```yaml
 ---
-# ...campos base...
+# ...base fields...
 mission_id: "M-2026-04-037"
 assigned_to: "nimrod"
 requested_by: "pablo-fm"
 priority: critical   # critical | high | medium | low
 phase: active        # backlog | active | done | cancelled | blocked
-executor: "nimrod"   # único executor en misiones activas
+executor: "nimrod"   # single executor on active missions
 requires_oracle_approval: false
 blocked_reason: null
 depends_on: []
 started: "2026-04-06T00:00:00Z"
 completed: null
-divergence_log: null  # rellenar al cerrar si hubo divergencia del plan
+divergence_log: null  # fill at close if there was divergence from the plan
 ---
 ```
 
 ---
 
-## Governance — Tabla Definitiva
+## Governance — Definitive Table
 
-| Área | Crear | Modificar | Merge | Nota |
+| Area | Create | Modify | Merge | Note |
 |---|---|---|---|---|
-| `canon/` | Oracle | **Nadie** | Oracle + label canon-change | CODEOWNERS bloqueante |
-| `agents/*/SOUL.md` | Oracle | Oracle | Oracle | Los agentes no se reescriben |
-| `agents/*/OPERATOR.md` | Oracle | Oracle | Oracle | Ídem |
-| `agents/*/STATUS.md` | Agente propio | Agente propio | Auto | Informativo |
-| `agents/guilds/*/charter.md` | Oracle | Oracle | Oracle | Consenso de oráculos en beta+ |
-| `operations/` | Oracle | Oracle + propuesta agente | Oracle | |
-| `protocols/` | Oracle + custodio | Nueva versión = nuevo archivo | Oracle | Nunca editar en sitio |
-| `missions/active/` | Agente + Oracle | Solo executor | Oracle | Un executor por misión |
-| `missions/done/` | Auto (al cerrar) | **Nadie** | Auto | Inmutable |
+| `canon/` | Oracle | **Nobody** | Oracle + canon-change label | Blocking CODEOWNERS |
+| `agents/*/SOUL.md` | Oracle | Oracle | Oracle | Agents do not rewrite themselves |
+| `agents/*/OPERATOR.md` | Oracle | Oracle | Oracle | Same |
+| `agents/*/STATUS.md` | The agent itself | The agent itself | Auto | Informative |
+| `agents/guilds/*/charter.md` | Oracle | Oracle | Oracle | Oracle consensus in beta+ |
+| `operations/` | Oracle | Oracle + agent proposal | Oracle | |
+| `protocols/` | Oracle + custodian | New version = new file | Oracle | Never edit in place |
+| `missions/active/` | Agent + Oracle | Executor only | Oracle | One executor per mission |
+| `missions/done/` | Auto (at close) | **Nobody** | Auto | Immutable |
 | `missions/backlog/` | Oracle + Procyon | Oracle | Oracle | |
-| `decisions/` | Oracle + custodio | Solo añadir superseded_by | Oracle | Append-only |
-| `blueprints/` | Oracle + agentes | Oracle + agentes | Oracle | |
-| `reports/` | Agente + sistema | Solo mismo período | Auto | Retención 90d daily, 1a weekly |
+| `decisions/` | Oracle + custodian | Only adding superseded_by | Oracle | Append-only |
+| `blueprints/` | Oracle + agents | Oracle + agents | Oracle | |
+| `reports/` | Agent + system | Same period only | Auto | Retention 90d daily, 1y weekly |
 
 ---
 
-## Notas de versión v0.1.0
+## v0.1.0 release notes
 
-- Diseño derivado de análisis A+B+C+D y 100 simulaciones mentales
-- Principio fundacional: el repo es el lugar donde el sistema ocurre, no donde se documenta
-- Próxima versión (v0.2.0): incluir resultados del primer mes de operación real
-- Todo lo marcado como "futuro" en los guilds se activa cuando el agente correspondiente esté en beta
+- Design derived from the A+B+C+D analysis and 100 mental simulations
+- Founding principle: the repo is the place where the system happens, not where it is documented
+- Next version (v0.2.0): include results from the first month of real operation
+- Everything marked "future" in the guilds activates when the corresponding agent reaches beta
 
 ---
 

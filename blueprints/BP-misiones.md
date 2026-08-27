@@ -1,6 +1,6 @@
 ---
 id: "BP-misiones"
-title: "Sistema de Misiones"
+title: "Mission System"
 type: blueprint
 status: active
 version: "v0.1.0"
@@ -13,57 +13,57 @@ area: "CAO"
 semaforo: "amarillo"
 license: "CC-BY-4.0"
 ---
-# BP — Sistema de Misiones
+# BP — Mission System
 
-> **Resumen:** Plano del sistema: estado actual, objetivo, gaps y dependencias.
-> **Epistémico:** El estado real vs. el objetivo — dónde estamos y hacia dónde vamos.
-> **Pragmático:** Identificar qué misiones abren los gaps documentados.
-> **Audiencia:** Agentes · Oráculos
-
----
-
-
-> *En Numinia, las misiones son el pulso del trabajo. Este plano documenta cómo se crean, asignan, ejecutan y archivan.*
-
-**Semáforo:** 🟡 En progreso
+> **Summary:** System blueprint: current state, target, gaps and dependencies.
+> **Epistemic:** The real state vs. the target — where we are and where we are going.
+> **Pragmatic:** Identify which missions close the documented gaps.
+> **Audience:** Agents · Oracles
 
 ---
 
-## Estado actual
 
-- 54 misiones (MIS-001 a MIS-054)
-- Completadas: MIS-016, MIS-037, MIS-051, MIS-053
-- En curso: MIS-052, MIS-054
-- Backlog: resto
+> *In Numinia, missions are the pulse of work. This blueprint documents how they are created, assigned, executed and archived.*
+
+**Traffic light:** 🟡 In progress
+
+---
+
+## Current state
+
+- 54 missions (MIS-001 to MIS-054)
+- Completed: MIS-016, MIS-037, MIS-051, MIS-053
+- In progress: MIS-052, MIS-054
+- Backlog: the rest
 - Mission Template v0.2.0 + DoD v0.2.0
-- Tablero público en pablofm.com/misiones
-- Repo numinia-digital-agents como fuente de verdad ✅
+- Public board at pablofm.com/misiones
+- numinia-digital-agents repo as source of truth ✅
 
-## Estado objetivo
+## Target state
 
-- Cada misión = .md en repo numinia-digital-agents
-- pablofm.com/misiones lee GitHub API en tiempo real
-- Sistema de estados actualizable por agentes via PR
+- Every mission = one .md in the numinia-digital-agents repo
+- pablofm.com/misiones reads the GitHub API in real time
+- State system updatable by agents via PR
 
-## Decisiones relacionadas
+## Related decisions
 
-- .md por misión: legible por humanos y agentes, versionable en git
-- Tipos 🧬/🤖/🔀: explicitan el coste y colaboración antes de activar
-- Valor epistémico + pragmático obligatorio
+- One .md per mission: readable by humans and agents, versionable in git
+- Types 🧬/🤖/🔀: they make cost and collaboration explicit before activating
+- Epistemic + pragmatic value mandatory
 
-## Delta (brecha → misión)
+## Delta (gap → mission)
 
-| Brecha | Misión |
+| Gap | Mission |
 |---|---|
-| Web sin integración GitHub API | Futuro — cuando el repo sea fuente de verdad live |
-| MIS-002 a 015 sin páginas de detalle | Completar datos progresivamente |
+| Web without GitHub API integration | Future — when the repo is the live source of truth |
+| MIS-002 to 015 without detail pages | Complete the data progressively |
 
-## Preguntas abiertas
+## Open questions
 
-- ¿Las misiones tienen épicas o sprints?
-- ¿Quién puede crear misiones además de Oráculos?
+- Do missions have epics or sprints?
+- Who can create missions besides Oracles?
 
-## Dependencias
+## Dependencies
 
 - BP-repo
 - BP-cao

@@ -1,6 +1,6 @@
 ---
 id: "BP-infraestructura"
-title: "Infraestructura"
+title: "Infrastructure"
 type: blueprint
 status: active
 version: "v0.1.0"
@@ -13,58 +13,58 @@ area: "Ops"
 semaforo: "amarillo"
 license: "CC-BY-4.0"
 ---
-# BP — Infraestructura
+# BP — Infrastructure
 
-> **Resumen:** Plano del sistema: estado actual, objetivo, gaps y dependencias.
-> **Epistémico:** El estado real vs. el objetivo — dónde estamos y hacia dónde vamos.
-> **Pragmático:** Identificar qué misiones abren los gaps documentados.
-> **Audiencia:** Agentes · Oráculos
-
----
-
-
-> *Plano recuperado de los registros técnicos de la CAO. Documenta la arquitectura física sobre la que Numinia opera.*
-
-**Semáforo:** 🟡 En progreso
+> **Summary:** System blueprint: current state, target, gaps and dependencies.
+> **Epistemic:** The real state vs. the target — where we are and where we are going.
+> **Pragmatic:** Identify which missions close the documented gaps.
+> **Audience:** Agents · Oracles
 
 ---
 
-## Estado actual
 
-- VPS [VPS-IP redacted — see ops-credential-map] — 7.8GB RAM, 4 CPUs, 154GB disco
-- Umami Analytics corriendo en :3001 (analytics.pablofm.com via Caddy)
-- Cal.com corriendo en :3002 (cal.pablofm.com via Caddy)
-- Caddy como reverse proxy con SSL automático (Let's Encrypt)
-- Sin Ollama — sin modelos locales
-- PC dedicado on-premises en camino (Ryzen 9 7950X + RTX 4080)
+> *Blueprint recovered from the CAO's technical records. It documents the physical architecture Numinia operates on.*
 
-## Estado objetivo
+**Traffic light:** 🟡 In progress
 
-- Caddy operativo para todos los servicios
+---
+
+## Current state
+
+- VPS [VPS-IP redacted — see ops-credential-map] — 7.8GB RAM, 4 CPUs, 154GB disk
+- Umami Analytics running on :3001 (analytics.pablofm.com via Caddy)
+- Cal.com running on :3002 (cal.pablofm.com via Caddy)
+- Caddy as reverse proxy with automatic SSL (Let's Encrypt)
+- No Ollama — no local models
+- Dedicated on-premises PC on the way (Ryzen 9 7950X + RTX 4080)
+
+## Target state
+
+- Caddy operational for all services
 - analytics.pablofm.com → Umami ✅
 - cal.pablofm.com → Cal.com ✅
-- Ollama con Qwen2.5:7B y Llama3.2:3B (cuando llegue el PC)
-- PC dedicado — migrar toda la infra (MIS-052)
+- Ollama with Qwen2.5:7B and Llama3.2:3B (when the PC arrives)
+- Dedicated PC — migrate all the infra (MIS-052)
 
-## Decisiones relacionadas
+## Related decisions
 
-- DEC-001: Self-hosting sobre SaaS — control de datos, filosofía ZK, coste 0 en servicios
-- Docker Compose por servicio: aislamiento, fácil de mantener
-- PostgreSQL sobre MongoDB: relacional, fiable, mejor para joins
+- DEC-001: Self-hosting over SaaS — data control, ZK philosophy, zero cost in services
+- Docker Compose per service: isolation, easy to maintain
+- PostgreSQL over MongoDB: relational, reliable, better for joins
 
-## Delta (brecha → misión)
+## Delta (gap → mission)
 
-| Brecha | Misión |
+| Gap | Mission |
 |---|---|
-| Sin Ollama | MIS-052 — PC on-premises |
-| PC en camino | MIS-052 — Ubuntu + CUDA + Ollama |
+| No Ollama | MIS-052 — on-premises PC |
+| PC on the way | MIS-052 — Ubuntu + CUDA + Ollama |
 
-## Preguntas abiertas
+## Open questions
 
-- ¿Cuándo llega el PC dedicado exactamente?
-- ¿Qué servicios migran primero al PC local?
+- When exactly does the dedicated PC arrive?
+- Which services migrate to the local PC first?
 
-## Dependencias
+## Dependencies
 
 - BP-web
 - BP-cao
