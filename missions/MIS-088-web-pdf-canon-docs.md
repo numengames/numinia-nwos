@@ -1,6 +1,6 @@
 ---
 id: "MIS-088"
-title: "El canon en papel: descarga PDF de los .md con formato del sistema de diseño"
+title: "The canon on paper: PDF download of the .md files with design-system formatting"
 type: mission
 status: done
 version: "1.1.0"
@@ -21,15 +21,15 @@ requested_by: "oracle"
 assigned_to: "numinia-nwos"
 depends_on: ["MIS-087"]
 ---
-# MIS-088 — El canon en papel: descarga PDF de los .md con formato del sistema de diseño
+# MIS-088 — The canon on paper: PDF download of the .md files with design-system formatting
 
-> **Resumen:** Cada documento del canon reflejado en numinia.org se puede
-> descargar como PDF maquetado según el sistema de diseño — no un "imprimir
-> página" genérico, sino un artefacto con identidad.
-> **Epistémico:** Cómo un sitio 100% estático produce PDFs de diseño.
-> **Pragmático:** Los .md del canon circulan fuera de la web (correo,
-> impresión, firma) sin perder formato ni procedencia.
-> **Audiencia:** Agente numinia-nwos · Oráculo
+> **Summary:** Every canon document mirrored on numinia.org can be
+> downloaded as a PDF laid out per the design system — not a generic "print
+> page", but an artifact with identity.
+> **Epistemic:** How a 100% static site produces designed PDFs.
+> **Pragmatic:** The canon's .md files circulate outside the web (email,
+> print, signature) without losing format or provenance.
+> **Audience:** numinia-nwos agent · Oracle
 
 ---
 
@@ -43,115 +43,114 @@ depends_on: ["MIS-087"]
 
 ## Story
 
-Como lector del canon, quiero descargar cualquier documento .md como PDF con
-el formato del sistema de diseño, para llevarlo, imprimirlo o compartirlo
-fuera de la web manteniendo su identidad y procedencia.
+As a canon reader, I want to download any .md document as a PDF with the
+design system's formatting, to carry it, print it or share it outside the
+web while keeping its identity and provenance.
 
 ---
 
-## Premisas verificadas (2026-08-18)
+## Verified premises (2026-08-18)
 
-- numinia.org es 100% estático en Cloudflare Workers (solo assets, sin
-  runtime): el PDF no puede generarse por petición en servidor. Opciones
-  reales: (a) pre-generar PDFs en build (p. ej. Chromium headless/Playwright
-  imprimiendo cada página de detalle con CSS de impresión), o (b) CSS
-  `@media print` + botón "Guardar como PDF" del navegador. (a) da un
-  artefacto descargable idéntico para todos; (b) es gratis en peso pero el
-  resultado depende del navegador del usuario.
-- El DocToolbar ya existe en cada página de detalle (copiar/descargar .md):
-  es el sitio natural del botón PDF.
-- Volumen: ~209 documentos si MIS-087 completa el reflejo — el tiempo de
-  build y el peso del bundle de assets deben medirse (presupuesto: decidir
-  umbral aceptable en ejecución y registrarlo).
-- Sistema de diseño: `web/DESIGN.md` es dark-only (fondo oscuro, acento teal
-  #2DD4BF, Geist/Geist Mono). El papel es blanco: el PDF necesita una
-  adaptación clara del sistema (tipografía y jerarquía se conservan; el
-  fondo no). **Decisión de diseño a firmar con el Oráculo antes de
-  ejecutar**: variante de impresión del sistema (recomendación: fondo
-  claro, tinta oscura, acento teal en titulares y filetes, Geist Mono para
-  metadatos).
-- Contexto del Oráculo (2026-08-18): `web/DESIGN.md` se integrará con el
-  sistema de diseño de numinia-web (Khepri, más trabajado), conservando
-  algunas piezas de este que el Oráculo señalará. La variante de impresión
-  debe diseñarse mirando Khepri (que ya tiene plano de libro/impreso, ver
-  MIS-085 "printable sheet") para no maquetar dos veces — qué piezas del
-  DESIGN.md local sobreviven es decisión del Oráculo, pendiente de lista.
+- numinia.org is 100% static on Cloudflare Workers (assets only, no
+  runtime): the PDF cannot be generated per request on a server. Real
+  options: (a) pre-generate PDFs at build (e.g. headless Chromium/
+  Playwright printing each detail page with print CSS), or (b) CSS
+  `@media print` + the browser's "Save as PDF" button. (a) gives an
+  identical downloadable artifact for everyone; (b) is free in weight but
+  the result depends on the user's browser.
+- The DocToolbar already exists on every detail page (copy/download .md):
+  it is the natural home for the PDF button.
+- Volume: ~209 documents if MIS-087 completes the mirror — build time and
+  asset-bundle weight must be measured (budget: decide an acceptable
+  threshold during execution and record it).
+- Design system: `web/DESIGN.md` is dark-only (dark background, teal accent
+  #2DD4BF, Geist/Geist Mono). Paper is white: the PDF needs a light
+  adaptation of the system (typography and hierarchy are kept; the
+  background is not). **Design decision to sign with the Oracle before
+  executing**: the system's print variant (recommendation: light
+  background, dark ink, teal accent on headings and rules, Geist Mono for
+  metadata).
+- Oracle context (2026-08-18): `web/DESIGN.md` will be integrated with
+  numinia-web's design system (Khepri, more developed), keeping some pieces
+  of this one that the Oracle will single out. The print variant must be
+  designed looking at Khepri (which already has a book/print blueprint, see
+  MIS-085 "printable sheet") to avoid laying out twice — which pieces of the
+  local DESIGN.md survive is the Oracle's decision, list pending.
 
-## Formato del PDF (mínimos)
+## PDF format (minimums)
 
-- Cabecera con identidad: id del documento, título, versión, estado, fecha
-  de actualización.
-- Pie con procedencia: URL canónica en numinia.org y fecha de generación.
-- Tipografía del sistema (Geist / Geist Mono) embebida.
-- Frontmatter clave visible como bloque de metadatos, no como YAML crudo.
+- Header with identity: document id, title, version, state, update date.
+- Footer with provenance: canonical numinia.org URL and generation date.
+- The system's typography (Geist / Geist Mono) embedded.
+- Key frontmatter visible as a metadata block, not as raw YAML.
 
 ---
 
 ## Acceptance criteria
 
-- [ ] Decisión de la variante de impresión del sistema de diseño registrada
-      (con el Oráculo) antes de maquetar.
-- [ ] Botón "PDF" en el DocToolbar de cada documento reflejado; descarga un
-      PDF con el formato definido arriba.
-- [ ] El PDF se genera de forma reproducible en build (o la alternativa
-      elegida queda registrada con su porqué en Execution Reality).
-- [ ] Presupuesto medido y registrado: tiempo de build y peso añadido al
-      deploy; umbral acordado no superado.
-- [ ] Muestra verificada en producción: un documento largo (p. ej. una
-      misión) y uno con tablas renderizan correctamente.
-- [ ] Guard de licencias y build en verde; deploy verificado.
+- [ ] The design system's print-variant decision recorded (with the Oracle)
+      before laying out.
+- [ ] "PDF" button in every mirrored document's DocToolbar; downloads a PDF
+      with the format defined above.
+- [ ] The PDF is generated reproducibly at build (or the chosen alternative
+      is recorded with its why in Execution Reality).
+- [ ] Budget measured and recorded: build time and weight added to the
+      deploy; agreed threshold not exceeded.
+- [ ] Sample verified in production: one long document (e.g. a mission) and
+      one with tables render correctly.
+- [ ] License guard and build green; deploy verified.
 
 ---
 
 ## Epistemic value
 
-Aprendemos a producir artefactos portables desde un sitio estático sin
-runtime — patrón reutilizable para fichas, informes y sellos.
+We learn to produce portable artifacts from a static site with no runtime —
+a reusable pattern for sheets, reports and seals.
 
 ## Pragmatic value
 
-El canon viaja: PDFs con identidad para imprimir, adjuntar o firmar, sin
-depender de cómo renderice el navegador de cada quien.
+The canon travels: PDFs with identity to print, attach or sign, without
+depending on how each person's browser renders.
 
 ---
 
 ## Execution log
 
-- 2026-08-18 — Decisión de diseño firmada por el Oráculo ("ejecútala" sobre
-  la recomendación registrada): variante de impresión clara del sistema —
-  papel blanco, tinta oscura (#16201f), teal en titulares/filetes/etiquetas
-  (#0F766E texto, #2DD4BF filetes), Geist para texto, Geist Mono para
-  metadatos. A4, cabecera con chips de frontmatter, pie con URL canónica ·
-  fecha de generación · paginación.
-- 2026-08-18 — Ruta `/print/[...slug]` (213 documentos: corpus + misiones +
-  audits + decisiones + planos + legales; slugs espejo de las rutas
-  públicas), excluida del sitemap y con noindex.
-- 2026-08-18 — `scripts/generate-pdfs.mjs` (`npm run build:pdf`):
-  servidor estático local + Chromium (playwright-core, Apache-2.0,
-  devDependency) → `dist/pdf/<ruta-pública>.pdf`; borra `dist/print/`
-  tras generar. Botón `.pdf` en el DocToolbar de las 6 superficies.
-- 2026-08-18 — **Presupuesto medido:** 213/213 PDFs, 24,2 MB, 22 s
-  (concurrencia 6). Muestras verificadas: MIS-086 (larga, checkboxes) y
-  engineering-standards (tablas) — render correcto.
-- 2026-08-18 — Desplegado y verificado en vivo.
+- 2026-08-18 — Design decision signed by the Oracle ("ejecútala" on the
+  recorded recommendation): the system's light print variant — white paper,
+  dark ink (#16201f), teal on headings/rules/labels (#0F766E text, #2DD4BF
+  rules), Geist for text, Geist Mono for metadata. A4, header with
+  frontmatter chips, footer with canonical URL · generation date ·
+  pagination.
+- 2026-08-18 — `/print/[...slug]` route (213 documents: corpus + missions +
+  audits + decisions + blueprints + legal; slugs mirroring the public
+  routes), excluded from the sitemap and noindex.
+- 2026-08-18 — `scripts/generate-pdfs.mjs` (`npm run build:pdf`): local
+  static server + Chromium (playwright-core, Apache-2.0, devDependency) →
+  `dist/pdf/<public-route>.pdf`; deletes `dist/print/` after generating.
+  `.pdf` button in the DocToolbar of the 6 surfaces.
+- 2026-08-18 — **Budget measured:** 213/213 PDFs, 24.2 MB, 22 s
+  (concurrency 6). Samples verified: MIS-086 (long, checkboxes) and
+  engineering-standards (tables) — correct rendering.
+- 2026-08-18 — Deployed and verified live.
 
 ---
 
 ## Execution Reality
 
-- **Technology/approach used:** la opción (a) prevista — pre-generación en
-  build con Chromium headless — usando el Chromium ya cacheado de
-  Playwright (`~/.cache/ms-playwright`) vía `playwright-core` con
-  `executablePath` explícito (override `PDF_CHROME`); fuentes fontsource
-  autoalojadas, generación 100% offline.
-- **Why it diverged:** apenas divergió; el único ajuste fue mantener
-  `build:pdf` FUERA de `npm run build` para que la CI no necesite Chromium
-  — el flujo de deploy es build → build:pdf → wrangler deploy (documentado
-  en CLAUDE.md).
-- **Key learning:** con las páginas print como rutas Astro más un Chromium
-  cacheado, el PDF "de diseño" cuesta 22 s y 24 MB para todo el corpus —
-  el presupuesto que parecía el riesgo resultó trivial; el patrón queda
-  listo para fichas e informes.
+- **Technology/approach used:** the planned option (a) — build-time
+  pre-generation with headless Chromium — using Playwright's already-cached
+  Chromium (`~/.cache/ms-playwright`) via `playwright-core` with an
+  explicit `executablePath` (`PDF_CHROME` override); self-hosted fontsource
+  fonts, 100% offline generation.
+- **Why it diverged:** it barely diverged; the only adjustment was keeping
+  `build:pdf` OUT of `npm run build` so CI does not need Chromium — the
+  deploy flow is build → build:pdf → wrangler deploy (documented in
+  CLAUDE.md).
+- **Key learning:** with print pages as Astro routes plus a cached
+  Chromium, the "designed" PDF costs 22 s and 24 MB for the whole corpus —
+  the budget that looked like the risk turned out trivial; the pattern is
+  ready for sheets and reports.
 - **Closing date:** 2026-08-18
 - **Executing agent:** claude-fable-5 (numinia-nwos)
 

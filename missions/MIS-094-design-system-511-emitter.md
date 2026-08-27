@@ -1,6 +1,6 @@
 ---
 id: "MIS-094"
-title: "El emisor gobierna: Sistema de Diseño 5.1.0 por encargo del consumidor"
+title: "The emitter governs: Design System 5.1.0 commissioned by the consumer"
 type: mission
 status: done
 version: "1.0.0"
@@ -16,86 +16,87 @@ guild: "Procurators"
 type_execution: "digital"
 priority: "high"
 effort: "L"
-requested_by: "numinia-web (ADR-022), vía Oráculo"
+requested_by: "numinia-web (ADR-022), via Oracle"
 assigned_to: "numinia-nwos"
 started: "2026-08-18"
 completed: "2026-08-18"
 depends_on: ["MIS-068", "MIS-092", "MIS-093"]
 ---
-# MIS-094 — El emisor gobierna: Sistema de Diseño 5.1.0
+# MIS-094 — The emitter governs: Design System 5.1.0
 
-> **Resumen:** numinia-web borró su copia del Sistema (su ADR-022) y fijó
-> este repo como fuente. Su encargo de vuelta: una 5.1.0 con las erratas
-> E1–E5 y los huecos H1–H5 resueltos, el kit regenerado como `sistema.*`
-> con manifest de sha256, Alegreya entera, y la doctrina de emisión
-> escrita. Ejecutado íntegro.
-> **Epistémico:** Qué debe el emisor cuando el consumidor deja de copiar.
-> **Pragmático:** numinia-web puede re-fijar a 5.1.0 con digest verificable.
-> **Audiencia:** Oráculo · numinia-web · Agente numinia-nwos
+> **Summary:** numinia-web deleted its copy of the System (its ADR-022) and
+> pinned this repo as the source. Its commission back: a 5.1.0 with errata
+> E1–E5 and gaps H1–H5 resolved, the kit regenerated as `sistema.*` with a
+> sha256 manifest, the full Alegreya, and the emission doctrine written.
+> Executed in full.
+> **Epistemic:** What the emitter owes when the consumer stops copying.
+> **Pragmatic:** numinia-web can re-pin to 5.1.0 with a verifiable digest.
+> **Audience:** Oracle · numinia-web · numinia-nwos agent
 
 ---
 
-## Lo entregado (contra el encargo, punto a punto)
+## Delivered (against the commission, point by point)
 
-- **N1–N2** — Kit regenerado DEL documento vigente por
-  `scripts/generate-design-kit.mjs`: `sistema.{css,js,tokens.json}` con los
-  grupos `velo`, `papel` y `registros` dentro; los `khepri.*` v4.2.0
-  retirados de la publicación.
-- **N3** — Alegreya entera autoalojada en la guía: redonda, itálica
-  variable y AlegreyaSC Regular/Medium, con su OFL.
-- **N4** — Ruta versionada `numinia.org/diseno/kit/5.1.0/` +
-  `kit/manifest.json` con sha256 por fichero y digest del máster.
-- **E1** — §19.5: «doce» → **trece** animaciones, con trazo y cielo
-  descritos (y la 12 declarada retirada).
-- **E2** — §19.5: radio marco 10px → **8px** (coincide con §19.3 y el kit).
-- **E3** — §6.4 recolocada antes que §6.5.
-- **E4** — Presupuesto de lectura medido en el YAML (≈46k · ≈7,5k · ≈2,1k).
-- **E5** — Guía viva: `kit/khepri.*` → `kit/sistema.*` en §0.3, §13.1 y
-  §19.3; la tabla §0.4 conserva `khepri.*` solo en «Antes».
-- **H1** — Tintas del libro: token `papel.tinta-terciaria`
-  (`#75695E`/`#97897D`) en §19.3 + regla en §13.12 (el terciario del
-  sistema daba 3.7:1 sobre papel).
-- **H2** — Engranajes de valoración 0–5 (cuarto de vuelta al fijar,
-  MIS-085) especificados en §9.9.
-- **H3** — El Narrador especificado en §9.9 (Web Speech, resalte del
-  bloque leído, ritmo, play/pausa en barra, alcance a glosario y ficha).
-- **H4** — Las ediciones entran como plano en §13.12 (pdf por
-  `@media print` A4 del propio CSS, ficha imprimible sin barra, epub con
-  enlaces de glosario) — decisión tomada: dentro del Sistema, no fuera.
-- **H5** — Animación 12 **retirada** (la verificación contra el LAP dio
-  vacío); el número no se reutiliza — decisión tomada: retirar, no
-  especular una spec nueva.
-- **§18** — Fila 5.1.0 en el historial (append-only).
-- **§16** — Hoja de ruta: ítem 16 resuelto (MIS-092); ítem 15 poda lo
-  resuelto (Alegreya, paso de página).
-- **Doctrina** — `GOVERNANCE.md` gana «Canon emission» (regla G-11: el
-  canon no se copia — se fija; deberes del emisor: publicar, versionar,
-  firmar, generar, avisar, historial append-only). MIS-068 sale de
-  backlog con este primer caso ejecutado.
-- **§4 «No se toca»** — respetado: el escarabajo, los activos con nombre
-  físico Khepri, el Templo y el correo quedan intactos; historial §18
+- **N1–N2** — Kit regenerated FROM the current document by
+  `scripts/generate-design-kit.mjs`: `sistema.{css,js,tokens.json}` with
+  the `velo`, `papel` and `registros` groups inside; the v4.2.0 `khepri.*`
+  retired from publication.
+- **N3** — Full Alegreya self-hosted in the guide: roman, variable italic
+  and AlegreyaSC Regular/Medium, with its OFL.
+- **N4** — Versioned route `numinia.org/diseno/kit/5.1.0/` +
+  `kit/manifest.json` with per-file sha256 and the master's digest.
+- **E1** — §19.5: «twelve» → **thirteen** animations, with stroke and sky
+  described (and the 12th declared retired).
+- **E2** — §19.5: frame radius 10px → **8px** (matches §19.3 and the kit).
+- **E3** — §6.4 moved before §6.5.
+- **E4** — Reading budget measured in the YAML (≈46k · ≈7.5k · ≈2.1k).
+- **E5** — Living guide: `kit/khepri.*` → `kit/sistema.*` in §0.3, §13.1
+  and §19.3; the §0.4 table keeps `khepri.*` only under «Antes».
+- **H1** — The book's inks: token `papel.tinta-terciaria`
+  (`#75695E`/`#97897D`) in §19.3 + a rule in §13.12 (the system's tertiary
+  gave 3.7:1 on paper).
+- **H2** — The 0–5 rating gears (quarter turn on set, MIS-085) specified
+  in §9.9.
+- **H3** — The Narrator specified in §9.9 (Web Speech, highlight of the
+  block being read, pace, play/pause in the bar, reach into glossary and
+  sheet).
+- **H4** — The editions enter as a blueprint in §13.12 (pdf via the CSS's
+  own A4 `@media print`, printable sheet without the bar, epub with
+  glossary links) — decision taken: inside the System, not outside.
+- **H5** — Animation 12 **retired** (the verification against the LAP came
+  back empty); the number is not reused — decision taken: retire, not
+  speculate a new spec.
+- **§18** — 5.1.0 row in the history (append-only).
+- **§16** — Roadmap: item 16 resolved (MIS-092); item 15 prunes what is
+  resolved (Alegreya, page turn).
+- **Doctrine** — `GOVERNANCE.md` gains «Canon emission» (rule G-11: the
+  canon is not copied — it is pinned; the emitter's duties: publish,
+  version, sign, generate, notify, append-only history). MIS-068 leaves
+  the backlog with this first executed case.
+- **§4 «Not to be touched»** — respected: the scarab, the assets with the
+  physical Khepri name, the Temple and the mail remain intact; §18 history
   append-only.
 
-## Para re-fijar (numinia-web)
+## To re-pin (numinia-web)
 
-- Máster: `standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md` · v5.1.0 ·
-  sha256 en `numinia.org/diseno/kit/manifest.json` (campo `master`).
-- Kit: `numinia.org/diseno/kit/5.1.0/sistema.{css,js,tokens.json}` con
-  sha256 por fichero en el mismo manifest.
-- La 5.0.0 queda publicada e intacta: el pin viejo no se rompe hasta que
-  el consumidor decida moverse.
+- Master: `standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md` · v5.1.0 ·
+  sha256 in `numinia.org/diseno/kit/manifest.json` (`master` field).
+- Kit: `numinia.org/diseno/kit/5.1.0/sistema.{css,js,tokens.json}` with
+  per-file sha256 in the same manifest.
+- 5.0.0 remains published and intact: the old pin does not break until the
+  consumer decides to move.
 
 ## Execution Reality
 
-- **Technology/approach used:** generador de kit por extracción de los
-  bloques canónicos del .md (§13.1 css/js, §19.3 json con `JSON.parse` de
-  guardia) + manifest sha256 — el mismo commit produce documento, kit y
-  firma.
-- **Why it diverged:** el encargo dejaba H4 y H5 a criterio con
-  prohibición de silencio; se decidió ediciones-como-plano y retirada de
-  la 12, ambas registradas en el §18.
-- **Key learning:** gobernar un canon no es custodiar un fichero: es
-  publicar artefactos generados, versionados y firmados que un consumidor
-  pueda verificar sin fiarse de nadie.
+- **Technology/approach used:** a kit generator extracting the canonical
+  blocks from the .md (§13.1 css/js, §19.3 json with a guarding
+  `JSON.parse`) + sha256 manifest — the same commit produces document, kit
+  and signature.
+- **Why it diverged:** the commission left H4 and H5 to judgment with a
+  prohibition on silence; editions-as-blueprint and the retirement of the
+  12th were decided, both recorded in §18.
+- **Key learning:** governing a canon is not guarding a file: it is
+  publishing generated, versioned, signed artifacts a consumer can verify
+  without trusting anyone.
 - **Closing date:** 2026-08-18
 - **Executing agent:** claude-fable-5 (numinia-nwos)

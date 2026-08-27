@@ -302,30 +302,30 @@ editions · v0.43.0 sheet rules; every push deployed itself on green CI).
   session system).
 
 **Remaining (Oracle acts):** F final art · ~~sign the Khepri changelog row~~
-**resuelto 2026-08-18: el plano libro es canon** — el Sistema de Diseño
-v5.0.0 lo absorbe entero (papel vivo §13.12, grano §6.5, tercera voz §4.6,
-componentes §9.9, iconos §7.5, velo de lectura §2.7.2, animaciones 12–14) y
-el borrador 4.3.0 queda superado; lo que sigue pendiente de firma es solo la
-consagración explícita de §4.6 y del alcance del renombrado (§16.15) · rule
+**resolved 2026-08-18: the book plane is canon** — the Design System
+v5.0.0 absorbs it whole (living paper §13.12, grain §6.5, third voice §4.6,
+components §9.9, icons §7.5, reading veil §2.7.2, animations 12–14) and
+the 4.3.0 draft is superseded; what remains pending signature is only the
+explicit consecration of §4.6 and of the rename's scope (§16.15) · rule
 on the 14 findings · supply Alicia's surname (editions regenerate from the
 canonical MD).
 
-**Huecos detectados al incorporar la v5.0.0 (2026-08-18)** — producción tiene
-cosas que el documento no recoge, y viceversa: (1) las tintas terciarias AA
-del libro (`#75695E` Diurno / `#97897D` Nocturno, el hallazgo WCAG de la
-fase B) no están en §19.3 — un agente que reconstruya el libro desde el
-documento reintroduce el 3.7:1; (2) los engranajes 0–5 de la ficha no
-aparecen ni en §7.5 ni en §9.9; (3) el Narrador existe como icono, sin
-especificación de la pieza; (4) no hay plano de la variante impresa ni de
-las ediciones PDF/EPUB; (5) la animación 12 «paso de página» que el
-documento da por verificable contra el LAP **no existe en el código** —
-producción solo tiene el trazo (13).
+**Gaps detected while absorbing v5.0.0 (2026-08-18)** — production has
+things the document does not record, and vice versa: (1) the book's AA
+tertiary inks (`#75695E` Diurno / `#97897D` Nocturno, phase B's WCAG
+finding) are not in §19.3 — an agent rebuilding the book from the document
+reintroduces the 3.7:1; (2) the sheet's 0–5 gears appear neither in §7.5
+nor in §9.9; (3) the Narrator exists as an icon, with no spec for the
+piece; (4) there is no blueprint for the print variant or the PDF/EPUB
+editions; (5) animation 12 «paso de página», which the document claims is
+verifiable against the LAP, **does not exist in the code** — production
+only has the stroke (13).
 
-**Addendum 2026-08-18 (night watch):** v0.44–0.45 shipped. El Narrador
+**Addendum 2026-08-18 (night watch):** v0.44–0.45 shipped. The Narrator
 (Web Speech, block highlight + pace; also reads the glossary), glossary
 term links (site + EPUB), the truly-fixed compact chrome (a stacking rule
 had silently beaten `position:fixed` since the plane shipped), footer
-chapter jumps, end-of-page bookmark fix, **la Ficha imprimible (§4.9)** —
+chapter jumps, end-of-page bookmark fix, **the printable Sheet (§4.9)** —
 annex page ×5 locales + .md + print + inside both editions — and REUSE
 3.3 compliance armed as CI in BOTH repos (numinia-web and numinia-lore,
 closing D1's last clause). Root-caused and fixed a three-red CI streak:
