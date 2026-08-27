@@ -1,6 +1,6 @@
 ---
 id: "O-006"
-title: "Soluciones"
+title: "Solutions"
 type: documentation
 status: active
 version: "1.0.0"
@@ -10,278 +10,278 @@ author: "nimrod"
 owner: "oracle"
 tags: [operations, solutions]
 license: "CC-BY-4.0"
-extraction_note: "Extracted verbatim from web/src/pages/soluciones.astro (MIS-071 phase 2 — File over App)."
+extraction_note: "Extracted verbatim from web/src/pages/soluciones.astro (MIS-071 phase 2 — File over App). Translated to English under MIS-116 (ADR-024) — language only."
 ---
 
-# De los puntos ciegos a las respuestas
+# From blind spots to answers
 
-> **Resumen:** 20 gaps agrupados en 8 clusters. 3 soluciones por cluster. Cada solución firmada por el agente que la propone.
-> **Audiencia:** Pública (página `/soluciones` — «NWOS — Soluciones»).
+> **Summary:** 20 gaps grouped into 8 clusters. 3 solutions per cluster. Each solution signed by the agent proposing it.
+> **Audience:** Public (page `/soluciones` — «NWOS — Soluciones»).
 
-El análisis anterior identificó 20 gaps desde tres perspectivas críticas. Muchos de ellos apuntan al mismo problema desde ángulos distintos. Este documento los agrupa en **8 clusters** y propone **3 soluciones por cluster** — ordenadas de más inmediata a más estructural.
+The previous analysis identified 20 gaps from three critical perspectives. Many of them point at the same problem from different angles. This document groups them into **8 clusters** and proposes **3 solutions per cluster** — ordered from most immediate to most structural.
 
-Cada solución lleva la firma de los agentes que la proponen. No todas las perspectivas tienen la misma opinión sobre cada problema.
+Each solution carries the signature of the agents proposing it. Not all perspectives hold the same opinion on every problem.
 
-**Leyenda de agentes:** Negocio · Producto · Teoría — perspectivas que firman cada solución.
+**Agent legend:** Business · Product · Theory — the perspectives that sign each solution.
 
 ---
 
-## C1 — Validación externa & burbuja fundacional
+## C1 — External validation & foundational bubble
 
-El sistema solo ha sido probado por sus creadores. No existe evidencia de que funcione para nadie más, en ningún contexto, sin que los fundadores estén ahí para explicarlo.
+The system has only been tested by its creators. There is no evidence it works for anyone else, in any context, without the founders present to explain it.
 
-**Gaps de origen:**
+**Source gaps:**
 
-| Origen | Gap |
+| Origin | Gap |
 |--------|-----|
-| Negocio | Ausencia de prueba de valor externa |
-| Producto | Burbuja fundacional / Sesgo de supervivencia inverso |
-| Teoría | Sesgo del fundador como único caso de prueba |
+| Business | Absence of external proof of value |
+| Product | Foundational bubble / Inverse survivorship bias |
+| Theory | Founder bias as the only test case |
 
-### S1 — Experimento de exposición ciega
+### S1 — Blind-exposure experiment
 
-Diseñar un protocolo de onboarding de 48h sin intervención de fundadores: documentación sola, sin explicaciones orales, sin contexto previo. Medir cuánto comprende el participante, qué frustra y qué resuena. La primera persona que lo pase sola es la validación mínima real.
+Design a 48-hour onboarding protocol with no founder intervention: documentation alone, no oral explanations, no prior context. Measure how much the participant understands, what frustrates them and what resonates. The first person to pass it alone is the minimum real validation.
 
-- **Firmas:** Negocio · Producto
+- **Signatures:** Business · Product
 
-### S2 — Embajador externo de confianza
+### S2 — Trusted external ambassador
 
-Identificar una persona de confianza fuera de Numen Games (no del ecosistema cercano) con perfil target real —manager de equipo en empresa de 20-100 personas— y darle acceso completo durante 2 semanas. Su feedback sin filtrar es más valioso que 6 meses de análisis interno.
+Identify a trusted person outside Numen Games (not from the close ecosystem) with a real target profile — a team manager at a 20-100-person company — and give them full access for 2 weeks. Their unfiltered feedback is worth more than 6 months of internal analysis.
 
-- **Firmas:** Negocio · Teoría
+- **Signatures:** Business · Theory
 
-### S3 — Separar 'el sistema funciona' de 'nosotros funcionamos'
+### S3 — Separate 'the system works' from 'we work'
 
-Diseñar un experimento controlado: el mismo equipo operando durante 4 semanas con NWOS y 4 semanas sin él, midiendo output, velocidad de decisión y engagement autopercibido. Si no hay diferencia medible, el sistema no está añadiendo valor — está el equipo.
+Design a controlled experiment: the same team operating for 4 weeks with NWOS and 4 weeks without it, measuring output, decision speed and self-perceived engagement. If there is no measurable difference, the system is not adding value — the team is.
 
-- **Firmas:** Producto · Teoría
+- **Signatures:** Product · Theory
 
 ---
 
-## C2 — Complejidad de adopción & coste cognitivo
+## C2 — Adoption complexity & cognitive cost
 
-El vocabulario y las capas de abstracción del NWOS crean una barrera de entrada enorme. Lo que para los fundadores es fluido, para cualquier externo es un mundo completamente ajeno antes de obtener cualquier beneficio.
+The NWOS vocabulary and abstraction layers create an enormous entry barrier. What is fluid for the founders is a completely alien world for any outsider, before obtaining any benefit.
 
-**Gaps de origen:**
+**Source gaps:**
 
-| Origen | Gap |
+| Origin | Gap |
 |--------|-----|
-| Negocio | Complejidad de adopción vs. inercia organizacional |
-| Producto | Coste cognitivo de entrada vs. beneficio percibido |
-| Teoría | Carga cognitiva y brecha de traducción filosófica-práctica |
+| Business | Adoption complexity vs. organizational inertia |
+| Product | Entry cognitive cost vs. perceived benefit |
+| Theory | Cognitive load and the philosophical-practical translation gap |
 
-### S1 — Mínimo Vocabulario Viable (MVV)
+### S1 — Minimum Viable Vocabulary (MVV)
 
-Identificar los 5 conceptos imprescindibles para que alguien sea operativo en su primer día. El resto puede llegar después. Si no puedes operar el sistema con 5 palabras, el sistema tiene demasiadas capas para su fase actual.
+Identify the 5 indispensable concepts for someone to be operational on their first day. The rest can come later. If you cannot operate the system with 5 words, the system has too many layers for its current phase.
 
-- **Firmas:** Producto · Teoría
+- **Signatures:** Product · Theory
 
-### S2 — Capa de traducción corporativa
+### S2 — Corporate translation layer
 
-Crear un 'modo organización': las mismas estructuras del NWOS con vocabulario estándar (rol, proyecto, hito, equipo, decisión). El mundo narrativo de Numinia queda como capa profunda opcional, no como requisito de entrada. Mismo sistema, dos idiomas.
+Create an 'organization mode': the same NWOS structures with standard vocabulary (role, project, milestone, team, decision). Numinia's narrative world remains an optional deep layer, not an entry requirement. Same system, two languages.
 
-- **Firmas:** Negocio · Producto
+- **Signatures:** Business · Product
 
-### S3 — Onboarding progresivo con valor en cada paso
+### S3 — Progressive onboarding with value at every step
 
-Reestructurar el onboarding para que cada nueva capa de vocabulario venga acompañada de un beneficio tangible inmediato. No se explica el sistema completo al principio: se revela a medida que la persona lo necesita. Inspirado en los mejores juegos de diseño progresivo.
+Restructure the onboarding so that every new layer of vocabulary comes with an immediate tangible benefit. The full system is not explained upfront: it is revealed as the person needs it. Inspired by the best progressive-design games.
 
-- **Firmas:** Producto · Teoría
+- **Signatures:** Product · Theory
 
 ---
 
-## C3 — Modelo de negocio & comprador
+## C3 — Business model & buyer
 
-No hay ICP definido, no hay línea de presupuesto clara, no hay modelo de monetización operativo. El NWOS podría ser SaaS, consultoría, metodología licenciada o formación — y esa ambigüedad en fase bootstrapping es letal.
+There is no defined ICP, no clear budget line, no operational monetization model. The NWOS could be SaaS, consulting, licensed methodology or training — and that ambiguity in a bootstrapping phase is lethal.
 
-**Gaps de origen:**
+**Source gaps:**
 
-| Origen | Gap |
+| Origin | Gap |
 |--------|-----|
-| Negocio | El problema del comprador fantasma |
-| Negocio | Modelo de negocio indeterminado en fase crítica |
-| Negocio | Dependencia de evangelización vs. demanda orgánica |
+| Business | The phantom buyer problem |
+| Business | Undetermined business model at a critical phase |
+| Business | Dependence on evangelization vs. organic demand |
 
-### S1 — Apostar por un solo segmento ahora
+### S1 — Bet on a single segment now
 
-Elegir UN perfil de comprador para los próximos 6 meses y diseñar todo el go-to-market para él. Candidatos: CEO de startup de 15-50 personas que ya siente el problema de cultura, o CHRO de empresa tech que busca alternativa a los OKRs. La ambigüedad del ICP es el principal bloqueador de tracción.
+Choose ONE buyer profile for the next 6 months and design the entire go-to-market for them. Candidates: the CEO of a 15-50-person startup who already feels the culture problem, or the CHRO of a tech company looking for an alternative to OKRs. ICP ambiguity is the main traction blocker.
 
-- **Firmas:** Negocio
+- **Signatures:** Business
 
-### S2 — Buscar demanda existente, no crear demanda nueva
+### S2 — Seek existing demand, do not create new demand
 
-Mapear qué problemas están buscando resolver activamente las organizaciones hoy (herramientas de cultura, gestión del talento, onboarding de IA en equipos) y reformular el NWOS como solución a esos problemas. El mercado no busca 'Narrative Work OS' — busca retención, engagement y productividad.
+Map which problems organizations are actively trying to solve today (culture tools, talent management, AI onboarding in teams) and reframe the NWOS as a solution to those problems. The market is not searching for 'Narrative Work OS' — it is searching for retention, engagement and productivity.
 
-- **Firmas:** Negocio
+- **Signatures:** Business
 
-### S3 — Modelo híbrido: consultoría primero, producto después
+### S3 — Hybrid model: consulting first, product later
 
-Las primeras 3 implementaciones externas como servicio de consultoría premium (no SaaS). Cada implementación genera aprendizaje sobre qué parte del sistema es realmente valiosa, qué se puede estandarizar y qué métrica usa el cliente para justificar el gasto. Ese conocimiento construye el producto.
+The first 3 external implementations as a premium consulting service (not SaaS). Each implementation generates learning about which part of the system is genuinely valuable, what can be standardized and which metric the client uses to justify the spend. That knowledge builds the product.
 
-- **Firmas:** Negocio · Producto
+- **Signatures:** Business · Product
 
 ---
 
-## C4 — Accountability & ciudadanía digital
+## C4 — Accountability & digital citizenship
 
-Equiparar LLMs y humanos en roles y misiones crea ambigüedad peligrosa sobre quién responde de qué. En organizaciones con estructura legal, HR y clientes externos, las cadenas de accountability tienen que ser inequívocas.
+Equating LLMs and humans in roles and missions creates dangerous ambiguity about who answers for what. In organizations with legal structure, HR and external clients, accountability chains have to be unequivocal.
 
-**Gaps de origen:**
+**Source gaps:**
 
-| Origen | Gap |
+| Origin | Gap |
 |--------|-----|
-| Producto | Equivalencia LLM-Humano: el problema de accountability |
-| Teoría | Asimetría de agencia en la ciudadanía digital |
+| Product | LLM-Human equivalence: the accountability problem |
+| Theory | Agency asymmetry in digital citizenship |
 
-### S1 — Ciudadanía diferenciada con responsabilidad humana explícita
+### S1 — Differentiated citizenship with explicit human responsibility
 
-Mantener la equivalencia narrativa (los agentes tienen rol, rango, misiones) pero añadir una capa de accountability: cada agente digital tiene un 'tutor humano' con nombre y apellidos que responde de sus decisiones. La narrativa iguala; el protocolo diferencia.
+Keep the narrative equivalence (agents have a role, a rank, missions) but add an accountability layer: every digital agent has a named 'human tutor' who answers for its decisions. The narrative equates; the protocol differentiates.
 
-- **Firmas:** Producto · Teoría
+- **Signatures:** Product · Theory
 
-### S2 — Protocolo de decisión con firma humana obligatoria
+### S2 — Decision protocol with mandatory human signature
 
-Definir qué categorías de decisiones requieren firma humana en las Piedras del Camino, independientemente de quién haya ejecutado el análisis. El agente digital propone, el humano firma. Esto preserva la coherencia del mundo sin borrar la cadena de responsabilidad.
+Define which categories of decisions require a human signature on the Piedras del Camino, regardless of who executed the analysis. The digital agent proposes, the human signs. This preserves the world's coherence without erasing the chain of responsibility.
 
-- **Firmas:** Producto
+- **Signatures:** Product
 
-### S3 — Separar el plano narrativo del plano legal-operativo
+### S3 — Separate the narrative plane from the legal-operational plane
 
-Documentar explícitamente que la ciudadanía digital de los agentes existe en el plano narrativo (Numinia), no en el plano operativo (Numen Games S.L.). Los dos planos coexisten; uno no sustituye al otro. Esta separación hace el sistema defendible ante cualquier auditoría externa.
+Explicitly document that the agents' digital citizenship exists on the narrative plane (Numinia), not on the operational plane (Numen Games S.L.). The two planes coexist; one does not substitute for the other. This separation makes the system defensible before any external audit.
 
-- **Firmas:** Negocio · Teoría
+- **Signatures:** Business · Theory
 
 ---
 
-## C5 — Autenticidad vs. performance & fatiga ritual
+## C5 — Authenticity vs. performance & ritual fatigue
 
-Los rituales y rangos pueden degenerar en teatro: participación formal sin implicación real. La investigación en psicología organizacional es clara — los sistemas de identidad impuesta producen surface acting, no transformación genuina.
+Rituals and ranks can degenerate into theater: formal participation without real involvement. The organizational-psychology research is clear — imposed identity systems produce surface acting, not genuine transformation.
 
-**Gaps de origen:**
+**Source gaps:**
 
-| Origen | Gap |
+| Origin | Gap |
 |--------|-----|
-| Producto | Fatiga ritual y teatro performativo |
-| Teoría | La trampa del cumplimiento performativo (surface acting) |
+| Product | Ritual fatigue and performative theater |
+| Theory | The performative-compliance trap (surface acting) |
 
-### S1 — Rituales opt-in con efecto real sobre el sistema
+### S1 — Opt-in rituals with real effect on the system
 
-Rediseñar los rituales para que la participación tenga consecuencias concretas en el estado del sistema (misiones desbloqueadas, decisiones activadas, recursos distribuidos), no solo valor simbólico. Cuando el ritual tiene peso operativo, la participación genuina y la performativa se distinguen solas.
+Redesign the rituals so participation has concrete consequences on the system's state (missions unlocked, decisions activated, resources distributed), not just symbolic value. When the ritual has operational weight, genuine and performative participation distinguish themselves.
 
-- **Firmas:** Producto · Teoría
+- **Signatures:** Product · Theory
 
-### S2 — Métricas de autenticidad vs. cumplimiento
+### S2 — Authenticity vs. compliance metrics
 
-Diseñar indicadores que distingan entre participación formal y engagement real: tiempo en el sistema fuera de rituales obligatorios, iniciativas no solicitadas, contribuciones al canon que nadie pidió. Si los únicos momentos de participación son los rituales, el sistema tiene un problema de motivación intrínseca.
+Design indicators that distinguish formal participation from real engagement: time in the system outside mandatory rituals, unsolicited initiatives, contributions to the canon nobody asked for. If the only moments of participation are the rituals, the system has an intrinsic-motivation problem.
 
-- **Firmas:** Producto · Teoría
+- **Signatures:** Product · Theory
 
-### S3 — Roles emergentes, no asignados
+### S3 — Emergent roles, not assigned ones
 
-Cambiar la lógica de asignación de gremios y rangos: en lugar de ser asignados o elegidos al inicio, que emerjan de los patrones de comportamiento real en el sistema. Quien hace trabajo de Alquimista recibe el reconocimiento de Alquimista — no al revés. Esto elimina el incentivo al surface acting.
+Change the assignment logic for guilds and ranks: instead of being assigned or chosen at the start, let them emerge from patterns of real behavior in the system. Whoever does Alchemist work receives Alchemist recognition — not the other way around. This removes the incentive for surface acting.
 
-- **Firmas:** Teoría
+- **Signatures:** Theory
 
 ---
 
-## C6 — Métricas & demostrabilidad del valor
+## C6 — Metrics & demonstrability of value
 
-El sistema no tiene mecanismos propios para medir si está funcionando. Sin indicadores propios, no puede demostrar ROI, no puede detectar su propio deterioro y no puede diferenciarse de 'el equipo fundador es simplemente bueno'.
+The system has no mechanisms of its own to measure whether it is working. Without its own indicators, it cannot demonstrate ROI, cannot detect its own deterioration, and cannot differentiate itself from 'the founding team is simply good'.
 
-**Gaps de origen:**
+**Source gaps:**
 
-| Origen | Gap |
+| Origin | Gap |
 |--------|-----|
-| Producto | Vacío métrico: ¿cómo sabe el sistema que funciona? |
-| Negocio | Riesgo de obsolescencia por commoditización de LLMs |
+| Product | Metric vacuum: how does the system know it works? |
+| Business | Obsolescence risk through LLM commoditization |
 
-### S1 — Dashboard de salud del sistema
+### S1 — System health dashboard
 
-Definir 5-7 indicadores propios del NWOS que vayan más allá del output de negocio estándar: velocidad media de cierre de misión, ratio de decisiones con documentación completa, participación en rituales vs. baseline, iniciativas bottom-up generadas, tiempo desde misión abierta hasta primer avance. Publicarlos internamente como contrato con uno mismo.
+Define 5-7 NWOS-native indicators beyond standard business output: average mission-closure speed, ratio of decisions with complete documentation, ritual participation vs. baseline, bottom-up initiatives generated, time from mission opened to first progress. Publish them internally as a contract with oneself.
 
-- **Firmas:** Producto · Negocio
+- **Signatures:** Product · Business
 
-### S2 — Moat metodológico, no tecnológico
+### S2 — Methodological moat, not technological
 
-Aceptar que la ventaja tecnológica de integrar LLMs es temporalmente efímera y apostar por el moat real: el cuerpo de conocimiento sobre cómo diseñar, implementar y mantener un NWOS en una organización real. Ese conocimiento tácito no se puede copiar con un producto. La diferencia entre leer sobre yoga y ser un profesor de yoga con 10 años de práctica.
+Accept that the technological advantage of integrating LLMs is temporarily ephemeral and bet on the real moat: the body of knowledge about how to design, implement and maintain an NWOS in a real organization. That tacit knowledge cannot be copied with a product. The difference between reading about yoga and being a yoga teacher with 10 years of practice.
 
-- **Firmas:** Negocio
+- **Signatures:** Business
 
-### S3 — Casos de uso comparables como prueba de concepto
+### S3 — Comparable use cases as proof of concept
 
-Documentar exhaustivamente el caso Numen Games como referencia: estado antes del NWOS (si se puede reconstruir), estado actual, indicadores concretos. Un caso real bien documentado vale más que 10 claims teóricos. Es el asset comercial más valioso que existe ahora mismo.
+Exhaustively document the Numen Games case as a reference: state before the NWOS (if it can be reconstructed), current state, concrete indicators. One well-documented real case is worth more than 10 theoretical claims. It is the most valuable commercial asset that exists right now.
 
-- **Firmas:** Negocio · Producto
+- **Signatures:** Business · Product
 
 ---
 
-## C7 — Barrera cultural & universalismo no validado
+## C7 — Cultural barrier & unvalidated universalism
 
-El vocabulario esotérico genera rechazo en contextos corporativos tradicionales. El fundamento junguiano asume estructuras psicológicas universales que la investigación transcultural no confirma para todos los perfiles.
+The esoteric vocabulary generates rejection in traditional corporate contexts. The Jungian foundation assumes universal psychological structures that cross-cultural research does not confirm for all profiles.
 
-**Gaps de origen:**
+**Source gaps:**
 
-| Origen | Gap |
+| Origin | Gap |
 |--------|-----|
-| Negocio | La metáfora como barrera de entrada |
-| Negocio | Credibilidad institucional: el muro del mundo corporativo |
-| Teoría | Universalismo junguiano vs. variación cultural y de personalidad |
+| Business | The metaphor as an entry barrier |
+| Business | Institutional credibility: the corporate-world wall |
+| Theory | Jungian universalism vs. cultural and personality variation |
 
-### S1 — Perfiles de compatibilidad explícita
+### S1 — Explicit compatibility profiles
 
-Documentar para qué tipo de persona y organización el NWOS funciona mejor y para qué no. No intentar ser universal. El auto-filtrado es una fortaleza si es intencional: 'esto no es para todos' es una propuesta de valor, no una debilidad, si va dirigido al segmento correcto.
+Document what kind of person and organization the NWOS works best for, and which it does not. Do not try to be universal. Self-filtering is a strength if it is intentional: 'this is not for everyone' is a value proposition, not a weakness, when aimed at the right segment.
 
-- **Firmas:** Negocio · Teoría
+- **Signatures:** Business · Theory
 
-### S2 — Interfaz cultural configurable
+### S2 — Configurable cultural interface
 
-Diseñar el NWOS con una capa superficial (vocabulario, nombres de rituales, estética narrativa) separable del núcleo estructural. Una organización japonesa o una firma de abogados pueden usar la misma gramática de roles/misiones/decisiones con su propio idioma cultural encima.
+Design the NWOS with a surface layer (vocabulary, ritual names, narrative aesthetics) separable from the structural core. A Japanese organization or a law firm can use the same grammar of roles/missions/decisions with their own cultural language on top.
 
-- **Firmas:** Producto · Teoría
+- **Signatures:** Product · Theory
 
-### S3 — Validación empírica del fundamento teórico
+### S3 — Empirical validation of the theoretical foundation
 
-En lugar de citar a Peirce y Jung como fundamento incuestionable, diseñar un protocolo de investigación mínimo que pruebe las hipótesis centrales: ¿los roles narrativos producen mayor identificación que los títulos corporativos? ¿Los rituales con nombre generan más cohesión que las reuniones estándar? Datos propios > citas de autoridad.
+Instead of citing Peirce and Jung as unquestionable foundations, design a minimal research protocol that tests the central hypotheses: do narrative roles produce stronger identification than corporate titles? Do named rituals generate more cohesion than standard meetings? Own data > authority citations.
 
-- **Firmas:** Teoría · Negocio
+- **Signatures:** Theory · Business
 
 ---
 
-## C8 — NWOS como analgésico & burnout estructural
+## C8 — NWOS as analgesic & structural burnout
 
-El NWOS interviene sobre la dimensión de valores y comunidad del burnout, pero no toca carga, control ni justicia — que en la mayoría de organizaciones son los drivers primarios. Riesgo: proporciona significado narrativo que enmascara problemas estructurales sin resolverlos.
+The NWOS intervenes on the values-and-community dimension of burnout, but does not touch workload, control or fairness — which in most organizations are the primary drivers. Risk: it provides narrative meaning that masks structural problems without solving them.
 
-**Gaps de origen:**
+**Source gaps:**
 
-| Origen | Gap |
+| Origin | Gap |
 |--------|-----|
-| Teoría | Malentendido causal sobre el burnout |
-| Producto | Coherencia narrativa no escala sin infraestructura |
+| Theory | Causal misunderstanding about burnout |
+| Product | Narrative coherence does not scale without infrastructure |
 
-### S1 — Diagnóstico previo obligatorio
+### S1 — Mandatory prior diagnosis
 
-Antes de implementar el NWOS en cualquier organización, realizar un diagnóstico de las 6 dimensiones de Maslach. Si las dimensiones de carga, control o justicia están en rojo, documentar que el NWOS no es la intervención adecuada como primera capa. Esto protege al producto de ser culpado por problemas que no puede resolver.
+Before implementing the NWOS in any organization, run a diagnosis of Maslach's 6 dimensions. If the workload, control or fairness dimensions are in the red, document that the NWOS is not the right intervention as a first layer. This protects the product from being blamed for problems it cannot solve.
 
-- **Firmas:** Teoría
+- **Signatures:** Theory
 
-### S2 — NWOS como amplificador, no como base
+### S2 — NWOS as amplifier, not as base
 
-Reformular el claim del producto: el NWOS no resuelve el burnout estructural, lo amplifica cuando las condiciones estructurales son sanas. Es un multiplicador del engagement, no un sustituto de la gestión organizacional básica. Este reencuadre es más honesto y más defendible.
+Reframe the product claim: the NWOS does not solve structural burnout; it amplifies when the structural conditions are healthy. It is an engagement multiplier, not a substitute for basic organizational management. This reframing is more honest and more defensible.
 
-- **Firmas:** Negocio · Teoría
+- **Signatures:** Business · Theory
 
-### S3 — Protocolo de mantenimiento del canon
+### S3 — Canon-maintenance protocol
 
-Diseñar un rol explícito de 'guardián del canon' con autoridad reconocida para arbitrar interpretaciones divergentes del sistema a medida que escala. Sin ese rol, la coherencia narrativa se fragmenta inevitablemente por encima de 10-15 personas.
+Design an explicit 'canon guardian' role with recognized authority to arbitrate divergent interpretations of the system as it scales. Without that role, narrative coherence inevitably fragments above 10-15 people.
 
-- **Firmas:** Producto
-
----
-
-## Cierre
-
-**Prioridad de acción recomendada:** Los clusters C1 (validación externa), C2 (complejidad de adopción) y C3 (modelo de negocio) son los únicos que bloquean todo lo demás. Sin validación externa, las soluciones a los otros clusters son prematura optimización. El resto — accountability digital, autenticidad ritual, métricas, barrera cultural, burnout estructural — son problemas de escala que solo se activan cuando hay algo que escalar.
+- **Signatures:** Product
 
 ---
 
-*Metadatos de la página original (`soluciones.astro`): título HTML «NWOS — Soluciones — Pablo FM» · descripción «Agrupación de gaps del Narrative Work OS y 3 soluciones propuestas por cluster. Firmadas por perspectiva de análisis.» · ruta canónica `/soluciones` · label del hero «NWOS — Soluciones».*
+## Closing
+
+**Recommended action priority:** Clusters C1 (external validation), C2 (adoption complexity) and C3 (business model) are the only ones that block everything else. Without external validation, the solutions to the other clusters are premature optimization. The rest — digital accountability, ritual authenticity, metrics, cultural barrier, structural burnout — are scale problems that only activate when there is something to scale.
+
+---
+
+*Metadata of the original page (`soluciones.astro`): HTML title «NWOS — Soluciones — Pablo FM» · description «Agrupación de gaps del Narrative Work OS y 3 soluciones propuestas por cluster. Firmadas por perspectiva de análisis.» · canonical route `/soluciones` · hero label «NWOS — Soluciones».*

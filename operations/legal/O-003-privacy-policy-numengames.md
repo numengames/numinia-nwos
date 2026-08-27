@@ -1,18 +1,19 @@
 ---
 id: "O-003"
-title: "Política de privacidad — Numen Games"
+title: "Privacy Policy — Numen Games"
 type: legal
 status: active
-version: "1.1.0"
+version: "2.0.0"
 created: "2026-08-17T00:00:00Z"
-updated: "2026-08-17T00:00:00Z"
+updated: "2026-08-27T00:00:00Z"
 author: "oracle"
 owner: "oracle"
 tags: [legal, privacy, gdpr, lopdgdd, website, numen-games, enforceable]
 license: "LicenseRef-Numen-AllRightsReserved"
 provenance: "human"
-language: "es-ES"
+language: "en"
 restoration_note: "Ingested 2026-08-17 verbatim — unlike the T&C, no transport corruption was detected, so nothing was restored. Substantive anomalies were found and deliberately NOT fixed (legal substance is the lawyer's, not the archivist's); they are flagged in the review-flags block below and must be resolved before external use."
+language_note: "v2.0.0 (2026-08-27, MIS-116): translated to English and English declared the MASTER by Oracle decision, resolving FLAG-5 — the archive is the master (per the FLAG-1 record) and the archive's language is English (ADR-024). The Spanish v1.1.0 text remains in git history (tag: this file before 2026-08-27) as the translation source. Translation is language-only: every substantive anomaly (FLAG-2, FLAG-3, FLAG-4, FLAG-6) is preserved as-is, still awaiting a lawyer. C-005 §5 requires enforceable artifacts in English; this document now complies."
 review_flags: |
   FLAG-1 (critical): RESOLVED 2026-08-17 by Oracle order — §6 directed
   GDPR rights exercise to hello@startupvalencia.org (third-party
@@ -24,210 +25,214 @@ review_flags: |
   FLAG-3: §5 mentions debt communication on unpaid "cuota de socio"
   (membership fee) — an association-template leftover; Numen sells B2B
   services, not memberships.
-  FLAG-4: §2 references a "política de cookies" that is not yet in this
+  FLAG-4: §2 references a cookie policy that is not yet in this
   archive — next candidate for operations/legal/.
-  FLAG-5: language — this policy is Spanish while the T&C is English;
-  consistency of the website's legal corpus is a lawyer's decision.
-  FLAG-6 (minor): §5 "fuera del del Espacio" — doubled word, likely in
-  the source; left as-is pending verification against the original.
+  FLAG-5: RESOLVED 2026-08-27 by Oracle decision (MIS-116) — the
+  website's legal corpus is consistent in English: this policy joins
+  the T&C in English, and the English text is the master. Recorded in
+  language_note above.
+  FLAG-6 (minor): §5 "fuera del del Espacio" in the Spanish source —
+  doubled word, likely in the original; the translation does not
+  reproduce the typo, but the flag stays until the source is verified
+  against the original.
 ---
-# Política de privacidad — Numen Games
+# Privacy Policy — Numen Games
 
-> **Summary:** La Política de Privacidad de www.numen.games (RGPD +
-> LOPDGDD). Artefacto legal exigible — todos los derechos reservados;
-> este texto no se ofrece bajo ninguna licencia abierta. **Contiene 5
-> flags de revisión abiertos en el frontmatter (FLAG-1 resuelto por
-> orden del Oráculo) — resolver antes de uso externo.**
-> **Epistemic:** El marco de protección de datos de Numen Games.
-> **Pragmatic:** Fuente canónica de la política publicada en la web.
+> **Summary:** The Privacy Policy of www.numen.games (GDPR +
+> LOPDGDD). Enforceable legal artifact — all rights reserved; this
+> text is not offered under any open license. **Contains open review
+> flags in the frontmatter (FLAG-1 and FLAG-5 resolved by Oracle
+> order) — resolve before external use.**
+> **Epistemic:** Numen Games' data-protection framework.
+> **Pragmatic:** Canonical source of the policy published on the web.
 > **Audience:** Oracle · Legal · Agents (read-only reference)
 
 ---
 
-En cumplimiento de la normativa de Protección de Datos Personales y de
-conformidad con el Reglamento (UE) 2016/679 del Parlamento Europeo y del
-Consejo, de 27 de abril de 2016, relativo a la protección de las personas
-físicas en lo que respecta al tratamiento de datos personales y a la
-libre circulación de estos datos (RGPD) y con la Ley Orgánica 3/2018, de
-5 de diciembre, de protección de datos personales y garantía de los
-derechos digitales (LOPDGDD), a continuación NUMEN GAMES S.L (NUMEN) le
-proporciona la información para que conozca todos los elementos
-relevantes al tratamiento de sus datos.
+In compliance with Personal Data Protection regulations and in
+accordance with Regulation (EU) 2016/679 of the European Parliament
+and of the Council, of 27 April 2016, on the protection of natural
+persons with regard to the processing of personal data and on the free
+movement of such data (GDPR), and with Organic Law 3/2018, of 5
+December, on the protection of personal data and the guarantee of
+digital rights (LOPDGDD), NUMEN GAMES S.L (NUMEN) hereby provides you
+with the information you need to know about all the elements relevant
+to the processing of your data.
 
-## 1. ¿Quién es el Responsable del tratamiento de tus datos?
+## 1. Who is the Controller of your data?
 
-- **Identidad:** NUMEN GAMES S.L
-- **CIF:** B70735949
-- **Dirección postal:** Calle Chile 10, Las Rozas, Madrid.
-- **Correo electrónico:** legal@numengames.com
+- **Identity:** NUMEN GAMES S.L
+- **Tax ID (CIF):** B70735949
+- **Postal address:** Calle Chile 10, Las Rozas, Madrid.
+- **Email:** legal@numengames.com
 
-## 2. ¿En qué momento recogemos tus datos personales?
+## 2. When do we collect your personal data?
 
-Sus datos personales pueden ser recogidos en los siguientes momentos:
+Your personal data may be collected at the following moments:
 
-- **A través de formulario/s de contacto y/o registro:** nuestra web
-  dispone de distintos formularios que solicitan distintos datos para
-  distintas finalidades, por ejemplo, contactar con nosotros, solicitar
-  una demo, entre otros.
-- **Mediante Cookies:** nuestra web instala cookies que recogen
-  información sobre la navegación, te recomendamos que leas la política
-  de cookies para información completa al respecto.
+- **Through contact and/or registration form(s):** our website
+  provides different forms that request different data for different
+  purposes — for example, contacting us or requesting a demo, among
+  others.
+- **Through Cookies:** our website installs cookies that collect
+  information about your browsing; we recommend you read the cookie
+  policy for complete information on the matter.
 
-## 3. ¿Con qué finalidad y legitimación tratamos sus datos?
+## 3. For what purpose and on what legal basis do we process your data?
 
-1. Sus datos serán tratados para asistir, gestionar y atender las
-   posibles solicitudes, comentarios y/o consultas. El tratamiento puede
-   ser realizado en base a su consentimiento al remitirnos su consulta
-   y/o solicitud (artículo 6.1.a) RGPD); y/o en base a la ejecución de
-   una relación contractual y/o petición de posibles medidas
-   precontractuales (artículo 6.1.b) RGPD).
+1. Your data will be processed to assist with, manage and attend to
+   any requests, comments and/or queries. The processing may be
+   carried out on the basis of your consent when sending us your query
+   and/or request (Article 6.1(a) GDPR); and/or on the basis of the
+   performance of a contractual relationship and/or at your request
+   prior to entering into a contract (Article 6.1(b) GDPR).
 
-2. Siempre que haya aceptado, mantenerle informado sobre servicios,
-   promociones y productos relacionados con nuestra actividad a través de
-   los medios que usted nos haya proporcionado (teléfono, correo postal,
-   correo electrónico, SMS y/o sistema de mensajería, entre otros) que
-   puedan resultarle de interés. El tratamiento se realiza en base a su
-   consentimiento al suscribirse al servicio de envío de comunicaciones
-   promocionales (artículo 6.1.a) RGPD.
+2. Provided you have accepted, to keep you informed about services,
+   promotions and products related to our activity through the means
+   you have provided to us (telephone, postal mail, email, SMS and/or
+   messaging systems, among others) that may be of interest to you.
+   The processing is carried out on the basis of your consent when
+   subscribing to the promotional-communications service (Article
+   6.1(a) GDPR).
 
-7. La información será tratada para cumplir con nuestras obligaciones
-   legales, posibles resoluciones judiciales y otras decisiones
-   determinadas por las autoridades. Incluyendo la comunicación de tus
-   datos personales a las fuerzas y cuerpos de seguridad, siempre que
-   tengamos sospechas o indicios de una actuación que pueda constituir un
-   ilícito/delito penal. La base del tratamiento es el cumplimiento de
-   nuestras obligaciones legales (artículo 6.1.c) RGPD).
+7. The information will be processed to comply with our legal
+   obligations, possible judicial decisions and other determinations
+   made by the authorities. This includes communicating your personal
+   data to law-enforcement authorities whenever we have suspicions or
+   indications of conduct that may constitute a criminal offence. The
+   basis for the processing is compliance with our legal obligations
+   (Article 6.1(c) GDPR).
 
-8. Trataremos su información para realizar análisis estadísticos de forma
-   anónima a los efectos de conocer el funcionamiento de nuestro producto
-   y/o servicio, con la finalidad de mejorar el desarrollo y
-   personalización de nuestros servicios. El tratamiento es realizado
-   para la satisfacción de nuestro interés legítimo, que consiste en
-   gestionar y mejorar nuestros productos y servicios (artículo 6.1.f)
-   RGPD). Siempre teniendo en cuenta que nuestro interés no prevalezca
-   sobre sus intereses, derechos y libertades fundamentales.
+8. We will process your information to perform statistical analyses
+   anonymously in order to understand how our product and/or service
+   performs, with the aim of improving the development and
+   personalization of our services. The processing is carried out to
+   satisfy our legitimate interest, which consists of managing and
+   improving our products and services (Article 6.1(f) GDPR) — always
+   ensuring that our interest does not override your fundamental
+   interests, rights and freedoms.
 
-*(Nota de archivo: la numeración 1, 2, 7, 8 es la del documento fuente —
-ver FLAG-2 en el frontmatter.)*
+*(Archival note: the numbering 1, 2, 7, 8 is the source document's —
+see FLAG-2 in the frontmatter.)*
 
-## 4. ¿Por cuánto tiempo conservaremos sus datos personales?
+## 4. For how long will we keep your personal data?
 
-Sus datos personales serán tratados durante el periodo necesario para
-cumplir con los fines establecidos en esta Política de Privacidad, así
-como para conservar su información personal en cumplimiento de las
-disposiciones de las leyes y normativas pertinentes, especialmente en
-relación a los plazos legales de prescripción, y para la formulación,
-ejercicio o defensa de reclamaciones.
+Your personal data will be processed for the period necessary to
+fulfil the purposes set out in this Privacy Policy, as well as to
+retain your personal information in compliance with the provisions of
+the relevant laws and regulations, especially in relation to statutory
+limitation periods and to the formulation, exercise or defence of
+claims.
 
-El criterio que seguimos para ello viene determinado por (a) la finalidad
-de los datos recopilados y el cumplimiento de dicho fin (p.ej. mientras
-se mantenga nuestra relación); (b) las razones por las cuales los datos
-se recopilan (p. ej., en caso de consentimiento, podrás revocarlo en
-cualquier momento) y, (c) periodos de almacenamiento obligados según los
-requisitos contractuales y normativos.
+The criterion we follow is determined by (a) the purpose of the data
+collected and the fulfilment of that purpose (e.g. for as long as our
+relationship lasts); (b) the reasons for which the data is collected
+(e.g. where consent is the basis, you may revoke it at any time); and
+(c) mandatory storage periods under contractual and regulatory
+requirements.
 
-Tenga presente que, en algunos casos, podremos conservar sus datos
-durante el plazo necesario para la formulación, ejercicio o defensa de
-reclamaciones, requerimientos, responsabilidades y obligaciones legales
-y/o contractuales, siempre estando debidamente bloqueados.
+Please note that, in some cases, we may retain your data for the
+period necessary for the formulation, exercise or defence of claims,
+demands, liabilities and legal and/or contractual obligations, always
+duly blocked.
 
-## 5. ¿A qué destinatarios se pueden comunicar tus datos?
+## 5. To which recipients may your data be communicated?
 
-Sus datos personales no serán comunicados a terceros sin su
-consentimiento expreso. No obstante, dependiendo de los fines para los
-que se recopila la información personal, pueden acceder a dicha
-información, indistintamente, los siguientes terceros:
+Your personal data will not be communicated to third parties without
+your express consent. However, depending on the purposes for which the
+personal information is collected, the following third parties may
+access such information:
 
-- Empleados y/o colaboradores autorizados por NUMEN, siempre sujetos a
-  las normas de protección de datos que resulten de aplicación;
-- Organismos y/o Autoridades competentes y, las fuerzas y cuerpos de
-  seguridad pertinentes, en supuestos que exista un requerimiento, una
-  obligación legal o consideremos que hay indicios y/o sospechas
-  suficientes para estar ante un ilícito o delito penal.
-- Terceros proveedores de servicios que tratan información como
-  encargados del tratamiento de datos. Con todos nuestros proveedores se
-  ha celebrado el correspondiente contrato de encargo de tratamiento
-  conforme la normativa de protección de datos personales.
-- En el caso de impago de la cuota de socio, la deuda puede ser
-  comunicada a terceras empresas debidamente autorizadas legalmente y
-  encargadas de gestionar el incumplimiento de obligaciones dinerarias.
+- Employees and/or collaborators authorized by NUMEN, always subject
+  to the applicable data-protection rules;
+- Competent bodies and/or authorities, and the relevant
+  law-enforcement agencies, in cases where there is a requirement, a
+  legal obligation, or where we consider there are sufficient
+  indications and/or suspicions of an unlawful act or criminal
+  offence.
+- Third-party service providers that process information as data
+  processors. With all our providers, the corresponding
+  data-processing agreement has been concluded in accordance with
+  personal data protection regulations.
+- In the event of non-payment of the membership fee ("cuota de
+  socio"), the debt may be communicated to duly legally authorized
+  third-party companies in charge of managing the breach of monetary
+  obligations. *(Archival note: association-template leftover — see
+  FLAG-3.)*
 
-Le informamos de que NUMEN no transfiere sus datos personales a un país
-fuera del del Espacio Económico Europeo (E.E.E.) Sin embargo, si se
-realizara nos aseguraríamos de disponer una adecuada protección de los
-datos personales mediante la utilización de las salvaguardas permitidas
-por la normativa, en especial, el uso de las cláusulas contractuales tipo
-aprobadas por la Comisión Europea.
+We inform you that NUMEN does not transfer your personal data to a
+country outside the European Economic Area (E.E.A.). However, if such
+a transfer were to take place, we would ensure adequate protection of
+the personal data through the safeguards permitted by the regulations
+— in particular, the use of the standard contractual clauses approved
+by the European Commission.
 
-## 6. ¿Cuáles son tus derechos cuando nos facilitas datos personales?
+## 6. What are your rights when you provide us with personal data?
 
-Si tratamos sus datos debe saber que sus derechos son:
+If we process your data, you should know that your rights are:
 
-- **Derecho a solicitar el acceso a los datos personales:** puede
-  preguntar si desde NUMEN estamos tratando sus datos, y en caso
-  afirmativo acceder a los mismos.
-- **Derecho a solicitar la rectificación** si los datos son inexactos, o
-  completar los datos que tengamos incompletos.
-- **Derecho a solicitar la supresión** de sus datos.
-- **Derecho a solicitar la limitación de su tratamiento:** en este caso,
-  NUMEN únicamente los conservará para el ejercicio o la defensa de
-  reclamaciones.
-- **Derecho a oponerse al tratamiento:** dejaremos de tratar los datos
-  personales, con la excepción que deban seguir tratándose por motivos
-  legítimos o para el ejercicio o defensa de posibles reclamaciones.
-- **Derecho a la portabilidad de los datos:** en caso de que quiera que
-  sus datos sean tratados por otro responsable del tratamiento, le
-  facilitaremos el trasvase de tus datos al nuevo responsable, siempre
-  que sea técnicamente posible.
-- **Derecho a no ser objeto de una decisión basada únicamente en el
-  tratamiento automatizado** de sus datos personales.
+- **The right to request access to your personal data:** you may ask
+  whether NUMEN is processing your data, and if so, access it.
+- **The right to request rectification** if the data is inaccurate, or
+  to complete any data we hold that is incomplete.
+- **The right to request the erasure** of your data.
+- **The right to request the restriction of its processing:** in this
+  case, NUMEN will only retain the data for the exercise or defence of
+  claims.
+- **The right to object to the processing:** we will stop processing
+  the personal data, except where it must continue to be processed for
+  legitimate reasons or for the exercise or defence of possible
+  claims.
+- **The right to data portability:** should you wish your data to be
+  processed by another controller, we will facilitate the transfer of
+  your data to the new controller, whenever technically possible.
+- **The right not to be subject to a decision based solely on the
+  automated processing** of your personal data.
 
-Si nos ha dado su consentimiento para cualquier propósito específico,
-puede retirarlo cuando lo desee, sin que ello afecte a la legalidad del
-tratamiento basado en el consentimiento previo a la retirada.
+If you have given us your consent for any specific purpose, you may
+withdraw it whenever you wish, without affecting the lawfulness of the
+processing based on the consent given prior to its withdrawal.
 
-Para ejercer sus derechos debes contactar con nosotros enviando un email
-a legal@numengames.com o por escrito a la dirección postal que consta el
-apartado 1 de la presente política.
+To exercise your rights, you must contact us by sending an email to
+legal@numengames.com or in writing to the postal address stated in
+section 1 of this policy.
 
-Siempre que lo considere oportuno puede presentar una reclamación ante la
-autoridad competente, en este caso, la Agencia Española de Protección de
-Datos (<https://www.aepd.es>).
+Whenever you consider it appropriate, you may file a complaint with
+the competent authority — in this case, the Spanish Data Protection
+Agency (Agencia Española de Protección de Datos,
+<https://www.aepd.es>).
 
-## 7. Modificaciones
+## 7. Modifications
 
-Sólo utilizaremos sus datos personales según lo establecido en esta
-Política de Privacidad que está en vigor en el momento en que recabemos
-su información. En el caso de que NUMEN lleve a cabo una modificación
-sobre el tratamiento de sus datos se informará oportunamente.
+We will only use your personal data as set out in the Privacy Policy
+in force at the time we collect your information. Should NUMEN make
+any modification to the processing of your data, you will be duly
+informed.
 
-## 8. Información adicional
+## 8. Additional information
 
-- **Política sobre uso infantil.** Nuestros servicios están dirigidos
-  exclusivamente a personas mayores de edad. En este sentido, no
-  recopilamos deliberadamente información de menores de edad. En
-  cualquier caso, si sois padres madres o representantes legales y
-  consideráis que vuestros hijos o tutelados nos han remitido datos
-  personales os rogamos que contactéis con nosotros enviándonos un email
-  a: legal@numengames.com.
-- **Datos especialmente protegidos.** NUMEN no recoge ni tratará datos
-  personales que revelen el origen étnico o racial, las opiniones
-  políticas, las convicciones religiosas o filosóficas, o la afiliación
-  sindical, y el tratamiento de datos genéticos, datos biométricos
-  dirigidos a identificar de manera unívoca a una persona físicas, datos
-  relativos a salud o a la vida sexual o las orientaciones sexuales.
-- **Enlaces.** En el sitio web de NUMEN puede haber enlaces a otros
-  sitios web que consideremos potencialmente útiles e informativos para
-  usted. No obstante, tenga presente que no avalamos ni recomendamos el
-  contenido ni los servicios de tales sitios web, ni somos responsables
-  de las políticas de privacidad de los mismos. Recomendamos que tenga en
-  cuenta y lea las políticas de privacidad de todos los sitios que
-  visite. Recuerde que lo que se indica en esta Política de Privacidad
-  sólo rige para los datos que recaba y/o trata NUMEN.
-- **Contáctanos.** Si en algún momento considera que no hemos cumplido
-  con las disposiciones establecidas en esta Política de Privacidad, por
-  favor comuníquelo enviando un correo electrónico a
-  legal@numengames.com. Si quiere escalar un problema relativo a la
-  privacidad de sus datos o tiene cualquier pregunta relativa a esta
-  Política de Privacidad, no lo dude y contáctenos por la dirección de
-  correo electrónico antes indicada. Estaremos encantados de ayudarte.
+- **Policy on use by minors.** Our services are aimed exclusively at
+  adults. Accordingly, we do not deliberately collect information from
+  minors. In any case, if you are a parent or legal guardian and you
+  believe that your children or wards have sent us personal data,
+  please contact us by sending an email to: legal@numengames.com.
+- **Specially protected data.** NUMEN does not collect or process
+  personal data revealing ethnic or racial origin, political opinions,
+  religious or philosophical beliefs, or trade-union membership, nor
+  does it process genetic data, biometric data intended to uniquely
+  identify a natural person, or data concerning health, sex life or
+  sexual orientation.
+- **Links.** NUMEN's website may contain links to other websites that
+  we consider potentially useful and informative for you. However,
+  please note that we do not endorse or recommend the content or
+  services of such websites, nor are we responsible for their privacy
+  policies. We recommend that you take note of and read the privacy
+  policies of every site you visit. Remember that what is stated in
+  this Privacy Policy applies only to the data collected and/or
+  processed by NUMEN.
+- **Contact us.** If at any time you believe we have not complied with
+  the provisions set out in this Privacy Policy, please let us know by
+  sending an email to legal@numengames.com. If you wish to escalate an
+  issue regarding the privacy of your data, or have any question about
+  this Privacy Policy, do not hesitate to contact us at the email
+  address indicated above. We will be glad to help.
