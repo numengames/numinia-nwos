@@ -1,6 +1,6 @@
 ---
 id: "GAPS"
-title: "GAPS.md — Mapa de carencias de Numen Games"
+title: "GAPS.md — Numen Games' map of blind spots"
 type: documentation
 status: active
 version: "1.0.0"
@@ -13,194 +13,358 @@ license: "CC-BY-4.0"
 extraction_note: "Extracted verbatim from web/src/pages/gaps.astro (MIS-071 phase 2 — File over App). Fulfils MIS-044's original criterion 'Publicado como GAPS.md', which had been satisfied only as a web page."
 ---
 
-# Los puntos ciegos que hay que ver antes de que te los señale el mercado
+# The blind spots to see before the market points them out
 
-> **Resumen:** Análisis crítico del Narrative Work OS desde tres perspectivas: negocio, producto y teoría organizacional. Sin filtros.
-> **Audiencia:** Pública (NWOS — Gaps). Cada gap incluye la pregunta que los Oráculos deberían hacerse.
+> **Summary:** Critical analysis of the Narrative Work OS from three
+> perspectives: business, product, and organizational theory. No filters.
+> **Audience:** Public (NWOS — Gaps). Each gap includes the question the
+> Oracles should ask themselves.
 
-## Introducción
+## Introduction
 
-Numen Games está construyendo el **Narrative Work OS** desde dentro, usándolo como sistema operativo de la propia empresa. Eso es una fortaleza — y también el mayor riesgo: cuando eres el arquitecto, el usuario y el creyente simultáneamente, algunos puntos ciegos son estructuralmente invisibles.
+Numen Games is building the **Narrative Work OS** from the inside, using it
+as the company's own operating system. That's a strength — and also the
+biggest risk: when you are the architect, the user, and the believer all
+at once, some blind spots are structurally invisible.
 
-Este documento es el intento de verlos antes de que los vea el mercado. Tres perspectivas críticas — negocio, producto, teoría organizacional — aplicadas sin piedad. Cada gap incluye la pregunta que los Oráculos deberían hacerse.
+This document is the attempt to see them before the market does. Three
+critical perspectives — business, product, organizational theory —
+applied without mercy. Each gap includes the question the Oracles should
+ask themselves.
 
-## Leyenda
+## Legend
 
-| Nivel | Rango |
+| Level | Range |
 |-------|-------|
-| 🔴 Crítico | 9-10 |
-| 🟠 Alto | 7-8 |
-| 🟡 Medio | ≤6 |
+| 🔴 Critical | 9-10 |
+| 🟠 High | 7-8 |
+| 🟡 Medium | ≤6 |
 
-*Impacto = gravedad si no se resuelve · Criticidad = urgencia de resolución*
-
----
-
-## Perspectiva 1 — Negocio
-
-*¿Quién compra esto, cómo, y por qué ahora?*
-
-### Ausencia de prueba de valor externa
-
-- **Impacto:** 10/10 · **Urgencia:** 10/10
-- **Descripción:** 4 oráculos internos no constituyen validación de mercado. Todo el aprendizaje es endógeno: el sistema funciona para quienes lo construyeron y creen en él. En bootstrapping sin clientes externos, cada semana sin validación externa es runway quemado contra un modelo no probado.
-- **Punto ciego:** Los fundadores confunden profundidad conceptual con valor de mercado. La sofisticación filosófica (Peirce + Jung) da seguridad intelectual pero no sustituye la validación externa.
-- **Pregunta para los Oráculos:** "¿Han puesto el sistema en manos de alguien completamente ajeno a Numen Games, sin contexto previo, y observado qué pasa en las primeras 48 horas?"
-
-### El problema del comprador fantasma
-
-- **Impacto:** 9/10 · **Urgencia:** 10/10
-- **Descripción:** 'Organizaciones que quieren poner el significado en el centro del trabajo' no es un ICP operativo. En B2B, alguien específico firma el cheque: ¿el CPO? ¿el CHRO? ¿el CEO? Cada uno tiene incentivos distintos, ciclos de decisión distintos y métricas de éxito distintas.
-- **Punto ciego:** Los fundadores están tan inmersos en el 'por qué' filosófico que asumen que el valor es autoevidente. Cuando todo el equipo comparte los mismos valores, el problema del comprador se vuelve invisible.
-- **Pregunta para los Oráculos:** "¿Qué línea del presupuesto organizacional paga esto, y qué métrica concreta justifica esa firma?"
-
-### Modelo de negocio indeterminado en fase crítica
-
-- **Impacto:** 9/10 · **Urgencia:** 9/10
-- **Descripción:** No está claro qué vende Numen Games: ¿SaaS? ¿consultoría? ¿licencia de metodología? ¿formación? Cada modelo tiene economías unitarias, ciclos de venta y estructuras de equipo radicalmente distintos. La indefinición en bootstrapping es letal.
-- **Punto ciego:** La riqueza conceptual del NWOS genera la ilusión de que el modelo emergerá solo cuando el mercado lo descubra.
-- **Pregunta para los Oráculos:** "Si mañana una empresa de 100 personas dice 'lo quiero', ¿qué les mandáis, cuánto les cobráis, y quién lo implementa sin dejar de construir el producto?"
-
-### Complejidad de adopción vs. inercia organizacional
-
-- **Impacto:** 9/10 · **Urgencia:** 9/10
-- **Descripción:** El NWOS requiere adoptar simultáneamente: nueva terminología, nuevos rituales, nueva forma de documentar decisiones, integración de agentes IA como ciudadanos, y una proyección narrativa completa. Las organizaciones fracasan con implementaciones de Notion. Esto es 10× más complejo.
-- **Punto ciego:** Cuando construyes el sistema desde dentro, la coherencia interna lo hace sentir natural. Desde fuera, es un mundo completamente ajeno que exige rendirse antes de ver valor.
-- **Pregunta para los Oráculos:** "¿Cuántos días necesita una organización nueva para tener su primera misión completada y sentir valor real? ¿Lo han medido?"
-
-### Dependencia de evangelización vs. demanda orgánica
-
-- **Impacto:** 8/10 · **Urgencia:** 8/10
-- **Descripción:** El NWOS no resuelve un problema que las organizaciones ya están buscando resolver activamente. Primero hay que convencerles de que tienen el problema, luego de que este marco es la solución, luego de adoptarlo. El coste de venta es triple.
-- **Punto ciego:** Los fundadores asumen que otros sienten igual de intensamente la falta de significado en el trabajo. El mercado 'meaning-driven' existe pero es pequeño, disperso y difícil de monetizar.
-- **Pregunta para los Oráculos:** "¿Existe algún segmento donde las organizaciones ya estén buscando activamente lo que ofrecéis, sin necesidad de educarles primero sobre el problema?"
-
-### La metáfora como barrera de entrada
-
-- **Impacto:** 7/10 · **Urgencia:** 8/10
-- **Descripción:** 'Tendrás rango de Nómada y participarás en el Lunar Coven' es una barrera de contratación real para perfiles de entornos tradicionales. El sistema auto-selecciona hacia un tipo muy específico de persona.
-- **Punto ciego:** Los fundadores ven esto como feature (auto-selección cultural). El punto ciego es que cuando necesiten escalar con urgencia, el vocabulario limitará severamente el pool de talento.
-- **Pregunta para los Oráculos:** "¿Han presentado el sistema con este lenguaje exacto a un CFO o RRHH de una empresa de 200+ empleados, y cuál fue su reacción real?"
-
-### Riesgo de obsolescencia por commoditización de LLMs
-
-- **Impacto:** 8/10 · **Urgencia:** 7/10
-- **Descripción:** En 12-18 meses, herramientas como Notion, Confluence o Microsoft Copilot tendrán agentes integrados nativamente con capacidades similares, sin requerir la adopción de todo un marco filosófico. El moat tecnológico es débil.
-- **Punto ciego:** Quien construye con LLMs hoy tiende a sobrestimar la durabilidad de la ventaja. El mercado verá 'otro wrapper de IA con temática de fantasía'.
-- **Pregunta para los Oráculos:** "Si Microsoft Copilot lanza mañana 'organizational roles and missions' para sus agentes, ¿qué parte de vuestra propuesta sigue siendo irreemplazable?"
+*Impact = severity if unresolved · Urgency = urgency to resolve*
 
 ---
 
-## Perspectiva 2 — Producto
+## Perspective 1 — Business
 
-*¿Qué hace que esto falle cuando sale al mundo real?*
+*Who buys this, how, and why now?*
 
-### Burbuja fundacional — sesgo de supervivencia inverso
+### Absence of external proof of value
 
-- **Impacto:** 9/10 · **Urgencia:** 10/10
-- **Descripción:** El sistema fue diseñado por los 4 únicos usuarios que también son sus máximos creyentes. No existe ningún punto de contacto con alguien que haya dicho 'esto no me funciona'. Cada decisión de diseño ha sido validada por las mismas personas que la inventaron, en el mismo contexto emocional de fundación.
-- **Punto ciego:** Los fundadores confunden coherencia interna (el sistema tiene sentido entre ellos) con validez externa (funcionará para otros). El 'experimento vivo' da sensación de rigor sin el riesgo real de fallo.
-- **Pregunta para los Oráculos:** "¿Cuántas veces alguien de fuera ha interactuado con el sistema sin contexto previo y sin que vosotros estuvierais ahí para explicarlo?"
+- **Impact:** 10/10 · **Urgency:** 10/10
+- **Description:** 4 internal oracles do not constitute market validation.
+  All learning is endogenous: the system works for those who built it and
+  believe in it. In bootstrapping with no external customers, every week
+  without external validation is runway burned against an unproven model.
+- **Blind spot:** The founders confuse conceptual depth with market value.
+  Philosophical sophistication (Peirce + Jung) gives intellectual
+  confidence but does not substitute for external validation.
+- **Question for the Oracles:** "Have you put the system in the hands of
+  someone completely unrelated to Numen Games, with no prior context, and
+  observed what happens in the first 48 hours?"
 
-### Coste cognitivo de entrada vs. beneficio percibido
+### The phantom buyer problem
 
-- **Impacto:** 8/10 · **Urgencia:** 9/10
-- **Descripción:** Gremios, rangos con nombres propios, rituales con títulos oscuros, facciones, Piedras del Camino... El vocabulario especializado es masivo. Para un nuevo miembro, el coste de onboarding es enorme antes de obtener cualquier beneficio funcional.
-- **Punto ciego:** Los fundadores ya no recuerdan cómo era no saber. Son nativos del lenguaje. Cualquier externo es un inmigrante cognitivo.
-- **Pregunta para los Oráculos:** "¿Cuánto tiempo tarda alguien completamente nuevo en ser operativo dentro del sistema sin ayuda de un fundador?"
+- **Impact:** 9/10 · **Urgency:** 10/10
+- **Description:** "Organizations that want to put meaning at the center of
+  work" is not an operational ICP. In B2B, someone specific signs the
+  check: the CPO? the CHRO? the CEO? Each has different incentives,
+  different decision cycles, and different success metrics.
+- **Blind spot:** The founders are so immersed in the philosophical "why"
+  that they assume value is self-evident. When the whole team shares the
+  same values, the buyer problem becomes invisible.
+- **Question for the Oracles:** "Which line of the organizational budget
+  pays for this, and what concrete metric justifies that signature?"
 
-### Equivalencia LLM-Humano: el problema de accountability
+### Business model undetermined at a critical phase
 
-- **Impacto:** 9/10 · **Urgencia:** 8/10
-- **Descripción:** Dar a los agentes digitales los mismos roles y misiones que a los humanos crea ambigüedad peligrosa sobre responsabilidad y agencia. Cualquier organización con estructura legal, HR o clientes externos necesita cadenas de accountability claras que la equivalencia narrativa puede destruir.
-- **Punto ciego:** En un equipo de fundadores técnicos entusiastas de la IA, esto parece elegante y futurista. Pero el mundo corporativo necesita saber quién responde cuando algo falla.
-- **Pregunta para los Oráculos:** "Si un agente LLM con rango de Peregrino toma una decisión que causa un problema, ¿qué persona específica es responsable y cómo lo documenta el sistema?"
+- **Impact:** 9/10 · **Urgency:** 9/10
+- **Description:** It's unclear what Numen Games sells: SaaS? consulting?
+  methodology license? training? Each model has radically different unit
+  economics, sales cycles, and team structures. Indefiniteness while
+  bootstrapping is lethal.
+- **Blind spot:** The NWOS's conceptual richness generates the illusion
+  that the model will emerge on its own once the market discovers it.
+- **Question for the Oracles:** "If a 100-person company says tomorrow
+  'we want it,' what do you send them, how much do you charge, and who
+  implements it without stopping product development?"
 
-### Fatiga ritual y teatro performativo
+### Adoption complexity vs. organizational inertia
 
-- **Impacto:** 7/10 · **Urgencia:** 7/10
-- **Descripción:** Los rituales con nombres son poderosos cuando son significativos y raros. Al escalar, se convierten inevitablemente en reuniones con disfraces verbales. La gente participará formalmente sin estar emocionalmente presente. Esto es exactamente lo que la gamificación superficial hace, pero con terminología más sofisticada.
-- **Punto ciego:** Con 4 personas co-autoras del significado, los rituales tienen peso real. El punto ciego es que el significado no escala — escala el formato, no la experiencia.
-- **Pregunta para los Oráculos:** "¿Qué mecanismo concreto impide que el Dark Council se convierta en 'la reunión del lunes por la noche' para alguien que se une en la ronda B?"
+- **Impact:** 9/10 · **Urgency:** 9/10
+- **Description:** The NWOS requires simultaneously adopting: new
+  terminology, new rituals, a new way to document decisions, integration
+  of AI agents as citizens, and a complete narrative projection.
+  Organizations fail at Notion rollouts. This is 10× more complex.
+- **Blind spot:** When you build the system from the inside, internal
+  coherence makes it feel natural. From outside, it's a completely
+  foreign world demanding surrender before seeing any value.
+- **Question for the Oracles:** "How many days does a new organization
+  need to complete its first mission and feel real value? Have you
+  measured it?"
 
-### Vacío métrico: ¿cómo sabe el sistema que funciona?
+### Dependence on evangelization vs. organic demand
 
-- **Impacto:** 8/10 · **Urgencia:** 6/10
-- **Descripción:** El sistema parece carecer de mecanismos para medir si la estructura narrativa mejora resultados organizacionales reales. Sin métricas propias, no puede demostrar ROI a ningún comprador ni detectar su propio deterioro.
-- **Punto ciego:** Los fundadores creen que el valor es cualitativo e intangible por diseño. Pero sin indicadores propios, no hay forma de distinguir si el sistema funciona o si el equipo es simplemente bueno y funcionaría con cualquier sistema.
-- **Pregunta para los Oráculos:** "¿Qué tres números concretos, medibles hoy, demostrarían en 6 meses que NWOS mejoró la organización frente a no tenerlo?"
+- **Impact:** 8/10 · **Urgency:** 8/10
+- **Description:** The NWOS doesn't solve a problem organizations are
+  already actively looking to solve. First you have to convince them they
+  have the problem, then that this framework is the solution, then that
+  they should adopt it. The cost of selling is tripled.
+- **Blind spot:** The founders assume others feel the lack of meaning at
+  work as intensely as they do. The "meaning-driven" market exists but is
+  small, scattered, and hard to monetize.
+- **Question for the Oracles:** "Is there any segment where organizations
+  are already actively looking for what you offer, without needing to be
+  educated about the problem first?"
 
-### Coherencia narrativa no escala sin infraestructura
+### The metaphor as a barrier to entry
 
-- **Impacto:** 8/10 · **Urgencia:** 5/10
-- **Descripción:** Con 4 personas, la coherencia se mantiene por osmosis. A 15-30 personas, aparecen sub-narrativas e interpretaciones divergentes. Sin un sistema explícito de mantenimiento del canon, el NWOS fragmentará en dialectos incompatibles.
-- **Punto ciego:** El tamaño actual hace invisible el problema. 4 fundadores pueden corregir en tiempo real cualquier deriva. A 20 personas ese mecanismo informal colapsa.
-- **Pregunta para los Oráculos:** "¿Quién tiene autoridad para decir 'eso no es cómo funciona el sistema' cuando dos Arcontes de distintos gremios interpreten una misión de forma contradictoria?"
+- **Impact:** 7/10 · **Urgency:** 8/10
+- **Description:** "You'll hold the rank of Nomad and take part in the
+  Lunar Coven" is a real hiring barrier for profiles from traditional
+  environments. The system self-selects toward a very specific type of
+  person.
+- **Blind spot:** The founders see this as a feature (cultural
+  self-selection). The blind spot is that when they urgently need to
+  scale, the vocabulary will severely limit the talent pool.
+- **Question for the Oracles:** "Have you presented the system with this
+  exact language to a CFO or HR lead at a 200+ employee company, and what
+  was their real reaction?"
+
+### Risk of obsolescence through LLM commoditization
+
+- **Impact:** 8/10 · **Urgency:** 7/10
+- **Description:** In 12-18 months, tools like Notion, Confluence, or
+  Microsoft Copilot will have natively integrated agents with similar
+  capabilities, with no need to adopt an entire philosophical framework.
+  The tech moat is weak.
+- **Blind spot:** Whoever builds with LLMs today tends to overestimate the
+  durability of the advantage. The market will see "another AI wrapper
+  with a fantasy theme."
+- **Question for the Oracles:** "If Microsoft Copilot ships 'organizational
+  roles and missions' for its agents tomorrow, what part of your
+  proposition remains irreplaceable?"
 
 ---
 
-## Perspectiva 3 — Teoría Organizacional
+## Perspective 2 — Product
 
-*¿Qué supuestos filosóficos o psicológicos no están probados?*
+*What makes this fail when it goes out into the real world?*
 
-### Sesgo del fundador como único caso de prueba
+### Foundational bubble — inverse survivorship bias
 
-- **Impacto:** 9/10 · **Urgencia:** 10/10
-- **Descripción:** Los fundadores poseen niveles excepcionales de motivación intrínseca, ownership psicológico y disposición a suspender la incredulidad narrativa. Estas condiciones son atípicas en empleados contratados. Lo que parece evidencia de que el sistema funciona puede ser simplemente evidencia de que los fundadores son el tipo de persona para quien fue diseñado.
-- **Punto ciego:** Los fundadores no pueden percibir su propio rol como variable de confusión. Cuanto más diseñas el sistema, más crees que funciona — efecto Dunning-Kruger organizacional.
-- **Pregunta para los Oráculos:** "¿Podemos distinguir entre 'el sistema funciona' y 'las personas que diseñaron el sistema son el tipo de persona para quien este sistema fue diseñado'?"
+- **Impact:** 9/10 · **Urgency:** 10/10
+- **Description:** The system was designed by the 4 only users who are
+  also its biggest believers. There is no point of contact with anyone
+  who has said "this doesn't work for me." Every design decision has been
+  validated by the same people who invented it, in the same emotional
+  founding context.
+- **Blind spot:** The founders confuse internal coherence (the system
+  makes sense among themselves) with external validity (it will work for
+  others). The "living experiment" gives a sense of rigor without the
+  real risk of failure.
+- **Question for the Oracles:** "How many times has someone from outside
+  interacted with the system with no prior context and without you being
+  there to explain it?"
 
-### La trampa del cumplimiento performativo
+### Cognitive cost of entry vs. perceived benefit
 
-- **Impacto:** 8/10 · **Urgencia:** 9/10
-- **Descripción:** La investigación en Self-Determination Theory (Deci & Ryan) demuestra que los sistemas de rangos y títulos narrativos crean incentivos perversos hacia el surface acting: los participantes aprenden a 'jugar el juego' externamente sin transformación interna real. Es exactamente lo opuesto al objetivo declarado.
-- **Punto ciego:** El NWOS asume que la adopción de roles narrativos genera identificación genuina. Pero los sistemas de identidad impuesta (vs. emergente) producen con frecuencia disonancia cognitiva y resistencia latente.
-- **Pregunta para los Oráculos:** "¿Cómo distinguiríamos empíricamente entre un miembro que genuinamente ha integrado el sistema y uno que ha aprendido a actuar como si lo hubiera hecho?"
+- **Impact:** 8/10 · **Urgency:** 9/10
+- **Description:** Guilds, ranks with proper names, rituals with obscure
+  titles, factions, Path Stones... The specialized vocabulary is massive.
+  For a new member, the onboarding cost is enormous before obtaining any
+  functional benefit.
+- **Blind spot:** The founders no longer remember what it was like not to
+  know. They are native speakers of the language. Any outsider is a
+  cognitive immigrant.
+- **Question for the Oracles:** "How long does it take someone completely
+  new to become operational within the system without a founder's help?"
 
-### Malentendido causal sobre el burnout
+### LLM-Human equivalence: the accountability problem
 
-- **Impacto:** 9/10 · **Urgencia:** 8/10
-- **Descripción:** El modelo de Maslach identifica 6 predictores estructurales del burnout: carga, control, recompensa, comunidad, justicia y valores. El NWOS interviene sobre valores y parcialmente comunidad, pero no toca carga, control ni justicia — que en la mayoría de organizaciones son los drivers primarios. Riesgo real: proporciona una capa de significado narrativo que enmascara problemas estructurales sin resolverlos.
-- **Punto ciego:** Los sistemas de sentido pueden funcionar como analgésicos organizacionales. Según la investigación de Pfeffer, los marcos de significado pueden ser usados (consciente o inconscientemente) para sostener condiciones de trabajo dañinas.
-- **Pregunta para los Oráculos:** "¿Hemos comprobado que los componentes del burnout que el NWOS no toca (carga, control, justicia) no son los dominantes en las organizaciones donde queremos implantarlo?"
+- **Impact:** 9/10 · **Urgency:** 8/10
+- **Description:** Giving digital agents the same roles and missions as
+  humans creates dangerous ambiguity about responsibility and agency. Any
+  organization with legal structure, HR, or external clients needs clear
+  chains of accountability that narrative equivalence can destroy.
+- **Blind spot:** In a team of technical founders enthusiastic about AI,
+  this seems elegant and futuristic. But the corporate world needs to
+  know who answers when something fails.
+- **Question for the Oracles:** "If an LLM agent with the rank of
+  Pilgrim makes a decision that causes a problem, which specific person
+  is responsible and how does the system document it?"
 
-### Asimetría de agencia en la ciudadanía digital
+### Ritual fatigue and performative theater
 
-- **Impacto:** 7/10 · **Urgencia:** 7/10
-- **Descripción:** Los LLMs no experimentan fatiga, significado, burnout ni ninguna de las condiciones que el NWOS dice resolver. Su presencia como 'iguales' crea comparación social asimétrica — los humanos se miden contra agentes perfectamente disponibles y sin fricción emocional — y diluye la responsabilidad narrativa.
-- **Punto ciego:** El marco peirciano requiere un interpretante que procese signos desde experiencia encarnada. Los LLMs producen output estadísticamente coherente con discurso sobre experiencia, sin tenerla. Tratar esto como ciudadanía colapsa una distinción que el propio Peirce consideraría fundamental.
-- **Pregunta para los Oráculos:** "¿Qué ocurre en el sistema cuando un agente digital 'falla' su rol narrativo, y cómo se preserva la accountability humana sin romper la coherencia del mundo?"
+- **Impact:** 7/10 · **Urgency:** 7/10
+- **Description:** Named rituals are powerful when meaningful and rare.
+  At scale, they inevitably become meetings with verbal costumes. People
+  will participate formally without being emotionally present. This is
+  exactly what surface-level gamification does, but with more
+  sophisticated terminology.
+- **Blind spot:** With 4 people co-authoring meaning, rituals carry real
+  weight. The blind spot is that meaning doesn't scale — the format
+  scales, not the experience.
+- **Question for the Oracles:** "What concrete mechanism prevents the
+  Dark Council from becoming 'the Monday night meeting' for someone who
+  joins in Series B?"
 
-### Universalismo junguiano vs. variación cultural y de personalidad
+### Metric void: how does the system know it works?
 
-- **Impacto:** 7/10 · **Urgencia:** 6/10
-- **Descripción:** La investigación transcultural (Hofstede, GLOBE Study) documenta variaciones sistemáticas en cómo distintas culturas conceptualizan trabajo, juego, jerarquía y ritual. Personas con alta necesidad de cierre cognitivo o culturas con separación rígida trabajo/juego pueden encontrar el framework activamente alienante.
-- **Punto ciego:** Jung desarrolló su teoría desde una epistemología romántica europea y trabajo clínico individual. Su transferencia a diseño organizacional sin mediación empírica es un salto hermenéutico no validado.
-- **Pregunta para los Oráculos:** "¿Hemos mapeado para qué perfiles culturales y de personalidad el sistema produce engagement genuino versus alienación silenciosa?"
+- **Impact:** 8/10 · **Urgency:** 6/10
+- **Description:** The system appears to lack mechanisms to measure
+  whether the narrative structure improves real organizational outcomes.
+  Without its own metrics, it can't demonstrate ROI to any buyer or
+  detect its own decay.
+- **Blind spot:** The founders believe the value is qualitative and
+  intangible by design. But without proprietary indicators, there's no
+  way to tell whether the system works or the team is simply good and
+  would function with any system.
+- **Question for the Oracles:** "What three concrete numbers, measurable
+  today, would demonstrate in 6 months that NWOS improved the
+  organization versus not having it?"
 
-### Carga cognitiva y brecha de traducción filosófica-práctica
+### Narrative coherence doesn't scale without infrastructure
 
-- **Impacto:** 6/10 · **Urgencia:** 7/10
-- **Descripción:** El NWOS requiere operar simultáneamente en múltiples capas de abstracción: realidad operativa, marco semiótico, estructura junguiana, sistema de gremios/facciones/rangos y narrativa compartida. La investigación en change management documenta que la complejidad conceptual es uno de los principales predictores de fracaso en adopción.
-- **Punto ciego:** Los fundadores han desarrollado el sistema incrementalmente. Para un nuevo participante, la curva no es lineal sino exponencial. La gente finge entender y participar sin haberse integrado.
-- **Pregunta para los Oráculos:** "¿Cuánto tiempo y esfuerzo cognitivo requiere que un nuevo miembro opere el sistema con fluidez genuina, y ese coste está incluido en el cálculo de valor del NWOS?"
+- **Impact:** 8/10 · **Urgency:** 5/10
+- **Description:** With 4 people, coherence is maintained by osmosis. At
+  15-30 people, sub-narratives and divergent interpretations appear.
+  Without an explicit canon-maintenance system, the NWOS will fragment
+  into incompatible dialects.
+- **Blind spot:** The current size makes the problem invisible. 4 founders
+  can correct any drift in real time. At 20 people that informal mechanism
+  collapses.
+- **Question for the Oracles:** "Who has the authority to say 'that's not
+  how the system works' when two Archons from different guilds interpret
+  a mission contradictorily?"
 
 ---
 
-## Síntesis — Los tres gaps que mandan sobre todos los demás
+## Perspective 3 — Organizational Theory
 
-| Gap Crítico | Título | Descripción |
+*What philosophical or psychological assumptions are unproven?*
+
+### Founder bias as the sole test case
+
+- **Impact:** 9/10 · **Urgency:** 10/10
+- **Description:** The founders possess exceptional levels of intrinsic
+  motivation, psychological ownership, and willingness to suspend
+  narrative disbelief. These conditions are atypical among hired
+  employees. What looks like evidence the system works may simply be
+  evidence that the founders are the type of person it was designed for.
+- **Blind spot:** The founders cannot perceive their own role as a
+  confounding variable. The more you design the system, the more you
+  believe it works — organizational Dunning-Kruger effect.
+- **Question for the Oracles:** "Can we distinguish between 'the system
+  works' and 'the people who designed the system are the type of person
+  this system was designed for'?"
+
+### The performative compliance trap
+
+- **Impact:** 8/10 · **Urgency:** 9/10
+- **Description:** Research in Self-Determination Theory (Deci & Ryan)
+  shows that rank and narrative-title systems create perverse incentives
+  toward surface acting: participants learn to "play the game"
+  externally without real internal transformation. It's exactly the
+  opposite of the stated goal.
+- **Blind spot:** The NWOS assumes adopting narrative roles generates
+  genuine identification. But imposed (vs. emergent) identity systems
+  frequently produce cognitive dissonance and latent resistance.
+- **Question for the Oracles:** "How would we empirically distinguish
+  between a member who has genuinely integrated the system and one who
+  has learned to act as if they had?"
+
+### Causal misunderstanding about burnout
+
+- **Impact:** 9/10 · **Urgency:** 8/10
+- **Description:** Maslach's model identifies 6 structural predictors of
+  burnout: workload, control, reward, community, fairness, and values.
+  The NWOS intervenes on values and partly community, but doesn't touch
+  workload, control, or fairness — which in most organizations are the
+  primary drivers. Real risk: it provides a layer of narrative meaning
+  that masks structural problems without solving them.
+- **Blind spot:** Meaning systems can function as organizational
+  painkillers. Per Pfeffer's research, meaning frameworks can be used
+  (consciously or not) to sustain harmful working conditions.
+- **Question for the Oracles:** "Have we checked that the burnout
+  components the NWOS doesn't touch (workload, control, fairness) are
+  not the dominant ones in the organizations where we want to deploy it?"
+
+### Agency asymmetry in digital citizenship
+
+- **Impact:** 7/10 · **Urgency:** 7/10
+- **Description:** LLMs experience no fatigue, meaning, burnout, or any of
+  the conditions the NWOS claims to solve. Their presence as "equals"
+  creates asymmetric social comparison — humans measure themselves
+  against perfectly available agents with no emotional friction — and
+  dilutes narrative accountability.
+- **Blind spot:** The Peircean framework requires an interpretant that
+  processes signs from embodied experience. LLMs produce output
+  statistically coherent with discourse about experience, without having
+  it. Treating this as citizenship collapses a distinction Peirce himself
+  would consider fundamental.
+- **Question for the Oracles:** "What happens in the system when a
+  digital agent 'fails' its narrative role, and how is human
+  accountability preserved without breaking the coherence of the world?"
+
+### Jungian universalism vs. cultural and personality variation
+
+- **Impact:** 7/10 · **Urgency:** 6/10
+- **Description:** Cross-cultural research (Hofstede, GLOBE Study)
+  documents systematic variations in how different cultures conceptualize
+  work, play, hierarchy, and ritual. People with high need for cognitive
+  closure or cultures with rigid work/play separation may find the
+  framework actively alienating.
+- **Blind spot:** Jung developed his theory from a Romantic European
+  epistemology and individual clinical work. Its transfer to
+  organizational design without empirical mediation is an unvalidated
+  hermeneutic leap.
+- **Question for the Oracles:** "Have we mapped which cultural and
+  personality profiles the system produces genuine engagement for, versus
+  silent alienation?"
+
+### Cognitive load and the philosophical-to-practical translation gap
+
+- **Impact:** 6/10 · **Urgency:** 7/10
+- **Description:** The NWOS requires operating simultaneously across
+  multiple layers of abstraction: operational reality, semiotic
+  framework, Jungian structure, guild/faction/rank system, and shared
+  narrative. Change management research documents conceptual complexity
+  as one of the main predictors of adoption failure.
+- **Blind spot:** The founders have developed the system incrementally.
+  For a new participant, the curve is not linear but exponential. People
+  fake understanding and participation without having integrated it.
+- **Question for the Oracles:** "How much time and cognitive effort does
+  it take for a new member to operate the system with genuine fluency,
+  and is that cost included in the NWOS's value calculation?"
+
+---
+
+## Synthesis — The three gaps that outrank all the others
+
+| Critical Gap | Title | Description |
 |-------------|--------|-------------|
-| #1 | Sin validación externa | Ningún outsider ha probado el sistema sin que los fundadores estuvieran ahí para explicarlo. Todo lo demás es secundario hasta resolver esto. |
-| #2 | Sin comprador definido | No hay ICP. No hay línea de presupuesto. No hay métrica de éxito para el decisor. Sin esto, el go-to-market no puede existir. |
-| #3 | Burbuja fundacional | Los únicos usuarios del sistema son sus creadores. La coherencia interna puede ser total y la validez externa puede ser cero. No se puede saber sin salir. |
+| #1 | No external validation | No outsider has tried the system without the founders being there to explain it. Everything else is secondary until this is resolved. |
+| #2 | No defined buyer | There's no ICP. No budget line. No success metric for the decision-maker. Without this, go-to-market cannot exist. |
+| #3 | Foundational bubble | The system's only users are its creators. Internal coherence may be total and external validity may be zero. There's no way to know without going outside. |
 
 ---
 
-## Cierre
+## Closing
 
-> **Nota metodológica:** Este análisis fue generado por tres agentes digitales con perspectivas distintas — crítico de negocio, crítico de producto y académico de teoría organizacional — aplicando pensamiento crítico sin complacencia. Los gaps identificados no son una sentencia sobre el proyecto. Son el mapa de trabajo necesario para convertir una idea poderosa en algo que el mundo pueda usar. La diferencia entre los proyectos que sobreviven y los que no suele estar en si los fundadores vieron estos puntos ciegos a tiempo.
+> **Methodological note:** This analysis was generated by three digital
+> agents with distinct perspectives — a business critic, a product
+> critic, and an organizational theory academic — applying critical
+> thinking without complacency. The gaps identified are not a verdict on
+> the project. They are the work map needed to turn a powerful idea into
+> something the world can use. The difference between projects that
+> survive and those that don't usually lies in whether the founders saw
+> these blind spots in time.
 
 ---
 
-*Metadatos de la página original (`gaps.astro`): título HTML «NWOS — Análisis de Gaps — Pablo FM» · descripción «Análisis crítico de los puntos ciegos del Narrative Work OS. Perspectivas de negocio, producto y teoría organizacional.» · ruta canónica `/gaps` · hero «NWOS — Gaps · Los puntos ciegos que hay que ver antes de que te los señale el mercado». En el código fuente el campo mostrado como «Urgencia» se llama `criticidad`.*
+*Metadata from the original page (`gaps.astro`): HTML title "NWOS —
+Análisis de Gaps — Pablo FM" · description "Análisis crítico de los puntos
+ciegos del Narrative Work OS. Perspectivas de negocio, producto y teoría
+organizacional." · canonical path `/gaps` · hero "NWOS — Gaps · Los puntos
+ciegos que hay que ver antes de que te los señale el mercado". In the
+source code the field shown as "Urgency" is called `criticidad`.*
