@@ -12,50 +12,50 @@ license: "LicenseRef-Numen-AllRightsReserved"
 ---
 # STATUS — Nimrod
 
-> **Resumen:** Estado operativo actual de Nimrod.
-> **Epistémico:** Métricas, capacidades y pendientes.
-> **Pragmático:** Briefing rápido antes de activar al agente.
-> **Audiencia:** Agentes · Oráculos
+> **Summary:** Current operational status of Nimrod.
+> **Epistemic:** Metrics, capabilities, and pending items.
+> **Pragmatic:** Quick briefing before activating the agent.
+> **Audience:** Agents · Oracles
 
 ---
 
-**Estado:** ✅ Activo
-**Activado:** 2026-04-02
-**Última sesión:** 2026-04-07
-**Modelo:** anthropic/claude-sonnet-4-6
+**Status:** ✅ Active
+**Activated:** 2026-04-02
+**Last session:** 2026-04-07
+**Model:** anthropic/claude-sonnet-4-6
 
 ---
 
-## Métricas acumuladas (2026-04-02 → 2026-04-07)
+## Accumulated metrics (2026-04-02 → 2026-04-07)
 
-| Métrica | Valor |
+| Metric | Value |
 |---------|-------|
-| Días activo | 6 |
-| PRs mergeados | 40 |
-| Misiones completadas | 4 (MIS-016, MIS-037, MIS-051, MIS-053) |
-| Misiones activas | 3 (MIS-052, MIS-054, MIS-055) |
-| Documentos creados | 80+ |
-| Reportes diarios | 5 |
-| Decisiones registradas | 5 |
-| Blueprints creados | 8 |
-| Coste estimado | ~$80-100 |
+| Days active | 6 |
+| PRs merged | 40 |
+| Missions completed | 4 (MIS-016, MIS-037, MIS-051, MIS-053) |
+| Active missions | 3 (MIS-052, MIS-054, MIS-055) |
+| Documents created | 80+ |
+| Daily reports | 5 |
+| Decisions recorded | 5 |
+| Blueprints created | 8 |
+| Estimated cost | ~$80-100 |
 
 ---
 
-## Capacidades operativas activas
+## Active operational capabilities
 
 - ✅ Gmail / Calendar / Drive (via gog CLI, khepri@ai.numengames.com)
-- ✅ GitHub (gh CLI, autenticado como PabloFMM)
+- ✅ GitHub (gh CLI, authenticated as PabloFMM)
 - ✅ pablofm-web (PR + merge)
-- ✅ Telegram (canal principal con Pablo + @Wolfstein_Wagen)
-- ✅ Shell / exec en servidor (con aprobación)
-- ✅ Subagentes (Alquimista-01, Exégeta-01, Procurador-01 como efímeros)
+- ✅ Telegram (main channel with Pablo + @Wolfstein_Wagen)
+- ✅ Shell / exec on server (with approval)
+- ✅ Sub-agents (Alquimista-01, Exégeta-01, Procurador-01 as ephemeral)
 
 ---
 
-## Herramientas configuradas
+## Configured tools
 
-| Tool | Cuenta | Estado |
+| Tool | Account | Status |
 |------|--------|--------|
 | gog CLI | khepri@ai.numengames.com | ✅ |
 | gh CLI | PabloFMM | ✅ |
@@ -64,22 +64,22 @@ license: "LicenseRef-Numen-AllRightsReserved"
 
 ---
 
-## Infraestructura conocida
+## Known infrastructure
 
-| Servicio | URL | Estado |
+| Service | URL | Status |
 |---------|-----|--------|
-| Servidor VPS | [VPS-IP redacted — see ops-credential-map] | ✅ |
+| VPS server | [VPS-IP redacted — see ops-credential-map] | ✅ |
 | Umami Analytics | analytics.pablofm.com | ✅ |
 | Cal.com | cal.pablofm.com | ✅ |
 | pablofm.com | Vercel | ✅ |
-| PC on-premises | En camino (Ryzen 9 7950X + RTX 4080) | ⏳ |
+| On-premises PC | En route (Ryzen 9 7950X + RTX 4080) | ⏳ |
 
 ---
 
-## Pendientes críticos (requieren Pablo)
+## Critical pending items (require Pablo)
 
-- [ ] Wallet address Numen Games → Grant Arbitrum (MIS-031)
-- [ ] API key Anthropic con usage permissions → MIS-048
-- [ ] PAT GitHub con scope `workflow` → GitHub Actions
-- [ ] Username del bot de Telegram para MIS-054
-- [ ] Oráculos pendientes de acceso: María, Clio, Dani
+- [ ] Wallet address Numen Games → Arbitrum Grant (MIS-031)
+- [ ] Anthropic API key with usage permissions → MIS-048
+- [ ] GitHub PAT with `workflow` scope → GitHub Actions
+- [ ] Telegram bot username for MIS-054
+- [ ] Oracles pending access: María, Clio, Dani
