@@ -46,7 +46,7 @@ Spanish or mixed. Two exclusions, both intentional and out of scope:
 - The RPG manual — lives in `numinia-lore`, not in this repo.
 
 **Note on the ID:** `MIS-116` already existed as a closed-without-merging
-PR (#81, "record why MIS-097…099 were never minted") — unrelated content
+PR (#81, "record why MIS‑097…099 were never minted") — unrelated content
 that never landed in `main`. Reused here as the free slot on the Oracle's
 instruction; no content from PR #81 carries over.
 
