@@ -1,7 +1,7 @@
 ---
-# NÚCLEO — los diez campos que el build verifica (web/src/content.config.ts).
-# Si falta uno o cambia de tipo, `npm run build` falla. Es la única parte de
-# este documento que algo comprueba; todo lo demás es convención.
+# CORE — the ten fields the build verifies (web/src/content.config.ts).
+# If one is missing or changes type, `npm run build` fails. It is the only
+# part of this document that anything checks; everything else is convention.
 id: "MIS-000"
 title: "One line, in the imperative: what this mission does"
 status: backlog          # draft|backlog|in-progress|in-review|done|frozen|cancelled

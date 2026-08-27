@@ -1,6 +1,6 @@
 ---
 id: "MIS-089"
-title: "Arquitectura de la información: el archivo se ordena y la web lo refleja por secciones"
+title: "Information architecture: the archive gets ordered and the web mirrors it by sections"
 type: mission
 status: draft
 version: "1.0.0"
@@ -11,7 +11,7 @@ owner: "oracle"
 tags: [archive, taxonomy, web, viewer, information-architecture]
 license: "CC-BY-4.0"
 mission_id: "MIS-089"
-area: "Archivo + Viewer / numinia.org"
+area: "Archive + Viewer / numinia.org"
 guild: "Exegetes"
 type_execution: "digital"
 priority: "high"
@@ -21,21 +21,21 @@ assigned_to: "numinia-nwos"
 requires_oracle_approval: true
 depends_on: []
 ---
-# MIS-089 — Arquitectura de la información
+# MIS-089 — Information architecture
 
-> **Resumen:** Plan maestro para ordenar el archivo (duplicados, nombres,
-> taxonomía) y llevar cada familia documental a su propia sección web, con
-> `/corpus` como catálogo global. Se planifica ANTES de construir: esta
-> misión es el plan; nada se ejecuta sin firma del Oráculo.
-> **Epistémico:** Dónde está desordenada la información y cuál es el orden
-> objetivo.
-> **Pragmático:** Firmada fase a fase, convierte el repo en un archivo
-> navegable sin duplicados ni zonas grises.
-> **Audiencia:** Oráculo · Agente numinia-nwos
+> **Summary:** Master plan to order the archive (duplicates, names,
+> taxonomy) and bring every document family to its own web section, with
+> `/corpus` as the global catalog. Planned BEFORE building: this mission is
+> the plan; nothing executes without the Oracle's signature.
+> **Epistemic:** Where the information is disordered and what the target
+> order is.
+> **Pragmatic:** Signed phase by phase, it turns the repo into a navigable
+> archive with no duplicates and no gray zones.
+> **Audience:** Oracle · numinia-nwos agent
 
 ---
 
-**Area:** Archivo + Viewer / numinia.org
+**Area:** Archive + Viewer / numinia.org
 **Guild:** Exegetes
 **Type:** digital
 **Priority:** high
@@ -45,93 +45,93 @@ depends_on: []
 
 ## Story
 
-Como Oráculo, quiero un archivo con taxonomía clara, sin duplicados y con
-cada familia documental navegable en su sección de numinia.org, para que
-humanos y agentes encuentren y confíen en la información sin conocer el
-filesystem.
+As an Oracle, I want an archive with a clear taxonomy, no duplicates, and
+every document family navigable in its numinia.org section, so that humans
+and agents find and trust the information without knowing the filesystem.
 
 ---
 
-## Decisiones ya tomadas por el Oráculo (2026-08-18)
+## Decisions already taken by the Oracle (2026-08-18)
 
-1. **Taxonomía por tipo** de documento (carpetas actuales, limpiadas); el
-   gremio va en frontmatter, no en carpetas.
-2. **`/corpus` queda como catálogo global** transversal; la navegación prima
-   las secciones por familia.
-3. El criterio de hoy prevalece sobre `Read_Me_How_to_Archive` v0.1.12/v0.2.0;
-   lo aprovechable ya está destilado en **P-010 (draft)**.
+1. **Taxonomy by document type** (the current folders, cleaned up); the
+   guild goes in frontmatter, not in folders.
+2. **`/corpus` remains the transversal global catalog**; navigation
+   prioritizes the per-family sections.
+3. Today's criterion prevails over `Read_Me_How_to_Archive` v0.1.12/v0.2.0;
+   what was worth keeping is already distilled into **P-010 (draft)**.
 
-## Registro de duplicados y anomalías (auditoría 2026-08-18)
+## Register of duplicates and anomalies (audit 2026-08-18)
 
-| # | Hallazgo | Disposición propuesta |
+| # | Finding | Proposed disposition |
 |---|---|---|
-| D1 | ~~`canon/Numinia. El juego de rol (manual completo).txt` **y** `canon/Numinia-El-juego-de-rol-manual-completo.md`~~ | ✅ **RESUELTO 2026-08-25 — la disposición propuesta era errónea.** «El .md es canónico» es falso: el .md eran 131 líneas que decían *«[Contenido completo del manual — ver el archivo adjunto]»*; el manual estaba en el .txt (4.667 líneas). Ejecutar D1 al pie de la letra habría **borrado el manual y conservado la nota**. Ambos retirados; el manual **no vuelve a este repo**: `canon/INDEX.md` apunta a `numinia-lore` (v0.6.0). |
-| D2 | `blueprints/AUDIT-2026-04-07-web-vs-repo.md` y `blueprints/AUDIT-numengames-2026-04-08.md` | Mover a `reports/audits/` con frontmatter adaptado al esquema de audits (IDs `AUD-…`) |
-| D3 | `blueprints/archive-summa-{fundacional,arquitectura,prompt}-v0.1.0.md` | Son fondo de archivo, no planos: mover a fondo (nomenclatura §3.2 de P-010); destino exacto en F1 |
-| D4 | `reports/daily/` (8 × RPT-*.md) vs 5 páginas `diario-*.astro` **hardcodeadas** en la web; 3 reportes ni se muestran | `/reportes` pasa a construirse de `reports/daily/` en build (cierra el flanco pendiente de MIS-065); las .astro hardcodeadas se retiran |
-| D5 | Tres convenciones de nombre conviviendo (IDs, fechados, nombres libres con espacios: `C-006-session-zero.md`, `C-002-brand-and-culture.md`…) | Renombrado por lotes según P-010 §3, con registro de mapeo y redirects donde cambien URLs |
-| D6 | `INDEX.md` manuales en `canon/`, `decisions/`, `blueprints/`, `reports/`, `agents/` que duplican lo que el build genera | Retirarlos cuando su sección web exista; conservar solo los que aporten curaduría real (convertidos a README de carpeta) |
-| D7 | `protocols/2026_04_14-Read_Me_How_to_Archive-v0.2.0.md` queda superseded por P-010 | Al firmarse P-010: marcar superseded y pasar a fondo según ciclo de vida §5 |
-| D8 | Ficheros sin frontmatter (~32 según guard: README, INDEX, plantillas…) | Dotar de frontmatter mínimo (P-010 §3.3) o declararlos plantilla/fondo explícitamente |
+| D1 | ~~`canon/Numinia. El juego de rol (manual completo).txt` **and** `canon/Numinia-El-juego-de-rol-manual-completo.md`~~ | ✅ **RESOLVED 2026-08-25 — the proposed disposition was wrong.** «The .md is canonical» is false: the .md was 131 lines saying *«[Contenido completo del manual — ver el archivo adjunto]»*; the manual was in the .txt (4,667 lines). Executing D1 to the letter would have **deleted the manual and kept the note**. Both retired; the manual **does not return to this repo**: `canon/INDEX.md` points at `numinia-lore` (v0.6.0). |
+| D2 | `blueprints/AUDIT-2026-04-07-web-vs-repo.md` and `blueprints/AUDIT-numengames-2026-04-08.md` | Move to `reports/audits/` with frontmatter adapted to the audits schema (`AUD-…` IDs) |
+| D3 | `blueprints/archive-summa-{fundacional,arquitectura,prompt}-v0.1.0.md` | They are archive fondo, not blueprints: move to a fondo (P-010 §3.2 nomenclature); exact destination in F1 |
+| D4 | `reports/daily/` (8 × RPT-*.md) vs 5 **hardcoded** `diario-*.astro` pages on the web; 3 reports not even shown | `/reportes` is built from `reports/daily/` at build (closes MIS-065's pending flank); the hardcoded .astro pages are retired |
+| D5 | Three naming conventions coexisting (IDs, dated, free names with spaces: `C-006-session-zero.md`, `C-002-brand-and-culture.md`…) | Batch rename per P-010 §3, with a mapping record and redirects where URLs change |
+| D6 | Manual `INDEX.md` files in `canon/`, `decisions/`, `blueprints/`, `reports/`, `agents/` duplicating what the build generates | Retire them when their web section exists; keep only those adding real curation (converted to folder READMEs) |
+| D7 | `protocols/2026_04_14-Read_Me_How_to_Archive-v0.2.0.md` superseded by P-010 | When P-010 is signed: mark superseded and move to a fondo per the §5 lifecycle |
+| D8 | Files without frontmatter (~32 per the guard: README, INDEX, templates…) | Give them minimal frontmatter (P-010 §3.3) or declare them template/fondo explicitly |
 
-## Fases (cada una se firma por separado)
+## Phases (each signed separately)
 
-- **F0 — El protocolo.** Revisar y firmar P-010 v0.3.0 (draft ya escrito).
-  Sin protocolo firmado no se mueve un fichero.
-- **F1 — Duplicados.** Ejecutar D1–D3 y D7 del registro; cada movimiento con
-  `git mv`, verificación de enlaces entrantes y nota en esta misión.
-- **F2 — Secciones web.** Una sección por familia al estilo missions/audits:
-  `/protocolos`, `/canon`, `/agentes`, `/guilds`, `/operaciones`,
-  `/estandares`, y `/reportes` desde `reports/daily/` (D4). `/corpus` pasa a
-  catálogo: lista todo, enlaza a la sección de cada familia. PDFs (MIS-088)
-  siguen automáticos vía las rutas print.
-- **F3 — Nombres y frontmatter.** D5, D6 y D8 por lotes; extender el guard de
-  CI a nombres y frontmatter mínimo.
-- **F4 — Aterrizajes.** MIS-015 (documento canónico del stack) se redacta y
-  archiva en la estructura nueva; MIS-067 ejecuta la primera inspección
-  ISO 15489 como validación del conjunto.
+- **F0 — The protocol.** Review and sign P-010 v0.3.0 (draft already
+  written). Without a signed protocol not one file moves.
+- **F1 — Duplicates.** Execute D1–D3 and D7 from the register; every move
+  with `git mv`, incoming-link verification and a note in this mission.
+- **F2 — Web sections.** One section per family in the missions/audits
+  style: `/protocolos`, `/canon`, `/agentes`, `/guilds`, `/operaciones`,
+  `/estandares`, and `/reportes` from `reports/daily/` (D4). `/corpus`
+  becomes the catalog: lists everything, links to each family's section.
+  PDFs (MIS-088) stay automatic via the print routes.
+- **F3 — Names and frontmatter.** D5, D6 and D8 in batches; extend the CI
+  guard to names and minimal frontmatter.
+- **F4 — Landings.** MIS-015 (the stack's canonical document) is written
+  and archived in the new structure; MIS-067 runs the first ISO 15489
+  inspection as validation of the whole.
 
-## Puntos abiertos (decidir durante las fases)
+## Open points (decide during the phases)
 
-- Idioma de las secciones nuevas: la nav mezcla hoy inglés y español
-  (Missions/Decisiones); DEC-006 declara el inglés oficial del repo.
-- Destino exacto del fondo de archivo (¿carpeta `archive/` raíz vs los
-  actuales `archive-*` dispersos?).
-- Si los agentes ganan página propia por identidad (agents/<nombre>/ tiene
-  varios ficheros por agente) o ficha única por agente.
+- Language of the new sections: the nav today mixes English and Spanish
+  (Missions/Decisiones); DEC-006 declares English the repo's official
+  language.
+- Exact destination of the archive fondo (a root `archive/` folder vs the
+  current scattered `archive-*`?).
+- Whether agents gain their own page per identity (agents/<name>/ has
+  several files per agent) or a single sheet per agent.
 
 ---
 
 ## Acceptance criteria
 
-- [ ] P-010 firmado (F0) y v0.2.0 marcado superseded (D7).
-- [ ] Registro D1–D8 resuelto: cada línea con su disposición ejecutada y
-      anotada, o descartada con motivo firmado.
-- [ ] Cada familia documental navegable en su sección web; `/corpus` como
-      catálogo que enlaza a las secciones; cero exclusiones silenciosas.
-- [ ] `/reportes` construido desde `reports/daily/` (las 8+), páginas
-      hardcodeadas retiradas.
-- [ ] Guard de CI ampliado a nombres y frontmatter mínimo, en verde.
-- [ ] Redirects vivos para toda URL que cambie; verificación en producción.
+- [ ] P-010 signed (F0) and v0.2.0 marked superseded (D7).
+- [ ] D1–D8 register resolved: every line with its disposition executed and
+      annotated, or discarded with a signed reason.
+- [ ] Every document family navigable in its web section; `/corpus` as the
+      catalog linking to the sections; zero silent exclusions.
+- [ ] `/reportes` built from `reports/daily/` (all 8+), hardcoded pages
+      retired.
+- [ ] CI guard extended to names and minimal frontmatter, green.
+- [ ] Live redirects for every changed URL; verified in production.
 
 ---
 
 ## Epistemic value
 
-El sistema aprende cuál es su propia taxonomía: qué tipos de documento
-existen, cómo envejecen y qué superficie pública les corresponde.
+The system learns its own taxonomy: which document types exist, how they
+age, and which public surface belongs to each.
 
 ## Pragmatic value
 
-Buscar deja de requerir conocer el filesystem: cada familia tiene sección,
-el catálogo lo cruza todo, y los duplicados dejan de sembrar dudas sobre
-cuál es la fuente.
+Searching stops requiring filesystem knowledge: every family has a section,
+the catalog crosses everything, and duplicates stop sowing doubt about
+which one is the source.
 
 ---
 
 ## Execution log
 
-*(Fill when completing the mission — por fases, con firma del Oráculo en cada una)*
+*(Fill when completing the mission — per phase, with the Oracle's signature on each)*
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 id: "MIS-093"
-title: "Los iconos hablan Phosphor y la tipografía cierra filas con el sistema"
+title: "The icons speak Phosphor and the typography falls in line with the system"
 type: mission
 status: done
 version: "1.0.0"
@@ -22,16 +22,16 @@ started: "2026-08-18"
 completed: "2026-08-18"
 depends_on: ["MIS-092"]
 ---
-# MIS-093 — Los iconos hablan Phosphor y la tipografía cierra filas
+# MIS-093 — The icons speak Phosphor and the typography falls in line
 
-> **Resumen:** numinia.org sustituye sus SVG sueltos por el subconjunto
-> Phosphor de la casa (§7.3, autoalojado, currentColor) y adopta los
-> fallbacks tipográficos y el foco canónicos. Incluye una propuesta de
-> ampliación del subconjunto (4 glifos) para firma del Oráculo.
-> **Epistémico:** Qué vocabulario iconográfico usa realmente el viewer.
-> **Pragmático:** Un solo origen de iconos, un componente, cero glifos
-> dibujados a mano.
-> **Audiencia:** Oráculo · Agente numinia-nwos
+> **Summary:** numinia.org replaces its loose SVGs with the house's
+> Phosphor subset (§7.3, self-hosted, currentColor) and adopts the
+> canonical typographic fallbacks and focus ring. Includes a subset
+> expansion proposal (4 glyphs) for the Oracle's signature.
+> **Epistemic:** Which iconographic vocabulary the viewer actually uses.
+> **Pragmatic:** A single icon origin, one component, zero hand-drawn
+> glyphs.
+> **Audience:** Oracle · numinia-nwos agent
 
 ---
 
@@ -42,90 +42,90 @@ depends_on: ["MIS-092"]
 
 ## Story
 
-Como Oráculo, quiero que cada icono y cada pila tipográfica del viewer
-salgan del Sistema de Diseño v5.0.0, para que ninguna pieza de interfaz
-hable un dialecto propio.
+As an Oracle, I want every icon and every type stack in the viewer to come
+from the Design System v5.0.0, so that no interface piece speaks its own
+dialect.
 
-## Propuesta de ampliación del subconjunto (§7.3 — pendiente de firma)
+## Subset expansion proposal (§7.3 — awaiting signature)
 
-El subconjunto canónico (26 glifos) no cubre cuatro conceptos que el viewer
-necesita; entran como propone §7.3 — con su concepto declarado:
+The canonical subset (26 glyphs) does not cover four concepts the viewer
+needs; they enter as §7.3 proposes — with their concept declared:
 
-| Glifo | Concepto declarado | Dónde |
+| Glyph | Declared concept | Where |
 |---|---|---|
-| `copy` | copiar el .md canónico al portapapeles | DocToolbar |
-| `file-pdf` | descargar el artefacto PDF (MIS-088) | DocToolbar |
-| `list` | menú de navegación móvil | Navigation |
-| `x` | cerrar / limpiar búsqueda (≠ `x-logo`, que es la red social) | buscador de misiones |
+| `copy` | copy the canonical .md to the clipboard | DocToolbar |
+| `file-pdf` | download the PDF artifact (MIS-088) | DocToolbar |
+| `list` | mobile navigation menu | Navigation |
+| `x` | close / clear search (≠ `x-logo`, which is the social network) | missions search |
 
-Si el Oráculo los rechaza, cada uso vuelve al glifo del subconjunto que él
-designe.
+If the Oracle rejects them, each use falls back to the subset glyph he
+designates.
 
-**Actualización (2026-08-18, mismo día):** el Oráculo autorizó ampliar el
-subconjunto libremente desde phosphoricons.com para erradicar los emojis
-del viewer («busca lo que necesites para usarlos en los tableros o donde
-consideres»). La propuesta de 4 glifos queda subsumida: el vocabulario
-vigente del viewer es el contenido de `web/src/icons/` (Phosphor regular,
-MIT, autoalojado), cada glifo entrando por un uso concreto — la disciplina
-de §7.3 (ampliar es decisión, no descuido) se cumple por esta orden y por
-el guard del componente (build roto si el nombre no existe).
+**Update (2026-08-18, same day):** the Oracle authorized expanding the
+subset freely from phosphoricons.com to eradicate the viewer's emojis
+(«busca lo que necesites para usarlos en los tableros o donde consideres»).
+The 4-glyph proposal is subsumed: the viewer's current vocabulary is the
+content of `web/src/icons/` (Phosphor regular, MIT, self-hosted), each
+glyph entering through a concrete use — §7.3's discipline (expanding is a
+decision, not an oversight) is met by this order and by the component's
+guard (broken build if the name does not exist).
 
 ## Execution log
 
-- 2026-08-18 — 30 SVG autoalojados en `web/src/icons/` (los 26 canónicos
-  copiados de `numinia-web:packages/ui/src/icons/` + los 4 propuestos,
-  bajados de `phosphor-icons/core`, MIT; anotados en REUSE).
-- 2026-08-18 — Componente `Icon.astro` (inline, currentColor, tamaño por
-  prop; error de build si el nombre no está en el subconjunto — ampliar es
-  decisión, no descuido).
-- 2026-08-18 — 17 usos migrados: flecha de retorno → `caret-left` (12
-  páginas), chevron de menú → `caret-down`, hamburguesa → `list`, buscador
-  → `magnifying-glass` + `x`, DocToolbar → `copy` + `download-simple` +
-  `file-pdf`. Los SVG de diagrama (archive, wardley) no son iconos y no se
-  tocan.
-- 2026-08-18 — Tipografía: pilas con los fallbacks canónicos §4.1
-  (Inter/Aptos/Segoe UI/Arial · Consolas/Courier New); anillo de foco del
-  kit (`2px #018EA1, offset 2`). La escala §4.3 completa queda para la
-  convergencia con el kit `sistema.*` cuando se regenere.
+- 2026-08-18 — 30 self-hosted SVGs in `web/src/icons/` (the 26 canonicals
+  copied from `numinia-web:packages/ui/src/icons/` + the 4 proposed,
+  downloaded from `phosphor-icons/core`, MIT; annotated in REUSE).
+- 2026-08-18 — `Icon.astro` component (inline, currentColor, size by prop;
+  build error if the name is not in the subset — expanding is a decision,
+  not an oversight).
+- 2026-08-18 — 17 uses migrated: return arrow → `caret-left` (12 pages),
+  menu chevron → `caret-down`, hamburger → `list`, search →
+  `magnifying-glass` + `x`, DocToolbar → `copy` + `download-simple` +
+  `file-pdf`. The diagram SVGs (archive, wardley) are not icons and are
+  not touched.
+- 2026-08-18 — Typography: stacks with the canonical §4.1 fallbacks
+  (Inter/Aptos/Segoe UI/Arial · Consolas/Courier New); the kit's focus
+  ring (`2px #018EA1, offset 2`). The full §4.3 scale waits for the
+  convergence with the `sistema.*` kit when it is regenerated.
 
 ## Execution Reality
 
-- **Technology/approach used:** subconjunto autoalojado + componente Astro
-  con glob raw — el mismo patrón que numinia-web, sin dependencia npm.
-- **Why it diverged:** no divergió; la única decisión fue no inventar
-  iconos: los 4 conceptos sin glifo canónico entran como propuesta formal
-  en vez de colarse.
-- **Key learning:** el vocabulario iconográfico real de un sitio cabe en
-  una tabla — auditarlo primero evita importar catálogos enteros.
+- **Technology/approach used:** self-hosted subset + Astro component with
+  a raw glob — the same pattern as numinia-web, no npm dependency.
+- **Why it diverged:** it did not; the only decision was not to invent
+  icons: the 4 concepts without a canonical glyph enter as a formal
+  proposal instead of sneaking in.
+- **Key learning:** a site's real iconographic vocabulary fits in a table —
+  auditing it first avoids importing entire catalogs.
 - **Closing date:** 2026-08-18
 - **Executing agent:** claude-fable-5 (numinia-nwos)
 
-**Addendum (2026-08-18, tarde) — el barrido de emojis.** Orden del Oráculo
-ejecutada en tres lotes paralelos: ~140 emojis sustituidos en 15 páginas
-(tablero y detalle de misiones, portada, agente, archive, wardley, ventas,
-continuidad, simulaciones, idioma, reportes, openclaw-test) por glifos del
-subconjunto, dots canónicos de estado o texto plano; dentro de los SVG de
-diagrama, texto plano (los componentes no entran en svg). Glifos añadidos
-en esta pasada: check, robot, lightning, git-branch, clipboard-text,
-desktop, push-pin, game-controller, mask-happy, brain, prohibit, scroll,
-books, map-pin, calendar-blank, file-text, coins, bank, palette, confetti,
-crane-tower, circle, warning, eye, lock-key, arrows-clockwise, chart-line,
-target, flask, dna, sparkle, buildings, note-pencil, ruler, shield-check,
-crosshair, snowflake, hourglass, upload-simple. Quedan emojis solo en las
-5 páginas diario-*.astro, sentenciadas a retirarse por MIS-089-D4 — no se
-migra lo que va a morir. Además: pasada de rendimiento (niebla+rejilla del
-Velo fusionadas en una sola capa fija).
+**Addendum (2026-08-18, evening) — the emoji sweep.** Oracle order executed
+in three parallel batches: ~140 emojis replaced across 15 pages (missions
+board and detail, home, agente, archive, wardley, ventas, continuidad,
+simulaciones, idioma, reportes, openclaw-test) with subset glyphs,
+canonical status dots or plain text; inside the diagram SVGs, plain text
+(components do not go inside svg). Glyphs added in this pass: check, robot,
+lightning, git-branch, clipboard-text, desktop, push-pin, game-controller,
+mask-happy, brain, prohibit, scroll, books, map-pin, calendar-blank,
+file-text, coins, bank, palette, confetti, crane-tower, circle, warning,
+eye, lock-key, arrows-clockwise, chart-line, target, flask, dna, sparkle,
+buildings, note-pencil, ruler, shield-check, crosshair, snowflake,
+hourglass, upload-simple. Emojis remain only on the 5 diario-*.astro pages,
+sentenced to removal by MIS-089-D4 — what is going to die is not migrated.
+Also: a performance pass (the Velo's fog+grid fused into a single fixed
+layer).
 
-**Addendum 2 (2026-08-18) — la regresión de rendimiento y su arreglo.** El
-Oráculo reportó la web más lenta; medido: el board pesaba **293 KB, de los
-que 141 KB eran paths SVG duplicados** (280 iconos inline, el mismo glifo
-repetido en cada tarjeta). Corregido con **sprite externo**
-(`/icons.svg`, endpoint estático que define cada glifo una vez como
-`<symbol>`; `Icon.astro` emite `<use href="/icons.svg#i-name">`): board
-**293 → 181 KB** (−38 %), sprite de 35 KB cacheado `immutable` para todo
-el sitio, y `currentColor` sigue heredando (verificado en Chromium sobre
-el sitio construido). Además: las capas fijas del Velo y del ruido pasan a
-capa compositada propia (`translateZ(0)` + `contain: strict`) y el cielo
-baja a **30 fps** y se detiene con la pestaña oculta. Lección: inline por
-instancia es cómodo hasta que hay 280 instancias — el sprite es el patrón
-correcto para un subconjunto de 69 glifos.
+**Addendum 2 (2026-08-18) — the performance regression and its fix.** The
+Oracle reported the web slower; measured: the board weighed **293 KB, of
+which 141 KB were duplicated SVG paths** (280 inline icons, the same glyph
+repeated on every card). Fixed with an **external sprite** (`/icons.svg`, a
+static endpoint defining each glyph once as a `<symbol>`; `Icon.astro`
+emits `<use href="/icons.svg#i-name">`): board **293 → 181 KB** (−38%), a
+35 KB sprite cached `immutable` for the whole site, and `currentColor`
+still inherits (verified in Chromium on the built site). Also: the Velo's
+fixed layers and the noise move to their own composited layer
+(`translateZ(0)` + `contain: strict`) and the sky drops to **30 fps** and
+stops when the tab is hidden. Lesson: inline per instance is comfortable
+until there are 280 instances — the sprite is the right pattern for a
+69-glyph subset.
