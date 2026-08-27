@@ -65,9 +65,23 @@ at once, so each PR stays small and reviewable.
 - [x] **`protocols/`** — 1 file (`P-010-how-to-archive.md`) — merged in
       [PR #85](https://github.com/numengames/numinia-nwos/pull/85)
 - [ ] **`standards/`** — split into two sub-PRs (small file first):
-      - [x] `S-003-platform-role-system.md` — this PR
-      - [ ] `2026_08_18-Sistema_de_Diseno-v5.1.0.md` — separate PR, largest
-            file in the repo (1521 lines, ~5,440 ES words)
+      - [x] `S-003-platform-role-system.md` — merged in
+            [PR #86](https://github.com/numengames/numinia-nwos/pull/86)
+      - [x] `2026_08_18-Sistema_de_Diseno-v5.1.0.md` — this PR, largest
+            file in the repo (1521 lines, ~5,440 ES words). Code blocks
+            (CSS/JS/JSON/SVG/binary) kept byte-identical: the kit
+            generator (`scripts/generate-design-kit.mjs`) extracts them
+            verbatim; only `manifest.json`'s master sha256 changes.
+            Deliberate exceptions kept in Spanish: token names and CSS
+            variables (`verdemar`, `nocturno.fondo-base`, `velo.rejilla`
+            — they are identifiers, §0.4 renames nothing), the world's
+            lexicon (§11 capsule: El Ágora, El Velo, el Umbral — canon
+            rule: never translated), literal filenames, UI literals the
+            kit ships (`Cargando···`, `LECTURA`, `abierto / tras el
+            Umbral`, `LEEME.md`), the living colophon quote, and level
+            I/II register examples that demonstrate Spanish-language
+            copy. Frontmatter `idioma_canonico` updated to `en` with the
+            history noted inline.
 - [ ] **`canon/`** — 3 files (`C-005-licensing.md`, `C-007-rank-specifications.md`, `INDEX.md`)
 - [ ] **`reports/`** — 5 files
 - [ ] **`operations/`** — 7 files (incl. the Spanish-language privacy policy)
