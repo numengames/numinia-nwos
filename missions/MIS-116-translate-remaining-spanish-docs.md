@@ -114,5 +114,6 @@ smaller batch turns out more useful next.
 
 ## Closure
 
-*(Empty. This mission has not moved past `backlog` — nothing has been
-translated or merged yet.)*
+*(Not yet closed — two of nine rows done. This section fills in once all
+nine checklist rows are checked, per this repo's own template rule:
+Closure is written at closing, not before.)*
