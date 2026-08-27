@@ -58,8 +58,10 @@ per checklist row** (or two adjacent small rows together), never all nine
 at once, so each PR stays small and reviewable.
 
 - [x] **`agents/`** — 5 files (`_template/OPERATOR.md`, `_template/STATUS.md`,
-      `nimrod/STATUS.md`, `senet/MEMORY.md`, `ursa/MEMORY.md`) — merged this PR
-- [ ] **root** — 3 files (`DEUDA-404.md`, `GAPS.md`, `LEGAL_DEBT.md`)
+      `nimrod/STATUS.md`, `senet/MEMORY.md`, `ursa/MEMORY.md`) — merged
+      in [PR #82](https://github.com/numengames/numinia-nwos/pull/82)
+- [x] **root** — 3 files (`DEUDA-404.md`, `GAPS.md`, `LEGAL_DEBT.md`) —
+      merged in [PR #83](https://github.com/numengames/numinia-nwos/pull/83)
 - [ ] **`protocols/`** — 1 file (`P-010-how-to-archive.md`)
 - [ ] **`standards/`** — 2 files (incl. `2026_08_18-Sistema_de_Diseno-v5.1.0.md`)
 - [ ] **`canon/`** — 3 files (`C-005-licensing.md`, `C-007-rank-specifications.md`, `INDEX.md`)
@@ -112,5 +114,6 @@ smaller batch turns out more useful next.
 
 ## Closure
 
-*(Empty. This mission has not moved past `backlog` — nothing has been
-translated or merged yet.)*
+*(Not yet closed — two of nine rows done. This section fills in once all
+nine checklist rows are checked, per this repo's own template rule:
+Closure is written at closing, not before.)*
