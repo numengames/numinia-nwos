@@ -48,196 +48,196 @@ series_change:
     regime travelled hidden inside it and nobody approved it. See D-029.
 ---
 
-# Sistema de Rangos y Permisos — Numinia Digital Goods
+# Rank and Permission System — Numinia Digital Goods
 
-> **Resumen:** Documento del sistema NWOS — Platform Role System.
-> **Epistémico:** Qué aprendes leyendo este documento.
-> **Pragmático:** Qué puedes hacer con este documento.
-> **Audiencia:** Agentes · Oráculos
-
----
-
-
-> Basado en el framework STSI del EEM Institute
-> y los documentos seminales de Numinia.
-> v2 — Abril 2026
+> **Summary:** NWOS system document — Platform Role System.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
 
 ---
 
-## Principio fundamental
 
-Los **rangos** dan permisos. Son **acumulativos**: cada rango hereda todos
-los permisos de los rangos inferiores.
+> Based on the EEM Institute's STSI framework
+> and Numinia's seminal documents.
+> v2 — April 2026
+
+---
+
+## Fundamental principle
+
+**Ranks** grant permissions. They are **cumulative**: each rank inherits
+all the permissions of the ranks below it.
 
 ```
-  ORACLE ──── 4 max. Administracion total.
+  ORACLE ──── 4 max. Full administration.
      │
-  ARCHON ──── Moderacion + gestion de contenido global.
+  ARCHON ──── Moderation + global content management.
      │
-  VERNACULAR ─ Creacion y gestion de contenido propio.
+  VERNACULAR ─ Creation and management of own content.
      │
-  PILGRIM ──── Ha comprado un digital good en Numinia.
+  PILGRIM ──── Has purchased a digital good on Numinia.
      │
-  CITIZEN ──── Puede editar su ficha y tiene loot.
+  CITIZEN ──── Can edit their character sheet and has loot.
      │
-  NOMAD ────── Login con wallet/social. Solo lectura.
+  NOMAD ────── Login with wallet/social. Read only.
 ```
 
 ---
 
-## Matriz de permisos por rango
+## Permission matrix by rank
 
 ```
-Permiso                                  NOM  CIT  PIL  VER  ARC  ORA
+Permission                               NOM  CIT  PIL  VER  ARC  ORA
 ──────────────────────────────────────── ───  ───  ───  ───  ───  ───
 
-LECTURA
-  Navegar galeria publica                 x    x    x    x    x    x
-  Descargar assets CC0                    x    x    x    x    x    x
-  Buscar y filtrar                        x    x    x    x    x    x
-  Ver su ficha de personaje (solo leer)   x    x    x    x    x    x
-  Ver su lista de favoritos               x    x    x    x    x    x
-  Ver colecciones NFT                     x    x    x    x    x    x
+READ
+  Browse public gallery                    x    x    x    x    x    x
+  Download CC0 assets                      x    x    x    x    x    x
+  Search and filter                        x    x    x    x    x    x
+  View own character sheet (read only)     x    x    x    x    x    x
+  View own favorites list                  x    x    x    x    x    x
+  View NFT collections                     x    x    x    x    x    x
 
-IDENTIDAD
-  Editar su ficha de personaje            ·    x    x    x    x    x
-  Acceder al loot / inventario            ·    x    x    x    x    x
-  Participar en Session Zero              ·    x    x    x    x    x
+IDENTITY
+  Edit own character sheet                 ·    x    x    x    x    x
+  Access loot / inventory                  ·    x    x    x    x    x
+  Take part in Session Zero                ·    x    x    x    x    x
 
-COMERCIO
-  Acceder a contenido premium comprado    ·    ·    x    x    x    x
-  Participar en burn ritual               ·    ·    x    x    x    x
-  Acceder a aventuras de temporada        ·    ·    x    x    x    x
+COMMERCE
+  Access purchased premium content         ·    ·    x    x    x    x
+  Take part in burn ritual                 ·    ·    x    x    x    x
+  Access seasonal adventures                ·    ·    x    x    x    x
 
-CREACION (contenido propio)
-  Subir assets propios                    ·    ·    ·    x    x    x
-  Editar metadatos de sus assets          ·    ·    ·    x    x    x
-  Borrar sus propios assets               ·    ·    ·    x    x    x
-  Ver estadisticas de sus assets          ·    ·    ·    x    x    x
-  Acceder al LAP (panel de creador)       ·    ·    ·    x    x    x
+CREATION (own content)
+  Upload own assets                        ·    ·    ·    x    x    x
+  Edit own assets' metadata                ·    ·    ·    x    x    x
+  Delete own assets                        ·    ·    ·    x    x    x
+  View own assets' statistics              ·    ·    ·    x    x    x
+  Access the LAP (creator panel)           ·    ·    ·    x    x    x
 
-ADMINISTRACION (contenido global)
-  Crear/editar/borrar CUALQUIER asset     ·    ·    ·    ·    x    x
-  Gestionar temporadas                    ·    ·    ·    ·    x    x
-  Ver estadisticas globales               ·    ·    ·    ·    x    x
-  Ver audit log                           ·    ·    ·    ·    x    x
-  Sync a R2 / IPFS / Arweave             ·    ·    ·    ·    x    x
+ADMINISTRATION (global content)
+  Create/edit/delete ANY asset             ·    ·    ·    ·    x    x
+  Manage seasons                           ·    ·    ·    ·    x    x
+  View global statistics                   ·    ·    ·    ·    x    x
+  View audit log                           ·    ·    ·    ·    x    x
+  Sync to R2 / IPFS / Arweave              ·    ·    ·    ·    x    x
 
-MODERACION
-  Banear / desbanear usuarios             ·    ·    ·    ·    x    x
-  Nombrar Vernaculars                     ·    ·    ·    ·    x    x
-  Gestionar rangos inferiores al suyo     ·    ·    ·    ·    x    x
+MODERATION
+  Ban / unban users                        ·    ·    ·    ·    x    x
+  Appoint Vernaculars                      ·    ·    ·    ·    x    x
+  Manage ranks below their own             ·    ·    ·    ·    x    x
 
-SISTEMA (Oracle only — max 4)
-  Nombrar / eliminar Archons              ·    ·    ·    ·    ·    x
-  Editar matriz de permisos               ·    ·    ·    ·    ·    x
-  Configuracion del sistema               ·    ·    ·    ·    ·    x
-  No puede ser baneado                    ·    ·    ·    ·    ·    x
+SYSTEM (Oracle only — max 4)
+  Appoint / remove Archons                 ·    ·    ·    ·    ·    x
+  Edit the permission matrix               ·    ·    ·    ·    ·    x
+  System configuration                     ·    ·    ·    ·    ·    x
+  Cannot be banned                         ·    ·    ·    ·    ·    x
 ```
 
 ---
 
-## Como se determina el rango
+## How rank is determined
 
-El rango se **infiere** automaticamente de las acciones del usuario:
+Rank is **inferred** automatically from the user's actions:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                                                             │
-│  Sin sesion ─────────────────────────────► (no accede)      │
+│  No session ─────────────────────────────► (no access)      │
 │                                                             │
-│  Login con wallet o cuenta social ───────► NOMADA           │
+│  Login with wallet or social account ────► NOMAD            │
 │                                                             │
-│  + Completa Session Zero (gremio/faccion) ► CIUDADANO       │
+│  + Completes Session Zero (guild/faction) ► CITIZEN         │
 │                                                             │
-│  + Compra un digital good en Numinia ────► PEREGRINO        │
+│  + Purchases a digital good on Numinia ──► PILGRIM          │
 │                                                             │
-│  + Promocion manual por Archon/Oracle ───► VERNACULO        │
+│  + Manual promotion by Archon/Oracle ────► VERNACULAR       │
 │                                                             │
-│  + Promocion manual por Oracle ──────────► ARCONTE          │
+│  + Manual promotion by Oracle ───────────► ARCHON           │
 │                                                             │
-│  + Definido en rank-overrides.json ──────► ORACULO (max 4)  │
+│  + Defined in rank-overrides.json ───────► ORACLE (max 4)   │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### Reglas de promocion y degradacion
+### Promotion and demotion rules
 
 ```
-  Quien promueve          A que rango        Quien degrada
+  Who promotes             To what rank       Who demotes
   ─────────────────────── ────────────────── ──────────────────
-  Sistema (automatico)    Nomada → Ciudadano Sistema (automatico)
-  Sistema (automatico)    Ciudadano → Pilgrim Sistema (automatico)
-  Archon o Oracle         → Vernacular       Archon o Oracle
-  Oracle                  → Archon           Oracle
-  rank-overrides.json     → Oracle (max 4)   Solo edicion manual
+  System (automatic)       Nomad → Citizen    System (automatic)
+  System (automatic)       Citizen → Pilgrim  System (automatic)
+  Archon or Oracle          → Vernacular      Archon or Oracle
+  Oracle                    → Archon          Oracle
+  rank-overrides.json       → Oracle (max 4)  Manual edit only
 ```
 
-**Restricciones:**
-- Un Archon solo puede gestionar rangos **inferiores** al suyo
-  (puede promover/degradar hasta Vernacular, no puede tocar Archons ni Oracles)
-- Un Oracle puede gestionar **todos** los rangos excepto otros Oracles
-- Los Oracles solo se gestionan editando `rank-overrides.json`
-- Maximo 4 Oracles simultaneos
-- Los Oracles **no pueden ser baneados** (proteccion en 3 capas: storage, API, UI)
+**Restrictions:**
+- An Archon can only manage ranks **below** their own
+  (can promote/demote up to Vernacular, cannot touch Archons or Oracles)
+- An Oracle can manage **all** ranks except other Oracles
+- Oracles are only managed by editing `rank-overrides.json`
+- Maximum 4 simultaneous Oracles
+- Oracles **cannot be banned** (3-layer protection: storage, API, UI)
 
 ---
 
-## Ficha de personaje por rango
+## Character sheet by rank
 
 ```
-  NOMADA     → Ficha pre-completada, SOLO LECTURA
-               (generada al hacer login, datos basicos del wallet/social)
+  NOMAD      → Pre-filled sheet, READ ONLY
+               (generated on login, basic wallet/social data)
 
-  CIUDADANO  → Ficha EDITABLE
-               (completa Session Zero → elige gremio + faccion)
-               Accede a loot / inventario
+  CITIZEN    → EDITABLE sheet
+               (completes Session Zero → chooses guild + faction)
+               Accesses loot / inventory
 
-  PEREGRINO  → Ficha editable + historial de compras
-               Loot premium desbloqueado
+  PILGRIM    → Editable sheet + purchase history
+               Premium loot unlocked
 
-  VERNACULO+ → Ficha editable + portfolio de assets subidos
+  VERNACULAR+ → Editable sheet + portfolio of uploaded assets
 ```
 
 ---
 
-## Deteccion tecnica de cada rango
+## Technical detection of each rank
 
-| Rango | Señal de deteccion | Almacenamiento |
+| Rank | Detection signal | Storage |
 |---|---|---|
-| Nomad | `wallet_session` o `session` cookie presente | Cookie de sesion |
-| Citizen | Completó Session Zero | `data/characters/{address}.md` tiene gremio/faccion |
-| Pilgrim | Compró un digital good | `data/seasons/*-progress.json` o futuro `data/purchases/` |
-| Vernacular | Promocion manual | `data/system/rank-overrides.json` |
-| Archon | Promocion manual | `data/system/rank-overrides.json` |
-| Oracle | Bootstrap / edicion manual | `data/system/rank-overrides.json` (max 4 entries) |
+| Nomad | `wallet_session` or `session` cookie present | Session cookie |
+| Citizen | Completed Session Zero | `data/characters/{address}.md` has guild/faction |
+| Pilgrim | Purchased a digital good | `data/seasons/*-progress.json` or future `data/purchases/` |
+| Vernacular | Manual promotion | `data/system/rank-overrides.json` |
+| Archon | Manual promotion | `data/system/rank-overrides.json` |
+| Oracle | Bootstrap / manual edit | `data/system/rank-overrides.json` (max 4 entries) |
 
 ---
 
-## Diferencias con v1 (lo que cambia)
+## Differences from v1 (what changes)
 
-| Aspecto | v1 (actual) | v2 (este documento) |
+| Aspect | v1 (current) | v2 (this document) |
 |---|---|---|
-| Nomad + wallet | Era citizen | Ahora es nomad (solo lectura) |
-| Nomad permisos | Podia editar ficha y favoritos | Solo lectura + favoritos |
-| Citizen trigger | Wallet conectada | Session Zero completada |
-| Pilgrim trigger | Season Pass | Cualquier compra de digital good |
-| Vernacular | Role 'creator' en GitHub | Promocion manual por Archon+ |
-| Archon nombra | No podia | Puede nombrar Vernaculars |
-| Archon scope | Todos los permisos admin | Solo rangos inferiores |
-| Oracle max | Sin limite | Maximo 4 |
+| Nomad + wallet | Was citizen | Now nomad (read only) |
+| Nomad permissions | Could edit sheet and favorites | Read only + favorites |
+| Citizen trigger | Wallet connected | Session Zero completed |
+| Pilgrim trigger | Season Pass | Any digital good purchase |
+| Vernacular | 'creator' role on GitHub | Manual promotion by Archon+ |
+| Archon appoints | Could not | Can appoint Vernaculars |
+| Archon scope | All admin permissions | Only ranks below |
+| Oracle max | No limit | Maximum 4 |
 
 ---
 
-## Resumen en una frase
+## Summary in one sentence
 
-> **Nomada lee. Ciudadano edita su identidad. Peregrino compra.**
-> **Vernaculo crea. Arconte modera. Oraculo gobierna.**
+> **Nomad reads. Citizen edits their identity. Pilgrim buys.**
+> **Vernacular creates. Archon moderates. Oracle governs.**
 
 ---
 
-*Documento basado en el framework STSI del EEM Institute,
-los documentos seminales de Numinia,
-y la estructura de roles del sistema Numinia.*
+*Document based on the EEM Institute's STSI framework,
+Numinia's seminal documents,
+and the Numinia system's role structure.*
 
-*Numinia Digital Goods — Abril 2026*
+*Numinia Digital Goods — April 2026*
