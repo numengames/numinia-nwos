@@ -62,8 +62,12 @@ at once, so each PR stays small and reviewable.
       in [PR #82](https://github.com/numengames/numinia-nwos/pull/82)
 - [x] **root** — 3 files (`DEUDA-404.md`, `GAPS.md`, `LEGAL_DEBT.md`) —
       merged in [PR #83](https://github.com/numengames/numinia-nwos/pull/83)
-- [x] **`protocols/`** — 1 file (`P-010-how-to-archive.md`) — this PR
-- [ ] **`standards/`** — 2 files (incl. `2026_08_18-Sistema_de_Diseno-v5.1.0.md`)
+- [x] **`protocols/`** — 1 file (`P-010-how-to-archive.md`) — merged in
+      [PR #85](https://github.com/numengames/numinia-nwos/pull/85)
+- [ ] **`standards/`** — split into two sub-PRs (small file first):
+      - [x] `S-003-platform-role-system.md` — this PR
+      - [ ] `2026_08_18-Sistema_de_Diseno-v5.1.0.md` — separate PR, largest
+            file in the repo (1521 lines, ~5,440 ES words)
 - [ ] **`canon/`** — 3 files (`C-005-licensing.md`, `C-007-rank-specifications.md`, `INDEX.md`)
 - [ ] **`reports/`** — 5 files
 - [ ] **`operations/`** — 7 files (incl. the Spanish-language privacy policy)
