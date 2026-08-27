@@ -1,6 +1,6 @@
 ---
 id: "O-008"
-title: "Estado de sesión — dónde retomar"
+title: "Session state — where to pick up"
 type: documentation
 status: active
 version: "1.0.0"
@@ -11,77 +11,78 @@ owner: "oracle"
 tags: [operations, handoff, session, state]
 license: "CC-BY-4.0"
 ---
-# Estado de sesión — dónde retomar
+# Session state — where to pick up
 
-> **Resumen:** Punto de continuación al cierre de la sesión del
-> 2026-08-18. Qué quedó vivo, qué espera firma y cuál es el siguiente
-> paso de cada frente.
-> **Epistémico:** El estado real del sistema al cerrar, sin reconstruirlo
-> de los commits.
-> **Pragmático:** Un agente nuevo (o el Oráculo) abre esto y sabe por
-> dónde seguir.
-> **Audiencia:** Agentes · Oráculo
+> **Summary:** Continuation point at the close of the 2026-08-18
+> session. What stayed alive, what awaits signature, and what the next
+> step is on every front.
+> **Epistemic:** The real state of the system at close, without
+> rebuilding it from the commits.
+> **Pragmatic:** A new agent (or the Oracle) opens this and knows where
+> to continue.
+> **Audience:** Agents · Oracle
 
-**Regla de uso:** este documento se reescribe al cerrar cada sesión —
-no se acumula historia aquí (para eso está `CHANGELOG.md` y el board).
-Primer paso de cualquier sesión: `git pull` y auditar (AGT-01); lo escrito
-abajo era cierto al cerrar, no necesariamente ahora.
+**Usage rule:** this document is rewritten at the close of every
+session — no history accumulates here (that is what `CHANGELOG.md` and
+the board are for). First step of any session: `git pull` and audit
+(AGT-01); what is written below was true at close, not necessarily now.
 
 ---
 
-## 1. Lo que espera tu firma (Oráculo)
+## 1. What awaits your signature (Oracle)
 
-| Qué | Dónde | Decisión pendiente |
+| What | Where | Pending decision |
 |---|---|---|
-| **Sistema de Diseño v5.1.0** | `standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md` · [web](https://numinia.org/corpus/standards/2026_08_18-sistema_de_diseno-v510) | Estado sigue «propuesto»; firmarlo o devolverlo |
-| **P-010 How to Archive v0.3.0** | [web](https://numinia.org/corpus/protocols/p-010-how-to-archive) | Es la **F0** de MIS-089: sin firma no se mueve un fichero del archivo |
-| **MIS-089** arquitectura de la información | [web](https://numinia.org/missions/mis-089) | Registro D1–D8 de duplicados: aprobar disposiciones |
-| **MIS-095** práctica de Updates (PM-06) | [web](https://numinia.org/missions/mis-095) | 3 decisiones: versionado de numinia.org, idioma, nivel SHOULD/MUST |
-| **MIS-096** versionado soberano de NWOS | [web](https://numinia.org/missions/mis-096) | 5 preguntas abiertas; la clave: qué es el «NWOS core» |
-| **Ampliación del subconjunto de iconos** | [MIS-093](https://numinia.org/missions/mis-093) | 69 glifos Phosphor en uso; ratificar el vocabulario |
+| **Design System v5.1.0** | `standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md` · [web](https://numinia.org/corpus/standards/2026_08_18-sistema_de_diseno-v510) | State still «proposed»; sign it or send it back |
+| **P-010 How to Archive v0.3.0** | [web](https://numinia.org/corpus/protocols/p-010-how-to-archive) | It is MIS-089's **F0**: without a signature not one file of the archive moves |
+| **MIS-089** information architecture | [web](https://numinia.org/missions/mis-089) | D1–D8 register of duplicates: approve dispositions |
+| **MIS-095** Updates practice (PM-06) | [web](https://numinia.org/missions/mis-095) | 3 decisions: numinia.org versioning, language, SHOULD/MUST level |
+| **MIS-096** sovereign versioning of NWOS | [web](https://numinia.org/missions/mis-096) | 5 open questions; the key one: what is the «NWOS core» |
+| **Icon-subset expansion** | [MIS-093](https://numinia.org/missions/mis-093) | 69 Phosphor glyphs in use; ratify the vocabulary |
 
-## 2. Frentes abiertos, por estado
+## 2. Open fronts, by state
 
-- **Archivo / información (MIS-089, draft):** plan en 5 fases, F0 espera
-  firma. Duplicados detectados y sin tocar: manual del juego duplicado
-  (.txt y .md), 2 auditorías en `blueprints/`, 3 `archive-summa-*` que son
-  fondo, reportes con doble fuente (`reports/daily/` vs 5 páginas
-  hardcodeadas), tres convenciones de nombre, INDEX manuales, ~32 ficheros
-  sin frontmatter.
-- **Propagación / soberanía (MIS-068 in-progress, MIS-096 draft):** G-11 y
-  G-12 escritas en `GOVERNANCE.md`; CON-006 registrada. Falta versionar el
-  NWOS core y reformular el guard (detecta, no obliga).
-- **Diseño (MIS-092, MIS-093, MIS-094 done):** paleta canónica, iconos
-  Phosphor, kit 5.1.0 con manifiesto sha256 publicado en
-  `/diseno/kit/5.1.0/`. Pendiente: kit regenerado como `sistema.*` cuando
-  el emisor lo empaquete, y `web/DESIGN.md` (superseded) espera la lista
-  de conservación del Oráculo.
-- **Legales (MIS-086 done):** publicados en numinia.org y numinia.com con
-  aceptación pre-login en el LAP. **CON-004 y CON-005 siguen abiertas**:
-  flags de revisión FLAG-2..6 y el desajuste de ámbito (los textos rigen
-  www.numen.games).
-- **Del agente de numinia-web (backlog, sin asignar):** MIS-100 a MIS-107
-  — protección de ramas, el molde cumpliendo su propio checklist,
-  consumidores fijando el kit 5.1.0, inventario de 17 repos, el Worker
-  fantasma, **MIS-105 (firmar los estándares y definir el sync — toca
-  directamente G-12/MIS-096)**, el nombre retirado en el molde, y
-  numen.games ignorando su locale.
+- **Archive / information (MIS-089, draft):** 5-phase plan, F0 awaits
+  signature. Duplicates detected and untouched: the game manual
+  duplicated (.txt and .md), 2 audits in `blueprints/`, 3
+  `archive-summa-*` that are a fondo, reports with a double source
+  (`reports/daily/` vs 5 hardcoded pages), three naming conventions,
+  manual INDEXes, ~32 files without frontmatter.
+- **Propagation / sovereignty (MIS-068 in-progress, MIS-096 draft):**
+  G-11 and G-12 written into `GOVERNANCE.md`; CON-006 registered. Still
+  missing: version the NWOS core and reformulate the guard (it
+  detects, it does not compel).
+- **Design (MIS-092, MIS-093, MIS-094 done):** canonical palette,
+  Phosphor icons, kit 5.1.0 with sha256 manifest published at
+  `/diseno/kit/5.1.0/`. Pending: the kit regenerated as `sistema.*`
+  when the issuer packages it, and `web/DESIGN.md` (superseded) awaits
+  the Oracle's conservation list.
+- **Legal (MIS-086 done):** published on numinia.org and numinia.com
+  with pre-login acceptance in the LAP. **CON-004 and CON-005 remain
+  open**: review flags FLAG-2..6 and the scope mismatch (the texts
+  govern www.numen.games).
+- **From the numinia-web agent (backlog, unassigned):** MIS-100 to
+  MIS-107 — branch protection, the mould passing its own checklist,
+  consumers pinning kit 5.1.0, the 17-repo inventory, the ghost
+  Worker, **MIS-105 (sign the standards and define the sync — touches
+  G-12/MIS-096 directly)**, the retired name in the mould, and
+  numen.games ignoring its locale.
 
-## 3. Estado técnico verificado al cierre
+## 3. Technical state verified at close
 
-- Working tree limpio, `main` == `origin/main`, todo desplegado.
-- numinia.org: 475+ páginas, 232 PDFs (28,6 MB), sprite de iconos en
-  `/icons.svg` cacheado; board de misiones 186 KB (era 293).
-- Guard de licencias en verde (202/236 .md declaran licencia).
-- Flujo de deploy: `npm run build` → `npm run build:pdf` → `npx wrangler
-  deploy` (la CI solo hace build; los PDFs necesitan Chromium local).
+- Working tree clean, `main` == `origin/main`, everything deployed.
+- numinia.org: 475+ pages, 232 PDFs (28.6 MB), icon sprite at
+  `/icons.svg` cached; missions board 186 KB (was 293).
+- License guard green (202/236 .md declare a license).
+- Deploy flow: `npm run build` → `npm run build:pdf` → `npx wrangler
+  deploy` (CI only builds; the PDFs need local Chromium).
 
-## 4. Reglas aprendidas esta sesión (ya escritas donde tocan)
+## 4. Rules learned this session (already written where they belong)
 
-- **G-11** (`GOVERNANCE.md`): el canon no se copia, se fija.
-- **G-12** (`GOVERNANCE.md`): un repo NWOS derivado es soberano; se le
-  ofrecen versiones, no se le impone ley. Con su clase de error a vigilar.
-- **P-008 v1.2.0**: todo lo que se presente a revisión lleva su URL
-  canónica de numinia.org (puente L3 entre agentes).
-- **P-010 §3.1**: IDs de misión se calculan sobre lo commiteado tras pull;
-  en colisión, renumera quien commiteó segundo.
+- **G-11** (`GOVERNANCE.md`): the canon is not copied, it is pinned.
+- **G-12** (`GOVERNANCE.md`): a derived NWOS repo is sovereign; it is
+  offered versions, not imposed law. With its error class to watch.
+- **P-008 v1.2.0**: everything submitted for review carries its
+  canonical numinia.org URL (L3 bridge between agents).
+- **P-010 §3.1**: mission IDs are computed over what is committed after
+  pull; on collision, whoever committed second renumbers.

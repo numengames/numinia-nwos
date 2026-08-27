@@ -1,6 +1,6 @@
 ---
 id: "O-002"
-title: "Contradicciones pendientes — registro"
+title: "Pending contradictions — register"
 type: documentation
 status: active
 version: "1.2.0"
@@ -11,133 +11,137 @@ owner: "oracle"
 tags: [operations, contradictions, backlog, truth]
 license: "CC-BY-4.0"
 ---
-# Contradicciones pendientes — registro
+# Pending contradictions — register
 
-> **Resumen:** Contradicciones detectadas entre fuentes del sistema que
-> nadie ha resuelto todavía. Se documentan, no se reconcilian en
-> silencio: zanjarlas es decisión del Oráculo, en sesión dedicada.
-> **Audiencia:** Oráculos · Agentes
+> **Summary:** Contradictions detected between system sources that
+> nobody has resolved yet. They are documented, not silently
+> reconciled: settling them is the Oracle's decision, in a dedicated
+> session.
+> **Audience:** Oracles · Agents
 
-**Regla:** un agente que detecta una contradicción la añade aquí con
-sus dos fuentes y NO elige bando. Cuando el Oráculo la resuelve, la
-entrada pasa a la sección "Resueltas" con la decisión y su fecha.
+**Rule:** an agent that detects a contradiction adds it here with its
+two sources and does NOT pick a side. When the Oracle resolves it, the
+entry moves to the "Resolved" section with the decision and its date.
 
 ---
 
-## Abiertas
+## Open
 
-### CON-001 — Roster CAO: página vs blueprint
+### CON-001 — CAO roster: page vs blueprint
 
-- **Detectada:** 2026-08-17 (MIS-071 fase 2)
-- **Fuente A:** `web/src/pages/cao.astro` — lista Alquimista-01 y
-  Exegeta-01 como agentes diseñados; Adonaz en `claude-sonnet-4.6`;
-  Procurador-01 "diseñado" sin año objetivo.
-- **Fuente B:** `blueprints/BP-cao.md` (v0.2.0) — lista Ursa y Senet;
-  Adonaz en `claude-haiku-3-5`.
-- **Detalle:** `extraction_note` de `blueprints/BP-cao-overview.md`.
+- **Detected:** 2026-08-17 (MIS-071 phase 2)
+- **Source A:** `web/src/pages/cao.astro` — lists Alquimista-01 and
+  Exegeta-01 as designed agents; Adonaz on `claude-sonnet-4.6`;
+  Procurador-01 "designed" with no target year.
+- **Source B:** `blueprints/BP-cao.md` (v0.2.0) — lists Ursa and Senet;
+  Adonaz on `claude-haiku-3-5`.
+- **Detail:** `extraction_note` of `blueprints/BP-cao-overview.md`.
 
-### CON-002 — Wardley: ventana de commoditización y capas
+### CON-002 — Wardley: commoditization window and layers
 
-- **Detectada:** 2026-08-17 (MIS-071 fase 2, reconciliación)
-- **Fuente A:** `blueprints/WARDLEY-MAP.md` (pre-v0.2.0) — ventana de
-  12–18 meses; Mission System agrupado en "Frontier (Genesis)".
-- **Fuente B:** página `/wardley` — ventana de 18–24 meses; Mission
-  System en "The Differentiators"; coordenadas con jitter ±1 en 7 de
-  12 componentes.
-- **Estado actual:** ambas versiones conviven en `WARDLEY-MAP.md`
-  v0.2.0, las de la página marcadas "(según /wardley)".
+- **Detected:** 2026-08-17 (MIS-071 phase 2, reconciliation)
+- **Source A:** `blueprints/WARDLEY-MAP.md` (pre-v0.2.0) — window of
+  12–18 months; Mission System grouped under "Frontier (Genesis)".
+- **Source B:** the `/wardley` page — window of 18–24 months; Mission
+  System under "The Differentiators"; coordinates with ±1 jitter on 7
+  of 12 components.
+- **Current state:** both versions coexist in `WARDLEY-MAP.md`
+  v0.2.0, the page's marked "(según /wardley)".
 
-### CON-004 — Legales publicados con flags de revisión abiertos
+### CON-004 — Legal texts published with open review flags
 
-- **Detectada:** 2026-08-18 (publicación de legales en numinia.org)
-- **Fuente A:** `operations/legal/O-003-privacy-policy-numengames.md`
-  — frontmatter: FLAG-2..6 abiertos, "must be resolved before external
-  use"; los T&C piden "verify against the original before external
-  use". Nota del Oráculo (registro FLAG-1): estos textos no estaban
-  publicados en ninguna web; el archivo es el máster.
-- **Fuente B:** orden del Oráculo (sesión 2026-08-18) — publicar ambos
-  documentos en numinia.org (footer + páginas) con los flags abiertos,
-  registrando aquí la excepción para tratarla más adelante.
-- **Estado actual:** publicados en `/legal/terminos` y
-  `/legal/privacidad` derivando del máster en build; los flags siguen
-  abiertos en el frontmatter del máster.
-- **Alcance ampliado (2026-08-18, MIS-086):** publicados también en
-  numinia.com (`/legal/terms/`, `/legal/privacy/`, cinco locales), como
-  copias verbatim del máster en `apps/store/src/content/legal/`. La
-  excepción vale ahora para dos sitios: resolver los flags cierra ambos.
+- **Detected:** 2026-08-18 (publication of the legal texts on numinia.org)
+- **Source A:** `operations/legal/O-003-privacy-policy-numengames.md`
+  — frontmatter: FLAG-2..6 open, "must be resolved before external
+  use"; the T&C ask to "verify against the original before external
+  use". Oracle's note (FLAG-1 record): these texts were not published
+  on any website; the archive is the master.
+- **Source B:** Oracle's order (session 2026-08-18) — publish both
+  documents on numinia.org (footer + pages) with the flags open,
+  recording the exception here to address it later.
+- **Current state:** published at `/legal/terminos` and
+  `/legal/privacidad` deriving from the master at build; the flags
+  remain open in the master's frontmatter.
+- **Scope extended (2026-08-18, MIS-086):** also published on
+  numinia.com (`/legal/terms/`, `/legal/privacy/`, five locales), as
+  verbatim copies of the master in `apps/store/src/content/legal/`.
+  The exception now covers two sites: resolving the flags closes both.
 
-### CON-005 — Ámbito de los legales: numen.games vs numinia.org
+### CON-005 — Scope of the legal texts: numen.games vs numinia.org
 
-- **Detectada:** 2026-08-18 (publicación de legales en numinia.org)
-- **Fuente A:** los dos documentos legales definen su ámbito como
+- **Detected:** 2026-08-18 (publication of the legal texts on numinia.org)
+- **Source A:** the two legal documents define their scope as
   `www.numen.games` ("These Terms … govern your access to and use of
-  our website www.numen.games"; la política de privacidad, ídem).
-- **Fuente B:** la orden los publica como legales del footer de
-  `numinia.org`, sitio que los textos no mencionan.
-- **Detalle:** la orden incluye además que los términos se acepten
-  antes del login en el flujo de onboarding; numinia.org no tiene
-  login ni onboarding (sitio estático) — ese requisito queda pendiente
-  para la app que implemente ese flujo.
-- **Estado actual (2026-08-18, MIS-086):** requisito cumplido en
-  numinia.com — `/lap/session/` no monta el widget hasta aceptar, y el
-  endpoint de login rechaza (400) cualquier alta que no nombre el corpus
-  vigente (`terms@1.0.0+privacy@1.1.0`), que viaja dentro de la sesión
-  firmada. El desajuste de ámbito sigue abierto: la página lo declara en
-  una nota fuera del texto ("Numinia está operada por Numen Games S.L.;
-  este texto se refiere a www.numen.games; su alcance está en revisión"),
-  sin tocar ni una coma del máster.
+  our website www.numen.games"; the privacy policy, likewise).
+- **Source B:** the order publishes them as the footer legal texts of
+  `numinia.org`, a site the texts do not mention.
+- **Detail:** the order also requires the terms to be accepted before
+  login in the onboarding flow; numinia.org has no login and no
+  onboarding (static site) — that requirement stays pending for the
+  app that implements that flow.
+- **Current state (2026-08-18, MIS-086):** requirement fulfilled on
+  numinia.com — `/lap/session/` does not mount the widget until
+  acceptance, and the login endpoint rejects (400) any signup that
+  does not name the current corpus (`terms@1.0.0+privacy@1.1.0`),
+  which travels inside the signed session. The scope mismatch remains
+  open: the page declares it in a note outside the text ("Numinia está
+  operada por Numen Games S.L.; este texto se refiere a
+  www.numen.games; su alcance está en revisión"), without touching a
+  single comma of the master.
 
-### CON-006 — Autoridad por fork vs soberanía del repo derivado
+### CON-006 — Authority by fork vs sovereignty of the derived repo
 
-- **Detectada:** 2026-08-18 (el Oráculo, sobre el borrador de MIS-095)
-- **Fuente A:** `standards/engineering-standards.md` §7.1 y cabecera —
-  numinia-nwos y «any workspace generated from the mould» son
-  **downstream forks** que «reciben este documento por la relación de
-  fork»; el mecanismo de sync queda abierto pero la autoridad se da por
-  supuesta: lo que se escribe upstream aplica abajo (MUST incluidos).
-- **Fuente B:** principio de soberanía (Oráculo, 2026-08-18): **una vez
-  una organización ha creado su repositorio NWOS, es soberana.** Lo que
-  tiene sentido es que el NWOS original esté **versionado** y que la
-  organización pueda **actualizarse** si quiere — no que reciba ley por
-  herencia de fork.
-- **Detalle:** el error de diseño se coló en el borrador de MIS-095, que
-  proponía escribir una práctica upstream «para que aplique a todas las
-  webs». Corregido allí. Emparenta con **CON-003** (procedencia: el
-  documento dice que numinia-nwos es fork del molde cuando es la fuente)
-  y con la doctrina **G-11** (el canon no se copia: se fija) — que ya
-  resolvía este patrón para el Sistema de Diseño y no se había aplicado
-  a los estándares mismos.
-- **Qué falta:** versionar el NWOS original y definir el modelo de
-  adopción soberana (MIS-096). La parte de §7.1 quedó resuelta en
-  **ADR-003** (2026-08-20): no va upstream porque no hay upstream — la
-  corrección es local y al molde se le **ofrece** (MIS-108).
+- **Detected:** 2026-08-18 (the Oracle, on the MIS-095 draft)
+- **Source A:** `standards/engineering-standards.md` §7.1 and header —
+  numinia-nwos and «any workspace generated from the mould» are
+  **downstream forks** that «receive this document through the fork
+  relationship»; the sync mechanism is left open but the authority is
+  taken for granted: what is written upstream applies downstream
+  (MUSTs included).
+- **Source B:** sovereignty principle (Oracle, 2026-08-18): **once an
+  organization has created its NWOS repository, it is sovereign.**
+  What makes sense is for the original NWOS to be **versioned** and
+  for the organization to be able to **update** if it wants — not to
+  receive law by fork inheritance.
+- **Detail:** the design error slipped into the MIS-095 draft, which
+  proposed writing a practice upstream «so it applies to all the
+  webs». Corrected there. It pairs with **CON-003** (provenance: the
+  document says numinia-nwos is a fork of the mould when it is the
+  source) and with the **G-11** doctrine (the canon is not copied: it
+  is pinned) — which had already resolved this pattern for the Design
+  System and had not been applied to the standards themselves.
+- **What is missing:** version the original NWOS and define the
+  sovereign-adoption model (MIS-096). The §7.1 part was resolved in
+  **ADR-003** (2026-08-20): it does not go upstream because there is
+  no upstream — the correction is local and the mould is **offered**
+  it (MIS-108).
 
-## Resueltas
+## Resolved
 
-### CON-003 — Procedencia de engineering-standards.md
+### CON-003 — Provenance of engineering-standards.md
 
-- **Detectada:** 2026-08-17 (adopción del estándar)
-- **Fuente A:** `standards/engineering-standards.md` §Downstream y
-  §7.1 — afirma que `numengames/numinia-nwos` "is a fork of the mould"
-  (`numen-games-nwos-orgs/nwos-workspace-template`) y recibe el
-  documento por la relación de fork.
-- **Fuente B:** canon operativo del ecosistema — numinia-nwos ES la
-  fuente de verdad; los repos de `numen-games-nwos-orgs` no beben de
-  él, y numinia-nwos no es fork de nwos-workspace-template.
-- **Nota:** la corrección, si procede, va upstream vía ADR + PR
-  (§7.1); la copia local no se edita.
-- **Resuelta:** 2026-08-20 por **ADR-003**.
-- **Decisión:** no era una falsedad, era una **confusión de registro**
-  entre dos artefactos distintos. `engineering-standards.md` **se origina
-  aquí**: Numinia es el primer cliente de NWOS y su banco de pruebas. La
-  copia del molde es una **propuesta de partida** que no obliga a nadie y
-  que pasa a ser gobernada por quien la adopte (G-12). No son el mismo
-  documento; los bytes idénticos eran coincidencia de juventud, no
-  dependencia. La divergencia es adopción, no deriva, y no se sincroniza.
-- **Evidencia de linaje:** raíces git distintas — numinia-nwos `9f51ad1`
-  (2026-04-06), nwos-workspace-template `8f2037d` (2026-04-07, «Add files
-  via upload»). Sin historia compartida.
-- **Coste real antes de resolverse:** el §7.1 no solo no evitó el error,
-  lo **ordenó**: un agente leyó «refuse the local edit» y propuso enviar
-  la corrección al repo de otra organización.
-
+- **Detected:** 2026-08-17 (adoption of the standard)
+- **Source A:** `standards/engineering-standards.md` §Downstream and
+  §7.1 — claims that `numengames/numinia-nwos` "is a fork of the mould"
+  (`numen-games-nwos-orgs/nwos-workspace-template`) and receives the
+  document through the fork relationship.
+- **Source B:** the ecosystem's operational canon — numinia-nwos IS
+  the source of truth; the `numen-games-nwos-orgs` repos do not drink
+  from it, and numinia-nwos is not a fork of nwos-workspace-template.
+- **Note:** the correction, if warranted, goes upstream via ADR + PR
+  (§7.1); the local copy is not edited.
+- **Resolved:** 2026-08-20 by **ADR-003**.
+- **Decision:** it was not a falsehood, it was a **register confusion**
+  between two distinct artifacts. `engineering-standards.md`
+  **originates here**: Numinia is NWOS's first client and its proving
+  ground. The mould's copy is a **starting proposal** that binds
+  nobody and becomes governed by whoever adopts it (G-12). They are
+  not the same document; the identical bytes were a coincidence of
+  youth, not dependency. The divergence is adoption, not drift, and it
+  is not synced.
+- **Lineage evidence:** distinct git roots — numinia-nwos `9f51ad1`
+  (2026-04-06), nwos-workspace-template `8f2037d` (2026-04-07, «Add
+  files via upload»). No shared history.
+- **Real cost before resolution:** §7.1 not only failed to prevent the
+  error, it **ordered** it: an agent read «refuse the local edit» and
+  proposed sending the correction to another organization's repo.

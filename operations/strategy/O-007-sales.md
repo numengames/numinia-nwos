@@ -1,6 +1,6 @@
 ---
 id: "O-007"
-title: "Ventas — estrategia comercial"
+title: "Sales — commercial strategy"
 type: documentation
 status: active
 version: "1.0.0"
@@ -10,134 +10,134 @@ author: "nimrod"
 owner: "oracle"
 tags: [strategy, sales, commercial]
 license: "LicenseRef-Numen-AllRightsReserved"
-extraction_note: "Extracted verbatim from web/src/pages/ventas.astro (MIS-071 phase 2 — File over App). Reserved regime: commercial strategy is born closed (C-005 §1; Oracle-delegated decision 2026-08-17)."
+extraction_note: "Extracted verbatim from web/src/pages/ventas.astro (MIS-071 phase 2 — File over App). Reserved regime: commercial strategy is born closed (C-005 §1; Oracle-delegated decision 2026-08-17). Translated to English under MIS-116 (ADR-024) — language only."
 ---
 
-# Cómo conseguir los primeros clientes
+# How to get the first clients
 
-> **Resumen:** Guía operativa para los Oráculos. ICP definido, funnel de ventas, bloqueadores actuales y el plan de piloto de 8 semanas.
-> **Audiencia:** Oráculos de Numen Games (guía de ventas del Narrative Work OS — página `/ventas`).
+> **Summary:** Operational guide for the Oracles. Defined ICP, sales funnel, current blockers and the 8-week pilot plan.
+> **Audience:** Numen Games Oracles (Narrative Work OS sales guide — page `/ventas`).
 
-**Diagnóstico honesto (abril 2026):** NWOS tiene coherencia teórica sólida, validación interna de 4 Oráculos y 0 clientes externos. La brecha entre ambos extremos no es de producto — es de secuencia. Primero validación externa, luego ICP, luego producto vendible. Este documento es el mapa para recorrer esa distancia.
-
----
-
-## Los bloqueadores — Qué impide vender hoy
-
-| ID | Severidad | Bloqueador | Urgencia | Descripción | Acción concreta |
-|----|-----------|-----------|----------|-------------|-----------------|
-| B1 | 🔴 | No hay prueba externa | 10/10 | Nadie puede comprar lo que no ha visto funcionar fuera de los fundadores. Mientras no exista un caso real, el ciclo de ventas comienza con una pregunta sin respuesta. | Protocolo de exposición ciega: 2 personas externas, 48h, sin contexto previo. Esta semana. |
-| B2 | 🔴 | Sin ICP operativo | 9/10 | Sin saber quién firma el cheque, qué métrica justifica la compra y desde qué línea de presupuesto, no hay go-to-market. Solo esperanza. | Apostar por UN perfil: CEO de startup técnica 5–15p. Diseñar todo el mensaje para él. |
-| B3 | 🔴 | Sin formato de venta | 9/10 | Si una empresa dice 'lo quiero' mañana, no hay nada que mandar, nada que cobrar, nadie libre para implementarlo. | Definir el producto mínimo vendible: piloto de 8 semanas con precio fijo, entregables y criterio de éxito. |
-| B4 | 🟠 | Coste cognitivo de entrada | 7/10 | El vocabulario completo de NWOS en la primera reunión cierra puertas. La barrera de adopción ocurre antes de que el cliente haya sentido valor. | Crear el deck de ventas con 5 conceptos máximo. Numinia es capa 3, no capa 1. |
-| B5 | 🟠 | Sin métricas de ROI para el decisor | 7/10 | Un CHRO o CEO no puede aprobar un gasto sin saber qué número mejora. 'Más significado' no es una métrica de negocio. | Definir 3 KPIs pre-piloto que el cliente acuerda medir. Retención, velocidad de decisión, NPS interno. |
+**Honest diagnosis (April 2026):** NWOS has solid theoretical coherence, internal validation from 4 Oracles and 0 external clients. The gap between those two ends is not one of product — it is one of sequence. First external validation, then ICP, then a sellable product. This document is the map for covering that distance.
 
 ---
 
-## ICP — A quién vender · Ranking de perfiles objetivo
+## The blockers — What prevents selling today
 
-Basado en las 100 simulaciones y el análisis de gaps. Puntuación combinada: tasa de adopción + velocidad de valor + accesibilidad del decisor.
-
-| # | Perfil | Score | Adopción | Tiempo a valor | Decisor | Presupuesto | Veredicto |
-|---|--------|-------|----------|----------------|---------|-------------|-----------|
-| 1 | Startup técnica 5–15p | 92 | 85% | 2–4 sem | CEO / CTO | €500–2.000/mes | ICP ideal ahora |
-| 2 | Startup mixta 15–50p | 74 | 75% | 4–8 sem | CEO / Head of People | €1.500–5.000/mes | ICP de expansión |
-| 3 | Agencia creativa 10–30p | 68 | 75% | 3–6 sem | CEO / Director Creativo | €800–3.000/mes | ICP de oportunidad |
-| 4 | PYME tradicional 50–150p | 31 | 35% | 6–12 mes | CHRO / Director General | €3.000–8.000/mes | Evitar ahora |
-| 5 | Equipo corporativo 100–500p | 18 | 30% | 9–18 mes | CHRO / VP People | €10.000–40.000/mes | Evitar hasta Serie A |
-
-### Detalle — dolor y señal de compra
-
-| # | Perfil | Dolor | Señal de compra |
-|---|--------|-------|-----------------|
-| 1 | Startup técnica 5–15p | Cultura de equipo se rompe al pasar de 5 a 10 personas | Busca alternativas a Notion + Linear + reuniones de alineación |
-| 2 | Startup mixta 15–50p | Perfiles técnicos y no-técnicos hablan idiomas distintos | Ha probado OKRs y no funcionaron. Busca algo más vivo. |
-| 3 | Agencia creativa 10–30p | Cada proyecto nuevo reinicia la cultura desde cero | Menciona 'identidad de empresa' o 'cómo hacemos las cosas aquí' |
-| 4 | PYME tradicional 50–150p | Rotación alta, desconexión con los valores de empresa | Ha invertido en formación de liderazgo sin resultados |
-| 5 | Equipo corporativo 100–500p | Transformación cultural post-fusión o remote-first | RFP activo, presupuesto anual de cultura aprobado |
-
-*(La página destaca en tarjetas de detalle solo los 3 primeros perfiles del ranking.)*
+| ID | Severity | Blocker | Urgency | Description | Concrete action |
+|----|----------|---------|---------|-------------|-----------------|
+| B1 | 🔴 | No external proof | 10/10 | Nobody can buy what they have not seen work outside the founders. As long as no real case exists, the sales cycle starts with an unanswered question. | Blind-exposure protocol: 2 external people, 48h, no prior context. This week. |
+| B2 | 🔴 | No operational ICP | 9/10 | Without knowing who signs the check, which metric justifies the purchase and from which budget line, there is no go-to-market. Only hope. | Bet on ONE profile: CEO of a technical startup, 5–15p. Design the entire message for them. |
+| B3 | 🔴 | No sales format | 9/10 | If a company says 'I want it' tomorrow, there is nothing to send, nothing to charge, nobody free to implement it. | Define the minimum sellable product: an 8-week pilot with a fixed price, deliverables and a success criterion. |
+| B4 | 🟠 | Entry cognitive cost | 7/10 | The full NWOS vocabulary in the first meeting closes doors. The adoption barrier occurs before the client has felt value. | Create the sales deck with 5 concepts maximum. Numinia is layer 3, not layer 1. |
+| B5 | 🟠 | No ROI metrics for the decision-maker | 7/10 | A CHRO or CEO cannot approve an expense without knowing which number improves. 'More meaning' is not a business metric. | Define 3 pre-pilot KPIs the client agrees to measure. Retention, decision speed, internal NPS. |
 
 ---
 
-## Mensaje de ventas — Qué decir a cada decisor
+## ICP — Whom to sell to · Target-profile ranking
 
-### CEO startup técnica
+Based on the 100 simulations and the gap analysis. Combined score: adoption rate + speed to value + decision-maker accessibility.
 
-- **Su dolor:** "El equipo crece y la cultura se rompe"
-- **Tu mensaje:** NWOS es la infraestructura de cultura que escala con el equipo. No es una herramienta más — es la gramática común que conecta a las personas con lo que construyen.
-- **KPI prometido →** Tiempo de onboarding cultural: de 3 meses a 3 semanas
+| # | Profile | Score | Adoption | Time to value | Decision-maker | Budget | Verdict |
+|---|---------|-------|----------|---------------|----------------|--------|---------|
+| 1 | Technical startup 5–15p | 92 | 85% | 2–4 wk | CEO / CTO | €500–2,000/mo | Ideal ICP now |
+| 2 | Mixed startup 15–50p | 74 | 75% | 4–8 wk | CEO / Head of People | €1,500–5,000/mo | Expansion ICP |
+| 3 | Creative agency 10–30p | 68 | 75% | 3–6 wk | CEO / Creative Director | €800–3,000/mo | Opportunity ICP |
+| 4 | Traditional SME 50–150p | 31 | 35% | 6–12 mo | CHRO / General Manager | €3,000–8,000/mo | Avoid for now |
+| 5 | Corporate team 100–500p | 18 | 30% | 9–18 mo | CHRO / VP People | €10,000–40,000/mo | Avoid until Series A |
 
-### Head of People startup mixta
+### Detail — pain and buying signal
 
-- **Su dolor:** "Los OKRs no funcionan y el equipo está desconectado"
-- **Tu mensaje:** NWOS reemplaza la motivación por métricas con motivación por propósito. Las misiones tienen contexto. Las decisiones tienen memoria. Las personas saben por qué importa lo que hacen.
-- **KPI prometido →** eNPS: objetivo +20 puntos en 6 meses
+| # | Profile | Pain | Buying signal |
+|---|---------|------|---------------|
+| 1 | Technical startup 5–15p | Team culture breaks when going from 5 to 10 people | Looking for alternatives to Notion + Linear + alignment meetings |
+| 2 | Mixed startup 15–50p | Technical and non-technical profiles speak different languages | Has tried OKRs and they did not work. Looking for something more alive. |
+| 3 | Creative agency 10–30p | Every new project restarts the culture from scratch | Mentions 'company identity' or 'how we do things here' |
+| 4 | Traditional SME 50–150p | High turnover, disconnection from company values | Has invested in leadership training with no results |
+| 5 | Corporate team 100–500p | Cultural transformation post-merger or remote-first | Active RFP, annual culture budget approved |
 
-### Director Creativo agencia
-
-- **Su dolor:** "Cada cliente nuevo reinicia la identidad del equipo"
-- **Tu mensaje:** NWOS da identidad permanente al equipo más allá de cada proyecto. El Archive es la memoria institucional que sobrevive a cada entrega.
-- **KPI prometido →** Retención de talento creativo senior: objetivo -50% rotación
+*(The page highlights only the top 3 profiles of the ranking in detail cards.)*
 
 ---
 
-## Funnel de ventas — El embudo objetivo
+## Sales message — What to say to each decision-maker
 
-Proyección conservadora para los primeros 12 meses. Conversión awareness → cliente: ~0.9%.
+### Technical-startup CEO
 
-| Etapa | n | Descripción |
+- **Their pain:** "The team grows and the culture breaks"
+- **Your message:** NWOS is the culture infrastructure that scales with the team. It is not one more tool — it is the common grammar connecting people to what they build.
+- **Promised KPI →** Cultural onboarding time: from 3 months to 3 weeks
+
+### Mixed-startup Head of People
+
+- **Their pain:** "OKRs are not working and the team is disconnected"
+- **Your message:** NWOS replaces motivation-by-metrics with motivation-by-purpose. Missions have context. Decisions have memory. People know why what they do matters.
+- **Promised KPI →** eNPS: target +20 points in 6 months
+
+### Agency Creative Director
+
+- **Their pain:** "Every new client restarts the team's identity"
+- **Your message:** NWOS gives the team permanent identity beyond each project. The Archive is the institutional memory that survives every delivery.
+- **Promised KPI →** Senior creative talent retention: target -50% turnover
+
+---
+
+## Sales funnel — The target funnel
+
+Conservative projection for the first 12 months. Awareness → client conversion: ~0.9%.
+
+| Stage | n | Description |
 |-------|---|-------------|
-| Awareness | 1.000 | Contactos que saben que NWOS existe |
-| Interés | 180 | Han leído el one-pager o visitado /nwos |
-| Cualificado | 54 | ICP correcto + dolor activo + decisor identificado |
-| Piloto | 18 | Acuerdan un piloto de 8 semanas |
-| Cliente | 9 | Renuevan tras el piloto |
+| Awareness | 1,000 | Contacts who know NWOS exists |
+| Interest | 180 | Have read the one-pager or visited /nwos |
+| Qualified | 54 | Right ICP + active pain + decision-maker identified |
+| Pilot | 18 | Agree to an 8-week pilot |
+| Client | 9 | Renew after the pilot |
 
-**Tasas de conversión:** Awareness → Interés: **18%** · Interés → Cualificado: **30%** · Cualificado → Piloto: **33%** · Piloto → Cliente: **50%**
-
----
-
-## El producto vendible — Piloto de 8 semanas
-
-El formato de entrada. Precio fijo, entregables definidos, criterio de éxito acordado antes de empezar. Sin este formato, no hay nada que vender.
-
-| Semanas | Fase | Tareas |
-|---------|------|--------|
-| S1–S2 | Diagnóstico | Maslach organizacional · Mapa de roles actuales · 3 KPIs acordados |
-| S3–S4 | MVV | 5 conceptos instalados · Primera misión en vivo · Ritual semanal (30 min) |
-| S5–S6 | Expansión | Gremio asignado · Primer agente digital · Primera Piedra del Camino |
-| S7–S8 | Evaluación | Medición vs. KPIs · Informe de adopción · Decisión de renovación |
-
-### Precios
-
-| Segmento | Precio | Incluye |
-|----------|--------|---------|
-| Startup (<15p) | €1.500 | piloto 8 semanas · todo incluido |
-| Startup (15–50p) — **Recomendado** | €3.500 | piloto 8 semanas · con agente digital |
-| Agencia / PYME | €6.000 | piloto 8 semanas · 2 agentes + modo corp. |
+**Conversion rates:** Awareness → Interest: **18%** · Interest → Qualified: **30%** · Qualified → Pilot: **33%** · Pilot → Client: **50%**
 
 ---
 
-## Plan de acción — Los próximos 30 días
+## The sellable product — The 8-week pilot
 
-| Nº | Plazo | Acción | Owner |
-|----|-------|--------|-------|
-| 01 | Esta semana | Protocolo de exposición ciega: 2 personas externas, 48h sin contexto. Observar sin intervenir. | Pablo + Oráculo libre |
-| 02 | Esta semana | Confirmar ICP #1: CEO startup técnica 5–15p. Listar 10 contactos concretos que encajan. | Dark Council |
-| 03 | Semana 2 | Crear el deck de ventas con máximo 5 conceptos. Sin Numinia en capa 1. | Alquimista-01 |
-| 04 | Semana 2 | Definir los 3 KPIs del piloto que el cliente va a medir. Sin esto no hay criterio de éxito. | Dark Council |
-| 05 | Semana 3 | Primera conversación exploratoria con 3 contactos del ICP #1. No es una demo — es escucha. | Pablo |
-| 06 | Semana 4 | Si hay señal positiva: propuesta de piloto formalizada. Precio, entregables, criterio. Firma. | Pablo + Oráculo legal |
+The entry format. Fixed price, defined deliverables, success criterion agreed before starting. Without this format, there is nothing to sell.
+
+| Weeks | Phase | Tasks |
+|-------|-------|-------|
+| W1–W2 | Diagnosis | Organizational Maslach · Map of current roles · 3 agreed KPIs |
+| W3–W4 | MVV | 5 concepts installed · First live mission · Weekly ritual (30 min) |
+| W5–W6 | Expansion | Guild assigned · First digital agent · First Piedra del Camino |
+| W7–W8 | Evaluation | Measurement vs. KPIs · Adoption report · Renewal decision |
+
+### Pricing
+
+| Segment | Price | Includes |
+|---------|-------|----------|
+| Startup (<15p) | €1,500 | 8-week pilot · all included |
+| Startup (15–50p) — **Recommended** | €3,500 | 8-week pilot · with digital agent |
+| Agency / SME | €6,000 | 8-week pilot · 2 agents + corp. mode |
 
 ---
 
-## Cierre
+## Action plan — The next 30 days
 
-**El único número que importa ahora mismo:** 1. Un cliente externo real que haya pasado el piloto de 8 semanas y renovado. Ese caso convierte todo lo demás — el one-pager, el deck, las simulaciones, el análisis de gaps — de teoría en evidencia. Con evidencia, el ciclo de ventas se divide por tres.
-
-La secuencia es: validación ciega → ICP confirmado → piloto vendido → caso documentado → escala. No hay atajo.
+| # | Deadline | Action | Owner |
+|----|---------|--------|-------|
+| 01 | This week | Blind-exposure protocol: 2 external people, 48h without context. Observe without intervening. | Pablo + free Oracle |
+| 02 | This week | Confirm ICP #1: technical-startup CEO, 5–15p. List 10 concrete contacts that fit. | Dark Council |
+| 03 | Week 2 | Create the sales deck with 5 concepts maximum. No Numinia in layer 1. | Alquimista-01 |
+| 04 | Week 2 | Define the 3 pilot KPIs the client will measure. Without this there is no success criterion. | Dark Council |
+| 05 | Week 3 | First exploratory conversation with 3 contacts from ICP #1. It is not a demo — it is listening. | Pablo |
+| 06 | Week 4 | If there is a positive signal: formalized pilot proposal. Price, deliverables, criterion. Signature. | Pablo + legal Oracle |
 
 ---
 
-*Metadatos de la página original (`ventas.astro`): título HTML «NWOS — Estrategia de Ventas — Pablo FM» · descripción «Guía de ventas del Narrative Work OS para los Oráculos de Numen Games. ICP, funnel, bloqueadores y plan de piloto.» · ruta canónica `/ventas` · label del hero «NWOS — Ventas».*
+## Closing
+
+**The only number that matters right now:** 1. One real external client who has gone through the 8-week pilot and renewed. That case turns everything else — the one-pager, the deck, the simulations, the gap analysis — from theory into evidence. With evidence, the sales cycle divides by three.
+
+The sequence is: blind validation → confirmed ICP → pilot sold → documented case → scale. There is no shortcut.
+
+---
+
+*Metadata of the original page (`ventas.astro`): HTML title «NWOS — Estrategia de Ventas — Pablo FM» · description «Guía de ventas del Narrative Work OS para los Oráculos de Numen Games. ICP, funnel, bloqueadores y plan de piloto.» · canonical route `/ventas` · hero label «NWOS — Ventas».*

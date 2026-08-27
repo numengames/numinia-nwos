@@ -1,6 +1,6 @@
 ---
 id: "O-005"
-title: "Simulaciones del sistema"
+title: "System simulations"
 type: documentation
 status: active
 version: "1.0.0"
@@ -10,171 +10,171 @@ author: "nimrod"
 owner: "oracle"
 tags: [operations, simulations, failure-modes]
 license: "CC-BY-4.0"
-extraction_note: "Extracted verbatim from web/src/pages/simulaciones.astro (MIS-071 phase 2 — File over App)."
+extraction_note: "Extracted verbatim from web/src/pages/simulaciones.astro (MIS-071 phase 2 — File over App). Translated to English under MIS-116 (ADR-024) — language only."
 ---
 
-# ¿Qué pasa cuando el Narrative Work OS encuentra al mundo real?
+# What happens when the Narrative Work OS meets the real world?
 
-> **Resumen:** Estudio de resultados de 100 simulaciones de implementación en 5 arquetipos organizacionales. Variables críticas, patrones de éxito y modos de fallo documentados.
-> **Audiencia:** Pública (página `/simulaciones` — «NWOS — 100 Simulaciones»).
+> **Summary:** Results study of 100 implementation simulations across 5 organizational archetypes. Critical variables, success patterns and failure modes documented.
+> **Audience:** Public (page `/simulaciones` — «NWOS — 100 Simulaciones»).
 
-**Nota metodológica.** Este estudio simula 100 implementaciones del NWOS mediante un modelo paramétrico basado en los gaps identificados previamente, literatura de change management (Kotter, Prosci ADKAR), teoría de burnout (Maslach) y datos comparables de adopción de sistemas culturales corporativos. Los resultados son proyecciones modeladas, no datos de campo — no existen todavía organizaciones externas que hayan implementado el sistema. Este es el punto de partida, no el punto de llegada.
-
----
-
-## Resultados globales — Las 100 simulaciones en conjunto
-
-| Resultado | Simulaciones | Definición |
-|-----------|-------------|------------|
-| Éxito completo | 29 | Adopción sostenida 6+ meses |
-| Éxito parcial | 31 | Core adoptado, lore pendiente |
-| Estancado | 23 | Entusiasmo inicial sin tracción |
-| Abandono | 17 | Descartado en menos de 3 meses |
-
-**Lectura:** En condiciones sin optimizar, el NWOS tiene una tasa de adopción sostenida del **29%**. Combinando éxito completo y parcial, el **60%** de las organizaciones retiene al menos el núcleo del sistema. El **40%** restante representa el territorio donde los gaps identificados operan sin respuesta.
+**Methodological note.** This study simulates 100 NWOS implementations through a parametric model based on the previously identified gaps, change-management literature (Kotter, Prosci ADKAR), burnout theory (Maslach) and comparable adoption data for corporate culture systems. The results are modeled projections, not field data — no external organizations have implemented the system yet. This is the starting point, not the destination.
 
 ---
 
-## Por arquetipo organizacional — Los 5 perfiles y sus resultados
+## Global results — The 100 simulations as a whole
 
-| ID | Arquetipo | n | Éxito | Parcial | Estancado | Fallo | Tasa de adopción | Media (meses) |
-|----|-----------|---|-------|---------|-----------|-------|------------------|---------------|
-| A1 | Startup técnica 5–15p | 20 | 11 | 6 | 2 | 1 | 85% | 2,8 |
-| A2 | Startup mixta 15–50p | 20 | 7 | 8 | 4 | 1 | 75% | 4,1 |
-| A3 | PYME tradicional 50–150p | 20 | 2 | 5 | 7 | 6 | 35% | 7,3 |
-| A4 | Agencia creativa 10–30p | 20 | 8 | 7 | 4 | 1 | 75% | 3,2 |
-| A5 | Equipo corporativo 100–500p | 20 | 1 | 5 | 6 | 8 | 30% | 9,7 |
+| Outcome | Simulations | Definition |
+|---------|-------------|------------|
+| Complete success | 29 | Sustained adoption 6+ months |
+| Partial success | 31 | Core adopted, lore pending |
+| Stalled | 23 | Initial enthusiasm without traction |
+| Abandonment | 17 | Discarded in under 3 months |
 
-### A1 — Startup técnica 5–15p
-
-Alta apertura al cambio, lenguaje tech-native, sin estructura previa. El perfil más natural para NWOS.
-
-- **Principales causas de fallo:**
-  - Coherencia narrativa no escala al crecer
-  - Fatiga ritual cuando el equipo dobla
-- **Factores de éxito diferencial:**
-  - Adopción orgánica del vocabulario
-  - Agentes digitales integrados en semanas
-
-### A2 — Startup mixta 15–50p
-
-Perfiles técnicos y no técnicos. Tensión entre eficiencia operativa y capa narrativa. El caso más común en 2026.
-
-- **Principales causas de fallo:**
-  - Coste cognitivo desigual entre perfiles
-  - ICP no definido antes de escalar
-- **Factores de éxito diferencial:**
-  - Rituales con peso operativo real
-  - MVP de vocabulario: 5 conceptos en semana 1
-
-### A3 — PYME tradicional 50–150p
-
-Jerarquía establecida, resistencia al cambio narrativo, HR involucrado en toda decisión de cultura.
-
-- **Principales causas de fallo:**
-  - Vocabulario bloqueado por perfil directivo tradicional
-  - Burnout estructural pre-existente no diagnosticado
-- **Factores de éxito diferencial:**
-  - Modo traducción corporativa activado
-  - Champion interno con autoridad real
-
-### A4 — Agencia creativa 10–30p
-
-Alta tolerancia simbólica, cultura de proyecto, rotación elevada. Adoptan rápido pero sostener es el reto.
-
-- **Principales causas de fallo:**
-  - Fragmentación narrativa con cada proyecto nuevo
-  - Roles emergentes no reconocidos formalmente
-- **Factores de éxito diferencial:**
-  - Rituales como anclaje cultural entre proyectos
-  - Archive como memoria institucional viva
-
-### A5 — Equipo corporativo 100–500p
-
-Presupuesto aprobado por CHRO, implementación piloto en un equipo. El caso con mayor ROI potencial y mayor fricción.
-
-- **Principales causas de fallo:**
-  - Sin validación externa previa: el sistema llega ya como conclusión
-  - Accountability digital imposible sin soporte legal-HR
-- **Factores de éxito diferencial:**
-  - Piloto de 8 semanas con métricas pre-acordadas
-  - Modo corporativo sin Numinia en capa visible
+**Reading:** Under unoptimized conditions, the NWOS has a sustained adoption rate of **29%**. Combining complete and partial success, **60%** of organizations retain at least the system's core. The remaining **40%** represents the territory where the identified gaps operate unanswered.
 
 ---
 
-## Variables críticas — Lo que más mueve la aguja
+## By organizational archetype — The 5 profiles and their outcomes
 
-Tasa de éxito + parcial según presencia o ausencia de cada variable. Calculada sobre las 100 simulaciones.
+| ID | Archetype | n | Success | Partial | Stalled | Failure | Adoption rate | Average (months) |
+|----|-----------|---|---------|---------|---------|---------|---------------|------------------|
+| A1 | Technical startup 5–15p | 20 | 11 | 6 | 2 | 1 | 85% | 2.8 |
+| A2 | Mixed startup 15–50p | 20 | 7 | 8 | 4 | 1 | 75% | 4.1 |
+| A3 | Traditional SME 50–150p | 20 | 2 | 5 | 7 | 6 | 35% | 7.3 |
+| A4 | Creative agency 10–30p | 20 | 8 | 7 | 4 | 1 | 75% | 3.2 |
+| A5 | Corporate team 100–500p | 20 | 1 | 5 | 6 | 8 | 30% | 9.7 |
 
-| Variable | Éxito con (Sí) | Éxito sin (No) | Comparación |
-|----------|----------------|----------------|-------------|
-| Validación externa antes de implementar | 68% | 12% | Con / Sin validación externa previa |
-| Adopción gradual vs. full desde día 1 | 61% | 21% | Gradual / Full desde inicio |
-| Salud organizacional (Maslach verde) | 72% | 9% | Org. sana / Org. con burnout estructural |
-| ICP definido antes de empezar | 58% | 19% | ICP claro / ICP indefinido |
-| Champion interno con autoridad real | 64% | 17% | Con champion / Sin champion |
-| Modo traducción corporativa activo | 43% | 14% | Con capa corp. / Sin capa corp. |
+### A1 — Technical startup 5–15p
 
----
+High openness to change, tech-native language, no prior structure. The most natural profile for NWOS.
 
-## Modos de fallo — Cómo muere el NWOS (cuando muere)
+- **Main failure causes:**
+  - Narrative coherence does not scale with growth
+  - Ritual fatigue when the team doubles
+- **Differential success factors:**
+  - Organic adoption of the vocabulary
+  - Digital agents integrated within weeks
 
-Frecuencia de cada causa de fallo sobre las simulaciones que resultaron en abandono o estancamiento (n=46).
+### A2 — Mixed startup 15–50p
 
-| Modo de fallo | Frecuencia | Cluster |
-|---------------|-----------|---------|
-| Burnout estructural pre-existente enmascarado | 34% | C8 |
-| Sin validación externa — coherencia interna confundida con valor de mercado | 29% | C1 |
-| Coste cognitivo de entrada demasiado alto antes del primer valor | 24% | C2 |
-| Fatiga ritual: formato sin experiencia genuina | 18% | C5 |
-| Fragmentación narrativa al escalar sin guardián del canon | 16% | C8 |
-| Accountability digital bloqueado por estructura legal | 14% | C4 |
-| ICP y modelo de negocio indefinidos — nadie sabe qué está comprando | 12% | C3 |
+Technical and non-technical profiles. Tension between operational efficiency and the narrative layer. The most common case in 2026.
 
----
+- **Main failure causes:**
+  - Uneven cognitive cost across profiles
+  - ICP not defined before scaling
+- **Differential success factors:**
+  - Rituals with real operational weight
+  - Vocabulary MVP: 5 concepts in week 1
 
-## Patrones de éxito — Las 5 formas en que funciona
+### A3 — Traditional SME 50–150p
 
-Clasificación de las 29 simulaciones exitosas según el patrón de implementación dominante.
+Established hierarchy, resistance to narrative change, HR involved in every culture decision.
 
-### El Piloto Controlado — 38%
+- **Main failure causes:**
+  - Vocabulary blocked by the traditional executive profile
+  - Pre-existing structural burnout left undiagnosed
+- **Differential success factors:**
+  - Corporate translation mode activated
+  - Internal champion with real authority
 
-8 semanas, equipo de 5–12 personas, métricas pre-acordadas, validación externa antes. El patrón con mayor tasa de conversión a implementación completa.
+### A4 — Creative agency 10–30p
 
-- **Requisitos:** Validación externa ✓ · ICP definido ✓ · Org. sana ✓
+High symbolic tolerance, project culture, high turnover. They adopt fast, but sustaining is the challenge.
 
-### El MVV (Mínimo Vocabulario Viable) — 27%
+- **Main failure causes:**
+  - Narrative fragmentation with every new project
+  - Emergent roles not formally recognized
+- **Differential success factors:**
+  - Rituals as cultural anchoring between projects
+  - The Archive as living institutional memory
 
-Solo 5 conceptos en semana 1. Misión, rol, decisión, ritual, agente. El resto del vocabulario emerge cuando se necesita, no antes.
+### A5 — Corporate team 100–500p
 
-- **Requisitos:** Adopción gradual ✓ · Champion interno ✓
+Budget approved by the CHRO, pilot implementation in one team. The case with the highest potential ROI and the highest friction.
 
-### El Modo Corporativo — 19%
-
-Numinia como capa profunda opcional. La estructura NWOS con vocabulario estándar de negocio en la interfaz. Abre el mercado enterprise sin sacrificar el núcleo.
-
-- **Requisitos:** Traducción corporativa ✓ · Champion con autoridad ✓
-
-### El Amplificador — 11%
-
-NWOS no como solución al burnout sino como multiplicador cuando la organización ya está sana. Diagnóstico Maslach obligatorio previo.
-
-- **Requisitos:** Diagnóstico previo ✓ · Org. sana ✓ · Gradual ✓
-
-### El Nativo Digital — 5%
-
-Equipos tech-first donde los agentes digitales se integran antes que los rituales. El sistema arranca desde la infraestructura y el lore llega después.
-
-- **Requisitos:** Startup tech ✓ · Alta madurez IA ✓
-
----
-
-## Conclusión
-
-**La conclusión más importante:** El NWOS no falla por el sistema — falla por el contexto en que se despliega. En organizaciones con salud organizacional básica, ICP definido y validación externa previa, la tasa de adopción sostenida sube al **68%**. En organizaciones con burnout estructural previo y sin validación externa, baja al **9%**.
-
-El sistema es un **amplificador**, no un reparador. Y la secuencia importa: primero validación externa, luego adopción gradual, luego escala narrativa. Invertir el orden convierte las fortalezas del sistema en sus principales vectores de fallo.
+- **Main failure causes:**
+  - No prior external validation: the system arrives already as a conclusion
+  - Digital accountability impossible without legal-HR support
+- **Differential success factors:**
+  - 8-week pilot with pre-agreed metrics
+  - Corporate mode with Numinia out of the visible layer
 
 ---
 
-*Metadatos de la página original (`simulaciones.astro`): título HTML «NWOS — 100 Simulaciones — Pablo FM» · descripción «Estudio de resultados de 100 simulaciones de implementación del Narrative Work OS en organizaciones reales. Patrones de éxito, modos de fallo y variables críticas.» · ruta canónica `/simulaciones` · label del hero «NWOS — 100 Simulaciones».*
+## Critical variables — What moves the needle most
+
+Success + partial rate by presence or absence of each variable. Computed over the 100 simulations.
+
+| Variable | Success with (Yes) | Success without (No) | Comparison |
+|----------|--------------------|-----------------------|------------|
+| External validation before implementing | 68% | 12% | With / Without prior external validation |
+| Gradual adoption vs. full from day 1 | 61% | 21% | Gradual / Full from the start |
+| Organizational health (Maslach green) | 72% | 9% | Healthy org. / Org. with structural burnout |
+| ICP defined before starting | 58% | 19% | Clear ICP / Undefined ICP |
+| Internal champion with real authority | 64% | 17% | With champion / Without champion |
+| Corporate translation mode active | 43% | 14% | With corp. layer / Without corp. layer |
+
+---
+
+## Failure modes — How the NWOS dies (when it dies)
+
+Frequency of each failure cause over the simulations that ended in abandonment or stall (n=46).
+
+| Failure mode | Frequency | Cluster |
+|--------------|-----------|---------|
+| Pre-existing structural burnout, masked | 34% | C8 |
+| No external validation — internal coherence mistaken for market value | 29% | C1 |
+| Entry cognitive cost too high before first value | 24% | C2 |
+| Ritual fatigue: format without genuine experience | 18% | C5 |
+| Narrative fragmentation when scaling without a canon guardian | 16% | C8 |
+| Digital accountability blocked by legal structure | 14% | C4 |
+| ICP and business model undefined — nobody knows what they are buying | 12% | C3 |
+
+---
+
+## Success patterns — The 5 ways it works
+
+Classification of the 29 successful simulations by dominant implementation pattern.
+
+### The Controlled Pilot — 38%
+
+8 weeks, a team of 5–12 people, pre-agreed metrics, external validation first. The pattern with the highest conversion rate to full implementation.
+
+- **Requirements:** External validation ✓ · ICP defined ✓ · Healthy org. ✓
+
+### The MVV (Minimum Viable Vocabulary) — 27%
+
+Only 5 concepts in week 1. Mission, role, decision, ritual, agent. The rest of the vocabulary emerges when needed, not before.
+
+- **Requirements:** Gradual adoption ✓ · Internal champion ✓
+
+### Corporate Mode — 19%
+
+Numinia as an optional deep layer. The NWOS structure with standard business vocabulary at the interface. Opens the enterprise market without sacrificing the core.
+
+- **Requirements:** Corporate translation ✓ · Champion with authority ✓
+
+### The Amplifier — 11%
+
+NWOS not as a solution to burnout but as a multiplier when the organization is already healthy. Mandatory prior Maslach diagnosis.
+
+- **Requirements:** Prior diagnosis ✓ · Healthy org. ✓ · Gradual ✓
+
+### The Digital Native — 5%
+
+Tech-first teams where the digital agents integrate before the rituals do. The system starts from the infrastructure and the lore arrives later.
+
+- **Requirements:** Tech startup ✓ · High AI maturity ✓
+
+---
+
+## Conclusion
+
+**The most important conclusion:** The NWOS does not fail because of the system — it fails because of the context it is deployed into. In organizations with basic organizational health, a defined ICP and prior external validation, the sustained adoption rate rises to **68%**. In organizations with prior structural burnout and no external validation, it drops to **9%**.
+
+The system is an **amplifier**, not a repairer. And the sequence matters: first external validation, then gradual adoption, then narrative scale. Inverting the order turns the system's strengths into its main failure vectors.
+
+---
+
+*Metadata of the original page (`simulaciones.astro`): HTML title «NWOS — 100 Simulaciones — Pablo FM» · description «Estudio de resultados de 100 simulaciones de implementación del Narrative Work OS en organizaciones reales. Patrones de éxito, modos de fallo y variables críticas.» · canonical route `/simulaciones` · hero label «NWOS — 100 Simulaciones».*
