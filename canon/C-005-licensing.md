@@ -5,12 +5,12 @@ ruta_en_repositorio: canon/C-005-licensing.md   # NWOS dentro del repo
 archivo_distribuido: 2026_08_16-Numinia_Canon_C005_Licencias-v1.3.0.md   # Khepri §11 fuera de él
 guia_publica: 2026_08_16-Numinia_Guia_Licencias-v1.1.0.html
 edicion_razonada: 2026_08_16-Numinia_Legal_Book_Edicion_Razonada-v0.6.1.md
-version: 1.3.0
-fecha: 2026-08-16
+version: 1.4.0
+fecha: 2026-08-27
 estado: canon — inmutable; su modificación exige consenso formal (NWOS)
 ambito: toda pieza creada a partir de esta fecha
 no_ambito: inventario de lo heredado (`LEGAL_DEBT.md`) · razonamiento y alternativas (Legal Book v0.6.1, archivado)
-idioma_canonico: es-ES   # el canon es gobierno interno; los artefactos exigibles van en inglés (§5)
+idioma_canonico: es-ES   # transitorio — ADR-024 fija el canon en inglés; pasa a `en` con la traducción (MIS-116)
 procedencia_secciones: cada sección marcada [UNIVERSAL] o [NUMEN] (§0)
 convenciones_normativas: RFC 2119 (DEBE / DEBERÍA / PUEDE)
 autoridad: Brand & Culture > C-001…C-004 > este canon > cualquier repositorio de Numen Games
@@ -278,9 +278,12 @@ bloquearían un archivo declarado CC0. Obligatorio: `otherLicenseUrl` a CC0,
 unnecessary`, `allowRedistribution: true`,
 `modification: allowModificationRedistribution`.
 
-**Idioma de los artefactos exigibles (DEBE).** `LICENSE`, `LICENSES/`, `TRADEMARKS.md`,
-`NOTICE`, el CLA y el fragmento para agentes van **en inglés**. Son lo que se opone a un
-tercero. Este canon es gobierno interno y permanece en `es-ES`.
+**Idioma de los artefactos exigibles y del canon (DEBE).** `LICENSE`, `LICENSES/`,
+`TRADEMARKS.md`, `NOTICE`, el CLA y el fragmento para agentes van **en inglés**. Son lo
+que se opone a un tercero. **Este canon va también en inglés** (`ADR-024`): los
+documentos de gobierno son parte de lo que lee una organización que adopta NWOS, y el
+inglés es el idioma base de toda summa (`DEC-006`). La excepción original de es-ES
+quedó revocada el 2026-08-27.
 
 **CI (DEBE).** `license-check` falla ante licencia desconocida, prohibida o ausente.
 **Régimen por defecto: error.** El aviso es la excepción y requiere lista explícita:
@@ -427,6 +430,7 @@ work; when it is silent, ask rather than infer.
 
 | Versión | Fecha | Cambios |
 |---|---|---|
+| 1.4.0 | 2026-08-27 | **Enmienda de idioma (`ADR-024`, canon-change).** §5 revoca la excepción *«este canon es gobierno interno y permanece en es-ES»*: el inglés es el idioma base de toda summa (`DEC-006`), canon incluido — los documentos de gobierno son parte de lo que lee una organización que adopta NWOS. La traducción del cuerpo se ejecuta como PR aparte dentro de `MIS-116` (fila `canon/`); `idioma_canonico` pasa a `en` en ese PR, cuando el hecho que describe sea verdad. Única excepción, registrada como deuda en el ADR: el manual del juego de rol (`numinia-lore`, lore reservado, fuente de verdad externa). |
 | 1.3.0 | 2026-08-16 | **Consolidación.** Resuelta la contradicción §1↔§5: *el silencio no declara* — lo reservado se expresa con `LICENSE` de reserva, no con ausencia. Nueva **§2.5, regla del generador** [UNIVERSAL]: un molde nunca propaga su licencia a lo generado y emite reserva a nombre del cliente; los *workspaces* de cliente quedan fuera de §5. Nueva **§2.6, procedencia de IA**: `human · ai-assisted · ai-generated`, con la parte contractual marcada [ABOGADO]. Nueva **compuerta de cambio de visibilidad** (§4): pasar un repo a público **es** la concesión, antes que `npm publish`, y se verifica contra un listado real de directorios, no contra una lista escrita a mano. **Un archivo, un régimen** (§5): un `AND` que mezcla licencia abierta con reserva es un permiso imposible; el contenido se separa. **Severidad por defecto error** y sin nombrar dominios; los umbrales de deuda los evalúa el CI en cada build. **Idioma**: los artefactos exigibles —`LICENSE`, `TRADEMARKS.md`, `NOTICE`, CLA, fragmento— en inglés; el canon sigue en es-ES. Nuevo **§0**: alcance limitado a repositorios de Numen Games y marcas [UNIVERSAL]/[NUMEN] por sección para que la promoción futura sea mecánica. El fragmento §9 se vuelve autosuficiente: presente≠distribuido, un archivo un régimen, generadores, visibilidad en *stop and ask*. |
 | 1.2.0 | 2026-08-16 | **Presente no es distribuido** (§3). Primer choque del gate con el árbol real: una dependencia transitiva prohibida que el *tree-shaking* deja fuera del artefacto no bloquea el desarrollo, pero exige registro en `LEGAL_DEBT.md` con **umbral** de salida, guardia de CI sobre el contenido del artefacto —no sobre los nombres del árbol— y lectura del texto real de la licencia. Con un límite duro: **si la licencia impone restricciones adicionales y el artefacto es AGPL, no cabe excepción**, porque el estado resultante es incumplible por construcción. La ausencia de campo `license` queda degradada de infracción a señal de higiene: bloquea mientras los términos sean desconocidos, se levanta al documentarlos. |
 | 1.1.0 | 2026-08-16 | Tres enmiendas tras el primer contacto con el código. **El repositorio no es una unidad jurídica** (§2): la frontera es `apps/*` AGPL / `packages/*` MIT declarada por `REUSE.toml`, con la dirección de dependencias como condición real; el repositorio separado queda reservado al copyleft **heredado**, que es el único que un tercero puede hacer valer. **Excepción de cabecera** (§5): los archivos que no pueden modificarse —kits pineados, *vendored*, generados, binarios— se declaran por `REUSE.toml` o `.license`. **CLA por repositorio, no por ruta** (§6): un CLA condicionado a rutas falla en silencio. El fragmento §9 incorpora contribuciones y excepciones, que antes solo vivían en el canon. |
