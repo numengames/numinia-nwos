@@ -13,7 +13,7 @@ completed: null
 
 # REGISTRO
 type: mission
-version: "1.3.0"
+version: "1.4.0"
 created: "2026-08-28"
 updated: "2026-08-28"
 author: "ursa"
@@ -109,6 +109,23 @@ that completes the work.
 
 ## Execution log
 
+- **2026-08-28 · (d) engine built + model signed** — head-to-head eval on
+  3 corpus samples (canon prose / mission brief / protocol with tables):
+  **qwen3:14b WINS** — IDs 3/3, headings 6/6, table rows 5/5, natural
+  es-ES, ~60-92s per 1.8K chars. gpt-oss:20b REJECTED: 2-3x slower and
+  returned empty/structureless output on 2 of 3 samples under the same
+  prompt. `scripts/translate-corpus.mjs`: content-hash cache (sha256 of
+  source+prompt-version+model), hand-reviewed `.es.md` sibling shadows
+  machine output, governance dirs excluded (decision 2), fidelity gate
+  rejects any translation losing headings/tables/IDs or drifting >±40%
+  length (S-001: serve honest English over broken Spanish). Streaming
+  fetch (undici kills non-streamed responses at 300s). Frontmatter never
+  reaches the model — schema keys are machine surface; split, translate
+  body, reattach. Verified on MIS-119 full doc: 175s, structure intact,
+  frontmatter byte-identical. HONEST COST: 218 eligible docs × ~2-3 min
+  ≈ **7-11 h GPU single-threaded** for a cold cache; warm cache = only
+  changed docs. CF Workers Builds has no GPU — translation runs local/CI,
+  cache travels as artifact/commit, deploy stays static (as planned).
 - **2026-08-28 · (c) done** — shared chrome fully dictionary-backed:
   SiteSearch, DocToolbar (incl. JS Copied/Error via data-t-* attrs),
   SpeechPlayer (10 data-t-* keys, JS reads dataset with EN fallback),

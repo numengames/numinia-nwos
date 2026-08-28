@@ -14,3 +14,4 @@ build/
 # Python bytecode
 __pycache__/
 *.pyc
+web/.translation-cache/
