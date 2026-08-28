@@ -1,17 +1,17 @@
 ---
 id: "MIS-117"
 title: "Add client-side search to numinia.org with Pagefind"
-status: in-progress
+status: done
 priority: medium
 effort: S
 guild: alchemists
 area: web
 type_execution: digital
 assigned_to: "ursa"
-completed: null
+completed: "2026-08-28"
 
 type: mission
-version: "1.2.0"
+version: "1.3.0"
 created: "2026-08-28"
 updated: "2026-08-28"
 author: "ursa"
