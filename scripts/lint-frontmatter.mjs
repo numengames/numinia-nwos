@@ -54,11 +54,11 @@ const RING3 = {
   'operations': ['extraction_note', 'restoration_note'],
   'standards': ['supersedes_version', 'ratified_by', 'subtype'],
   'canon': ['supersedes_version', 'ratified_by'],
-  'protocols': ['supersedes_version', 'ratified_by'],
+  'protocols': ['supersedes_version', 'ratified_by', 'applies_to', 'mandatory'],
 };
 const RING3_ALL = ['tags', 'visibility', 'guild', 'territory', 'registration',
   'registration_reason', 'registration_exemption', 'evidence_script',
-  'evidence_head', 'uid'];
+  'evidence_head', 'related', 'uid'];
 
 /** S-004 §4: closed type vocabulary (S-001 §7 + agent, pending its ADR). */
 const TYPES = ['mission', 'adr', 'protocol', 'blueprint', 'report', 'seminal',
