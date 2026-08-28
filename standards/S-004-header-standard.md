@@ -4,9 +4,9 @@ title: "The header in three rings: identity, provenance, extension"
 type: documentation
 subtype: standard
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-08-28T15:10:00Z"
-created_source: "git:pending"
+created_source: "git:4c0a02e"
 created_confidence: exact
 updated: "2026-08-28T15:10:00Z"
 author: "ursa"
@@ -172,15 +172,27 @@ standard; there is no out-of-band extension.
 
 Initial registry — transcribed from actual majority use, not invented:
 
+> **Amendment 2026-08-28 (v0.2.0).** Building the lint against v0.1.0
+> exposed two transcription errors in this table, caught before any
+> baseline was frozen: (1) `guild` and `territory` are normalized
+> optional **globals** in S-001 §6.3 — v0.1.0 wrongly caged them in
+> `missions/`; (2) the mission dependency graph (`depends_on`,
+> `parent_mission`, `sub_missions`, `blocked_by`), the S-001 evidence
+> apparatus (`evidence_script`, `evidence_head` — a number without a
+> script is not evidence), and the registration mechanics of §5.0
+> (`registration_reason`, `registration_exemption`) are systematic use,
+> not noise. The lint is the standard's own first QA; this is it working.
+
 | Series | Registered fields |
 |---|---|
-| `missions/` | `priority` `effort` `guild` `territory` `assigned_to` `started` `completed` `mission_id` `type_execution` `freeze_reason` `in_review_at` |
-| `reports/` | `severity` `period` `subtype` |
+| `missions/` | `priority` `effort` `assigned_to` `started` `completed` `mission_id` `type_execution` `freeze_reason` `in_review_at` `depends_on` `parent_mission` `sub_missions` `blocked_by` `requires_oracle_approval` `human_approval_score` `paths` `context` `divergence_log` |
+| `reports/` | `severity` `period` `subtype` `model` `agent` `week` `scope` |
 | `decisions/` | `deciders` `consulted` `outcome` |
-| `agents/` | `role` `platform` `model` `soul` |
-| `debt/` | `severity` `detected` `refuted` `source_audit` |
+| `agents/` | `role` `platform` `model` `soul` `agent` |
+| `debt/` | `severity` `severity_reason` `detected` `refuted` `source_audit` `opened_by` |
+| `blueprints/` `operations/` | `extraction_note` `restoration_note` |
 | `standards/` `canon/` `protocols/` | `supersedes_version` `ratified_by` |
-| all | `tags` `visibility` `registration` `uid` (reserved-empty, S-001 §6.2 — **H-20**: non-empty `uid` is an error until the UID system exists) |
+| all | `tags` `visibility` `guild` `territory` (S-001 §6.3) · `registration` `registration_reason` `registration_exemption` (§5.0) · `evidence_script` `evidence_head` (evidence apparatus) · `uid` (reserved-empty, S-001 §6.2 — **H-20**: non-empty `uid` is an error until the UID system exists) |
 
 The remaining ~50 rare fields not registered here die by omission: the
 lint flags them, their carriers migrate or the field earns its ADR. The
