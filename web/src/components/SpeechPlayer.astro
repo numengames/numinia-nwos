@@ -141,6 +141,56 @@ const { textSelector = "article", lang = "en" } = Astro.props;
     let gen = 0;
     let keepalive: number | undefined;
 
+    // ---- position persistence (QA 2026-08-28: pause + navigate away lost
+    // the position). The chunk index and rate survive the page in
+    // sessionStorage, keyed by route + selector. Only an explicit Stop or
+    // the document's natural end clears it; leaving the page does not.
+    // chunks.length is stored as a fingerprint: if a deploy re-chunks the
+    // text, the stale index is discarded instead of resuming mid-nonsense.
+    const storeKey =
+      "sp:" + location.pathname + ":" + (root.dataset.textSelector || "article");
+    const saveProgress = () => {
+      try {
+        sessionStorage.setItem(
+          storeKey,
+          JSON.stringify({ i: queueIndex, rate, n: chunks.length }),
+        );
+      } catch {
+        /* storage full/blocked: degrade to the old session-only behavior */
+      }
+    };
+    const clearProgress = () => {
+      try {
+        sessionStorage.removeItem(storeKey);
+      } catch {
+        /* ignore */
+      }
+    };
+    // Restore a previous position before first render. Rate is restored
+    // too — resuming at the pace the reader chose, not the default.
+    try {
+      const saved = JSON.parse(sessionStorage.getItem(storeKey) ?? "null");
+      if (
+        saved &&
+        saved.n === chunks.length &&
+        Number.isInteger(saved.i) &&
+        saved.i > 0 &&
+        saved.i < chunks.length
+      ) {
+        queueIndex = saved.i;
+        if (RATES.includes(saved.rate)) {
+          rate = saved.rate;
+          rateBtn.textContent = rate + "×";
+          rateBtn.dataset.rate = String(rate);
+          renderEst();
+        }
+      } else if (saved) {
+        clearProgress(); // stale fingerprint: the text changed under it
+      }
+    } catch {
+      /* unreadable entry: treat as no saved position */
+    }
+
     const stopKeepalive = () => {
       if (keepalive !== undefined) {
         clearInterval(keepalive);
@@ -157,32 +207,38 @@ const { textSelector = "article", lang = "en" } = Astro.props;
     };
 
     const render = () => {
+      // Idle with a saved position (restored from a previous visit) is
+      // presented as Resume: the reader left mid-document and comes back.
+      const resumable = state === "paused" || (state === "idle" && queueIndex > 0);
       toggle.setAttribute("aria-pressed", String(state === "speaking"));
       icon.textContent = state === "speaking" ? "❚❚" : "▶";
       label.textContent =
-        state === "speaking" ? "Pause" : state === "paused" ? "Resume" : "Listen";
+        state === "speaking" ? "Pause" : resumable ? "Resume" : "Listen";
       toggle.setAttribute(
         "aria-label",
         state === "speaking"
           ? "Pause listening"
-          : state === "paused"
+          : resumable
             ? "Resume listening"
             : "Listen to this document",
       );
-      stopBtn.classList.toggle("hidden", state === "idle");
+      stopBtn.classList.toggle("hidden", state === "idle" && queueIndex === 0);
     };
 
     const speakFrom = (i: number) => {
       if (i >= chunks.length) {
         // Natural end: also release the keepalive (QA: it leaked here and
-        // stacked a second interval on the next play).
+        // stacked a second interval on the next play). The document is
+        // finished — the saved position dies with it.
         state = "idle";
         queueIndex = 0;
+        clearProgress();
         stopKeepalive();
         render();
         return;
       }
       queueIndex = i;
+      saveProgress();
       const g = gen;
       const u = new SpeechSynthesisUtterance(chunks[i]);
       if (voice) u.voice = voice;
@@ -218,9 +274,20 @@ const { textSelector = "article", lang = "en" } = Astro.props;
       gen++;
       state = "idle";
       queueIndex = 0;
+      clearProgress(); // Stop is the reader saying "from the top next time"
       stopKeepalive();
       synth.cancel();
       render();
+    };
+
+    // Page teardown is NOT Stop: the voice must not outlive the page, but
+    // the position must (QA 2026-08-28 — pause, browse away, come back,
+    // resume where you left off).
+    const teardown = () => {
+      if (state !== "idle" || queueIndex > 0) saveProgress();
+      gen++;
+      stopKeepalive();
+      synth.cancel();
     };
 
     toggle.addEventListener("click", () => {
@@ -269,11 +336,15 @@ const { textSelector = "article", lang = "en" } = Astro.props;
         gen++;
         synth.cancel();
         speakFrom(queueIndex);
+      } else if (queueIndex > 0) {
+        saveProgress(); // keep the stored rate in step with the position
       }
     });
 
-    // The voice must not outlive the page.
-    addEventListener("beforeunload", stopAll);
-    document.addEventListener("astro:before-swap", stopAll);
+    // The voice must not outlive the page — but the position does.
+    addEventListener("beforeunload", teardown);
+    document.addEventListener("astro:before-swap", teardown);
+
+    render(); // reflect a restored position (Resume) on first paint
   }
 </script>
