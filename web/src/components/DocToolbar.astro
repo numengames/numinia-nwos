@@ -17,7 +17,7 @@ const { mdUrl, filename, pdfUrl, lang } = Astro.props;
 const pdfFilename = filename.replace(/\.md$/i, ".pdf");
 ---
 
-<div class="doc-toolbar flex items-center justify-end gap-2 mb-3" data-md-url={mdUrl}>
+<div class="doc-toolbar flex flex-wrap items-center justify-start sm:justify-end gap-2 mb-3" data-md-url={mdUrl}>
   <SpeechPlayer lang={lang} />
   <button
     type="button"
