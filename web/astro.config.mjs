@@ -21,6 +21,20 @@ export default defineConfig({
 	// canon URL changed. These keep the old ones resolving, same as MIS-066.
 	// DEUDA-404 records what happens without this: /corpus/canon/c-006-manual-
 	// juego-de-rol/ (890 KB) died in April and nobody noticed. See D-028.
+	// MIS-120(b) — native i18n. English lives on the unprefixed URLs (the
+	// canonical site, DEC-006/ADR-024); /es/ serves Spanish. fallback:redirect
+	// keeps the selector honest on unswept pages: /es/<page> 301s to the
+	// English page until a real /es/ page exists (pilots here, sweep in (c),
+	// corpus bodies in (d)). fallbackType:"rewrite" was tried and REJECTED:
+	// it re-renders dynamic routes under /es/ against getStaticPaths maps
+	// that legitimately overlap ([...slug] vs [section]) and the build dies
+	// with NoMatchingStaticPathFound on /es/corpus/changelog/.
+	i18n: {
+		defaultLocale: "en",
+		locales: ["en", "es"],
+		fallback: { es: "en" },
+		routing: { prefixDefaultLocale: false },
+	},
 	redirects: {
 		"/auditoria": "/audits",
 		"/misiones": "/missions",

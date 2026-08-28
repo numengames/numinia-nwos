@@ -6,6 +6,7 @@ import "@fontsource-variable/geist";
 import "@fontsource-variable/geist-mono";
 import Navigation from "@/components/Navigation.astro";
 import Footer from "@/components/Footer.astro";
+import { localePaths } from "@/i18n/ui";
 
 interface Props {
   title?: string;
@@ -26,10 +27,17 @@ const {
 const siteUrl = "https://numinia.org";
 const canonical = `${siteUrl}${canonicalPath}`;
 const resolvedOgImage = ogImage ?? `${siteUrl}/og-default.png`;
+// MIS-120(b) — the page's true language. Was hardcoded lang="es" while the
+// site served English: that mislabeled every page for screen readers,
+// Pagefind's per-language index, and og:locale. Astro.currentLocale follows
+// the /es/ prefix; unprefixed routes are English (DEC-006/ADR-024).
+const locale = Astro.currentLocale ?? "en";
+const ogLocale = locale === "es" ? "es_ES" : "en_US";
+const { enPath, esPath } = localePaths(canonicalPath);
 ---
 
 <!doctype html>
-<html lang="es" class="dark">
+<html lang={locale} class="dark">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -38,13 +46,17 @@ const resolvedOgImage = ogImage ?? `${siteUrl}/og-default.png`;
     <meta name="description" content={description} />
     <meta name="theme-color" content="#14110F" />
     <link rel="canonical" href={canonical} />
+    <!-- MIS-120(b) — hreflang pairs: every page names its sibling locale -->
+    <link rel="alternate" hreflang="en" href={`${siteUrl}${enPath}`} />
+    <link rel="alternate" hreflang="es" href={`${siteUrl}${esPath}`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}${enPath}`} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale" content={ogLocale} />
     <meta property="og:image" content={resolvedOgImage} />
 
     <!-- Twitter Card -->
