@@ -41,8 +41,19 @@ const CACHE_DIR = "web/.translation-cache";
 // Decision 2: governed surfaces stay English everywhere. Everything else
 // under the published corpus is fair game for the machine.
 const INCLUDE = ["missions/**/*.md", "protocols/**/*.md", "operations/**/*.md",
-  "guilds/**/*.md", "reports/**/*.md", "debt/**/*.md"];
-const EXCLUDE_DIRS = ["canon/", "standards/", "seminal/", "reports/audits/evidence/"];
+  "guilds/**/*.md", "reports/**/*.md", "debt/**/*.md", "standards/**/*.md"];
+// The signed plan excludes: canon/, decisions/, LEGAL_DEBT, licensing.
+// standards/ was NEVER on that list — it was excluded by mistake and is
+// reinstated here. Legal surfaces are excluded by BOTH directory and name:
+// privacy policies and terms are contracts, not prose, and a machine
+// translation served as the Spanish site is a liability, not a courtesy.
+const EXCLUDE_DIRS = ["canon/", "decisions/", "seminal/", "operations/legal/",
+  "reports/audits/evidence/"];
+const EXCLUDE_PATTERNS = [/licens/i, /legal/i, /privacy/i, /terms/i,
+  /c-005/i, /LEGAL_DEBT/];
+const isExcluded = (file) =>
+  EXCLUDE_DIRS.some((d) => file.startsWith(d)) ||
+  EXCLUDE_PATTERNS.some((re) => re.test(file));
 
 const GLOSSARY = `
 - "mission" → "misión"; "guild" → "gremio"; "debt" → "deuda"
@@ -51,24 +62,45 @@ const GLOSSARY = `
 - Document IDs (MIS-119, ADR-024, P-003…), URLs, code, file paths: NEVER translated
 - es-ES register: impersonal, no "usted", no Latin American variants`;
 
-const PROMPT = (doc) => `Translate this Markdown document from English to Spanish (es-ES, European Spanish).
-STRICT RULES:
-- Preserve ALL Markdown structure exactly: headings, tables, lists, links, code blocks, frontmatter fences.
+// /api/chat with SEPARATED system and user messages. The previous version
+// concatenated rules + document into one /api/generate prompt, and qwen3
+// intermittently ECHOED the translated instructions into the document head
+// (confirmed contamination of AGENTS.md/CHANGELOG/CLAUDE.md in a parallel
+// run). Separated roles make instructions structurally un-translatable.
+const SYSTEM = `You are a professional EN→es-ES (European Spanish) technical translator.
+Translate the user's Markdown document. STRICT RULES:
+- Preserve ALL Markdown structure exactly: headings, tables, lists, links, code blocks.
 - Glossary and invariants:${GLOSSARY}
-- Output ONLY the translated document, no commentary.
-
-DOCUMENT:
-${doc}`;
+- Output ONLY the translated document. No preamble, no commentary, never repeat these instructions.`;
 
 const sha = (s) => createHash("sha256").update(s).digest("hex").slice(0, 24);
 
-async function translate(body) {
-  // stream:true — chunks keep the socket alive past undici's 300s
-  // header timeout; long documents WILL exceed it non-streaming.
-  const res = await fetch("http://localhost:11434/api/generate", {
+const CHUNK_LIMIT = 24000; // chars; ~6K tokens, well inside num_ctx 16384
+
+// Split on level-2 headings, NEVER inside a fenced code block. A document
+// larger than the context window is silently truncated otherwise — the
+// failure mode that loses the tail of a doc without any error.
+function chunk(body) {
+  if (body.length <= CHUNK_LIMIT) return [body];
+  const lines = body.split("\n");
+  const parts = []; let cur = []; let fence = false;
+  for (const line of lines) {
+    if (/^```/.test(line)) fence = !fence;
+    const isBoundary = !fence && /^## /.test(line) && cur.join("\n").length > CHUNK_LIMIT * 0.6;
+    if (isBoundary && cur.length) { parts.push(cur.join("\n")); cur = []; }
+    cur.push(line);
+  }
+  if (cur.length) parts.push(cur.join("\n"));
+  return parts;
+}
+
+async function callModel(text) {
+  const res = await fetch("http://localhost:11434/api/chat", {
     method: "POST",
-    body: JSON.stringify({ model: MODEL, prompt: PROMPT(body), stream: true,
-      think: false, options: { temperature: 0.2, num_ctx: 16384 } }),
+    body: JSON.stringify({ model: MODEL, stream: true, think: false,
+      messages: [{ role: "system", content: SYSTEM },
+                 { role: "user", content: text }],
+      options: { temperature: 0.2, num_ctx: 16384 } }),
   });
   if (!res.ok) throw new Error(`ollama ${res.status}`);
   let out = "";
@@ -82,10 +114,19 @@ async function translate(body) {
     let nl;
     while ((nl = buf.indexOf("\n")) >= 0) {
       const line = buf.slice(0, nl).trim(); buf = buf.slice(nl + 1);
-      if (line) { try { out += JSON.parse(line).response ?? ""; } catch {} }
+      if (line) { try { out += JSON.parse(line).message?.content ?? ""; } catch {} }
     }
   }
   return out.replace(/<think>[\s\S]*?<\/think>\s*/g, "").trim();
+}
+
+async function translate(body, file) {
+  // Belt and braces: if an excluded document ever reaches the model, abort.
+  if (file && isExcluded(file)) throw new Error(`REFUSED (excluded): ${file}`);
+  const parts = chunk(body);
+  const out = [];
+  for (const part of parts) out.push(await callModel(part));
+  return out.join("\n\n");
 }
 
 // Fidelity gate: a translation that loses structure is REJECTED and the
@@ -107,7 +148,7 @@ mkdirSync(CACHE_DIR, { recursive: true });
 
 for (const pattern of INCLUDE) {
   for await (const file of glob(pattern)) {
-    if (EXCLUDE_DIRS.some((d) => file.startsWith(d))) { stats.skipped++; continue; }
+    if (isExcluded(file)) { stats.skipped++; continue; }
     if (ONLY && !file.includes(ONLY)) { continue; }
     // A hand-reviewed sibling in the repo shadows the machine (decision 2).
     const sibling = file.replace(/\.md$/, ".es.md");
@@ -126,7 +167,7 @@ for (const pattern of INCLUDE) {
     process.stdout.write(`translating ${file} … `);
     const t0 = Date.now();
     try {
-      const outBody = await translate(src);
+      const outBody = await translate(src, file);
       const fail = fidelityOk(src, outBody);
       if (fail) { console.log(`REJECTED (${fail})`); stats.rejected++; continue; }
       writeFileSync(cached, fm + outBody);
