@@ -5,6 +5,8 @@ import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
 import PageHero from "@/components/PageHero.astro";
 import { getCollection } from "astro:content";
+import { useT } from "@/i18n/ui";
+const t = useT(Astro.currentLocale ?? "en");
 
 const HUMAN_COST: Record<string, number> = { XS: 130, S: 520, M: 1560, L: 3900, XL: 7800 };
 const COMPUTE_MOCK: Record<string, number> = { XS: 0.5, S: 1.5, M: 4, L: 10, XL: 25 };
@@ -129,10 +131,10 @@ function sortForColumn(key: string, list: any[]) {
 }
 
 const columns = [
-  { key: "in-progress", label: "In Progress", accent: "text-accent", counter: "bg-accent/20" },
-  { key: "in-review", label: "In Review", accent: "text-yellow", counter: "bg-yellow/20" },
-  { key: "backlog", label: "Backlog", accent: "text-dim", counter: "bg-border" },
-  { key: "done", label: "Done", accent: "text-green", counter: "bg-green/20" },
+  { key: "in-progress", label: t("board.filter.inProgress"), accent: "text-accent", counter: "bg-accent/20" },
+  { key: "in-review", label: t("board.filter.inReview"), accent: "text-yellow", counter: "bg-yellow/20" },
+  { key: "backlog", label: t("board.col.backlog"), accent: "text-dim", counter: "bg-border" },
+  { key: "done", label: t("board.col.done"), accent: "text-green", counter: "bg-green/20" },
 ];
 const byStatus = (key: string) => sortForColumn(key, missions.filter((m) => m.status === key));
 const frozen = sortForColumn("frozen", missions.filter((m) => m.status === "frozen"));
@@ -155,12 +157,10 @@ const fmtSmall = (n: number) => (n < 1 ? "€" + n.toFixed(2) : "€" + n.toFixe
 // that reads as a measurement of the whole archive.
 const stats = [
   { value: String(missions.length), label: "Total", box: "border-border bg-card", text: "text-foreground" },
-  { value: String(critical.length), label: "Critical", box: "border-red/20 bg-red/5", text: "text-red" },
-  { value: String(inProg.length), label: "In Progress", box: "border-accent/20 bg-accent/5", text: "text-accent" },
-  { value: String(done.length), label: "Done", box: "border-green/20 bg-green/5", text: "text-green" },
+  { value: String(critical.length), label: t("board.filter.critical"), box: "border-red/20 bg-red/5", text: "text-red" },
+  { value: String(inProg.length), label: t("board.filter.inProgress"), box: "border-accent/20 bg-accent/5", text: "text-accent" },
+  { value: String(done.length), label: t("board.col.done"), box: "border-green/20 bg-green/5", text: "text-green" },
 ];
-import { useT } from "@/i18n/ui";
-const t = useT(Astro.currentLocale ?? "en");
 
 ---
 
@@ -222,7 +222,7 @@ const t = useT(Astro.currentLocale ?? "en");
             <button data-filter="status" data-value={s}
               class={"filter-btn font-mono text-[0.65rem] px-3 py-1.5 rounded-full border transition-all duration-150 " + (s === "all" ? "border-accent bg-accent/10 text-accent" : "border-border text-dim hover:border-accent/40 hover:text-foreground")}
               aria-pressed={s === "all" ? "true" : "false"}>
-              {s === "all" ? "All" : s === "backlog" ? "Backlog" : s === "in-progress" ? "In Progress" : s === "in-review" ? "In Review" : "Done"}
+              {s === "all" ? t("board.filter.all") : s === "backlog" ? t("board.col.backlog") : s === "in-progress" ? t("board.filter.inProgress") : s === "in-review" ? t("board.filter.inReview") : t("board.col.done")}
             </button>
           ))}
         </div>
@@ -232,7 +232,7 @@ const t = useT(Astro.currentLocale ?? "en");
             <button data-filter="priority" data-value={p}
               class={"filter-btn font-mono text-[0.65rem] px-3 py-1.5 rounded-full border transition-all duration-150 " + (p === "all" ? "border-accent bg-accent/10 text-accent" : "border-border text-dim hover:border-accent/40 hover:text-foreground")}
               aria-pressed={p === "all" ? "true" : "false"}>
-              {p === "all" ? "All" : p === "critical" ? "Critical" : p === "high" ? "High" : p === "medium" ? "Medium" : "Low"}
+              {p === "all" ? t("board.filter.all") : p === "critical" ? t("board.filter.critical") : p === "high" ? t("board.filter.high") : p === "medium" ? t("board.filter.medium") : t("board.filter.low")}
             </button>
           ))}
         </div>

@@ -7,15 +7,18 @@
 // §9.3, results per §9.8: canonical veil rgba(20,17,15,.72), 40px rows,
 // trapped focus, Esc closes, background does not scroll.
 import Icon from "@/components/Icon.astro";
+import { useT } from "@/i18n/ui";
+const t = useT(Astro.currentLocale ?? "en");
+
 ---
 
 <button
   data-search-open
-  aria-label="Search"
+  aria-label={t("search.label")}
   class="flex items-center gap-1 rounded-full border border-transparent px-3 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-muted-foreground transition-all hover:border-border hover:bg-card hover:text-foreground"
 >
   <Icon name="magnifying-glass" size={14} />
-  <span class="hidden md:inline">Search</span>
+  <span class="hidden md:inline">{t("search.label")}</span>
 </button>
 
 <div
@@ -23,7 +26,7 @@ import Icon from "@/components/Icon.astro";
   class="fixed inset-0 z-[60] hidden items-start justify-center pt-[12vh]"
   role="dialog"
   aria-modal="true"
-  aria-label="Site search"
+  aria-label={t("search.aria")}
 >
   <!-- §9.8: the canonical veil, the same piece that founds every modal -->
   <div data-search-veil class="absolute inset-0" style="background: rgba(20,17,15,.72)"></div>
@@ -35,7 +38,7 @@ import Icon from "@/components/Icon.astro";
       <input
         data-search-input
         type="search"
-        placeholder="Search the archive…"
+        placeholder={t("search.placeholder")}
         autocomplete="off"
         spellcheck="false"
         class="h-12 w-full bg-transparent font-mono text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
