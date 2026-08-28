@@ -2,18 +2,18 @@
 # CORE — the ten fields the build verifies (web/src/content.config.ts).
 id: "MIS-118"
 title: "Replace the agent roster with the operative agent definitions"
-status: in-progress
+status: done
 priority: high
 effort: M
 guild: procurators
 area: governance
 type_execution: hybrid
 assigned_to: "ursa"
-completed: null
+completed: "2026-08-28"
 
 # REGISTRO
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-28"
 updated: "2026-08-28"
 author: "ursa"
@@ -178,9 +178,25 @@ Against `origin/main @ 9f8627a`:
 
 ## Closure
 
-*(Fill when the mission closes.)*
+- **What was done:** two PRs as briefed. #101 (`f86569b`): ADR-026, REUSE.toml
+  regime change, 21 frontmatter re-declarations, D-038 opened, D-030 noted.
+  #102 (`eba0b00`): retirement commit `bfa88d0` (Nimrod, Adonaz,
+  procurador-01, old personas, all STATUS/MEMORY files) + roster commit
+  `2d5a8db` (7 agents with AGENT.yaml/SOUL/OPERATOR/SOURCES/adapters,
+  AGENTS.md at root, INDEX v3.0.0, _template rebuilt, 6 live links repaired).
+- **What diverged, and why:** (1) The licence was decided as a PR of its own —
+  the brief assumed one PR; LD-001 showed the CC0 grant had already happened
+  irrevocably in August, which turned "grant CC0" into "stop declaring a
+  regime we do not have," worth its own review. (2) The reference guard found
+  a 6th live link (guilds/procuradores/roster.md) that the manual sweep
+  missed — the sweep undercounted by one. (3) ADR number moved 025→026:
+  025 was already reserved for the world-lexicon glossary on the kanban.
+  (4) Guild re-assignment of the new roster was explicitly deferred by the
+  Oracle; the three touched rosters carry the note.
+- **Evidence:** PRs #101/#102 merged; CI build pass on both;
+  `node scripts/check-license-frontmatter.mjs` → 291/316 OK;
+  `node scripts/check-references.mjs` → no new broken;
+  `git log --format=%an | grep -c Centinela-01` → 57, resolvable via
+  agents/INDEX.md archaeology.
+- **Closed:** 2026-08-28 · **by:** ursa
 
-- **What was done:**
-- **What diverged, and why:**
-- **Evidence:**
-- **Closed:** · **by:**
