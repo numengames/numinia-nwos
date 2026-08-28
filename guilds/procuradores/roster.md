@@ -20,9 +20,12 @@ license: "LicenseRef-Numen-AllRightsReserved"
 
 *"Without structure, chaos. Without flexibility, rigidity."*
 
-| Agent | Branch | Status | Planned activation | Files |
-|-------|--------|--------|--------------------|-------|
-| [Procurador-01](../../agents/procurador-01/SOUL.md) | Syndics | 📐 Designed | 2027 | [→](../../agents/procurador-01/) |
+No agent is currently rostered to this guild.
+
+*Procurador-01 (designed, never activated) was retired by MIS-118; its brief
+is in Git history. The operative roster and its routing live in
+[agents/INDEX.md](../../agents/INDEX.md); guild assignment of the new agents
+is deferred to a future iteration by Oracle decision (2026-08-28).*
 
 ---
 

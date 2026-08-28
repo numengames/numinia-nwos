@@ -22,7 +22,7 @@ license: "LicenseRef-Numen-AllRightsReserved"
 
 | Agent | Branch | Status | Activated | Files |
 |-------|--------|--------|-----------|-------|
-| [Nimrod](../../agents/nimrod/SOUL.md) | Archangels | ✅ Active | 2026-04-02 | [→](../../agents/nimrod/) |
+| Nimrod | Archangels | 🪦 Retired 2026-08-28 (MIS-118) — 57 commits remain as `Centinela-01`; see [agents/INDEX.md](../../agents/INDEX.md) | 2026-04-02 | history only |
 
 ---
 

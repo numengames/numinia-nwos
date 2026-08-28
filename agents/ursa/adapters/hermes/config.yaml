@@ -1,0 +1,54 @@
+# Ursa profile — recommended Hermes configuration additions
+# Merge these blocks into Ursa's existing config.yaml.
+# Do not overwrite existing model/provider, gateway, or secret configuration.
+# Secrets belong in .env, not in config.yaml.
+
+agent:
+  tool_use_enforcement: auto
+
+terminal:
+  backend: local
+  timeout: 180
+  home_mode: auto
+
+approvals:
+  mode: smart
+  denial_breaker_threshold: 3
+  deny:
+    - "git push --force*"
+    - "git push -f*"
+  smart_policy: |
+    Always ESCALATE any command that pushes commits or tags to a remote Git repository.
+    Always ESCALATE destructive Git operations, branch deletion, repository cleanup,
+    or commands that may irreversibly remove project data.
+    Allow ordinary local inspection, builds, tests, linting, formatting, and
+    non-destructive Git operations when they are otherwise safe.
+
+checkpoints:
+  enabled: true
+  max_snapshots: 20
+  max_total_size_mb: 500
+  max_file_size_mb: 10
+  auto_prune: true
+  retention_days: 7
+  min_interval_hours: 24
+
+skills:
+  write_approval: true
+
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+  memory_char_limit: 2200
+  user_char_limit: 1375
+  write_approval: true
+
+kanban:
+  auto_decompose: false
+  orchestrator_profile: ursa
+
+delegation:
+  max_concurrent_children: 3
+  worktree_isolation: true
+  max_spawn_depth: 1
+  orchestrator_enabled: true

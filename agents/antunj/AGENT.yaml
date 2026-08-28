@@ -1,0 +1,36 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+#
+# Machine-readable agent card (ADR-026, MIS-118). SOUL.md is the prose
+# identity; this file is what routers and tooling read.
+
+id: antunj
+name: Antunj
+version: "1.0.0"
+status: active
+activated: "2026-08-28"
+
+role:
+  primary: product-strategist
+
+specialties:
+  - product-definition
+  - positioning
+  - value-propositions
+  - product-narrative
+  - naming-terminology
+  - brand-product-coherence
+
+routing:
+  use_when:
+    - a product must be understood, framed, positioned, differentiated, named, or explained
+    - features, terminology, or communication must be checked against actual capabilities
+    - symbolic or narrative structure can materially improve product understanding
+
+canonical_files:
+  soul: SOUL.md
+  operator: OPERATOR.md
+  sources: SOURCES.md
+
+adapters:
+  hermes: adapters/hermes/

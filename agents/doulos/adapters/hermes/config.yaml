@@ -1,0 +1,52 @@
+# Doulos profile — recommended Hermes configuration additions
+# Merge these blocks into Doulos's existing config.yaml.
+# Do not overwrite existing model/provider, gateway, integration, or secret configuration.
+# Secrets belong in .env, not in config.yaml.
+
+agent:
+  tool_use_enforcement: auto
+
+terminal:
+  backend: local
+  timeout: 90
+  home_mode: auto
+
+approvals:
+  mode: smart
+  denial_breaker_threshold: 2
+  deny:
+    - "git push --force*"
+    - "git push -f*"
+    - "rm -rf *"
+  smart_policy: |
+    Escalate destructive, irreversible, privileged, or high-impact operations.
+    Escalate any command that publishes or pushes changes to a remote repository.
+    Allow ordinary local inspection, formatting, file comparison, simple builds,
+    tests, non-destructive transformations, and routine mechanical operations
+    when they are otherwise safe and explicitly requested.
+
+checkpoints:
+  enabled: true
+  max_snapshots: 10
+  max_total_size_mb: 250
+  max_file_size_mb: 10
+  auto_prune: true
+  retention_days: 3
+  min_interval_hours: 24
+
+skills:
+  write_approval: true
+
+memory:
+  memory_enabled: true
+  user_profile_enabled: false
+  memory_char_limit: 1200
+  write_approval: true
+  # Oracle 2026-08-28: Doulos runs subagents; a worker with no memory of
+  # its own lessons repeats its own mistakes. Small limit, approval-gated.
+
+delegation:
+  max_concurrent_children: 1
+  worktree_isolation: true
+  max_spawn_depth: 1
+  orchestrator_enabled: false
