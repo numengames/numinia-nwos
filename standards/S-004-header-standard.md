@@ -191,8 +191,9 @@ Initial registry — transcribed from actual majority use, not invented:
 | `agents/` | `role` `platform` `model` `soul` `agent` |
 | `debt/` | `severity` `severity_reason` `detected` `refuted` `source_audit` `opened_by` |
 | `blueprints/` `operations/` | `extraction_note` `restoration_note` |
+| `protocols/` | `applies_to` `mandatory` |
 | `standards/` `canon/` `protocols/` | `supersedes_version` `ratified_by` |
-| all | `tags` `visibility` `guild` `territory` (S-001 §6.3) · `registration` `registration_reason` `registration_exemption` (§5.0) · `evidence_script` `evidence_head` (evidence apparatus) · `uid` (reserved-empty, S-001 §6.2 — **H-20**: non-empty `uid` is an error until the UID system exists) |
+| all | `tags` `visibility` `guild` `territory` (S-001 §6.3) · `registration` `registration_reason` `registration_exemption` (§5.0) · `evidence_script` `evidence_head` (evidence apparatus) · `related` (cross-references) · `uid` (reserved-empty, S-001 §6.2 — **H-20**: non-empty `uid` is an error until the UID system exists) |
 
 The remaining ~50 rare fields not registered here die by omission: the
 lint flags them, their carriers migrate or the field earns its ADR. The

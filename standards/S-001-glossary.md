@@ -4,15 +4,16 @@ uid:
 title: "Glossary — the archive's own vocabulary"
 type: documentation
 status: active
-version: "4.0.0"
+version: "4.1.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-08-25T02:20:00Z"
+updated: "2026-08-28T16:00:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
 territory: "Archive"
 tags: [glossary, vocabulary, frontmatter, archive, standards]
 license: "CC-BY-4.0"
+ratified_by: "ADR-027"
 evidence_script: "scripts/count-evidence.py"
 evidence_head: "7d17b5a"
 ---
@@ -25,7 +26,12 @@ evidence_head: "7d17b5a"
 > **Pragmatic:** Consult before creating a document, filling frontmatter, or
 > proposing a new field. A value not listed here is not valid.
 > **Audience:** Agents · Oracles
-> **Status:** DRAFT — not signed. Blockers 1–2 executed, corrections 3–8 applied.
+> **Status:** RATIFIED 2026-08-28 by `ADR-027`, at v4.0.0. Blockers 1–2
+> executed, corrections 3–8 applied. (Until that date this line read
+> `DRAFT — not signed` while the frontmatter read `active` — a contradiction
+> that made "is the glossary in force?" unanswerable from the glossary.
+> Ratification now lives in the frontmatter, `status` + `ratified_by`;
+> this line is descriptive, not the source.)
 
 ---
 
