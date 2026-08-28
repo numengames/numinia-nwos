@@ -173,6 +173,22 @@ const t = useT(Astro.currentLocale ?? "en");
     // to the chunk start — never worse than before.
     let charOffset = 0;
     let lastBoundary = 0;
+    // When the utterance started speaking, and at what rate. Some engines
+    // (Chrome/Edge network voices, notably) never fire boundary events; for
+    // those, elapsed time × speaking pace estimates how far the voice got
+    // (QA 2026-08-28, defect 6: with such a voice, changing rate early in
+    // the document restarted it from the top — lastBoundary was still 0).
+    // The estimate is deliberately conservative (~85% of nominal pace):
+    // repeating a couple of words beats skipping words never heard.
+    let utterStart = 0;
+    let utterRate = 1;
+    const CPS = (WPM * 6) / 60; // chars/sec at 1×: ~5 letters + space per word
+    const spokenInUtterance = () => {
+      if (lastBoundary > 0) return lastBoundary; // exact, engine-reported
+      if (!utterStart) return 0;
+      const elapsed = (performance.now() - utterStart) / 1000;
+      return Math.max(0, Math.floor(elapsed * CPS * utterRate * 0.85));
+    };
 
     // ---- position persistence (QA 2026-08-28: pause + navigate away lost
     // the position). The chunk index and rate survive the page in
@@ -289,6 +305,12 @@ const t = useT(Astro.currentLocale ?? "en");
       if (voice) u.voice = voice;
       u.lang = voice?.lang ?? docLang;
       u.rate = rate;
+      utterStart = performance.now();
+      utterRate = rate;
+      u.onstart = () => {
+        // Engines queue; the clock starts when sound actually starts.
+        if (g === gen) utterStart = performance.now();
+      };
       u.onboundary = (e) => {
         // Word boundaries mark where a pause can resume. Engines that never
         // fire this leave lastBoundary at 0 — resume from the chunk start.
@@ -337,7 +359,7 @@ const t = useT(Astro.currentLocale ?? "en");
     // the position must (QA 2026-08-28 — pause, browse away, come back,
     // resume where you left off).
     const teardown = () => {
-      if (state === "speaking") charOffset = charOffset + lastBoundary;
+      if (state === "speaking") charOffset = charOffset + spokenInUtterance();
       if (state !== "idle" || queueIndex > 0 || charOffset > 0) saveProgress();
       gen++;
       stopKeepalive();
@@ -360,8 +382,9 @@ const t = useT(Astro.currentLocale ?? "en");
         state = "paused";
         // Freeze the word-level position BEFORE cancel() — the engine's
         // boundary counter dies with the utterance. Absolute offset in the
-        // chunk = where this utterance started + last boundary heard.
-        charOffset = charOffset + lastBoundary;
+        // chunk = where this utterance started + how far the voice got
+        // (engine-reported boundary, or the elapsed-time estimate).
+        charOffset = charOffset + spokenInUtterance();
         lastBoundary = 0;
         gen++; // stale-out the cancelled utterance's end/error events
         synth.cancel();
@@ -394,8 +417,10 @@ const t = useT(Astro.currentLocale ?? "en");
       // paused, the new rate simply applies on resume.
       if (state === "speaking") {
         gen++;
-        // Keep the word position across the rate change, same as pause.
-        charOffset = charOffset + lastBoundary;
+        // Keep the word position across the rate change, same as pause:
+        // the reading continues where it was, only faster or slower
+        // (QA 2026-08-28, defect 6 — a rate change must never restart).
+        charOffset = charOffset + spokenInUtterance();
         lastBoundary = 0;
         synth.cancel();
         speakFrom(queueIndex, charOffset);
