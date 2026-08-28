@@ -4,9 +4,9 @@ uid:
 title: "Every CI guard needs the Oracle's hands: the agent has no workflow scope"
 type: documentation
 status: open
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-24T23:00:00Z"
-updated: "2026-08-24T23:00:00Z"
+updated: "2026-08-28T15:35:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -47,18 +47,27 @@ constrain it.
 closed by writing guards.
 
 **This entry measures a gap in the delivery path.** Writing the guard is the
-cheap half; every one of them then waits on a manual step. `D-001` lists five
-guards, three of which do not exist yet:
+cheap half; every one of them then waits on a manual step.
+
+> **Corrected 2026-08-28.** The table below was stale in both directions and
+> is now read from `.github/workflows/ci.yml` at `3d01bc2` rather than
+> remembered. `check-references.mjs` **is** wired; `check-orphan-content.mjs`
+> was wired and was missing from the table entirely; `lint-type-vs-folder`
+> no longer needs to exist (folded into `lint-frontmatter` as check `H-17`).
+> The register now lives in **`P-013` §4**, with the rule that it is re-read
+> from the workflow, never copied. A stale coverage table is the same defect
+> class this entry was opened to name.
 
 | Guard | Written? | Wired? |
 |---|---|---|
-| `check-license-frontmatter.mjs` | yes | **yes** — the only one |
-| `check-references.mjs` | yes, tested | no — PR open |
-| `lint-frontmatter.mjs` | no | no |
+| `check-license-frontmatter.mjs` | yes | **yes** |
+| `check-references.mjs` | yes, tested | **yes** |
+| `check-orphan-content.mjs` | yes | **yes** — post-build (needs `web/dist`) |
+| `lint-frontmatter.mjs` | yes — `#116`, 865 baselined | **no — the one pending handoff** |
 | `lint-naming.mjs` | no | no |
-| `lint-type-vs-folder.mjs` | no | no |
+| ~~`lint-type-vs-folder.mjs`~~ | folded into `lint-frontmatter` (`H-17`) | n/a |
 
-Four handoffs pending, and one more for each guard added afterwards. Without
+One handoff pending, and one more for each guard added afterwards. Without
 this entry, each mission rediscovers the wall and improvises around it — which
 is how `check-references.mjs` came to be run from a sibling branch during
 verification instead of from CI, five times in one session.
@@ -89,6 +98,14 @@ into its branch, tested, and enforcing nothing.
 Marked RESOLVED when the handoff procedure is written into `CONTRIBUTING.md` or
 a protocol, **and** the four pending guards are either wired or explicitly
 deferred with a reason.
+
+> **Half met, 2026-08-28.** The procedure exists: **`P-013`**. Of the guards,
+> three are wired and `lint-frontmatter` is the single pending handoff, with
+> its YAML block ready in `#116`/`#117`. This entry closes when that block is
+> in `ci.yml` and a green run on `main` is reported here — not before.
+> `lint-naming` is explicitly **deferred**: `S-001` §9 is still being applied
+> to the corpus (`MIS-109` renames pending), so the guard would freeze a
+> baseline of work in flight.
 
 This entry does not close by getting the scope. It closes by making its absence
 survivable.
