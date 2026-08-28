@@ -1,59 +1,62 @@
 ---
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
-// Decision detail rendered at build from the repo's decisions/ folder
+// Plano detail rendered at build from the repo's blueprints/ folder
 // (MIS-065). The full markdown document is the page.
 import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
 import { getCollection, render } from "astro:content";
 
+const slug = (id: string) => id.replace(/^BP-/i, "").toLowerCase();
+
 export async function getStaticPaths() {
-  const entries = (await getCollection("decisions")).sort((a, b) =>
+  const entries = (await getCollection("blueprints")).sort((a, b) =>
     (a.data.id as string).localeCompare(b.data.id as string)
   );
-  return entries.map((entry, i) => ({
-    params: { id: (entry.data.id as string).toLowerCase() },
-    props: {
-      entry,
-      prevId: i > 0 ? (entries[i - 1].data.id as string) : null,
-      nextId: i < entries.length - 1 ? (entries[i + 1].data.id as string) : null,
-    },
+  return entries.map((entry) => ({
+    params: { id: (entry.data.id as string).replace(/^BP-/i, "").toLowerCase() },
+    props: { entry },
   }));
 }
 
-const { entry, prevId, nextId } = Astro.props;
+const { entry } = Astro.props;
 const { Content } = await render(entry);
 const f = entry.data as Record<string, any>;
-const decId = (f.id as string).toUpperCase();
 const mdFilename = (entry.filePath as string).split("/").pop()!;
-const mdUrl = `/decisiones/${decId.toLowerCase()}.md`;
+const mdUrl = `/planos/${slug(f.id as string)}.md`;
 
-const STATUS_COLOR: Record<string, string> = {
-  active: "text-green",
-  provisional: "text-yellow",
-  superseded: "text-dim",
+const SEMAFORO: Record<string, { dot: string; label: string }> = {
+  verde: { dot: "bg-green", label: "Verde" },
+  amarillo: { dot: "bg-yellow", label: "Amarillo" },
+  rojo: { dot: "bg-red", label: "Rojo" },
 };
+const sem = SEMAFORO[(f.semaforo as string) || ""];
 ---
 
 <Layout
-  title={`${decId} — Numen Games CAO`}
-  description={`${decId} — ${f.title}`}
-  canonicalPath={`/decisiones/${decId.toLowerCase()}`}
+  title={`${f.id} — Numen Games CAO`}
+  description={`${f.id} — ${f.title}`}
+  canonicalPath={`/planos/${slug(f.id as string)}`}
 >
   <section class="pb-20 pt-16">
     <div class="mx-auto max-w-[800px] px-6">
 
-      <a href="/decisiones" class="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-8">
+      <a href="/blueprints" class="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-8">
         <Icon name="caret-left" size={12} />
-        Decisiones
+        Los Planos del Mundo
       </a>
 
       <div class="flex flex-wrap items-center gap-2 mb-4">
-        <span class="font-mono text-[0.65rem] text-accent">{decId}</span>
+        <span class="font-mono text-[0.65rem] text-accent">{f.id}</span>
         <span class="font-mono text-[0.6rem] text-dim">{String(f.created).slice(0, 10)}</span>
-        <span class={"font-mono text-[0.6rem] uppercase tracking-widest " + (STATUS_COLOR[f.status] || "text-dim")}>{f.status}</span>
         {f.area && <span class="font-mono text-[0.6rem] text-dim">{f.area}</span>}
+        {sem && (
+          <span class="inline-flex items-center gap-1.5 font-mono text-[0.6rem] text-dim">
+            <span class={"h-2 w-2 rounded-full " + sem.dot}></span>
+            {sem.label}
+          </span>
+        )}
       </div>
 
       <h1 class="font-display text-3xl sm:text-4xl text-foreground mb-8">{f.title}</h1>
@@ -62,15 +65,6 @@ const STATUS_COLOR: Record<string, string> = {
       <article class="mission-md rounded-xl border border-border bg-card p-6 sm:p-8">
         <Content />
       </article>
-
-      <div class="flex justify-between border-t border-border pt-6 mt-8">
-        {prevId
-          ? <a href={"/decisiones/" + prevId.toLowerCase()} class="font-mono text-[0.7rem] text-dim hover:text-accent transition-colors">← {prevId}</a>
-          : <span />}
-        {nextId
-          ? <a href={"/decisiones/" + nextId.toLowerCase()} class="font-mono text-[0.7rem] text-dim hover:text-accent transition-colors">{nextId} →</a>
-          : <span />}
-      </div>
 
     </div>
   </section>
