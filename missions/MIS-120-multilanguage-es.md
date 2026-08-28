@@ -13,7 +13,7 @@ completed: null
 
 # REGISTRO
 type: mission
-version: "1.2.0"
+version: "1.3.0"
 created: "2026-08-28"
 updated: "2026-08-28"
 author: "ursa"
@@ -54,7 +54,7 @@ that completes the work.
       (~120 typed strings), Astro native i18n (`/es/` prefixed, EN
       unprefixed), `EN | ES` text selector in the nav (no flags), 5 pilot
       pages under `/es/`. *(PR pending merge, 2026-08-28)*
-- [ ] **(c) The sweep** — remaining ~28 pages + components (DocToolbar,
+- [x] **(c) The sweep** — remaining ~28 pages + components (DocToolbar,
       SpeechPlayer, SiteSearch, Footer, aria-labels): zero hardcoded UI
       literals outside the dictionary; one language per locale.
 - [ ] **(d) The build translator** — `scripts/translate-corpus.mjs`:
@@ -109,6 +109,17 @@ that completes the work.
 
 ## Execution log
 
+- **2026-08-28 · (c) done** — shared chrome fully dictionary-backed:
+  SiteSearch, DocToolbar (incl. JS Copied/Error via data-t-* attrs),
+  SpeechPlayer (10 data-t-* keys, JS reads dataset with EN fallback),
+  missions board columns/filters/stats (+7 filter keys added to ui.ts).
+  Verified in dist: ES board shows Todas/Críticas/En curso; EN board
+  leak-free; grep for hardcoded aria-label/placeholder in shared chrome
+  returns ZERO. FOUND, out of scope, recorded: ~13 pages under English
+  routes carry 100% Spanish CONTENT (gaps, sales, simulations, the five
+  dailies, blueprints/meta, archive index…) — that is document text in
+  the wrong locale tree, phase (d) territory or editorial debt, not
+  chrome; listed for the Oracle.
 - **2026-08-28 · (b) done** — dictionary `web/src/i18n/ui.ts` (~70 typed
   keys, `satisfies` forces EN/ES parity at compile time); Astro native
   i18n with `fallback: redirect` (`fallbackType: rewrite` tried and

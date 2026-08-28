@@ -19,18 +19,31 @@ interface Props {
   lang?: string;
 }
 const { textSelector = "article", lang = "en" } = Astro.props;
+import { useT } from "@/i18n/ui";
+const t = useT(Astro.currentLocale ?? "en");
+
 ---
 
 <div
   class="speech-player inline-flex flex-wrap items-center gap-2"
   data-text-selector={textSelector}
   data-lang={lang}
+  data-t-listen={t("speech.listen")}
+  data-t-pause={t("speech.pause")}
+  data-t-resume={t("speech.resume")}
+  data-t-listen-aria={t("speech.listenAria")}
+  data-t-pause-aria={t("speech.pauseAria")}
+  data-t-resume-aria={t("speech.resumeAria")}
+  data-t-no-engine={t("speech.noEngine")}
+  data-t-nothing={t("speech.nothing")}
+  data-t-rate-aria={t("speech.rateAria", { rate: "{rate}" })}
+  data-t-min={t("speech.min")}
 >
   <button
     type="button"
     class="sp-toggle inline-flex items-center gap-1.5 font-mono text-[0.65rem] uppercase tracking-[0.1em] text-dim hover:text-accent border border-border hover:border-accent/40 rounded-lg px-3 py-2 sm:py-1.5 transition-colors aria-pressed:border-accent/60 aria-pressed:text-accent"
     aria-pressed="false"
-    aria-label="Listen to this document"
+    aria-label={t("speech.listenAria")}
   >
     <span class="sp-icon" aria-hidden="true">▶</span>
     <span class="sp-label">Listen</span>
@@ -39,12 +52,12 @@ const { textSelector = "article", lang = "en" } = Astro.props;
   <button
     type="button"
     class="sp-stop hidden font-mono text-[0.65rem] uppercase tracking-[0.1em] text-dim hover:text-accent border border-border hover:border-accent/40 rounded-lg px-2.5 py-2 sm:py-1.5 transition-colors"
-    aria-label="Stop listening"
+    aria-label={t("speech.stop")}
   >■</button>
   <button
     type="button"
     class="sp-rate font-mono text-[0.65rem] uppercase tracking-[0.1em] text-dim hover:text-accent border border-border hover:border-accent/40 rounded-lg px-2.5 py-2 sm:py-1.5 transition-colors"
-    aria-label="Playback rate: 1x. Press to change"
+    aria-label={t("speech.rateAria", { rate: "1" })}
     data-rate="1"
   >1×</button>
 </div>
@@ -65,7 +78,7 @@ const { textSelector = "article", lang = "en" } = Astro.props;
     if (!("speechSynthesis" in window)) {
       toggle.disabled = true;
       rateBtn.disabled = true;
-      toggle.title = "This browser has no speech synthesis";
+      toggle.title = T("NoEngine","This browser has no speech synthesis");
       toggle.classList.add("opacity-50");
       continue;
     }
@@ -87,7 +100,7 @@ const { textSelector = "article", lang = "en" } = Astro.props;
     const words = text ? text.split(" ").length : 0;
     if (!words) {
       toggle.disabled = true;
-      toggle.title = "Nothing to read on this page";
+      toggle.title = T("Nothing","Nothing to read on this page");
       toggle.classList.add("opacity-50");
       continue;
     }
@@ -127,7 +140,7 @@ const { textSelector = "article", lang = "en" } = Astro.props;
     const renderEst = () => {
       const mins = words / (WPM * rate);
       est.textContent =
-        mins < 1 ? "· <1 min" : "· ~" + Math.round(mins) + " min";
+        mins < 1 ? "· <1 " + T("Min","min") : "· ~" + Math.round(mins) + " " + T("Min","min");
     };
     renderEst();
 
@@ -213,14 +226,14 @@ const { textSelector = "article", lang = "en" } = Astro.props;
       toggle.setAttribute("aria-pressed", String(state === "speaking"));
       icon.textContent = state === "speaking" ? "❚❚" : "▶";
       label.textContent =
-        state === "speaking" ? "Pause" : resumable ? "Resume" : "Listen";
+        state === "speaking" ? T("Pause","Pause") : resumable ? T("Resume","Resume") : T("Listen","Listen");
       toggle.setAttribute(
         "aria-label",
         state === "speaking"
-          ? "Pause listening"
+          ? T("PauseAria","Pause listening")
           : resumable
-            ? "Resume listening"
-            : "Listen to this document",
+            ? T("ResumeAria","Resume listening")
+            : T("ListenAria","Listen to this document"),
       );
       stopBtn.classList.toggle("hidden", state === "idle" && queueIndex === 0);
     };
@@ -326,7 +339,7 @@ const { textSelector = "article", lang = "en" } = Astro.props;
       rateBtn.dataset.rate = String(rate);
       rateBtn.setAttribute(
         "aria-label",
-        "Playback rate: " + rate + "x. Press to change",
+        T("RateAria","Playback rate: {rate}x. Press to change").replace("{rate}", String(rate)),
       );
       renderEst();
       // Apply mid-run: bump the epoch so the cancelled utterance's events
