@@ -293,29 +293,29 @@ const { textSelector = "article", lang = "en" } = Astro.props;
     toggle.addEventListener("click", () => {
       if (state === "idle") return start();
       if (state === "speaking") {
+        // Pause is OURS, not the engine's. speechSynthesis.pause()/resume()
+        // is unreliable across engines: Chrome drops a paused queue after
+        // ~15s, Android ignores pause mid-utterance, and Linux
+        // speech-dispatcher (Firefox) can end the utterance on pause so a
+        // later resume() resumes nothing (QA 2026-08-28: pause+play went
+        // silent or restarted from the top). So pausing cancels the engine
+        // outright; the position lives in queueIndex, which we own. Resume
+        // re-speaks the current chunk — deterministic on every engine, at
+        // the cost of repeating at most one sentence.
         state = "paused";
-        synth.pause();
+        gen++; // stale-out the cancelled utterance's end/error events
+        synth.cancel();
+        saveProgress();
+        stopKeepalive();
         render();
-        // Some engines (Android Chrome, documented) ignore pause() mid-
-        // utterance. Verify shortly after; if audio still runs, emulate the
-        // pause with a cancel — queueIndex survives, so Resume restarts the
-        // current chunk instead of losing the position.
-        window.setTimeout(() => {
-          if (state === "paused" && synth.speaking && !synth.paused) {
-            gen++;
-            synth.cancel();
-          }
-        }, 250);
         return;
       }
-      // paused → resume. If the engine still holds the paused queue, resume
-      // it; if it dropped it (Chrome after long pauses, or our emulated
-      // pause), restart the current chunk.
+      // paused → resume: re-speak the current chunk. The engine's own
+      // paused flag is deliberately ignored — we never engine-pause now.
       state = "speaking";
       render();
       startKeepalive();
-      if (synth.paused) synth.resume();
-      else speakFrom(queueIndex);
+      speakFrom(queueIndex);
     });
 
     stopBtn.addEventListener("click", stopAll);
