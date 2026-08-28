@@ -35,12 +35,12 @@ fondos:
     subtitulo: "Living Entities"
     icono: "🤖"
     color: teal
-    descripcion: "The digital agents operating in the system. Organized by guild. Each with an identity (SOUL), rules (OPERATOR) and operational state (STATUS)."
-    governance: "SOUL and OPERATOR are modified only by Oracle. STATUS is updated by the agent itself."
+    descripcion: "The digital agents operating in the system. Each with a machine-readable card (AGENT.yaml), an identity (SOUL), governance (OPERATOR), a source map (SOURCES) and platform adapters."
+    governance: "SOUL, OPERATOR and AGENT.yaml are modified only by Oracle-reviewed change (AGENTS.md, Canonical Changes). Runtime state lives on the platform, not in the archive."
     documentos:
-      - { nombre: "Nimrod — SOUL.md", desc: "Guardián de las Puertas. Centinela-01. Identity, voice, values, limits.", file: "agents/nimrod/SOUL.md" }
-      - { nombre: "Nimrod — OPERATOR.md", desc: "Nimrod's 4 operational laws. What he can and cannot do.", file: "agents/nimrod/OPERATOR.md" }
-      - { nombre: "Adonaz — SOUL.md", desc: "Archivista General. Exégeta. The custodian of Numinia's knowledge.", file: "agents/adonaz/SOUL.md" }
+      - { nombre: "Agents — Index", desc: "The operative roster: seven agents, their routing, and the authorship archaeology.", file: "agents/INDEX.md" }
+      - { nombre: "Ursa — SOUL.md", desc: "Technical Architect & Orchestrator. Identity, function, limits.", file: "agents/ursa/SOUL.md" }
+      - { nombre: "Byblos — SOUL.md", desc: "Records Manager & Information Governance. The custodian of the archive (formerly Adonaz).", file: "agents/byblos/SOUL.md" }
       - { nombre: "Charter — Centinelas", desc: "Common rules of the Centinelas guild. Security, watch, gates.", file: "guilds/centinelas/charter.md" }
       - { nombre: "Charter — Exégetas", desc: "Common rules of the Exégetas guild. Knowledge, archive, narrative.", file: "guilds/exegetas/charter.md" }
   - id: missions

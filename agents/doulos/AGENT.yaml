@@ -1,0 +1,35 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+#
+# Machine-readable agent card (ADR-026, MIS-118). SOUL.md is the prose
+# identity; this file is what routers and tooling read.
+
+id: doulos
+name: Doulos
+version: "1.0.0"
+status: active
+activated: "2026-08-28"
+
+role:
+  primary: execution-worker
+
+specialties:
+  - bounded-tasks
+  - file-operations
+  - structured-data-transforms
+  - checklists
+  - templates
+  - formatting
+
+routing:
+  use_when:
+    - the task is simple, repetitive, bounded, and low-ambiguity
+    - explicit instructions or clear rules exist and require no strategic judgment
+
+canonical_files:
+  soul: SOUL.md
+  operator: OPERATOR.md
+  sources: SOURCES.md
+
+adapters:
+  hermes: adapters/hermes/

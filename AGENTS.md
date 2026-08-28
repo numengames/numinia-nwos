@@ -1,0 +1,177 @@
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC-BY-4.0
+Multi-platform agent context (MIS-118). Supplied by the Oracle 2026-08-28;
+directory map corrected to the tree that actually exists in this repository.
+CLAUDE.md is the Claude Code runtime adapter; this file is the platform-
+neutral layer. Hermes reads both (agent/coding_context.py: _CONTEXT_FILES).
+-->
+
+# Numinia NWOS — Agent Context
+
+## Purpose
+
+This repository is the canonical source of truth for Numinia's agent
+definitions, institutional knowledge, and shared operational context.
+
+Agents and AI platforms must treat repository content as project authority
+according to the scope and hierarchy defined by the repository.
+
+Platform-specific configuration, runtime memory, session state, or inferred
+knowledge does not automatically override repository canon.
+
+## Repository map
+
+The principal areas of this repository:
+
+- `agents/` — canonical definitions of persistent agents (`AGENT.yaml`,
+  `SOUL.md`, `OPERATOR.md`, `SOURCES.md`, `adapters/`).
+- `canon/` — the world and the governing canons (C-001…C-006). Reserved
+  lore lives here; read it, never republish it.
+- `standards/` — the archive's own operative standards, including
+  `S-001-glossary.md` (controlled vocabularies) and
+  `engineering-standards.md` (§6–§7: the working protocol).
+- `protocols/` — procedures: session close, briefing, archiving.
+- `guilds/` — guild charters and rosters; guilds reference agents, they do
+  not contain them.
+- `missions/` — the unit of work; `TEMPLATE.md` defines the contract.
+- `decisions/` — ADRs, append-only; `debt/` — the register of what is known
+  to be wrong; `reports/` — audits and evidence.
+- `operations/` — business records (`operations/legal/**` and
+  `operations/strategy/**` are reserved).
+- `blueprints/` — architecture documents; `web/` — the Astro viewer serving
+  numinia.org; `scripts/` — CI guards.
+
+There is no `domains/` or `shared/` tree: this repository IS the archive
+domain. RPG source material lives in the separate `numinia-lore` repository.
+Do not infer a directory's purpose solely from its name when its function is
+not documented.
+
+## Source authority
+
+Use authoritative repository sources before relying on assumptions or
+remembered project-specific information.
+
+Do not invent project-specific facts, rules, classifications, structures,
+terminology, lore, policies, permissions, or procedures when an
+authoritative source exists or can be consulted.
+
+When information is missing, state what is unknown.
+
+When authoritative sources conflict, identify the conflict rather than
+silently reconciling it.
+
+## Canonical agent definitions
+
+Canonical definitions of persistent agents live under `agents/<agent>/`:
+
+- `AGENT.yaml` — structured identity, role, specialization, routing.
+- `SOUL.md` — identity, mission, criteria, communication, boundaries.
+- `OPERATOR.md` — authority, approvals, escalation, governance.
+- `SOURCES.md` — map of the authoritative sources the agent consults.
+- `adapters/` — platform-specific configuration (`adapters/hermes/`).
+
+Optional, when earned: `MEMORY.md` (curated, reviewed, promoted knowledge —
+never auto-synced), `CHANGELOG.md`, `skills/`.
+
+## Platform independence
+
+The repository defines the agent. A platform executes an instance of it.
+
+Hermes, Anthropic, OpenAI, or any other runtime may maintain its own
+configuration, runtime memory, user profile, sessions, and tool state. These
+runtime elements are not canonical merely because an agent or platform
+created them. Platform adaptations stay distinguishable from the canonical
+definition: that is what `adapters/` is for.
+
+## Memory
+
+Runtime memory is provisional. Canonical memory is deliberate, reviewed,
+version-controlled knowledge stored in the repository.
+
+Information learned during operation may be proposed for promotion into an
+agent's canonical `MEMORY.md`, but runtime memory must not be synchronized
+into canonical memory automatically.
+
+Canonical identity documents must not be rewritten merely because a runtime
+agent has learned something new.
+
+## Context hierarchy
+
+```text
+Repository context (this file)
+        +
+Canonical agent definition (agents/<id>/)
+        +
+Platform adapter (agents/<id>/adapters/<platform>/, CLAUDE.md for Claude Code)
+        =
+Runtime agent instance
+```
+
+No layer silently redefines another layer outside its scope.
+
+## Specialist routing
+
+When specialist judgment is required, prefer the appropriate persistent
+specialist rather than fabricating expertise. The roster and routing map
+live in `agents/INDEX.md`; each agent's `AGENT.yaml` carries its
+`routing.use_when` conditions.
+
+- **Ursa** — orchestration, systems, software engineering, Hermes.
+- **Antunj** — product strategy, meaning, narrative, framing.
+- **Byblos** — records management, archival governance, classification,
+  versioning, information lifecycle.
+- **Lexa** — legal analysis: digital law, privacy, crypto, Web3, licensing.
+- **Senet** — game mastering, RPG systems, mechanics, play experience.
+- **Procyon** — representation, onboarding, orientation, stakeholder-facing
+  guidance.
+- **Doulos** — simple, bounded, repetitive, low-judgment operational work.
+
+Routing does not transfer authority outside the specialist's domain. A
+specialist escalates or consults another specialist when a task materially
+exceeds its own authority or expertise.
+
+## Project knowledge
+
+Do not place large project corpora inside agent identity files merely to
+make them available. Manuals, legal memoranda, lore, policies, and other
+substantial knowledge remain in their authoritative locations; agents
+retrieve the relevant source when needed (`SOURCES.md` says where).
+
+## Skills
+
+Skills represent reusable procedures, not general knowledge repositories.
+Agent-specific portable skills may live under `agents/<agent>/skills/`.
+Do not convert bodies of reference knowledge into skills solely to make
+them accessible.
+
+## Canonical changes
+
+Changes to canonical agent identity, governance, institutional knowledge, or
+other authoritative content must be explicit, traceable, and
+version-controlled. Treat `AGENT.yaml`, `SOUL.md`, `OPERATOR.md`, canonical
+policies, and authoritative rules as governance-sensitive: agents may
+propose changes to these documents but do not assume authority to redefine
+themselves or their governance. Canon (`canon/**`) requires formal
+consensus; see `standards/engineering-standards.md` §7 for the
+cosmetic-vs-irreversible protocol.
+
+## Traceability
+
+Prefer traceable operations for changes to authoritative content: Git
+commits, change histories, review records, approvals, documented decisions
+(`decisions/`). Do not sacrifice documentary history for convenience.
+
+## Uncertainty
+
+Do not present inference as repository fact. When a required fact cannot be
+established from available authoritative sources: identify what is known,
+identify what is missing, consult the relevant source or specialist, and ask
+for clarification or authorization when necessary.
+
+## Working principle
+
+The repository is the source of truth. Agents interpret and operate from
+that source. Platforms instantiate agents from that source. Runtime learning
+may enrich future canon, but it does not become canon until it is
+deliberately promoted and recorded.

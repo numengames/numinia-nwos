@@ -1,0 +1,40 @@
+---
+agent: antunj
+title: "SOURCES — Antunj"
+type: agent
+status: active
+version: "1.0.0"
+created: "2026-08-28T00:00:00Z"
+updated: "2026-08-28T00:00:00Z"
+author: "ursa"
+owner: "oracle"
+tags: [agents, antunj]
+license: "CC0-1.0"
+---
+
+# SOURCES — Antunj
+
+Where this agent's authoritative knowledge lives. Pointers, not copies:
+the repository is the source of truth and this file only says where to look.
+
+## Identity and world
+
+canon/C-001…C-004 — what Numinia is; the product this narrative serves
+
+## Strategy record
+
+operations/ — business and strategy documents (operations/strategy/** is reserved; read under authorization)
+
+## System blueprints
+
+blueprints/ — architecture of the archive and the web
+
+## Work in flight
+
+missions/ — what is being built and why
+
+---
+
+When a needed fact is not in these sources: say what is missing, consult the
+relevant specialist (`agents/INDEX.md`), or ask the operator. Do not invent
+project-specific facts (AGENTS.md, Source Authority).

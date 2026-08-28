@@ -1,0 +1,53 @@
+# Byblos — Hermes profile configuration
+# Secrets belong in .env, not in config.yaml.
+
+agent:
+  tool_use_enforcement: auto
+
+terminal:
+  backend: local
+  timeout: 120
+  home_mode: auto
+
+approvals:
+  mode: smart
+  denial_breaker_threshold: 2
+  deny:
+    - "git push --force*"
+    - "git push -f*"
+    - "rm -rf *"
+  smart_policy: |
+    Always ESCALATE any command that deletes, overwrites, renames, moves, rewrites,
+    or changes permissions on documentary records, repositories, archive trees,
+    metadata stores, canonical content, or authoritative project documentation.
+    Always ESCALATE commands that push commits or tags to a remote Git repository.
+    Always ESCALATE destructive Git operations, branch deletion, repository cleanup,
+    bulk file moves, bulk renames, or commands that could irreversibly alter archive
+    structure or document history.
+    Allow ordinary read-only inspection, search, comparison, metadata review,
+    status checks, and non-destructive Git inspection when they are otherwise safe.
+
+checkpoints:
+  enabled: true
+  max_snapshots: 20
+  max_total_size_mb: 500
+  max_file_size_mb: 10
+  auto_prune: true
+  retention_days: 14
+  min_interval_hours: 24
+
+skills:
+  write_approval: true
+
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+  memory_char_limit: 2200
+  user_char_limit: 1375
+  write_approval: true
+
+delegation:
+  max_concurrent_children: 1
+  worktree_isolation: true
+  max_spawn_depth: 1
+  orchestrator_enabled: false

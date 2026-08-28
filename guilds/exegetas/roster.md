@@ -22,8 +22,12 @@ license: "LicenseRef-Numen-AllRightsReserved"
 
 | Agent | Branch | Status | Activated | Files |
 |-------|--------|--------|-----------|-------|
-| [Adonaz](../../agents/adonaz/SOUL.md) | Chroniclers | ✅ Active | 2026-04-06 | [→](../../agents/adonaz/) |
-| [Senet (Maestro de Juego)](../../agents/senet/SOUL.md) | Scholars | 📐 Designed | 2026 | [→](../../agents/senet/) |
+| [Byblos](../../agents/byblos/SOUL.md) (formerly Adonaz, renamed 2026-08-28) | Chroniclers | ✅ Active | 2026-08-28 | [→](../../agents/byblos/) |
+| [Senet](../../agents/senet/SOUL.md) | Scholars | ✅ Active | 2026-08-28 | [→](../../agents/senet/) |
+
+*Guild/branch labels carry over from the previous roster design; a full guild
+re-assignment for the 2026-08-28 roster is deferred to a future iteration by
+Oracle decision (MIS-118).*
 
 ---
 

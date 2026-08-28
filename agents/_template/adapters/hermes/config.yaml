@@ -1,0 +1,45 @@
+# Hermes adapter — recommended configuration for this agent.
+# Merge into the profile's config.yaml. Secrets belong in .env, never here.
+# Model/provider pins live here, NEVER in SOUL.md (MIS-118 decision 9).
+
+agent:
+  tool_use_enforcement: auto
+
+terminal:
+  backend: local
+  timeout: 120
+  home_mode: auto
+
+approvals:
+  mode: smart
+  denial_breaker_threshold: 2
+  deny:
+    - "git push --force*"
+    - "git push -f*"
+    - "rm -rf *"
+  smart_policy: |
+    Always ESCALATE {{what this agent's domain makes dangerous}}.
+    Allow {{the routine and non-destructive}} when otherwise safe.
+
+checkpoints:
+  enabled: true
+  max_snapshots: 15
+  max_total_size_mb: 300
+  max_file_size_mb: 10
+  auto_prune: true
+  retention_days: 7
+  min_interval_hours: 24
+
+skills:
+  write_approval: true
+
+memory:
+  memory_enabled: true
+  user_profile_enabled: false
+  write_approval: true
+
+delegation:
+  max_concurrent_children: 1
+  worktree_isolation: true
+  max_spawn_depth: 1
+  orchestrator_enabled: false

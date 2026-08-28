@@ -3,87 +3,93 @@ id: "agents-index"
 title: "Agents — Index"
 type: meta
 status: active
-version: "2.0.0"
+version: "3.0.0"
 created: "2026-04-06T00:00:00Z"
-updated: "2026-04-07T18:48:00Z"
-author: "nimrod"
+updated: "2026-08-28T00:00:00Z"
+author: "ursa"
 owner: "oracle"
 tags: [agents, index]
 license: "CC0-1.0"
 ---
-# Agents — Living Entities
+# Agents — Operative Roster
 
-> **Summary:** Index of all digital agents in the NWOS system.
-> **Epistemic:** Who operates in the system, their guild, role, and current state.
-> **Pragmatic:** Quick reference to find any agent's files and operational status.
+> **Summary:** index of the digital agents defined in this archive.
+> **Epistemic:** who the agents are, what work routes to each, and how a
+> reader arriving from `git log` resolves a retired author name.
+> **Pragmatic:** the routing map — read `AGENT.yaml` for the card,
+> `SOUL.md` for the identity, `adapters/hermes/` to instantiate.
 > **Audience:** Agents · Oracles
 
 ---
 
-Agent files live in `agents/{name}/`. Guilds reference agents — they do not contain them.
+Agent files live in `agents/{name}/`. The repository defines the agent; a
+platform (Hermes, or any other) instantiates it from `adapters/`
+(ADR-026, MIS-118). Each folder carries:
 
-## Active agents
+```
+agents/{name}/
+├── AGENT.yaml            ← machine-readable card: status, role, routing
+├── SOUL.md               ← identity, function, limits
+├── OPERATOR.md           ← governance: authority, escalation
+├── SOURCES.md            ← where its authoritative knowledge lives
+└── adapters/
+    └── hermes/
+        ├── profile.yaml  ← Hermes routing description
+        └── config.yaml   ← Hermes approvals, memory, delegation
+```
 
-| Agent | Guild / Branch / House | Role | Status | Activated |
-|-------|----------------------|------|--------|-----------|
-| [Nimrod](nimrod/SOUL.md) | Sentinel / Archangel / Explorer | Guardian of the Gates | ✅ Active | 2026-04-02 |
-| [Adonaz](adonaz/SOUL.md) | Procurator / Trustee / Steward | General Archivist | ✅ Active | 2026-04-06 |
+## Roster
 
-### Historical identities
+| Agent | Role | Route here when | Since |
+|---|---|---|---|
+| [Ursa](ursa/SOUL.md) | Technical Architect & Orchestrator | software, architecture, Hermes, orchestration | 2026-08-28 |
+| [Byblos](byblos/SOUL.md) | Records Manager & Information Governance | classification, lifecycle, naming, archive governance | 2026-08-28 |
+| [Antunj](antunj/SOUL.md) | Product Strategist & Narrative Architect | positioning, product narrative, naming, coherence | 2026-08-28 |
+| [Lexa](lexa/SOUL.md) | Legal & Regulatory Analyst | legal issues, licensing, crypto/Web3, compliance risk | 2026-08-28 |
+| [Senet](senet/SOUL.md) | Game Master & Interactive Design | RPG sessions, mechanics, puzzles, encounters | 2026-08-28 |
+| [Procyon](procyon/SOUL.md) | Ambassador & Onboarding Guide | first explanations, orientation, stakeholder guidance | 2026-08-28 |
+| [Doulos](doulos/SOUL.md) | General-Purpose Execution Worker | bounded, repetitive, low-ambiguity work | 2026-08-28 |
+
+Routing does not transfer authority: a specialist escalates or consults
+another specialist when a task materially exceeds its own domain
+(`AGENTS.md`, Specialist Routing).
+
+## Renames
 
 **An agent that has committed never loses its previous name** (`S-001` §5.2).
-Git authorship cannot be rewritten, so a reader arriving from `git log` needs to
-resolve the old name from here — the index — and not only from the agent's own
-folder. That reverse lookup is what `D-027` found missing.
 
-| Git author string | Is now | In use | Commits |
+- **Byblos** is the agent previously designed as **Adonaz** (renamed
+  2026-08-28). Adonaz recorded no commits, so no git authorship is affected.
+
+## Authorship archaeology
+
+Git authorship cannot be rewritten. A reader arriving from `git log` resolves
+retired author strings here — this table survives any roster change
+(`D-027`).
+
+| Git author string | Was | In use | Commits |
 |---|---|---|---|
-| `Centinela-01 <khepri@ai.numengames.com>` | [Nimrod](nimrod/SOUL.md) | 2026-04-06 → 2026-08-17 | 57 |
+| `Centinela-01 <khepri@ai.numengames.com>` | Nimrod — **retired 2026-08-28**, no successor | 2026-04-06 → 2026-08-17 | 57 |
 | `Ursa <ursa-numinia@users.noreply.github.com>` | [Ursa](ursa/SOUL.md) | 2026-08-25 → | 5 |
-| `Ursa (agente) <ursa@numen.games>` | [Ursa](ursa/SOUL.md) | 2026-08-24 → | 30 |
+| `Ursa (agente) <ursa@numen.games>` | [Ursa](ursa/SOUL.md) | 2026-08-24 → | 30+ |
 
 `Centinela-01` committed the ten seminal canon documents on 2026-04-07,
-including `C-001-welcome-to-numinia.md`. `MIS-089` renamed the agent; the history did
-not change and cannot. See `D-027`.
+including `C-001-welcome-to-numinia.md`. The agent was renamed to Nimrod by
+`MIS-089` and retired by `MIS-118`; the history did not change and cannot.
+See `D-027`.
 
-## Agents in design phase
+## Retired rosters
 
-| Agent | Guild / Branch / House | Role | Planned activation |
-|-------|----------------------|------|-------------------|
-| [Ursa](ursa/SOUL.md) | Alchemist / Engineer / Architect | Machine Whisperer | 2026 |
-| [Senet](senet/SOUL.md) | Exegete / Erudite / Thaumaturge | Game Master | 2027 |
-| [Procurador-01](procurador-01/SOUL.md) | Procurator / Syndic | Business Lead | 2027 |
-| Procyon | Coordination | World Model / Distributor | 2028 |
-
-## File structure per agent
-
-```
-agents/
-├── {agent-name}/
-│   ├── SOUL.md       ← Identity, values, voice
-│   ├── OPERATOR.md   ← Operational laws and rules
-│   ├── STATUS.md     ← Current state, metrics, pending
-│   └── MEMORY.md     ← Long-term curated memory
-└── _template/        ← Base template for new agents
-```
-
-## Guild structure
-
-```
-guilds/
-├── sentinels/     ← Security, operations, coordination
-├── exegetas/      ← Knowledge, archive, narrative
-├── alquimistas/   ← Code, creation, engineering
-└── procuradores/  ← Management, law, organization
-```
-
-## Rule
-
-Agents never modify their own SOUL.md or OPERATOR.md. Only Oracle can modify identity and operational rules.
-
----
+The pre-2026-08-28 roster (Nimrod, Adonaz, procurador-01, and the
+character-voiced Senet/Ursa personas, with their `STATUS.md`/`MEMORY.md`
+state files) was retired by `MIS-118` and remains in Git history. Runtime
+state no longer lives in the archive: `status:` is a field in `AGENT.yaml`,
+and session metrics belong to the platform, not the canon.
 
 ## Version history
 
-- v1.0.0 (2026-04-06) — Initial creation (Nimrod + Adonaz only, old guild structure).
-- v2.0.0 (2026-04-07) — Updated to flat structure. Added Ursa, Senet, Procurador-01. Removed obsolete Alquimista-01 / Exégeta-01. (MIS-057 QA)
+- v3.0.0 (2026-08-28) — MIS-118: full roster replacement. Seven operative
+  definitions under CC0 (ADR-026); adapters/ structure; STATUS/MEMORY files
+  retired; archaeology table made independent of living folders.
+- v2.0.0 (2026-04-07) — historical-identities table added (D-027).
+- v1.0.0 (2026-04-06) — initial index.
