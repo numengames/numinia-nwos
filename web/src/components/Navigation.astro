@@ -4,6 +4,7 @@
 import Icon from "@/components/Icon.astro";
 import SiteSearch from "@/components/SiteSearch.astro";
 import { navItems } from "@/data/navigation";
+import { useT, localePaths, type UIKey } from "@/i18n/ui";
 
 interface Props {
   activeNav?: string;
@@ -15,17 +16,41 @@ const numaniaIds = navItems
   .find((i) => i.id === "numinia")
   ?.children?.map((c) => c.id) ?? [];
 const numaniaActive = numaniaIds.includes(activeNav ?? "");
+
+// MIS-120(b) — chrome reads the dictionary; hrefs gain the /es prefix on
+// the Spanish locale; the selector is a pair of links to the same path.
+// nav item ids are historical (Spanish); the map bridges id → dictionary key.
+const locale = Astro.currentLocale ?? "en";
+const t = useT(locale);
+const { enPath, esPath } = localePaths(Astro.url.pathname);
+const NAV_KEY: Record<string, UIKey> = {
+  missions: "nav.missions",
+  corpus: "nav.corpus",
+  decisiones: "nav.decisions",
+  planos: "nav.blueprints",
+  reportes: "nav.reports",
+};
+const navLabel = (id: string, fallback: string) =>
+  NAV_KEY[id] ? t(NAV_KEY[id]) : fallback;
+const l = (href: string) => (locale === "es" ? "/es" + href : href);
+const homeHref = locale === "es" ? "/es/" : "/";
 ---
 
 <nav class="sticky top-0 z-50 border-b border-border/50 bg-background/85 backdrop-blur-xl">
   <div class="mx-auto flex h-14 max-w-[1100px] items-center justify-between px-6">
-    <a href="/" class="font-display text-xl text-foreground transition-colors hover:text-accent">
+    <a href={homeHref} class="font-display text-xl text-foreground transition-colors hover:text-accent">
       NW<em class="text-accent">OS</em>
     </a>
 
     <!-- Desktop nav -->
     <div class="hidden items-center gap-1 sm:flex">
       <SiteSearch />
+      <!-- MIS-120(b) — language selector: two links, no state, no flags -->
+      <div class="ml-1 flex items-center gap-0.5 font-mono text-[0.65rem] uppercase tracking-[0.1em]" aria-label={t("nav.langSelector")}>
+        <a href={enPath} aria-current={locale === "en" ? "true" : undefined} class:list={["rounded-md px-1.5 py-1 transition-colors", locale === "en" ? "text-accent" : "text-dim hover:text-foreground"]}>EN</a>
+        <span class="text-dim/50">|</span>
+        <a href={esPath} aria-current={locale === "es" ? "true" : undefined} class:list={["rounded-md px-1.5 py-1 transition-colors", locale === "es" ? "text-accent" : "text-dim hover:text-foreground"]}>ES</a>
+      </div>
       {navItems.map((item) => {
         if (item.children) {
           return (
@@ -39,7 +64,7 @@ const numaniaActive = numaniaIds.includes(activeNav ?? "");
                     : "border border-transparent text-muted-foreground hover:border-border hover:bg-card hover:text-foreground",
                 ]}
               >
-                {item.label}
+                {navLabel(item.id, item.label)}
                 <span data-chevron class="inline-flex transition-transform duration-200">
                   <Icon name="caret-down" size={10} />
                 </span>
@@ -53,7 +78,7 @@ const numaniaActive = numaniaIds.includes(activeNav ?? "");
               >
                 {item.children.map((child) => (
                   <a
-                    href={child.href}
+                    href={l(child.href)}
                     class:list={[
                       "block px-4 py-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] transition-colors",
                       activeNav === child.id
@@ -61,7 +86,7 @@ const numaniaActive = numaniaIds.includes(activeNav ?? "");
                         : "text-muted-foreground hover:bg-card hover:text-foreground",
                     ]}
                   >
-                    {child.label}
+                    {navLabel(child.id, child.label)}
                   </a>
                 ))}
               </div>
@@ -70,7 +95,7 @@ const numaniaActive = numaniaIds.includes(activeNav ?? "");
         }
         return (
           <a
-            href={item.href}
+            href={l(item.href)}
             class:list={[
               "rounded-full px-4 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.15em] transition-all",
               activeNav === item.id
@@ -78,7 +103,7 @@ const numaniaActive = numaniaIds.includes(activeNav ?? "");
                 : "border border-transparent text-muted-foreground hover:border-border hover:bg-card hover:text-foreground",
             ]}
           >
-            {item.label}
+            {navLabel(item.id, item.label)}
           </a>
         );
       })}
@@ -88,7 +113,7 @@ const numaniaActive = numaniaIds.includes(activeNav ?? "");
     <button
       id="mobile-menu-btn"
       class="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:bg-card hover:text-foreground sm:hidden"
-      aria-label="Abrir menú"
+      aria-label={t("nav.openMenu")}
       aria-expanded="false"
     >
       <Icon name="list" size={18} />
@@ -106,12 +131,12 @@ const numaniaActive = numaniaIds.includes(activeNav ?? "");
                 "rounded-lg px-4 py-2.5 font-mono text-[0.7rem] uppercase tracking-[0.15em]",
                 numaniaActive ? "text-accent" : "text-muted-foreground",
               ]}>
-                {item.label}
+                {navLabel(item.id, item.label)}
               </div>
               <div class="ml-4 flex flex-col gap-1 border-l border-border/50 pl-3">
                 {item.children.map((child) => (
                   <a
-                    href={child.href}
+                    href={l(child.href)}
                     class:list={[
                       "rounded-lg px-3 py-2 font-mono text-[0.65rem] uppercase tracking-[0.15em] transition-colors",
                       activeNav === child.id
@@ -119,7 +144,7 @@ const numaniaActive = numaniaIds.includes(activeNav ?? "");
                         : "text-muted-foreground hover:bg-card hover:text-foreground",
                     ]}
                   >
-                    {child.label}
+                    {navLabel(child.id, child.label)}
                   </a>
                 ))}
               </div>
@@ -128,7 +153,7 @@ const numaniaActive = numaniaIds.includes(activeNav ?? "");
         }
         return (
           <a
-            href={item.href}
+            href={l(item.href)}
             class:list={[
               "rounded-lg px-4 py-2.5 font-mono text-[0.7rem] uppercase tracking-[0.15em] transition-colors",
               activeNav === item.id
@@ -136,10 +161,15 @@ const numaniaActive = numaniaIds.includes(activeNav ?? "");
                 : "text-muted-foreground hover:bg-card hover:text-foreground",
             ]}
           >
-            {item.label}
+            {navLabel(item.id, item.label)}
           </a>
         );
       })}
+      <div class="mt-2 flex items-center gap-0.5 border-t border-border/50 pt-3 font-mono text-[0.65rem] uppercase tracking-[0.1em]" aria-label={t("nav.langSelector")}>
+        <a href={enPath} aria-current={locale === "en" ? "true" : undefined} class:list={["rounded-md px-2 py-1.5 transition-colors", locale === "en" ? "text-accent" : "text-dim"]}>EN</a>
+        <span class="text-dim/50">|</span>
+        <a href={esPath} aria-current={locale === "es" ? "true" : undefined} class:list={["rounded-md px-2 py-1.5 transition-colors", locale === "es" ? "text-accent" : "text-dim"]}>ES</a>
+      </div>
     </div>
   </div>
 </nav>

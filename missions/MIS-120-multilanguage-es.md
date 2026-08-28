@@ -13,7 +13,7 @@ completed: null
 
 # REGISTRO
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-28"
 updated: "2026-08-28"
 author: "ursa"
@@ -50,10 +50,10 @@ that completes the work.
       `/idioma` `/simulaciones` `/soluciones` `/ventas` → EN), 19
       permanent 301s, 14 internal hrefs, 3 nav hrefs. Words untouched —
       files, not words. *(PR #106, 2026-08-28)*
-- [ ] **(b) The dictionary and the selector** — `web/src/i18n/ui.ts`
+- [x] **(b) The dictionary and the selector** — `web/src/i18n/ui.ts`
       (~120 typed strings), Astro native i18n (`/es/` prefixed, EN
       unprefixed), `EN | ES` text selector in the nav (no flags), 5 pilot
-      pages under `/es/`.
+      pages under `/es/`. *(PR pending merge, 2026-08-28)*
 - [ ] **(c) The sweep** — remaining ~28 pages + components (DocToolbar,
       SpeechPlayer, SiteSearch, Footer, aria-labels): zero hardcoded UI
       literals outside the dictionary; one language per locale.
@@ -109,6 +109,19 @@ that completes the work.
 
 ## Execution log
 
+- **2026-08-28 · (b) done** — dictionary `web/src/i18n/ui.ts` (~70 typed
+  keys, `satisfies` forces EN/ES parity at compile time); Astro native
+  i18n with `fallback: redirect` (`fallbackType: rewrite` tried and
+  rejected: it re-renders overlapping dynamic routes under /es/ and the
+  build dies — recorded in astro.config.mjs); `EN | ES` selector in nav
+  (desktop + mobile, text, no flags, aria-current); 5 pilots under /es/
+  via thin wrappers over shared `views/` (no content duplication).
+  FOUND IN PASSING: the whole site declared `lang="es"` while serving
+  English — wrong for screen readers, Pagefind indexing, og:locale, and
+  MIS-119's voice pick. Fixed: `lang` follows the real locale; hreflang
+  en/es/x-default pairs on every page. Build 662 (655+5 pilots+2 locale
+  redirects); ES pages 100% ES chrome; EN pages leak-free; round-trip
+  selector verified in dist.
 - **2026-08-28 · (a) done** — PR #106. Divergence: the plan said "13
   routes"; the pre-move measurement found 19 served routes (5 dailies
   under `/reportes/diario-*`, plus `/planos/meta`). Counted before moving,
