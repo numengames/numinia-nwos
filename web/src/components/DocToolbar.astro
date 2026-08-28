@@ -2,19 +2,23 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 // Toolbar for rendered .md detail pages: copy the raw markdown, download
-// the canonical file (File over App — the document is the deliverable).
+// the canonical file (File over App — the document is the deliverable),
+// and listen to it through the browser's own voices (MIS-119).
 import Icon from "@/components/Icon.astro";
+import SpeechPlayer from "@/components/SpeechPlayer.astro";
 
 interface Props {
   mdUrl: string;      // URL of the raw .md static endpoint
   filename: string;   // canonical repo filename for the download
   pdfUrl?: string;    // URL of the pre-generated PDF (MIS-088)
+  lang?: string;      // document language for the speech voice (MIS-119)
 }
-const { mdUrl, filename, pdfUrl } = Astro.props;
+const { mdUrl, filename, pdfUrl, lang } = Astro.props;
 const pdfFilename = filename.replace(/\.md$/i, ".pdf");
 ---
 
 <div class="doc-toolbar flex items-center justify-end gap-2 mb-3" data-md-url={mdUrl}>
+  <SpeechPlayer lang={lang} />
   <button
     type="button"
     class="copy-md inline-flex items-center gap-1.5 font-mono text-[0.65rem] uppercase tracking-[0.1em] text-dim hover:text-accent border border-border hover:border-accent/40 rounded-lg px-3 py-1.5 transition-colors"

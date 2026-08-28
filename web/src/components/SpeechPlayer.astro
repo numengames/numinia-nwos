@@ -1,0 +1,236 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+// MIS-119 — Listen: speak the rendered document through the browser's own
+// synthesis (Web Speech API). Sovereign by construction: the text never
+// leaves the reader's machine. No React island — a plain script, like the
+// rest of the toolbar.
+//
+// The one hard part is chunking: engines (Chrome documented) cut a single
+// utterance after ~15s, so the article is split on sentence boundaries and
+// queued utterance by utterance, with a resume() keepalive against the
+// engine's spurious pause. Rate changes take effect from the next chunk.
+interface Props {
+  /** CSS selector of the element whose text is spoken. */
+  textSelector?: string;
+  /** BCP-47 language of the document (from frontmatter when declared). */
+  lang?: string;
+}
+const { textSelector = "article", lang = "en" } = Astro.props;
+---
+
+<div
+  class="speech-player inline-flex items-center gap-2"
+  data-text-selector={textSelector}
+  data-lang={lang}
+>
+  <button
+    type="button"
+    class="sp-toggle inline-flex items-center gap-1.5 font-mono text-[0.65rem] uppercase tracking-[0.1em] text-dim hover:text-accent border border-border hover:border-accent/40 rounded-lg px-3 py-1.5 transition-colors aria-pressed:border-accent/60 aria-pressed:text-accent"
+    aria-pressed="false"
+    aria-label="Listen to this document"
+  >
+    <span class="sp-icon" aria-hidden="true">▶</span>
+    <span class="sp-label">Listen</span>
+    <span class="sp-est text-dim"></span>
+  </button>
+  <button
+    type="button"
+    class="sp-stop hidden font-mono text-[0.65rem] uppercase tracking-[0.1em] text-dim hover:text-accent border border-border hover:border-accent/40 rounded-lg px-2.5 py-1.5 transition-colors"
+    aria-label="Stop listening"
+  >■</button>
+  <button
+    type="button"
+    class="sp-rate font-mono text-[0.65rem] uppercase tracking-[0.1em] text-dim hover:text-accent border border-border hover:border-accent/40 rounded-lg px-2.5 py-1.5 transition-colors"
+    aria-label="Playback rate: 1x. Press to change"
+    data-rate="1"
+  >1×</button>
+</div>
+
+<script>
+  // One controller per toolbar instance; pages can mount several toolbars.
+  const RATES = [1, 1.5, 2];
+  const WPM = 180; // baseline speaking pace for the estimate
+
+  for (const root of document.querySelectorAll<HTMLElement>(".speech-player")) {
+    const toggle = root.querySelector<HTMLButtonElement>(".sp-toggle")!;
+    const stopBtn = root.querySelector<HTMLButtonElement>(".sp-stop")!;
+    const rateBtn = root.querySelector<HTMLButtonElement>(".sp-rate")!;
+    const label = root.querySelector<HTMLElement>(".sp-label")!;
+    const icon = root.querySelector<HTMLElement>(".sp-icon")!;
+    const est = root.querySelector<HTMLElement>(".sp-est")!;
+
+    if (!("speechSynthesis" in window)) {
+      toggle.disabled = true;
+      rateBtn.disabled = true;
+      toggle.title = "This browser has no speech synthesis";
+      toggle.classList.add("opacity-50");
+      continue;
+    }
+    const synth = window.speechSynthesis;
+
+    // ---- text extraction -------------------------------------------------
+    const target = document.querySelector<HTMLElement>(
+      root.dataset.textSelector || "article",
+    );
+    // Clone and prune non-content subtrees so the voice reads the document,
+    // not the chrome around it.
+    let text = "";
+    if (target) {
+      const clone = target.cloneNode(true) as HTMLElement;
+      for (const sel of [".doc-toolbar", "nav", ".speech-player"])
+        clone.querySelectorAll(sel).forEach((n) => n.remove());
+      text = (clone.innerText || "").replace(/\s+/g, " ").trim();
+    }
+    const words = text ? text.split(" ").length : 0;
+    if (!words) {
+      toggle.disabled = true;
+      toggle.title = "Nothing to read on this page";
+      toggle.classList.add("opacity-50");
+      continue;
+    }
+
+    // ---- chunking (sentence boundaries, ~280 chars) ----------------------
+    // Engines cut long utterances (~15s in Chrome). Short chunks also make
+    // pause/stop feel immediate and let rate changes land quickly.
+    const chunks: string[] = [];
+    {
+      const sentences = text.match(/[^.!?…]+[.!?…]+[\s]*|[^.!?…]+$/g) ?? [text];
+      let buf = "";
+      for (const s of sentences) {
+        if (buf.length + s.length > 280 && buf) {
+          chunks.push(buf.trim());
+          buf = "";
+        }
+        buf += s;
+      }
+      if (buf.trim()) chunks.push(buf.trim());
+    }
+
+    // ---- voice pick (async: engines populate voices late) ----------------
+    const docLang = (root.dataset.lang || "en").toLowerCase();
+    let voice: SpeechSynthesisVoice | null = null;
+    const pickVoice = () => {
+      const vs = synth.getVoices();
+      voice =
+        vs.find((v) => v.lang.toLowerCase() === docLang) ??
+        vs.find((v) => v.lang.toLowerCase().startsWith(docLang.slice(0, 2))) ??
+        null; // engine default is an acceptable fallback
+    };
+    pickVoice();
+    synth.addEventListener?.("voiceschanged", pickVoice);
+
+    // ---- estimate --------------------------------------------------------
+    let rate = 1;
+    const renderEst = () => {
+      const mins = words / (WPM * rate);
+      est.textContent =
+        "· ~" + (mins < 1 ? "<1" : String(Math.round(mins))) + " min";
+    };
+    renderEst();
+
+    // ---- state machine: idle → speaking ⇄ paused → idle ------------------
+    let state: "idle" | "speaking" | "paused" = "idle";
+    let queueIndex = 0;
+    let keepalive: number | undefined;
+
+    const render = () => {
+      toggle.setAttribute("aria-pressed", String(state === "speaking"));
+      icon.textContent = state === "speaking" ? "❚❚" : "▶";
+      label.textContent =
+        state === "speaking" ? "Pause" : state === "paused" ? "Resume" : "Listen";
+      toggle.setAttribute(
+        "aria-label",
+        state === "speaking"
+          ? "Pause listening"
+          : state === "paused"
+            ? "Resume listening"
+            : "Listen to this document",
+      );
+      stopBtn.classList.toggle("hidden", state === "idle");
+    };
+
+    const speakFrom = (i: number) => {
+      if (i >= chunks.length) {
+        state = "idle";
+        queueIndex = 0;
+        render();
+        return;
+      }
+      queueIndex = i;
+      const u = new SpeechSynthesisUtterance(chunks[i]);
+      if (voice) u.voice = voice;
+      u.lang = voice?.lang ?? docLang;
+      u.rate = rate;
+      u.onend = () => {
+        if (state === "speaking") speakFrom(queueIndex + 1);
+      };
+      // Engine errors (voice vanished, tab throttled): stop cleanly rather
+      // than leaving a button that lies about its state.
+      u.onerror = () => {
+        state = "idle";
+        render();
+      };
+      synth.speak(u);
+    };
+
+    const start = () => {
+      synth.cancel(); // never stack on a previous run
+      state = "speaking";
+      render();
+      speakFrom(queueIndex);
+      // Chrome pauses synthesis in long runs / background tabs; a periodic
+      // resume() is the documented keepalive.
+      keepalive = window.setInterval(() => {
+        if (state === "speaking" && synth.paused) synth.resume();
+      }, 5000);
+    };
+
+    const stopAll = () => {
+      state = "idle";
+      queueIndex = 0;
+      if (keepalive) clearInterval(keepalive);
+      synth.cancel();
+      render();
+    };
+
+    toggle.addEventListener("click", () => {
+      if (state === "idle") return start();
+      if (state === "speaking") {
+        state = "paused";
+        synth.pause();
+        render();
+        return;
+      }
+      // paused → resume. Firefox resumes natively; if the engine already
+      // dropped the queue (Chrome after long pauses), restart the chunk.
+      state = "speaking";
+      if (synth.paused) synth.resume();
+      else speakFrom(queueIndex);
+      render();
+    });
+
+    stopBtn.addEventListener("click", stopAll);
+
+    rateBtn.addEventListener("click", () => {
+      rate = RATES[(RATES.indexOf(rate) + 1) % RATES.length];
+      rateBtn.textContent = rate + "×";
+      rateBtn.dataset.rate = String(rate);
+      rateBtn.setAttribute(
+        "aria-label",
+        "Playback rate: " + rate + "x. Press to change",
+      );
+      renderEst();
+      // Apply mid-run: cancel the current utterance and continue from the
+      // same chunk at the new rate.
+      if (state === "speaking") {
+        synth.cancel();
+        speakFrom(queueIndex);
+      }
+    });
+
+    // The voice must not outlive the page.
+    addEventListener("beforeunload", stopAll);
+    document.addEventListener("astro:before-swap", stopAll);
+  }
+</script>

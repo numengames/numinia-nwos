@@ -37,6 +37,12 @@ const m = rel.match(
 );
 const dir = m ? [m[1], ...m[2].split("/").slice(0, -1)].join("/") : "raíz";
 const title = str(raw.title) ?? mdFilename;
+// MIS-119 — the speech voice follows the document's language. The corpus is
+// mid-migration (ADR-024): honor an explicit declaration, else default to
+// the site language. "es-ES until…" style annotations reduce to their tag.
+const docLang = (str(raw.lang) ?? str(raw.idioma_canonico) ?? "en")
+  .trim()
+  .split(/[\s#]/)[0];
 const fmtDate = (v: unknown) => {
   if (!v) return null;
   const d = v instanceof Date ? v : new Date(String(v));
@@ -69,7 +75,7 @@ const updated = fmtDate(f.updated) ?? fmtDate(f.created);
 
       <h1 class="font-display text-3xl sm:text-4xl text-foreground mb-8">{title}</h1>
 
-      <DocToolbar mdUrl={mdUrl} filename={mdFilename} pdfUrl={"/pdf" + mdUrl.replace(/\.md$/, ".pdf")} />
+      <DocToolbar mdUrl={mdUrl} filename={mdFilename} pdfUrl={"/pdf" + mdUrl.replace(/\.md$/, ".pdf")} lang={docLang} />
       <article class="mission-md rounded-xl border border-border bg-card p-6 sm:p-8">
         <Content />
       </article>
