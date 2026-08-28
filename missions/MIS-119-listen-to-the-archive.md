@@ -132,6 +132,36 @@ mid-migration (ADR-024).
 
 ---
 
+## QA log (Oracle, 2026-08-28)
+
+Five defects found by the Oracle using the deployed player, each fixed in
+its own PR against this mission. Defects 1-3 were logged in #108's branch
+but the squash merge landed before the doc commit — recorded here now,
+which is itself a lesson: **the mission doc travels in the same commit as
+the fix, not after it.**
+
+| # | Defect (as experienced) | Root cause | Fix | PR |
+|---|---|---|---|---|
+| 1 | Toolbar wrapped badly on mobile; changing rate mid-play killed playback after one chunk | `cancel()` fires the cancelled utterance's end/error events, which raced the new queue | Generation counter (`gen`) stales out superseded callbacks; mobile wrap CSS | [#105](https://github.com/numengames/numinia-nwos/pull/105) |
+| 2 | Pause, navigate to another page, come back: position lost, restarts from the top | Page teardown called `stopAll()`, zeroing `queueIndex`; nothing persisted it | Position + rate persist in `sessionStorage` (route+selector key, chunk-count fingerprint); teardown saves, only Stop / natural end clear | [#107](https://github.com/numengames/numinia-nwos/pull/107) |
+| 3 | Pause then Play in the same tab restarted from the top (or went silent) | Pause leaned on `speechSynthesis.pause()`/`resume()`, unreliable across engines (Chrome drops paused queues ~15s; Android ignores mid-utterance pause; Linux speech-dispatcher ends the utterance on pause) | Pause owns the position: `cancel()` the engine, keep `queueIndex`; engine pause never used | [#108](https://github.com/numengames/numinia-nwos/pull/108) |
+| 4 | After #108 deployed, the player was entirely dead on live — every button inert, so "pause still doesn't work" | **Regression from the MIS-120c i18n sweep (#110):** the client script called `T(key, fallback)` for its UI strings, the sweep serialized translations as `data-t-*` attributes, but `T` itself was never defined — first click threw `ReferenceError: T is not defined` | `T` reads `root.dataset` with the English fallback; a missing attribute degrades to English instead of killing the player | #111 |
+| 5 | Resume restarted the sentence/paragraph, not the word — early in the first chunk it was indistinguishable from restarting the document | Position was tracked at chunk granularity (~280 chars); pausing early in a chunk lost up to a chunk of progress | Utterance `boundary` events track the last word spoken; pause freezes chunk + char offset, resume re-speaks from that word. Engines without boundary events keep chunk-start behavior | #111 |
+
+The pattern across all five: defects 1-3 and 5 came from **trusting the
+engine's own state** (event ordering, queue survival, pause flag, position);
+the component now treats the engine as a fire-and-forget speaker and keeps
+all state on its side. Defect 4 came from **a cross-mission edit shipping
+without exercising the code path it touched** — the sweep changed the
+player's script and no click was ever made on the result.
+
+The pause/stop contract, as the Oracle specified it: **❚❚ Pause** holds the
+position — the next ▶ resumes from the word where it stopped. **■ Stop**
+discards it — the next ▶ starts from the top. Position survives leaving
+the page (session-scoped); it does not survive the browser session.
+
+---
+
 ## Closure
 
 *(Fill when the mission closes.)*

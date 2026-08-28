@@ -68,6 +68,15 @@ const t = useT(Astro.currentLocale ?? "en");
   const WPM = 180; // baseline speaking pace for the estimate
 
   for (const root of document.querySelectorAll<HTMLElement>(".speech-player")) {
+    // UI strings come pre-translated from the server as data-t-* attributes
+    // (MIS-120c); T reads them back. QA 2026-08-28, defect 4: the sweep
+    // serialized the attributes but never defined this reader, so every
+    // click threw `ReferenceError: T is not defined` and the player was
+    // dead on arrival — the REAL cause of "pause doesn't work" on live.
+    // The fallback string keeps the player alive even if an attribute
+    // goes missing.
+    const T = (key: string, fallback: string) =>
+      root.dataset["t" + key] ?? fallback;
     const toggle = root.querySelector<HTMLButtonElement>(".sp-toggle")!;
     const stopBtn = root.querySelector<HTMLButtonElement>(".sp-stop")!;
     const rateBtn = root.querySelector<HTMLButtonElement>(".sp-rate")!;
@@ -153,6 +162,17 @@ const t = useT(Astro.currentLocale ?? "en");
     let queueIndex = 0;
     let gen = 0;
     let keepalive: number | undefined;
+    // Word-level position inside the current chunk (QA 2026-08-28, defect
+    // 4: pausing early in a ~280-char chunk and resuming replayed the whole
+    // chunk — within the FIRST chunk that is indistinguishable from
+    // restarting the document). `charOffset` is where the current
+    // utterance's text starts inside chunks[queueIndex]; `lastBoundary` is
+    // the last word boundary the engine reported, relative to that
+    // utterance. Boundary events are a progressive enhancement: engines
+    // that never fire them leave lastBoundary at 0 and resume falls back
+    // to the chunk start — never worse than before.
+    let charOffset = 0;
+    let lastBoundary = 0;
 
     // ---- position persistence (QA 2026-08-28: pause + navigate away lost
     // the position). The chunk index and rate survive the page in
@@ -166,7 +186,7 @@ const t = useT(Astro.currentLocale ?? "en");
       try {
         sessionStorage.setItem(
           storeKey,
-          JSON.stringify({ i: queueIndex, rate, n: chunks.length }),
+          JSON.stringify({ i: queueIndex, o: charOffset, rate, n: chunks.length }),
         );
       } catch {
         /* storage full/blocked: degrade to the old session-only behavior */
@@ -187,10 +207,12 @@ const t = useT(Astro.currentLocale ?? "en");
         saved &&
         saved.n === chunks.length &&
         Number.isInteger(saved.i) &&
-        saved.i > 0 &&
+        (saved.i > 0 || (Number.isInteger(saved.o) && saved.o > 0)) &&
         saved.i < chunks.length
       ) {
         queueIndex = saved.i;
+        if (Number.isInteger(saved.o) && saved.o > 0 && saved.o < chunks[saved.i].length)
+          charOffset = saved.o;
         if (RATES.includes(saved.rate)) {
           rate = saved.rate;
           rateBtn.textContent = rate + "×";
@@ -222,7 +244,9 @@ const t = useT(Astro.currentLocale ?? "en");
     const render = () => {
       // Idle with a saved position (restored from a previous visit) is
       // presented as Resume: the reader left mid-document and comes back.
-      const resumable = state === "paused" || (state === "idle" && queueIndex > 0);
+      const resumable =
+        state === "paused" ||
+        (state === "idle" && (queueIndex > 0 || charOffset > 0));
       toggle.setAttribute("aria-pressed", String(state === "speaking"));
       icon.textContent = state === "speaking" ? "❚❚" : "▶";
       label.textContent =
@@ -238,25 +262,39 @@ const t = useT(Astro.currentLocale ?? "en");
       stopBtn.classList.toggle("hidden", state === "idle" && queueIndex === 0);
     };
 
-    const speakFrom = (i: number) => {
+    const speakFrom = (i: number, offset = 0) => {
       if (i >= chunks.length) {
         // Natural end: also release the keepalive (QA: it leaked here and
         // stacked a second interval on the next play). The document is
         // finished — the saved position dies with it.
         state = "idle";
         queueIndex = 0;
+        charOffset = 0;
         clearProgress();
         stopKeepalive();
         render();
         return;
       }
       queueIndex = i;
+      // Snap the offset back to a word boundary so the utterance never
+      // starts mid-word; a broken offset degrades to the chunk start.
+      charOffset =
+        offset > 0 && offset < chunks[i].length - 1
+          ? chunks[i].lastIndexOf(" ", offset) + 1
+          : 0;
+      lastBoundary = 0;
       saveProgress();
       const g = gen;
-      const u = new SpeechSynthesisUtterance(chunks[i]);
+      const u = new SpeechSynthesisUtterance(chunks[i].slice(charOffset));
       if (voice) u.voice = voice;
       u.lang = voice?.lang ?? docLang;
       u.rate = rate;
+      u.onboundary = (e) => {
+        // Word boundaries mark where a pause can resume. Engines that never
+        // fire this leave lastBoundary at 0 — resume from the chunk start.
+        if (g === gen && typeof e.charIndex === "number" && e.charIndex > 0)
+          lastBoundary = e.charIndex;
+      };
       u.onend = () => {
         if (g !== gen) return; // stale: a cancel() superseded this queue
         if (state === "speaking") speakFrom(queueIndex + 1);
@@ -280,13 +318,15 @@ const t = useT(Astro.currentLocale ?? "en");
       state = "speaking";
       render();
       startKeepalive();
-      speakFrom(queueIndex);
+      speakFrom(queueIndex, charOffset); // honor a restored mid-chunk position
     };
 
     const stopAll = () => {
       gen++;
       state = "idle";
       queueIndex = 0;
+      charOffset = 0;
+      lastBoundary = 0;
       clearProgress(); // Stop is the reader saying "from the top next time"
       stopKeepalive();
       synth.cancel();
@@ -297,7 +337,8 @@ const t = useT(Astro.currentLocale ?? "en");
     // the position must (QA 2026-08-28 — pause, browse away, come back,
     // resume where you left off).
     const teardown = () => {
-      if (state !== "idle" || queueIndex > 0) saveProgress();
+      if (state === "speaking") charOffset = charOffset + lastBoundary;
+      if (state !== "idle" || queueIndex > 0 || charOffset > 0) saveProgress();
       gen++;
       stopKeepalive();
       synth.cancel();
@@ -312,10 +353,16 @@ const t = useT(Astro.currentLocale ?? "en");
         // speech-dispatcher (Firefox) can end the utterance on pause so a
         // later resume() resumes nothing (QA 2026-08-28: pause+play went
         // silent or restarted from the top). So pausing cancels the engine
-        // outright; the position lives in queueIndex, which we own. Resume
-        // re-speaks the current chunk — deterministic on every engine, at
-        // the cost of repeating at most one sentence.
+        // outright; the position lives in queueIndex + charOffset, which we
+        // own. Resume re-speaks from the last word boundary the engine
+        // reported — deterministic on every engine, worst case repeating a
+        // few words (or the chunk, on engines without boundary events).
         state = "paused";
+        // Freeze the word-level position BEFORE cancel() — the engine's
+        // boundary counter dies with the utterance. Absolute offset in the
+        // chunk = where this utterance started + last boundary heard.
+        charOffset = charOffset + lastBoundary;
+        lastBoundary = 0;
         gen++; // stale-out the cancelled utterance's end/error events
         synth.cancel();
         saveProgress();
@@ -323,12 +370,12 @@ const t = useT(Astro.currentLocale ?? "en");
         render();
         return;
       }
-      // paused → resume: re-speak the current chunk. The engine's own
-      // paused flag is deliberately ignored — we never engine-pause now.
+      // paused → resume: re-speak the current chunk from the last word
+      // boundary heard (or its start, on engines without boundary events).
       state = "speaking";
       render();
       startKeepalive();
-      speakFrom(queueIndex);
+      speakFrom(queueIndex, charOffset);
     });
 
     stopBtn.addEventListener("click", stopAll);
@@ -347,9 +394,12 @@ const t = useT(Astro.currentLocale ?? "en");
       // paused, the new rate simply applies on resume.
       if (state === "speaking") {
         gen++;
+        // Keep the word position across the rate change, same as pause.
+        charOffset = charOffset + lastBoundary;
+        lastBoundary = 0;
         synth.cancel();
-        speakFrom(queueIndex);
-      } else if (queueIndex > 0) {
+        speakFrom(queueIndex, charOffset);
+      } else if (queueIndex > 0 || charOffset > 0) {
         saveProgress(); // keep the stored rate in step with the position
       }
     });
