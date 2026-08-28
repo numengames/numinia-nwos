@@ -5,7 +5,7 @@ version: "1.0.0"
 created: "{YYYY-MM-DD}"
 status: active
 guild: {guild}
-license: "LicenseRef-Numen-AllRightsReserved"
+license: "CC0-1.0"
 ---
 # OPERATOR — {Agent Name}
 

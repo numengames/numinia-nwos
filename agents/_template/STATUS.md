@@ -4,7 +4,7 @@ title: "STATUS — {Agent Name}"
 version: "auto"
 updated: "{YYYY-MM-DD}"
 status: {active|standby|design}
-license: "LicenseRef-Numen-AllRightsReserved"
+license: "CC0-1.0"
 ---
 # STATUS — {Agent Name}
 

@@ -8,7 +8,7 @@ status: active
 guild: Sentinel
 branch: Archangel
 house: Explorer
-license: "LicenseRef-Numen-AllRightsReserved"
+license: "CC0-1.0"
 ---
 # STATUS — Nimrod
 

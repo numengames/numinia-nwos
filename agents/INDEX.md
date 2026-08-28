@@ -9,7 +9,7 @@ updated: "2026-04-07T18:48:00Z"
 author: "nimrod"
 owner: "oracle"
 tags: [agents, index]
-license: "LicenseRef-Numen-AllRightsReserved"
+license: "CC0-1.0"
 ---
 # Agents — Living Entities
 

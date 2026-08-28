@@ -4,9 +4,9 @@ uid: "01a03457-27cc-710a-a828-17568e57e41e"
 title: "Decisions — Index"
 type: adr
 status: active
-version: "1.6.0"
+version: "1.7.0"
 created: "2026-04-06T00:00:00Z"
-updated: "2026-08-27T00:00:00Z"
+updated: "2026-08-28T00:00:00Z"
 author: "nimrod"
 owner: "oracle"
 tags: [decisions, index, adr]
@@ -37,6 +37,7 @@ Architectural Decision Records (ADR) of the Narrative Work OS. These records are
 | ADR-005 | Registration prefixes: `S-` stays with standards, agents take `AG-` | ✅ Active | 2026-08-25 |
 | ADR-023 | Four terms, two pairs: germinal motive / operating system, regulatory / functional model | ✅ Active | 2026-08-25 |
 | ADR-024 | English is the base language of every summa document; C-005 §5 amended | ✅ Active | 2026-08-27 |
+| ADR-026 | Agent definitions are operational documentation, and they are CC0 | ✅ Active | 2026-08-28 |
 | DEC-001 | Self-hosting over SaaS | ✅ Active | 2026-04-03 |
 | DEC-002 | Build in public with CC0 license | ✅ Active | 2026-04-02 |
 | DEC-003 | Arbitrum as Numinia blockchain | ⚠️ Provisional | 2026-04-05 |
@@ -67,3 +68,4 @@ Architectural Decision Records (ADR) of the Narrative Work OS. These records are
 - v1.4.0 (2026-08-24) — ADR-004 registered: identifier convention; `ADR-` declared canonical over `DEC-`.
 - v1.5.0 (2026-08-25) — ADR-005 registered: prefix ruling. `agents/` takes `AG-`, not `A-`; `S-` stays with `standards/` and canon renumbers to `C-NNN` inside MIS-109.
 - v1.6.0 (2026-08-27) — ADR-024 registered: English is the base language of every summa document; C-005 §5 amended (canon-change). ADR-023 backfilled into the table — it was on disk since 2026-08-25 but never listed here.
+- v1.7.0 (2026-08-28) — ADR-026 registered: agent definitions are operational documentation and are CC0; `agents/**` leaves the reserved annotation (LD-001 made the reservation unenforceable). C-005 §1 amendment owed, tracked as D-038.
