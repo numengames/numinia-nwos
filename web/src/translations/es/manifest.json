@@ -1,0 +1,14 @@
+{
+  "protocols/P-009-mission-briefing.md": {
+    "hash": "3cb2f4d90ec74850246fe75e",
+    "model": "qwen3:14b",
+    "promptVersion": "v1",
+    "translatedAt": "2026-08-28"
+  },
+  "protocols/P-010-how-to-archive.md": {
+    "hash": "a25f7562260b1bdd2b35ab1d",
+    "model": "qwen3:14b",
+    "promptVersion": "v1",
+    "translatedAt": "2026-08-28"
+  }
+}

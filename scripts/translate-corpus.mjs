@@ -25,7 +25,7 @@
 
 import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { basename, join } from "node:path";
+import { basename, dirname, join } from "node:path";
 import { glob } from "node:fs/promises";
 
 const PROMPT_VERSION = "v1"; // bump to invalidate the whole cache
@@ -36,7 +36,13 @@ const DRY = process.argv.includes("--dry-run");
 const ONLY = process.argv.includes("--only")
   ? process.argv[process.argv.indexOf("--only") + 1]
   : null;
-const CACHE_DIR = "web/.translation-cache";
+// The cache is COMMITTED to the repo (Oracle decision, 2026-08-28):
+// Cloudflare Workers Builds has no GPU and cannot produce translations at
+// deploy time. Committed, the deploy is a pure function of the repo — what
+// is on main is what ships — and every machine-written paragraph passes
+// through a PR diff before it is published under Numinia's name.
+const CACHE_DIR = "web/src/translations/es";
+const MANIFEST = "web/src/translations/es/manifest.json";
 
 // Decision 2: governed surfaces stay English everywhere. Everything else
 // under the published corpus is fair game for the machine.
@@ -145,6 +151,9 @@ function fidelityOk(src, out) {
 
 const stats = { hit: 0, fresh: 0, shadowed: 0, rejected: 0, skipped: 0 };
 mkdirSync(CACHE_DIR, { recursive: true });
+// Manifest is the index the site reads: source path → hash, model, date.
+const manifest = existsSync(MANIFEST)
+  ? JSON.parse(readFileSync(MANIFEST, "utf-8")) : {};
 
 for (const pattern of INCLUDE) {
   for await (const file of glob(pattern)) {
@@ -161,8 +170,11 @@ for (const pattern of INCLUDE) {
     const fm = fmMatch ? fmMatch[0] : "";
     const src = raw.slice(fm.length);
     const key = sha(raw + PROMPT_VERSION + MODEL);
-    const cached = join(CACHE_DIR, `${key}.es.md`);
-    if (existsSync(cached)) { stats.hit++; continue; }
+    // Path-mirrored filename, not an opaque hash: the diff is reviewable
+    // and the site can find a translation from the source path alone.
+    const out = join(CACHE_DIR, file);
+    const prev = manifest[file];
+    if (prev?.hash === key && existsSync(out)) { stats.hit++; continue; }
     if (DRY) { console.log(`WOULD TRANSLATE ${file}`); stats.fresh++; continue; }
     process.stdout.write(`translating ${file} … `);
     const t0 = Date.now();
@@ -170,11 +182,12 @@ for (const pattern of INCLUDE) {
       const outBody = await translate(src, file);
       const fail = fidelityOk(src, outBody);
       if (fail) { console.log(`REJECTED (${fail})`); stats.rejected++; continue; }
-      writeFileSync(cached, fm + outBody);
-      writeFileSync(join(CACHE_DIR, `${key}.meta.json`), JSON.stringify({
-        source: file, model: MODEL, promptVersion: PROMPT_VERSION,
-        translatedAt: new Date().toISOString(), secs: (Date.now() - t0) / 1000,
-      }, null, 2));
+      mkdirSync(dirname(out), { recursive: true });
+      writeFileSync(out, fm + outBody);
+      manifest[file] = { hash: key, model: MODEL, promptVersion: PROMPT_VERSION,
+        translatedAt: new Date().toISOString().slice(0, 10) };
+      writeFileSync(MANIFEST, JSON.stringify(
+        Object.fromEntries(Object.entries(manifest).sort()), null, 2) + "\n");
       console.log(`ok ${((Date.now() - t0) / 1000).toFixed(0)}s`);
       stats.fresh++;
     } catch (e) { console.log(`ERROR ${e.message}`); stats.rejected++; }

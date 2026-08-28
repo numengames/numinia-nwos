@@ -139,4 +139,14 @@ const corpus = defineCollection({
   schema: z.object({}).passthrough(),
 });
 
-export const collections = { missions, audits, decisions, blueprints, canonLore, legal, corpus };
+// MIS-120(d) — the Spanish faces of corpus documents. Same shape as
+// `corpus`, but loaded from the committed translation cache. A document
+// only appears here once the translator has produced it and the fidelity
+// gate has passed it; the /es/ route is generated from this collection, so
+// an untranslated document simply has no Spanish page.
+const corpusEs = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/translations/es" }),
+  schema: z.object({}).passthrough(),
+});
+
+export const collections = { missions, audits, decisions, blueprints, canonLore, legal, corpus, corpusEs };

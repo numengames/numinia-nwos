@@ -25,6 +25,9 @@ const en = {
   "nav.langSelector": "Language",
 
   // — footer —
+  "notice.machineTranslation": "Machine translation. The English document is the record of registry.",
+  "notice.readOriginal": "Read the original",
+  "notice.model": "Model",
   "footer.navigation": "Navigation",
   "footer.legal": "Legal",
   "footer.social": "Social",
@@ -112,6 +115,9 @@ const es = {
   "nav.openMenu": "Abrir menú",
   "nav.langSelector": "Idioma",
 
+  "notice.machineTranslation": "Traducción automática. El documento inglés es el registro oficial.",
+  "notice.readOriginal": "Leer el original",
+  "notice.model": "Modelo",
   "footer.navigation": "Navegación",
   "footer.legal": "Legal",
   "footer.social": "Social",
