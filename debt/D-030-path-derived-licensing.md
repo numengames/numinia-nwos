@@ -4,11 +4,11 @@ uid:
 title: "Should the licence regime derive from the path? — open question"
 type: documentation
 status: open
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-25T14:38:34Z"
 created_source: "git:1cd313d"
 created_confidence: "exact"
-updated: "2026-08-25T14:38:34Z"
+updated: "2026-08-28T00:00:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -124,6 +124,22 @@ At the Oracle's instruction:
 a crossing is reported before the pull request rather than after. It is
 `[MANUAL]`: nothing runs it automatically, and wiring it into CI would be
 implementing an answer to a question that is open.
+
+## One case ruled, the question still open (2026-08-28)
+
+The Oracle ruled the `agents/**` case on 2026-08-28: agent definitions leave
+the reserved regime and are declared `CC0-1.0` (`ADR-026`). The path stopped
+determining the regime for that one directory.
+
+**This does not close this entry.** The ruling turned on the *genre of the
+content* — an agent's operational definition is documentation, not lore — and
+on the fact that CC0 had already been granted over `agents/` through commit
+`0157be9` and is irrevocable (`LEGAL_DEBT.md` LD-001). Neither reason
+establishes whether a regime should derive from a path in general. It is one
+case decided on its own merits, recorded here so that whoever eventually
+rules on the mechanism knows a precedent exists and what it did *not* settle.
+
+The closing condition is unchanged: the Oracle rules on the mechanism.
 
 ## Closing condition
 

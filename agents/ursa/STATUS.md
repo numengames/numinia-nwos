@@ -8,7 +8,7 @@ status: designed
 guild: Alchemist
 branch: Engineer
 house: Architect
-license: "LicenseRef-Numen-AllRightsReserved"
+license: "CC0-1.0"
 ---
 # STATUS — Ursa
 

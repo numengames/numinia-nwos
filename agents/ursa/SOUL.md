@@ -11,7 +11,7 @@ house: Architect
 role: "Machine Whisperer"
 model: "anthropic/claude-sonnet-4-6"
 operator: "pablo-fm"
-license: "LicenseRef-Numen-AllRightsReserved"
+license: "CC0-1.0"
 ---
 # SOUL — Ursa
 

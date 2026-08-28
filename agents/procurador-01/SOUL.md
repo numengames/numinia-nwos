@@ -10,7 +10,7 @@ branch: Syndic
 role: "Business Lead / Sales & BD"
 model: "anthropic/claude-haiku-3-5"
 operator: "pablo-fm"
-license: "LicenseRef-Numen-AllRightsReserved"
+license: "CC0-1.0"
 ---
 # SOUL — Procurador-01
 
