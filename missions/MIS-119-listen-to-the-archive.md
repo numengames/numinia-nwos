@@ -2,7 +2,7 @@
 # CORE — the ten fields the build verifies (web/src/content.config.ts).
 id: "MIS-119"
 title: "Listen to the archive: speak any document aloud from its page"
-status: in-progress
+status: done
 priority: high
 effort: S
 guild: alchemists
@@ -168,9 +168,27 @@ browser session.
 
 ## Closure
 
-*(Fill when the mission closes.)*
-
-- **What was done:**
-- **What diverged, and why:**
-- **Evidence:**
-- **Closed:** · **by:**
+- **What was done:** The "Listen" control on every corpus page: Web Speech
+  API, no network, no React island — the text never leaves the machine.
+  Hardened through six rounds of Oracle QA on the deployed site (see QA
+  log above): the player owns its position at word granularity, survives
+  navigation, and honors the contract — pause holds, stop discards, rate
+  changes in place.
+- **What diverged, and why:** The component's core assumption inverted
+  during QA. v1 trusted the engine (its pause, its queue, its events);
+  every defect traced to that trust. The shipped design treats the engine
+  as a fire-and-forget speaker — all state, including a time-based
+  position estimate for engines that report nothing, lives in the
+  component. Defect 4 was not this mission's code at all: the MIS-120c
+  sweep shipped an undefined `T()` into the player's script and killed it
+  on live.
+- **Evidence:** PRs [#105](https://github.com/numengames/numinia-nwos/pull/105),
+  [#107](https://github.com/numengames/numinia-nwos/pull/107),
+  [#108](https://github.com/numengames/numinia-nwos/pull/108),
+  [#111](https://github.com/numengames/numinia-nwos/pull/111),
+  [#112](https://github.com/numengames/numinia-nwos/pull/112), all merged;
+  CDP-driven verification of the built page under both engine profiles
+  (with and without boundary events); Oracle's ear on numinia.org
+  confirmed pause, stop, and rate 2026-08-28. Future work (forward/rewind
+  controls; reload returns to the top) is on the kanban, not in scope.
+- **Closed:** 2026-08-28 · **by:** the Oracle (manual QA on live), fixes by Ursa
