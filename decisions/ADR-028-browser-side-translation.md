@@ -3,11 +3,11 @@ id: "ADR-028"
 title: "The reader's browser translates; the archive keeps one corpus"
 type: documentation
 status: active
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-29T11:25:00Z"
 created_source: "git:df6b672"
 created_confidence: exact
-updated: "2026-08-29T11:25:00Z"
+updated: "2026-08-29T14:05:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -101,10 +101,13 @@ archive stores no translated document.**
 2. **No `.md` file is duplicated per locale.** `translations/**` is not
    created. The `corpusEs` collection, the `/es/corpus/[...slug]` route and
    the committed cache are not merged (PR #120, closed).
-3. **The `/es/` locale survives** exactly as phases (a), (b) and (c) built it:
-   English routes, the typed dictionary, the `EN | ES` selector, Spanish
-   chrome. What changes is only the corpus body, which is served in English
-   and translated by the reader.
+3. **The `/es/` locale survives** as phases (a), (b) and (c) built it:
+   English routes, the typed dictionary, Spanish chrome. Its language
+   selector becomes a **translate button acting on the current page**
+   (MIS-120(e)) — the reader stays where they are and the document turns
+   Spanish in place. The `/es/` route itself adds little under this ruling
+   and is a candidate for removal, but removing it is a separate reviewable
+   act and is **not** decided here.
 4. **`scripts/translate-corpus.mjs` becomes dead code.** It stays in the tree
    until a dead-code mission removes it, tracked as debt (§ Consequences).
 5. **A per-locale glossary is commissioned** (§ below). It is the one
@@ -129,6 +132,40 @@ standard this decision is measured against:
 218 machine-written documents per locale, drifting from their originals and
 each carrying its own licence regime, is entropy with a build step.
 
+## "The browser translates" is two mechanisms, not one
+
+Recorded because the phrase is ambiguous and the ambiguity is expensive.
+Verified against MDN and the Chrome for Developers docs on 2026-08-29.
+
+**(a) The browser's own translation feature** — Chrome's "Translate this
+page" bar, Firefox's on-device translation, Safari's. Works on most
+browsers, desktop and mobile, on any page. **It cannot be triggered from
+JavaScript**: Chromium exposes no such API by design, and states the
+position plainly — *"we encourage users looking to translate webpages to
+use browsers that support translation natively."* No amount of frontend
+work changes this. The reader triggers it, or nobody does.
+
+**(b) The Translator API** — `Translator.create({sourceLanguage,
+targetLanguage})`, then `.translate(text)`. On-device, free, private, and
+**callable**, so a button on the page can translate the document in place.
+Its limits:
+
+- **Chrome/Edge 138+, desktop only.** Not Firefox, not Safari, not mobile.
+- Requires **HTTPS** and **transient activation** — it must run inside a
+  real user click, so a page cannot translate itself on load. This is why
+  the archive ships a button and not an automatic behaviour.
+- First use downloads a model; progress is observable via `monitor`.
+
+The archive uses **(b) where it exists and defers to (a) everywhere else**:
+the button translates in place on Chromium desktop, and elsewhere says so
+and points at the browser's own feature. Progressive enhancement, no broken
+state. Most of the market is Chromium-based, so (b) covers most readers;
+the rest are no worse off than before this decision.
+
+**This does not weaken the ruling.** Under either mechanism the archive
+stores no translated document and duplicates no `.md`. The decision governs
+what the repository holds, and neither mechanism holds anything.
+
 ## Consequences
 
 ### Gained
@@ -145,9 +182,12 @@ each carrying its own licence regime, is entropy with a build step.
 
 ### Lost, and accepted
 
-- **Spanish (and any-language) SEO.** No `/es/corpus/…` URLs exist; search
-  engines index the English corpus only. Accepted: numinia.org is an archive
-  for Oracles and agents, not an acquisition surface.
+- **Spanish (and any-language) SEO for the corpus.** No `/es/corpus/…` URLs
+  exist, so search engines index the corpus in English only. Accepted:
+  numinia.org is an archive for Oracles and agents, not an acquisition
+  surface. Note the loss is narrower than it first appears — the `/es/`
+  chrome pages built in phases (a)-(c) are real, indexable Spanish pages;
+  what is not indexed is the corpus body.
 - **Raw `.md` and PDF are not translated.** `/corpus/X.md` and the download
   button serve files; the browser does not touch them. A Spanish reader
   downloads English. This is consistent: the English document IS the record.
