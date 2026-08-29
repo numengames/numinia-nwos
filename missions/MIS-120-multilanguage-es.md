@@ -13,9 +13,9 @@ completed: null
 
 # REGISTRO
 type: mission
-version: "2.1.0"
+version: "3.0.0"
 created: "2026-08-28"
-updated: "2026-08-29T14:20:00Z"
+updated: "2026-08-29T14:45:00Z"
 author: "ursa"
 owner: "oracle"
 tags: [web, alchemists, i18n]
@@ -57,64 +57,68 @@ that completes the work.
 - [x] **(c) The sweep** — remaining ~28 pages + components (DocToolbar,
       SpeechPlayer, SiteSearch, Footer, aria-labels): zero hardcoded UI
       literals outside the dictionary; one language per locale.
-- [~] **(d) The build translator** — **RETIRED, not incomplete** (ADR-028,
-      Oracle 2026-08-29). The engine was built and merged (#115, #118) and
-      d2 served its output green in CI (#120, `1d0c2a0`, 670 pages) — then
-      the mission changed mechanism: **the reader's browser translates; the
-      archive stores no translated document.** No `.md` is duplicated per
-      locale. PR #120 closed unmerged; `scripts/translate-corpus.mjs` is
-      dead code pending the cleanup mission. The `/es/` locale survives as
-      phases (a)(b)(c) built it — chrome in Spanish, corpus body in English.
-      Reasons, in full, in ADR-028: build-time translation mints derivative
-      works (10 reserved documents were inside the translator's INCLUDE),
-      costs 7-11 h GPU per locale, and drifts silently from its source.
+- [~] **(d) The build translator** — **RETIRED, not incomplete** (Oracle,
+      2026-08-29). Built and merged (#115, #118), served green in CI (#120,
+      `1d0c2a0`, 670 pages), then retired: it produced translated `.md`
+      files in the repo, which **DEC-006 already forbids** — *"translations
+      live there [the web layer], not in the repo. This avoids duplicate
+      files and keeps the canonical source clean."* The mission had drifted
+      from a standing decision; (e) brings it back.
 
-- [ ] **(e) The translate button** — what replaces (d). The `EN | ES` pair
-      in the navigation stops being two links to two routes and becomes two
-      buttons acting on the page in front of the reader: click ES and the
-      document turns Spanish in place, click EN and the English returns
-      from memory. No navigation, no route, no stored artefact.
+      PR #120 closed unmerged. `scripts/translate-corpus.mjs` is dead code
+      pending the cleanup mission. Three costs confirmed it: it mints
+      derivative works (10 reserved documents sat inside the translator's
+      INCLUDE), it costs 7-11 h GPU per locale, and it drifts silently from
+      its source.
 
-      Mechanism, and the distinction matters (ADR-028 §"two mechanisms"):
-      the browser's own "Translate this page" bar **cannot be triggered
-      from JavaScript** — Chromium exposes no such API by design — so the
-      button uses the **Translator API** (`Translator.create()` then
-      `.translate()`): on-device, free, private. Chrome/Edge 138+ desktop
-      only, HTTPS, and inside a real user click (`create()` requires
-      transient activation, which is *why* this is a button and not an
-      on-load behaviour). Everywhere else the button says so and points at
-      the browser's own feature — progressive enhancement, no broken state.
+- [ ] **(e) The translate button** — what replaces (d), and DEC-006's
+      "web layer handles i18n" made concrete.
 
-      Deliberate details: `<pre>`, `<code>`, `<kbd>` are skipped (an
-      identifier is not prose, and translating documented commands would
-      corrupt them); a fragment that fails to translate stays English
-      rather than going blank (a gap in a governance document is worse than
-      an untranslated sentence); the first translation is cached in memory
-      so EN/ES afterwards is a swap, not a second model run;
-      `document.documentElement.lang` follows the state.
+      The `EN | ES` pair in the navigation stops being two links to two
+      routes and becomes two buttons acting on the page in front of the
+      reader: click ES, the document turns Spanish in place; click EN, the
+      English returns from memory. No navigation, no stored artefact, no
+      `.md` duplicated per locale — and the same button serves zh, ja, ko,
+      fr or any future locale without adding a file.
+
+      Mechanism, because the distinction is not obvious: the browser's own
+      "Translate this page" bar **cannot be triggered from JavaScript**
+      (Chromium exposes no such API by design). So the button uses the
+      **Translator API** — `Translator.create()` then `.translate()`,
+      on-device, free, private. Chrome/Edge 138+ desktop, HTTPS, inside a
+      real user click: `create()` requires transient activation, which is
+      why this is a button and not an on-load behaviour. Elsewhere the
+      button says so and points at the browser's own feature — progressive
+      enhancement, never a broken page. Most of the market is Chromium.
+
+      Deliberate: `<pre>`, `<code>`, `<kbd>` are skipped (translating a
+      documented command corrupts it); a fragment that fails stays English
+      rather than blank; the first translation is cached in memory so
+      EN/ES afterwards is a swap; `documentElement.lang` follows the state.
 
       Acceptance:
       ✓ clicking ES translates the visible document, no navigation
       ✓ clicking EN restores the English exactly
       ✓ a non-supporting browser gets the hint, never a broken page
       ✓ code blocks and identifiers come through untouched
-      ✓ the notice states the English document is the record
       ✓ no `.md` is added to the repository by using it
 
-      Out of scope, recorded so it is not lost: **the `/es/` route is now a
-      candidate for removal** — under this ruling it adds little — but
-      removing it is its own reviewable act and is not decided here.
+      Out of scope, recorded so it is not lost: the `/es/` route is now a
+      **candidate for removal** — it adds little once the button exists —
+      but removing it is its own reviewable act, not decided here.
 
 ### Signed decisions (Oracle, 2026-08-28)
 
 1. Astro native i18n; `/es/` prefixed, English on today's unprefixed URLs.
 2. ~~The hybrid: hand dictionary for UI · machine translation at build for
-   the corpus · reviewed twins override per document.~~ **AMENDED by
-   ADR-028 (Oracle, 2026-08-29):** hand dictionary for UI stands; the corpus
-   is served in English and translated by the reader's browser at read time.
-   The archive stores no translated document and duplicates no `.md` per
-   locale. A per-locale glossary of narrative terms is commissioned in its
-   place (the world-lexicon decision, kanban `t_29a907cd`).
+   the corpus · reviewed twins override per document.~~ **AMENDED (Oracle,
+   2026-08-29):** hand dictionary for UI stands; the corpus is served in
+   English and translated by the reader's browser at read time — which is
+   what **DEC-006** required all along ("translations live there [the web
+   layer], not in the repo"). The archive stores no translated document and
+   duplicates no `.md` per locale. A per-locale glossary of narrative terms
+   is commissioned in its place (the world-lexicon decision, kanban
+   `t_29a907cd`).
 3. Routes first (phase a executes the route scope of decision 4A,
    kanban `t_d4936cc8`; that card keeps file renames, DS tokens, C-005
    frontmatter keys).
@@ -145,9 +149,9 @@ that completes the work.
 (c) ✓ grep for hardcoded UI literals outside ui.ts returns 0
     ✓ the mixed-language table (plan v3) reads one language per locale
 
-(d) RETIRED by ADR-028 — criteria void, not failed. The mechanism they
-    described (build-time machine translation into committed .md files)
-    is not the mechanism the mission ships. Superseded by:
+(d) RETIRED — criteria void, not failed. The mechanism they described
+    (build-time machine translation into committed .md files) is the one
+    DEC-006 already ruled out. Superseded by:
     ✓ /es/ serves the corpus in English with Spanish chrome  (a)(b)(c)
     ✓ no .md file is duplicated per locale                   (nothing built)
     ~ per-locale glossary of narrative terms                 (commissioned)
@@ -162,18 +166,25 @@ that completes the work.
 ## Execution log
 
 - **2026-08-29 · (e) DECLARED — the translate button** — the phase that
-  replaces (d), written into this brief only now: the label "MIS-120(e)"
-  was used in ADR-028 and in the button's commit before the phase existed
-  here. Correcting that is the point of this entry. Scope, mechanism and
-  acceptance are above. Built on `mission/MIS-120e-translate-button`
-  (`34b3de9`), build green at 668 pages — no new route. **Not verified in a
-  real browser by the agent**: headless CDP in the sandbox showed the
-  button present and `Translator` available as a function, but the click
-  had not resolved within the wait, and "slow model download" could not be
-  told from "broken" there. QA is the Oracle's. Calling it verified would
-  be a lie.
+  replaces (d). Written into this brief only now: the label "MIS-120(e)" was
+  used in a commit before the phase existed here. Built on
+  `mission/MIS-120e-translate-button` (`34b3de9`), build green at 668 pages
+  — no new route. **Not verified in a real browser by the agent**: headless
+  CDP in the sandbox showed the button present and `Translator` available as
+  a function, but the click had not resolved within the wait, and "slow
+  model download" could not be told from "broken" there. QA is the Oracle's.
 
-- **2026-08-29 · (d) RETIRED — the browser translates** — ADR-028, Oracle.
+- **2026-08-29 · a redundant ADR was drafted, then deleted unmerged** — an
+  architecture decision record was written to state "the browser
+  translates". The Oracle rejected it: the decision already exists in
+  **DEC-006** (2026-04-07), which puts translations in the web layer,
+  *"not in the repo… this avoids duplicate files and keeps the canonical
+  source clean."* 230 lines were spent re-deciding a four-month-old
+  decision. The mechanism belongs in this brief, where the work is; the
+  rule was never missing. Deleted before merge — no number consumed,
+  nothing left to supersede.
+
+- **2026-08-29 · (d) RETIRED — the browser translates** — Oracle.
   PR #120 went green in CI (`1d0c2a0`: 6/6 checks, 670 pages, licence guard
   298/323, both Spanish pages serving with notice and model line) and was
   **closed unmerged**. Working it surfaced three things that decided the
