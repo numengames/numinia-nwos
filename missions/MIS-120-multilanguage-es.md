@@ -13,9 +13,9 @@ completed: null
 
 # REGISTRO
 type: mission
-version: "2.0.0"
+version: "2.1.0"
 created: "2026-08-28"
-updated: "2026-08-29T11:25:00Z"
+updated: "2026-08-29T14:20:00Z"
 author: "ursa"
 owner: "oracle"
 tags: [web, alchemists, i18n]
@@ -69,6 +69,42 @@ that completes the work.
       works (10 reserved documents were inside the translator's INCLUDE),
       costs 7-11 h GPU per locale, and drifts silently from its source.
 
+- [ ] **(e) The translate button** — what replaces (d). The `EN | ES` pair
+      in the navigation stops being two links to two routes and becomes two
+      buttons acting on the page in front of the reader: click ES and the
+      document turns Spanish in place, click EN and the English returns
+      from memory. No navigation, no route, no stored artefact.
+
+      Mechanism, and the distinction matters (ADR-028 §"two mechanisms"):
+      the browser's own "Translate this page" bar **cannot be triggered
+      from JavaScript** — Chromium exposes no such API by design — so the
+      button uses the **Translator API** (`Translator.create()` then
+      `.translate()`): on-device, free, private. Chrome/Edge 138+ desktop
+      only, HTTPS, and inside a real user click (`create()` requires
+      transient activation, which is *why* this is a button and not an
+      on-load behaviour). Everywhere else the button says so and points at
+      the browser's own feature — progressive enhancement, no broken state.
+
+      Deliberate details: `<pre>`, `<code>`, `<kbd>` are skipped (an
+      identifier is not prose, and translating documented commands would
+      corrupt them); a fragment that fails to translate stays English
+      rather than going blank (a gap in a governance document is worse than
+      an untranslated sentence); the first translation is cached in memory
+      so EN/ES afterwards is a swap, not a second model run;
+      `document.documentElement.lang` follows the state.
+
+      Acceptance:
+      ✓ clicking ES translates the visible document, no navigation
+      ✓ clicking EN restores the English exactly
+      ✓ a non-supporting browser gets the hint, never a broken page
+      ✓ code blocks and identifiers come through untouched
+      ✓ the notice states the English document is the record
+      ✓ no `.md` is added to the repository by using it
+
+      Out of scope, recorded so it is not lost: **the `/es/` route is now a
+      candidate for removal** — under this ruling it adds little — but
+      removing it is its own reviewable act and is not decided here.
+
 ### Signed decisions (Oracle, 2026-08-28)
 
 1. Astro native i18n; `/es/` prefixed, English on today's unprefixed URLs.
@@ -115,9 +151,27 @@ that completes the work.
     ✓ /es/ serves the corpus in English with Spanish chrome  (a)(b)(c)
     ✓ no .md file is duplicated per locale                   (nothing built)
     ~ per-locale glossary of narrative terms                 (commissioned)
+
+(e) ✓ clicking ES translates the visible document, no navigation
+    ✓ clicking EN restores the English exactly
+    ✓ a non-supporting browser gets the hint, never a broken page
+    ✓ code blocks and identifiers come through untouched
+    ✓ no .md is added to the repository by using it
 ```
 
 ## Execution log
+
+- **2026-08-29 · (e) DECLARED — the translate button** — the phase that
+  replaces (d), written into this brief only now: the label "MIS-120(e)"
+  was used in ADR-028 and in the button's commit before the phase existed
+  here. Correcting that is the point of this entry. Scope, mechanism and
+  acceptance are above. Built on `mission/MIS-120e-translate-button`
+  (`34b3de9`), build green at 668 pages — no new route. **Not verified in a
+  real browser by the agent**: headless CDP in the sandbox showed the
+  button present and `Translator` available as a function, but the click
+  had not resolved within the wait, and "slow model download" could not be
+  told from "broken" there. QA is the Oracle's. Calling it verified would
+  be a lie.
 
 - **2026-08-29 · (d) RETIRED — the browser translates** — ADR-028, Oracle.
   PR #120 went green in CI (`1d0c2a0`: 6/6 checks, 670 pages, licence guard
