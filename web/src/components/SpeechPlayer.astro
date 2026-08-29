@@ -20,7 +20,7 @@ interface Props {
 }
 const { textSelector = "article", lang = "en" } = Astro.props;
 import { useT } from "@/i18n/ui";
-const t = useT(Astro.currentLocale ?? "en");
+const t = useT();
 
 ---
 

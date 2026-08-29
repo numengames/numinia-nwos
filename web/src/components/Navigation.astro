@@ -3,7 +3,6 @@
 // SPDX-License-Identifier: MIT
 import Icon from "@/components/Icon.astro";
 import SiteSearch from "@/components/SiteSearch.astro";
-import TranslateButton from "@/components/TranslateButton.astro";
 import { navItems } from "@/data/navigation";
 import { useT, type UIKey } from "@/i18n/ui";
 
@@ -18,11 +17,10 @@ const numaniaIds = navItems
   ?.children?.map((c) => c.id) ?? [];
 const numaniaActive = numaniaIds.includes(activeNav ?? "");
 
-// MIS-120(b) — chrome reads the dictionary; hrefs gain the /es prefix on
-// the Spanish locale; the selector is a pair of links to the same path.
+// MIS-120(e) — one corpus, in English. No locale prefix, no selector: the
+// reader's browser offers the translation, and lang="en" is what triggers it.
 // nav item ids are historical (Spanish); the map bridges id → dictionary key.
-const locale = Astro.currentLocale ?? "en";
-const t = useT(locale);
+const t = useT("en");
 const NAV_KEY: Record<string, UIKey> = {
   missions: "nav.missions",
   corpus: "nav.corpus",
@@ -32,8 +30,8 @@ const NAV_KEY: Record<string, UIKey> = {
 };
 const navLabel = (id: string, fallback: string) =>
   NAV_KEY[id] ? t(NAV_KEY[id]) : fallback;
-const l = (href: string) => (locale === "es" ? "/es" + href : href);
-const homeHref = locale === "es" ? "/es/" : "/";
+const l = (href: string) => href;
+const homeHref = "/";
 ---
 
 <nav class="sticky top-0 z-50 border-b border-border/50 bg-background/85 backdrop-blur-xl">
@@ -45,9 +43,6 @@ const homeHref = locale === "es" ? "/es/" : "/";
     <!-- Desktop nav -->
     <div class="hidden items-center gap-1 sm:flex">
       <SiteSearch />
-      <!-- MIS-120(e) — the button translates the page in place; no route,
-           no stored translation. See components/TranslateButton.astro -->
-      <TranslateButton />
       {navItems.map((item) => {
         if (item.children) {
           return (
@@ -162,9 +157,6 @@ const homeHref = locale === "es" ? "/es/" : "/";
           </a>
         );
       })}
-      <div class="mt-2 flex items-center gap-0.5 border-t border-border/50 pt-3">
-        <TranslateButton />
-      </div>
     </div>
   </div>
 </nav>
