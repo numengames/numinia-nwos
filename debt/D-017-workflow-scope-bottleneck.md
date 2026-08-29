@@ -4,9 +4,9 @@ uid:
 title: "Every CI guard needs the Oracle's hands: the agent has no workflow scope"
 type: documentation
 status: open
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-24T23:00:00Z"
-updated: "2026-08-28T15:35:00Z"
+updated: "2026-08-29T20:55:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -63,7 +63,7 @@ cheap half; every one of them then waits on a manual step.
 | `check-license-frontmatter.mjs` | yes | **yes** |
 | `check-references.mjs` | yes, tested | **yes** |
 | `check-orphan-content.mjs` | yes | **yes** — post-build (needs `web/dist`) |
-| `lint-frontmatter.mjs` | yes — `#116`, 865 baselined | **no — the one pending handoff** |
+| `lint-frontmatter.mjs` | yes — `#116`, 844 baselined | **no — the one pending handoff** |
 | `lint-naming.mjs` | no | no |
 | ~~`lint-type-vs-folder.mjs`~~ | folded into `lint-frontmatter` (`H-17`) | n/a |
 
@@ -106,6 +106,34 @@ deferred with a reason.
 > `lint-naming` is explicitly **deferred**: `S-001` §9 is still being applied
 > to the corpus (`MIS-109` renames pending), so the guard would freeze a
 > baseline of work in flight.
+
+> **Handoff offered, 2026-08-29 (`bc76270`).** Step 1 of `P-013` is done and
+> verified in both directions on a **pristine clone of `main`**, not on the
+> working tree:
+>
+> | Check | Result |
+> |---|---|
+> | Clean tree | `844 findings (844 baselined) — no new violations`, exit `0` |
+> | Planted breakage (`debt/ZZZ-planted.md`: bad `id`, `status: banana`, non-SemVer `version`, missing `created`/`updated`, `type: mission` in `debt/`) | 6 NEW findings cited `H-01 H-04 H-05 H-06 H-07 H-17`, exit `1` |
+> | Breakage removed | back to exit `0` |
+>
+> Reproduce:
+> ```bash
+> git clone --depth 1 https://github.com/numengames/numinia-nwos.git /tmp/nwos && cd /tmp/nwos
+> node scripts/lint-frontmatter.mjs; echo "clean exit=$?"
+> ```
+>
+> The baseline is re-frozen at **844** in this PR: `MIS-120` healed its own
+> `H-07` (`updated` gained a real time in `c8276cf`) and the lint had been
+> printing `1 baselined finding(s) healed — regenerate the baseline` on every
+> run since. Banking it before wiring means the guard's first CI run is
+> silent instead of nagging. **The count only ever goes down.**
+>
+> Step 3 is the Oracle's. This entry stays `open` until a green run ID on
+> `main` is written below.
+
+**Run ID on `main`:** _pending — to be filled by the agent after the Oracle
+wires the step (P-013 §5)._
 
 This entry does not close by getting the scope. It closes by making its absence
 survivable.

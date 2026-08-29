@@ -1,7 +1,7 @@
 {
  "_comment": "Frontmatter violations frozen at adoption (S-004 §7). The lint fails only on NEW ones. This list shrinks with each migration and never grows; its size is the corpus entropy metric.",
- "generated": "2026-08-28T13:37:33.606Z",
- "count": 845,
+ "generated": "2026-08-29T20:52:50.920Z",
+ "count": 844,
  "entries": [
   "H-00 blueprints/README.md :: no frontmatter — invisible to every instrument",
   "H-00 blueprints/archive-summa-arquitectura-v0.1.0.md :: no frontmatter — invisible to every instrument",
@@ -452,7 +452,6 @@
   "H-07 missions/MIS-117-pagefind-search.md :: updated \"2026-08-28\" lacks a real time",
   "H-07 missions/MIS-118-agent-roster-replacement.md :: updated \"2026-08-28\" lacks a real time",
   "H-07 missions/MIS-119-listen-to-the-archive.md :: updated \"2026-08-28\" lacks a real time",
-  "H-07 missions/MIS-120-multilanguage-es.md :: updated \"2026-08-28\" lacks a real time",
   "H-07 missions/PROPOSAL-closure-guard.md :: updated \"2026-08-25\" lacks a real time",
   "H-07 missions/TEMPLATE-CHANGES.md :: updated \"2026-08-25\" lacks a real time",
   "H-07 missions/TEMPLATE-EXAMPLE.md :: updated \"2026-08-25\" lacks a real time",
