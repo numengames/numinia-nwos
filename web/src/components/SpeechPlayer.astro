@@ -94,19 +94,27 @@ const t = useT();
     const synth = window.speechSynthesis;
 
     // ---- text extraction -------------------------------------------------
+    // MIS-120(e): extracted from the LIVE DOM, and re-extracted on every
+    // Play — not once at load. A reader who runs the browser's own
+    // translation gets a page whose text nodes have been replaced in place;
+    // reading a snapshot taken at load would speak the English original
+    // while the screen shows Spanish. Reading the DOM at Play time needs no
+    // detection and no API: whatever is on screen is what gets spoken, in
+    // every browser that can translate at all.
     const target = document.querySelector<HTMLElement>(
       root.dataset.textSelector || "article",
     );
     // Clone and prune non-content subtrees so the voice reads the document,
     // not the chrome around it.
-    let text = "";
-    if (target) {
+    const readDocument = () => {
+      if (!target) return "";
       const clone = target.cloneNode(true) as HTMLElement;
       for (const sel of [".doc-toolbar", "nav", ".speech-player"])
         clone.querySelectorAll(sel).forEach((n) => n.remove());
-      text = (clone.innerText || "").replace(/\s+/g, " ").trim();
-    }
-    const words = text ? text.split(" ").length : 0;
+      return (clone.innerText || "").replace(/\s+/g, " ").trim();
+    };
+    let text = readDocument();
+    let words = text ? text.split(" ").length : 0;
     if (!words) {
       toggle.disabled = true;
       toggle.title = T("Nothing","Nothing to read on this page");
@@ -117,22 +125,33 @@ const t = useT();
     // ---- chunking (sentence boundaries, ~280 chars) ----------------------
     // Short chunks defeat the engine's long-utterance cutoff, make pause and
     // stop feel immediate, and let rate changes land quickly.
-    const chunks: string[] = [];
-    {
-      const sentences = text.match(/[^.!?…]+[.!?…]+[\s]*|[^.!?…]+$/g) ?? [text];
+    const chunkText = (src: string): string[] => {
+      const out: string[] = [];
+      const sentences = src.match(/[^.!?…]+[.!?…]+[\s]*|[^.!?…]+$/g) ?? [src];
       let buf = "";
       for (const s of sentences) {
         if (buf.length + s.length > 280 && buf) {
-          chunks.push(buf.trim());
+          out.push(buf.trim());
           buf = "";
         }
         buf += s;
       }
-      if (buf.trim()) chunks.push(buf.trim());
-    }
+      if (buf.trim()) out.push(buf.trim());
+      return out;
+    };
+    let chunks: string[] = chunkText(text);
 
     // ---- voice pick (async: engines populate voices late) ----------------
-    const docLang = (root.dataset.lang || "en").toLowerCase();
+    // MIS-120(e): docLang is read from the LIVE <html lang>, not baked in at
+    // build. Chrome, Edge and Safari rewrite that attribute when their own
+    // translation runs (it is the documented way to detect machine
+    // translation), so a translated page picks a voice in the language the
+    // reader is actually looking at — Spanish, Japanese, any of them, with
+    // no list to maintain. The build-time attribute is the fallback for
+    // browsers that translate without relabelling.
+    const liveLang = () =>
+      (document.documentElement.lang || root.dataset.lang || "en").toLowerCase();
+    let docLang = liveLang();
     let voice: SpeechSynthesisVoice | null = null;
     const pickVoice = () => {
       const vs = synth.getVoices();
@@ -335,6 +354,28 @@ const t = useT();
     };
 
     const start = () => {
+      // MIS-120(e): re-read the document before speaking. If the reader ran
+      // the browser's translation since the page loaded, the DOM now holds
+      // their language and the snapshot taken at load is stale English.
+      // Re-chunking invalidates any saved position (the chunk boundaries
+      // moved), so a language change restarts the document rather than
+      // resuming at an index that no longer means the same thing.
+      const fresh = readDocument();
+      if (fresh && fresh !== text) {
+        text = fresh;
+        words = text.split(" ").length;
+        chunks = chunkText(text);
+        queueIndex = 0;
+        charOffset = 0;
+        lastBoundary = 0;
+        clearProgress();
+        renderEst();
+      }
+      const nowLang = liveLang();
+      if (nowLang !== docLang) {
+        docLang = nowLang;
+        pickVoice();
+      }
       gen++;
       synth.cancel(); // never stack on a previous run
       state = "speaking";
@@ -395,6 +436,10 @@ const t = useT();
       }
       // paused → resume: re-speak the current chunk from the last word
       // boundary heard (or its start, on engines without boundary events).
+      // MIS-120(e): unless the document changed language under us while
+      // paused — then the saved position points into text that no longer
+      // exists, and start() re-reads, re-chunks and begins afresh.
+      if (readDocument() !== text) return start();
       state = "speaking";
       render();
       startKeepalive();
