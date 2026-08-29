@@ -16,7 +16,7 @@ interface Props {
 const { mdUrl, filename, pdfUrl, lang } = Astro.props;
 const pdfFilename = filename.replace(/\.md$/i, ".pdf");
 import { useT } from "@/i18n/ui";
-const t = useT(Astro.currentLocale ?? "en");
+const t = useT();
 
 ---
 

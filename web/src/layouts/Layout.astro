@@ -6,7 +6,6 @@ import "@fontsource-variable/geist";
 import "@fontsource-variable/geist-mono";
 import Navigation from "@/components/Navigation.astro";
 import Footer from "@/components/Footer.astro";
-import { localePaths } from "@/i18n/ui";
 
 interface Props {
   title?: string;
@@ -27,13 +26,11 @@ const {
 const siteUrl = "https://numinia.org";
 const canonical = `${siteUrl}${canonicalPath}`;
 const resolvedOgImage = ogImage ?? `${siteUrl}/og-default.png`;
-// MIS-120(b) — the page's true language. Was hardcoded lang="es" while the
-// site served English: that mislabeled every page for screen readers,
-// Pagefind's per-language index, and og:locale. Astro.currentLocale follows
-// the /es/ prefix; unprefixed routes are English (DEC-006/ADR-024).
-const locale = Astro.currentLocale ?? "en";
-const ogLocale = locale === "es" ? "es_ES" : "en_US";
-const { enPath, esPath } = localePaths(canonicalPath);
+// MIS-120(e) — one corpus, in English, and lang says so. This is the signal
+// the browser reads to offer its own translation; declaring anything else
+// suppresses the offer for the very readers who need it (DEC-006).
+const locale = "en";
+const ogLocale = "en_US";
 ---
 
 <!doctype html>
@@ -46,10 +43,6 @@ const { enPath, esPath } = localePaths(canonicalPath);
     <meta name="description" content={description} />
     <meta name="theme-color" content="#14110F" />
     <link rel="canonical" href={canonical} />
-    <!-- MIS-120(b) — hreflang pairs: every page names its sibling locale -->
-    <link rel="alternate" hreflang="en" href={`${siteUrl}${enPath}`} />
-    <link rel="alternate" hreflang="es" href={`${siteUrl}${esPath}`} />
-    <link rel="alternate" hreflang="x-default" href={`${siteUrl}${enPath}`} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
