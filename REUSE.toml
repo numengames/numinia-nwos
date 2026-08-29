@@ -70,6 +70,37 @@ path = "operations/strategy/**"
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "LicenseRef-Numen-AllRightsReserved"
 
+# --- Machine translations → MIRROR the source document's regime ----------
+# MIS-120(d2). A translation is a derivative work: it carries the regime of
+# the document it derives from, never the regime of the folder it is built
+# in. The cache first lived under web/src/translations/, where REUSE.toml's
+# web/** MIT annotation silently relicensed CC-BY-4.0 corpus prose as code —
+# the licence-frontmatter guard refused the branch, correctly. The folder
+# moved out of web/ so the path stops contradicting the content.
+#
+# The default mirrors the docs block. The overrides below mirror the
+# reserved surfaces, and they are NOT hypothetical: 10 reserved documents
+# (guilds/**, operations/strategy/O-007, standards/S-003) are inside the
+# translator's INCLUDE list and are not excluded by it. Without these
+# annotations, translating any of them would mint a CC-BY-4.0 derivative of
+# reserved canon — irrevocably, exactly as LD-001 records for CC0.
+[[annotations]]
+path = "translations/**"
+SPDX-FileCopyrightText = "2026 Numen Games S.L."
+SPDX-License-Identifier = "CC-BY-4.0"
+
+# Reserved sources keep their regime in translation. After the block above
+# so these win; mirrors the same overrides applied to the English originals.
+[[annotations]]
+path = [
+  "translations/*/guilds/**",
+  "translations/*/operations/legal/**",
+  "translations/*/operations/strategy/**",
+  "translations/*/standards/S-003-platform-role-system.md",
+]
+SPDX-FileCopyrightText = "2026 Numen Games S.L."
+SPDX-License-Identifier = "LicenseRef-Numen-AllRightsReserved"
+
 # The Design System master declares CC0 itself (its frontmatter: "CC0 1.0
 # Universal · marcas excluidas") and the design system is CC0 by prior
 # canon (numinia-web REUSE, khepri/**). Not a new CC0 grant — preserving

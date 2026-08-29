@@ -1,4 +1,4 @@
 # MIS-120(d) — machine translations. Collapsed in diffs by default and kept
 # out of language stats: they are generated artefacts, reviewable on demand
 # but not authored here. The English document is the record of registry.
-web/src/translations/es/** linguist-generated=true
+translations/es/** linguist-generated=true

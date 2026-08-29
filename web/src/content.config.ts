@@ -144,8 +144,15 @@ const corpus = defineCollection({
 // only appears here once the translator has produced it and the fidelity
 // gate has passed it; the /es/ route is generated from this collection, so
 // an untranslated document simply has no Spanish page.
+//
+// MIS-120(d2): the cache lives in the repo's own translations/, NOT under
+// web/. A translation is a derivative of a CC-BY-4.0 corpus document, and
+// REUSE.toml gives web/** the MIT code regime — keeping it there made the
+// path assign a licence the content does not have (the licence-frontmatter
+// guard caught exactly this). The folder mirrors the corpus, so the regime
+// follows the document instead of the build layout.
 const corpusEs = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/translations/es" }),
+  loader: glob({ pattern: "**/*.md", base: "../translations/es" }),
   schema: z.object({}).passthrough(),
 });
 

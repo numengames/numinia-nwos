@@ -4,7 +4,7 @@
 // MIS-120(d) — the Spanish face of a corpus document.
 //
 // Routes exist ONLY for documents that actually have a translation in the
-// committed cache (web/src/translations/es/ + manifest.json). A document
+// committed cache (translations/es/ + manifest.json). A document
 // with no translation gets no Spanish page, and the /es/ fallback redirect
 // from phase (b) sends the reader to the English one — the selector never
 // produces a 404, and no page ever pretends to be Spanish while showing
@@ -15,9 +15,26 @@ import DocToolbar from "@/components/DocToolbar.astro";
 import { getCollection, render } from "astro:content";
 import { getPublicCorpus } from "@/lib/corpus";
 import { useT } from "@/i18n/ui";
-import manifest from "@/translations/es/manifest.json";
+import manifest from "@translations/es/manifest.json";
+
+// Both collections load from OUTSIDE web/, so Astro reports filePath
+// relative to the web/ project root and every entry arrives prefixed with
+// "../" ("../protocols/P-009.md", "../translations/es/protocols/P-009.md").
+// The repo-relative path is the only key the English side, the Spanish side
+// and manifest.json all agree on, so both sides are normalised to it.
+//
+// This was the bug that made phase (d2) build zero Spanish pages: the
+// English key kept its "../" while the Spanish key had it stripped by the
+// translations prefix regex, so the two Maps never intersected and
+// getStaticPaths returned []. It failed silently — no error, just no pages —
+// and the red licence guard hid it. Verified by logging both sides during a
+// real build, not by reading the regex.
+//
+// Defined INSIDE getStaticPaths on purpose: Astro hoists that function out
+// of the component module, so a module-scope helper is not in scope there.
 
 export async function getStaticPaths() {
+  const repoPath = (p: string) => p.replace(/\\/g, "/").replace(/^(\.\.\/)+/, "");
   // The English corpus decides WHAT may be published (visibility fails
   // closed in lib/corpus.ts). The Spanish collection decides WHICH of those
   // actually have a translation. Intersection only — no Spanish page ever
@@ -25,15 +42,26 @@ export async function getStaticPaths() {
   const english = await getPublicCorpus();
   const spanish = await getCollection("corpusEs");
   const byPath = new Map(
-    spanish.map((e) => [(e.filePath as string).replace(/\\/g, "/").replace(/^.*\/translations\/es\//, ""), e])
+    spanish.map((e) => [repoPath(e.filePath as string).replace(/^translations\/es\//, ""), e])
   );
-  return english
+  const paths = english
     .map((entry) => {
-      const rel = (entry.filePath as string).replace(/\\/g, "/");
+      const rel = repoPath(entry.filePath as string);
       const es = byPath.get(rel);
       return es ? { params: { slug: entry.id }, props: { entry, es, meta: (manifest as Record<string, { model: string; translatedAt: string }>)[rel] } } : null;
     })
     .filter((x): x is NonNullable<typeof x> => x !== null);
+  // Fail loud, not silent: a committed translation that matches no English
+  // document means the cache and the corpus have drifted apart. Building
+  // "successfully" with zero Spanish pages is the failure mode this mission
+  // already shipped once.
+  if (spanish.length > 0 && paths.length === 0) {
+    throw new Error(
+      `es/corpus: ${spanish.length} translation(s) committed but none matched a publishable English document. ` +
+        `Spanish keys: ${[...byPath.keys()].join(", ")}`
+    );
+  }
+  return paths;
 }
 
 const { entry, es, meta } = Astro.props;
@@ -84,10 +112,13 @@ const updated = fmtDate(fmData.updated) ?? fmtDate(fmData.created);
       <h1 class="font-display text-3xl sm:text-4xl text-foreground mb-6">{title}</h1>
 
       {/* The standing notice. Machine translation is labelled as such, on
-          every page, with the English original one click away. */}
+          every page, with the English original one click away.
+          Icon: the house subset has no "info" glyph (d2 asked for one and the
+          build threw). A globe reads as "language", not as "error" — a
+          declared machine translation is a courtesy, not a fault. */}
       <aside class="mb-8 rounded-xl border border-accent/30 bg-accent/5 p-4">
         <p class="font-mono text-[0.7rem] leading-relaxed text-muted-foreground">
-          <Icon name="info" size={12} class="inline-block mr-1.5 -mt-0.5 text-accent" />
+          <Icon name="globe-hemisphere-west" size={12} class="inline-block mr-1.5 -mt-0.5 text-accent" />
           {t("notice.machineTranslation")}
           {" "}
           <a href={`/corpus/${entry.id}`} class="text-accent underline underline-offset-2 hover:no-underline">

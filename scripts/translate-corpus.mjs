@@ -41,8 +41,8 @@ const ONLY = process.argv.includes("--only")
 // deploy time. Committed, the deploy is a pure function of the repo — what
 // is on main is what ships — and every machine-written paragraph passes
 // through a PR diff before it is published under Numinia's name.
-const CACHE_DIR = "web/src/translations/es";
-const MANIFEST = "web/src/translations/es/manifest.json";
+const CACHE_DIR = "translations/es";
+const MANIFEST = "translations/es/manifest.json";
 
 // Decision 2: governed surfaces stay English everywhere. Everything else
 // under the published corpus is fair game for the machine.

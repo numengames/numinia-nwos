@@ -76,6 +76,10 @@ export default defineConfig({
 		resolve: {
 			alias: {
 				"@": path.resolve(__dirname, "./src"),
+				// MIS-120(d2): machine translations live OUTSIDE web/ — they are
+				// corpus (CC-BY-4.0), not code (MIT), and web/** is the MIT
+				// regime. The alias keeps the import readable from inside web/.
+				"@translations": path.resolve(__dirname, "../translations"),
 			},
 		},
 	},
