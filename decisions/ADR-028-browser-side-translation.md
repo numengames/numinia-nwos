@@ -5,7 +5,7 @@ type: documentation
 status: active
 version: "1.0.0"
 created: "2026-08-29T11:25:00Z"
-created_source: "git:pending"
+created_source: "git:df6b672"
 created_confidence: exact
 updated: "2026-08-29T11:25:00Z"
 author: "ursa"
