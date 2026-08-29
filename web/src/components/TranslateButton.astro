@@ -103,10 +103,11 @@
       "mb-6 rounded-xl border border-accent/25 bg-accent/5 px-4 py-3 text-[0.7rem] leading-relaxed text-muted-foreground";
     el.textContent =
       kind === "machine"
-        ? "Traducción automática, hecha en tu navegador. El documento inglés es el registro oficial — pulsa EN para volver a él."
+        ? "Traducción automática. El original en inglés es el registro oficial."
         : kind === "unsupported"
-          ? "Este navegador no puede traducir la página por sí mismo. Usa la función de traducción de tu navegador (Chrome y Edge de escritorio lo hacen automáticamente). El documento inglés es el registro oficial."
-          : "No se pudo completar la traducción" + (detail ? ` (${detail})` : "") + ". El documento sigue en inglés, que es el registro oficial.";
+          ? "Tu navegador no trae traductor integrado. Funciona en Chrome y Edge de escritorio."
+          : "No se pudo traducir. El documento sigue en inglés.";
+    if (detail) el.title = detail;
     root.prepend(el);
   }
 
@@ -133,6 +134,7 @@
 
     const API = (globalThis as any).Translator;
     if (!API) {
+      console.info("[translate] Translator API absent — needs Chrome/Edge 138+ desktop");
       notice("unsupported");
       return;
     }
@@ -141,7 +143,13 @@
     try {
       const config = { sourceLanguage: "en", targetLanguage: "es" };
       const availability = await API.availability(config);
+      console.info("[translate] availability:", availability);
       if (availability === "unavailable") {
+        console.info(
+          "[translate] the model cannot be provisioned. De-googled builds " +
+            "(Ungoogled Chromium, Brave) strip the component updater that " +
+            "fetches it — the API is present but never usable there.",
+        );
         notice("unsupported");
         return;
       }
