@@ -28,6 +28,8 @@ jobs:
         run: node scripts/check-license-frontmatter.mjs
       - name: reference lint (ADR-004 — plain-text IDs are invisible to link checkers)
         run: node scripts/check-references.mjs
+      - name: header lint (S-004 — the header in three rings, checks H-00…H-31)
+        run: node scripts/lint-frontmatter.mjs
       - name: install
         run: npm ci
         working-directory: web
