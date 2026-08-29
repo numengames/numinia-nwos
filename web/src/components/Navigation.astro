@@ -3,8 +3,9 @@
 // SPDX-License-Identifier: MIT
 import Icon from "@/components/Icon.astro";
 import SiteSearch from "@/components/SiteSearch.astro";
+import TranslateButton from "@/components/TranslateButton.astro";
 import { navItems } from "@/data/navigation";
-import { useT, localePaths, type UIKey } from "@/i18n/ui";
+import { useT, type UIKey } from "@/i18n/ui";
 
 interface Props {
   activeNav?: string;
@@ -22,7 +23,6 @@ const numaniaActive = numaniaIds.includes(activeNav ?? "");
 // nav item ids are historical (Spanish); the map bridges id → dictionary key.
 const locale = Astro.currentLocale ?? "en";
 const t = useT(locale);
-const { enPath, esPath } = localePaths(Astro.url.pathname);
 const NAV_KEY: Record<string, UIKey> = {
   missions: "nav.missions",
   corpus: "nav.corpus",
@@ -45,12 +45,9 @@ const homeHref = locale === "es" ? "/es/" : "/";
     <!-- Desktop nav -->
     <div class="hidden items-center gap-1 sm:flex">
       <SiteSearch />
-      <!-- MIS-120(b) — language selector: two links, no state, no flags -->
-      <div class="ml-1 flex items-center gap-0.5 font-mono text-[0.65rem] uppercase tracking-[0.1em]" aria-label={t("nav.langSelector")}>
-        <a href={enPath} aria-current={locale === "en" ? "true" : undefined} class:list={["rounded-md px-1.5 py-1 transition-colors", locale === "en" ? "text-accent" : "text-dim hover:text-foreground"]}>EN</a>
-        <span class="text-dim/50">|</span>
-        <a href={esPath} aria-current={locale === "es" ? "true" : undefined} class:list={["rounded-md px-1.5 py-1 transition-colors", locale === "es" ? "text-accent" : "text-dim hover:text-foreground"]}>ES</a>
-      </div>
+      <!-- MIS-120(e) — the button translates the page in place; no route,
+           no stored translation. See components/TranslateButton.astro -->
+      <TranslateButton />
       {navItems.map((item) => {
         if (item.children) {
           return (
@@ -165,10 +162,8 @@ const homeHref = locale === "es" ? "/es/" : "/";
           </a>
         );
       })}
-      <div class="mt-2 flex items-center gap-0.5 border-t border-border/50 pt-3 font-mono text-[0.65rem] uppercase tracking-[0.1em]" aria-label={t("nav.langSelector")}>
-        <a href={enPath} aria-current={locale === "en" ? "true" : undefined} class:list={["rounded-md px-2 py-1.5 transition-colors", locale === "en" ? "text-accent" : "text-dim"]}>EN</a>
-        <span class="text-dim/50">|</span>
-        <a href={esPath} aria-current={locale === "es" ? "true" : undefined} class:list={["rounded-md px-2 py-1.5 transition-colors", locale === "es" ? "text-accent" : "text-dim"]}>ES</a>
+      <div class="mt-2 flex items-center gap-0.5 border-t border-border/50 pt-3">
+        <TranslateButton />
       </div>
     </div>
   </div>
