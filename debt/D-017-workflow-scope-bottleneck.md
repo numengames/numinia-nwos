@@ -3,10 +3,10 @@ id: "D-017"
 uid:
 title: "Every CI guard needs the Oracle's hands: the agent has no workflow scope"
 type: documentation
-status: open
-version: "1.2.0"
+status: closed
+version: "2.0.0"
 created: "2026-08-24T23:00:00Z"
-updated: "2026-08-29T20:55:00Z"
+updated: "2026-08-29T21:45:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -63,7 +63,7 @@ cheap half; every one of them then waits on a manual step.
 | `check-license-frontmatter.mjs` | yes | **yes** |
 | `check-references.mjs` | yes, tested | **yes** |
 | `check-orphan-content.mjs` | yes | **yes** — post-build (needs `web/dist`) |
-| `lint-frontmatter.mjs` | yes — `#116`, 844 baselined | **no — the one pending handoff** |
+| `lint-frontmatter.mjs` | yes — `#116`, 844 baselined | **yes** — `#126`, run `33276755484` |
 | `lint-naming.mjs` | no | no |
 | ~~`lint-type-vs-folder.mjs`~~ | folded into `lint-frontmatter` (`H-17`) | n/a |
 
@@ -132,8 +132,26 @@ deferred with a reason.
 > Step 3 is the Oracle's. This entry stays `open` until a green run ID on
 > `main` is written below.
 
-**Run ID on `main`:** _pending — to be filled by the agent after the Oracle
-wires the step (P-013 §5)._
+> **Wired and verified, 2026-08-29 (`baf188b`).** The step is in `ci.yml`
+> and has run on `main`.
+>
+> | | |
+> |---|---|
+> | Run ID | [`33276755484`](https://github.com/numengames/numinia-nwos/actions/runs/33276755484) |
+> | Conclusion | `success` |
+> | Head SHA | `baf188b` |
+> | Step output | `844 findings (844 baselined) … no new violations — the ratchet holds` |
+>
+> Wired by the Oracle in `#126` — **not** by a direct commit to `main`: the
+> `protect-main` ruleset requires a pull request and one approving review,
+> so even the Oracle's own workflow edit goes through a PR. `P-013` §1 said
+> "the Oracle pastes it into `ci.yml`" and implied a direct commit. It is
+> a PR. The protocol is corrected accordingly.
+>
+> The approving review on `#126` was given by `ursa-numinia` at the
+> Oracle's instruction — the agent approving the wiring of a guard the
+> agent wrote. Authority was not in question; independence was. Recorded
+> in the review comment and here rather than passed over in silence.
 
 This entry does not close by getting the scope. It closes by making its absence
 survivable.
@@ -144,6 +162,34 @@ survivable.
 |---|---|
 | Severity | medium — no data at risk, but it throttles every future guard |
 | Owner | Oracle |
-| Blocked by | nothing — the procedure can be written today |
+| Blocked by | nothing |
 | Opened | 2026-08-24, Oracle's phase 0 review |
-| Closes when | the handoff is documented and the four guards are resolved |
+| Closed | 2026-08-29 — `P-013` written, three guards wired, `lint-frontmatter` wired (`#126`, run `33276755484`), `lint-naming` explicitly deferred |
+| Closes when | the handoff is documented and the four guards are resolved — **met** |
+
+> **Why `status: closed` and not `resolved`.** Three sibling entries say
+> `resolved`; 38 open ones say `open`. Neither word is in the lifecycle
+> `S-004` gives `type: documentation` — `[draft active closed]` — so all 41
+> sit in the baseline as `H-04` violations. The guard, running for the
+> first time on this very entry, rejected `resolved` as a NEW violation.
+> The baseline may shrink and never grow (`S-004` §7), so the conforming
+> value wins and the entry's own `H-04` heals: **844 → 843**.
+>
+> That the debt series runs an undeclared vocabulary (`open`/`resolved`)
+> against a type lifecycle that admits neither is a real defect, adjacent
+> to `D-008` and `D-012`. It is **not** fixed here and it is **not**
+> silently normalised across the other 40 files: renaming a live status
+> vocabulary is the Oracle's call, not a side effect of closing an
+> unrelated entry.
+>
+> **Where this sits on the board.** This entry was worked as a standalone
+> handoff and only afterwards recognised as the first blocker of
+> **`MIS-121`** — the header baseline burn-down. The guard had to be running
+> in CI before any migration against it could be verified. Registered there
+> as a cleared check, with this entry as its evidence.
+>
+> **What remains true after closure.** The constraint itself has not gone
+> away and never will: the agent still cannot write `.github/workflows/`.
+> What closed is the *bottleneck* — the handoff is a documented, exercised
+> procedure instead of a wall rediscovered once per mission. Every future
+> guard still costs one Oracle PR. That is the intended price.

@@ -3,11 +3,11 @@ id: "P-013"
 title: "Handing a guard to CI: the procedure for a boundary that will not move"
 type: protocol
 status: active
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-28T15:30:00Z"
 created_source: "git:3d01bc2"
 created_confidence: exact
-updated: "2026-08-28T15:30:00Z"
+updated: "2026-08-29T21:50:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -36,11 +36,26 @@ mandatory: true
 |---|---|---|
 | 1 | agent | Write the guard. Test it **in both directions**: it must fail on planted breakage and pass when clean. |
 | 2 | agent | Put the **exact YAML block** in the PR body — step name, `run:` line, and the step it goes after. Ready to paste, no editing. |
-| 3 | **Oracle** | Paste it into `.github/workflows/ci.yml`. Irreducibly manual. |
+| 3 | **Oracle** | Paste it into `.github/workflows/ci.yml` **via a pull request** — `protect-main` requires one, so this is not a direct commit. Irreducibly the Oracle's. |
 | 4 | agent | Verify the run went green on `main` and report the run ID. |
 
 Steps 1, 2 and 4 are the agent's and are not optional. Step 3 is the
 Oracle's and cannot be delegated.
+
+> **Corrected 2026-08-29, first time this protocol was exercised (`D-017`,
+> PR `#126`).** Step 3 originally read as a direct commit to `main`. It is
+> not: the `protect-main` ruleset requires a pull request and **one
+> approving review**, so even the Oracle's own workflow edit goes through a
+> PR. Two consequences the first run discovered:
+>
+> - **The review is a fourth actor the protocol did not name.** On `#126`
+>   it was given by the agent, at the Oracle's instruction — the author of
+>   the guard approving its own wiring. Authority was intact; independence
+>   was not. When a second reviewer exists, they review. When one does not,
+>   **the self-approval is stated in the review body**, never left implicit.
+> - **The PR runs the guard before it is merged.** The pre-merge run on the
+>   PR branch is the real proof the step is wired correctly; the post-merge
+>   run on `main` is the record. Read both.
 
 ## 2. What a guard must do before it is offered
 
@@ -96,7 +111,7 @@ Current state, verified against `.github/workflows/ci.yml` at
 | `check-license-frontmatter.mjs` | C-005 §5 licence agreement | yes | **yes** |
 | `check-references.mjs` | ADR-004 plain-text identifiers | yes | **yes** |
 | `check-orphan-content.mjs` | D-032 content outside the renderer | yes | **yes** (post-build) |
-| `lint-frontmatter.mjs` | S-004 header, checks H-00…H-31 | yes (#116) | **no — pending handoff** |
+| `lint-frontmatter.mjs` | S-004 header, checks H-00…H-31 | yes (#116) | **yes** — `#126`, run `33276755484` |
 | `lint-naming.mjs` | S-001 §9 filenames | no | no |
 | `lint-type-vs-folder.mjs` | folded into `lint-frontmatter` H-17 | n/a | n/a |
 
