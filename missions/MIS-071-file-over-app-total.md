@@ -25,7 +25,8 @@ depends_on: ["MIS-065"]
 started: "2026-08-17"
 completed: null
 divergence_log: null
----# MIS-071 — File over App, total: every piece of the system exists as .md
+---
+# MIS-071 — File over App, total: every piece of the system exists as .md
 
 > **Summary:** The Oracle's answer to the navigability audit's central
 > open question: yes — diagrams, lifecycles, fondos, principles,

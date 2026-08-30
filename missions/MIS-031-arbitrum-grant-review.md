@@ -20,7 +20,8 @@ requested_by: "oracle"
 started: null
 completed: null
 blocked_by: "Numen Games wallet address required from Pablo"
----# MIS-031 — Final review of the Arbitrum grant
+---
+# MIS-031 — Final review of the Arbitrum grant
 
 > **Summary:** Review and close the Arbitrum grant draft, then submit in the next evaluation cycle.
 > **Epistemic:** Clarifies Numen Games' value proposition within the blockchain ecosystem.

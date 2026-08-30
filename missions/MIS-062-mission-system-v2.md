@@ -43,7 +43,8 @@ sub_missions:
     title: "Update P-003 Mission Cycle Protocol to v2"
     status: "todo"
     effort: "S"
----# MIS-062 — Mission System v2
+---
+# MIS-062 — Mission System v2
 
 > **2026-08-17 — Oracle note:** unassigned (nimrod not active). Execution
 > of all five sub-missions is absorbed by [MIS-066](MIS-066-unify-mission-system.md)

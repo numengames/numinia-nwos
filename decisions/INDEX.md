@@ -13,7 +13,8 @@ author: "nimrod"
 owner: "oracle"
 tags: [decisions, index, adr]
 license: "CC-BY-4.0"
----# Decisions — Crystallized Will
+---
+# Decisions — Crystallized Will
 
 > **Summary:** NWOS system document — Decisions — Index.
 > **Epistemic:** What was decided, why, and what alternatives were discarded.

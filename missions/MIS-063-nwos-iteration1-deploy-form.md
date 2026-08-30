@@ -21,7 +21,8 @@ assigned_to: "nimrod"
 requested_by: "oracle"
 started: "2026-04-07T22:55:00Z"
 completed: "2026-04-07T22:59:00Z"
----# MIS-063 — NWOS Phase 2: Iteration 1 — Deploy Form at /velo
+---
+# MIS-063 — NWOS Phase 2: Iteration 1 — Deploy Form at /velo
 
 > **Summary:** First iteration of the NWOS Phase 2 go-online pipeline. CEO visits /velo, fills a form, clicks Deploy — a personalized GitHub repo is created in the org.
 > **Epistemic:** Hybrid rendering in Astro allows static pages + server-side API routes in the same site. Islands architecture ships zero JS until needed.

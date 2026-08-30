@@ -14,7 +14,8 @@ type_execution: "digital"
 priority: "medium"
 effort: "XS"
 license: "CC-BY-4.0"
----# MIS-030 — Weekly "Behind Numen" thread
+---
+# MIS-030 — Weekly "Behind Numen" thread
 
 > **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
 > **Epistemic:** What you learn by reading this document.

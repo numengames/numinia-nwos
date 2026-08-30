@@ -25,7 +25,8 @@ sub_missions: []
 depends_on: ["MIS-105", "MIS-094"]
 started: null
 completed: null
----# MIS-106 — The mould carries a retired name
+---
+# MIS-106 — The mould carries a retired name
 
 > **Summary:** Design System v5.0.0 retired the codename "Khepri" and 5.1.0
 > finished the job downstream — the kit now ships as `sistema.*`. The mould's

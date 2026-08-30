@@ -19,7 +19,8 @@ assigned_to: null
 requested_by: "oracle"
 started: null
 completed: null
----# MIS-002 — User map: who pays and why
+---
+# MIS-002 — User map: who pays and why
 
 > **Summary:** Identify the 3 most likely user profiles who would pay for Numinia today.
 > **Epistemic:** Whether the ICP is B2B, B2C, or a mix.

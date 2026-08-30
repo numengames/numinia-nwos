@@ -13,7 +13,8 @@ tags: [metrics, business, kpi, roi, cao, framework]
 area: "CAO / Business"
 related_missions: ["MIS-057", "MIS-048"]
 license: "CC-BY-4.0"
----# BP — Business Metrics Framework v0.1.0
+---
+# BP — Business Metrics Framework v0.1.0
 
 > **Summary:** Framework for measuring the business value of the NWOS digital agent system.
 > **Epistemic:** What to measure, why, and how — so ROI is demonstrable, not just felt.

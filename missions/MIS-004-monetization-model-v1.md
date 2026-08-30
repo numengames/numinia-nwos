@@ -19,7 +19,8 @@ assigned_to: null
 requested_by: "oracle"
 started: null
 completed: null
----# MIS-004 — Define monetization model v1
+---
+# MIS-004 — Define monetization model v1
 
 > **Summary:** A clear monetization model for Numinia v1, so we can talk money with clients from day one.
 > **Epistemic:** Whether the market validates prices in real conversations.

@@ -14,7 +14,8 @@ tags: [blueprint, product, tech, data, blockchain, nft]
 area: "Product / Tech"
 semaforo: "amarillo"
 license: "CC-BY-4.0"
----# BP — Data Model
+---
+# BP — Data Model
 
 > **Summary:** System blueprint: current state, target, gaps and dependencies.
 > **Epistemic:** The real state vs. the target — where we are and where we are going.

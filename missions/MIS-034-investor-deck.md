@@ -14,7 +14,8 @@ type_execution: "hybrid"
 priority: "high"
 effort: "L"
 license: "CC-BY-4.0"
----# MIS-034 — Angel investor deck v1.0
+---
+# MIS-034 — Angel investor deck v1.0
 
 > **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
 > **Epistemic:** What you learn by reading this document.

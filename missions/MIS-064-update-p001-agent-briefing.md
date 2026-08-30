@@ -21,7 +21,8 @@ assigned_to: "nimrod"
 requested_by: "oracle"
 started: "2026-04-08T06:02:00Z"
 completed: "2026-08-25"
----# MIS-064 — Update P-001 — Agent Briefing Protocol v2
+---
+# MIS-064 — Update P-001 — Agent Briefing Protocol v2
 
 > **Summary:** Update P-001 to v2.0.0 — rename file to canonical English naming, add P-009 reference, add new standards (versioning lifecycle, log system).
 > **Epistemic:** P-001 is the protocol every agent reads first. It must reflect the current state of the system.

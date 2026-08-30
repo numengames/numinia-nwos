@@ -19,7 +19,8 @@ assigned_to: null
 requested_by: "oracle"
 started: null
 completed: null
----# MIS-019 — Sequential outreach to 20 prospects
+---
+# MIS-019 — Sequential outreach to 20 prospects
 
 > **Summary:** Execute a 3-touch sequence to 20 prospects to get at least 5 calls booked.
 > **Epistemic:** Measures real response rate and validates the pitch.

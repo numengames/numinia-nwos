@@ -25,7 +25,8 @@ sub_missions: []
 depends_on: []
 started: null
 completed: null
----# MIS-101 — The mould complies with itself
+---
+# MIS-101 — The mould complies with itself
 
 > **Summary:** The repository that publishes the engineering standards is the
 > least compliant of the three. This mission closes that gap.

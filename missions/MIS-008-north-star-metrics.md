@@ -14,7 +14,8 @@ type_execution: "biological"
 priority: "high"
 effort: "XS"
 license: "CC-BY-4.0"
----# MIS-008 — Define the product's North Star metrics
+---
+# MIS-008 — Define the product's North Star metrics
 
 > **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
 > **Epistemic:** What you learn by reading this document.

@@ -22,7 +22,8 @@ priority: "high"
 effort: "S"
 started: "2026-04-06T00:00:00Z"
 completed: null
----# MIS-054 — Multi-Oracle access to Nimrod via Telegram
+---
+# MIS-054 — Multi-Oracle access to Nimrod via Telegram
 
 > **Summary:** NWOS system mission.
 > **Epistemic:** What you learn by reading this document.

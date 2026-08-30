@@ -14,7 +14,8 @@ applies_to: [all-agents]
 mandatory: true
 human_approval_score: 7
 license: "CC-BY-4.0"
----# P-006 — Session Close Protocol v1
+---
+# P-006 — Session Close Protocol v1
 
 > **Summary:** Standard operational protocol for the NWOS system.
 > **Epistemic:** How this process is executed and why in this way.

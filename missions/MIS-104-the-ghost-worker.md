@@ -25,7 +25,8 @@ sub_missions: []
 depends_on: []
 started: null
 completed: null
----# MIS-104 — The ghost Worker
+---
+# MIS-104 — The ghost Worker
 
 > **Summary:** A Cloudflare Worker may be the only host of a live product
 > surface, and no one — including the team's own code comments — can say which

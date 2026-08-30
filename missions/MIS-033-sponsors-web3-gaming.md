@@ -14,7 +14,8 @@ type_execution: "hybrid"
 priority: "high"
 effort: "M"
 license: "CC-BY-4.0"
----# MIS-033 — Identify 10 Web3/Gaming sponsors
+---
+# MIS-033 — Identify 10 Web3/Gaming sponsors
 
 > **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
 > **Epistemic:** What you learn by reading this document.

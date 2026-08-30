@@ -20,7 +20,8 @@ assigned_to: null
 requested_by: "oracle"
 started: null
 completed: null
----# MIS-005 — Numinia landing page with lead capture
+---
+# MIS-005 — Numinia landing page with lead capture
 
 > **Summary:** A landing page that captures emails from interested parties, to build a waitlist before launch.
 > **Epistemic:** We measure real interest before building the complete product.

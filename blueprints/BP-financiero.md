@@ -14,7 +14,8 @@ tags: [blueprint, business, finance, costs]
 area: "Business"
 semaforo: "rojo"
 license: "CC-BY-4.0"
----# BP — Financial
+---
+# BP — Financial
 
 > **Summary:** System blueprint: current state, target, gaps and dependencies.
 > **Epistemic:** The real state vs. the target — where we are and where we are going.

@@ -25,7 +25,8 @@ depends_on: []
 started: null
 completed: null
 divergence_log: null
----# MIS-068 — NWOS propagation: consumer repos never drift from the source of truth
+---
+# MIS-068 — NWOS propagation: consumer repos never drift from the source of truth
 
 > **Summary:** `numengames/numinia-nwos` is THE source of truth; every
 > numengames repo that uses NWOS drinks from it by copying (the C-005 §9

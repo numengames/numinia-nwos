@@ -14,7 +14,8 @@ type_execution: "digital"
 priority: "high"
 effort: "M"
 license: "CC-BY-4.0"
----# MIS-043 — Complete reading of the Numinia RPG Manual
+---
+# MIS-043 — Complete reading of the Numinia RPG Manual
 
 > **Summary:** NWOS system mission.
 > **Epistemic:** What you learn by reading this document.

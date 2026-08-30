@@ -23,7 +23,8 @@ effort: "L"
 started: null
 completed: null
 blocked_reason: "PC in transit — pending physical arrival"
----# MIS-052 — On-premises infrastructure — Dedicated PC
+---
+# MIS-052 — On-premises infrastructure — Dedicated PC
 
 > **Summary:** NWOS system mission.
 > **Epistemic:** What you learn by reading this document.

@@ -25,7 +25,8 @@ sub_missions: []
 depends_on: ["MIS-094", "MIS-091", "MIS-068"]
 started: null
 completed: null
----# MIS-102 — The last three consumers stop copying
+---
+# MIS-102 — The last three consumers stop copying
 
 > **Summary:** MIS-094 built the emitter: the kit ships as
 > `kit/5.1.0/sistema.*` with a sha256 manifest, and `numinia-web` pins it

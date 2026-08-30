@@ -25,7 +25,8 @@ started: "2026-08-17"
 in_review_at: "2026-08-17"
 completed: "2026-08-17"
 divergence_log: null
----# MIS-066 — Unify the mission system: one folder, one language, one page
+---
+# MIS-066 — Unify the mission system: one folder, one language, one page
 
 > **Summary:** 81 mission files across 4 status directories, 15 duplicated
 > IDs, two status vocabularies and two competing web pages become: one flat

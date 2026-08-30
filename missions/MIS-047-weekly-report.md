@@ -22,7 +22,8 @@ assigned_to: "nimrod"
 requested_by: "oracle"
 started: "2026-04-07T22:35:00Z"
 completed: "2026-04-07T22:40:00Z"
----# MIS-047 — Configure automatic weekly report
+---
+# MIS-047 — Configure automatic weekly report
 
 > **Summary:** Set up a weekly automated report so Pablo has a structured view of what happened each week.
 > **Epistemic:** Visibility without asking.

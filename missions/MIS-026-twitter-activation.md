@@ -14,7 +14,8 @@ type_execution: "digital"
 priority: "high"
 effort: "S"
 license: "CC-BY-4.0"
----# MIS-026 — X/Twitter channel activation
+---
+# MIS-026 — X/Twitter channel activation
 
 > **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
 > **Epistemic:** What you learn by reading this document.

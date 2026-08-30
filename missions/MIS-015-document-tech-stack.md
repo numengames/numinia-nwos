@@ -14,7 +14,8 @@ type_execution: "biological"
 priority: "high"
 effort: "S"
 license: "CC-BY-4.0"
----# MIS-015 — Document Numinia's tech stack
+---
+# MIS-015 — Document Numinia's tech stack
 
 > **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
 > **Epistemic:** What you learn by reading this document.

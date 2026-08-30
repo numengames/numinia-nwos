@@ -25,7 +25,8 @@ sub_missions: []
 depends_on: ["MIS-091"]
 started: null
 completed: null
----# MIS-100 — The real gate
+---
+# MIS-100 — The real gate
 
 > **Summary:** Three repositories now run a CI pipeline that nothing forces
 > them to pass. This mission turns the pipeline into a gate.

@@ -14,7 +14,8 @@ type_execution: "digital"
 priority: "medium"
 effort: "M"
 license: "CC-BY-4.0"
----# MIS-046 — READMEs for numengames org repos
+---
+# MIS-046 — READMEs for numengames org repos
 
 > **Summary:** NWOS system mission.
 > **Epistemic:** What you learn by reading this document.

@@ -14,7 +14,8 @@ tags: [blueprint, ops, infrastructure, server]
 area: "Ops"
 semaforo: "amarillo"
 license: "CC-BY-4.0"
----# BP — Infrastructure
+---
+# BP — Infrastructure
 
 > **Summary:** System blueprint: current state, target, gaps and dependencies.
 > **Epistemic:** The real state vs. the target — where we are and where we are going.

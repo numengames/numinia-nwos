@@ -14,7 +14,8 @@ type_execution: "digital"
 priority: "high"
 effort: "S"
 license: "CC-BY-4.0"
----# MIS-032 — Research: Ethereum Foundation ESP
+---
+# MIS-032 — Research: Ethereum Foundation ESP
 
 > **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
 > **Epistemic:** What you learn by reading this document.

@@ -14,7 +14,8 @@ type_execution: "biological"
 priority: "medium"
 effort: "M"
 license: "CC-BY-4.0"
----# MIS-029 — Community on Discord or Telegram
+---
+# MIS-029 — Community on Discord or Telegram
 
 > **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
 > **Epistemic:** What you learn by reading this document.

@@ -14,7 +14,8 @@ tags: [blueprint, cao, missions, system]
 area: "CAO"
 semaforo: "amarillo"
 license: "CC-BY-4.0"
----# BP — Mission System
+---
+# BP — Mission System
 
 > **Summary:** System blueprint: current state, target, gaps and dependencies.
 > **Epistemic:** The real state vs. the target — where we are and where we are going.
