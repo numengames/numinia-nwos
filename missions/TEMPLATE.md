@@ -11,7 +11,7 @@ status: todo
 #   was created, by copying this template.
 priority: medium         # critical|high|medium|low
 effort: S                # XS|S|M|L|XL
-guild: alchemists        # alchemists|sentinels|exegetes|procurators
+guild: "Alchemists"
 territory: "Archive"
 type_execution: digital  # biological|digital|hybrid
 assigned_to: null        # agent-id, or null while unassigned

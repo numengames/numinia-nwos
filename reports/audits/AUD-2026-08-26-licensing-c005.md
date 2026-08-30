@@ -12,7 +12,7 @@ created_confidence: exact
 updated: "2026-08-26T15:10:00Z"
 author: "ursa"
 owner: "oracle"
-guild: "Procuradores"
+guild: "Procurators"
 territory: "Legal"
 tags: [audit, licensing, C-005, CC0, REUSE, robots, read-only]
 license: "CC-BY-4.0"

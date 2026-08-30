@@ -14,7 +14,7 @@ tags: [documentation, i18n, english, nwos, repo]
 license: "CC-BY-4.0"
 territory: "TBA"
 guild: "Exegetes"
-type_execution: "híbrido"
+type_execution: "hybrid"
 priority: "high"
 effort: "L"
 completed: "2026-08-17"

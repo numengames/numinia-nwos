@@ -4,7 +4,7 @@ title: "The header in three rings: identity, provenance, extension"
 type: documentation
 subtype: standard
 status: active
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
@@ -246,6 +246,35 @@ the parking space `ADR-028` forbids. Only a human reading the board
 catches that.
 
 
+### 6.2 Closed vocabularies (H-33…H-36)
+
+Four fields take their values from a closed list declared in `S-001`:
+
+| check | field | vocabulary |
+|---|---|---|
+| **H-33** | `guild` | `Sentinels` · `Alchemists` · `Exegetes` · `Procurators` (§6.3 — English, plural) |
+| **H-34** | `type_execution` | `digital` · `biological` · `hybrid` (§7) |
+| **H-35** | `visibility` | `public` · `restricted-oracle` |
+| **H-36** | `territory` | the eight words of §territory |
+
+All four were declared in the glossary and enforced by nobody. The drift
+was identical in every case and worth naming, because it is what an
+unchecked vocabulary always produces: **an untranslated Spanish value**
+(`Procuradores` ×8, `híbrido` ×3), **a lowercase variant** (`alchemists`
+×5), **an invented fourth value** (`technical`), and **a template comment
+left glued to the value**.
+
+A vocabulary nobody checks is not a vocabulary. It is a suggestion.
+
+Two rules govern the edges:
+
+- **`TBA` is legal here.** A deferred value is ruled by `ADR-028` and §6.1
+  above; H-33…H-36 skip it rather than double-report it.
+- **A `TEMPLATE.md` may document its options inline** (`digital  # digital|hybrid`).
+  The comment is stripped before judging: the vocabulary gets checked and
+  the documentation survives.
+
+
 ## 7. Enforcement: strict on the delta, baseline on the stock
 
 The D-021 lesson is that a rule without a mechanism does not survive its
@@ -264,7 +293,7 @@ lint that fails on everything is a lint that gets disabled.
    the baseline; the baseline's size is the public entropy metric of the
    corpus. Zero is the finish line, visible from every PR.
 
-Check-to-rule mapping is 1:1 by construction (H-00…H-32 above); the lint
+Check-to-rule mapping is 1:1 by construction (H-00…H-36 above); the lint
 prints the H-number with every finding, so a failure cites the standard
 that condemns it.
 

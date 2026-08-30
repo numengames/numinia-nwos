@@ -5,7 +5,7 @@ title: "Listen to the archive: speak any document aloud from its page"
 status: done
 priority: high
 effort: S
-guild: alchemists
+guild: "Alchemists"
 territory: "TBA"
 type_execution: digital
 assigned_to: "ursa"

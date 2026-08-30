@@ -4,7 +4,7 @@ title: "Add client-side search to numinia.org with Pagefind"
 status: done
 priority: medium
 effort: S
-guild: alchemists
+guild: "Alchemists"
 territory: "TBA"
 type_execution: digital
 assigned_to: "ursa"

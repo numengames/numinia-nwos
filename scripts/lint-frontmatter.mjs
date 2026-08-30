@@ -111,6 +111,28 @@ const PREFIX = {
   standards: 'S', canon: 'C', agents: 'AG', reports: ['RPT', 'AUD'],
 };
 
+/**
+ * S-001 §6.3 / §7: closed vocabularies the linter never checked.
+ *
+ * Every one of these was already declared in the canon and enforced by nobody,
+ * which is why each drifted in the same three ways: an untranslated Spanish
+ * value, a lowercase variant, and a template comment left glued to the value.
+ *
+ * H-33 guild · H-34 type_execution · H-35 visibility · H-36 territory
+ */
+const VOCAB = {
+  // S-001 §6.3: "English, plural."
+  guild: ['Sentinels', 'Alchemists', 'Exegetes', 'Procurators'],
+  // S-001 §7: digital = an agent can do it; biological = needs a human.
+  type_execution: ['digital', 'biological', 'hybrid'],
+  // S-004 §6: public unless a reason says otherwise.
+  visibility: ['public', 'restricted-oracle'],
+  // S-001 §territory, the 8 words. TBA is legal under ADR-028 (owner MIS-124).
+  territory: ['CAO', 'Product', 'Platform', 'Infrastructure',
+    'Content', 'Sales', 'Funding', 'Archive'],
+};
+const VOCAB_CHECK = { guild: 'H-33', type_execution: 'H-34', visibility: 'H-35', territory: 'H-36' };
+
 /* The corpus tree this standard governs (S-004 §8): tracked .md outside web/. */
 const GOVERNED = new Set(Object.keys(RING3));
 GOVERNED.add('blueprints').add('guilds').add('operations').add('infra');
@@ -187,6 +209,24 @@ for (const rel of files) {
   for (const [k, v] of Object.entries(fm))
     if (v === '' && k !== 'uid')
       F('H-09', rel, `empty value written for "${k}" — omit the field instead`);
+
+  /* H-33…H-36: closed vocabularies (S-001 §6.3, §7, §territory).
+     Declared in the canon since the glossary was written, enforced by nobody
+     until now — which is exactly why `Procuradores`, `híbrido` and a stray
+     template comment all survived in the corpus. A DEFERRED value is legal
+     here: ADR-028 rules it, and the block above already vets its owner. */
+  for (const [field, allowed] of Object.entries(VOCAB)) {
+    const v = fm[field];
+    if (v === undefined || v === '' || v === DEFERRED) continue;
+    // A TEMPLATE.md documents the options inline (`digital  # digital|hybrid`).
+    // That comment is the template doing its job, not drift: strip it before
+    // judging, so the vocabulary is checked and the documentation survives.
+    const bare = String(v).replace(/\s+#.*$/, '').trim();
+    if (allowed.includes(bare)) continue;
+    const near = allowed.find(a => a.toLowerCase() === bare.toLowerCase());
+    const hint = near ? ` — did you mean "${near}"?` : ` — allowed: ${allowed.join(' · ')}`;
+    F(VOCAB_CHECK[field], rel, `${field}: "${v}" is not in the vocabulary${hint}`);
+  }
 
   /* Ring 1 presence */
   for (const k of RING1)
