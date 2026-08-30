@@ -13,9 +13,9 @@ completed: null
 
 # REGISTRO
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-30T04:43:00Z"
-updated: "2026-08-30T10:36:00Z"
+updated: "2026-08-30T16:34:15Z"
 author: "ursa"
 owner: "oracle"
 tags: [archive, frontmatter, s-004, migration, debt]
@@ -109,14 +109,19 @@ Order is deliberate: mechanically safe first, contested last.
 
 ### Ruled 2026-08-30 — these go first, and in this order
 
-- [ ] **A · The template family stops emitting defects — 9.**
+- [x] **A · The template family stops emitting defects — 9.** *Done (#139,
+      #143): templates fixed at source, then exempted from H-06/H-07 for
+      their placeholder dates — the placeholder IS the template's content.
+      Today they emit 0.*
       `TEMPLATE.md`, `TEMPLATE-EXAMPLE.md`, `TEMPLATE-CHANGES.md`. First
       because every mission copied from them inherits what they carry: fixing
       them last means draining a baseline that refills from its own source.
       `area → territory` ×2, placeholder dates given a real ISO time ×6,
       `type: standard` in `missions/` ×1. Smallest check in the mission and
       the one with the largest half-life.
-- [ ] **B · `debt/` adopts the declared lifecycle — 37.**
+- [x] **B · `debt/` adopts the declared lifecycle — 37.** *Done (#140):
+      `open → active` ×35, `resolved → closed` ×2; the two entries needing
+      reading were read. Today `debt/` emits 0.*
       `open → active` ×35, `resolved → closed` ×2, against the
       `[draft active closed]` cycle `S-004` already gives
       `type: documentation`. Two entries need reading, not renaming: one
@@ -134,8 +139,10 @@ finding *counts*, not from finding *values*. Measuring the values killed the
 claim: **only one of the five is a rename.** The rest are decisions wearing a
 rename's clothes, and the numbers below say how many decisions each is.
 
-- [ ] **`H-31` retired fields — 158, of which `area → territory` is 142 and
-      only 66 are a rename.** The other keys (`blocked_reason` ×7, five
+- [x] **`H-31` retired fields — 158, of which `area → territory` is 142 and
+      only 66 are a rename.** *Done (#139, #141, #143) except 9 findings in
+      the two fragile documents. ADR-028 unblocked the migration: 66 mapped
+      1:1, 76 took `"TBA"`; the Astro schema moved with the rename.* The other keys (`blocked_reason` ×7, five
       Spanish-era keys ×9) are deletions and genuinely mechanical.
       **`area` is not.** Measured across 142 documents, 35 distinct values:
 
@@ -169,9 +176,16 @@ rename's clothes, and the numbers below say how many decisions each is.
       collections; the rename lands with the schema or the build drops the
       field.
 
-- [ ] **`H-09` empty values — 74.** 64 are `uid` and clear with `MIS-122`'s
-      rule fix, not with an edit. This check owns the remaining **10**.
-- [ ] **`H-30` unregistered fields — 111 across 62 distinct field names.**
+- [x] **`H-09` empty values — 74.** *Done: `uid` exempted by rule (#129),
+      real empties dropped in #142 — 5 of 10 turned out to be keys with
+      nested children, preserved; `parseFM` fixed in #143 so it can tell
+      the difference. Today: 0.*
+- [x] **`H-30` unregistered fields — 111 across 62 distinct field names.**
+      *Done (#141, #143) except 22 findings in the two fragile documents —
+      the Spanish-era keys (`iconografia`, `presupuesto_lectura`…) that were
+      predicted to "belong with `C-005`". Web layer checked BEFORE each
+      retirement; `fondos`/`graph`/`lore` registered because the site reads
+      them.*
       Not a class: a queue of 62 decisions. Only `visibility_reason` ×11,
       `threshold` ×9, `adr_id` ×8 and `semaforo` ×7 appear more than four
       times; **44 of the 62 appear exactly once.** A one-off field is a
@@ -179,7 +193,11 @@ rename's clothes, and the numbers below say how many decisions each is.
       is a call per field, and roughly a dozen are Spanish-era leftovers
       (`iconografia`, `presupuesto_lectura`, `edicion_razonada`) that belong
       with `C-005`, not here. **Sequence this last, or split it out.**
-- [ ] **`H-04` status vocabularies — 118, in four independent groups.**
+- [x] **`H-04` status vocabularies — 118, in four independent groups.**
+      *Done (#140, #143) except 2 findings in the fragile pair (the two
+      documents missing `status` entirely). `draft → todo` ruled by the
+      Oracle 2026-08-30 ("draft = backlog"); `MissionsView.astro` moved
+      with the values.*
       50 `backlog` + 5 `draft` in missions (`D-009`), 35 `open` + 2
       `resolved` in `debt/` (check **B**), 19 `published` in reports, and a
       tail: `designed` ×3, `provisional`, `done`, plus **2 documents missing
@@ -190,16 +208,25 @@ rename's clothes, and the numbers below say how many decisions each is.
       **Coupled to the web:** `MissionsView.astro` keys its columns off
       `backlog` and maps `draft → backlog` explicitly; renaming the value
       without moving that map empties a column on the live board.
-- [ ] **`H-03` types outside the closed vocabulary — 24.** `decision` ×6,
+- [x] **`H-03` types outside the closed vocabulary — 24.** *Done (#142,
+      #143) except 2 in the fragile pair. The 22 resolvable ones had answers
+      in the corpus itself; `DEC-001..006 → type: adr` with ids intact
+      (Oracle, 2026-08-30 — renumbering would break 154 references and
+      violate ADR-004); `roster` registered for `guilds/`.* `decision` ×6,
       `technical` ×4, `roster` ×4, `standard` ×3, `proposal` ×2, `audit` ×2,
       `template` ×1, plus the same 2 documents that are missing `type`
       outright. `roster` ×4 is what `guilds/` calls itself; whether the
       closed vocabulary is wrong or the documents are is a decision, not a
       substitution.
-- [ ] **`H-05` `v`-prefixed SemVer — 7, `H-17` type/folder mismatch — 4,
+- [x] **`H-05` `v`-prefixed SemVer — 7, `H-17` type/folder mismatch — 4,
       `H-13` `git:pending` — 3, `H-18` unregistered subtype — 1.**
+      *Done across #130, #139, #143. The H-17 that were honest mismatches
+      are registered in `SETTLED_ELSEWHERE` with reasons.*
       *These* are mechanical. 15 findings, no judgement.
-- [ ] **`H-20` non-empty `uid` — 34.** The hand-authored pseudo-UUIDv7
+- [x] **`H-20` non-empty `uid` — 34.** *Done (post-#129 batches): all 34
+      hand-authored values emptied per S-001 §6.2. The only `uid` values
+      left in the repo are examples inside document bodies (STANDARDS.md,
+      BP-mission-system-v2.md) — prose, not headers.* The hand-authored pseudo-UUIDv7
       values, 2 of them colliding. `uid: "018ef820-…"` → `uid:`. `S-001` §6.2
       already states the disposal: *"the 32 legacy values are removed, not
       preserved: they were never identifiers."*
@@ -226,22 +253,31 @@ rename's clothes, and the numbers below say how many decisions each is.
 | `baf188b` | starting point, before any of this | **844** |
 | `ec4c968` (#129) | `H-09` exempts `uid`; `H-20`'s message corrected; `todo` column restored to the web | **779** |
 | `7fae24f` (#130) | `created`/`updated` backfilled from git with provenance; `git:pending` redeemed; `created_confidence` settled on one spelling | **543** |
+| `0499b8c` (#139) | `area → territory` (66 mapped, 76 took `TBA` per ADR-028); guild/type_execution/visibility vocabularies enforced; ring-table transcription errors; single-cycle statuses; `AG-`/singular ids resolved with `registration: exempt` | **304** |
+| `9d3afaa` (#140) | status lifecycles (60 out-of-cycle values); 42 non-series documents exempted instead of renumbered | **207** |
+| `86431b3` (#141) | orphan fields: `adr_id` retired (verified duplicate ×8), `decision`/`threshold`/`visibility_reason`/`semaforo` registered — `semaforo` is painted by the site, checked value-by-value | **168** |
+| `eb674f3` (#142) | 6 impostor types resolved from the corpus's own vocabulary; truly-empty fields dropped; **`check-frontmatter-yaml.mjs` born** (D-039 §2: no instrument checked that headers parse — the web build was the only witness) | **150** |
+| `a086d56` (#143) | final sweep: `DEC-001..006 → type: adr` ids intact (Oracle ruling, 154 refs preserved); 5 missions `draft → todo` ("draft = backlog"); 12 headerless docs given headers from git history; ~35 fields registered after checking the web layer FIRST; 3 lint false positives fixed at the source | **44** |
 
-**844 → 543 in one day: 301 findings, 36% of the baseline, and not one
-document edited to satisfy a rule it already obeyed.** Two of the three
-classes closed were code defects, not corpus defects: `H-09` was punishing
-the form `S-001` §6.2 mandates, and `H-20`'s message advised the opposite of
-the standard.
+**844 → 44 (95%). 328 of 330 documents clean (99%).** The 44 survivors all
+live in two documents — `canon/C-005-licensing.md` and
+`standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md`, the Spanish-era fragile
+pair — set aside for a short one-by-one session: translate ~20 header keys
+with the document in front, bodies untouched.
 
-| Class | Was | Now | How |
-|---|---|---|---|
-| `H-09` empty value | 74 | **10** | rule fixed — `uid` exempted |
-| `H-06` bad `created` | 182 | **8** | backfilled from git |
-| `H-07` bad `updated` | 70 | **11** | backfilled from git |
-| `H-13` bad `created_source` | 3 | **0** | `git:pending` redeemed |
+**What the burndown proved about the instruments, not the corpus:** three
+lint false positives were fixed at their source along the way (`parseFM`
+flattening nested YAML to "empty"; templates punished for their own
+placeholder content; honest type/folder mismatches parked forever in the
+baseline), and twice a retirement nearly deleted data something still read
+(`semaforo` painted by the site; `fondos`/`changelog` children orphaned —
+the YAML guard exists because of that second one). The rules were written
+before the instruments; auditing the rules that misfired is follow-up work,
+not this mission's.
 
-Remaining, unchanged and still the real work: `H-31` **158**, `H-04` **118**,
-`H-30` **111**, `H-01` **41**, `H-20` **34** (now unblocked).
+**Standing guards this mission leaves behind:** ratcheted header lint
+(baseline only goes down), delimiter guard, YAML-parse guard, license
+guard — all in CI, all tested in both directions (P-013).
 
 ### Judgement classes — no script decides these
 
@@ -277,13 +313,20 @@ Remaining, unchanged and still the real work: `H-31` **158**, `H-04` **118**,
       `exact`, 69 `inferred`. Idempotent: a second run changes nothing.
       Templates were excluded — backfilling `{YYYY-MM-DD}` would propagate a
       false date into every document copied from them.
-- [ ] **`H-00` no frontmatter — 12** and **`H-01` missing `id` — 41.**
+- [x] **`H-00` no frontmatter — 12** and **`H-01` missing `id` — 41.**
+      *Done (#139, #143) except 1 H-01 in the fragile pair. The 12 headers
+      were built from git history (`created_source: git:<sha>`), nothing
+      invented; apparatus resolved with `registration: exempt` instead of
+      minting ids that `check-references.mjs` would then have to resolve.*
       **Measured: 25 of the 41 are in `agents/`**, including `_template/`
       files, plus `guilds/` ×8 and README/INDEX apparatus. Giving apparatus a
       registered identifier is a filing decision (`S-001` §5.0 already
       exempts some), and **`check-references.mjs` reads frontmatter `id`** —
       minting ids creates references that must then resolve.
 - [ ] **`H-02` missing `title` — 2**, **`H-08` missing `license` — 2.**
+      *NOT done — these four are the fragile pair itself; they land with
+      its one-by-one session, along with the 22 H-30, 9 H-31, and the rest
+      of the 44.*
 
 Every criterion above is falsifiable by:
 
