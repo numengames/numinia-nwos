@@ -1,0 +1,1734 @@
+{
+  "generated_by": "scripts/field-decisions.mjs",
+  "generated_from": "scripts/lint-frontmatter.mjs + S-001 vocabularies",
+  "note": "Generated. Do not hand-edit. Ask the canon before asking the Oracle.",
+  "fields": {
+    "about": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        ".github"
+      ]
+    },
+    "adr_id": {
+      "usage": 8,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "decisions"
+      ]
+    },
+    "agent": {
+      "usage": 33,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: agents, reports",
+      "series": [
+        "agents",
+        "reports"
+      ],
+      "carriers": [
+        "agents",
+        "reports"
+      ]
+    },
+    "ambito": {
+      "usage": 1,
+      "ring": "retired",
+      "status": "ruled",
+      "decided_by": "C-005",
+      "rule": "C-005: Spanish-era key",
+      "carriers": [
+        "canon"
+      ]
+    },
+    "applies_to": {
+      "usage": 8,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: protocols",
+      "series": [
+        "protocols"
+      ],
+      "carriers": [
+        "protocols"
+      ]
+    },
+    "archivo_distribuido": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "canon"
+      ]
+    },
+    "area": {
+      "usage": 142,
+      "ring": "retired",
+      "status": "ruled",
+      "decided_by": "D-010",
+      "rule": "D-010: area → territory",
+      "carriers": [
+        "blueprints",
+        "decisions",
+        "missions"
+      ]
+    },
+    "assigned_to": {
+      "usage": 76,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: missions",
+      "series": [
+        "missions"
+      ],
+      "carriers": [
+        "missions"
+      ]
+    },
+    "author": {
+      "usage": 268,
+      "ring": 2,
+      "status": "ruled",
+      "decided_by": "S-004 §4",
+      "rule": "optional, valid anywhere",
+      "carriers": [
+        "DEUDA-404.md",
+        "GAPS.md",
+        "README.md",
+        "SECURITY.md",
+        "STANDARDS.md",
+        "agents",
+        "blueprints",
+        "canon",
+        "debt",
+        "decisions",
+        "guilds",
+        "infra",
+        "missions",
+        "operations",
+        "protocols",
+        "reports",
+        "standards"
+      ]
+    },
+    "autoridad": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "canon"
+      ]
+    },
+    "blocked_by": {
+      "usage": 4,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: missions",
+      "series": [
+        "missions"
+      ],
+      "carriers": [
+        "missions"
+      ]
+    },
+    "blocked_reason": {
+      "usage": 7,
+      "ring": "retired",
+      "status": "ruled",
+      "decided_by": "D-002",
+      "rule": "D-002: orphaned by the removal of status blocked",
+      "carriers": [
+        "missions"
+      ]
+    },
+    "blocks": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "missions"
+      ]
+    },
+    "canon": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "canon"
+      ]
+    },
+    "changelog": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "canon"
+      ]
+    },
+    "completed": {
+      "usage": 73,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: missions",
+      "series": [
+        "missions"
+      ],
+      "carriers": [
+        "missions"
+      ]
+    },
+    "consulted": {
+      "usage": 2,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: decisions",
+      "series": [
+        "decisions"
+      ],
+      "carriers": [
+        "decisions"
+      ]
+    },
+    "context": {
+      "usage": 9,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: missions",
+      "series": [
+        "missions"
+      ],
+      "carriers": [
+        "decisions",
+        "missions"
+      ],
+      "ring_table_gap": [
+        "decisions"
+      ]
+    },
+    "context_load": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "reports"
+      ]
+    },
+    "contributors": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "blueprints"
+      ]
+    },
+    "convenciones_normativas": {
+      "usage": 2,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "canon",
+        "standards"
+      ]
+    },
+    "cost_estimate": {
+      "usage": 2,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "reports"
+      ]
+    },
+    "created": {
+      "usage": 301,
+      "ring": 1,
+      "status": "ruled",
+      "decided_by": "S-004 §3",
+      "rule": "mandatory in every document",
+      "carriers": [
+        "DEUDA-404.md",
+        "GAPS.md",
+        "README.md",
+        "SECURITY.md",
+        "STANDARDS.md",
+        "agents",
+        "blueprints",
+        "canon",
+        "debt",
+        "decisions",
+        "guilds",
+        "infra",
+        "missions",
+        "operations",
+        "protocols",
+        "reports",
+        "standards"
+      ]
+    },
+    "created_confidence": {
+      "usage": 213,
+      "ring": 2,
+      "status": "ruled",
+      "decided_by": "S-004 §4",
+      "rule": "optional, valid anywhere",
+      "carriers": [
+        "agents",
+        "blueprints",
+        "canon",
+        "debt",
+        "decisions",
+        "guilds",
+        "infra",
+        "missions",
+        "operations",
+        "protocols",
+        "reports",
+        "standards"
+      ]
+    },
+    "created_source": {
+      "usage": 213,
+      "ring": 2,
+      "status": "ruled",
+      "decided_by": "S-004 §4",
+      "rule": "optional, valid anywhere",
+      "carriers": [
+        "agents",
+        "blueprints",
+        "canon",
+        "debt",
+        "decisions",
+        "guilds",
+        "infra",
+        "missions",
+        "operations",
+        "protocols",
+        "reports",
+        "standards"
+      ]
+    },
+    "day_label": {
+      "usage": 2,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "reports"
+      ]
+    },
+    "deciders": {
+      "usage": 2,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: decisions",
+      "series": [
+        "decisions"
+      ],
+      "carriers": [
+        "decisions"
+      ]
+    },
+    "decision": {
+      "usage": 4,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "decisions"
+      ]
+    },
+    "depends_on": {
+      "usage": 29,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: missions",
+      "series": [
+        "missions"
+      ],
+      "carriers": [
+        "missions"
+      ]
+    },
+    "deriva_de": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "standards"
+      ]
+    },
+    "direccion": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "standards"
+      ]
+    },
+    "divergence_log": {
+      "usage": 6,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: missions",
+      "series": [
+        "missions"
+      ],
+      "carriers": [
+        "missions"
+      ]
+    },
+    "documento": {
+      "usage": 1,
+      "ring": "retired",
+      "status": "ruled",
+      "decided_by": "C-005",
+      "rule": "C-005: Spanish-era key",
+      "carriers": [
+        "canon"
+      ]
+    },
+    "edicion_razonada": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "canon"
+      ]
+    },
+    "editorial_note": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "reports"
+      ]
+    },
+    "effort": {
+      "usage": 124,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: missions",
+      "series": [
+        "missions"
+      ],
+      "carriers": [
+        "missions"
+      ]
+    },
+    "estado": {
+      "usage": 2,
+      "ring": "retired",
+      "status": "ruled",
+      "decided_by": "C-005",
+      "rule": "C-005: Spanish-era key",
+      "carriers": [
+        "canon",
+        "standards"
+      ]
+    },
+    "evidence_head": {
+      "usage": 35,
+      "ring": "3-all",
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for every series",
+      "carriers": [
+        "debt",
+        "decisions",
+        "reports",
+        "standards"
+      ]
+    },
+    "evidence_script": {
+      "usage": 32,
+      "ring": "3-all",
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for every series",
+      "carriers": [
+        "debt",
+        "decisions",
+        "reports",
+        "standards"
+      ]
+    },
+    "executor": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "missions"
+      ]
+    },
+    "extraction_note": {
+      "usage": 12,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: blueprints, operations",
+      "series": [
+        "blueprints",
+        "operations"
+      ],
+      "carriers": [
+        "GAPS.md",
+        "blueprints",
+        "canon",
+        "operations",
+        "reports"
+      ],
+      "ring_table_gap": [
+        "reports"
+      ]
+    },
+    "fecha": {
+      "usage": 2,
+      "ring": "retired",
+      "status": "ruled",
+      "decided_by": "C-005",
+      "rule": "C-005: Spanish-era key",
+      "carriers": [
+        "canon",
+        "standards"
+      ]
+    },
+    "fondos": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "blueprints"
+      ]
+    },
+    "formato_tokens": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "standards"
+      ]
+    },
+    "freeze_reason": {
+      "usage": 12,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: missions",
+      "series": [
+        "missions"
+      ],
+      "carriers": [
+        "missions"
+      ]
+    },
+    "graph": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "blueprints"
+      ]
+    },
+    "guia_publica": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "canon"
+      ]
+    },
+    "guild": {
+      "usage": 190,
+      "ring": "3-all",
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for every series",
+      "vocabulary": {
+        "source": "S-001 L957",
+        "values": [
+          "Sentinels",
+          "Alchemists",
+          "Exegetes",
+          "Procurators"
+        ]
+      },
+      "carriers": [
+        "canon",
+        "debt",
+        "decisions",
+        "missions",
+        "protocols",
+        "reports",
+        "standards"
+      ]
+    },
+    "human_approval_score": {
+      "usage": 14,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: missions",
+      "series": [
+        "missions"
+      ],
+      "carriers": [
+        "missions",
+        "protocols"
+      ],
+      "ring_table_gap": [
+        "protocols"
+      ]
+    },
+    "iconografia": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "standards"
+      ]
+    },
+    "id": {
+      "usage": 277,
+      "ring": 1,
+      "status": "ruled",
+      "decided_by": "S-004 §3",
+      "rule": "mandatory in every document",
+      "carriers": [
+        "DEUDA-404.md",
+        "GAPS.md",
+        "README.md",
+        "SECURITY.md",
+        "STANDARDS.md",
+        "agents",
+        "blueprints",
+        "canon",
+        "debt",
+        "decisions",
+        "guilds",
+        "infra",
+        "missions",
+        "operations",
+        "protocols",
+        "reports",
+        "standards"
+      ]
+    },
+    "idioma_canonico": {
+      "usage": 2,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "canon",
+        "standards"
+      ]
+    },
+    "in_review_at": {
+      "usage": 3,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: missions",
+      "series": [
+        "missions"
+      ],
+      "carriers": [
+        "missions"
+      ]
+    },
+    "input": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "blueprints"
+      ]
+    },
+    "labels": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        ".github"
+      ]
+    },
+    "language": {
+      "usage": 2,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "operations",
+        "reports"
+      ]
+    },
+    "language_note": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "operations"
+      ]
+    },
+    "licencia": {
+      "usage": 1,
+      "ring": "retired",
+      "status": "ruled",
+      "decided_by": "C-005",
+      "rule": "C-005: Spanish-era key",
+      "carriers": [
+        "standards"
+      ]
+    },
+    "license": {
+      "usage": 301,
+      "ring": 1,
+      "status": "ruled",
+      "decided_by": "S-004 §3",
+      "rule": "mandatory in every document",
+      "carriers": [
+        "DEUDA-404.md",
+        "GAPS.md",
+        "README.md",
+        "SECURITY.md",
+        "STANDARDS.md",
+        "agents",
+        "blueprints",
+        "canon",
+        "debt",
+        "decisions",
+        "guilds",
+        "infra",
+        "missions",
+        "operations",
+        "protocols",
+        "reports",
+        "standards"
+      ]
+    },
+    "lore": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "canon"
+      ]
+    },
+    "mandatory": {
+      "usage": 8,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: protocols",
+      "series": [
+        "protocols"
+      ],
+      "carriers": [
+        "protocols"
+      ]
+    },
+    "mission": {
+      "usage": 4,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "blueprints",
+        "protocols"
+      ]
+    },
+    "mission_id": {
+      "usage": 58,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: missions",
+      "series": [
+        "missions"
+      ],
+      "carriers": [
+        "missions"
+      ]
+    },
+    "mission_mode": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "missions"
+      ]
+    },
+    "model": {
+      "usage": 9,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: agents, reports",
+      "series": [
+        "agents",
+        "reports"
+      ],
+      "carriers": [
+        "reports"
+      ]
+    },
+    "name": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        ".github"
+      ]
+    },
+    "no_ambito": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "canon"
+      ]
+    },
+    "opened_by": {
+      "usage": 36,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: debt",
+      "series": [
+        "debt"
+      ],
+      "carriers": [
+        "debt"
+      ]
+    },
+    "outcome": {
+      "usage": 2,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: decisions",
+      "series": [
+        "decisions"
+      ],
+      "carriers": [
+        "decisions"
+      ]
+    },
+    "owner": {
+      "usage": 260,
+      "ring": 2,
+      "status": "ruled",
+      "decided_by": "S-004 §4",
+      "rule": "optional, valid anywhere",
+      "carriers": [
+        "DEUDA-404.md",
+        "GAPS.md",
+        "README.md",
+        "SECURITY.md",
+        "STANDARDS.md",
+        "agents",
+        "blueprints",
+        "canon",
+        "debt",
+        "decisions",
+        "guilds",
+        "infra",
+        "missions",
+        "operations",
+        "protocols",
+        "reports",
+        "standards"
+      ]
+    },
+    "parent_mission": {
+      "usage": 11,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: missions",
+      "series": [
+        "missions"
+      ],
+      "carriers": [
+        "missions"
+      ]
+    },
+    "paths": {
+      "usage": 16,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: missions",
+      "series": [
+        "missions"
+      ],
+      "carriers": [
+        "missions"
+      ]
+    },
+    "pending_dark_council": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "decisions"
+      ]
+    },
+    "phase": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "missions"
+      ]
+    },
+    "presupuesto_lectura": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "standards"
+      ]
+    },
+    "previous_name": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "agents"
+      ]
+    },
+    "previous_name_note": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "agents"
+      ]
+    },
+    "priority": {
+      "usage": 124,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: missions",
+      "series": [
+        "missions"
+      ],
+      "carriers": [
+        "missions"
+      ]
+    },
+    "procedencia_secciones": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "canon"
+      ]
+    },
+    "provenance": {
+      "usage": 3,
+      "ring": 2,
+      "status": "ruled",
+      "decided_by": "S-004 §4",
+      "rule": "optional, valid anywhere",
+      "carriers": [
+        "operations",
+        "reports"
+      ]
+    },
+    "question_status": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "debt"
+      ]
+    },
+    "ratified_by": {
+      "usage": 2,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: canon, protocols, standards",
+      "series": [
+        "canon",
+        "protocols",
+        "standards"
+      ],
+      "carriers": [
+        "standards"
+      ]
+    },
+    "registration": {
+      "usage": 6,
+      "ring": "3-all",
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for every series",
+      "carriers": [
+        "canon",
+        "operations",
+        "protocols",
+        "standards"
+      ]
+    },
+    "registration_exemption": {
+      "usage": 6,
+      "ring": "3-all",
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for every series",
+      "carriers": [
+        "canon",
+        "operations",
+        "protocols",
+        "standards"
+      ]
+    },
+    "registration_reason": {
+      "usage": 6,
+      "ring": "3-all",
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for every series",
+      "carriers": [
+        "canon",
+        "operations",
+        "protocols",
+        "standards"
+      ]
+    },
+    "registro_pixel": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "standards"
+      ]
+    },
+    "registros": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "standards"
+      ]
+    },
+    "related": {
+      "usage": 8,
+      "ring": "3-all",
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for every series",
+      "carriers": [
+        "decisions",
+        "protocols"
+      ]
+    },
+    "related_missions": {
+      "usage": 2,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "blueprints"
+      ]
+    },
+    "requested_by": {
+      "usage": 58,
+      "ring": 2,
+      "status": "ruled",
+      "decided_by": "S-004 §4",
+      "rule": "optional, valid anywhere",
+      "carriers": [
+        "missions"
+      ]
+    },
+    "requires_oracle_approval": {
+      "usage": 23,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: missions",
+      "series": [
+        "missions"
+      ],
+      "carriers": [
+        "missions"
+      ]
+    },
+    "resolved_by": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "debt"
+      ]
+    },
+    "restoration_note": {
+      "usage": 2,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: blueprints, operations",
+      "series": [
+        "blueprints",
+        "operations"
+      ],
+      "carriers": [
+        "operations"
+      ]
+    },
+    "review_flags": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "operations"
+      ]
+    },
+    "review_next": {
+      "usage": 2,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "protocols"
+      ]
+    },
+    "revision": {
+      "usage": 2,
+      "ring": "retired",
+      "status": "ruled",
+      "decided_by": "C-005",
+      "rule": "C-005: Spanish-era key",
+      "carriers": [
+        "canon",
+        "standards"
+      ]
+    },
+    "role": {
+      "usage": 7,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: agents",
+      "series": [
+        "agents"
+      ],
+      "carriers": [
+        "agents"
+      ]
+    },
+    "ruta_en_repositorio": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "canon"
+      ]
+    },
+    "scope": {
+      "usage": 10,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: reports",
+      "series": [
+        "reports"
+      ],
+      "carriers": [
+        "blueprints",
+        "debt",
+        "reports"
+      ],
+      "ring_table_gap": [
+        "blueprints"
+      ]
+    },
+    "score": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "blueprints"
+      ]
+    },
+    "score_prev": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "blueprints"
+      ]
+    },
+    "semaforo": {
+      "usage": 7,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "blueprints"
+      ]
+    },
+    "series_change": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "standards"
+      ]
+    },
+    "severity": {
+      "usage": 38,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: debt, reports",
+      "series": [
+        "debt",
+        "reports"
+      ],
+      "carriers": [
+        "debt"
+      ]
+    },
+    "severity_reason": {
+      "usage": 3,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: debt",
+      "series": [
+        "debt"
+      ],
+      "carriers": [
+        "debt"
+      ]
+    },
+    "sistema": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "standards"
+      ]
+    },
+    "source_title": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "operations"
+      ]
+    },
+    "started": {
+      "usage": 49,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: missions",
+      "series": [
+        "missions"
+      ],
+      "carriers": [
+        "missions"
+      ]
+    },
+    "status": {
+      "usage": 301,
+      "ring": 1,
+      "status": "ruled",
+      "decided_by": "S-004 §3",
+      "rule": "mandatory in every document",
+      "carriers": [
+        "DEUDA-404.md",
+        "GAPS.md",
+        "README.md",
+        "SECURITY.md",
+        "STANDARDS.md",
+        "agents",
+        "blueprints",
+        "canon",
+        "debt",
+        "decisions",
+        "guilds",
+        "infra",
+        "missions",
+        "operations",
+        "protocols",
+        "reports",
+        "standards"
+      ]
+    },
+    "sub_missions": {
+      "usage": 10,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: missions",
+      "series": [
+        "missions"
+      ],
+      "carriers": [
+        "missions"
+      ]
+    },
+    "subtype": {
+      "usage": 23,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: reports, standards",
+      "series": [
+        "reports",
+        "standards"
+      ],
+      "carriers": [
+        "blueprints",
+        "reports",
+        "standards"
+      ],
+      "ring_table_gap": [
+        "blueprints"
+      ]
+    },
+    "superseded_by": {
+      "usage": 10,
+      "ring": 2,
+      "status": "ruled",
+      "decided_by": "S-004 §4",
+      "rule": "optional, valid anywhere",
+      "carriers": [
+        "decisions"
+      ]
+    },
+    "supersedes": {
+      "usage": 6,
+      "ring": 2,
+      "status": "ruled",
+      "decided_by": "S-004 §4",
+      "rule": "optional, valid anywhere",
+      "carriers": [
+        "decisions",
+        "protocols",
+        "standards"
+      ]
+    },
+    "supersedes_note": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "standards"
+      ]
+    },
+    "supersedes_pending": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "debt"
+      ]
+    },
+    "tags": {
+      "usage": 262,
+      "ring": "3-all",
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for every series",
+      "carriers": [
+        "GAPS.md",
+        "SECURITY.md",
+        "STANDARDS.md",
+        "agents",
+        "blueprints",
+        "canon",
+        "debt",
+        "decisions",
+        "guilds",
+        "infra",
+        "missions",
+        "operations",
+        "protocols",
+        "reports",
+        "standards"
+      ]
+    },
+    "territory": {
+      "usage": 70,
+      "ring": "3-all",
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for every series",
+      "vocabulary": {
+        "source": "S-001 L964 + ADR-028",
+        "values": [
+          "CAO",
+          "Product",
+          "Platform",
+          "Infrastructure",
+          "Content",
+          "Sales",
+          "Funding",
+          "Archive"
+        ],
+        "note": "ADR-028: documents that do not map take TBA, owned by the mission that closes the vocabulary"
+      },
+      "carriers": [
+        "canon",
+        "debt",
+        "decisions",
+        "missions",
+        "protocols",
+        "reports",
+        "standards"
+      ]
+    },
+    "threshold": {
+      "usage": 9,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "canon",
+        "standards"
+      ]
+    },
+    "tipografia": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "standards"
+      ]
+    },
+    "title": {
+      "usage": 301,
+      "ring": 1,
+      "status": "ruled",
+      "decided_by": "S-004 §3",
+      "rule": "mandatory in every document",
+      "carriers": [
+        "DEUDA-404.md",
+        "GAPS.md",
+        "README.md",
+        "SECURITY.md",
+        "STANDARDS.md",
+        "agents",
+        "blueprints",
+        "canon",
+        "debt",
+        "decisions",
+        "guilds",
+        "infra",
+        "missions",
+        "operations",
+        "protocols",
+        "reports",
+        "standards"
+      ]
+    },
+    "translation_note": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "agents"
+      ]
+    },
+    "type": {
+      "usage": 301,
+      "ring": 1,
+      "status": "ruled",
+      "decided_by": "S-004 §3",
+      "rule": "mandatory in every document",
+      "carriers": [
+        "DEUDA-404.md",
+        "GAPS.md",
+        "README.md",
+        "SECURITY.md",
+        "STANDARDS.md",
+        "agents",
+        "blueprints",
+        "canon",
+        "debt",
+        "decisions",
+        "guilds",
+        "infra",
+        "missions",
+        "operations",
+        "protocols",
+        "reports",
+        "standards"
+      ]
+    },
+    "type_execution": {
+      "usage": 106,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: missions",
+      "series": [
+        "missions"
+      ],
+      "vocabulary": {
+        "source": "S-001",
+        "values": [
+          "digital",
+          "physical",
+          "hybrid"
+        ]
+      },
+      "carriers": [
+        "missions"
+      ]
+    },
+    "uid": {
+      "usage": 99,
+      "ring": "3-all",
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for every series",
+      "carriers": [
+        "README.md",
+        "blueprints",
+        "canon",
+        "debt",
+        "decisions",
+        "missions",
+        "protocols",
+        "reports",
+        "standards"
+      ]
+    },
+    "updated": {
+      "usage": 298,
+      "ring": 1,
+      "status": "ruled",
+      "decided_by": "S-004 §3",
+      "rule": "mandatory in every document",
+      "carriers": [
+        "DEUDA-404.md",
+        "GAPS.md",
+        "README.md",
+        "SECURITY.md",
+        "STANDARDS.md",
+        "agents",
+        "blueprints",
+        "canon",
+        "debt",
+        "decisions",
+        "guilds",
+        "infra",
+        "missions",
+        "operations",
+        "protocols",
+        "reports",
+        "standards"
+      ]
+    },
+    "updated_note": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "missions"
+      ]
+    },
+    "version": {
+      "usage": 303,
+      "ring": 1,
+      "status": "ruled",
+      "decided_by": "S-004 §3",
+      "rule": "mandatory in every document",
+      "carriers": [
+        "DEUDA-404.md",
+        "GAPS.md",
+        "README.md",
+        "SECURITY.md",
+        "STANDARDS.md",
+        "agents",
+        "blueprints",
+        "canon",
+        "debt",
+        "decisions",
+        "guilds",
+        "infra",
+        "missions",
+        "operations",
+        "protocols",
+        "reports",
+        "standards"
+      ]
+    },
+    "visibility": {
+      "usage": 41,
+      "ring": "3-all",
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for every series",
+      "carriers": [
+        "debt",
+        "decisions",
+        "protocols"
+      ]
+    },
+    "visibility_reason": {
+      "usage": 11,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "debt"
+      ]
+    },
+    "visibility_was": {
+      "usage": 1,
+      "ring": null,
+      "status": "unruled",
+      "decided_by": null,
+      "rule": "unregistered — S-004 §6: dies by omission unless it earns an ADR",
+      "carriers": [
+        "debt"
+      ]
+    },
+    "week": {
+      "usage": 8,
+      "ring": 3,
+      "status": "ruled",
+      "decided_by": "S-004 §6",
+      "rule": "registered for: reports",
+      "series": [
+        "reports"
+      ],
+      "carriers": [
+        "reports"
+      ]
+    }
+  }
+}
