@@ -3,12 +3,13 @@ id: "S-004"
 title: "The header in three rings: identity, provenance, extension"
 type: documentation
 subtype: standard
-status: draft
-version: "0.2.0"
+status: active
+version: "1.0.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-08-28T15:10:00Z"
+updated: "2026-08-30T10:30:00Z"
+ratified_by: "ADR-029"
 author: "ursa"
 owner: "oracle"
 license: "CC-BY-4.0"
@@ -98,8 +99,10 @@ CHANGELOG.md, …) are the subject of t_1c32aeb0; this standard defines
 what they must carry, that card decides when.
 
 **Empty is absent (H-09):** a field with an empty value is a lint error.
-`null` is not a value; if it does not apply, it is not written (S-001
-§6.3). 75 violations today.
+Absence is *declared*, not left blank: omit the field, or write `null`, or
+write `"TBA"` — whichever tells the truth about the gap (S-001 §6.3,
+ADR-028). Every `"TBA"` is counted and reported by the guard, and names the
+mission that resolves it. 74 violations today.
 
 ## 3. Ring 2 — provenance (strict where evidence exists)
 
@@ -122,12 +125,16 @@ from a commit is evidence; a typed one is a claim*).
 S-001 §7 declares 10 values; the corpus uses 18. The census splits the 8
 intruders into two classes, and they deserve opposite treatment:
 
-**Legitimate, propose to ADMIT (needs its ADR per S-001 §7):**
+**Legitimate, ADMITTED (ADR-029, 2026-08-30):**
 
 - **`agent`** — 24 documents, the whole `agents/` series. S-001 §3's own
   canonical map has **no row for `agents/`**: the series that answers
   "who acts" has no admitted genre. This is a gap in the standard, not
-  drift in the corpus. Admit `type: agent` ↔ `agents/`, strict.
+  drift in the corpus. `type: agent` ↔ `agents/`, strict.
+
+  *This value was already enforced by `lint-frontmatter.mjs` before any
+  decision admitted it — the guard ran ahead of the standard. ADR-029
+  closes that inversion rather than pretending it never happened.*
 
 **Drift, propose to MIGRATE (mechanical, one PR each):**
 

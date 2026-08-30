@@ -4,9 +4,9 @@ uid:
 title: "Glossary — the archive's own vocabulary"
 type: documentation
 status: active
-version: "4.1.0"
+version: "4.2.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-08-28T16:00:00Z"
+updated: "2026-08-30T10:30:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -889,8 +889,28 @@ not preserved: they were never identifiers.
 `author` · `owner` · `tags` · `guild` · `territory` · `subtype` ·
 `supersedes` / `superseded_by` · `derived_from`
 
-`null` is not a value: if a field does not apply, it is not written. Today only
-**2 of 242** documents declare any relation.
+**Absence is declared, not omitted (ADR-028).** A field that is not filled in
+carries information, and that information has three distinct forms. Writing the
+wrong one is a lie about the shape of the gap.
+
+| Form | Meaning | When to use |
+|---|---|---|
+| field omitted | the field does not apply to this **type** of document | a `report` has no `completed`: reports do not complete |
+| `null` | the field applies but is **empty for this document** | `assigned_to: null` — the mission exists, nobody holds it |
+| `"TBA"` | the field applies, the value **exists but is not yet decided** | `territory: "TBA"` — the document belongs somewhere; the vocabulary is not settled |
+
+`"TBA"` is not a parking space. Every `"TBA"` is counted by the guard on every
+run and reported by field, and the document that writes one **names the mission
+that will resolve it**. A `"TBA"` with no owner is a violation the day it is
+written — debt that is visible is still debt.
+
+The distinction is Codd's, from *RM/V2* (1990): a value missing-but-applicable
+is not the same as a value missing-and-inapplicable, and SQL's mistake was
+spending a single `NULL` on both. Today **61** documents already write `null`
+(`completed` ×37, `assigned_to` ×24); this section legalises what they were
+already saying rather than migrating them.
+
+Today only **2 of 242** documents declare any relation.
 
 ---
 
