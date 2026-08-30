@@ -48,13 +48,13 @@ const STATUS_COLOR: Record<string, string> = {
   // surfaces, WITHOUT displacement. Not invented: it is the catalogue entry for
   // exactly this case, and the catalogue is closed at fourteen. The global
   // prefers-reduced-motion rule (§892) already collapses it to 0.001ms.
-  "backlog": "border-border bg-card hover:bg-card-hover transition-colors duration-[120ms]",
+  "todo": "border-border bg-card hover:bg-card-hover transition-colors duration-[120ms]",
   "in-progress": "border-accent/20 bg-accent/5 hover:bg-accent/10 transition-colors duration-[120ms]",
   "in-review": "border-yellow/20 bg-yellow/5 hover:bg-yellow/10 transition-colors duration-[120ms]",
   "done": "border-green/20 bg-green/5 hover:bg-green/10 transition-colors duration-[120ms]",
 };
 const STATUS_ID_COLOR: Record<string, string> = {
-  "backlog": "text-dim",
+  "todo": "text-dim",
   "in-progress": "text-accent",
   "in-review": "text-yellow",
   "done": "text-green",
@@ -67,8 +67,14 @@ const missions = entries
     const effort = ["XS", "S", "M", "L", "XL"].includes((f.effort || "").toUpperCase())
       ? (f.effort as string).toUpperCase()
       : "M";
-    // draft rides in the backlog column; ordering is the frontend's concern (MIS-066)
-    const status = f.status === "draft" ? "backlog" : (f.status as string);
+    // `todo` is the status S-001 §9 declares for a mission nobody has picked
+    // up; `backlog` is the retired spelling that 50 documents still carry and
+    // H-04 flags. The board renders one column for both, labelled by the
+    // standard's word, so a conformant mission is visible instead of having to
+    // choose between obeying S-001 and appearing here at all.
+    // `draft` rides along too; ordering is the frontend's concern (MIS-066).
+    const RETIRED_TO_TODO = { draft: "todo", backlog: "todo" };
+    const status = (RETIRED_TO_TODO[f.status as string] || f.status) as string;
     const type = (f.type_execution || "hybrid") as string;
     return {
       id: (f.id as string).toUpperCase(),
@@ -97,7 +103,7 @@ const missions = entries
 //
 // The order below is what a reader needs first: what is moving, then what is
 // waiting on someone, then what is available, then what shipped.
-const COLUMN_ORDER = ["in-progress", "in-review", "backlog", "done"];
+const COLUMN_ORDER = ["in-progress", "in-review", "todo", "done"];
 
 // Backlog is the exception and sorts by PRIORITY, not by date (Oracle,
 // 2026-08-25). A backlog sorted by date says which mission was WRITTEN most
@@ -125,7 +131,7 @@ const byPriority = (a: Record<string, any>, b: Record<string, any>) => {
 };
 
 function sortForColumn(key: string, list: any[]) {
-  if (key === "backlog") return [...list].sort(byPriority);
+  if (key === "todo") return [...list].sort(byPriority);
   if (key === "done") return [...list].sort(newestFirst("completed"));
   return [...list].sort(newestFirst("updated"));
 }
@@ -133,7 +139,7 @@ function sortForColumn(key: string, list: any[]) {
 const columns = [
   { key: "in-progress", label: t("board.filter.inProgress"), accent: "text-accent", counter: "bg-accent/20" },
   { key: "in-review", label: t("board.filter.inReview"), accent: "text-yellow", counter: "bg-yellow/20" },
-  { key: "backlog", label: t("board.col.backlog"), accent: "text-dim", counter: "bg-border" },
+  { key: "todo", label: t("board.col.backlog"), accent: "text-dim", counter: "bg-border" },
   { key: "done", label: t("board.col.done"), accent: "text-green", counter: "bg-green/20" },
 ];
 const byStatus = (key: string) => sortForColumn(key, missions.filter((m) => m.status === key));
@@ -218,11 +224,11 @@ const stats = [
       <div class="mb-8 space-y-2.5" id="filter-bar">
         <div class="flex flex-wrap gap-2 items-center">
           <span class="font-mono text-[0.6rem] uppercase tracking-widest text-dim w-14 shrink-0">{t("board.status")}</span>
-          {["all", "backlog", "in-progress", "in-review", "done"].map((s) => (
+          {["all", "todo", "in-progress", "in-review", "done"].map((s) => (
             <button data-filter="status" data-value={s}
               class={"filter-btn font-mono text-[0.65rem] px-3 py-1.5 rounded-full border transition-all duration-150 " + (s === "all" ? "border-accent bg-accent/10 text-accent" : "border-border text-dim hover:border-accent/40 hover:text-foreground")}
               aria-pressed={s === "all" ? "true" : "false"}>
-              {s === "all" ? t("board.filter.all") : s === "backlog" ? t("board.col.backlog") : s === "in-progress" ? t("board.filter.inProgress") : s === "in-review" ? t("board.filter.inReview") : t("board.col.done")}
+              {s === "all" ? t("board.filter.all") : s === "todo" ? t("board.col.backlog") : s === "in-progress" ? t("board.filter.inProgress") : s === "in-review" ? t("board.filter.inReview") : t("board.col.done")}
             </button>
           ))}
         </div>
@@ -279,7 +285,7 @@ const stats = [
                 ) : colMissions.map((m) => (
                   <a
                     href={"/missions/" + m.id.toLowerCase()}
-                    class={(STATUS_COLOR[m.status] || STATUS_COLOR["backlog"]) + " " + (PRIORITY_BORDER[m.priority] || "border-l-border") + " rounded-lg border border-l-[3px] p-4 mission-card cursor-pointer block"}
+                    class={(STATUS_COLOR[m.status] || STATUS_COLOR["todo"]) + " " + (PRIORITY_BORDER[m.priority] || "border-l-border") + " rounded-lg border border-l-[3px] p-4 mission-card cursor-pointer block"}
                     data-status={m.status}
                     data-priority={m.priority}
                     data-effort={m.effort}
@@ -455,7 +461,7 @@ function applyFilters() {
     if (match) visible++;
   });
 
-  for (const key of ["backlog", "in-progress", "in-review", "done"]) {
+  for (const key of ["todo", "in-progress", "in-review", "done"]) {
     const col = document.getElementById("col-" + key);
     if (!col) continue;
     const allCards = [...col.querySelectorAll(".mission-card")];

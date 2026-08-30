@@ -2,20 +2,20 @@
 # CORE — the ten fields the build verifies (web/src/content.config.ts).
 id: "MIS-122"
 title: "The uid rule contradicts its standard: fix H-09 before anyone obeys it"
-status: todo
+status: done
 priority: high
 effort: S
 guild: "Alchemists"
 territory: "Standards"
 type_execution: digital
 assigned_to: null
-completed: null
+completed: "2026-08-30T11:40:00Z"
 
 # REGISTRO
 type: mission
-version: "1.0.0"
+version: "2.0.0"
 created: "2026-08-30T07:05:00Z"
-updated: "2026-08-30T07:20:00Z"
+updated: "2026-08-30T11:40:00Z"
 author: "ursa"
 owner: "oracle"
 tags: [standards, frontmatter, uid, s-001, guard]
@@ -34,6 +34,23 @@ paths: [scripts/lint-frontmatter.mjs, standards/S-001-glossary.md, standards/S-0
 > **Pragmatic:** `MIS-121` cannot empty a single `uid` until this is fixed —
 > doing so converts an `H-20` into a new `H-09` and the ratchet rejects it.
 > **Audience:** Agents · Oracles
+
+> **RESOLVED 2026-08-30.** `H-09` now skips `uid`; `H-20`'s message was
+> rewritten to advise what `S-001` §6.2 actually says (*empty the field, keep
+> it declared*) instead of the opposite. Baseline **843 → 779**.
+>
+> Verified in four directions rather than two: a non-`uid` empty field is
+> still rejected; an empty `uid` is not; a hand-authored `uid` added to a
+> clean file still fails the ratchet; an empty `uid` added to a clean file
+> does not. Test file restored byte-identical in every case.
+>
+> **A claim in this mission was wrong and is corrected here.** It stated the
+> guard never scans the repository root. It does — `git ls-files '*.md'`
+> returns 326 files including the 12 at root. The real census: **99 documents
+> carry `uid`, 65 empty (conformant), 34 with a value**. The "100 vs 98"
+> figure came from a different script (`count-evidence.py`), which also
+> reports **66 collisions where there are 2** — it counts the empty ones as
+> colliding with each other. That is `t_c057d896`, and it is unfixed.
 
 > **Update 2026-08-30 — this mission now has a signed precedent.** While
 > writing `ADR-029` (which ratifies `S-004`), the guard rejected the ADR

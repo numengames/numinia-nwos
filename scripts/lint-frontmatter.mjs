@@ -137,9 +137,14 @@ for (const rel of files) {
 
   if (fm === null) { F('H-00', rel, 'no frontmatter — invisible to every instrument'); continue; }
 
-  /* H-09: empty is absent */
+  /* H-09: empty is absent.
+     `uid` is the one exception: S-001 §6.2 requires it declared and left
+     empty ("Oracle decision, non-negotiable") until the UID system exists.
+     Flagging it here punished 65 documents for obeying the standard and
+     advised the opposite of what the standard says (MIS-122). */
   for (const [k, v] of Object.entries(fm))
-    if (v === '') F('H-09', rel, `empty value written for "${k}" — omit the field instead`);
+    if (v === '' && k !== 'uid')
+      F('H-09', rel, `empty value written for "${k}" — omit the field instead`);
 
   /* Ring 1 presence */
   for (const k of RING1)
@@ -207,9 +212,12 @@ for (const rel of files) {
   if (fm.subtype && SUBTYPES[fm.type] && !SUBTYPES[fm.type].includes(fm.subtype))
     F('H-18', rel, `subtype "${fm.subtype}" not registered for type ${fm.type}`);
 
-  /* H-20: uid reserved-empty */
+  /* H-20: uid carries a hand-authored value.
+     S-001 §6.2: the 32 legacy values "are removed, not preserved: they were
+     never identifiers". The fix is to empty the field, not to delete it —
+     emptying is what the standard asks for, and H-09 no longer punishes it. */
   if (fm.uid && fm.uid !== '')
-    F('H-20', rel, `uid is reserved-empty until the UID system exists (S-001 §6.2)`);
+    F('H-20', rel, `uid carries a hand-authored value — empty the field, keep it declared (S-001 §6.2)`);
 
   /* H-31: retired fields */
   for (const k of Object.keys(fm))
