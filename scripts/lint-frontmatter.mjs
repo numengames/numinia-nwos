@@ -59,17 +59,33 @@ const RING3 = {
     'completed', 'mission_id', 'type_execution', 'freeze_reason', 'in_review_at',
     'depends_on', 'parent_mission', 'sub_missions', 'blocked_by',
     'requires_oracle_approval', 'human_approval_score', 'paths', 'context',
-    'divergence_log'],
-  'reports': ['severity', 'period', 'subtype', 'model', 'agent', 'week', 'scope'],
-  'decisions': ['deciders', 'consulted', 'outcome', 'decision'],
-  'agents': ['role', 'platform', 'model', 'soul', 'agent'],
+    'divergence_log',
+    // registered 2026-08-30 (final sweep): provenance notes and series
+    // metadata that were always written, never registered (S-004 §6)
+    'phase', 'updated_note', 'executor', 'blocks', 'mission_mode'],
+  'reports': ['severity', 'period', 'subtype', 'model', 'agent', 'week', 'scope',
+    'editorial_note', 'language', 'day_label', 'cost_estimate', 'context_load',
+    'extraction_note'],
+  'decisions': ['deciders', 'consulted', 'outcome', 'decision',
+    'context', 'pending_dark_council'],
+  'agents': ['role', 'platform', 'model', 'soul', 'agent',
+    'previous_name', 'previous_name_note', 'translation_note'],
   'debt': ['severity', 'severity_reason', 'detected', 'refuted', 'source_audit', 'opened_by',
-    'visibility_reason'],
-  'blueprints': ['extraction_note', 'restoration_note', 'semaforo'],
-  'operations': ['extraction_note', 'restoration_note'],
-  'standards': ['supersedes_version', 'ratified_by', 'subtype', 'threshold'],
-  'canon': ['supersedes_version', 'ratified_by', 'threshold'],
-  'protocols': ['supersedes_version', 'ratified_by', 'applies_to', 'mandatory'],
+    'visibility_reason',
+    'resolved_by', 'question_status', 'visibility_was', 'scope', 'supersedes_pending'],
+  'blueprints': ['extraction_note', 'restoration_note', 'semaforo',
+    // fondos/graph are read by web/src/pages/archive/ — checked BEFORE
+    // registering, the lesson the semaforo taught
+    'fondos', 'graph', 'score', 'score_prev', 'scope', 'mission', 'input',
+    'related_missions', 'contributors'],
+  'operations': ['extraction_note', 'restoration_note',
+    'language', 'language_note', 'review_flags', 'source_title'],
+  'standards': ['supersedes_version', 'ratified_by', 'subtype', 'threshold',
+    'series_change'],
+  'canon': ['supersedes_version', 'ratified_by', 'threshold',
+    'changelog', 'lore', 'extraction_note'],
+  'protocols': ['supersedes_version', 'ratified_by', 'applies_to', 'mandatory',
+    'human_approval_score', 'mission', 'review_next'],
 };
 const RING3_ALL = ['tags', 'visibility', 'guild', 'territory', 'registration',
   'registration_reason', 'registration_exemption', 'evidence_script',
@@ -95,7 +111,7 @@ const STATUS = {
 };
 
 /** S-004 §4 H-18: registered subtypes per type. */
-const SUBTYPES = { report: ['audit', 'daily'], documentation: ['standard', 'guide'] };
+const SUBTYPES = { report: ['audit', 'daily', 'proposal'], documentation: ['standard', 'guide'] };
 
 /** S-004 §6 H-31: retired fields, each the object of a registered migration. */
 const RETIRED = {
@@ -156,6 +172,9 @@ const SEMVER = /^\d+\.\d+\.\d+$/;
  * reports it as unowned and the ratchet fails.
  */
 const DEFERRED = 'TBA';
+/* Sentinel for a key whose value is a nested YAML block (list/map children).
+   Never a real value: only used so '' keeps meaning "written empty". */
+const NESTED = '\u0000nested\u0000';
 const DEFERRAL_OWNER = {
   territory: 'MIS-124',
 };
@@ -166,10 +185,20 @@ function parseFM(text) {
   const m = text.match(/^---\s*\n([\s\S]*?)\n---(\n|$)/);
   if (!m) return null;
   const fields = {};
-  for (const line of m[1].split('\n')) {
+  const lines = m[1].split('\n');
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
     if (!line || line.startsWith('#') || /^[\s\t-]/.test(line)) continue;
     const kv = line.match(/^([A-Za-z_][A-Za-z0-9_.-]*):\s*(.*)$/);
-    if (kv) fields[kv[1]] = kv[2].trim().replace(/^["']|["']$/g, '');
+    if (!kv) continue;
+    let v = kv[2].trim().replace(/^["']|["']$/g, '');
+    // A bare `key:` followed by an indented line is a YAML mapping/list
+    // parent, not an empty value. Flattening it to '' made H-09 punish
+    // `fondos:`/`changelog:` for having children — the exact false
+    // positive that nearly deleted 90 lines in the final sweep.
+    if (v === '' && i + 1 < lines.length && /^[ \t]/.test(lines[i + 1]))
+      v = NESTED;
+    fields[kv[1]] = v;
   }
   return fields;
 }
@@ -265,14 +294,19 @@ for (const rel of files) {
   if (fm.version && !SEMVER.test(fm.version))
     F('H-05', rel, `version "${fm.version}" is not bare SemVer (no v prefix)`);
 
-  /* H-06 / H-07: dates */
-  if (fm.created) {
+  /* H-06 / H-07: dates.
+     Templates are exempt: their placeholder dates ({YYYY-MM-DD}, YYYY-MM-DD)
+     ARE the template's content — the instruction to the future writer.
+     Same reasoning as A TEMPLATE.md's inline vocabulary comments. */
+  const IS_TEMPLATE = rel.startsWith('agents/_template/')
+    || /^missions\/TEMPLATE(\.md$|-)/.test(rel);
+  if (fm.created && !IS_TEMPLATE) {
     if (!ISO_TIME.test(fm.created))
       F('H-06', rel, `created "${fm.created}" lacks a real time (ISO 8601 with time)`);
     else if (/T00:00:00(\.0+)?Z?$/.test(fm.created))
       F('H-06', rel, `created "${fm.created}" carries the midnight nobody wrote at (S-001 §8)`);
   }
-  if (fm.updated) {
+  if (fm.updated && !IS_TEMPLATE) {
     if (!ISO_TIME.test(fm.updated))
       F('H-07', rel, `updated "${fm.updated}" lacks a real time`);
     else if (fm.created && ISO_TIME.test(fm.created) && fm.updated < fm.created)
@@ -287,8 +321,27 @@ for (const rel of files) {
   if (fm.created_confidence && !['exact', 'inferred'].includes(fm.created_confidence))
     F('H-14', rel, `created_confidence "${fm.created_confidence}" invalid`);
 
-  /* H-17: type ↔ series */
-  if (fm.type && TYPE_SERIES[fm.type] && TYPE_SERIES[fm.type] !== top && !LAX_TYPES.includes(fm.type))
+  /* H-17: type ↔ series.
+     SETTLED_ELSEWHERE: documents whose type is honest but whose home is
+     historical — moving them breaks live references (ADR-005 cites the
+     AUDIT files by path; 12+ files link them). The mismatch is registered
+     here with its reason instead of being parked in the baseline. */
+  const SETTLED_ELSEWHERE = {
+    'blueprints/AUDIT-2026-04-07-web-vs-repo.md':
+      'historical audit, cited by path from ADR-005 and 12+ files',
+    'blueprints/AUDIT-numengames-2026-04-08.md':
+      'historical audit, cited by path from ADR-005 and 12+ files',
+    'operations/credential-map.md':
+      'operational protocol living with the operations it governs',
+    'operations/security-policy.md':
+      'operational protocol living with the operations it governs',
+    'operations/legal/O-003-privacy-policy-numengames.md':
+      'operational legal text of numengames, not canon',
+    'operations/legal/O-004-terms-and-conditions-numengames.md':
+      'operational legal text of numengames, not canon',
+  };
+  if (fm.type && TYPE_SERIES[fm.type] && TYPE_SERIES[fm.type] !== top && !LAX_TYPES.includes(fm.type)
+      && !SETTLED_ELSEWHERE[rel])
     F('H-17', rel, `type "${fm.type}" belongs in ${TYPE_SERIES[fm.type]}/, found in ${top}/`);
 
   /* H-18: registered subtype */

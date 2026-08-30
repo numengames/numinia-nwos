@@ -22,7 +22,6 @@ priority: "high"
 effort: "L"
 started: null
 completed: null
-blocked_reason: "PC in transit — pending physical arrival"
 ---
 # MIS-052 — On-premises infrastructure — Dedicated PC
 

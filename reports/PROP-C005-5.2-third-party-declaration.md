@@ -19,6 +19,8 @@ license: "CC-BY-4.0"
 evidence_script: "scripts/verify-third-party-attribution.py · /tmp/reuse-lab · /tmp/migsim"
 evidence_head: "e4918fa"
 scope: "numinia-nwos @ e4918fa · public surface: numinia.org"
+registration: exempt
+registration_reason: "proposal attached to the report series, not a numbered report"
 ---
 # §5.2 — Third-party declaration
 

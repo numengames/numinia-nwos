@@ -1,7 +1,7 @@
 ---
 id: "DEC-006"
 title: "English as the official language of the NWOS canonical repo"
-type: decision
+type: adr
 status: active
 version: "1.0.0"
 created: "2026-04-07T18:45:00Z"

@@ -12,6 +12,8 @@ author: "ursa"
 owner: "oracle"
 tags: [missions, guards, proposal, D-017]
 license: "CC-BY-4.0"
+registration: exempt
+registration_reason: "proposal attached to the mission series, not a numbered mission"
 ---
 # Proposal — a closure guard for missions
 

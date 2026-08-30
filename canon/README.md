@@ -1,3 +1,20 @@
+---
+title: "Seminal Documents"
+type: documentation
+status: active
+version: "1.0.0"
+created: "2026-04-07T12:34:04Z"
+created_source: "git:f765b99"
+created_confidence: exact
+updated: "2026-08-25T14:20:36+02:00"
+author: "centinela-01"
+owner: "oracle"
+tags: [canon]
+license: "CC-BY-4.0"
+registration: exempt
+registration_reason: "not part of a numbered series; header added from git history, nothing invented"
+---
+
 # Seminal Documents
 
 This folder contains the canonical source documents of the Numinia / Numen Games universe. They are the epistemic foundation — the single source of truth for lore, philosophy, brand, organization, and game design.

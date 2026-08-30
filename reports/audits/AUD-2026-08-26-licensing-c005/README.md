@@ -1,3 +1,20 @@
+---
+title: "Annexes — AUD-2026-08-26 · Licensing audit of `numinia-nwos`"
+type: documentation
+status: active
+version: "1.0.0"
+created: "2026-08-26T11:58:52+02:00"
+created_source: "git:e4918fa"
+created_confidence: exact
+updated: "2026-08-26T11:58:52+02:00"
+author: "pablofm"
+owner: "oracle"
+tags: [reports]
+license: "CC-BY-4.0"
+registration: exempt
+registration_reason: "not part of a numbered series; header added from git history, nothing invented"
+---
+
 # Annexes — AUD-2026-08-26 · Licensing audit of `numinia-nwos`
 
 Evidence for `../AUD-2026-08-26-licensing-c005.md`. Captured **2026-08-26**

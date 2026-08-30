@@ -1,7 +1,7 @@
 ---
 id: "MIS-113"
 title: "Generate the README's index from the sections, instead of maintaining it by hand"
-status: draft
+status: todo
 priority: medium
 effort: M
 guild: "Alchemists"

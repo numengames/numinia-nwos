@@ -1,3 +1,20 @@
+---
+title: "Archive Summa — Architecture v0.1.0"
+type: documentation
+status: closed
+version: "0.1.0"
+created: "2026-04-06T18:48:56Z"
+created_source: "git:84a9f71"
+created_confidence: exact
+updated: "2026-08-28T00:02:10+02:00"
+author: "centinela-01"
+owner: "oracle"
+tags: [blueprints]
+license: "CC-BY-4.0"
+registration: exempt
+registration_reason: "not part of a numbered series; header added from git history, nothing invented"
+---
+
 # Archive Summa — Architecture v0.1.0
 
 > **Summary:** NWOS system document — archive-summa-arquitectura-v0.1.0.

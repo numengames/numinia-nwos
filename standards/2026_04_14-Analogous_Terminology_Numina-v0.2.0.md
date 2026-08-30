@@ -1,3 +1,20 @@
+---
+title: "Analogous Terminology in Numinia"
+type: documentation
+status: closed
+version: "0.2.0"
+created: "2026-04-14T19:55:14+02:00"
+created_source: "git:8f44bca"
+created_confidence: exact
+updated: "2026-04-14T19:55:14+02:00"
+author: "christian-numinia"
+owner: "oracle"
+tags: [standards]
+license: "CC-BY-4.0"
+registration: exempt
+registration_reason: "not part of a numbered series; header added from git history, nothing invented"
+---
+
 # Analogous Terminology in Numinia
 
 ## Alchemists

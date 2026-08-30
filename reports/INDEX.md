@@ -1,3 +1,20 @@
+---
+title: "Reports — Operational Evidence"
+type: documentation
+status: active
+version: "1.0.0"
+created: "2026-04-06T18:48:56Z"
+created_source: "git:84a9f71"
+created_confidence: exact
+updated: "2026-08-27T21:16:58+02:00"
+author: "centinela-01"
+owner: "oracle"
+tags: [reports]
+license: "CC-BY-4.0"
+registration: exempt
+registration_reason: "not part of a numbered series; header added from git history, nothing invented"
+---
+
 # Reports — Operational Evidence
 
 > **Summary:** NWOS system document — INDEX.

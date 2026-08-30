@@ -1,3 +1,20 @@
+---
+title: "Read Me: How to Archive"
+type: documentation
+status: closed
+version: "0.2.0"
+created: "2026-04-14T13:35:28+02:00"
+created_source: "git:3175cf7"
+created_confidence: exact
+updated: "2026-04-14T13:35:28+02:00"
+author: "christian-numinia"
+owner: "oracle"
+tags: [protocols]
+license: "CC-BY-4.0"
+registration: exempt
+registration_reason: "not part of a numbered series; header added from git history, nothing invented"
+---
+
 # Read Me: How to Archive
 
 ## Document metadata

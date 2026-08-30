@@ -1,3 +1,20 @@
+---
+title: "Recovered: the canon version deleted on 2026-04-15"
+type: documentation
+status: closed
+version: "1.0.0"
+created: "2026-08-25T13:30:33+02:00"
+created_source: "git:56f2b53"
+created_confidence: exact
+updated: "2026-08-25T13:30:33+02:00"
+author: "pablofm"
+owner: "oracle"
+tags: [reports]
+license: "CC-BY-4.0"
+registration: exempt
+registration_reason: "not part of a numbered series; header added from git history, nothing invented"
+---
+
 # Recovered: the canon version deleted on 2026-04-15
 
 **What this folder holds.** A version of a canonical document that was deleted
