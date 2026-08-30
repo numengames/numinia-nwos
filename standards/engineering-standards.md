@@ -1,3 +1,20 @@
+---
+title: "Engineering Standards"
+type: documentation
+status: active
+version: "1.0.0"
+created: "2026-08-17T21:55:38+02:00"
+created_source: "git:e3123fc"
+created_confidence: exact
+updated: "2026-08-22T20:44:28+02:00"
+author: "pablofm"
+owner: "oracle"
+tags: [standards]
+license: "CC-BY-4.0"
+registration: exempt
+registration_reason: "not part of a numbered series; header added from git history, nothing invented"
+---
+
 <!--
 SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC-BY-4.0

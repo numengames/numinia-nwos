@@ -2,7 +2,7 @@
 id: "MIS-096"
 title: "NWOS gets versioned and organizations adopt: sovereignty with offered updates"
 type: mission
-status: draft
+status: todo
 version: "1.0.0"
 created: "2026-08-18T14:59:25Z"
 created_source: "git:e175657"

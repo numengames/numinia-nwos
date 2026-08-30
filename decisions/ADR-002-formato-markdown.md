@@ -5,6 +5,7 @@ type: adr
 status: active
 version: "1.0.0"
 created: "2026-04-06T18:48:56Z"
+updated: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
 author: "pablo-fm"

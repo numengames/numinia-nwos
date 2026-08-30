@@ -1,7 +1,7 @@
 ---
 id: "DEC-005"
 title: "pablofm.com as the public CAO portal"
-type: decision
+type: adr
 status: active
 version: "1.1.0"
 created: "2026-04-07T05:49:03Z"

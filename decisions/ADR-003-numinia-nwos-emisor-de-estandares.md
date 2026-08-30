@@ -5,6 +5,7 @@ type: adr
 status: active
 version: "1.0.0"
 created: "2026-08-22T18:44:28Z"
+updated: "2026-08-22T18:44:28Z"
 created_source: "git:830e969"
 created_confidence: exact
 author: "claude-opus-5"

@@ -2,7 +2,7 @@
 id: "MIS-095"
 title: "Every web publishes its Updates: the evolution, readable by humans"
 type: mission
-status: draft
+status: todo
 version: "1.0.0"
 created: "2026-08-18T14:46:58Z"
 created_source: "git:64704cf"

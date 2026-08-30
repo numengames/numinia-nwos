@@ -2,7 +2,7 @@
 id: "AUD-2026-08-17-cold-agent"
 title: "Cold-Agent Audit — Six Discrepancies Verified Against the Tree"
 type: report
-status: done
+status: closed
 version: "1.0.0"
 created: "2026-08-17T10:58:22Z"
 created_source: "git:836ec36"

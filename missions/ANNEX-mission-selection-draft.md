@@ -12,6 +12,8 @@ author: "ursa"
 owner: "oracle"
 tags: [missions, policy, draft, board]
 license: "CC-BY-4.0"
+registration: exempt
+registration_reason: "annex to the mission series, not a numbered mission"
 ---
 # Draft — how the next mission is chosen
 

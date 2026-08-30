@@ -1,0 +1,4 @@
+# Valores que llevaban campos retirados (D-002) y se
+# conservan aqui para no perderse en silencio.
+#
+missions/MIS-052-pc-onpremises-ubuntu.md	blocked_reason	"PC in transit — pending physical arrival"
