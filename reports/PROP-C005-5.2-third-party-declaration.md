@@ -13,7 +13,7 @@ updated: "2026-08-26T13:05:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
-territory: "Legal"
+territory: "Archive"
 tags: [proposal, licensing, C-005, REUSE, third-party, measurement]
 license: "CC-BY-4.0"
 evidence_script: "scripts/verify-third-party-attribution.py · /tmp/reuse-lab · /tmp/migsim"

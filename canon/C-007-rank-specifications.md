@@ -12,7 +12,7 @@ updated: "2026-04-07T12:34:04Z"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Exegetes"
-territory: "Canon"
+territory: "Archive"
 tags: [canon, seminal, ranks, archon]
 license: "LicenseRef-Numen-AllRightsReserved"
 threshold: sealed

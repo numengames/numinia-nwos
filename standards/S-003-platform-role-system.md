@@ -12,7 +12,7 @@ updated: "2026-08-25T00:00:00Z"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Alchemists"
-territory: "Standards"
+territory: "Archive"
 tags: [standards, ranks, permissions, digital-goods, ADR-023]
 license: "LicenseRef-Numen-AllRightsReserved"
 threshold: governed

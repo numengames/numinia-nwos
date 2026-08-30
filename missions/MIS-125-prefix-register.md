@@ -11,7 +11,7 @@ updated: "2026-08-30T11:50:00Z"
 author: "ursa"
 owner: "oracle"
 license: "CC-BY-4.0"
-territory: "Standards"
+territory: "Archive"
 guild: "Exegetes"
 tags: [governance, identifiers, prefixes, adr-005]
 priority: medium

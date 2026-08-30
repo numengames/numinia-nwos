@@ -12,7 +12,7 @@ updated: "2026-04-15T16:40:18Z"
 author: "Christian Numinia"
 owner: "oracle"
 guild: "Exegetes"
-territory: "Canon"
+territory: "Archive"
 tags: [canon, seminal, function, structure, ADR-023]
 license: "LicenseRef-Numen-AllRightsReserved"
 registration: exempt

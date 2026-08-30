@@ -1,0 +1,24 @@
+# Territorios que eran nombre de serie documental.
+# Reasignados a Archive; el vocabulario no se amplio.
+# Si alguna serie merece territorio propio, esta es la lista.
+#
+# documento\tpedia\tescrito
+canon/2026_04_15-Epistemic_Relations_Between_Numen_Games_and_Numina-v0.2.0.md	Canon	Archive
+canon/2026_04_15-Pragmatic_Numen_System-v0.2.0.md	Canon	Archive
+canon/C-001-welcome-to-numinia.md	Canon	Archive
+canon/C-002-brand-and-culture.md	Canon	Archive
+canon/C-003-attributes-and-ranks.md	Canon	Archive
+canon/C-004-role-structure.md	Canon	Archive
+canon/C-006-session-zero.md	Canon	Archive
+canon/C-007-rank-specifications.md	Canon	Archive
+missions/MIS-122-fix-uid-rule.md	Standards	Archive
+missions/MIS-123-make-adr-028-real.md	Standards	Archive
+missions/MIS-124-close-territory-vocabulary.md	Standards	Archive
+missions/MIS-125-prefix-register.md	Standards	Archive
+missions/MIS-126-field-decision-index.md	Standards	Archive
+reports/PROP-C005-5.2-third-party-declaration.md	Legal	Archive
+reports/audits/AUD-2026-08-26-governance.md	Governance	Archive
+reports/audits/AUD-2026-08-26-licensing-c005.md	Legal	Archive
+reports/audits/AUD-2026-08-26-process.md	Governance	Archive
+reports/audits/AUD-2026-08-26-provenance.md	Legal	Archive
+standards/S-003-platform-role-system.md	Standards	Archive
