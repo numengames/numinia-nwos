@@ -1,7 +1,7 @@
 ---
 id: "roster-exegetes"
 title: "Roster — Exegetes"
-type: roster
+type: charter
 status: active
 version: "1.1.0"
 created: "2026-04-07T12:59:00Z"

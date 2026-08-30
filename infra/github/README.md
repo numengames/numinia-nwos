@@ -1,7 +1,8 @@
 ---
 id: "INFRA-github"
 title: "GitHub repository configuration, as declared files"
-type: standard
+type: documentation
+subtype: standard
 status: active
 version: "1.0.0"
 created: "2026-08-25T19:01:47Z"

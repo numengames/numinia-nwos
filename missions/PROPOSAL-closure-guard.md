@@ -1,7 +1,7 @@
 ---
 id: "PROP-closure-guard"
 title: "Proposal: a guard that fails a done mission with no Closure section"
-type: proposal
+type: documentation
 status: draft
 version: "1.0.0"
 created: "2026-08-25T18:05:01Z"

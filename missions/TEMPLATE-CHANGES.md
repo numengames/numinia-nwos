@@ -1,7 +1,8 @@
 ---
 id: "MIS-TEMPLATE-CHANGES"
 title: "What changed in the mission template, and the figures that decided it"
-type: standard
+type: documentation
+subtype: standard
 status: active
 version: "1.1.0"
 created: "2026-08-25"

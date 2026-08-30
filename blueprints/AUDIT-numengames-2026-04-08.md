@@ -2,7 +2,8 @@
 id: "AUDIT-numengames-2026-04-08"
 uid: ""
 title: "Technical Audit — numen.games"
-type: audit
+type: report
+subtype: audit
 status: active
 version: "0.1.0"
 created: "2026-04-08T05:48:00Z"
