@@ -15,7 +15,6 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [decisions, adr, licensing, agents, C-005, D-030, LD-001, canon-change]
 license: "CC-BY-4.0"
-adr_id: "ADR-026"
 supersedes: ""
 related: ["LD-001", "D-030", "D-038", "C-005", "MIS-118", "ADR-005"]
 ---

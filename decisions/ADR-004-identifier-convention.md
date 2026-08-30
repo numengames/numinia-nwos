@@ -9,7 +9,6 @@ created: "2026-08-24T15:00:00Z"
 author: "ursa"
 owner: "oracle"
 tags: [decisions, adr, identifiers, naming, archive, provenance]
-adr_id: "ADR-004"
 decision: "Identifiers follow <PREFIX>-<NNN>; they carry no mutable attribute, are never reused, and are never renumbered"
 superseded_by: null
 license: "CC-BY-4.0"

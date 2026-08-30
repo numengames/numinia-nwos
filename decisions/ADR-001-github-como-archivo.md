@@ -11,7 +11,6 @@ updated: "2026-08-17T07:28:32Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [decisions, adr, infrastructure, github]
-adr_id: "ADR-001"
 decision: "Use GitHub as the canonical repository for the Narrative Work OS"
 context: "The system needs a persistent, auditable, accessible source of truth for all agents and oracles"
 superseded_by: null

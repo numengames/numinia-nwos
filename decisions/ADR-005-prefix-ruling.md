@@ -13,7 +13,6 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [decisions, adr, identifiers, prefixes, registration, canon]
 license: "CC-BY-4.0"
-adr_id: "ADR-005"
 supersedes: ""
 related: ["ADR-004", "S-001", "MIS-109", "D-008"]
 evidence_script: "scripts/resolve-citations.py"

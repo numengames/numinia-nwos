@@ -10,7 +10,6 @@ created_confidence: exact
 author: "claude-opus-5"
 owner: "oracle"
 tags: [decisions, adr, standards, governance, provenance, sovereignty]
-adr_id: "ADR-003"
 decision: "engineering-standards.md originates in numengames/numinia-nwos; the copy in nwos-workspace-template is a starting proposal, not an upstream authority"
 superseded_by: null
 license: "CC-BY-4.0"

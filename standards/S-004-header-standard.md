@@ -194,11 +194,13 @@ Initial registry — transcribed from actual majority use, not invented:
 |---|---|
 | `missions/` | `priority` `effort` `assigned_to` `started` `completed` `mission_id` `type_execution` `freeze_reason` `in_review_at` `depends_on` `parent_mission` `sub_missions` `blocked_by` `requires_oracle_approval` `human_approval_score` `paths` `context` `divergence_log` |
 | `reports/` | `severity` `period` `subtype` `model` `agent` `week` `scope` |
-| `decisions/` | `deciders` `consulted` `outcome` |
+| `decisions/` | `deciders` `consulted` `outcome` `decision` |
 | `agents/` | `role` `platform` `model` `soul` `agent` |
-| `debt/` | `severity` `severity_reason` `detected` `refuted` `source_audit` `opened_by` |
+| `debt/` | `severity` `severity_reason` `detected` `refuted` `source_audit` `opened_by` `visibility_reason` |
 | `blueprints/` `operations/` | `extraction_note` `restoration_note` |
+| `blueprints/` | `semaforo` (health dot rendered by the site) |
 | `protocols/` | `applies_to` `mandatory` |
+| `standards/` `canon/` | `threshold` (change threshold, P-003) |
 | `standards/` `canon/` `protocols/` | `supersedes_version` `ratified_by` |
 | all | `tags` `visibility` `guild` `territory` (S-001 §6.3) · `registration` `registration_reason` `registration_exemption` (§5.0) · `evidence_script` `evidence_head` (evidence apparatus) · `related` (cross-references) · `uid` (reserved-empty, S-001 §6.2 — **H-20**: non-empty `uid` is an error until the UID system exists) |
 
