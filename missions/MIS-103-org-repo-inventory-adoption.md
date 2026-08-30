@@ -11,7 +11,7 @@ owner: "oracle"
 tags: [engineering-standards, audit, governance, github]
 license: "CC-BY-4.0"
 mission_id: "MIS-103"
-area: "Operations"
+territory: "TBA"
 guild: "Sentinels"
 type_execution: "hybrid"
 priority: "medium"

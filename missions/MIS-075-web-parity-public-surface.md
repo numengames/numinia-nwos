@@ -13,7 +13,7 @@ owner: "oracle"
 tags: [web, platform, parity]
 license: "CC-BY-4.0"
 mission_id: "MIS-075"
-area: "Platform / numinia-web"
+territory: "Platform"
 guild: "Alchemists"
 type_execution: "digital"
 priority: "high"

@@ -11,7 +11,7 @@ owner: "oracle"
 tags: [security, ci, governance, github, engineering-standards]
 license: "CC-BY-4.0"
 mission_id: "MIS-100"
-area: "Infrastructure"
+territory: "Infrastructure"
 guild: "Sentinels"
 type_execution: "biological"
 priority: "critical"

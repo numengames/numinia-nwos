@@ -11,7 +11,7 @@ updated: "2026-08-27T22:02:10Z"
 author: "nimrod"
 owner: "oracle"
 tags: [blueprint, product, web, pablofm, numengames]
-area: "Product"
+territory: "Product"
 semaforo: "verde"
 license: "CC-BY-4.0"
 ---

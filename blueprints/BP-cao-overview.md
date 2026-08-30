@@ -11,7 +11,7 @@ updated: "2026-08-27T22:31:29Z"
 author: "nimrod"
 owner: "oracle"
 tags: [blueprint, cao, overview]
-area: "CAO"
+territory: "CAO"
 license: "CC-BY-4.0"
 extraction_note: "Extracted verbatim from web/src/pages/cao.astro (MIS-071 phase 2 — File over App). Page-only content: the public dashboard snapshot (per-agent metrics, KPI totals, ROI claim, dashboard note and hero prose) absent from BP-cao.md and BP-cao-architecture.md. The agent roster also diverges from BP-cao.md: the page lists Alquimista-01 and Exegeta-01 (not Ursa/Senet), Adonaz on claude-sonnet-4.6, and Procurador-01 in estado 'diseñado' without target year. Translated to English under MIS-116 (ADR-024) — language only."
 ---

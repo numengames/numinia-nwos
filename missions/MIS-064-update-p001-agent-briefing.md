@@ -11,7 +11,7 @@ author: "pablo-fm"
 owner: "oracle"
 tags: [protocols, p001, briefing, startup, sentinels]
 license: "CC-BY-4.0"
-area: "CAO"
+territory: "CAO"
 guild: "Sentinels"
 mission_id: "MIS-064"
 priority: "critical"

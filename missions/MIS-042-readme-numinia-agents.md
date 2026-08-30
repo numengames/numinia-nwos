@@ -13,7 +13,7 @@ author: "pablo-fm"
 owner: "oracle"
 tags: [documentation, readme, exegetes]
 license: "CC-BY-4.0"
-area: "Documentation"
+territory: "TBA"
 guild: "Exegetes"
 mission_id: "MIS-042"
 priority: "high"

@@ -10,7 +10,7 @@ author: "pablo-fm"
 owner: "oracle"
 tags: [protocol, context, fatigue, session]
 license: "CC-BY-4.0"
-area: "CAO"
+territory: "CAO"
 guild: "Sentinels"
 type_execution: "digital"
 priority: "high"

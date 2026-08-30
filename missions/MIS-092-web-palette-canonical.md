@@ -15,7 +15,7 @@ owner: "oracle"
 tags: [web, viewer, design-system, velo, palette]
 license: "CC-BY-4.0"
 mission_id: "MIS-092"
-area: "Viewer / numinia.org"
+territory: "TBA"
 guild: "Alchemists"
 type_execution: "digital"
 priority: "medium"

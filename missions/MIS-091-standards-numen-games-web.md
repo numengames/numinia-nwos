@@ -15,7 +15,7 @@ owner: "oracle"
 tags: [web, design-system, engineering-standards, numen-games, nwos]
 license: "CC-BY-4.0"
 mission_id: "MIS-091"
-area: "Corporate web / NWOS deploy"
+territory: "TBA"
 guild: "Alchemists"
 type_execution: "digital"
 priority: "high"

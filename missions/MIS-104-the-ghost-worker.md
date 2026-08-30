@@ -11,7 +11,7 @@ owner: "oracle"
 tags: [infrastructure, cloudflare, risk, audit]
 license: "CC-BY-4.0"
 mission_id: "MIS-104"
-area: "Infrastructure"
+territory: "Infrastructure"
 guild: "Sentinels"
 type_execution: "biological"
 priority: "high"

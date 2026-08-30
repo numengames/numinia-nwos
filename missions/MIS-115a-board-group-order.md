@@ -5,7 +5,7 @@ status: done
 priority: medium
 effort: S
 guild: "Alchemists"
-area: web
+territory: "TBA"
 type_execution: digital
 assigned_to: "ursa"
 completed: "2026-08-25"

@@ -9,7 +9,7 @@ updated: "2026-04-07T18:45:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [decisions, documentation, i18n, english, nwos, language]
-area: "Documentation / Strategy"
+territory: "TBA"
 superseded_by: null
 license: "CC-BY-4.0"
 ---

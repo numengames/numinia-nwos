@@ -11,7 +11,7 @@ author: "pablo-fm"
 owner: "oracle"
 tags: [sales, outreach, prospecting, procurators]
 license: "CC-BY-4.0"
-area: "Sales"
+territory: "Sales"
 guild: "Procurators"
 priority: "critical"
 effort: "M"

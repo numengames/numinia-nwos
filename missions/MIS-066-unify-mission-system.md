@@ -13,7 +13,7 @@ owner: "oracle"
 tags: [missions, unification, english, web, f-1, f-2]
 license: "CC-BY-4.0"
 mission_id: "MIS-066"
-area: "CAO / Archive"
+territory: "CAO"
 guild: "Sentinels"
 priority: "high"
 effort: "XL"

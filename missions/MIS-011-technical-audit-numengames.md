@@ -13,7 +13,7 @@ author: "pablo-fm"
 owner: "oracle"
 tags: [infrastructure, audit, numengames, web, sentinels]
 license: "CC-BY-4.0"
-area: "Infrastructure"
+territory: "Infrastructure"
 guild: "Sentinels"
 mission_id: "MIS-011"
 priority: "critical"

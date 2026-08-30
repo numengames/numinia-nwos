@@ -5,7 +5,7 @@ status: in-progress
 priority: medium
 effort: L
 guild: "Alchemists"
-area: web
+territory: "TBA"
 type_execution: digital
 assigned_to: "ursa"
 started: "2026-08-25"

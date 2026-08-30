@@ -11,7 +11,7 @@ updated: "2026-08-28T09:54:16Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [blueprint, archive, fondos, taxonomy]
-area: "CAO / Archive"
+territory: "CAO"
 license: "CC-BY-4.0"
 extraction_note: "Extracted from web/src/pages/archive/[fondo].astro and archive/index.astro (MIS-065 phase C — File over App). Document paths corrected to the post-MIS-066 flat layout (agents flat, missions flat, P-001 English); 'Archive System' has no matching file in canon/ today — kept as declared, flagged for MIS-071. The per-fondo lore lines live separately in canon/archive-lore.md (reserved regime — one file, one regime). Translated to English under MIS-116 (ADR-024) — language only."
 fondos:

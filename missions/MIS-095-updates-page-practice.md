@@ -13,7 +13,7 @@ owner: "oracle"
 tags: [standards, web, updates, changelog, practice]
 license: "CC-BY-4.0"
 mission_id: "MIS-095"
-area: "Standards + all the webs"
+territory: "TBA"
 guild: "Procurators"
 type_execution: "digital"
 priority: "medium"

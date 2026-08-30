@@ -14,7 +14,7 @@ owner: "oracle"
 tags: [web, viewer, canon, mirror]
 license: "CC-BY-4.0"
 mission_id: "MIS-087"
-area: "Viewer / numinia.org"
+territory: "TBA"
 guild: "Exegetes"
 type_execution: "digital"
 priority: "medium"

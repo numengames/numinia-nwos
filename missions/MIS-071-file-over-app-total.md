@@ -13,7 +13,7 @@ owner: "oracle"
 tags: [file-over-app, content, extraction, web, ft-05, audits]
 license: "CC-BY-4.0"
 mission_id: "MIS-071"
-area: "CAO / Archive"
+territory: "CAO"
 guild: "Exegetes"
 type_execution: "digital"
 priority: "high"

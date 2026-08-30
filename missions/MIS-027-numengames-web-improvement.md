@@ -13,7 +13,7 @@ author: "pablo-fm"
 owner: "oracle"
 tags: [content, web, numengames, seo, alchemists]
 license: "CC-BY-4.0"
-area: "Content"
+territory: "Content"
 guild: "Alchemists"
 mission_id: "MIS-027"
 priority: "critical"

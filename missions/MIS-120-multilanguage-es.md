@@ -6,7 +6,7 @@ status: in-progress
 priority: high
 effort: L
 guild: alchemists
-area: web
+territory: "TBA"
 type_execution: digital
 assigned_to: "ursa"
 completed: null

@@ -10,7 +10,7 @@ created_source: "git:428349f"
 created_confidence: inferred
 updated: "2026-08-26T13:03:10Z"
 owner: "oracle"
-area: "Content"
+territory: "Content"
 guild: "Exegetes"
 type_execution: "hybrid"
 priority: "high"

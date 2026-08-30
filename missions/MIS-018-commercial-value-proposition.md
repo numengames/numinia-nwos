@@ -11,7 +11,7 @@ author: "pablo-fm"
 owner: "oracle"
 tags: [sales, communication, pitch, exegetes]
 license: "CC-BY-4.0"
-area: "Sales"
+territory: "Sales"
 guild: "Exegetes"
 priority: "critical"
 effort: "S"

@@ -11,7 +11,7 @@ author: "pablo-fm"
 owner: "oracle"
 tags: [operations, metrics, costs, api, sentinels]
 license: "CC-BY-4.0"
-area: "Operations"
+territory: "TBA"
 guild: "Sentinels"
 priority: "critical"
 effort: "M"

@@ -13,7 +13,7 @@ owner: "oracle"
 tags: [design-system, governance, emission, kit]
 license: "CC-BY-4.0"
 mission_id: "MIS-094"
-area: "Standards + Viewer / numinia.org"
+territory: "TBA"
 guild: "Procurators"
 type_execution: "digital"
 priority: "high"

@@ -11,7 +11,7 @@ author: "pablo-fm"
 owner: "oracle"
 tags: [web, nwos, visualization, ux, i18n, sistema, pablofm]
 license: "CC-BY-4.0"
-area: "Product"
+territory: "Product"
 guild: "Alchemists"
 type_execution: "técnico"
 priority: "high"

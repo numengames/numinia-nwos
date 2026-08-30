@@ -12,7 +12,7 @@ updated: "2026-08-27T22:31:29Z"
 author: "nimrod"
 owner: "oracle"
 tags: [blueprint, wardley, strategy, nwos]
-area: "Strategy"
+territory: "TBA"
 license: "CC-BY-4.0"
 ---
 # Wardley Map — Narrative Work OS

@@ -13,7 +13,7 @@ owner: "oracle"
 tags: [governance, engineering-standards, provenance, sovereignty, nwos-workspace-template]
 license: "CC-BY-4.0"
 mission_id: "MIS-108"
-area: "Governance"
+territory: "TBA"
 guild: "Exegetes"
 type_execution: "digital"
 priority: "high"

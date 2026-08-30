@@ -11,7 +11,7 @@ author: "pablo-fm"
 owner: "oracle"
 tags: [documentation, strategy, gaps, procurators]
 license: "CC-BY-4.0"
-area: "Documentation"
+territory: "TBA"
 guild: "Procurators"
 priority: "critical"
 effort: "S"

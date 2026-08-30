@@ -12,7 +12,7 @@ status: todo
 priority: medium         # critical|high|medium|low
 effort: S                # XS|S|M|L|XL
 guild: alchemists        # alchemists|sentinels|exegetes|procurators
-area: archive            # archive|web|infrastructure|governance|product
+territory: "Archive"
 type_execution: digital  # biological|digital|hybrid
 assigned_to: null        # agent-id, or null while unassigned
 completed: null          # YYYY-MM-DD when status becomes done

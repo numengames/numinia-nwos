@@ -12,7 +12,7 @@ updated: "2026-04-07T19:03:00Z"
 author: "nimrod"
 owner: "oracle"
 tags: [blueprint, cao, agents, architecture]
-area: "CAO"
+territory: "CAO"
 semaforo: "amarillo"
 license: "CC-BY-4.0"
 ---

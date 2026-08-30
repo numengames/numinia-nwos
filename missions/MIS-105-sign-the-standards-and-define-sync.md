@@ -11,7 +11,7 @@ owner: "oracle"
 tags: [governance, engineering-standards, adr, upstream, drift]
 license: "CC-BY-4.0"
 mission_id: "MIS-105"
-area: "Documentation"
+territory: "TBA"
 guild: "Exegetes"
 type_execution: "hybrid"
 priority: "high"

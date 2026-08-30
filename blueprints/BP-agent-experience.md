@@ -11,7 +11,7 @@ updated: "2026-08-27T22:31:29Z"
 author: "nimrod"
 owner: "oracle"
 tags: [blueprint, agents, cycle, experience]
-area: "CAO"
+territory: "CAO"
 license: "CC-BY-4.0"
 extraction_note: "Extracted verbatim from web/src/pages/agente.astro (MIS-071 phase 2 — File over App): the agent cycle and operating presentation. Translated to English under MIS-116 (ADR-024) — language only."
 ---

@@ -13,7 +13,7 @@ author: "pablo-fm"
 owner: "oracle"
 tags: [cao, qa, system, coherence, metrics, human-approval]
 license: "CC-BY-4.0"
-area: "CAO"
+territory: "CAO"
 guild: "Sentinels"
 priority: "critical"
 effort: "XL"

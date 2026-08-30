@@ -10,7 +10,7 @@ updated: "2026-04-08T05:58:00Z"
 author: "nimrod"
 owner: "oracle"
 tags: [blueprint, cao, architecture, agents, protocols, tools, system]
-area: "CAO"
+territory: "CAO"
 license: "CC-BY-4.0"
 mission: "MIS-045"
 ---

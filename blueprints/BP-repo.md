@@ -11,7 +11,7 @@ updated: "2026-08-27T22:02:10Z"
 author: "nimrod"
 owner: "oracle"
 tags: [blueprint, ops, repos, github]
-area: "Ops"
+territory: "TBA"
 semaforo: "amarillo"
 license: "CC-BY-4.0"
 ---

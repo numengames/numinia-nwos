@@ -13,7 +13,7 @@ owner: "oracle"
 tags: [testing, ci, best-practices, org, licensing]
 license: "CC-BY-4.0"
 mission_id: "MIS-070"
-area: "Infrastructure"
+territory: "Infrastructure"
 guild: "Sentinels"
 type_execution: "digital"
 priority: "high"

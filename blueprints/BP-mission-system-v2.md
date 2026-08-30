@@ -10,7 +10,7 @@ updated: "2026-04-07T19:27:00Z"
 author: "nimrod"
 owner: "oracle"
 tags: [missions, kanban, system-design, architecture, sub-missions]
-area: "CAO / Product"
+territory: "CAO"
 related_missions: ["MIS-057", "MIS-062"]
 license: "CC-BY-4.0"
 ---
