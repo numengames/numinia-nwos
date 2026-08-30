@@ -2,7 +2,7 @@
 id: "MIS-055"
 title: "Dual Nomenclature System — Narrative Dial + Gamification Dial"
 type: mission
-status: backlog
+status: todo
 version: "1.2.0"
 created: "2026-04-07T06:48:45Z"
 created_source: "git:9cdd2d2"
@@ -22,8 +22,7 @@ priority: "critical"
 effort: "L"
 started: "2026-04-07T00:00:00Z"
 completed: null
----
-# MIS-055 — Dual Nomenclature System
+---# MIS-055 — Dual Nomenclature System
 
 > **Summary:** NWOS system mission.
 > **Epistemic:** What you learn by reading this document.

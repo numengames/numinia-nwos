@@ -2,7 +2,7 @@
 id: "MIS-067"
 title: "Inspections System — document type, directory and first ISO 15489 inspection"
 type: mission
-status: backlog
+status: todo
 version: "1.1.0"
 created: "2026-04-07T13:42:00Z"
 updated: "2026-08-17T00:00:00Z"
@@ -19,8 +19,7 @@ type_execution: "digital"
 priority: "high"
 effort: "M"
 human_approval_score: 5
----
-# MIS-067 — Inspections System
+---# MIS-067 — Inspections System
 
 > **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
 > **Epistemic:** What you learn by reading this document.

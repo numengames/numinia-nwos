@@ -1,6 +1,6 @@
 ---
 id: "BP-cao"
-uid: "018ef810-0057-7000-8000-000000000059"
+uid: ""
 title: "CAO — Centralized Autonomous Organization"
 type: blueprint
 status: active
@@ -15,8 +15,7 @@ tags: [blueprint, cao, agents, architecture]
 area: "CAO"
 semaforo: "amarillo"
 license: "CC-BY-4.0"
----
-# BP — CAO (Centralized Autonomous Organization)
+---# BP — CAO (Centralized Autonomous Organization)
 
 > **Summary:** System blueprint: current state, objective, gaps, and dependencies.
 > **Epistemic:** The real state vs. the objective — where we are and where we are going.

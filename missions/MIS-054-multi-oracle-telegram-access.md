@@ -2,7 +2,7 @@
 id: "MIS-054"
 title: "Multi-Oracle access to Nimrod via Telegram"
 type: mission
-status: backlog
+status: todo
 version: "1.1.0"
 created: "2026-04-07T05:49:03Z"
 created_source: "git:e56f6e8"
@@ -22,8 +22,7 @@ priority: "high"
 effort: "S"
 started: "2026-04-06T00:00:00Z"
 completed: null
----
-# MIS-054 — Multi-Oracle access to Nimrod via Telegram
+---# MIS-054 — Multi-Oracle access to Nimrod via Telegram
 
 > **Summary:** NWOS system mission.
 > **Epistemic:** What you learn by reading this document.

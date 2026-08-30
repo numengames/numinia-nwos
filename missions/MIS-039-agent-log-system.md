@@ -1,6 +1,6 @@
 ---
 id: "MIS-039"
-uid: "018ef820-0039-7000-8000-000000000039"
+uid: ""
 title: "Agent log system"
 type: mission
 status: done
@@ -23,8 +23,7 @@ assigned_to: "nimrod"
 requested_by: "oracle"
 started: "2026-04-08T05:59:00Z"
 completed: "2026-08-25"
----
-# MIS-039 — Agent log system
+---# MIS-039 — Agent log system
 
 > **Summary:** Design and implement a standard log format for agent actions, so every mission action is auditable.
 > **Epistemic:** Without logs, we can't audit what agents did, when, and why.

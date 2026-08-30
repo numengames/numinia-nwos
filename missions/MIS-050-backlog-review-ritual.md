@@ -2,7 +2,7 @@
 id: "MIS-050"
 title: "Backlog review ritual (Dark Council)"
 type: mission
-status: backlog
+status: todo
 version: "1.1.0"
 created: "2026-04-07T05:58:49Z"
 created_source: "git:428349f"
@@ -14,8 +14,7 @@ type_execution: "híbrido"
 priority: "high"
 effort: "XS"
 license: "CC-BY-4.0"
----
-# MIS-050 — Backlog review ritual (Dark Council)
+---# MIS-050 — Backlog review ritual (Dark Council)
 
 > **Summary:** NWOS system mission.
 > **Epistemic:** What you learn by reading this document.

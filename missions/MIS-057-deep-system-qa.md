@@ -1,6 +1,6 @@
 ---
 id: "MIS-057"
-uid: "018ef820-0057-7000-8000-000000000057"
+uid: ""
 title: "Deep QA of the NWOS System — Coherence, Cycles, Human-in-the-Loop, Metrics"
 type: mission
 status: done
@@ -23,8 +23,7 @@ started: "2026-04-07T00:00:00Z"
 in_review_at: "2026-04-07T19:00:00Z"
 completed: "2026-04-07T19:43:00Z"
 human_approval_score: 9
----
-# MIS-057 — Deep QA of the NWOS System
+---# MIS-057 — Deep QA of the NWOS System
 
 > **Summary:** Deep review of the complete NWOS system for coherence, lifecycle integrity, and readiness to grow.
 > **Epistemic:** What gaps exist in a living system when observed as a whole — and how architectural debt accumulates.

@@ -1,6 +1,6 @@
 ---
 id: "P-006"
-uid: "018e9000-0006-7000-8000-000000000006"
+uid: ""
 title: "Session Close Protocol"
 type: protocol
 status: active
@@ -14,8 +14,7 @@ applies_to: [all-agents]
 mandatory: true
 human_approval_score: 7
 license: "CC-BY-4.0"
----
-# P-006 — Session Close Protocol v1
+---# P-006 — Session Close Protocol v1
 
 > **Summary:** Standard operational protocol for the NWOS system.
 > **Epistemic:** How this process is executed and why in this way.

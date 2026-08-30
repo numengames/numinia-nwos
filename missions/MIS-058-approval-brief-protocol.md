@@ -2,7 +2,7 @@
 id: "MIS-058"
 title: "Approval Brief Protocol: Structured communication for human-machine approvals"
 type: mission
-status: backlog
+status: todo
 version: "1.2.0"
 assigned_to: "nimrod"
 guild: "Sentinels"
@@ -12,7 +12,6 @@ created: "2026-04-07T14:00:00Z"
 updated: "2026-08-25T20:05:59Z"
 license: "CC-BY-4.0"
 ---
-
 # MIS-058 — Approval Brief Protocol
 
 > **Summary:** Implement a communication standard so digital agents request approval from biological agents in a clear, structured, and conscious way.

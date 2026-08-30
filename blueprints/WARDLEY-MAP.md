@@ -4,7 +4,7 @@ title: "Wardley Map — Narrative Work OS"
 type: blueprint
 subtype: wardley-map
 status: active
-version: "v0.2.0"
+version: "0.2.0"
 created: "2026-04-07T12:29:23Z"
 created_source: "git:df48b24"
 created_confidence: exact
@@ -14,8 +14,7 @@ owner: "oracle"
 tags: [blueprint, wardley, strategy, nwos]
 area: "Strategy"
 license: "CC-BY-4.0"
----
-# Wardley Map — Narrative Work OS
+---# Wardley Map — Narrative Work OS
 
 > **Summary:** System blueprint: current state, target, gaps and dependencies.
 > **Epistemic:** The real state vs. the target — where we are and where we are going.

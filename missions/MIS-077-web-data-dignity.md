@@ -2,7 +2,7 @@
 id: "MIS-077"
 title: "Data dignity: Numinia vs today's internet"
 type: mission
-status: backlog
+status: todo
 version: "1.0.0"
 created: "2026-08-17T18:59:03Z"
 created_source: "git:b484b68"
@@ -19,7 +19,6 @@ type_execution: "digital"
 priority: "medium"
 effort: "M"
 ---
-
 > Migrated 2026-08-17 from `numengames/numinia-web:missions/MISSION-005-data-dignity.md` (Oracle order:
 > missions centralize in NWOS L3). Body preserved verbatim; internal relative
 > links still point inside the numinia-web repo.

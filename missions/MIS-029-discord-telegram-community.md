@@ -2,7 +2,7 @@
 id: "MIS-029"
 title: "Community on Discord or Telegram"
 type: mission
-status: backlog
+status: todo
 version: "1.1.0"
 created: "2026-04-07T05:58:49Z"
 created_source: "git:428349f"
@@ -14,8 +14,7 @@ type_execution: "biological"
 priority: "medium"
 effort: "M"
 license: "CC-BY-4.0"
----
-# MIS-029 — Community on Discord or Telegram
+---# MIS-029 — Community on Discord or Telegram
 
 > **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
 > **Epistemic:** What you learn by reading this document.

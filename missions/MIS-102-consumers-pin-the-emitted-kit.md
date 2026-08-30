@@ -2,7 +2,7 @@
 id: "MIS-102"
 title: "The last three consumers stop copying: pin the emitted kit at 5.1.0"
 type: mission
-status: backlog
+status: todo
 version: "1.0.0"
 created: "2026-08-18T14:47:39Z"
 updated: "2026-08-18T14:47:39Z"
@@ -25,8 +25,7 @@ sub_missions: []
 depends_on: ["MIS-094", "MIS-091", "MIS-068"]
 started: null
 completed: null
----
-# MIS-102 — The last three consumers stop copying
+---# MIS-102 — The last three consumers stop copying
 
 > **Summary:** MIS-094 built the emitter: the kit ships as
 > `kit/5.1.0/sistema.*` with a sha256 manifest, and `numinia-web` pins it

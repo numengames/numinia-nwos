@@ -2,7 +2,7 @@
 id: "MIS-021"
 title: "Pricing and Packages Definition"
 type: mission
-status: backlog
+status: todo
 version: "1.1.0"
 created: "2026-04-07T05:58:49Z"
 created_source: "git:428349f"
@@ -14,8 +14,7 @@ type_execution: "biological"
 priority: "high"
 effort: "S"
 license: "CC-BY-4.0"
----
-# MIS-021 — Pricing and Packages Definition
+---# MIS-021 — Pricing and Packages Definition
 
 > **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
 > **Epistemic:** What you learn by reading this document.

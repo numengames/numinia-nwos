@@ -2,7 +2,7 @@
 id: "MIS-009"
 title: "Closed pilot with 5 beta users"
 type: mission
-status: backlog
+status: todo
 version: "1.1.0"
 created: "2026-04-07T05:58:49Z"
 created_source: "git:428349f"
@@ -14,8 +14,7 @@ type_execution: "hybrid"
 priority: "high"
 effort: "L"
 license: "CC-BY-4.0"
----
-# MIS-009 — Closed pilot with 5 beta users
+---# MIS-009 — Closed pilot with 5 beta users
 
 > **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
 > **Epistemic:** What you learn by reading this document.

@@ -1,6 +1,6 @@
 ---
 id: "MIS-003"
-uid: "018ef820-0003-7000-8000-000000000003"
+uid: ""
 title: "Navigable Numinia prototype"
 type: mission
 status: frozen
@@ -20,8 +20,7 @@ assigned_to: null
 requested_by: "oracle"
 started: null
 completed: null
----
-# MIS-003 — Navigable Numinia prototype
+---# MIS-003 — Navigable Numinia prototype
 
 > **Summary:** A clickable prototype showing how Numinia works, for validation with potential clients.
 > **Epistemic:** What confuses or excites people before writing any code.

@@ -2,7 +2,7 @@
 id: "MIS-022"
 title: "Alliances with indie studios and DAOs"
 type: mission
-status: backlog
+status: todo
 version: "1.1.0"
 created: "2026-04-07T05:58:49Z"
 created_source: "git:428349f"
@@ -14,8 +14,7 @@ type_execution: "biological"
 priority: "high"
 effort: "M"
 license: "CC-BY-4.0"
----
-# MIS-022 — Alliances with indie studios and DAOs
+---# MIS-022 — Alliances with indie studios and DAOs
 
 > **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
 > **Epistemic:** What you learn by reading this document.

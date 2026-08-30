@@ -1,9 +1,9 @@
 ---
 id: "MIS-002"
-uid: "018ef820-0002-7000-8000-000000000002"
+uid: ""
 title: "User map: who pays and why"
 type: mission
-status: backlog
+status: todo
 version: "1.0.0"
 created: "2026-04-07T19:43:00Z"
 updated: "2026-04-07T19:43:00Z"
@@ -19,8 +19,7 @@ assigned_to: null
 requested_by: "oracle"
 started: null
 completed: null
----
-# MIS-002 — User map: who pays and why
+---# MIS-002 — User map: who pays and why
 
 > **Summary:** Identify the 3 most likely user profiles who would pay for Numinia today.
 > **Epistemic:** Whether the ICP is B2B, B2C, or a mix.

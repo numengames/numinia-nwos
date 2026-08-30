@@ -2,7 +2,7 @@
 id: "MIS-043"
 title: "Complete reading of the Numinia RPG Manual"
 type: mission
-status: backlog
+status: todo
 version: "1.2.0"
 created: "2026-04-07T05:58:49Z"
 created_source: "git:428349f"
@@ -14,8 +14,7 @@ type_execution: "digital"
 priority: "high"
 effort: "M"
 license: "CC-BY-4.0"
----
-# MIS-043 — Complete reading of the Numinia RPG Manual
+---# MIS-043 — Complete reading of the Numinia RPG Manual
 
 > **Summary:** NWOS system mission.
 > **Epistemic:** What you learn by reading this document.

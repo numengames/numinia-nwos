@@ -2,7 +2,7 @@
 id: "MIS-060"
 title: "Agent Synchronization with the Canonical Repo"
 type: mission
-status: backlog
+status: todo
 version: "1.2.0"
 created: "2026-04-07T17:45:51Z"
 created_source: "git:01f7878"
@@ -22,7 +22,6 @@ priority: "high"
 effort: "M"
 phase: "backlog"
 ---
-
 # MIS-060 — Agent Synchronization with the Canonical Repo
 
 **Area:** CAO · **Guild:** Sentinels · **Priority:** 🟠 High · **Effort:** M

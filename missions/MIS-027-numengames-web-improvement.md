@@ -1,6 +1,6 @@
 ---
 id: "MIS-027"
-uid: "018ef820-0027-7000-8000-000000000027"
+uid: ""
 title: "numengames.com improvement"
 type: mission
 status: done
@@ -24,8 +24,7 @@ requested_by: "oracle"
 started: "2026-04-08T05:59:00Z"
 completed: "2026-08-25"
 blocked_by: "MIS-011 audit (done) — has input needed"
----
-# MIS-027 — numengames.com improvement
+---# MIS-027 — numengames.com improvement
 
 > **Summary:** Define and document a concrete improvement roadmap for numen.games based on the MIS-011 audit.
 > **Epistemic:** The audit identified root causes; this mission defines the fix strategy and sequencing.

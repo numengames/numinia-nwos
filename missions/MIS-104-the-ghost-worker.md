@@ -2,7 +2,7 @@
 id: "MIS-104"
 title: "The ghost Worker: what actually serves nwos-web.pablofm.workers.dev"
 type: mission
-status: backlog
+status: todo
 version: "1.0.0"
 created: "2026-08-18T14:47:39Z"
 updated: "2026-08-18T14:47:39Z"
@@ -25,8 +25,7 @@ sub_missions: []
 depends_on: []
 started: null
 completed: null
----
-# MIS-104 — The ghost Worker
+---# MIS-104 — The ghost Worker
 
 > **Summary:** A Cloudflare Worker may be the only host of a live product
 > surface, and no one — including the team's own code comments — can say which

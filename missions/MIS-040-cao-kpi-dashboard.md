@@ -2,7 +2,7 @@
 id: "MIS-040"
 title: "CAO dashboard: KPI definition"
 type: mission
-status: backlog
+status: todo
 version: "1.1.0"
 created: "2026-04-07T05:58:49Z"
 created_source: "git:428349f"
@@ -14,8 +14,7 @@ type_execution: "hybrid"
 priority: "high"
 effort: "M"
 license: "CC-BY-4.0"
----
-# MIS-040 — CAO dashboard: KPI definition
+---# MIS-040 — CAO dashboard: KPI definition
 
 > **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
 > **Epistemic:** What you learn by reading this document.

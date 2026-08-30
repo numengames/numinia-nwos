@@ -2,7 +2,7 @@
 id: "MIS-103"
 title: "The other seventeen: inventory and adoption across the organization"
 type: mission
-status: backlog
+status: todo
 version: "1.0.0"
 created: "2026-08-18T14:47:39Z"
 updated: "2026-08-18T14:47:39Z"
@@ -25,8 +25,7 @@ sub_missions: []
 depends_on: ["MIS-070"]
 started: null
 completed: null
----
-# MIS-103 — The other seventeen
+---# MIS-103 — The other seventeen
 
 > **Summary:** The organization has around twenty-one repositories. Four have
 > ever been audited. This mission produces the real table: repository by

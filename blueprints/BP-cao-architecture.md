@@ -1,6 +1,6 @@
 ---
 id: "BP-cao-architecture"
-uid: "018ef821-0045-7000-8000-000000000045"
+uid: ""
 title: "CAO Architecture — Complete System Reference"
 type: blueprint
 status: active
@@ -13,8 +13,7 @@ tags: [blueprint, cao, architecture, agents, protocols, tools, system]
 area: "CAO"
 license: "CC-BY-4.0"
 mission: "MIS-045"
----
-# BP — CAO Architecture
+---# BP — CAO Architecture
 
 > **Summary:** Complete architectural reference of the Numen Games CAO — agents, repos, protocols, tools, and data flows.
 > **Epistemic:** How the CAO works as a system: what each component does, how they connect, and where the boundaries are.

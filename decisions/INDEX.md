@@ -1,6 +1,6 @@
 ---
 id: "decisions-index"
-uid: "01a03457-27cc-710a-a828-17568e57e41e"
+uid: ""
 title: "Decisions — Index"
 type: adr
 status: active
@@ -13,8 +13,7 @@ author: "nimrod"
 owner: "oracle"
 tags: [decisions, index, adr]
 license: "CC-BY-4.0"
----
-# Decisions — Crystallized Will
+---# Decisions — Crystallized Will
 
 > **Summary:** NWOS system document — Decisions — Index.
 > **Epistemic:** What was decided, why, and what alternatives were discarded.

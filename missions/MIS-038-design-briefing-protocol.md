@@ -1,6 +1,6 @@
 ---
 id: "MIS-038"
-uid: "018ef820-0038-7000-8000-000000000038"
+uid: ""
 title: "Design Briefing Protocol v1.0"
 type: mission
 status: done
@@ -23,8 +23,7 @@ assigned_to: "nimrod"
 requested_by: "oracle"
 started: "2026-04-08T05:46:00Z"
 completed: "2026-04-08T05:50:00Z"
----
-# MIS-038 — Design Briefing Protocol v1.0
+---# MIS-038 — Design Briefing Protocol v1.0
 
 > **Summary:** Define the standard protocol for how a digital agent receives, reads, and confirms understanding of a mission briefing before executing.
 > **Epistemic:** Without a standard briefing protocol, agents start missions with ambiguous context, leading to rework and divergence.

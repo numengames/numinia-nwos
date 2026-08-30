@@ -1,9 +1,9 @@
 ---
 id: "MIS-031"
-uid: "018ef820-0031-7000-8000-000000000031"
+uid: ""
 title: "Final review of the Arbitrum grant"
 type: mission
-status: backlog
+status: todo
 version: "1.0.0"
 created: "2026-04-07T19:43:00Z"
 updated: "2026-04-07T19:43:00Z"
@@ -20,8 +20,7 @@ requested_by: "oracle"
 started: null
 completed: null
 blocked_by: "Numen Games wallet address required from Pablo"
----
-# MIS-031 — Final review of the Arbitrum grant
+---# MIS-031 — Final review of the Arbitrum grant
 
 > **Summary:** Review and close the Arbitrum grant draft, then submit in the next evaluation cycle.
 > **Epistemic:** Clarifies Numen Games' value proposition within the blockchain ecosystem.
