@@ -3,10 +3,10 @@ id: "D-003"
 uid:
 title: "human_approval_score states a range but not what it measures"
 type: documentation
-status: active
-version: "1.0.0"
+status: closed
+version: "2.0.0"
 created: "2026-08-25T00:32:00Z"
-updated: "2026-08-25T00:32:00Z"
+updated: "2026-08-30T17:51:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -67,3 +67,22 @@ retrofitted onto inconsistent data.
 | Blocked by | nothing; it needs a decision, not work |
 | Opened | 2026-08-24, by `S-001` §11 |
 | Closes when | defined in `S-001` §6, or retired and replaced |
+| **Closed** | **2026-08-30** — Oracle adopted reading 1 (the gate). Definition lives in `standards/governance.md` «Human approval scale» |
+
+## RESOLUTION — 2026-08-30
+
+**This entry's own premise was partly false.** The line above — *"Nothing in
+the corpus defines it"* — was wrong when written: `STANDARDS.md` §9 (root,
+April 2026) defined the scale as an approval **gate** with categories and
+response times. The verification missed the repo root.
+
+The Oracle, 2026-08-30 (standards consolidation): **reading 1 is adopted** —
+the field states how much human approval an action needs *before* it happens,
+per the 1-10 scale now in `standards/governance.md` («Human approval scale»,
+absorbed from STANDARDS §9). Filled by whoever writes the mission, read as a
+gate, never as a grade or a prediction.
+
+Deviation from the closure clause, declared: the definition lands in
+`governance.md`, not `S-001` §6 — it is authority (who must approve), not
+vocabulary. The clause's substance — what is measured, who fills it, when,
+what a reader may conclude — is satisfied.

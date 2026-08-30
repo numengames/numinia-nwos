@@ -142,7 +142,7 @@ performs is the failure mode this repository exists to avoid.
 
 ## Contributing
 
-Read [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`GOVERNANCE.md`](GOVERNANCE.md).
+Read [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`standards/governance.md`](standards/governance.md).
 Work enters through pull requests; the Oracle signs what changes the shape of
 the archive. The repository is written in English
 ([`DEC-006`](decisions/DEC-006-english-official-repo-language.md)).

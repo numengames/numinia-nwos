@@ -22,6 +22,12 @@ export default defineConfig({
 	// DEUDA-404 records what happens without this: /corpus/canon/c-006-manual-
 	// juego-de-rol/ (890 KB) died in April and nobody noticed. See D-028.
 	redirects: {
+		// 2026-08-30 standards consolidation: GOVERNANCE.md and STANDARDS.md
+		// moved from the repo root into standards/. Old corpus URLs 301 (D-028).
+		// /corpus/standards is NOT redirected: it is the standards section
+		// index ([section]/index.astro) and keeps resolving on its own; the
+		// superseded document now lives at /corpus/standards/standards.
+		"/corpus/governance": "/corpus/standards/governance",
 		// MIS-120(e) — /es/ is gone; its five pages now 301 to their English
 		// originals so links minted while the locale existed keep resolving.
 		"/es": "/",
