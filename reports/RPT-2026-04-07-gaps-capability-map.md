@@ -1,15 +1,17 @@
 ---
-id: "GAPS"
+id: "RPT-2026-04-07"
 title: "GAPS.md — Numen Games' map of blind spots"
 type: documentation
-status: active
-version: "1.0.0"
-created: "2026-04-07T00:00:00Z"
-updated: "2026-08-17T00:00:00Z"
+status: closed
+version: "1.1.0"
+created: "2026-08-17T19:30:52Z"
+created_source: "git:809f717"
+updated: "2026-08-30T19:40:00Z"
 author: "nimrod"
 owner: "oracle"
 tags: [gaps, strategy, capability-map]
 license: "CC-BY-4.0"
+related: ["ADR-031", "MIS-044"]
 extraction_note: "Extracted verbatim from web/src/pages/gaps.astro (MIS-071 phase 2 — File over App). Fulfils MIS-044's original criterion 'Publicado como GAPS.md', which had been satisfied only as a web page."
 registration: exempt
 registration_reason: "singular document, not a numbered series"

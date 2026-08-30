@@ -42,7 +42,7 @@ const CACHE_DIR = "web/.translation-cache";
 // under the published corpus is fair game for the machine.
 const INCLUDE = ["missions/**/*.md", "protocols/**/*.md", "operations/**/*.md",
   "guilds/**/*.md", "reports/**/*.md", "debt/**/*.md", "standards/**/*.md"];
-// The signed plan excludes: canon/, decisions/, LEGAL_DEBT, licensing.
+// The signed plan excludes: canon/, decisions/, legal debt entries, licensing.
 // standards/ was NEVER on that list — it was excluded by mistake and is
 // reinstated here. Legal surfaces are excluded by BOTH directory and name:
 // privacy policies and terms are contracts, not prose, and a machine

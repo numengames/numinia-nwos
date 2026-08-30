@@ -22,6 +22,10 @@ export default defineConfig({
 	// DEUDA-404 records what happens without this: /corpus/canon/c-006-manual-
 	// juego-de-rol/ (890 KB) died in April and nobody noticed. See D-028.
 	redirects: {
+		// 2026-08-30 ADR-031: root registers dissolved. Old corpus URLs 301.
+		"/corpus/gaps": "/corpus/reports/rpt-2026-04-07-gaps-capability-map",
+		"/corpus/legal_debt": "/corpus/debt",
+		"/corpus/deuda-404": "/corpus/debt",
 		// 2026-08-30 standards consolidation: GOVERNANCE.md and STANDARDS.md
 		// moved from the repo root into standards/. Old corpus URLs 301 (D-028).
 		// /corpus/standards is NOT redirected: it is the standards section

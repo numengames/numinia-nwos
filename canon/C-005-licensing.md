@@ -9,7 +9,7 @@ version: 1.4.0
 fecha: 2026-08-27
 estado: canon — immutable; modifying it requires formal consensus (NWOS)
 ambito: every piece created from this date onward
-no_ambito: inventory of the inherited (`LEGAL_DEBT.md`) · reasoning and alternatives (Legal Book v0.6.1, archived)
+no_ambito: inventory of the inherited (`debt/` entries tagged `legal`, ADR-031) · reasoning and alternatives (Legal Book v0.6.1, archived)
 idioma_canonico: en   # es-ES until 2026-08-27 — exception revoked by ADR-024, translated under MIS-116
 procedencia_secciones: every section marked [UNIVERSAL] or [NUMEN] (§0)
 convenciones_normativas: RFC 2119 (MUST / SHOULD / MAY)
@@ -159,7 +159,7 @@ cannot waive someone else's.
 **Present is not distributed.** The *never* list applies to what is **distributed
 or served**. A forbidden transitive dependency that stays out of the final artifact
 through *tree-shaking* **MUST NOT** block development, but **MUST**: be logged in
-`LEGAL_DEBT.md` with an **exit threshold** —not a date, the condition that makes it
+a `debt/` entry tagged `legal` (ADR-031) with an **exit threshold** —not a date, the condition that makes it
 untenable—; be protected by a CI guard that inspects the artifact's **contents**,
 not the tree's names, because bundlers inline code; and be verified against the
 real text of the license, not against its label. Mandatory check before granting
@@ -296,7 +296,7 @@ only tracks that neither deploy to production nor publish. Severity follows
 **exposure**, not the directory's or domain's name; if the system cannot determine
 exposure, error.
 
-**Debt thresholds (MUST).** The exits recorded in `LEGAL_DEBT.md` are expressed as
+**Debt thresholds (MUST).** The exits recorded in `debt/` entries tagged `legal` (ADR-031) are expressed as
 a condition, not a date, and **the CI guard evaluates them on every build**. The
 condition is the trigger: a threshold nobody measures is not an exit, it is a
 wish.
@@ -387,7 +387,7 @@ proprietary, CC-NC, CC-ND. Resolve every dependency's SPDX from the registry BEF
 adding it — never from memory.
 
 **Present is not distributed.** A forbidden transitive dependency that tree-shaking
-keeps out of the artifact does NOT block work, but MUST be logged in `LEGAL_DEBT.md`
+keeps out of the artifact does NOT block work, but MUST be logged as a `debt/` entry tagged `legal` (ADR-031)
 with an **exit threshold** (a condition, not a date, evaluated by CI on every build)
 and guarded by a check that inspects the artifact's **contents** — bundler metafile or
 module paths, never comment strings, which minifiers strip. Hard limit: **if that
@@ -438,6 +438,7 @@ work; when it is silent, ask rather than infer.
 |---|---|---|
 | 1.4.0 | 2026-08-27 | **Language amendment (`ADR-024`, canon-change).** §5 revokes the exception *«this canon is internal governance and remains in es-ES»*: English is the base language of every summa (`DEC-006`), canon included — governance documents are part of what an organization adopting NWOS reads. The body translation was executed as a separate PR under `MIS-116` (`canon/` row); `idioma_canonico` moved to `en` in that PR, once the fact it describes became true. Sole exception, recorded as debt in the ADR: the role-playing game manual (`numinia-lore`, reserved lore, external source of truth). §9's closing line follows the document's translated title. |
 | 1.3.0 | 2026-08-16 | **Consolidation.** Resolved the §1↔§5 contradiction: *silence does not declare* — the reserved is expressed with a reservation `LICENSE`, not with absence. New **§2.5, the generator rule** [UNIVERSAL]: a template never propagates its license to what it generates and emits a reservation in the client's name; client *workspaces* fall outside §5. New **§2.6, AI provenance**: `human · ai-assisted · ai-generated`, with the contractual part marked [LAWYER]. New **visibility-change gate** (§4): turning a repo public **is** the grant, before `npm publish`, and it is verified against a real directory listing, not a hand-written list. **One file, one regime** (§5): an `AND` mixing an open license with reservation is an impossible permission; the content is separated. **Default severity error** and no naming of domains; debt thresholds are evaluated by CI on every build. **Language**: the enforceable artifacts —`LICENSE`, `TRADEMARKS.md`, `NOTICE`, CLA, fragment— in English; the canon stays in es-ES. New **§0**: scope limited to Numen Games repositories and [UNIVERSAL]/[NUMEN] marks per section so that future promotion is mechanical. The §9 fragment becomes self-sufficient: present≠distributed, one file one regime, generators, visibility in *stop and ask*. |
+| 1.3.0 | 2026-08-30 | **One debt register** (ADR-031, formal consensus): every clause that named `LEGAL_DEBT.md` now points at `debt/` entries tagged `legal`. LD-001..005 became D-042..D-046, text verbatim. The MUSTs are untouched; only the register moved. |
 | 1.2.0 | 2026-08-16 | **Present is not distributed** (§3). The gate's first clash with the real tree: a forbidden transitive dependency that *tree-shaking* keeps out of the artifact does not block development, but demands a `LEGAL_DEBT.md` entry with an exit **threshold**, a CI guard over the artifact's contents —not over the tree's names— and a reading of the license's real text. With a hard limit: **if the license imposes additional restrictions and the artifact is AGPL, no exception fits**, because the resulting state is uncompliable by construction. The missing `license` field is downgraded from breach to hygiene signal: it blocks while the terms are unknown, clears once documented. |
 | 1.1.0 | 2026-08-16 | Three amendments after first contact with the code. **The repository is not a legal unit** (§2): the boundary is `apps/*` AGPL / `packages/*` MIT declared by `REUSE.toml`, with dependency direction as the real condition; the separate repository is reserved for **inherited** copyleft, the only kind a third party can enforce. **Header exception** (§5): files that cannot be modified —pinned kits, *vendored*, generated, binaries— are declared via `REUSE.toml` or `.license`. **CLA per repository, not per path** (§6): a path-conditioned CLA fails silently. The §9 fragment incorporates contributions and exceptions, which previously lived only in the canon. |
 | 1.0.0 | 2026-08-16 | Entry into canon as C-005. The reasoning —discarded alternatives, precedents, justifications— is withdrawn and archived in the Legal Book v0.6.1. This canon contains only norm. |
