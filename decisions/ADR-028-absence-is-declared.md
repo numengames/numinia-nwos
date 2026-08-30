@@ -18,7 +18,7 @@ visibility: "public"
 deciders: ["oracle"]
 consulted: ["ursa"]
 outcome: "S-001 §6.3 amended: three forms of absence, TBA countable. Closed vocabularies must be checked. Five standard/guard contradictions recorded."
-related: ["S-001", "S-004", "MIS-121", "MIS-122", "D-009", "D-010", "D-025", "ADR-027"]
+related: ["S-001", "S-004", "MIS-121", "MIS-122", "D-001", "D-009", "D-010", "D-025", "ADR-027"]
 ---
 # ADR-028 — Absence is declared, not omitted
 
@@ -114,6 +114,14 @@ requires an ADR."* Measured against the guard:
 **Three of the five declared vocabularies are unenforced, and a sixth field
 is enforced by nobody because it was never declared.** Thirty-four documents
 hold values that `S-001` §7 calls invalid, and nothing has ever said so.
+
+**This is not a new finding. It is `D-001`**, opened 2026-08-24: *"the
+glossary declares rules that no machine verifies."* `S-001` links to it
+eight times. The measurement above was made from scratch, six days later, by
+an author who had read `S-001` repeatedly and never opened the debt entry it
+cites. What this ADR adds to `D-001` is not the diagnosis but the
+enumeration — which vocabularies, how many invalid values, and a rule that
+prevents the next one.
 
 Therefore: **a field whose vocabulary is declared closed must have a value
 check in `lint-frontmatter.mjs`.** A vocabulary the guard cannot read is a
