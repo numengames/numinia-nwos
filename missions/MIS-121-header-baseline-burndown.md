@@ -320,6 +320,21 @@ Small, specific, each one stopping a class of work. **Three were ruled on
 rulings are recorded here rather than in a chat log, because a mission that
 hides its decisions makes the next reader guess.
 
+> **Update 2026-08-30 — two of these blockers were decided the same day.**
+> `ADR-028` (*absence is declared, not omitted*) rules that a field may carry
+> `"TBA"` when the value applies but is not yet decided, and that no closed
+> vocabulary ships without a check. `ADR-029` ratifies `S-004`
+> (`draft` → `active`, `1.0.0`) and admits `type: agent`, which the guard was
+> already enforcing without a decision.
+>
+> Consequence for this mission: **the 142 `area` → `territory` findings are
+> unblocked without settling the `territory` vocabulary** — 66 map 1:1 and
+> take their value, the other 76 take `"TBA"` and name the mission that
+> resolves them. The `territory` vocabulary itself stays unruled (`D-010`).
+>
+> Neither ADR changes any check. `MIS-123` is the mission that implements
+> them; until it lands, `"TBA"` is legal prose that no instrument counts.
+
 1. **`uid` — the values are debt, the rule is broken. Ruled 2026-08-30.**
    **No document should carry a `uid` value. Where one exists it is debt, not
    data; the field is declared and left empty. Emptying the 34 written values
