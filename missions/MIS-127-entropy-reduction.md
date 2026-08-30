@@ -4,7 +4,7 @@ uid:
 title: "Entropy reduction: fewer documents, one vocabulary, registers that die"
 type: mission
 status: in-progress
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-08-30T18:50:00Z"
 updated: "2026-08-30T18:50:00Z"
 author: "ursa"
@@ -39,11 +39,10 @@ tokens (cl100k_base). Baseline census at `eb2d8f4`: **328 md files,
 |---|---|---|---|---|
 | 1 | [#145](https://github.com/numengames/numinia-nwos/pull/145) (merged) | Root norms into `standards/`: GOVERNANCE moved+absorbed §7F/§9; STANDARDS superseded to a map; D-003 ruling; ARC-06 commit types | −1 active norm | **−2,401** |
 | 2 | [#146](https://github.com/numengames/numinia-nwos/pull/146) | ADR-030 debt extinction; nine closed/de-facto-resolved entries extinguished; INDEX backfill ADR-027..030 | −9 | **≈ −10,700** net |
-| 3 | pending | Root registers into `debt/`: DEUDA-404 + GAPS live gaps become D-NNN entries; LEGAL_DEBT move awaits its C-005 §5 amendment ADR | −3 | est. −6,000 |
+| 3 | [#147](https://github.com/numengames/numinia-nwos/pull/147) | ADR-031: LD-NNN dissolved into D-042..046 (tag `legal`), 404→D-040/041, GAPS frozen to reports/, C-005 v1.3.0 amended | −3 root files | live text kept; root register genre extinct |
 
 ## Open decision queue (one at a time, Oracle signs each)
 
-- C-005 §5 amendment ADR for the LEGAL_DEBT move (drafted, unsigned).
 - Freeze April-era commercial missions (MIS-017..050 todo, ~40 docs).
 - Freeze April blueprints nothing invokes (20 active, ~160K chars).
 - Single status vocabulary across every series (S-001).
