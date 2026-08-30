@@ -14,8 +14,8 @@ completed: null
 # REGISTRO
 type: mission
 version: "1.0.0"
-created: "2026-08-30T11:00:00Z"
-updated: "2026-08-30T11:00:00Z"
+created: "2026-08-30T09:00:00Z"
+updated: "2026-08-30T10:36:00Z"
 author: "ursa"
 owner: "oracle"
 tags: [standards, frontmatter, guard, vocabulary, adr-028, tba]
@@ -84,11 +84,35 @@ and no `CHECK` constraint.
 
 ## Declared cost — the number goes up before it goes down
 
-Turning on the three value checks surfaces **~34 violations that exist today
-and are invisible**. They bank into the baseline on the first run.
+**Remeasured at `7fae24f`, 2026-08-30 — and it is cheaper than first written.**
+The original estimate of ~34 was made against a guessed guild vocabulary; the
+real one is `S-001` line 957, four guilds only: `Sentinels · Alchemists ·
+Exegetes · Procurators`.
 
-**843 → ~877, then down.** Anyone reading the counter without this paragraph
-will think the repository got worse on the day it started telling the truth.
+| Field | Values in use | Invalid | What they are |
+|---|---|---|---|
+| `guild` | 190 | **14** | `Procuradores` ×8 (Spanish), `alchemists` ×4 (lowercase), `procurators` ×1, 1 with a trailing comment |
+| `type_execution` | 106 | **6** | `híbrido` ×3, `technical`, `técnico`, 1 with a trailing comment |
+| `territory` | 70 | **16** | see below — the vocabulary is the suspect, not the documents |
+| `visibility` | 41 | — | `public` ×40, `restricted-oracle` ×1; **no vocabulary declared at all** |
+
+**543 → ~563 for `guild` + `type_execution`, then down.** Anyone reading the
+counter without this paragraph will think the repository got worse on the day
+it started telling the truth.
+
+### `territory` is blocked on a decision, not on code
+
+`S-001` line 964 declares `CAO · Product · Platform · Infrastructure ·
+Content · Sales · Funding · Archive`. **Actual use barely overlaps:** `Archive`
+×50 and `Infrastructure` ×4 are the only declared values in service, while
+`Canon` ×8, `Standards` ×3, `Legal` ×3 and `Governance` ×2 are used and
+undeclared.
+
+Turning the check on as written would mark **16 documents wrong when the more
+likely error is the vocabulary**. Held for the Oracle: either the four
+in-service values join `S-001` §7, or the 16 documents are migrated. This
+mission does not decide it.
+
 
 ## Acceptance
 
@@ -114,20 +138,32 @@ field come from comparing each document's frontmatter against the lists in
 `S-001` §7; the `null` census (`completed` ×37, `assigned_to` ×24 = 61
 documents, zero baseline entries) is what `ADR-028` legalises.
 
-## A mission can be conformant or visible, not both
+## A mission can be conformant or visible, not both — RESOLVED 2026-08-30
 
-`S-001` §9 declares `todo` a valid mission status, so this mission carries it.
-**`web/src/views/MissionsView.astro` never renders it:** `COLUMN_ORDER` is
-`["in-progress", "in-review", "backlog", "done"]`, and only `draft` is mapped
-into a column (line 71, into `backlog`).
+> **Fixed in `ec4c968` (PR #129). Kept here because it is the evidence, and
+> because it is why anyone looked.** `todo` is now a first-class column and
+> **57 missions** that were invisible on numinia.org are rendered, these three
+> among them. Verified against the built HTML, not the source: the cards carry
+> `data-status="todo"`, and `astro build` produces 673 pages.
 
-`MIS-121`, `MIS-122` and this mission are therefore **absent from the mission
+The defect, as found: `S-001` §9 declares `todo` a valid mission status, so
+this mission carries it. **`web/src/views/MissionsView.astro` never rendered
+it:** `COLUMN_ORDER` was `["in-progress", "in-review", "backlog", "done"]`,
+and only `draft` was mapped into a column (line 71, into `backlog`).
+
+`MIS-121`, `MIS-122` and this mission were therefore **absent from the mission
 board on numinia.org** while being perfectly valid documents. The alternative
 — writing `backlog` — is a retired status and adds an `H-04` finding.
 
-This is `D-009` seen from the other side: the board was built around the
-vocabulary the standard retired, so conformance and visibility now point in
-opposite directions. Fixing it is one line in `COLUMN_ORDER` plus a decision
-about where `todo` sits relative to `backlog`; that decision belongs to
-`D-009`, not here. Recorded so the next reader does not conclude the missions
-were never published.
+This was `D-009` seen from the other side: the board was built around the
+vocabulary the standard retired, so conformance and visibility pointed in
+opposite directions. **The fix went to the code, not to the documents** —
+writing `backlog` into 50 files would have been correcting the corpus to suit
+a bug, and would have added 50 findings to do it.
+
+**How it was found matters more than the fix.** The Oracle's instruction that
+the Mission Board is where Numinia's history lives sent this work to
+`missions/` in the first place; the defect surfaced on the way. Nothing in the
+guards would have caught it — no check reads the web layer. That gap is still
+open.
+

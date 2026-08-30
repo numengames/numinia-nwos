@@ -14,8 +14,8 @@ completed: null
 # REGISTRO
 type: mission
 version: "1.1.0"
-created: "2026-08-30T06:43:00Z"
-updated: "2026-08-30T08:15:00Z"
+created: "2026-08-30T04:43:00Z"
+updated: "2026-08-30T10:36:00Z"
 author: "ursa"
 owner: "oracle"
 tags: [archive, frontmatter, s-004, migration, debt]
@@ -210,6 +210,38 @@ rename's clothes, and the numbers below say how many decisions each is.
       reverted. So this check **cannot start until `MIS-122` fixes the `H-09`
       rule** — not a preference, a mechanical block. Trading 34 `H-20` for 34
       `H-09` would also leave the count unchanged.
+
+      **Unblocked 2026-08-30 (`ec4c968`, PR #129).** `MIS-122` closed: `H-09`
+      now exempts `uid`, so emptying a value no longer trades one violation
+      for another. The census that gates this work, remeasured at `7fae24f`:
+      **99** files declare the field — **34** with a hand-authored value,
+      **65** declared-and-empty as §6.2 requires. The guard's 34 is exact
+      (0 false positives, 0 misses). §6.2's "32" is the stale figure and is
+      the one to correct when these are emptied.
+
+## Progress — 2026-08-30
+
+| Commit | What changed | Baseline |
+|---|---|---|
+| `baf188b` | starting point, before any of this | **844** |
+| `ec4c968` (#129) | `H-09` exempts `uid`; `H-20`'s message corrected; `todo` column restored to the web | **779** |
+| `7fae24f` (#130) | `created`/`updated` backfilled from git with provenance; `git:pending` redeemed; `created_confidence` settled on one spelling | **543** |
+
+**844 → 543 in one day: 301 findings, 36% of the baseline, and not one
+document edited to satisfy a rule it already obeyed.** Two of the three
+classes closed were code defects, not corpus defects: `H-09` was punishing
+the form `S-001` §6.2 mandates, and `H-20`'s message advised the opposite of
+the standard.
+
+| Class | Was | Now | How |
+|---|---|---|---|
+| `H-09` empty value | 74 | **10** | rule fixed — `uid` exempted |
+| `H-06` bad `created` | 182 | **8** | backfilled from git |
+| `H-07` bad `updated` | 70 | **11** | backfilled from git |
+| `H-13` bad `created_source` | 3 | **0** | `git:pending` redeemed |
+
+Remaining, unchanged and still the real work: `H-31` **158**, `H-04` **118**,
+`H-30` **111**, `H-01` **41**, `H-20` **34** (now unblocked).
 
 ### Judgement classes — no script decides these
 

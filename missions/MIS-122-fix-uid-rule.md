@@ -9,13 +9,13 @@ guild: "Alchemists"
 territory: "Standards"
 type_execution: digital
 assigned_to: null
-completed: "2026-08-30T11:40:00Z"
+completed: "2026-08-30T10:36:00Z"
 
 # REGISTRO
 type: mission
 version: "2.0.0"
-created: "2026-08-30T07:05:00Z"
-updated: "2026-08-30T11:40:00Z"
+created: "2026-08-30T05:05:00Z"
+updated: "2026-08-30T10:36:00Z"
 author: "ursa"
 owner: "oracle"
 tags: [standards, frontmatter, uid, s-001, guard]
@@ -122,32 +122,93 @@ The corpus is not what is broken here.
 
 ## Acceptance criteria
 
-- [ ] **`H-09` exempts `uid`.** The rule keeps firing for every other field —
+- [x] **`H-09` exempts `uid`.** The rule keeps firing for every other field —
       an empty value is still not the same as an absent one — and stops
       firing for the one field the standard requires empty. Verified by
       emptying a written `uid` and watching the ratchet hold, the same
       experiment that fails today.
-- [ ] **The 64 disappear from the baseline without a single document being
+
+      **Done, `ec4c968` (PR #129).** `H-09` reports **10** findings, **0** of
+      them `uid`; the other ten are other fields, so the rule still bites.
+      Tested in all four directions per `P-013`: a non-`uid` empty field is
+      still rejected; an empty `uid` is not; adding a valued `uid` to a clean
+      file makes the ratchet fail; adding an empty one does not.
+- [x] **The 64 disappear from the baseline without a single document being
       edited.** That is the proof they were never the corpus's defect. The
       count drops to **779** and no `.md` file changes in the same commit.
-- [ ] **One number survives.** `S-001` §6.2 records **32** `uid` present, the
+
+      **Done, `ec4c968`.** Baseline **843 → 779**. The commit touches exactly
+      two `.md` files — `MIS-121` and this mission — and both are the record
+      of the work, not documents being corrected to satisfy the rule. Not one
+      of the 64 was edited.
+- [x] **One number survives.** `S-001` §6.2 records **32** `uid` present, the
       guard finds **34**, the filesystem has **100** files carrying the
       field. Three figures for one fact. Whichever is correct is measured at
       a named commit with the command written beside it, and the other two
       are corrected or explained.
-- [ ] **The guard declares its blind spot.** `README.md` and `STANDARDS.md`
+
+      **Measured at `7fae24f` — and the answer is that all three were about
+      different things.** 326 tracked `.md` files; **99** declare the field,
+      not 100 (the hundredth was a miscount, not a file). Of those, **34**
+      carry a hand-authored value and **65** are declared-and-empty as
+      `S-001` §6.2 requires. The guard's 34 is **exact**: every flagged file
+      has a value and every valued file is flagged — 0 false positives, 0
+      misses. §6.2's "32" predates two additions and is the figure to
+      correct. Reproduced by `/tmp/uid_real.py`; see the note below on how
+      this was nearly miscounted a second time.
+- [x] **The guard declares its blind spot.** `README.md` and `STANDARDS.md`
       carry `uid` at the repository root and the guard never reaches them —
       which is why 100 files have the field and 98 are flagged. `D-025`
       requires a guard to declare what it cannot see. Either widen the scope
       or write the limitation into the header; do not leave it undeclared.
-- [ ] **`MIS-121` is unblocked.** Its `H-20` check — emptying the 34
+
+      **There is no blind spot. This criterion rested on a false premise of
+      mine and is closed by disproving it.** The guard walks `git ls-files`,
+      which includes the repository root; all 12 root `.md` files are in
+      scope. `README.md` does carry a `uid` and **is** flagged — it appears
+      in `--report`. `STANDARDS.md` carries none. Nothing is undeclared
+      because nothing is unseen, so `D-025` does not apply here.
+- [x] **`MIS-121` is unblocked.** Its `H-20` check — emptying the 34
       hand-authored values, 2 of them colliding — can start the moment this
       closes, and not before.
 
+      **Unblocked.** Emptying a `uid` no longer converts an `H-20` into a new
+      `H-09`, which was the exact deadlock. The 34 remain in the baseline as
+      declared work, and the 2 colliding values are
+      `018ef820-0062-…` and `018ef820-0001-…`, each appearing twice.
+
 ```bash
+# Verified at 7fae24f, 2026-08-30
 node scripts/lint-frontmatter.mjs --report | grep -c '^H-09.*uid'
-# baf188b: 64 · target: 0, with zero .md files modified
+# baf188b: 64 · now: 0, with zero .md files modified
+
+node scripts/lint-frontmatter.mjs --report | grep -c '^H-20'
+# 34 — exactly the 34 files carrying a hand-authored value
 ```
+
+### A counting trap worth writing down
+
+The census above was nearly wrong a second time, in a new way. The obvious
+regex for reading the field —
+
+```python
+re.search(r'^uid:\s*(.*)$', frontmatter, re.M)   # WRONG
+```
+
+— reports **99 files with a value and 0 empty**, which is the exact opposite
+of the truth. `\s*` matches across the newline, so an empty `uid:` silently
+captures the *next* line: `README.md` came back with `uid: title: "numinia-nwos"`.
+The fix is to keep the match on one line:
+
+```python
+re.compile(r'^uid:[ \t]*([^\n]*)$', re.M)        # RIGHT
+```
+
+This is the same class of defect as `count-evidence.py`'s 66 phantom
+collisions: **a measuring instrument that is wrong reads as a corpus that is
+wrong**, and it argues for editing 65 documents that were already correct.
+Both were caught by cross-checking one instrument against another — the
+guard's 34 against the filesystem's — rather than by trusting either alone.
 
 ---
 
