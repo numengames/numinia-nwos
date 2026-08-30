@@ -1,0 +1,40 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+// MIS-128 — the 404 the archive owes its readers. DEUDA-404 records URL
+// breakages as accepted policy ("we own it and document the 404s"); this
+// page is the other half of owning it: a lost reader gets the site's own
+// navigation and search instead of Cloudflare's bare error. Served by
+// Workers via `not_found_handling = "404-page"` (wrangler.toml).
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout
+  title="404 — Not found · Numinia"
+  description="This URL answers nothing. The search and the corpus index can find what moved."
+  canonicalPath="/404"
+>
+  <section class="pb-20 pt-24">
+    <div class="mx-auto max-w-[800px] px-6">
+      <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">HTTP 404</p>
+      <h1 class="font-display text-4xl sm:text-5xl text-foreground mb-6">This URL answers nothing.</h1>
+      <p class="text-muted-foreground leading-relaxed mb-4">
+        The archive renames and retires documents on purpose, and some breakage
+        is accepted and recorded rather than hidden — see
+        <a href="/corpus/debt" class="text-accent hover:underline">the debt register</a>,
+        the public register of exactly that. If a link brought you here, the
+        document most likely moved.
+      </p>
+      <ul class="text-sm text-muted-foreground leading-relaxed list-disc pl-5 mb-10 space-y-1">
+        <li>Use the search in the top bar — it indexes every published page.</li>
+        <li>Browse from the <a href="/corpus" class="text-accent hover:underline">corpus index</a> — all six sections.</li>
+        <li>Or start at the <a href="/" class="text-accent hover:underline">home page</a>.</li>
+      </ul>
+      <div class="flex items-center gap-3">
+        <span class="h-px flex-1 bg-border"></span>
+        <span class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">nothing was deleted silently</span>
+        <span class="h-px flex-1 bg-border"></span>
+      </div>
+    </div>
+  </section>
+</Layout>

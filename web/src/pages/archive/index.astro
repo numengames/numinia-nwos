@@ -497,11 +497,15 @@ const graphEdges = _graph.edges as [string, string][];
 
       <div class="grid gap-3 sm:grid-cols-3 mb-12">
         {[
-          { file: "archive-summa-arquitectura-v0.1.0.md", titulo: "Arquitectura v0.1.0", desc: "Estructura completa, governance, permisos, jerarquía de delegación Alpha→v1.0.0" },
-          { file: "archive-summa-fundacional-v0.1.0.md", titulo: "Documento Fundacional", desc: "100 simulaciones, 12 principios operativos, protocolo de arranque canónico" },
-          { file: "archive-summa-prompt-v0.1.0.md", titulo: "Prompt para IAs", desc: "Prompt completo para estudiar la arquitectura con cualquier IA. Incluye contexto técnico y preguntas." },
+          // MIS-128 — these three linked /archive/archive-summa-*.md, the
+          // public/ copies retired in d039463. b40fbe6 repointed the
+          // blueprint's downloads at the corpus copies but missed this page;
+          // same target paths, verified against dist.
+          { file: "archive-summa-arquitectura-v0.1.0.md", href: "/corpus/blueprints/archive-summa-arquitectura-v010.md", titulo: "Arquitectura v0.1.0", desc: "Estructura completa, governance, permisos, jerarquía de delegación Alpha→v1.0.0" },
+          { file: "archive-summa-fundacional-v0.1.0.md", href: "/corpus/blueprints/archive-summa-fundacional-v010.md", titulo: "Documento Fundacional", desc: "100 simulaciones, 12 principios operativos, protocolo de arranque canónico" },
+          { file: "archive-summa-prompt-v0.1.0.md", href: "/corpus/blueprints/archive-summa-prompt-v010.md", titulo: "Prompt para IAs", desc: "Prompt completo para estudiar la arquitectura con cualquier IA. Incluye contexto técnico y preguntas." },
         ].map((d) => (
-          <a href={`/archive/${d.file}`} download={d.file}
+          <a href={d.href} download={d.file}
             class="rounded-xl border border-accent/20 bg-accent/5 p-5 hover:bg-accent/10 transition-colors block group">
             <div class="flex items-start justify-between mb-2">
               <span class="inline-flex items-center gap-1.5 font-mono text-[0.6rem] text-accent uppercase tracking-wider"><Icon name="file-text" size={11} /> .md</span>

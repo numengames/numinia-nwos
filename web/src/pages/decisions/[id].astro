@@ -27,7 +27,7 @@ const { Content } = await render(entry);
 const f = entry.data as Record<string, any>;
 const decId = (f.id as string).toUpperCase();
 const mdFilename = (entry.filePath as string).split("/").pop()!;
-const mdUrl = `/decisiones/${decId.toLowerCase()}.md`;
+const mdUrl = `/decisions/${decId.toLowerCase()}.md`;
 
 const STATUS_COLOR: Record<string, string> = {
   active: "text-green",
@@ -39,7 +39,7 @@ const STATUS_COLOR: Record<string, string> = {
 <Layout
   title={`${decId} — Numen Games CAO`}
   description={`${decId} — ${f.title}`}
-  canonicalPath={`/decisiones/${decId.toLowerCase()}`}
+  canonicalPath={`/decisions/${decId.toLowerCase()}`}
 >
   <section class="pb-20 pt-16">
     <div class="mx-auto max-w-[800px] px-6">
@@ -65,10 +65,10 @@ const STATUS_COLOR: Record<string, string> = {
 
       <div class="flex justify-between border-t border-border pt-6 mt-8">
         {prevId
-          ? <a href={"/decisiones/" + prevId.toLowerCase()} class="font-mono text-[0.7rem] text-dim hover:text-accent transition-colors">← {prevId}</a>
+          ? <a href={"/decisions/" + prevId.toLowerCase()} class="font-mono text-[0.7rem] text-dim hover:text-accent transition-colors">← {prevId}</a>
           : <span />}
         {nextId
-          ? <a href={"/decisiones/" + nextId.toLowerCase()} class="font-mono text-[0.7rem] text-dim hover:text-accent transition-colors">{nextId} →</a>
+          ? <a href={"/decisions/" + nextId.toLowerCase()} class="font-mono text-[0.7rem] text-dim hover:text-accent transition-colors">{nextId} →</a>
           : <span />}
       </div>
 

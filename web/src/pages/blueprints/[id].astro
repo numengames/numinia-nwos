@@ -24,7 +24,7 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const f = entry.data as Record<string, any>;
 const mdFilename = (entry.filePath as string).split("/").pop()!;
-const mdUrl = `/planos/${slug(f.id as string)}.md`;
+const mdUrl = `/blueprints/${slug(f.id as string)}.md`;
 
 const SEMAFORO: Record<string, { dot: string; label: string }> = {
   verde: { dot: "bg-green", label: "Verde" },
@@ -37,7 +37,7 @@ const sem = SEMAFORO[(f.semaforo as string) || ""];
 <Layout
   title={`${f.id} — Numen Games CAO`}
   description={`${f.id} — ${f.title}`}
-  canonicalPath={`/planos/${slug(f.id as string)}`}
+  canonicalPath={`/blueprints/${slug(f.id as string)}`}
 >
   <section class="pb-20 pt-16">
     <div class="mx-auto max-w-[800px] px-6">
