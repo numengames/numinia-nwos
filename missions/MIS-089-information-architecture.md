@@ -2,7 +2,7 @@
 id: "MIS-089"
 title: "Information architecture: the archive gets ordered and the web mirrors it by sections"
 type: mission
-status: draft
+status: todo
 version: "1.0.0"
 created: "2026-08-18T10:51:09Z"
 created_source: "git:9f25053"
