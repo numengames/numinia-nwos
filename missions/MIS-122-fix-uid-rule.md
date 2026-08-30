@@ -35,6 +35,20 @@ paths: [scripts/lint-frontmatter.mjs, standards/S-001-glossary.md, standards/S-0
 > doing so converts an `H-20` into a new `H-09` and the ratchet rejects it.
 > **Audience:** Agents · Oracles
 
+> **Update 2026-08-30 — this mission now has a signed precedent.** While
+> writing `ADR-029` (which ratifies `S-004`), the guard rejected the ADR
+> itself: `H-09` for writing `uid:` and `supersedes:` empty. **The document
+> that ratifies the header standard could not be committed while obeying the
+> glossary.** Both fields were removed rather than baselined, and the
+> incident is recorded inside `ADR-029` as evidence.
+>
+> This is no longer a theoretical contradiction reported by a census. It has
+> now blocked real work, in `main`, twice: once in the experiment on
+> `blueprints/AUDIT-numengames-2026-04-08.md`, once on a signed decision.
+>
+> `ADR-028` and `ADR-029` do **not** fix it — neither touches a check. This
+> mission is still the fix.
+
 ---
 
 ## Base commit
