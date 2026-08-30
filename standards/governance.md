@@ -198,7 +198,7 @@ Every artifact follows a two-stage lifecycle:
 *(Absorbed from `STANDARDS.md` §9 on 2026-08-30. Oracle ruling 2026-08-30:
 this is the definition of `human_approval_score` — a **gate**, scored before
 acting: how much human approval an action needs. It resolves
-[`debt/D-003`](../debt/D-003-human-approval-score-undefined.md), which
+`D-003` (extinguished per ADR-030; text in git history), which
 recorded the field as undefined; the definition existed here all along.)*
 
 | Score | Category | Description | Response time |

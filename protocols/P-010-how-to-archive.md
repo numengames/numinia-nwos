@@ -115,6 +115,11 @@ Inherited from v0.1.12, still in force, but in the frontmatter:
   under an artefact name (§3.2).
 - **Deletion** only for exact verified duplicates (clean diff), logged in
   the mission that orders it.
+- **Operational series are the exception (ADR-030, 2026-08-30):** series
+  declared operational — today `debt/` alone — extinguish on close: the
+  entry is deleted once its resolution is written in the ADR, mission or
+  report that closed it. Git keeps the text. This rule stays intact for
+  canon, standards, decisions and every memory series.
 - Review cadence: `review_next` in frontmatter (inherited from v0.1.12's
   "NEXT REVIEW ON"); ISO 15489 inspections (MIS-067) audit it.
 

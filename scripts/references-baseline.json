@@ -1,9 +1,8 @@
 {
   "_comment": "Known-broken references frozen at adoption time. The lint fails only on NEW breakage. This list should shrink over time and never grow. Regenerate only when fixing entries.",
-  "generated": "2026-08-25T10:14:07.965Z",
-  "count": 17,
+  "generated": "2026-08-30T18:23:41.415Z",
+  "count": 16,
   "entries": [
-    "ID   debt/D-018-unresolved-authority-citations.md -> RPT-07",
     "ID   reports/daily/RPT-2026-04-07-tarde.md -> RPT-07",
     "ID   reports/daily/RPT-2026-08-24.md -> RPT-07",
     "ID   standards/S-001-glossary.md -> RPT-07",
