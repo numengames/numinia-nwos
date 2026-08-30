@@ -3,7 +3,7 @@ id: "ADR-030"
 uid:
 title: "Operational series extinguish on close: debt entries are records of work, not memory"
 type: adr
-status: accepted
+status: active
 version: "1.0.0"
 created: "2026-08-30T18:30:00Z"
 updated: "2026-08-30T18:30:00Z"
