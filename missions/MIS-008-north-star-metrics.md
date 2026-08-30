@@ -2,7 +2,7 @@
 id: "MIS-008"
 title: "Define the product's North Star metrics"
 type: mission
-status: backlog
+status: todo
 version: "1.1.0"
 created: "2026-04-07T05:58:49Z"
 created_source: "git:428349f"
@@ -14,8 +14,7 @@ type_execution: "biological"
 priority: "high"
 effort: "XS"
 license: "CC-BY-4.0"
----
-# MIS-008 — Define the product's North Star metrics
+---# MIS-008 — Define the product's North Star metrics
 
 > **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
 > **Epistemic:** What you learn by reading this document.

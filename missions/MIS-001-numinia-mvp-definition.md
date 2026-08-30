@@ -1,6 +1,6 @@
 ---
 id: "MIS-001"
-uid: "018ef820-0001-7000-8000-000000000001"
+uid: ""
 title: "Define the Numinia MVP in one page"
 type: mission
 status: frozen
@@ -20,8 +20,7 @@ assigned_to: null
 requested_by: "oracle"
 started: null
 completed: null
----
-# MIS-001 — Define the Numinia MVP in one page
+---# MIS-001 — Define the Numinia MVP in one page
 
 > **Summary:** A single-page document that defines exactly what Numinia MVP is, so all Oracles work from the same mental model.
 > **Epistemic:** Whether there is real consensus or hidden divergence between founders.

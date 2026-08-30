@@ -1,6 +1,6 @@
 ---
 id: "P-001"
-uid: "018ef820-0001-7000-8000-000000000001"
+uid: ""
 title: "Agent Briefing Protocol"
 type: protocol
 status: active
@@ -15,8 +15,7 @@ tags: [protocol, briefing, startup, mandatory]
 applies_to: [all-agents]
 mandatory: true
 license: "CC-BY-4.0"
----
-# P-001 — Agent Briefing Protocol
+---# P-001 — Agent Briefing Protocol
 
 > **Summary:** Canonical startup sequence for every agent session — mandatory, no exceptions.
 > **Epistemic:** An agent without context is an agent without direction. This protocol ensures every session starts from a known state.

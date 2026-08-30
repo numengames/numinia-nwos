@@ -1,6 +1,6 @@
 ---
 id: "blueprints-index"
-uid: "018ef810-0057-7000-8000-000000000058"
+uid: ""
 title: "Blueprints — Index"
 type: meta
 status: active
@@ -11,8 +11,7 @@ author: "nimrod"
 owner: "oracle"
 tags: [blueprints, index]
 license: "CC-BY-4.0"
----
-# Blueprints — System Designs
+---# Blueprints — System Designs
 
 > **Summary:** Index of all blueprint documents in the NWOS system.
 > **Epistemic:** What designs exist, their status, and what gaps they address.

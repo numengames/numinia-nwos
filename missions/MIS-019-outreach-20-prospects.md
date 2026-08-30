@@ -1,9 +1,9 @@
 ---
 id: "MIS-019"
-uid: "018ef820-0019-7000-8000-000000000019"
+uid: ""
 title: "Sequential outreach to 20 prospects"
 type: mission
-status: backlog
+status: todo
 version: "1.0.0"
 created: "2026-04-07T19:43:00Z"
 updated: "2026-04-07T19:43:00Z"
@@ -19,8 +19,7 @@ assigned_to: null
 requested_by: "oracle"
 started: null
 completed: null
----
-# MIS-019 — Sequential outreach to 20 prospects
+---# MIS-019 — Sequential outreach to 20 prospects
 
 > **Summary:** Execute a 3-touch sequence to 20 prospects to get at least 5 calls booked.
 > **Epistemic:** Measures real response rate and validates the pitch.

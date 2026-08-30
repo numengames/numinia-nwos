@@ -2,7 +2,7 @@
 id: "MIS-101"
 title: "The mould complies with itself: numinia-nwos meets its own checklist"
 type: mission
-status: backlog
+status: todo
 version: "1.0.0"
 created: "2026-08-18T14:47:39Z"
 updated: "2026-08-18T14:47:39Z"
@@ -25,8 +25,7 @@ sub_missions: []
 depends_on: []
 started: null
 completed: null
----
-# MIS-101 — The mould complies with itself
+---# MIS-101 — The mould complies with itself
 
 > **Summary:** The repository that publishes the engineering standards is the
 > least compliant of the three. This mission closes that gap.

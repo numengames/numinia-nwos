@@ -3,7 +3,7 @@ id: "BP-repo"
 title: "Repositories"
 type: blueprint
 status: active
-version: "v0.1.0"
+version: "0.1.0"
 created: "2026-04-07T05:49:03Z"
 created_source: "git:e56f6e8"
 created_confidence: exact
@@ -14,8 +14,7 @@ tags: [blueprint, ops, repos, github]
 area: "Ops"
 semaforo: "amarillo"
 license: "CC-BY-4.0"
----
-# BP — Repositories
+---# BP — Repositories
 
 > **Summary:** System blueprint: current state, target, gaps and dependencies.
 > **Epistemic:** The real state vs. the target — where we are and where we are going.

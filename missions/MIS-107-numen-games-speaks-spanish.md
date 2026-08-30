@@ -2,7 +2,7 @@
 id: "MIS-107"
 title: "numen.games speaks Spanish: nine components ignore the locale they receive"
 type: mission
-status: backlog
+status: todo
 version: "1.0.0"
 created: "2026-08-18T14:47:39Z"
 updated: "2026-08-18T14:47:39Z"
@@ -25,8 +25,7 @@ sub_missions: []
 depends_on: ["MIS-091"]
 started: null
 completed: null
----
-# MIS-107 — numen.games speaks Spanish
+---# MIS-107 — numen.games speaks Spanish
 
 > **Summary:** The Spanish route of numen.games serves English copy below the
 > fold: nine components receive `locale` and ignore it.

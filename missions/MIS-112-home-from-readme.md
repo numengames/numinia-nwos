@@ -1,7 +1,7 @@
 ---
 id: "MIS-112"
 title: "Generate the home page from the README, so the site and the repo say the same thing"
-status: backlog
+status: todo
 priority: medium
 effort: M
 guild: "Alchemists"
@@ -22,8 +22,7 @@ tags: [web, home, readme, single-source]
 license: "CC-BY-4.0"
 context: "2026-08-25"
 paths: [web/src/pages/index.astro, README.md, web/src/content.config.ts]
----
-# MIS-112 — Generate the home page from the README, so the site and the repo say the same thing
+---# MIS-112 — Generate the home page from the README, so the site and the repo say the same thing
 
 > **Summary:** the home page stops being hand-written prose and becomes a
 > rendering of `README.md`.

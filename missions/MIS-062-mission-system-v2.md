@@ -1,9 +1,9 @@
 ---
 id: "MIS-062"
-uid: "018ef820-0062-7000-8000-000000000062"
+uid: ""
 title: "Mission System v2 — States, Sub-missions, IDs, Kanban"
 type: mission
-status: backlog
+status: todo
 version: "1.0.0"
 created: "2026-04-07T19:43:00Z"
 updated: "2026-08-25T20:05:59Z"
@@ -43,8 +43,7 @@ sub_missions:
     title: "Update P-003 Mission Cycle Protocol to v2"
     status: "todo"
     effort: "S"
----
-# MIS-062 — Mission System v2
+---# MIS-062 — Mission System v2
 
 > **2026-08-17 — Oracle note:** unassigned (nimrod not active). Execution
 > of all five sub-missions is absorbed by [MIS-066](MIS-066-unify-mission-system.md)

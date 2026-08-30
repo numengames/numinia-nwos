@@ -2,7 +2,7 @@
 id: "MIS-070"
 title: "Testing and best practices across the numengames org"
 type: mission
-status: backlog
+status: todo
 version: "1.0.0"
 created: "2026-08-17T18:33:20Z"
 created_source: "git:a359761"
@@ -21,13 +21,11 @@ effort: "L"
 assigned_to: null
 requested_by: "oracle"
 requires_oracle_approval: true
-blocked_reason: null
 depends_on: []
 started: null
 completed: null
 divergence_log: null
----
-# MIS-070 — Testing and best practices across the numengames org
+---# MIS-070 — Testing and best practices across the numengames org
 
 > **Summary:** No repo in the org has a single test gate before merge
 > (AUD-2026-08-17-stack, finding 5) and this repo's only check is the

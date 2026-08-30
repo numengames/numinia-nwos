@@ -21,13 +21,11 @@ effort: "XL"
 assigned_to: "claude-fable-5"
 requested_by: "oracle"
 requires_oracle_approval: true
-blocked_reason: null
 depends_on: ["MIS-065"]
 started: "2026-08-17"
 completed: null
 divergence_log: null
----
-# MIS-071 — File over App, total: every piece of the system exists as .md
+---# MIS-071 — File over App, total: every piece of the system exists as .md
 
 > **Summary:** The Oracle's answer to the navigability audit's central
 > open question: yes — diagrams, lifecycles, fondos, principles,

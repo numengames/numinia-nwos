@@ -1,9 +1,9 @@
 ---
 id: "MIS-017"
-uid: "018ef820-0017-7000-8000-000000000017"
+uid: ""
 title: "B2B Prospecting Pipeline (50 leads)"
 type: mission
-status: backlog
+status: todo
 version: "1.0.0"
 created: "2026-04-07T19:43:00Z"
 updated: "2026-04-07T19:43:00Z"
@@ -19,8 +19,7 @@ assigned_to: "procurador-01"
 requested_by: "oracle"
 started: null
 completed: null
----
-# MIS-017 — B2B Prospecting Pipeline (50 leads)
+---# MIS-017 — B2B Prospecting Pipeline (50 leads)
 
 > **Summary:** A list of 50 qualified prospects with direct contacts, to start sales conversations this week.
 > **Epistemic:** Maps the real buyer space before optimizing the pitch.

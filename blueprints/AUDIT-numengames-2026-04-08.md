@@ -1,6 +1,6 @@
 ---
 id: "AUDIT-numengames-2026-04-08"
-uid: "018ef821-0011-7000-8000-000000000011"
+uid: ""
 title: "Technical Audit — numen.games"
 type: audit
 status: active
@@ -13,8 +13,7 @@ tags: [audit, numengames, infrastructure, seo, performance, web]
 scope: "numen.games (numengames.com)"
 license: "CC-BY-4.0"
 mission: "MIS-011"
----
-# Technical Audit — numen.games
+---# Technical Audit — numen.games
 
 > **Summary:** Complete technical audit of the numen.games website — performance, SEO, accessibility, security, and UX.
 > **Epistemic:** Baseline assessment of the current state of numengames.com as a sales and brand asset.

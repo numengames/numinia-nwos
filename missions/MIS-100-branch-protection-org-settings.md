@@ -2,7 +2,7 @@
 id: "MIS-100"
 title: "The real gate: branch protection and organization settings"
 type: mission
-status: backlog
+status: todo
 version: "1.0.0"
 created: "2026-08-18T14:47:39Z"
 updated: "2026-08-25T20:05:59Z"
@@ -25,8 +25,7 @@ sub_missions: []
 depends_on: ["MIS-091"]
 started: null
 completed: null
----
-# MIS-100 — The real gate
+---# MIS-100 — The real gate
 
 > **Summary:** Three repositories now run a CI pipeline that nothing forces
 > them to pass. This mission turns the pipeline into a gate.

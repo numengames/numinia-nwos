@@ -1,6 +1,6 @@
 ---
 id: "BP-numengames-improvement-roadmap"
-uid: "018ef821-0027-7000-8000-000000000027"
+uid: ""
 title: "numen.games — Improvement Roadmap"
 type: blueprint
 status: active
@@ -14,8 +14,7 @@ area: "Content"
 license: "CC-BY-4.0"
 mission: "MIS-027"
 input: "blueprints/AUDIT-numengames-2026-04-08.md"
----
-# BP — numen.games Improvement Roadmap
+---# BP — numen.games Improvement Roadmap
 
 > **Summary:** Concrete improvement plan for numen.games based on the MIS-011 technical audit (score 4.5/10).
 > **Epistemic:** The audit identified one root cause (non-crawlable SPA) that blocks all other improvements. This plan sequences fixes by impact.

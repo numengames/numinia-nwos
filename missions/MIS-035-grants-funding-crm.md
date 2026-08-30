@@ -2,7 +2,7 @@
 id: "MIS-035"
 title: "Grants and funding CRM"
 type: mission
-status: backlog
+status: todo
 version: "1.1.0"
 created: "2026-04-07T05:58:49Z"
 created_source: "git:428349f"
@@ -14,8 +14,7 @@ type_execution: "digital"
 priority: "medium"
 effort: "S"
 license: "CC-BY-4.0"
----
-# MIS-035 — Grants and funding CRM
+---# MIS-035 — Grants and funding CRM
 
 > **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
 > **Epistemic:** What you learn by reading this document.

@@ -1,6 +1,6 @@
 ---
 id: "BP-mission-system-v2"
-uid: "018ef820-0062-7000-8000-000000000062"
+uid: ""
 title: "Mission System v2 — Kanban, Sub-missions, States, IDs"
 type: blueprint
 status: draft
@@ -14,7 +14,6 @@ area: "CAO / Product"
 related_missions: ["MIS-057", "MIS-062"]
 license: "CC-BY-4.0"
 ---
-
 > **2026-08-17 — partially superseded by MIS-066:** the folder-per-state
 > layout described here was replaced by a flat `missions/` folder with
 > `status:` in frontmatter as the only state surface (P-003 v3.0.0).

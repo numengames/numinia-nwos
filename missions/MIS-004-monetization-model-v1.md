@@ -1,9 +1,9 @@
 ---
 id: "MIS-004"
-uid: "018ef820-0004-7000-8000-000000000004"
+uid: ""
 title: "Define monetization model v1"
 type: mission
-status: backlog
+status: todo
 version: "1.0.0"
 created: "2026-04-07T19:43:00Z"
 updated: "2026-04-07T19:43:00Z"
@@ -19,8 +19,7 @@ assigned_to: null
 requested_by: "oracle"
 started: null
 completed: null
----
-# MIS-004 — Define monetization model v1
+---# MIS-004 — Define monetization model v1
 
 > **Summary:** A clear monetization model for Numinia v1, so we can talk money with clients from day one.
 > **Epistemic:** Whether the market validates prices in real conversations.

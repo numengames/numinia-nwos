@@ -2,7 +2,7 @@
 id: "MIS-052"
 title: "On-premises infrastructure — Dedicated PC"
 type: mission
-status: backlog
+status: todo
 version: "1.1.0"
 created: "2026-04-07T05:49:03Z"
 created_source: "git:e56f6e8"
@@ -23,8 +23,7 @@ effort: "L"
 started: null
 completed: null
 blocked_reason: "PC in transit — pending physical arrival"
----
-# MIS-052 — On-premises infrastructure — Dedicated PC
+---# MIS-052 — On-premises infrastructure — Dedicated PC
 
 > **Summary:** NWOS system mission.
 > **Epistemic:** What you learn by reading this document.

@@ -2,7 +2,7 @@
 id: "MIS-105"
 title: "Sign the standards and define the sync: a draft is governing three repositories"
 type: mission
-status: backlog
+status: todo
 version: "1.0.0"
 created: "2026-08-18T14:47:39Z"
 updated: "2026-08-18T14:47:39Z"
@@ -25,8 +25,7 @@ sub_missions: []
 depends_on: []
 started: null
 completed: null
----
-# MIS-105 — Sign the standards and define the sync
+---# MIS-105 — Sign the standards and define the sync
 
 > **Summary:** `engineering-standards.md` is `v0.1.0 (draft — pending Oracle
 > review)`, its canonical copy lives upstream in the mould, and its sync

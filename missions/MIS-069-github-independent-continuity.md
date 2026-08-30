@@ -2,7 +2,7 @@
 id: "MIS-069"
 title: "Plan B: GitHub-independent continuity for the NWOS source of truth"
 type: mission
-status: backlog
+status: todo
 version: "1.0.0"
 created: "2026-08-17T14:13:30Z"
 created_source: "git:db13bca"
@@ -21,13 +21,11 @@ effort: "M"
 assigned_to: null
 requested_by: "oracle"
 requires_oracle_approval: true
-blocked_reason: null
 depends_on: []
 started: null
 completed: null
 divergence_log: null
----
-# MIS-069 — Plan B: GitHub-independent continuity for the NWOS source of truth
+---# MIS-069 — Plan B: GitHub-independent continuity for the NWOS source of truth
 
 > **Summary:** numinia-nwos — THE source of truth — lives solely on
 > GitHub, and GitHub is a single point of failure for hosting, webhooks

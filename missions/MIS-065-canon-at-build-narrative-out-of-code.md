@@ -2,7 +2,7 @@
 id: "MIS-065"
 title: "Canon at build time — narrative out of the code regime"
 type: mission
-status: backlog
+status: todo
 version: "1.0.0"
 created: "2026-08-17T07:06:13Z"
 created_source: "git:1d8ac2b"
@@ -21,13 +21,11 @@ assigned_to: null
 requested_by: "oracle"
 executor: null
 requires_oracle_approval: true
-blocked_reason: null
 depends_on: []
 started: null
 completed: null
 divergence_log: null
----
-# MIS-065 — Canon at build time — narrative out of the code regime
+---# MIS-065 — Canon at build time — narrative out of the code regime
 
 > **Resumen:** One refactor closes two debts: the viewer stops hydrating
 > mission data client-side against the GitHub API, and the culture-branch

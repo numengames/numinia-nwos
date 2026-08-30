@@ -2,7 +2,7 @@
 id: "MIS-068"
 title: "NWOS propagation: consumer repos never drift from the source of truth"
 type: mission
-status: backlog
+status: todo
 version: "1.0.0"
 created: "2026-08-17T13:59:23Z"
 created_source: "git:069b83a"
@@ -21,13 +21,11 @@ effort: "M"
 assigned_to: null
 requested_by: "oracle"
 requires_oracle_approval: true
-blocked_reason: null
 depends_on: []
 started: null
 completed: null
 divergence_log: null
----
-# MIS-068 — NWOS propagation: consumer repos never drift from the source of truth
+---# MIS-068 — NWOS propagation: consumer repos never drift from the source of truth
 
 > **Summary:** `numengames/numinia-nwos` is THE source of truth; every
 > numengames repo that uses NWOS drinks from it by copying (the C-005 §9

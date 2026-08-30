@@ -1,9 +1,9 @@
 ---
 id: "MIS-048"
-uid: "018ef820-0048-7000-8000-000000000048"
+uid: ""
 title: "Agent cost tracking system"
 type: mission
-status: backlog
+status: todo
 version: "1.0.0"
 created: "2026-04-07T19:43:00Z"
 updated: "2026-04-07T19:43:00Z"
@@ -20,8 +20,7 @@ requested_by: "oracle"
 started: null
 completed: null
 blocked_by: "Anthropic API key with usage permissions required from Pablo"
----
-# MIS-048 — Agent cost tracking system
+---# MIS-048 — Agent cost tracking system
 
 > **Summary:** Know exactly how much each agent spends per day and per mission, to optimize costs and justify the investment.
 > **Epistemic:** Without real cost data, optimization is impossible.
