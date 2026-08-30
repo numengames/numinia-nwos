@@ -4,8 +4,10 @@ title: "Information architecture: the archive gets ordered and the web mirrors i
 type: mission
 status: draft
 version: "1.0.0"
-created: "2026-08-18"
-updated: "2026-08-18"
+created: "2026-08-18T10:51:09Z"
+created_source: "git:9f25053"
+created_confidence: exact
+updated: "2026-08-27T22:05:37Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [archive, taxonomy, web, viewer, information-architecture]

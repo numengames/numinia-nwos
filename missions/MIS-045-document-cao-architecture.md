@@ -5,8 +5,10 @@ title: "Document CAO architecture"
 type: mission
 status: done
 version: "0.1.0"
-created: "2026-04-07T00:00:00Z"
-updated: "2026-08-25"
+created: "2026-04-08T05:58:07Z"
+created_source: "git:6cba434"
+created_confidence: inferred
+updated: "2026-08-25T20:05:59Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [documentation, cao, architecture, agents, sentinels]

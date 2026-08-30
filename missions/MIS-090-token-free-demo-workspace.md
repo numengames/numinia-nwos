@@ -4,8 +4,10 @@ title: "Frozen demo workspace: showing NWOS without burning AI tokens"
 type: mission
 status: done
 version: "1.1.0"
-created: "2026-08-18"
-updated: "2026-08-18"
+created: "2026-08-18T12:23:36Z"
+created_source: "git:9fb1f3f"
+created_confidence: exact
+updated: "2026-08-27T22:05:37Z"
 completed: "2026-08-18"
 author: "claude-fable-5"
 owner: "oracle"

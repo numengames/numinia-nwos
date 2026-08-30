@@ -13,8 +13,10 @@ completed: null
 
 type: mission
 version: "1.0.0"
-created: "2026-08-25"
-updated: "2026-08-25"
+created: "2026-08-25T19:49:11Z"
+created_source: "git:25b3922"
+created_confidence: exact
+updated: "2026-08-26T06:53:13Z"
 author: "ursa"
 owner: "oracle"
 tags: [web, missions, design, design-system]

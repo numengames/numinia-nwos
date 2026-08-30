@@ -11,8 +11,10 @@ assigned_to: "ursa"
 completed: "2026-08-25"
 type: mission
 version: "1.0.0"
-created: "2026-08-25"
-updated: "2026-08-25"
+created: "2026-08-26T05:29:38Z"
+created_source: "git:9769676"
+created_confidence: exact
+updated: "2026-08-26T05:29:38Z"
 license: "CC-BY-4.0"
 paths: [web/src/pages/missions.astro]
 parent_mission: "MIS-115"

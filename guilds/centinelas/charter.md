@@ -4,7 +4,9 @@ title: "Guild Charter — Sentinels"
 type: charter
 status: active
 version: "1.1.0"
-created: "2026-04-06T00:00:00Z"
+created: "2026-04-07T12:29:23Z"
+created_source: "git:df48b24"
+created_confidence: inferred
 updated: "2026-04-07T18:00:00Z"
 author: "pablo-fm"
 owner: "oracle"

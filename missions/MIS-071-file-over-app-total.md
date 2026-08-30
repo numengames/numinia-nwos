@@ -4,8 +4,10 @@ title: "File over App, total: every piece of the system exists as .md"
 type: mission
 status: in-progress
 version: "1.0.0"
-created: "2026-08-17"
-updated: "2026-08-17"
+created: "2026-08-17T18:33:20Z"
+created_source: "git:a359761"
+created_confidence: exact
+updated: "2026-08-25T11:00:28Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [file-over-app, content, extraction, web, ft-05, audits]

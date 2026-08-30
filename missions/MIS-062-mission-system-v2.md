@@ -6,7 +6,7 @@ type: mission
 status: backlog
 version: "1.0.0"
 created: "2026-04-07T19:43:00Z"
-updated: "2026-08-25"
+updated: "2026-08-25T20:05:59Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [missions, kanban, system-design, architecture, product]

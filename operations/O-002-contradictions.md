@@ -4,8 +4,10 @@ title: "Pending contradictions — register"
 type: documentation
 status: active
 version: "1.2.0"
-created: "2026-08-17T00:00:00Z"
-updated: "2026-08-20T00:00:00Z"
+created: "2026-08-17T20:00:17Z"
+created_source: "git:8b72b9b"
+created_confidence: inferred
+updated: "2026-08-27T22:31:29Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [operations, contradictions, backlog, truth]

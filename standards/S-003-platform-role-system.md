@@ -7,7 +7,7 @@ status: active
 version: "1.0.0"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
-created_confidence: "inferred"
+created_confidence: inferred
 updated: "2026-08-25T00:00:00Z"
 author: "Centinela-01"
 owner: "oracle"

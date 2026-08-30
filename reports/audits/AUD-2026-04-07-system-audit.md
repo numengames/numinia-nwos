@@ -5,8 +5,10 @@ type: report
 subtype: audit
 status: published
 version: "1.0.0"
-created: "2026-04-07T00:00:00Z"
-updated: "2026-08-17T00:00:00Z"
+created: "2026-08-17T19:12:39Z"
+created_source: "git:2cd0a67"
+created_confidence: inferred
+updated: "2026-08-27T22:31:29Z"
 author: "nimrod"
 tags: [audit, transparency, divergences, web, repo]
 license: "CC-BY-4.0"

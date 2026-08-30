@@ -12,8 +12,10 @@ completed: "2026-08-28"
 
 type: mission
 version: "1.3.0"
-created: "2026-08-28"
-updated: "2026-08-28"
+created: "2026-08-27T22:45:29Z"
+created_source: "git:9f8627a"
+created_confidence: exact
+updated: "2026-08-28T10:07:45Z"
 author: "ursa"
 owner: "oracle"
 tags: [web, alchemists]

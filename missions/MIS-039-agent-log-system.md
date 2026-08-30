@@ -5,8 +5,10 @@ title: "Agent log system"
 type: mission
 status: done
 version: "0.2.0"
-created: "2026-04-07T00:00:00Z"
-updated: "2026-08-25"
+created: "2026-04-08T06:02:27Z"
+created_source: "git:a5b6a0d"
+created_confidence: inferred
+updated: "2026-08-25T20:05:59Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [cao, logs, observability, agents, sentinels]

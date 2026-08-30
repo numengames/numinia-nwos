@@ -6,7 +6,7 @@ type: mission
 status: done
 version: "0.1.0"
 created: "2026-04-08T06:02:00Z"
-updated: "2026-08-25"
+updated: "2026-08-25T20:05:59Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [protocols, p001, briefing, startup, sentinels]

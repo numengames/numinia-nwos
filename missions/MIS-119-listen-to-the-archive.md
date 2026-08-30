@@ -14,8 +14,10 @@ completed: null
 # REGISTRO
 type: mission
 version: "1.0.0"
-created: "2026-08-28"
-updated: "2026-08-28"
+created: "2026-08-28T10:22:50Z"
+created_source: "git:1fae837"
+created_confidence: exact
+updated: "2026-08-28T12:38:31Z"
 author: "ursa"
 owner: "oracle"
 tags: [web, alchemists, accessibility]

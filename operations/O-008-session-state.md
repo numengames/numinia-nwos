@@ -4,8 +4,10 @@ title: "Session state — where to pick up"
 type: documentation
 status: active
 version: "1.0.0"
-created: "2026-08-18"
-updated: "2026-08-18"
+created: "2026-08-18T15:09:29Z"
+created_source: "git:7e0e0a9"
+created_confidence: inferred
+updated: "2026-08-27T19:59:10Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [operations, handoff, session, state]

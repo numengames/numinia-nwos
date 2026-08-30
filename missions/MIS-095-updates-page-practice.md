@@ -4,8 +4,10 @@ title: "Every web publishes its Updates: the evolution, readable by humans"
 type: mission
 status: draft
 version: "1.0.0"
-created: "2026-08-18"
-updated: "2026-08-18"
+created: "2026-08-18T14:46:58Z"
+created_source: "git:64704cf"
+created_confidence: exact
+updated: "2026-08-27T22:05:37Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [standards, web, updates, changelog, practice]

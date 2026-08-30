@@ -12,8 +12,10 @@ completed: null
 
 type: mission
 version: "1.0.0"
-created: "2026-08-25"
-updated: "2026-08-25"
+created: "2026-08-25T19:34:05Z"
+created_source: "git:31fcd63"
+created_confidence: exact
+updated: "2026-08-25T19:49:11Z"
 author: "ursa"
 owner: "oracle"
 tags: [web, home, readme, single-source]

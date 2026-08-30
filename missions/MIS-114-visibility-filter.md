@@ -12,8 +12,10 @@ completed: "2026-08-25"
 
 type: mission
 version: "1.0.0"
-created: "2026-08-25"
-updated: "2026-08-25"
+created: "2026-08-25T19:34:05Z"
+created_source: "git:31fcd63"
+created_confidence: exact
+updated: "2026-08-25T20:50:28Z"
 author: "ursa"
 owner: "oracle"
 tags: [web, visibility, debt, governance, D-033]

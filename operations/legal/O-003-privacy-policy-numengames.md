@@ -4,8 +4,10 @@ title: "Privacy Policy — Numen Games"
 type: legal
 status: active
 version: "2.0.0"
-created: "2026-08-17T00:00:00Z"
-updated: "2026-08-27T00:00:00Z"
+created: "2026-08-17T14:37:43Z"
+created_source: "git:5d7bd39"
+created_confidence: inferred
+updated: "2026-08-27T19:59:10Z"
 author: "oracle"
 owner: "oracle"
 tags: [legal, privacy, gdpr, lopdgdd, website, numen-games, enforceable]

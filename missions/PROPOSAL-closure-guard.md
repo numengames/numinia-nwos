@@ -4,8 +4,10 @@ title: "Proposal: a guard that fails a done mission with no Closure section"
 type: proposal
 status: draft
 version: "1.0.0"
-created: "2026-08-25"
-updated: "2026-08-25"
+created: "2026-08-25T18:05:01Z"
+created_source: "git:c2ee691"
+created_confidence: exact
+updated: "2026-08-25T18:05:01Z"
 author: "ursa"
 owner: "oracle"
 tags: [missions, guards, proposal, D-017]

@@ -5,10 +5,10 @@ title: "C-005 files agent definitions as lore, and the tap it closed was already
 type: documentation
 status: open
 version: "1.0.0"
-created: "2026-08-28T00:00:00Z"
-created_source: "git:pending"
-created_confidence: "exact"
-updated: "2026-08-28T00:00:00Z"
+created: "2026-08-28T09:33:53Z"
+created_source: "git:f86569b"
+created_confidence: exact
+updated: "2026-08-28T09:33:53Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"

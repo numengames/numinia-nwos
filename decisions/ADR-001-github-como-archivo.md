@@ -4,8 +4,10 @@ title: "GitHub as Archive Summa"
 type: adr
 status: active
 version: "1.0.0"
-created: "2026-04-06T00:00:00Z"
-updated: "2026-04-06T00:00:00Z"
+created: "2026-04-06T18:48:56Z"
+created_source: "git:84a9f71"
+created_confidence: exact
+updated: "2026-08-17T07:28:32Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [decisions, adr, infrastructure, github]

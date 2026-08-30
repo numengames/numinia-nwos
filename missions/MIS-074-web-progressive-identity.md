@@ -4,8 +4,10 @@ title: "Progressive identity (Web2→Web3) for numinia.com"
 type: mission
 status: backlog
 version: "1.0.0"
-created: "2026-08-15"
-updated: "2026-08-25"
+created: "2026-08-17T18:59:03Z"
+created_source: "git:b484b68"
+created_confidence: exact
+updated: "2026-08-25T20:05:59Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [web, platform, auth, siwe]

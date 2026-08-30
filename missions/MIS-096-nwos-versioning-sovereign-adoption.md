@@ -4,8 +4,10 @@ title: "NWOS gets versioned and organizations adopt: sovereignty with offered up
 type: mission
 status: draft
 version: "1.0.0"
-created: "2026-08-18"
-updated: "2026-08-18"
+created: "2026-08-18T14:59:25Z"
+created_source: "git:e175657"
+created_confidence: exact
+updated: "2026-08-27T22:05:37Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [nwos, governance, versioning, sovereignty, propagation]

@@ -4,7 +4,9 @@ title: "READMEs for numengames org repos"
 type: mission
 status: backlog
 version: "1.1.0"
-created: "2026-04-04T00:00:00Z"
+created: "2026-04-07T05:58:49Z"
+created_source: "git:428349f"
+created_confidence: inferred
 updated: "2026-04-07T18:00:00Z"
 area: "Documentation"
 guild: "Exegetes"

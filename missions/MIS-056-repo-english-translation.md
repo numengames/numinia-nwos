@@ -4,8 +4,10 @@ title: "Repo Translation to English — NWOS Canon in English Only"
 type: mission
 status: done
 version: "2.1.0"
-created: "2026-04-07T00:00:00Z"
-updated: "2026-08-17T00:00:00Z"
+created: "2026-04-07T18:07:56Z"
+created_source: "git:ce4aad1"
+created_confidence: inferred
+updated: "2026-08-17T15:02:30Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [documentation, i18n, english, nwos, repo]

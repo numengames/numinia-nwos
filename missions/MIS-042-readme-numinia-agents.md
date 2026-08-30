@@ -5,8 +5,10 @@ title: "Main README for numinia-agents"
 type: mission
 status: done
 version: "1.0.0"
-created: "2026-04-07T00:00:00Z"
-updated: "2026-04-07T22:35:00Z"
+created: "2026-04-07T22:39:04Z"
+created_source: "git:7829844"
+created_confidence: inferred
+updated: "2026-08-17T12:41:39Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [documentation, readme, exegetes]

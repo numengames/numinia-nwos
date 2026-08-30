@@ -14,8 +14,10 @@ completed: "2026-08-28"
 # REGISTRO
 type: mission
 version: "1.1.0"
-created: "2026-08-28"
-updated: "2026-08-28"
+created: "2026-08-28T09:33:53Z"
+created_source: "git:f86569b"
+created_confidence: exact
+updated: "2026-08-28T10:07:45Z"
 author: "ursa"
 owner: "oracle"
 tags: [governance, procurators, agents]

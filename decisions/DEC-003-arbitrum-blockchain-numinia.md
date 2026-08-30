@@ -4,7 +4,9 @@ title: "Arbitrum as Numinia blockchain"
 type: decision
 status: provisional
 version: "1.1.0"
-created: "2026-04-05T00:00:00Z"
+created: "2026-04-07T05:49:03Z"
+created_source: "git:e56f6e8"
+created_confidence: exact
 updated: "2026-04-07T18:00:00Z"
 author: "pablo-fm"
 owner: "oracle"

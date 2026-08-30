@@ -4,8 +4,10 @@ title: "Plan B: GitHub-independent continuity for the NWOS source of truth"
 type: mission
 status: backlog
 version: "1.0.0"
-created: "2026-08-17"
-updated: "2026-08-17"
+created: "2026-08-17T14:13:30Z"
+created_source: "git:db13bca"
+created_confidence: exact
+updated: "2026-08-17T14:13:30Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [continuity, sovereignty, radicle, mirrors, infrastructure, file-over-app]

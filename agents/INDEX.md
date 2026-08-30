@@ -4,8 +4,10 @@ title: "Agents — Index"
 type: meta
 status: active
 version: "3.0.0"
-created: "2026-04-06T00:00:00Z"
-updated: "2026-08-28T00:00:00Z"
+created: "2026-04-06T18:48:56Z"
+created_source: "git:84a9f71"
+created_confidence: exact
+updated: "2026-08-28T09:54:16Z"
 author: "ursa"
 owner: "oracle"
 tags: [agents, index]

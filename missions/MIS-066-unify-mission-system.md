@@ -4,8 +4,10 @@ title: "Unify the mission system: one folder, one language, one page"
 type: mission
 status: done
 version: "1.0.0"
-created: "2026-08-17"
-updated: "2026-08-17"
+created: "2026-08-17T11:55:34Z"
+created_source: "git:ced9a3d"
+created_confidence: inferred
+updated: "2026-08-17T13:13:35Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [missions, unification, english, web, f-1, f-2]

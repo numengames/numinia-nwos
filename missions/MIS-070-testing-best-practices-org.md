@@ -4,8 +4,10 @@ title: "Testing and best practices across the numengames org"
 type: mission
 status: backlog
 version: "1.0.0"
-created: "2026-08-17"
-updated: "2026-08-18"
+created: "2026-08-17T18:33:20Z"
+created_source: "git:a359761"
+created_confidence: exact
+updated: "2026-08-18T14:57:18Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [testing, ci, best-practices, org, licensing]

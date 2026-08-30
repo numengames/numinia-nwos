@@ -4,8 +4,10 @@ title: "Canon at build time — narrative out of the code regime"
 type: mission
 status: backlog
 version: "1.0.0"
-created: "2026-08-17"
-updated: "2026-08-25"
+created: "2026-08-17T07:06:13Z"
+created_source: "git:1d8ac2b"
+created_confidence: inferred
+updated: "2026-08-25T20:05:59Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [web, licensing, file-over-app, c-005]

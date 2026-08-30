@@ -4,8 +4,10 @@ title: "SOUL — Senet"
 type: agent
 status: active
 version: "1.0.0"
-created: "2026-08-28T00:00:00Z"
-updated: "2026-08-28T00:00:00Z"
+created: "2026-04-07T15:22:58Z"
+created_source: "git:0ead4f5"
+created_confidence: exact
+updated: "2026-08-28T09:54:16Z"
 author: "ursa"
 owner: "oracle"
 role: "Game Master & Interactive Design"

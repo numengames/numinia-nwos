@@ -4,8 +4,10 @@ title: "NWOS — System Description, Layers and Principles"
 type: blueprint
 status: active
 version: "1.0.0"
-created: "2026-08-17T00:00:00Z"
-updated: "2026-08-17T00:00:00Z"
+created: "2026-08-17T19:30:52Z"
+created_source: "git:809f717"
+created_confidence: exact
+updated: "2026-08-27T22:02:10Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [blueprint, nwos, architecture, layers, principles]

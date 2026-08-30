@@ -4,8 +4,10 @@ title: "The System dresses the house: numen.games and nwos.numen.games adopt the
 type: mission
 status: done
 version: "1.3.0"
-created: "2026-08-18"
-updated: "2026-08-25"
+created: "2026-08-18T13:20:30Z"
+created_source: "git:9091f7f"
+created_confidence: exact
+updated: "2026-08-27T22:05:37Z"
 started: "2026-08-18"
 completed: "2026-08-25"
 author: "claude-opus-5"
