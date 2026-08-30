@@ -2,12 +2,12 @@
 id: "DEC-002"
 title: "Build in public with CC0 license"
 type: adr
-status: active
-version: "1.1.0"
+status: superseded
+version: "1.2.0"
 created: "2026-04-07T05:49:03Z"
 created_source: "git:e56f6e8"
 created_confidence: exact
-updated: "2026-04-07T18:00:00Z"
+updated: "2026-08-30T20:30:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [decisions, strategy, culture, open-source, cc0]
@@ -16,6 +16,8 @@ superseded_by: null
 license: "CC-BY-4.0"
 ---
 # DEC-002 — Build in public with CC0 license
+
+> **Superseded (2026-08-30) by [`C-005`](../canon/C-005-licensing.md):** the licensing trichotomy (packages MIT, apps AGPL-3.0, assets CC0, docs CC-BY-4.0) replaced the blanket “all CC0, code MIT”. Build-in-public survives; the license map is C-005's.
 
 > **Summary:** Architectural or strategic decision with context and alternatives.
 > **Epistemic:** What was decided, why, and what alternatives were discarded.
