@@ -12,6 +12,8 @@ author: "ursa"
 owner: "oracle"
 tags: [infrastructure, github, rulesets, governance, D-011]
 license: "MIT"
+registration: exempt
+registration_reason: "singular document, not a numbered series"
 ---
 # `infra/github/` — repository configuration, written down
 

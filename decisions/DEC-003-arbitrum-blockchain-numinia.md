@@ -2,7 +2,7 @@
 id: "DEC-003"
 title: "Arbitrum as Numinia blockchain"
 type: decision
-status: provisional
+status: draft
 version: "1.1.0"
 created: "2026-04-07T05:49:03Z"
 created_source: "git:e56f6e8"

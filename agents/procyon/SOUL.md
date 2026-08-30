@@ -13,6 +13,8 @@ owner: "oracle"
 role: "Ambassador & Onboarding Guide"
 tags: [agents, procyon]
 license: "CC0-1.0"
+registration: exempt
+registration_reason: "agent parts are identified by `agent:` and their filename, not by a series number (ADR-005)"
 ---
 
 # PROCYON

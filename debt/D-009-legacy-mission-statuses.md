@@ -3,7 +3,7 @@ id: "D-009"
 uid:
 title: "45 missions carry statuses the vocabulary no longer admits"
 type: documentation
-status: open
+status: active
 version: "1.1.0"
 created: "2026-08-24T19:42:00Z"
 updated: "2026-08-28T16:00:00Z"

@@ -4,7 +4,7 @@ uid:
 title: "Process review — did today's seven PRs follow how Numinia works?"
 type: report
 subtype: audit
-status: published
+status: closed
 version: "1.0.0"
 created: "2026-08-26T13:50:00Z"
 created_source: "git:47c599e"

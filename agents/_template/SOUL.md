@@ -2,7 +2,7 @@
 agent: "{agent-id}"
 title: "SOUL — {Agent Name}"
 type: agent
-status: designed
+status: active
 version: "0.1.0"
 created: "{YYYY-MM-DD}T00:00:00Z"
 updated: "{YYYY-MM-DD}T00:00:00Z"
@@ -10,6 +10,8 @@ author: "{author-id}"
 owner: "oracle"
 tags: [agents, template]
 license: "CC0-1.0"
+registration: exempt
+registration_reason: "agent parts are identified by `agent:` and their filename, not by a series number (ADR-005)"
 ---
 
 # {{AGENT NAME}}

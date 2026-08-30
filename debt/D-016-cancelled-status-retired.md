@@ -3,7 +3,7 @@ id: "D-016"
 uid:
 title: "cancelled was a mission status the vocabulary no longer admits"
 type: documentation
-status: resolved
+status: closed
 version: "1.0.0"
 created: "2026-08-24T19:00:00Z"
 updated: "2026-08-25T00:42:00Z"

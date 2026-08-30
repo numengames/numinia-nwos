@@ -3,7 +3,7 @@ id: "D-031"
 uid:
 title: "Nothing verifies that an index reflects its own series"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-25T14:47:02Z"
 created_source: "git:a87e551"

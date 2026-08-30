@@ -3,7 +3,7 @@ id: "D-008"
 uid:
 title: "Four series carry a registration scheme the corpus does not yet apply"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-24T19:40:00Z"
 updated: "2026-08-24T19:40:00Z"

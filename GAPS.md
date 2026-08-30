@@ -11,6 +11,8 @@ owner: "oracle"
 tags: [gaps, strategy, capability-map]
 license: "CC-BY-4.0"
 extraction_note: "Extracted verbatim from web/src/pages/gaps.astro (MIS-071 phase 2 — File over App). Fulfils MIS-044's original criterion 'Publicado como GAPS.md', which had been satisfied only as a web page."
+registration: exempt
+registration_reason: "singular document, not a numbered series"
 ---
 
 # The blind spots to see before the market points them out

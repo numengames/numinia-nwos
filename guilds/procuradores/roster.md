@@ -8,6 +8,8 @@ created: "2026-04-07T12:59:00Z"
 updated: "2026-04-07T18:00:00Z"
 author: "nimrod"
 license: "LicenseRef-Numen-AllRightsReserved"
+registration: exempt
+registration_reason: "singular document, not a numbered series"
 ---
 # Roster — Procurators
 

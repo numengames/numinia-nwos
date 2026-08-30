@@ -3,7 +3,7 @@ id: "D-036"
 uid:
 title: "33 missions declare no author: the field the whole provenance census rests on"
 type: technical
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-26T16:05:00Z"
 created_source: "git:3277a9a"

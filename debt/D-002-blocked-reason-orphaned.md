@@ -3,7 +3,7 @@ id: "D-002"
 uid:
 title: "blocked_reason is orphaned: the status it explained no longer exists"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-25T00:30:00Z"
 updated: "2026-08-25T00:30:00Z"

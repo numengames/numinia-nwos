@@ -3,7 +3,7 @@ id: "D-007"
 uid:
 title: "week: W14, of which year"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-25T00:40:00Z"
 updated: "2026-08-25T00:40:00Z"

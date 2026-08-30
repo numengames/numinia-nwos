@@ -3,7 +3,7 @@ id: "D-038"
 uid:
 title: "C-005 files agent definitions as lore, and the tap it closed was already open"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-28T09:33:53Z"
 created_source: "git:f86569b"

@@ -3,7 +3,7 @@ id: "D-015"
 uid:
 title: "The README described a repository that no longer existed"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-24T21:50:00Z"
 updated: "2026-08-24T21:50:00Z"

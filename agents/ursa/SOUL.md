@@ -14,6 +14,8 @@ role: "Technical Architect & Orchestrator"
 tags: [agents, ursa]
 license: "CC0-1.0"
 translation_note: "supplied in Spanish by the Oracle 2026-08-28; translated to English on landing per DEC-006"
+registration: exempt
+registration_reason: "agent parts are identified by `agent:` and their filename, not by a series number (ADR-005)"
 ---
 
 # URSA

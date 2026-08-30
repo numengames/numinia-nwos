@@ -3,7 +3,7 @@ id: "D-012"
 uid:
 title: "The canon contradicts itself on its own terminology"
 type: documentation
-status: resolved
+status: closed
 version: "1.0.0"
 created: "2026-08-24T20:50:00Z"
 updated: "2026-08-24T20:50:00Z"

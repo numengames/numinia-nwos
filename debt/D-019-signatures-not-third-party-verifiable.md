@@ -3,7 +3,7 @@ id: "D-019"
 uid:
 title: "Signatures can only be verified by the person who makes them"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-25T00:05:00Z"
 updated: "2026-08-25T00:05:00Z"

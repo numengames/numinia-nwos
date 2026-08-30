@@ -11,6 +11,8 @@ author: "nimrod"
 owner: "oracle"
 tags: [blueprints, index]
 license: "CC-BY-4.0"
+registration: exempt
+registration_reason: "singular document, not a numbered series"
 ---
 # Blueprints — System Designs
 

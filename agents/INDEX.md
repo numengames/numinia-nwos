@@ -12,6 +12,8 @@ author: "ursa"
 owner: "oracle"
 tags: [agents, index]
 license: "CC0-1.0"
+registration: exempt
+registration_reason: "singular document, not a numbered series"
 ---
 # Agents — Operative Roster
 

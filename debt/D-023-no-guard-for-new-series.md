@@ -3,7 +3,7 @@ id: "D-023"
 uid:
 title: "Nothing checks that a new series reaches the published site"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-25T12:50:08Z"
 created_source: "git:edf8021"

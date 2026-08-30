@@ -4,7 +4,7 @@ uid:
 title: "Three governance findings that are probably one, and the YAML two guards are waiting for"
 type: report
 subtype: audit
-status: published
+status: closed
 version: "1.0.0"
 created: "2026-08-26T17:15:00Z"
 created_source: "git:6ca384a"

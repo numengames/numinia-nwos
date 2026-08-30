@@ -3,7 +3,7 @@ id: "D-021"
 uid:
 title: "A new rule does not apply itself to whoever writes it"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-24T23:15:34Z"
 created_source: "git:84e54a4"

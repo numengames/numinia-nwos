@@ -21,6 +21,8 @@ lore:
   decisions: "Una decisión no documentada es una deuda que otro pagará sin saber que existe."
   blueprints: "Todo lo que existe fue primero potencial. Los blueprints son el lugar donde el potencial espera."
   operations: "Sin governance explícita, el sistema se deteriora. Sin seguridad, el sistema se expone."
+registration: exempt
+registration_reason: "singular document, not a numbered series"
 ---
 # Archive Lore — las voces de los fondos
 

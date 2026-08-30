@@ -28,6 +28,8 @@ changelog:
   - version: "1.0.0"
     date: "2026-04-06T00:00:00Z"
     change: "Initial canon with 9 documents."
+registration: exempt
+registration_reason: "singular document, not a numbered series"
 ---
 # Canon — Immutable Memory
 

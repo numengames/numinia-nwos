@@ -3,7 +3,7 @@ id: "AUD-2026-04-07"
 title: "System audit — 16 web vs repo divergences"
 type: report
 subtype: audit
-status: published
+status: closed
 version: "1.0.0"
 created: "2026-08-17T19:12:39Z"
 created_source: "git:2cd0a67"

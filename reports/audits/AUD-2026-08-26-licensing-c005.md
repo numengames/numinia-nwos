@@ -4,7 +4,7 @@ uid:
 title: "Licensing audit of numinia-nwos against C-005 v1.3.0, and the measured impact of the CC0 decision"
 type: report
 subtype: audit
-status: published
+status: closed
 version: "1.4.0"
 created: "2026-08-26T09:40:00Z"
 created_source: "git:8a529fa"

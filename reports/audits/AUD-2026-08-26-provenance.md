@@ -4,7 +4,7 @@ uid:
 title: "Provenance census over the 190 new CC0 grants, and a proposed cut"
 type: report
 subtype: audit
-status: published
+status: closed
 version: "1.2.0"
 created: "2026-08-26T14:20:00Z"
 created_source: "git:47c599e"
