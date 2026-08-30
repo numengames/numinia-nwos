@@ -4,7 +4,9 @@ title: "Agent Synchronization with the Canonical Repo"
 type: mission
 status: backlog
 version: "1.2.0"
-created: "2026-04-07T00:00:00Z"
+created: "2026-04-07T17:45:51Z"
+created_source: "git:01f7878"
+created_confidence: inferred
 updated: "2026-04-07T18:00:00Z"
 author: "nimrod"
 owner: "oracle"

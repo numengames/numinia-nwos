@@ -4,8 +4,10 @@ title: "Offer the mould its own provenance: the template still calls itself the 
 type: mission
 status: draft
 version: "1.0.0"
-created: "2026-08-20T00:00:00Z"
-updated: "2026-08-20T00:00:00Z"
+created: "2026-08-22T18:44:28Z"
+created_source: "git:830e969"
+created_confidence: exact
+updated: "2026-08-22T18:44:28Z"
 author: "claude-opus-5"
 owner: "oracle"
 tags: [governance, engineering-standards, provenance, sovereignty, nwos-workspace-template]

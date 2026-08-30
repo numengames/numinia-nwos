@@ -4,8 +4,10 @@ title: "Sales — commercial strategy"
 type: documentation
 status: active
 version: "1.0.0"
-created: "2026-04-07T00:00:00Z"
-updated: "2026-08-17T00:00:00Z"
+created: "2026-08-17T19:30:52Z"
+created_source: "git:809f717"
+created_confidence: inferred
+updated: "2026-08-27T22:31:29Z"
 author: "nimrod"
 owner: "oracle"
 tags: [strategy, sales, commercial]

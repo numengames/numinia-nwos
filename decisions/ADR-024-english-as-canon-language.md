@@ -5,10 +5,10 @@ title: "English is the base language of every summa document; C-005 §5 is amend
 type: adr
 status: active
 version: "1.0.0"
-created: "2026-08-27T00:00:00Z"
+created: "2026-08-27T17:46:23Z"
 created_source: "git:pending"
 created_confidence: "exact"
-updated: "2026-08-27T00:00:00Z"
+updated: "2026-08-27T17:46:23Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"

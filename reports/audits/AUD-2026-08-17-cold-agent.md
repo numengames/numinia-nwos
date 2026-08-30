@@ -4,8 +4,10 @@ title: "Cold-Agent Audit — Six Discrepancies Verified Against the Tree"
 type: report
 status: done
 version: "1.0.0"
-created: "2026-08-17T00:00:00Z"
-updated: "2026-08-17T00:00:00Z"
+created: "2026-08-17T10:58:22Z"
+created_source: "git:836ec36"
+created_confidence: inferred
+updated: "2026-08-25T11:00:28Z"
 author: "claude-fable"
 owner: "oracle"
 tags: [audit, missions, legibility, cold-agent]

@@ -4,8 +4,10 @@ title: "How to Archive — the NWOS archival protocol"
 type: protocol
 status: draft
 version: "0.3.0"
-created: "2026-08-18"
-updated: "2026-08-18"
+created: "2026-08-18T10:51:09Z"
+created_source: "git:9f25053"
+created_confidence: exact
+updated: "2026-08-27T14:42:33Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [protocols, archive, taxonomy, naming, iso-15489]

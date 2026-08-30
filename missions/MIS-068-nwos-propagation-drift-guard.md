@@ -4,8 +4,10 @@ title: "NWOS propagation: consumer repos never drift from the source of truth"
 type: mission
 status: backlog
 version: "1.0.0"
-created: "2026-08-17"
-updated: "2026-08-25"
+created: "2026-08-17T13:59:23Z"
+created_source: "git:069b83a"
+created_confidence: exact
+updated: "2026-08-27T22:05:37Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [nwos, propagation, drift, guard, c-005, tooling]

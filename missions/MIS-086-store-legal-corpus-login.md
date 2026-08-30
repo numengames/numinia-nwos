@@ -4,8 +4,10 @@ title: "The real legal corpus enters numinia.com and the gate asks for its accep
 type: mission
 status: done
 version: "1.0.0"
-created: "2026-08-18"
-updated: "2026-08-18"
+created: "2026-08-18T08:42:18Z"
+created_source: "git:931299c"
+created_confidence: exact
+updated: "2026-08-27T22:05:37Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [web, platform, legal, auth]

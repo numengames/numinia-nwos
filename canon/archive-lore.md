@@ -4,8 +4,10 @@ title: "Archive Lore — las voces de los fondos"
 type: seminal
 status: active
 version: "1.0.0"
-created: "2026-08-17T00:00:00Z"
-updated: "2026-08-17T00:00:00Z"
+created: "2026-08-17T19:10:09Z"
+created_source: "git:715cc53"
+created_confidence: exact
+updated: "2026-08-17T19:10:09Z"
 author: "oracle"
 owner: "oracle"
 tags: [canon, lore, archive, fondos]

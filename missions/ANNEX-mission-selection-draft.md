@@ -4,8 +4,10 @@ title: "Draft — how the next mission is chosen"
 type: proposal
 status: draft
 version: "0.1.0"
-created: "2026-08-25"
-updated: "2026-08-25"
+created: "2026-08-25T20:05:59Z"
+created_source: "git:5abd27f"
+created_confidence: exact
+updated: "2026-08-25T20:05:59Z"
 author: "ursa"
 owner: "oracle"
 tags: [missions, policy, draft, board]

@@ -5,7 +5,9 @@ title: "Configure automatic weekly report"
 type: mission
 status: done
 version: "1.0.0"
-created: "2026-04-07T00:00:00Z"
+created: "2026-04-07T22:39:04Z"
+created_source: "git:7829844"
+created_confidence: inferred
 updated: "2026-04-07T22:40:00Z"
 author: "pablo-fm"
 owner: "oracle"

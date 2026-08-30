@@ -4,8 +4,10 @@ title: "Terms and Conditions — Numen Games"
 type: legal
 status: active
 version: "1.0.0"
-created: "2025-01-12T00:00:00Z"
-updated: "2026-08-17T00:00:00Z"
+created: "2026-08-17T14:34:34Z"
+created_source: "git:54f7b0b"
+created_confidence: inferred
+updated: "2026-08-25T11:00:28Z"
 author: "oracle"
 owner: "oracle"
 tags: [legal, terms, website, numen-games, enforceable]

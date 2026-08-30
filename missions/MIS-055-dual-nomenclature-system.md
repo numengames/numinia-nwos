@@ -4,8 +4,10 @@ title: "Dual Nomenclature System — Narrative Dial + Gamification Dial"
 type: mission
 status: backlog
 version: "1.2.0"
-created: "2026-04-07T00:00:00Z"
-updated: "2026-08-25"
+created: "2026-04-07T06:48:45Z"
+created_source: "git:9cdd2d2"
+created_confidence: inferred
+updated: "2026-08-25T20:05:59Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [cao, nwos, nomenclature, gamification, narrative, system-design]

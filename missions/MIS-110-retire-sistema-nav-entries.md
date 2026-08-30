@@ -12,8 +12,10 @@ completed: "2026-08-25"
 
 type: mission
 version: "1.0.0"
-created: "2026-08-25"
-updated: "2026-08-25"
+created: "2026-08-25T18:54:47Z"
+created_source: "git:716f20c"
+created_confidence: exact
+updated: "2026-08-25T19:49:11Z"
 author: "ursa"
 owner: "oracle"
 tags: [web, nav, archive]

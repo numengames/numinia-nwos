@@ -5,7 +5,9 @@ title: "CAO — Centralized Autonomous Organization"
 type: blueprint
 status: active
 version: "0.2.0"
-created: "2026-04-05T00:00:00Z"
+created: "2026-04-07T05:49:03Z"
+created_source: "git:e56f6e8"
+created_confidence: exact
 updated: "2026-04-07T19:03:00Z"
 author: "nimrod"
 owner: "oracle"

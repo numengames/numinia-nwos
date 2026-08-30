@@ -5,8 +5,10 @@ title: "Agent Briefing Protocol"
 type: protocol
 status: active
 version: "0.2.0"
-created: "2026-04-06T00:00:00Z"
-updated: "2026-04-08T06:02:00Z"
+created: "2026-04-08T06:02:27Z"
+created_source: "git:a5b6a0d"
+created_confidence: exact
+updated: "2026-08-24T18:08:42Z"
 author: "nimrod"
 owner: "oracle"
 tags: [protocol, briefing, startup, mandatory]

@@ -11,8 +11,10 @@ assigned_to: "ursa"
 completed: "2026-08-27"
 type: mission
 version: "1.0.0"
-created: "2026-08-27"
-updated: "2026-08-27"
+created: "2026-08-27T11:53:30Z"
+created_source: "git:8e90b81"
+created_confidence: exact
+updated: "2026-08-27T22:18:05Z"
 author: "ursa"
 owner: "oracle"
 tags: [translation, i18n, decision-006, archive]

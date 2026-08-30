@@ -4,8 +4,10 @@ title: "Numinia Codex Reader + LAP (numinia.com/lap/)"
 type: mission
 status: backlog
 version: "0.2.0"
-created: "2026-08-17"
-updated: "2026-08-25"
+created: "2026-08-17T18:59:03Z"
+created_source: "git:b484b68"
+created_confidence: exact
+updated: "2026-08-27T22:05:37Z"
 author: "oracle"
 owner: "oracle"
 tags: [web, platform, codex, lap, character-sheet, design, lore]

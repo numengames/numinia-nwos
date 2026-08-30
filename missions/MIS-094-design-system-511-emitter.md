@@ -4,8 +4,10 @@ title: "The emitter governs: Design System 5.1.0 commissioned by the consumer"
 type: mission
 status: done
 version: "1.0.0"
-created: "2026-08-18"
-updated: "2026-08-18"
+created: "2026-08-18T13:41:01Z"
+created_source: "git:46d157c"
+created_confidence: exact
+updated: "2026-08-27T22:05:37Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [design-system, governance, emission, kit]

@@ -4,8 +4,10 @@ title: "The icons speak Phosphor and the typography falls in line with the syste
 type: mission
 status: done
 version: "1.0.0"
-created: "2026-08-18"
-updated: "2026-08-18"
+created: "2026-08-18T13:20:30Z"
+created_source: "git:9091f7f"
+created_confidence: inferred
+updated: "2026-08-27T22:05:37Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [web, viewer, design-system, icons, typography]

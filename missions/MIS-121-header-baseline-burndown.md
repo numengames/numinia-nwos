@@ -213,8 +213,9 @@ rename's clothes, and the numbers below say how many decisions each is.
 
 ### Judgement classes — no script decides these
 
-- [ ] **`H-06`/`H-07` invented dates — 252.** `created` with a midnight
-      nobody wrote at (182) and `updated` with no time at all (70). `S-001`
+- [x] **`H-06`/`H-07` invented dates — 252. DONE 2026-08-30, baseline
+      779 → 546.** `created` with a midnight nobody wrote at (182) and
+      `updated` with no time at all (70). `S-001`
       §8 governs: backfill from git, report the commit each date comes from,
       mark inferred ones, **never invent a date to fill the field**.
 
@@ -233,6 +234,17 @@ rename's clothes, and the numbers below say how many decisions each is.
       A bulk rewrite that silently stamps 49 documents with one identical
       timestamp would replace an obvious lie with a plausible one — which is
       `D-021`'s exact failure mode, and worse than the defect.
+
+      **How it was resolved, 2026-08-30.** `scripts/backfill-dates.py` writes
+      three fields, never one: the date, the commit it came from
+      (`created_source: "git:<sha>"`) and whether the trail crossed a rename
+      (`created_confidence: exact | inferred`). The shared timestamps survive
+      **and say what they are** — 49 documents reading `git:b484b68` are
+      visibly one import, not 49 authoring events, which is the opposite of
+      the plausible lie. **178 files, 233 findings healed, 0 new.** 109
+      `exact`, 69 `inferred`. Idempotent: a second run changes nothing.
+      Templates were excluded — backfilling `{YYYY-MM-DD}` would propagate a
+      false date into every document copied from them.
 - [ ] **`H-00` no frontmatter — 12** and **`H-01` missing `id` — 41.**
       **Measured: 25 of the 41 are in `agents/`**, including `_template/`
       files, plus `guilds/` ×8 and README/INDEX apparatus. Giving apparatus a

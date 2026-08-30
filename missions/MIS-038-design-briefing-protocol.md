@@ -5,8 +5,10 @@ title: "Design Briefing Protocol v1.0"
 type: mission
 status: done
 version: "0.2.0"
-created: "2026-04-07T00:00:00Z"
-updated: "2026-04-08T05:46:00Z"
+created: "2026-04-08T05:47:08Z"
+created_source: "git:7bc2278"
+created_confidence: inferred
+updated: "2026-08-17T12:12:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [cao, protocols, briefing, agents, sentinels]

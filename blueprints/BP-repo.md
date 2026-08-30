@@ -4,8 +4,10 @@ title: "Repositories"
 type: blueprint
 status: active
 version: "v0.1.0"
-created: "2026-04-05T00:00:00Z"
-updated: "2026-04-07T00:00:00Z"
+created: "2026-04-07T05:49:03Z"
+created_source: "git:e56f6e8"
+created_confidence: exact
+updated: "2026-08-27T22:02:10Z"
 author: "nimrod"
 owner: "oracle"
 tags: [blueprint, ops, repos, github]

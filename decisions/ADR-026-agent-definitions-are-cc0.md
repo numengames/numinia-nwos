@@ -5,10 +5,10 @@ title: "Agent definitions are operational documentation, and they are CC0"
 type: adr
 status: active
 version: "1.0.0"
-created: "2026-08-28T00:00:00Z"
+created: "2026-08-28T09:33:53Z"
 created_source: "git:pending"
 created_confidence: "exact"
-updated: "2026-08-28T00:00:00Z"
+updated: "2026-08-28T09:33:53Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"

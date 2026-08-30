@@ -14,7 +14,9 @@ completed: null
 # REGISTRO
 type: mission
 version: "3.0.0"
-created: "2026-08-28"
+created: "2026-08-28T11:06:19Z"
+created_source: "git:61353f6"
+created_confidence: exact
 updated: "2026-08-29T14:45:00Z"
 author: "ursa"
 owner: "oracle"

@@ -4,8 +4,10 @@ title: "The palette comes home: numinia.org migrates to the System v5.0.0 canoni
 type: mission
 status: done
 version: "1.2.0"
-created: "2026-08-18"
-updated: "2026-08-18"
+created: "2026-08-18T12:25:24Z"
+created_source: "git:cef232e"
+created_confidence: inferred
+updated: "2026-08-27T22:05:37Z"
 started: "2026-08-18"
 completed: "2026-08-18"
 author: "claude-fable-5"

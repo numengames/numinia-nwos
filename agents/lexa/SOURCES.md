@@ -4,8 +4,10 @@ title: "SOURCES — Lexa"
 type: agent
 status: active
 version: "1.0.0"
-created: "2026-08-28T00:00:00Z"
-updated: "2026-08-28T00:00:00Z"
+created: "2026-08-28T09:54:16Z"
+created_source: "git:eba0b00"
+created_confidence: exact
+updated: "2026-08-28T09:54:16Z"
 author: "ursa"
 owner: "oracle"
 tags: [agents, lexa]

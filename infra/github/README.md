@@ -4,8 +4,10 @@ title: "GitHub repository configuration, as declared files"
 type: standard
 status: active
 version: "1.0.0"
-created: "2026-08-25"
-updated: "2026-08-25"
+created: "2026-08-25T19:01:47Z"
+created_source: "git:385c29d"
+created_confidence: exact
+updated: "2026-08-25T19:01:47Z"
 author: "ursa"
 owner: "oracle"
 tags: [infrastructure, github, rulesets, governance, D-011]

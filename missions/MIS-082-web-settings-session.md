@@ -4,8 +4,10 @@ title: "Settings and the door: L.A.P. session surface"
 type: mission
 status: done
 version: "1.0.0"
-created: "2026-08-15"
-updated: "2026-08-17"
+created: "2026-08-17T18:59:03Z"
+created_source: "git:b484b68"
+created_confidence: exact
+updated: "2026-08-17T18:59:03Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [web, platform, lap, auth]

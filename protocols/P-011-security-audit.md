@@ -4,8 +4,10 @@ title: "Security Audit — how an agent audits identity, authorization and secre
 type: protocol
 status: draft
 version: "0.1.0"
-created: "2026-08-21"
-updated: "2026-08-21"
+created: "2026-08-21T07:35:05Z"
+created_source: "git:b35ab06"
+created_confidence: exact
+updated: "2026-08-25T11:00:28Z"
 author: "claude-opus-5"
 owner: "oracle"
 tags: [protocols, security, audit, credentials, secrets, identity, authorization]

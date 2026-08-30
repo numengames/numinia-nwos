@@ -4,8 +4,10 @@ title: "On-premises infrastructure — Dedicated PC"
 type: mission
 status: backlog
 version: "1.1.0"
-created: "2026-04-05T00:00:00Z"
-updated: "2026-08-25"
+created: "2026-04-07T05:49:03Z"
+created_source: "git:e56f6e8"
+created_confidence: inferred
+updated: "2026-08-25T20:05:59Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [infrastructure, hardware, ollama, sentinels]

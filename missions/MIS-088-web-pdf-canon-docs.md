@@ -4,8 +4,10 @@ title: "The canon on paper: PDF download of the .md files with design-system for
 type: mission
 status: done
 version: "1.1.0"
-created: "2026-08-18"
-updated: "2026-08-18"
+created: "2026-08-18T09:11:14Z"
+created_source: "git:90269f6"
+created_confidence: exact
+updated: "2026-08-27T22:05:37Z"
 completed: "2026-08-18"
 author: "claude-fable-5"
 owner: "oracle"

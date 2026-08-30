@@ -5,8 +5,10 @@ title: "Deep QA of the NWOS System — Coherence, Cycles, Human-in-the-Loop, Met
 type: mission
 status: done
 version: "2.0.0"
-created: "2026-04-07T00:00:00Z"
-updated: "2026-04-07T19:43:00Z"
+created: "2026-04-07T19:49:05Z"
+created_source: "git:36dee95"
+created_confidence: inferred
+updated: "2026-08-17T12:12:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [cao, qa, system, coherence, metrics, human-approval]
