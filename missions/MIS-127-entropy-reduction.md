@@ -4,9 +4,9 @@ uid:
 title: "Entropy reduction: fewer documents, one vocabulary, registers that die"
 type: mission
 status: in-progress
-version: "0.4.0"
+version: "0.5.0"
 created: "2026-08-30T18:50:00Z"
-updated: "2026-08-30T23:55:00+02:00"
+updated: "2026-08-31T00:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -57,29 +57,42 @@ same-method start-to-finish. Anyone auditing against the original
 | — | [#149](https://github.com/numengames/numinia-nwos/pull/149) (merged) | *Not a reduction PR* — MIS-128 link hygiene fix, listed here only because it touched a mission `.md` (frontmatter timestamp fix) | +1 file | +1,330 (not part of this line; MIS-128's own scope) |
 | — | [#150](https://github.com/numengames/numinia-nwos/pull/150) (merged) | *Not a reduction PR* — MIS-120 closure documentation | 0 files | +1,167 (MIS-120's own closure, not this line) |
 | — | [#151](https://github.com/numengames/numinia-nwos/pull/151) (merged) | *Not a reduction PR* — MIS-128 closure documentation | 0 files | +788 (MIS-128's own closure, not this line) |
+| — | [#152](https://github.com/numengames/numinia-nwos/pull/152) (merged) | *Not a reduction PR* — this mission's own ledger correction (re-measurement note + #148 backfill) | 0 files | not separately measured (self-referential, see note above) |
+| 5 | #153 (pending) | ADR-032: `blueprints/` joins the operational series (extends ADR-030/P-010 §5); six April blueprints extinguished (BP-repo, BP-web, BP-misiones, BP-datos, BP-infraestructura — foundation decisions DEC-001/002/003/005 all superseded; BP-cao-overview — losing side of O-002 CON-001, now resolved); `BP-financiero` kept active per prior Oracle ruling, one dead cross-reference removed | −6 files, +1 file (ADR-032) = **−5 net** | **−1,561** (−3,698 removed + 2,015 new ADR + 128 net edits to P-010/O-002/BP-financiero) |
 
-**Reduction-line total (PRs #145–148 only): −8,464 tokens, −1 file**, against
-the 575,958-token re-measured baseline. The three non-reduction closures
-(#149–151, +3,285 tokens combined) are unrelated mission paperwork that
-happened to land in the same window — real, necessary, and outside this
+**Reduction-line total (PRs #145–148, #153): −10,025 tokens, −6 files net**, against
+the 575,958-token re-measured baseline. The four non-reduction closures
+(#149–152, +3,285 tokens combined, #152 not separately measured) are unrelated mission
+paperwork that happened to land in the same window — real, necessary, and outside this
 ledger's mandate, not netted against it.
 
-**Cumulative repo state at `07b4e34` (current `main`): 328 files (net 0
-vs. baseline — #146's −7 and #147's +6 nearly offset, #149's +1 fills
-the last gap), 570,779 tokens — a net −5,179 from the 575,958
-re-measured baseline, or would show as +5,577 against the original
-uncorrected 570,202 figure. The discrepancy between "the reduction line
-cut 8,464 tokens" and "the repo is only 5,179 lighter" is entirely the
-+3,285 of mission-closure documentation from #149–151, which this ledger
-does not claim credit for and should not be blamed for either.**
+**Cumulative repo state before #153: 328 files, 570,779 tokens** (per #152's
+measurement). **After #153 lands: 323 files, ≈569,218 tokens** — a projected
+net −6,740 from the 575,958 re-measured baseline.
 
 ## Open decision queue (one at a time, Oracle signs each)
 
 - Freeze April-era commercial missions (MIS-017..050 todo, ~40 docs).
-- Freeze April blueprints nothing invokes (20 active, ~160K chars).
+- ~~Freeze April blueprints nothing invokes (20 active, ~160K chars).~~
+  **Partially resolved by ADR-032/#153**: 6 of 16 tracked blueprints
+  extinguished (foundation decisions dead, or losing side of a resolved
+  contradiction) — `BP-repo`, `BP-web`, `BP-misiones`, `BP-datos`,
+  `BP-infraestructura`, `BP-cao-overview`. `BP-financiero` confirmed
+  staying active (depends on pending missions, not a dead decision —
+  still folds into the point below). The remaining 9 blueprints
+  (`BP-cao`, `BP-cao-architecture`, `BP-archive-fondos`,
+  `BP-business-metrics`, `BP-mission-system-v2`,
+  `BP-numengames-improvement-roadmap`, `BP-nwos-system`,
+  `BP-agent-experience`, `BP-dual-nomenclature`) were not evaluated
+  against the extinction criterion — out of scope for #153, still an
+  open question if the Oracle wants them reviewed. `blueprints/INDEX.md`
+  (last touched 2026-04-07, lists 3 of 16) remains stale — not fixed.
 - Single status vocabulary across every series (S-001).
 - MIS-125 prefix register execution.
 - protocols/ ↔ standards/ merge assessment.
+- **New, opened by #153:** freeze the April commercial missions that
+  `BP-financiero` depends on (MIS-021/031/034/048) — same mandate as
+  the first bullet, now with a named blocking dependency.
 
 ## Done when
 
