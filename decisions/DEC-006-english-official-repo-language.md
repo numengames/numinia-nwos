@@ -2,10 +2,10 @@
 id: "DEC-006"
 title: "English as the official language of the NWOS canonical repo"
 type: adr
-status: active
-version: "1.0.0"
+status: superseded
+version: "1.1.0"
 created: "2026-04-07T18:45:00Z"
-updated: "2026-04-07T18:45:00Z"
+updated: "2026-08-30T20:30:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [decisions, documentation, i18n, english, nwos, language]
@@ -14,6 +14,8 @@ superseded_by: null
 license: "CC-BY-4.0"
 ---
 # DEC-006 — English as the official language of the NWOS canonical repo
+
+> **Superseded (2026-08-30) by [`ADR-024`](ADR-024-english-as-canon-language.md):** same ruling, later, wider (canon language + C-005 integration + web i18n boundary).
 
 > **Summary:** English becomes the sole language of the numinia-digital-agents canonical repo.
 > **Epistemic:** What was decided, why, and what the implications are for agents and contributors.

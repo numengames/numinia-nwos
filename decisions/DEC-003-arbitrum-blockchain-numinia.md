@@ -2,12 +2,12 @@
 id: "DEC-003"
 title: "Arbitrum as Numinia blockchain"
 type: adr
-status: draft
-version: "1.1.0"
+status: superseded
+version: "1.2.0"
 created: "2026-04-07T05:49:03Z"
 created_source: "git:e56f6e8"
 created_confidence: exact
-updated: "2026-04-07T18:00:00Z"
+updated: "2026-08-30T20:30:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [decisions, product, tech, blockchain, arbitrum]
@@ -18,14 +18,14 @@ license: "CC-BY-4.0"
 ---
 # DEC-003 — Arbitrum as Numinia blockchain
 
+> **Superseded (2026-08-30):** provisional since April, never ratified at Dark Council, nothing built on it. If a chain is ever needed, a new ADR decides with current data.
+
 > **Summary:** Architectural or strategic decision with context and alternatives.
 > **Epistemic:** What was decided, why, and what alternatives were discarded.
 > **Pragmatic:** Consult before making decisions in the same domain.
 > **Audience:** Agents · Oracles
 
 ---
-
-> ⚠️ **Status: Provisional** — Pending ratification at Dark Council
 
 ## Context
 

@@ -2,12 +2,12 @@
 id: "DEC-001"
 title: "Self-hosting over SaaS for infrastructure"
 type: adr
-status: active
-version: "1.1.0"
+status: superseded
+version: "1.2.0"
 created: "2026-04-07T05:49:03Z"
 created_source: "git:e56f6e8"
 created_confidence: exact
-updated: "2026-04-07T18:00:00Z"
+updated: "2026-08-30T20:30:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [decisions, infrastructure, self-hosting, philosophy]
@@ -16,6 +16,8 @@ superseded_by: null
 license: "CC-BY-4.0"
 ---
 # DEC-001 — Self-hosting over SaaS for infrastructure
+
+> **Superseded (2026-08-30):** the NWOS web deploys on Cloudflare Workers — a SaaS. The principle survives where it held (Umami, Cal.com on own server for pablofm.com), but as repo doctrine this decision no longer describes practice. No successor doc; the infra choices live in `web/` and C-005.
 
 > **Summary:** Architectural or strategic decision with context and alternatives.
 > **Epistemic:** What was decided, why, and what alternatives were discarded.
