@@ -53,7 +53,7 @@ treating `S-001` as binding for weeks:
 | Dependency asserted | Measured at `8d944bf` | Command |
 |---|---|---|
 | Many documents cite it as authority | **64 files** | `grep -rl "S-001" --include="*.md" canon/ decisions/ debt/ protocols/ standards/ missions/ agents/ reports/ \| wc -l` |
-| Its rules have been executed as rulings | `D-016`: 12 missions migrated against **`S-001` §7** | `grep -n "S-001" debt/D-016-cancelled-status-retired.md` |
+| Its rules have been executed as rulings | `D-016`: 12 missions migrated against **`S-001` §7** | `grep -n "S-001" debt/D-016-cancelled-status-retired.md` (entry extinguished 2026-08-30, ADR-030; text in git history) |
 | A guard already enforces it mechanically | `lint-frontmatter.mjs` cites `S-001` **5 times**; 865 findings baselined | `grep -c "S-001" scripts/lint-frontmatter.mjs` |
 | `S-004` was built on top of it | `S-004` §6 defers to `S-001` §6.3 globals and §5.0 registration | `#114`, `#116` |
 

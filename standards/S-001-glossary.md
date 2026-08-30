@@ -1327,7 +1327,8 @@ written on 2026-08-25; until then this section pointed at nothing, which is the
 defect `D-018` exists to catch.
 
 1. **`human_approval_score`** (16 documents) — says `# 1-10` but not *what* it
-   measures. → [`D-003`](../debt/D-003-human-approval-score-undefined.md)
+   measures. → `D-003` (extinguished 2026-08-30, ADR-030: defined as the
+   approval gate in `standards/governance.md`)
 2. **`semaforo`** (7) — verde/amarillo/rojo, in Spanish. What triggers each
    colour, and who sets it. → [`D-004`](../debt/D-004-semaforo-undefined.md)
 3. **`confidence_before` / `after`** (2) — scale, and who fills them.
@@ -1342,7 +1343,7 @@ defect `D-018` exists to catch.
 
 Two more fields were named elsewhere in this document and now carry entries:
 `blocked_reason` → [`D-002`](../debt/D-002-blocked-reason-orphaned.md) (§7), and
-`cancelled` → [`D-016`](../debt/D-016-cancelled-status-retired.md), **which is
+`cancelled` → `D-016` (extinguished 2026-08-30, ADR-030), **which is
 filed RESOLVED**: the 12 missions were converted to `frozen` with
 `freeze_reason` on the Oracle's ruling. `debt/` is append-only, so a closed
 entry with its trace stays rather than disappearing.

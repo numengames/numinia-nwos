@@ -4,11 +4,11 @@ uid: ""
 title: "Decisions — Index"
 type: adr
 status: active
-version: "1.7.0"
+version: "1.8.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-08-28T09:33:53Z"
+updated: "2026-08-30T18:40:00Z"
 author: "nimrod"
 owner: "oracle"
 tags: [decisions, index, adr]
@@ -42,6 +42,10 @@ Architectural Decision Records (ADR) of the Narrative Work OS. These records are
 | ADR-023 | Four terms, two pairs: germinal motive / operating system, regulatory / functional model | ✅ Active | 2026-08-25 |
 | ADR-024 | English is the base language of every summa document; C-005 §5 amended | ✅ Active | 2026-08-27 |
 | ADR-026 | Agent definitions are operational documentation, and they are CC0 | ✅ Active | 2026-08-28 |
+| ADR-027 | S-001 is ratified: the archive already obeys it | ✅ Active | 2026-08-28 |
+| ADR-028 | Absence is declared, not omitted; closed vocabularies get a TBA rule | ✅ Active | 2026-08-28 |
+| ADR-029 | Sign what the machines already enforce: S-004 active, type agent admitted | ✅ Active | 2026-08-30 |
+| ADR-030 | Operational series extinguish on close: debt entries are records of work, not memory | ✅ Active | 2026-08-30 |
 | DEC-001 | Self-hosting over SaaS | ✅ Active | 2026-04-03 |
 | DEC-002 | Build in public with CC0 license | ✅ Active | 2026-04-02 |
 | DEC-003 | Arbitrum as Numinia blockchain | ⚠️ Provisional | 2026-04-05 |
@@ -72,4 +76,5 @@ Architectural Decision Records (ADR) of the Narrative Work OS. These records are
 - v1.4.0 (2026-08-24) — ADR-004 registered: identifier convention; `ADR-` declared canonical over `DEC-`.
 - v1.5.0 (2026-08-25) — ADR-005 registered: prefix ruling. `agents/` takes `AG-`, not `A-`; `S-` stays with `standards/` and canon renumbers to `C-NNN` inside MIS-109.
 - v1.6.0 (2026-08-27) — ADR-024 registered: English is the base language of every summa document; C-005 §5 amended (canon-change). ADR-023 backfilled into the table — it was on disk since 2026-08-25 but never listed here.
+- v1.8.0 (2026-08-30) — ADR-030 registered: operational series extinguish on close; P-010 §5 amended in scope; nine debt entries extinguished with their closure record in the ADR. ADR-027/028/029 backfilled into the table — on disk since 2026-08-28/30, never listed here.
 - v1.7.0 (2026-08-28) — ADR-026 registered: agent definitions are operational documentation and are CC0; `agents/**` leaves the reserved annotation (LD-001 made the reservation unenforceable). C-005 §1 amendment owed, tracked as D-038.
