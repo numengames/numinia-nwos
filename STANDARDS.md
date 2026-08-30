@@ -10,6 +10,8 @@ author: "nimrod"
 owner: "oracle"
 tags: [standards, conventions, meta, nwos]
 license: "CC-BY-4.0"
+registration: exempt
+registration_reason: "singular document, not a numbered series"
 ---
 
 # STANDARDS — Narrative Work OS

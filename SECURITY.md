@@ -10,6 +10,8 @@ author: "claude-fable-5"
 owner: "oracle"
 tags: [security, disclosure, policy]
 license: "CC-BY-4.0"
+registration: exempt
+registration_reason: "singular document, not a numbered series"
 ---
 # Security Policy
 

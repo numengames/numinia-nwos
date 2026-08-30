@@ -12,6 +12,8 @@ author: "pablo-fm"
 owner: "oracle"
 tags: [guild, exegetes, charter]
 license: "LicenseRef-Numen-AllRightsReserved"
+registration: exempt
+registration_reason: "singular document, not a numbered series"
 ---
 # Guild Charter — Exegetes
 

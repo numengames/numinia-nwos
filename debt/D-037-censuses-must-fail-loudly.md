@@ -3,7 +3,7 @@ id: "D-037"
 uid:
 title: "Censuses must fail loudly, not return everything"
 type: technical
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-26T18:10:00Z"
 created_source: "git:80e5145"

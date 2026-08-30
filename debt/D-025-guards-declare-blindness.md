@@ -3,7 +3,7 @@ id: "D-025"
 uid:
 title: "No guard declares what it is blind to"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-25T13:02:12Z"
 created_source: "git:d204ed7"

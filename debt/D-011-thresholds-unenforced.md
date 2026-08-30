@@ -3,7 +3,7 @@ id: "D-011"
 uid:
 title: "Change thresholds are declared but nothing enforces them"
 type: documentation
-status: open
+status: active
 version: "1.1.0"
 created: "2026-08-24T20:05:00Z"
 updated: "2026-08-25T21:00:00Z"

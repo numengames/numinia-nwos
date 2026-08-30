@@ -4,7 +4,7 @@ uid:
 title: "Phase 0 — Archive restructure inventory"
 type: report
 subtype: audit
-status: published
+status: closed
 version: "1.2.0"
 created: "2026-08-24T22:45:00Z"
 updated: "2026-08-24T23:30:00Z"

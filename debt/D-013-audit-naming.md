@@ -3,7 +3,7 @@ id: "D-013"
 uid:
 title: "reports/audits: four audits, four naming conventions"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-24T20:55:00Z"
 updated: "2026-08-24T20:55:00Z"

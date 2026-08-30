@@ -3,7 +3,7 @@ id: "D-006"
 uid:
 title: "cost_estimate: a number without a unit"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-25T00:38:00Z"
 updated: "2026-08-25T00:38:00Z"

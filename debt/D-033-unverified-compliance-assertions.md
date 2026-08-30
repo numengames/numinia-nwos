@@ -3,7 +3,7 @@ id: "D-033"
 uid:
 title: "Compliance assertions are falsifiable and nothing falsifies them"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-25T18:00:00Z"
 created_source: "git:2ba3fea"

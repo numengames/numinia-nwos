@@ -3,7 +3,7 @@ id: "D-029"
 uid:
 title: "A decision travelling hidden inside another"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-25T14:33:22Z"
 created_source: "git:c70c847"

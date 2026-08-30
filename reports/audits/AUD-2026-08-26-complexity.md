@@ -4,7 +4,7 @@ uid:
 title: "Complexity census: how many guards exist, which run, and what an ordinary operation costs"
 type: report
 subtype: audit
-status: published
+status: closed
 version: "1.0.0"
 created: "2026-08-26T16:30:00Z"
 created_source: "git:3277a9a"

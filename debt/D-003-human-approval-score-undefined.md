@@ -3,7 +3,7 @@ id: "D-003"
 uid:
 title: "human_approval_score states a range but not what it measures"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-25T00:32:00Z"
 updated: "2026-08-25T00:32:00Z"

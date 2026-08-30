@@ -3,7 +3,7 @@ id: "D-027"
 uid:
 title: "Renaming a live agent broke the canon's provenance, and git cannot be corrected"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-25T13:30:05Z"
 created_source: "git:c60a486"

@@ -3,7 +3,7 @@ id: "D-032"
 uid:
 title: "Content is served from public/ without passing through the renderer, unmeasured by anything"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-25T17:40:00Z"
 created_source: "git:2ba3fea"

@@ -15,6 +15,8 @@ tags: [agents, byblos]
 license: "CC0-1.0"
 previous_name: "Adonaz"
 previous_name_note: "renamed 2026-08-28; Adonaz has no commits, no provenance affected"
+registration: exempt
+registration_reason: "agent parts are identified by `agent:` and their filename, not by a series number (ADR-005)"
 ---
 
 # BYBLOS

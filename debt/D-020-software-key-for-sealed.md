@@ -3,7 +3,7 @@ id: "D-020"
 uid:
 title: "The sealed threshold rests on a software key; hardware exists and is decided"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-25T00:10:00Z"
 updated: "2026-08-25T00:10:00Z"

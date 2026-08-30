@@ -3,7 +3,7 @@ id: "D-026"
 uid:
 title: "No file maps a git account to a declared role"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-25T13:23:15Z"
 created_source: "git:d9ca672"

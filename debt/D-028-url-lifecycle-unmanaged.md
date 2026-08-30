@@ -3,7 +3,7 @@ id: "D-028"
 uid:
 title: "The site publishes URLs derived from filenames and nothing manages their lifecycle"
 type: documentation
-status: open
+status: active
 version: "1.1.0"
 created: "2026-08-25T14:22:10Z"
 created_source: "git:a13366b"

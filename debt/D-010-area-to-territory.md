@@ -3,7 +3,7 @@ id: "D-010"
 uid:
 title: "area survives in 256 documents; territory exists in 2"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-24T19:44:00Z"
 updated: "2026-08-24T19:44:00Z"

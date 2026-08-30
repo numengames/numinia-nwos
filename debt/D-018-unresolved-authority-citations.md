@@ -3,7 +3,7 @@ id: "D-018"
 uid:
 title: "Nothing checks that a document cited as authority exists"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-24T23:55:00Z"
 updated: "2026-08-24T23:55:00Z"

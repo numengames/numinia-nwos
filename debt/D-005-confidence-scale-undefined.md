@@ -3,7 +3,7 @@ id: "D-005"
 uid:
 title: "confidence_before / confidence_after: a scale nobody wrote down"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-25T00:36:00Z"
 updated: "2026-08-25T00:36:00Z"

@@ -3,7 +3,7 @@ id: "D-030"
 uid:
 title: "Should the licence regime derive from the path? — open question"
 type: documentation
-status: open
+status: active
 version: "1.1.0"
 created: "2026-08-25T14:38:34Z"
 created_source: "git:1cd313d"

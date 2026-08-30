@@ -10,6 +10,8 @@ updated: "2026-08-24T21:40:00Z"
 author: "ursa"
 owner: "oracle"
 license: "CC-BY-4.0"
+registration: exempt
+registration_reason: "singular document, not a numbered series"
 ---
 # numinia-nwos
 

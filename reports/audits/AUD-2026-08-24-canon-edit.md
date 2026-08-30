@@ -4,7 +4,7 @@ uid:
 title: "Audit — the 2026-05-06 canon edit: authorised, complete, coherent?"
 type: report
 subtype: audit
-status: published
+status: closed
 version: "1.0.0"
 created: "2026-08-24T20:40:00Z"
 updated: "2026-08-24T20:40:00Z"

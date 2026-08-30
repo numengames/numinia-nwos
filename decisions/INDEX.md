@@ -13,6 +13,8 @@ author: "nimrod"
 owner: "oracle"
 tags: [decisions, index, adr]
 license: "CC-BY-4.0"
+registration: exempt
+registration_reason: "singular document, not a numbered series"
 ---
 # Decisions — Crystallized Will
 

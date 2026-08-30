@@ -3,7 +3,7 @@ id: "D-034"
 uid:
 title: "Ten Dependabot advisories on main, unreviewed and unrecorded"
 type: technical
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-25T18:30:00Z"
 created_source: "git:6d96106"

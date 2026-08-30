@@ -3,7 +3,7 @@ id: "D-004"
 uid:
 title: "semaforo: three colours, in Spanish, with no trigger and no owner"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-25T00:34:00Z"
 updated: "2026-08-25T00:34:00Z"

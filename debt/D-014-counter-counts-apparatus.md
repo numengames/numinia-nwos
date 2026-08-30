@@ -3,7 +3,7 @@ id: "D-014"
 uid:
 title: "count-evidence.py measures apparatus as if it were record"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-24T21:05:00Z"
 updated: "2026-08-24T21:05:00Z"
