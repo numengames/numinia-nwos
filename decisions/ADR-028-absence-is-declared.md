@@ -192,12 +192,20 @@ they are written down so the next iteration does not rediscover them.
    gates publication of `debt/` on it. A field that decides what the public
    site shows has no vocabulary in `S-001` and no check anywhere.
 
-5. **The decision series has an unexplained gap.** `decisions/` runs
-   `…024, 026, 027` — the number between them was never minted, or was
-   minted and dropped, and nothing records which. Per `ADR-005` identifiers
-   are never renumbered and gaps are recorded, not filled: this ADR takes
-   `028` and leaves the hole. `MIS-116` did exactly this work for the three
-   missing mission numbers; `decisions/` has no equivalent.
+5. **The decision series has a gap the corpus cannot explain.**
+   `decisions/` runs `…024, 026, 027`. The missing number is **not lost — it
+   is reserved**: the Oracle decided on 2026-08-27 that it would carry the
+   translation of the world lexicon (`El Ágora → The Agora`, `El Velo → The
+   Veil`, and five more), pending a signed glossary. Nothing in this
+   repository says so. The reservation exists only on the task board.
+
+   That is the finding, and it is larger than the gap. **An identifier can
+   be reserved by a decision that the corpus has no way to record**, so any
+   reader — human or agent — sees a hole where there is a commitment. `MIS-116`
+   hit the same wall for the three missing mission numbers and resolved it by
+   writing the reservation down. `decisions/` has no equivalent, and until it
+   does, `ADR-005`'s "gaps are recorded, not filled" is unenforceable: there
+   is nowhere to record them.
 
    *This item also exposes a sixth crack.* Naming a non-existent identifier
    in prose is indistinguishable, to `check-references.mjs`, from citing a
