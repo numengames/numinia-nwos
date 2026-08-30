@@ -15,7 +15,6 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [decisions, adr, canon, i18n, language, C-005, DEC-006, canon-change]
 license: "CC-BY-4.0"
-supersedes: ""
 related: ["DEC-006", "MIS-116", "C-005"]
 ---
 # ADR-024 — English is the base language of every summa document

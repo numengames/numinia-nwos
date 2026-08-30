@@ -2,7 +2,8 @@
 id: "S-003"
 uid:
 title: "Platform Role System"
-type: standard
+type: documentation
+subtype: standard
 status: active
 version: "1.0.0"
 created: "2026-04-07T12:34:04Z"

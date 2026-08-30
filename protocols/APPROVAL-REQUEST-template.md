@@ -6,7 +6,7 @@ registration_reason: >
   The template P-008-approval-brief-v1.md uses. Apparatus belongs to its
   parent document, not to the series. See S-001 §5.0.
 title: "Approval Request — Template"
-type: template
+type: documentation
 status: active
 version: "1.1.0"
 created: "2026-04-07T12:56:00Z"

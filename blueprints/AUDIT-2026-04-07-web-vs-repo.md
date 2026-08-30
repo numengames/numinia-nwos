@@ -1,7 +1,8 @@
 ---
 id: "AUDIT-2026-04-07"
 title: "Audit — Web vs Repo Divergences"
-type: audit
+type: report
+subtype: audit
 status: active
 version: "1.0.0"
 created: "2026-04-07T13:35:00Z"

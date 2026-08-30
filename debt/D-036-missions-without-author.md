@@ -2,7 +2,7 @@
 id: "D-036"
 uid:
 title: "33 missions declare no author: the field the whole provenance census rests on"
-type: technical
+type: documentation
 status: active
 version: "1.0.0"
 created: "2026-08-26T16:05:00Z"

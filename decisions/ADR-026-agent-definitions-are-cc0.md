@@ -15,7 +15,6 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [decisions, adr, licensing, agents, C-005, D-030, LD-001, canon-change]
 license: "CC-BY-4.0"
-supersedes: ""
 related: ["LD-001", "D-030", "D-038", "C-005", "MIS-118", "ADR-005"]
 ---
 # ADR-026 — Agent definitions are operational documentation, and they are CC0

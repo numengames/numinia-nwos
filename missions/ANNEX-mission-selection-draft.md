@@ -1,7 +1,7 @@
 ---
 id: "ANNEX-mission-selection"
 title: "Draft — how the next mission is chosen"
-type: proposal
+type: documentation
 status: draft
 version: "0.1.0"
 created: "2026-08-25T20:05:59Z"

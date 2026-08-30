@@ -2,7 +2,7 @@
 id: "D-035"
 uid:
 title: "build:pdf does not run in automated builds: 278 dead PDF links and 278 print intermediates served"
-type: technical
+type: documentation
 status: active
 version: "1.0.0"
 created: "2026-08-25T19:30:00Z"
