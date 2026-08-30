@@ -15,7 +15,6 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [decisions, adr, canon, terminology, D-012, disambiguation]
 license: "CC-BY-4.0"
-adr_id: "ADR-023"
 supersedes: ""
 related: ["D-012", "MIS-109", "AUD-2026-08-24-canon-edit"]
 evidence_script: "reports/audits/evidence/canon-2026-04-15/"

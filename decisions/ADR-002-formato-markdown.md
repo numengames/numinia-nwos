@@ -10,7 +10,6 @@ created_confidence: exact
 author: "pablo-fm"
 owner: "oracle"
 tags: [decisions, adr, format, markdown]
-adr_id: "ADR-002"
 decision: "All documents in the Archive Summa use Markdown (.md) as the primary format"
 superseded_by: null
 license: "CC-BY-4.0"
