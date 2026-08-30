@@ -3,7 +3,7 @@ id: "D-039"
 uid:
 title: "A green ratchet certified 85 corrupted files"
 type: documentation
-status: open
+status: active
 version: "1.0.0"
 created: "2026-08-30T14:07:58Z"
 created_source: "git:d4c2975"
@@ -16,10 +16,8 @@ territory: "Archive"
 tags: [debt, guards, ci, blind-spots, frontmatter, D-025, D-001]
 license: "CC-BY-4.0"
 visibility: "public"
-visibility_reason: >
-  A failure of the instruments themselves. Publishing it is the point: the
-  corpus claims its guards are what make its numbers trustworthy, so the day
-  they certified damage belongs in the open record.
+severity: high
+opened_by: "Ursa, 2026-08-30"
 ---
 
 # D-039 — A green ratchet certified 85 corrupted files
