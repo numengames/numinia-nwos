@@ -13,7 +13,7 @@ owner: "oracle"
 tags: [nwos, propagation, drift, guard, c-005, tooling]
 license: "CC-BY-4.0"
 mission_id: "MIS-068"
-area: "CAO / Tooling"
+territory: "CAO"
 guild: "Sentinels"
 type_execution: "digital"
 priority: "medium"

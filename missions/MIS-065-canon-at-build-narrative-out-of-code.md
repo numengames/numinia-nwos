@@ -13,7 +13,7 @@ owner: "oracle"
 tags: [web, licensing, file-over-app, c-005]
 license: "CC-BY-4.0"
 mission_id: "MIS-065"
-area: "Viewer / Licensing"
+territory: "TBA"
 guild: "Sentinels"
 priority: "medium"
 effort: "L"

@@ -11,7 +11,7 @@ updated: "2026-04-07T18:00:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [decisions, cao, agents, architecture]
-area: "CAO / Agent system"
+territory: "CAO"
 superseded_by: null
 license: "CC-BY-4.0"
 ---

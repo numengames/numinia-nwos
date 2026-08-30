@@ -13,7 +13,7 @@ author: "pablo-fm"
 owner: "oracle"
 tags: [documentation, cao, architecture, agents, sentinels]
 license: "CC-BY-4.0"
-area: "Documentation"
+territory: "TBA"
 guild: "Sentinels"
 mission_id: "MIS-045"
 priority: "high"

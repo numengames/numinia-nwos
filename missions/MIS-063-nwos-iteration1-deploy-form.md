@@ -11,7 +11,7 @@ author: "pablo-fm"
 owner: "oracle"
 tags: [nwos, pablofm-web, github-api, astro, react, product]
 license: "CC-BY-4.0"
-area: "Product"
+territory: "Product"
 guild: "Alchemists"
 mission_id: "MIS-063"
 priority: "critical"

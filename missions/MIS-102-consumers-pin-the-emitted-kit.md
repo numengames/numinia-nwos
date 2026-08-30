@@ -11,7 +11,7 @@ owner: "oracle"
 tags: [design-system, tokens, emission, drift, engineering-standards]
 license: "CC-BY-4.0"
 mission_id: "MIS-102"
-area: "Product"
+territory: "Product"
 guild: "Alchemists"
 type_execution: "digital"
 priority: "high"

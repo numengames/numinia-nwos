@@ -13,7 +13,7 @@ owner: "oracle"
 tags: [continuity, sovereignty, radicle, mirrors, infrastructure, file-over-app]
 license: "CC-BY-4.0"
 mission_id: "MIS-069"
-area: "Infrastructure"
+territory: "Infrastructure"
 guild: "Sentinels"
 type_execution: "digital"
 priority: "medium"

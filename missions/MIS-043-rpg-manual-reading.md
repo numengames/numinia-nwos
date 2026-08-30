@@ -8,7 +8,7 @@ created: "2026-04-07T05:58:49Z"
 created_source: "git:428349f"
 created_confidence: inferred
 updated: "2026-08-17T18:59:03Z"
-area: "Documentation"
+territory: "TBA"
 guild: "Exegetes"
 type_execution: "digital"
 priority: "high"

@@ -13,7 +13,7 @@ owner: "oracle"
 tags: [web, platform, legal, auth]
 license: "CC-BY-4.0"
 mission_id: "MIS-086"
-area: "Platform / numinia-web"
+territory: "Platform"
 guild: "Procurators"
 type_execution: "digital"
 priority: "high"

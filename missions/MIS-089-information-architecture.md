@@ -13,7 +13,7 @@ owner: "oracle"
 tags: [archive, taxonomy, web, viewer, information-architecture]
 license: "CC-BY-4.0"
 mission_id: "MIS-089"
-area: "Archive + Viewer / numinia.org"
+territory: "Archive"
 guild: "Exegetes"
 type_execution: "digital"
 priority: "high"

@@ -13,7 +13,7 @@ owner: "oracle"
 tags: [nwos, governance, versioning, sovereignty, propagation]
 license: "CC-BY-4.0"
 mission_id: "MIS-096"
-area: "NWOS core / governance"
+territory: "TBA"
 guild: "Procurators"
 type_execution: "digital"
 priority: "high"

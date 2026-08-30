@@ -11,7 +11,7 @@ updated: "2026-04-07T18:00:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [decisions, product, tech, blockchain, arbitrum]
-area: "Product / Tech"
+territory: "Product"
 pending_dark_council: true
 superseded_by: null
 license: "CC-BY-4.0"

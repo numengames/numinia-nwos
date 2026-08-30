@@ -11,7 +11,7 @@ author: "pablo-fm"
 owner: "oracle"
 tags: [missions, kanban, system-design, architecture, product]
 license: "CC-BY-4.0"
-area: "CAO / Product"
+territory: "CAO"
 guild: "Sentinels"
 priority: "high"
 effort: "XL"

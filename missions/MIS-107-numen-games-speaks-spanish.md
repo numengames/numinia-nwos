@@ -11,7 +11,7 @@ owner: "oracle"
 tags: [web, i18n, content, numengames-web]
 license: "CC-BY-4.0"
 mission_id: "MIS-107"
-area: "Content"
+territory: "Content"
 guild: "Alchemists"
 type_execution: "hybrid"
 priority: "high"

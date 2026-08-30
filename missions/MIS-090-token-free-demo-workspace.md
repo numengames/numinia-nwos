@@ -14,7 +14,7 @@ owner: "oracle"
 tags: [nwos, deploy, demo, marketing, cost, velo]
 license: "CC-BY-4.0"
 mission_id: "MIS-090"
-area: "NWOS deploy / nwos.numen.games"
+territory: "TBA"
 guild: "Alchemists"
 type_execution: "digital"
 priority: "medium"

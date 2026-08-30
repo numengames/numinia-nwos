@@ -13,7 +13,7 @@ owner: "oracle"
 tags: [web, viewer, design-system, icons, typography]
 license: "CC-BY-4.0"
 mission_id: "MIS-093"
-area: "Viewer / numinia.org"
+territory: "TBA"
 guild: "Alchemists"
 type_execution: "digital"
 priority: "medium"

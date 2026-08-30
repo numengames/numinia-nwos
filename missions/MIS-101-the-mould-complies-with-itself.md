@@ -11,7 +11,7 @@ owner: "oracle"
 tags: [engineering-standards, ci, documentation, numinia-nwos]
 license: "CC-BY-4.0"
 mission_id: "MIS-101"
-area: "Documentation"
+territory: "TBA"
 guild: "Alchemists"
 type_execution: "digital"
 priority: "high"

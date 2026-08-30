@@ -11,7 +11,7 @@ author: "pablo-fm"
 owner: "oracle"
 tags: [product, pricing, monetization, procurators]
 license: "CC-BY-4.0"
-area: "Product"
+territory: "Product"
 guild: "Procurators"
 priority: "critical"
 effort: "S"

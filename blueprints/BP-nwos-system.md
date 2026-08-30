@@ -11,7 +11,7 @@ updated: "2026-08-27T22:02:10Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [blueprint, nwos, architecture, layers, principles]
-area: "CAO / Product"
+territory: "CAO"
 license: "CC-BY-4.0"
 extraction_note: "Extracted verbatim from web/src/pages/index.astro (MIS-071 phase 2 — File over App): feature descriptions, the L0-L4 layer architecture, the six operating principles, the implementation requirements and the Narrative Layer note."
 ---

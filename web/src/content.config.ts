@@ -15,7 +15,8 @@ const missions = defineCollection({
       priority: z.string().default("medium"),
       effort: z.string().default("M"),
       guild: z.string().optional(),
-      area: z.string().optional(),
+      territory: z.string().optional(),
+      area: z.string().optional(),   // legado: D-010, ya migrado
       type_execution: z.string().optional(),
       assigned_to: z.string().nullable().optional(),
       completed: z.string().nullable().optional(),
@@ -48,7 +49,8 @@ const decisions = defineCollection({
       id: z.string(),
       title: z.string(),
       status: z.string().default("active"),
-      area: z.string().optional(),
+      territory: z.string().optional(),
+      area: z.string().optional(),   // legado: D-010, ya migrado
       created: z.string(),
     })
     .passthrough(),
@@ -63,7 +65,8 @@ const blueprints = defineCollection({
       id: z.string(),
       title: z.string(),
       status: z.string().default("active"),
-      area: z.string().optional(),
+      territory: z.string().optional(),
+      area: z.string().optional(),   // legado: D-010, ya migrado
       semaforo: z.string().optional(),
       created: z.string(),
     })

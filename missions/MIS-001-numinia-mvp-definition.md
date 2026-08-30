@@ -12,7 +12,7 @@ author: "pablo-fm"
 owner: "oracle"
 tags: [product, mvp, strategy, alchemists]
 license: "CC-BY-4.0"
-area: "Product"
+territory: "Product"
 guild: "Alchemists"
 priority: "critical"
 effort: "S"

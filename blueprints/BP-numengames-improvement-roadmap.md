@@ -10,7 +10,7 @@ updated: "2026-04-08T06:00:00Z"
 author: "nimrod"
 owner: "oracle"
 tags: [numengames, web, seo, improvement, roadmap, content]
-area: "Content"
+territory: "Content"
 license: "CC-BY-4.0"
 mission: "MIS-027"
 input: "blueprints/AUDIT-numengames-2026-04-08.md"

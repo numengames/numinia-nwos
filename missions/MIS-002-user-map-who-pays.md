@@ -11,7 +11,7 @@ author: "pablo-fm"
 owner: "oracle"
 tags: [product, users, icp, strategy, exegetes]
 license: "CC-BY-4.0"
-area: "Product"
+territory: "Product"
 guild: "Exegetes"
 priority: "critical"
 effort: "S"

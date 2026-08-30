@@ -13,7 +13,7 @@ author: "pablo-fm"
 owner: "oracle"
 tags: [operations, reports, cron, automation, sentinels]
 license: "CC-BY-4.0"
-area: "Operations"
+territory: "TBA"
 guild: "Sentinels"
 mission_id: "MIS-047"
 priority: "high"

@@ -13,7 +13,7 @@ author: "pablo-fm"
 owner: "oracle"
 tags: [cao, logs, observability, agents, sentinels]
 license: "CC-BY-4.0"
-area: "CAO"
+territory: "CAO"
 guild: "Sentinels"
 mission_id: "MIS-039"
 priority: "high"

@@ -6,7 +6,7 @@ status: done
 priority: high
 effort: M
 guild: procurators
-area: governance
+territory: "TBA"
 type_execution: hybrid
 assigned_to: "ursa"
 completed: "2026-08-28"

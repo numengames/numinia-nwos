@@ -13,7 +13,7 @@ owner: "oracle"
 tags: [web, platform, codex, lap, character-sheet, design, lore]
 license: "CC-BY-4.0"
 mission_id: "MIS-085"
-area: "Platform / numinia-web"
+territory: "Platform"
 guild: "Alchemists"
 type_execution: "hybrid"
 priority: "critical"

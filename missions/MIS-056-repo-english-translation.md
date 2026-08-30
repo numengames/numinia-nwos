@@ -12,7 +12,7 @@ author: "pablo-fm"
 owner: "oracle"
 tags: [documentation, i18n, english, nwos, repo]
 license: "CC-BY-4.0"
-area: "Documentation"
+territory: "TBA"
 guild: "Exegetes"
 type_execution: "híbrido"
 priority: "high"

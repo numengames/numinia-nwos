@@ -10,7 +10,7 @@ updated: "2026-04-07T19:03:00Z"
 author: "nimrod"
 owner: "oracle"
 tags: [metrics, business, kpi, roi, cao, framework]
-area: "CAO / Business"
+territory: "CAO"
 related_missions: ["MIS-057", "MIS-048"]
 license: "CC-BY-4.0"
 ---

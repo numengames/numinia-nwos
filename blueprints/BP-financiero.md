@@ -11,7 +11,7 @@ updated: "2026-08-27T22:02:10Z"
 author: "nimrod"
 owner: "oracle"
 tags: [blueprint, business, finance, costs]
-area: "Business"
+territory: "TBA"
 semaforo: "rojo"
 license: "CC-BY-4.0"
 ---

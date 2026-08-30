@@ -11,7 +11,7 @@ updated: "2026-04-07T18:00:00Z"
 author: "pablo-fm"
 owner: "oracle"
 tags: [decisions, product, communication, web]
-area: "Product / Communication"
+territory: "Product"
 superseded_by: null
 license: "CC-BY-4.0"
 ---

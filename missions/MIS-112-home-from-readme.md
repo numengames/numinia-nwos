@@ -5,7 +5,7 @@ status: todo
 priority: medium
 effort: M
 guild: "Alchemists"
-area: web
+territory: "TBA"
 type_execution: digital
 assigned_to: null
 completed: null

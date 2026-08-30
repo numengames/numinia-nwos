@@ -14,7 +14,7 @@ owner: "oracle"
 tags: [web, viewer, pdf, design-system]
 license: "CC-BY-4.0"
 mission_id: "MIS-088"
-area: "Viewer / numinia.org"
+territory: "TBA"
 guild: "Alchemists"
 type_execution: "digital"
 priority: "medium"

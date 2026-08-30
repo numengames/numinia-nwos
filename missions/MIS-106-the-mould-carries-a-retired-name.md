@@ -11,7 +11,7 @@ owner: "oracle"
 tags: [design-system, mould, upstream, drift, naming]
 license: "CC-BY-4.0"
 mission_id: "MIS-106"
-area: "Documentation"
+territory: "TBA"
 guild: "Exegetes"
 type_execution: "digital"
 priority: "medium"
