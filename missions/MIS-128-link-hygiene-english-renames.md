@@ -1,21 +1,21 @@
 ---
 id: "MIS-128"
 title: "Link hygiene after the English renames: canonicals, raw-md, OG image, and a 404 that helps"
-status: in-progress
+status: done
 priority: high
 effort: S
 guild: "Alchemists"
 territory: "Archive"
 type_execution: digital
 assigned_to: "ursa"
-completed: null
+completed: "2026-08-30"
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-30T20:43:02+02:00"
 created_source: "git:a3fa9b9"
 created_confidence: exact
-updated: "2026-08-30T20:43:02+02:00"
+updated: "2026-08-30T23:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [web, url-lifecycle, seo, D-028]
@@ -77,28 +77,78 @@ D-032 orphan pages, the `/nwos` links inside orphan pages, and the
 
 ## Acceptance criteria
 
-- [ ] `dist/decisions/adr-001/index.html` declares
+- [x] `dist/decisions/adr-001/index.html` declares
       `<link rel="canonical" href="https://numinia.org/decisions/adr-001">`
       (today: `…/decisiones/adr-001`, a noindex stub). Same pattern for
       blueprints. Verify:
       `grep -o 'canonical[^>]*' dist/decisions/adr-001/index.html`
-- [ ] Every `mdUrl` the decisions and blueprints toolbars emit resolves to
+
+      Verified 2026-08-30 against a fresh build: `adr-001` →
+      `.../decisions/adr-001`, `blueprints/agent-experience` →
+      `.../blueprints/agent-experience`. Two more instances of the same
+      bug were caught during verification and fixed in the same PR:
+      `decisions.astro` and `blueprints.astro` (the *index* pages, not
+      just `[id].astro`) still declared `canonicalPath="/decisiones"` /
+      `"/planos"` — not in the original scope list, same defect class.
+- [x] Every `mdUrl` the decisions and blueprints toolbars emit resolves to
       a file in dist. Verify: the audit's linkchecker reports 0 dead links
       under `/decisiones/` and `/planos/` (today: 34).
-- [ ] `dist/og-default.png` exists, is 1200×630, and weighs under 100 KB
+
+      Verified: 0 dead links under either prefix, full-site crawl
+      (862 HTML files, 6,311 internal links checked).
+- [x] `dist/og-default.png` exists, is 1200×630, and weighs under 100 KB
       (today: absent, while every page references it).
-- [ ] `dist/404.html` exists and contains the site navigation (today:
+
+      Verified: exists, PNG 1200×630, 38 KB.
+- [x] `dist/404.html` exists and contains the site navigation (today:
       absent), and `wrangler.toml` declares
       `not_found_handling = "404-page"` (today: no key).
-- [ ] `/archive` links zero `/archive/archive-summa-*.md` paths; the three
+
+      Verified: `dist/404.html` present with nav markup;
+      `wrangler.toml:41` declares `not_found_handling = "404-page"`.
+- [x] `/archive` links zero `/archive/archive-summa-*.md` paths; the three
       download links point at `/corpus/blueprints/…` copies that exist in
       dist (today: 3 dead).
-- [ ] `npm run build` exits 0 and total dead internal links (excluding
+
+      Verified: zero matches for `/archive/archive-summa-*.md` in
+      `dist/archive/index.html`.
+- [x] `npm run build` exits 0 and total dead internal links (excluding
       `/pdf/*` = D-035, and the 2 D-032 orphan refs) is 0
       (today: 38 = 34 md + 3 summa + 1 duplicate-counted stub).
+
+      Verified: `npm run build` exit 0, 668 pages. Full-site crawl finds
+      3 non-`/pdf/*` dead targets, all pre-existing and out of this
+      mission's declared scope, not new: 2 are false positives of the
+      verification script (plain-text `[^…]` in MIS-111 prose, not an
+      `<a href>`), 1 is `/nwos` inside D-032 orphan pages — explicitly
+      out of scope (line 73 of this brief). Zero net-new dead links.
 
 ---
 
 ## Closure
 
-*(Fill when the mission closes.)*
+- **What was done:** all four defects from the 2026-08-30 audit fixed —
+  canonicals, raw-md toolbar links, the missing OG image, and a real
+  404 page wired into `wrangler.toml`. Plus the `/archive` Summa
+  repoint found in passing. Shipped as one commit, PR #149.
+- **What diverged, and why:** verification found two more instances of
+  the canonical bug outside the original scope list — `decisions.astro`
+  and `blueprints.astro` (the index pages) had the same
+  `canonicalPath="/decisiones"` / `"/planos"` defect as the `[id].astro`
+  pages the brief named. Fixed in the same PR rather than filed as a
+  new mission, since it's the same defect class the audit was already
+  paying to fix, and leaving it would have meant closing this mission
+  with the exact bug it exists to kill still live on two pages.
+- **Evidence:** full-site crawl of a fresh `npm run build` (668 pages,
+  862 HTML files, 6,311 internal links) run twice — once against `main`
+  before this PR (354 non-trivial dead links) and once against the PR
+  branch (316) — isolating a net -38, all of them the fixes this
+  mission claims (the apparent "+38 broken /pdf/ links" is the same
+  pre-existing D-035 debt renamed from `/pdf/planos/` to
+  `/pdf/blueprints/`, not a regression). All 6 acceptance criteria
+  re-verified individually against `dist/` after merge, not just at
+  PR time. Guards green: `lint-frontmatter` and `check-references` both
+  report zero new violations.
+- **Closed:** 2026-08-30 (PR #149, merged) · **by:** ursa (agent), on
+  Oracle instruction to verify against a real build before treating any
+  claim as settled.
