@@ -2,22 +2,22 @@
 # CORE — the ten fields the build verifies (web/src/content.config.ts).
 id: "MIS-120"
 title: "Multi-language numinia.org: es-ES first"
-status: in-progress
+status: done
 priority: high
 effort: L
 guild: "Alchemists"
 territory: "TBA"
 type_execution: digital
 assigned_to: "ursa"
-completed: null
+completed: "2026-08-29"
 
 # REGISTRO
 type: mission
-version: "3.0.0"
+version: "4.0.0"
 created: "2026-08-28T11:06:19Z"
 created_source: "git:61353f6"
 created_confidence: exact
-updated: "2026-08-29T14:45:00Z"
+updated: "2026-08-30T23:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [web, alchemists, i18n]
@@ -41,10 +41,11 @@ paths: [web/src/pages/, web/astro.config.mjs, web/src/data/navigation.ts, web/sr
 
 ## Scope
 
-One mission, four phases, **one checkbox each** (Oracle instruction,
-2026-08-28: phases are checkboxes here, not sub-missions). Each phase
-lands as its own PR against this brief; the box is ticked in the same PR
-that completes the work.
+One mission, six phases in the end (four planned, two more spun off the
+(d) retirement), **one checkbox each** (Oracle instruction, 2026-08-28:
+phases are checkboxes here, not sub-missions). Each phase lands as its
+own PR against this brief; the box is ticked in the same PR that
+completes the work.
 
 - [x] **(a) The served routes speak English** — 19 renames
       (`/decisiones`→`/decisions`, `/planos`→`/blueprints` +meta,
@@ -73,41 +74,44 @@ that completes the work.
       INCLUDE), it costs 7-11 h GPU per locale, and it drifts silently from
       its source.
 
-- [ ] **(e) The translate button** — what replaces (d), and DEC-006's
-      "web layer handles i18n" made concrete.
+- [x] **(e) The translate button** — **RETIRED, superseded by (f)** (Oracle,
+      2026-08-29). Built (`34b3de9`) and evaluated: a client-side button
+      using the `Translator` API (`.create()`/`.translate()`), on-device,
+      Chrome/Edge 138+ only, gated behind transient activation. Never
+      merged — (f) made it unnecessary before it shipped.
 
-      The `EN | ES` pair in the navigation stops being two links to two
-      routes and becomes two buttons acting on the page in front of the
-      reader: click ES, the document turns Spanish in place; click EN, the
-      English returns from memory. No navigation, no stored artefact, no
-      `.md` duplicated per locale — and the same button serves zh, ja, ko,
-      fr or any future locale without adding a file.
+      The `EN | ES` pair in the navigation would have stopped being two
+      links to two routes and become two buttons acting on the page in
+      front of the reader. Superseded because the mechanism it hand-built
+      (walk the DOM, call an on-device model, restore from memory) is
+      exactly what every major browser already offers for free, unprompted,
+      with no model download and no Chromium-only gate — see (f).
 
-      Mechanism, because the distinction is not obvious: the browser's own
-      "Translate this page" bar **cannot be triggered from JavaScript**
-      (Chromium exposes no such API by design). So the button uses the
-      **Translator API** — `Translator.create()` then `.translate()`,
-      on-device, free, private. Chrome/Edge 138+ desktop, HTTPS, inside a
-      real user click: `create()` requires transient activation, which is
-      why this is a button and not an on-load behaviour. Elsewhere the
-      button says so and points at the browser's own feature — progressive
-      enhancement, never a broken page. Most of the market is Chromium.
+- [x] **(f) Delete /es/, let the browser translate** — Oracle, 2026-08-29,
+      PR #124 (`bc76270`). The actual close of this mission.
 
-      Deliberate: `<pre>`, `<code>`, `<kbd>` are skipped (translating a
-      documented command corrupts it); a fragment that fails stays English
-      rather than blank; the first translation is cached in memory so
-      EN/ES afterwards is a swap; `documentElement.lang` follows the state.
+      `/es/` had a real, undiagnosed cost: every page under it declared
+      `lang="es"`, which tells a browser the document is *already*
+      Spanish — suppressing the native "Translate this page?" prompt for
+      exactly the readers who wanted it. A Spanish reader landing on
+      `/es/missions` got a Spanish nav wrapped around an English mission
+      board, with no way to ask for a real translation. Worst of both
+      worlds, and self-defeating.
 
-      Acceptance:
-      ✓ clicking ES translates the visible document, no navigation
-      ✓ clicking EN restores the English exactly
-      ✓ a non-supporting browser gets the hint, never a broken page
-      ✓ code blocks and identifiers come through untouched
-      ✓ no `.md` is added to the repository by using it
+      Deleted in one PR: the five `/es/*` routes and the Astro i18n config
+      behind them, the `EN | ES` selector (desktop + mobile), and
+      `TranslateButton.astro` — the (e) experiment, unmerged and now moot.
+      `lang` reverted to the page's real language everywhere, restoring the
+      browser's own translate offer (Chrome/Edge/Safari/Firefox, desktop
+      and mobile, zero model download, zero API gate, works for every
+      locale a reader's browser supports — not just the ones this repo
+      names). `web/src/i18n/ui.ts` survives, trimmed, for the UI strings
+      still read by chrome components (DocToolbar, Footer, Navigation,
+      SiteSearch, SpeechPlayer, MissionsView) — dictionary infrastructure
+      that outlived the feature it was built for.
 
-      Out of scope, recorded so it is not lost: the `/es/` route is now a
-      **candidate for removal** — it adds little once the button exists —
-      but removing it is its own reviewable act, not decided here.
+      No `.md` was ever duplicated per locale, at any point in this
+      mission's life. That acceptance line never had to be walked back.
 
 ### Signed decisions (Oracle, 2026-08-28)
 
@@ -158,14 +162,45 @@ that completes the work.
     ✓ no .md file is duplicated per locale                   (nothing built)
     ~ per-locale glossary of narrative terms                 (commissioned)
 
-(e) ✓ clicking ES translates the visible document, no navigation
-    ✓ clicking EN restores the English exactly
-    ✓ a non-supporting browser gets the hint, never a broken page
-    ✓ code blocks and identifiers come through untouched
-    ✓ no .md is added to the repository by using it
+(e) RETIRED — criteria void, not failed. Built, never merged. Superseded
+    by (f) before it needed real-browser QA — see the retirement note
+    above for why the mechanism itself (Chromium-only Translator API) lost
+    to the browser's own native translate prompt.
+
+(f) ✓ /es/ removed — zero Spanish-prefixed routes under web/src/pages/
+    ✓ EN | ES selector removed, desktop and mobile
+    ✓ TranslateButton.astro removed (the (e) experiment)
+    ✓ lang reflects the page's real language everywhere (was "es"
+      site-wide since (b); native translate prompt now reachable)
+    ✓ no .md is duplicated per locale — true from mission start to close
 ```
 
 ## Execution log
+
+- **2026-08-30 · verification, this closure** — cross-checked against the
+  live site (`numinia.org`, footer confirms build `13affa6`): no `EN|ES`
+  selector, no `Translator` reference in served HTML; `/es/` returns
+  `200` but is a 262-byte redirect stub to `/` (`cf-cache-status: HIT`,
+  stale cache of the old route, not a live page). Repo confirms:
+  `web/astro.config.mjs` has no `i18n` block, `Layout.astro:32` hardcodes
+  `const locale = "en"`, `web/src/pages/es/` does not exist. All consistent
+  with PR #124 having actually shipped and being the mission's real end —
+  not, as first read, an abandoned phase (e) with no successor. `34b3de9`
+  (the (e) button) is an orphaned commit — reachable in the local object
+  store, no branch or PR — correctly unmerged, not lost work to recover.
+
+- **2026-08-29 · (f) SHIPPED — delete /es/, let the browser translate**
+  — Oracle, PR #124 (`bc76270`, merged; `8382a09` on the source branch).
+  Removed: the five `/es/*` routes + Astro i18n config, the `EN | ES`
+  selector (desktop + mobile), `TranslateButton.astro` (216 lines, the
+  (e) experiment, never merged on its own). `lang` reverted to each
+  page's real language, undoing the site-wide `lang="es"` that (b) had
+  set and that silently suppressed every browser's native translate
+  offer for exactly the readers who wanted one. `web/src/i18n/ui.ts` cut
+  from ~120 keys to the ~40 still read by shared chrome (DocToolbar,
+  Footer, Navigation, SiteSearch, SpeechPlayer, MissionsView) — kept
+  because those components still branch on it, not because the mission
+  needs it. Net diff: 15 files, +88/-424.
 
 - **2026-08-29 · (e) DECLARED — the translate button** — the phase that
   replaces (d). Written into this brief only now: the label "MIS-120(e)" was
@@ -255,9 +290,31 @@ that completes the work.
 
 ## Closure
 
-*(Fill when all four boxes are ticked.)*
-
-- **What was done:**
-- **What diverged, and why:**
-- **Evidence:**
-- **Closed:** · **by:**
+- **What was done:** numinia.org serves one English site. The reader's
+  own browser offers translation natively (Chrome/Edge/Safari/Firefox,
+  desktop and mobile) because pages now declare their real language
+  instead of a blanket `lang="es"`. No `/es/` route, no language
+  selector, no translated `.md` in the repo, no per-locale build step —
+  DEC-006 ("translations live in the web layer, not the repo") holds
+  exactly as written, by removing the layer rather than building one.
+- **What diverged, and why:** the mission's own plan predicted four
+  phases; it took six. (d) — build-time translation to committed `.md` —
+  was built, went green in CI, and was retired unmerged: it minted
+  unlicensed derivatives of ten reserved documents and cost 7-11h GPU
+  per locale. (e) — a client-side Translator-API button — was built as
+  (d)'s replacement and retired unmerged in turn, superseded by (f)
+  before it shipped: the mechanism it hand-built (walk the DOM, call an
+  on-device model) turned out to be what browsers already do for free,
+  and better, once `lang` stopped lying about the document's language.
+  Two retired phases are not two failures — they are the cost of finding
+  out DEC-006 meant "delete the layer," not "build a smarter one."
+- **Evidence:** live site checked 2026-08-30 — footer commit `13affa6`,
+  zero `EN|ES`/`Translator` markup in served HTML, `/es/` a stale
+  redirect stub (`cf-cache-status: HIT`, 262 bytes). Repo checked same
+  date — no `i18n` block in `astro.config.mjs`, `Layout.astro:32`
+  hardcodes `locale = "en"`, `web/src/pages/es/` absent, `34b3de9`
+  (phase e) an orphaned commit with no branch, correctly so.
+- **Closed:** 2026-08-29 (PR #124, `bc76270`) · **documented:** 2026-08-30
+  · **by:** ursa (agent), on Oracle instruction — the phase history had
+  drifted out of this brief and was reconstructed from git log, not from
+  memory, per instruction not to guess at lost specifics.
