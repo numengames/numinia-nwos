@@ -97,6 +97,26 @@ Each practice has an ID, a requirement level (MUST / SHOULD), and a check tag: `
 | ARC-08 | Shared base config (tsconfig / eslint / prettier) imported from one package, never copied | MUST | `[AUTO: lint rule / knip]` |
 | ARC-09 | Dependencies reviewed before adoption: maintained, licensed compatibly, Scorecard score consulted | SHOULD | `[MANUAL]` |
 
+#### ARC-06 commit convention (Oracle ruling 2026-08-30)
+
+Seven types — the standard Conventional Commits set, nothing bespoke:
+
+| Type | Meaning |
+|---|---|
+| `feat` | Adds a capability or a new document that changes what the system can do |
+| `fix` | Corrects something wrong: broken behaviour, false content, a bad header |
+| `docs` | Documentation-only change — prose added or edited, behaviour untouched |
+| `chore` | Maintenance with no production effect: dependencies, config, tooling |
+| `refactor` | Restructuring without functional change — moves, renames, reorganisation |
+| `test` | Tests only |
+| `ci` | CI workflows and guard scripts |
+
+The **scope** carries the domain, lowercase, usually the folder:
+`docs(debt): register D-040` · `fix(missions): correct MIS-121 status` ·
+`docs(audit): close AUD-2026-08-26`. Retired as types (still valid in old
+history, never in new commits): `session`, `qa`, `standards`, `canon`,
+`debt`, `audit`.
+
 ### 2.3 PM — Traceability and state
 
 | ID | Practice | Level | Check |

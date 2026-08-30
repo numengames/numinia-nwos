@@ -4,11 +4,11 @@ title: "The header in three rings: identity, provenance, extension"
 type: documentation
 subtype: standard
 status: active
-version: "1.2.0"
+version: "1.3.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-08-30T15:20:00Z"
+updated: "2026-08-30T17:51:00Z"
 ratified_by: "ADR-029"
 author: "ursa"
 owner: "oracle"
@@ -18,9 +18,10 @@ tags: [frontmatter, standard, lint, metadata]
 
 # S-004 — The header in three rings
 
-> **Status: DRAFT.** Nothing here obliges anything until the Oracle signs.
-> This document proposes; `S-001` §6-§8 currently governs. On signature,
-> this standard absorbs §6-§7 by reference and S-001 points here.
+> **Status: ACTIVE** — ratified by `ADR-029` (2026-08-30), which moved this
+> document from `draft`/0.2.0 to `active`/1.0.0. The DRAFT banner that stood
+> here outlived its own ratification by two days; removed 2026-08-30 in the
+> standards-consolidation PR.
 >
 > **Design rule of this standard:** every normative statement carries a
 > check identifier (`H-NN`) and is written so that `lint-frontmatter`
@@ -311,3 +312,29 @@ territory; the deliverable of t_1134d057 is the script + this mapping.
   what a conformant header is when t_1c32aeb0 dresses them.
 - It does not touch `web/src/content/` — Astro's own schema governs the
   site pipeline; this standard governs the corpus tree.
+
+## 9. The context card (moved from STANDARDS.md §8, 2026-08-30)
+
+**`[MANUAL]`** — this rule has no `H-NN` check, deliberately: judging whether
+a Summary is "one sentence describing the document" is prose judgment, not
+mechanics. A presence-only check would certify boilerplate (this corpus has
+seen `> **Epistemic:** What you learn by reading this document.` pasted 150
+times, which satisfies a machine and informs nobody).
+
+Every document opens with a context card immediately after `# Title` — the
+reader decides in three seconds whether the document deserves attention.
+**228 documents already carry it**; this section moves the rule to where
+headers are governed, changing nothing about it.
+
+```markdown
+> **Summary:** One sentence describing WHAT this document is.
+> **Epistemic:** What you learn or what question it answers.
+> **Pragmatic:** What you can do with it once read.
+> **Audience:** Agents · Oracles · External   (optional)
+```
+
+Rules: Summary is one sentence, not a paragraph. Epistemic and Pragmatic are
+mandatory in operational documents; Audience optional. Templates, indexes and
+very short documents may carry only Epistemic + Pragmatic. New documents
+include the card from creation; existing ones are updated when touched, never
+by mass retrofit.

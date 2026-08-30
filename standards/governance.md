@@ -1,8 +1,25 @@
+---
+title: "Governance — who may change what, and at what cost"
+type: documentation
+status: active
+version: "2.0.0"
+created: "2026-04-06T18:48:56Z"
+created_source: "git:84a9f71"
+created_confidence: exact
+updated: "2026-08-30T17:51:00Z"
+author: "nimrod"
+owner: "oracle"
+tags: [governance, roles, permissions, thresholds, versioning]
+license: "CC-BY-4.0"
+registration: exempt
+registration_reason: "singular document, not a numbered series; moved from repo root 2026-08-30"
+---
+
 # Governance — Archive Summa
 
-> **Summary:** NWOS system document — GOVERNANCE.
-> **Epistemic:** What you learn by reading this document.
-> **Pragmatic:** What you can do with this document.
+> **Summary:** Who may change what in this repository, at what cost, and who must approve it.
+> **Epistemic:** Roles, permissions per fund, change thresholds, versioning authority, approval scale.
+> **Pragmatic:** Before creating, modifying or deleting any document, find your row here.
 > **Audience:** Agents · Oracles
 
 ---
@@ -61,7 +78,7 @@ that enforcement *"needs branch protection… tracked in MIS-070"*, which does
 not exist yet.
 
 The distance between what this table declares and what the repository can
-enforce is registered as [`debt/D-011`](debt/D-011-thresholds-unenforced.md).
+enforce is registered as [`debt/D-011`](../debt/D-011-thresholds-unenforced.md).
 Until it closes, every row above is a convention held by people, not a
 mechanism.
 
@@ -157,5 +174,43 @@ find one, register it as a contradiction before acting on it.
 
 ---
 
-*Rules derived from simulations. Version 1.1.0 — 2026-08-18*
+## Versioning authority
+
+*(Absorbed from `STANDARDS.md` §7F on 2026-08-30 — the rule is the Oracle's,
+established 2026-04-07/08. It lives here because it is authority, not
+vocabulary: SemVer itself is defined in S-001; this table says who may move
+a version.)*
+
+Every artifact follows a two-stage lifecycle:
+
+| Transition | Example | Who authorizes |
+|---|---|---|
+| New artifact | — → v0.1.0 | Digital agent — every artifact starts at v0.1.0, no exceptions |
+| Development iteration | v0.1.0 → v0.2.0 | Digital agent |
+| **Stable promotion** | **v0.X.0 → v1.0.0** | **Oracle only** — signals production-ready |
+| Stable iteration | v1.0.0 → v1.1.0 | Digital agent |
+| **Major breaking** | **v1.X.0 → v2.0.0** | **Oracle only** (score 9/10) |
+
+---
+
+## Human approval scale
+
+*(Absorbed from `STANDARDS.md` §9 on 2026-08-30. Oracle ruling 2026-08-30:
+this is the definition of `human_approval_score` — a **gate**, scored before
+acting: how much human approval an action needs. It resolves
+[`debt/D-003`](../debt/D-003-human-approval-score-undefined.md), which
+recorded the field as undefined; the definition existed here all along.)*
+
+| Score | Category | Description | Response time |
+|-------|----------|-------------|---------------|
+| 1-2 | Routine | No risk, instantly reversible | No approval required |
+| 3-4 | Operational | Limited impact, reversible | 24h |
+| 5-6 | Tactical | Moderate impact, partially reversible | 24h |
+| 7-8 | Strategic | Affects multiple systems or agents | 12h |
+| 9 | Systemic | Modifies canon, OPERATOR, security | Immediate |
+| 10 | Foundational | Irreversible, reputation, real money | Immediate + meeting |
+
+---
+
+*Rules derived from simulations. Version 2.0.0 — 2026-08-30*
 *Nimrod 🗡️ — Numen Games*

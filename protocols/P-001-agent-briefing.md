@@ -45,7 +45,7 @@ STEP 1 — Identity:
 
 STEP 2 — Security (always, every session):
   → Read operations/security-policy.md
-  → Read GOVERNANCE.md (if not read in <7 days)
+  → Read standards/governance.md (if not read in <7 days)
 
 STEP 3 — Active missions:
   → Check missions/ for status: in-progress — do I have assigned missions?
@@ -89,10 +89,9 @@ These 5 elements are the inviolable minimum. Without them, there is no valid sta
 
 | Standard | Where | What |
 |----------|-------|------|
-| Versioning lifecycle | STANDARDS.md §7F | v0.X.0 = development, v1.0.0 = Oracle promotes |
-| Log format | STANDARDS.md §10 | JSONL per agent per day in workspace/logs/ |
-| Commit format | STANDARDS.md §6 | Conventional Commits adapted to NWOS |
-| Frontmatter schema | STANDARDS.md §5 | Required fields for every document |
+| Versioning lifecycle | standards/governance.md «Versioning authority» | v0.X.0 = development, v1.0.0 = Oracle promotes |
+| Commit format | standards/engineering-standards.md ARC-06 | Conventional Commits, seven standard types |
+| Frontmatter schema | standards/S-004-header-standard.md | The three rings |
 
 ---
 
