@@ -33,5 +33,9 @@ routes = [
 
 # Fully static site: no `main` worker script, just static assets.
 # Directory matches Astro's build output (`npm run build` → dist/).
+# not_found_handling (MIS-128): serve the site's own 404.astro build
+# instead of Cloudflare's bare error — DEUDA-404 documents accepted URL
+# breakage, so the 404 a reader actually meets has to offer navigation.
 [assets]
 directory = "./dist"
+not_found_handling = "404-page"

@@ -60,7 +60,7 @@ export async function getStaticPaths() {
   }
   for (const e of await getCollection("decisions")) {
     const f = e.data as Record<string, unknown>;
-    push(`decisiones/${String(f.id).toLowerCase()}`, e, {
+    push(`decisions/${String(f.id).toLowerCase()}`, e, {
       label: "decisions",
       docId: str(f.id),
       status: str(f.status),
@@ -71,7 +71,7 @@ export async function getStaticPaths() {
   }
   for (const e of await getCollection("blueprints")) {
     const f = e.data as Record<string, unknown>;
-    push(`planos/${String(f.id).replace(/^BP-/i, "").toLowerCase()}`, e, {
+    push(`blueprints/${String(f.id).replace(/^BP-/i, "").toLowerCase()}`, e, {
       label: "blueprints",
       docId: str(f.id),
       status: str(f.status),
