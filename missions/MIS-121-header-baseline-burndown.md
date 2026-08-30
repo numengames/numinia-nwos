@@ -336,6 +336,12 @@ hides its decisions makes the next reader guess.
 > them; until it lands, `"TBA"` is legal prose that no instrument counts.
 
 1. **`uid` — the values are debt, the rule is broken. Ruled 2026-08-30.**
+   **FIXED the same day (`MIS-122`, baseline 843 → 779).** `H-09` no longer
+   flags an empty `uid`, and `H-20` now advises emptying the field rather than
+   the opposite. The 64 documents that were being counted as debt for obeying
+   `S-001` §6.2 are gone from the baseline, and **emptying the 34 written
+   values no longer trades one violation for another** — that work is
+   unblocked and still belongs to this mission.
    **No document should carry a `uid` value. Where one exists it is debt, not
    data; the field is declared and left empty. Emptying the 34 written values
    belongs to THIS mission.** The ruling restates `S-001` §6.2 verbatim —
