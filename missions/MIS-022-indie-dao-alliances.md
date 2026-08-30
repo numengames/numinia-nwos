@@ -14,7 +14,8 @@ type_execution: "biological"
 priority: "high"
 effort: "M"
 license: "CC-BY-4.0"
----# MIS-022 — Alliances with indie studios and DAOs
+---
+# MIS-022 — Alliances with indie studios and DAOs
 
 > **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
 > **Epistemic:** What you learn by reading this document.

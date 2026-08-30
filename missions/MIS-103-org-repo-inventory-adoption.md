@@ -25,7 +25,8 @@ sub_missions: []
 depends_on: ["MIS-070"]
 started: null
 completed: null
----# MIS-103 — The other seventeen
+---
+# MIS-103 — The other seventeen
 
 > **Summary:** The organization has around twenty-one repositories. Four have
 > ever been audited. This mission produces the real table: repository by

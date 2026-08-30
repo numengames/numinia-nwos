@@ -14,7 +14,8 @@ type_execution: "hybrid"
 priority: "high"
 effort: "M"
 license: "CC-BY-4.0"
----# MIS-040 — CAO dashboard: KPI definition
+---
+# MIS-040 — CAO dashboard: KPI definition
 
 > **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
 > **Epistemic:** What you learn by reading this document.

@@ -11,7 +11,8 @@ author: "nimrod"
 owner: "oracle"
 tags: [blueprints, index]
 license: "CC-BY-4.0"
----# Blueprints — System Designs
+---
+# Blueprints — System Designs
 
 > **Summary:** Index of all blueprint documents in the NWOS system.
 > **Epistemic:** What designs exist, their status, and what gaps they address.

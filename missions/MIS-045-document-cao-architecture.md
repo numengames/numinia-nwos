@@ -23,7 +23,8 @@ assigned_to: "nimrod"
 requested_by: "oracle"
 started: "2026-04-08T05:57:00Z"
 completed: "2026-08-25"
----# MIS-045 — Document CAO architecture
+---
+# MIS-045 — Document CAO architecture
 
 > **Summary:** Write a complete architectural document of the Numen Games CAO (Central Agent Operations) — agents, protocols, repos, tools, and how they interconnect.
 > **Epistemic:** Without a clear architecture document, new agents and collaborators cannot understand how the system works as a whole.

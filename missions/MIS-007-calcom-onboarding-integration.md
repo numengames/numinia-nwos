@@ -14,7 +14,8 @@ type_execution: "hybrid"
 priority: "high"
 effort: "S"
 license: "CC-BY-4.0"
----# MIS-007 — Integrate Cal.com into Numinia onboarding
+---
+# MIS-007 — Integrate Cal.com into Numinia onboarding
 
 > **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
 > **Epistemic:** What you learn by reading this document.

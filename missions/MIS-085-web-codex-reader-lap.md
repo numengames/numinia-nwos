@@ -19,6 +19,7 @@ type_execution: "hybrid"
 priority: "critical"
 effort: "XL"
 ---
+
 > Oracle-signed brief v0.2.0 (2026-08-17), 15 final decisions (D1–D15).
 > Execution lives in `numengames/numinia-web`; the manual payload lives in
 > `numengames/numinia-lore`. The frozen visual reference

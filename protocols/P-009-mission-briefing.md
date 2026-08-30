@@ -12,7 +12,8 @@ owner: "oracle"
 tags: [protocol, briefing, missions, agents, p003]
 license: "CC-BY-4.0"
 mission: "MIS-038"
----# P-009 — Mission Briefing Protocol
+---
+# P-009 — Mission Briefing Protocol
 
 > **Summary:** Standard protocol for how a digital agent receives, reads, and confirms understanding of a mission before executing any work.
 > **Epistemic:** A mission not understood is a mission not executed. Briefing is not overhead — it is the first act of execution.

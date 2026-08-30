@@ -13,7 +13,8 @@ adr_id: "ADR-004"
 decision: "Identifiers follow <PREFIX>-<NNN>; they carry no mutable attribute, are never reused, and are never renumbered"
 superseded_by: null
 license: "CC-BY-4.0"
----# ADR-004 — Identifiers are opaque, sequential and permanent
+---
+# ADR-004 — Identifiers are opaque, sequential and permanent
 
 > **Summary:** NWOS system document — what a document identifier may and may not contain.
 > **Epistemic:** Why `MIS-085` is a good identifier and `2026-08-18-MIS-085-done` would not be.

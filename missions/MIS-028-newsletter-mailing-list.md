@@ -14,7 +14,8 @@ type_execution: "hybrid"
 priority: "medium"
 effort: "S"
 license: "CC-BY-4.0"
----# MIS-028 — Founding Newsletter / Mailing list
+---
+# MIS-028 — Founding Newsletter / Mailing list
 
 > **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
 > **Epistemic:** What you learn by reading this document.

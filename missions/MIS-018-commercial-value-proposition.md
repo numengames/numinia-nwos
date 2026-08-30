@@ -19,7 +19,8 @@ assigned_to: null
 requested_by: "oracle"
 started: null
 completed: null
----# MIS-018 — Commercial Value Proposition (One-Pager)
+---
+# MIS-018 — Commercial Value Proposition (One-Pager)
 
 > **Summary:** A one-pager that communicates what Numen Games does in 30 seconds.
 > **Epistemic:** Forces honest articulation of the differentiator before going to market.

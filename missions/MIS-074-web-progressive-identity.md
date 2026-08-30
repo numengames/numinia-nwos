@@ -19,6 +19,7 @@ type_execution: "digital"
 priority: "critical"
 effort: "L"
 ---
+
 > Migrated 2026-08-17 from `numengames/numinia-web:missions/MISSION-002.md` (Oracle order:
 > missions centralize in NWOS L3). Body preserved verbatim; internal relative
 > links still point inside the numinia-web repo.

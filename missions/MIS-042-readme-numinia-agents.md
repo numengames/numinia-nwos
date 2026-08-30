@@ -22,7 +22,8 @@ assigned_to: "nimrod"
 requested_by: "oracle"
 started: "2026-04-07T22:30:00Z"
 completed: "2026-04-07T22:35:00Z"
----# MIS-042 — Main README for numinia-agents
+---
+# MIS-042 — Main README for numinia-agents
 
 > **Summary:** Write the main README.md for the numinia-digital-agents repository.
 > **Epistemic:** Anyone who reads the repo immediately understands the system.

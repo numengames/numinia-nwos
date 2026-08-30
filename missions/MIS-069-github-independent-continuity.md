@@ -25,7 +25,8 @@ depends_on: []
 started: null
 completed: null
 divergence_log: null
----# MIS-069 — Plan B: GitHub-independent continuity for the NWOS source of truth
+---
+# MIS-069 — Plan B: GitHub-independent continuity for the NWOS source of truth
 
 > **Summary:** numinia-nwos — THE source of truth — lives solely on
 > GitHub, and GitHub is a single point of failure for hosting, webhooks

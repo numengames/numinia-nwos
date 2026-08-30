@@ -25,7 +25,8 @@ depends_on: []
 started: null
 completed: null
 divergence_log: null
----# MIS-070 — Testing and best practices across the numengames org
+---
+# MIS-070 — Testing and best practices across the numengames org
 
 > **Summary:** No repo in the org has a single test gate before merge
 > (AUD-2026-08-17-stack, finding 5) and this repo's only check is the

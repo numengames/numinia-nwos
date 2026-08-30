@@ -43,10 +43,12 @@ for rel in files:
     txt = open(p, encoding="utf8", errors="replace").read()
     if not txt.startswith("---"):
         continue
-    m = re.match(r'^---\s*\n(.*?)\n---(\n|$)', txt, re.S)
+    m = re.match(r'^---\s*\n(.*?)\n---[ \t]*(\r?\n|$)', txt, re.S)
     if not m:
         continue
-    fm, resto = m.group(1), txt[m.end():]
+    fm = m.group(1)
+    cierre = "---" + m.group(2)   # conserva el salto de linea del cierre
+    resto = txt[m.end():]
     orig = fm
     out = []
 
@@ -80,7 +82,7 @@ for rel in files:
 
     nuevo = "\n".join(out)
     if nuevo != orig and WRITE:
-        open(p, "w", encoding="utf8").write("---\n%s\n---%s" % (nuevo, resto))
+        open(p, "w", encoding="utf8").write("---\n%s\n%s%s" % (nuevo, cierre, resto))
 
 print("%s — %d documentos tocados" % ("APLICADO" if WRITE else "SIMULACRO", len(tocados)))
 for k, n in sorted(cambios.items()):

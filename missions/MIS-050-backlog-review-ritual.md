@@ -14,7 +14,8 @@ type_execution: "híbrido"
 priority: "high"
 effort: "XS"
 license: "CC-BY-4.0"
----# MIS-050 — Backlog review ritual (Dark Council)
+---
+# MIS-050 — Backlog review ritual (Dark Council)
 
 > **Summary:** NWOS system mission.
 > **Epistemic:** What you learn by reading this document.

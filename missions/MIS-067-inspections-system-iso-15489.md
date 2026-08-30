@@ -19,7 +19,8 @@ type_execution: "digital"
 priority: "high"
 effort: "M"
 human_approval_score: 5
----# MIS-067 — Inspections System
+---
+# MIS-067 — Inspections System
 
 > **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
 > **Epistemic:** What you learn by reading this document.

@@ -25,7 +25,8 @@ sub_missions: []
 depends_on: []
 started: null
 completed: null
----# MIS-105 — Sign the standards and define the sync
+---
+# MIS-105 — Sign the standards and define the sync
 
 > **Summary:** `engineering-standards.md` is `v0.1.0 (draft — pending Oracle
 > review)`, its canonical copy lives upstream in the mould, and its sync

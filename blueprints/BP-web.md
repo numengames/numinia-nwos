@@ -14,7 +14,8 @@ tags: [blueprint, product, web, pablofm, numengames]
 area: "Product"
 semaforo: "verde"
 license: "CC-BY-4.0"
----# BP — Webs
+---
+# BP — Webs
 
 > **Summary:** System blueprint: current state, target, gaps and dependencies.
 > **Epistemic:** The real state vs. the target — where we are and where we are going.

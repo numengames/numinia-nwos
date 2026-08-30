@@ -13,7 +13,8 @@ tags: [audit, numengames, infrastructure, seo, performance, web]
 scope: "numen.games (numengames.com)"
 license: "CC-BY-4.0"
 mission: "MIS-011"
----# Technical Audit — numen.games
+---
+# Technical Audit — numen.games
 
 > **Summary:** Complete technical audit of the numen.games website — performance, SEO, accessibility, security, and UX.
 > **Epistemic:** Baseline assessment of the current state of numengames.com as a sales and brand asset.

@@ -14,7 +14,8 @@ owner: "oracle"
 tags: [blueprint, wardley, strategy, nwos]
 area: "Strategy"
 license: "CC-BY-4.0"
----# Wardley Map — Narrative Work OS
+---
+# Wardley Map — Narrative Work OS
 
 > **Summary:** System blueprint: current state, target, gaps and dependencies.
 > **Epistemic:** The real state vs. the target — where we are and where we are going.

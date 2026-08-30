@@ -25,7 +25,8 @@ sub_missions: []
 depends_on: ["MIS-091"]
 started: null
 completed: null
----# MIS-107 — numen.games speaks Spanish
+---
+# MIS-107 — numen.games speaks Spanish
 
 > **Summary:** The Spanish route of numen.games serves English copy below the
 > fold: nine components receive `locale` and ignore it.

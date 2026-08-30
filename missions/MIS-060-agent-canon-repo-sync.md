@@ -22,6 +22,7 @@ priority: "high"
 effort: "M"
 phase: "backlog"
 ---
+
 # MIS-060 — Agent Synchronization with the Canonical Repo
 
 **Area:** CAO · **Guild:** Sentinels · **Priority:** 🟠 High · **Effort:** M

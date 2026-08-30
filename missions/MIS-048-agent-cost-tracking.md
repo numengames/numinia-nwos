@@ -20,7 +20,8 @@ requested_by: "oracle"
 started: null
 completed: null
 blocked_by: "Anthropic API key with usage permissions required from Pablo"
----# MIS-048 — Agent cost tracking system
+---
+# MIS-048 — Agent cost tracking system
 
 > **Summary:** Know exactly how much each agent spends per day and per mission, to optimize costs and justify the investment.
 > **Epistemic:** Without real cost data, optimization is impossible.

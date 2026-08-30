@@ -25,7 +25,8 @@ depends_on: []
 started: null
 completed: null
 divergence_log: null
----# MIS-065 — Canon at build time — narrative out of the code regime
+---
+# MIS-065 — Canon at build time — narrative out of the code regime
 
 > **Resumen:** One refactor closes two debts: the viewer stops hydrating
 > mission data client-side against the GitHub API, and the culture-branch

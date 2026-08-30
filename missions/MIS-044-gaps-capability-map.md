@@ -19,7 +19,8 @@ assigned_to: "procurador-01"
 requested_by: "oracle"
 started: null
 completed: "2026-08-17"
----# MIS-044 — GAPS.md — Numen Games capability map
+---
+# MIS-044 — GAPS.md — Numen Games capability map
 
 > **Summary:** A structured document of current capabilities gaps, for informed decision-making about priorities.
 > **Epistemic:** Without a capability map, resources are assigned to the urgent but not the important.

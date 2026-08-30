@@ -19,7 +19,8 @@ assigned_to: "procurador-01"
 requested_by: "oracle"
 started: null
 completed: null
----# MIS-017 — B2B Prospecting Pipeline (50 leads)
+---
+# MIS-017 — B2B Prospecting Pipeline (50 leads)
 
 > **Summary:** A list of 50 qualified prospects with direct contacts, to start sales conversations this week.
 > **Epistemic:** Maps the real buyer space before optimizing the pitch.
