@@ -6,8 +6,8 @@ type: adr
 status: active
 version: "1.0.0"
 created: "2026-08-27T17:46:23Z"
-created_source: "git:pending"
-created_confidence: "exact"
+created_source: "git:b4224a4"
+created_confidence: exact
 updated: "2026-08-27T17:46:23Z"
 author: "ursa"
 owner: "oracle"

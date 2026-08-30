@@ -8,7 +8,7 @@ status: published
 version: "1.0.0"
 created: "2026-08-26T17:15:00Z"
 created_source: "git:6ca384a"
-created_confidence: "exact"
+created_confidence: exact
 updated: "2026-08-26T17:15:00Z"
 author: "ursa"
 owner: "oracle"

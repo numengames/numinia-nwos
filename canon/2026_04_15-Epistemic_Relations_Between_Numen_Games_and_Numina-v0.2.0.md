@@ -7,7 +7,7 @@ status: active
 version: "1.0.0"
 created: "2026-04-15T16:25:05Z"
 created_source: "git:89404d7"
-created_confidence: "exact"
+created_confidence: exact
 updated: "2026-04-15T16:25:05Z"
 author: "Christian Numinia"
 owner: "oracle"

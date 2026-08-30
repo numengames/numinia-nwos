@@ -1,7 +1,7 @@
 {
  "_comment": "Frontmatter violations frozen at adoption (S-004 §7). The lint fails only on NEW ones. This list shrinks with each migration and never grows; its size is the corpus entropy metric.",
- "generated": "2026-08-30T10:18:17.492Z",
- "count": 546,
+ "generated": "2026-08-30T10:31:23.847Z",
+ "count": 543,
  "entries": [
   "H-00 blueprints/README.md :: no frontmatter — invisible to every instrument",
   "H-00 blueprints/archive-summa-arquitectura-v0.1.0.md :: no frontmatter — invisible to every instrument",
@@ -238,9 +238,6 @@
   "H-09 decisions/ADR-026-agent-definitions-are-cc0.md :: empty value written for \"supersedes\" — omit the field instead",
   "H-09 missions/MIS-062-mission-system-v2.md :: empty value written for \"sub_missions\" — omit the field instead",
   "H-09 standards/S-003-platform-role-system.md :: empty value written for \"series_change\" — omit the field instead",
-  "H-13 debt/D-038-c005-files-agents-as-lore.md :: created_source \"git:pending\" is neither git:<sha> nor declared",
-  "H-13 decisions/ADR-024-english-as-canon-language.md :: created_source \"git:pending\" is neither git:<sha> nor declared",
-  "H-13 decisions/ADR-026-agent-definitions-are-cc0.md :: created_source \"git:pending\" is neither git:<sha> nor declared",
   "H-17 operations/credential-map.md :: type \"protocol\" belongs in protocols/, found in operations/",
   "H-17 operations/legal/O-003-privacy-policy-numengames.md :: type \"legal\" belongs in canon/, found in operations/",
   "H-17 operations/legal/O-004-terms-and-conditions-numengames.md :: type \"legal\" belongs in canon/, found in operations/",

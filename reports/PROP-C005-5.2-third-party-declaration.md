@@ -8,7 +8,7 @@ status: draft
 version: "1.0.0"
 created: "2026-08-26T13:05:00Z"
 created_source: "git:e4918fa"
-created_confidence: "exact"
+created_confidence: exact
 updated: "2026-08-26T13:05:00Z"
 author: "ursa"
 owner: "oracle"

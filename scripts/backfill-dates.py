@@ -51,6 +51,11 @@ ent = [v for v in base.values() if isinstance(v, list) and v and isinstance(v[0]
 targets = sorted({m.group(2) for m in
                   (re.match(r'\s*(H-0[67])\s+(\S+)\s+::', e) for e in ent) if m})
 
+# H-13 too: a `git:pending` created_source is a placeholder that outlived its
+# reason, and those files need not be flagged for their dates as well.
+targets = sorted(set(targets) | {m.group(1) for m in
+                 (re.match(r'\s*H-13\s+(\S+)\s+::', e) for e in ent) if m})
+
 changed, skipped, untouched = [], [], []
 
 for f in targets:
@@ -111,6 +116,28 @@ for f in targets:
         if u_real < real: u_real = real
         new_fm = re.sub(r'^updated:.*$', f'updated: "{u_real}"', new_fm, count=1, flags=re.M)
         edits.append(f'updated {m.group(1).strip()} -> {u_real}')
+
+    # `created_source: "git:pending"` is an IOU: the document was written
+    # before the commit that would carry it existed. Three documents still
+    # hold one (H-13), and the commit they were waiting for has long since
+    # landed. Redeem it — the sha is now knowable, so leaving `pending` is
+    # keeping a placeholder past the moment it stopped being true.
+    if re.search(r'^created_source:\s*"?git:pending"?\s*$', new_fm, re.M):
+        new_fm = re.sub(r'^created_source:.*$', f'created_source: "git:{sha}"',
+                        new_fm, count=1, flags=re.M)
+        edits.append(f'created_source git:pending -> git:{sha}')
+        if not re.search(r'^created_confidence:', new_fm, re.M):
+            new_fm = re.sub(r'^(created_source:.*)$',
+                            rf'\1\ncreated_confidence: {confidence}',
+                            new_fm, count=1, flags=re.M)
+
+    # Normalise the quoted form to the bare one S-001 §8 line 1018 writes:
+    #   created_confidence: exact | inferred
+    # 37 documents predating this script carry created_confidence: "exact",
+    # which is the same value in a second spelling — and two spellings of one
+    # field is how a vocabulary starts drifting.
+    new_fm = re.sub(r'^created_confidence:\s*"(exact|inferred)"\s*$',
+                    r'created_confidence: \1', new_fm, flags=re.M)
 
     if not edits:
         untouched.append(f); continue

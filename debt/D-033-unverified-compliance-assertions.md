@@ -7,7 +7,7 @@ status: open
 version: "1.0.0"
 created: "2026-08-25T18:00:00Z"
 created_source: "git:2ba3fea"
-created_confidence: "exact"
+created_confidence: exact
 updated: "2026-08-25T18:00:00Z"
 author: "ursa"
 owner: "oracle"
