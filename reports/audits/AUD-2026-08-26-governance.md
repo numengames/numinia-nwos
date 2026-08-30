@@ -13,7 +13,7 @@ updated: "2026-08-26T17:15:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
-territory: "Governance"
+territory: "Archive"
 tags: [audit, governance, D-017, P-003, layers, guards, ci, escalation]
 license: "CC-BY-4.0"
 evidence_head: "6ca384a"

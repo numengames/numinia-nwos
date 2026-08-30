@@ -13,7 +13,7 @@ updated: "2026-08-26T15:10:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
-territory: "Legal"
+territory: "Archive"
 tags: [audit, provenance, C-005, CC0, measurement]
 license: "CC-BY-4.0"
 evidence_script: "provenance2.py — output archived as provenance-190.json"

@@ -6,7 +6,7 @@ status: done
 priority: high
 effort: S
 guild: "Alchemists"
-territory: "Standards"
+territory: "Archive"
 type_execution: digital
 assigned_to: null
 completed: "2026-08-30T10:36:00Z"
