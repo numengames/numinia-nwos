@@ -97,7 +97,7 @@
       ]
     },
     "author": {
-      "usage": 268,
+      "usage": 271,
       "ring": 2,
       "status": "ruled",
       "decided_by": "S-004 §4",
@@ -186,7 +186,7 @@
       ]
     },
     "completed": {
-      "usage": 73,
+      "usage": 74,
       "ring": 3,
       "status": "ruled",
       "decided_by": "S-004 §6",
@@ -270,7 +270,7 @@
       ]
     },
     "created": {
-      "usage": 301,
+      "usage": 304,
       "ring": 1,
       "status": "ruled",
       "decided_by": "S-004 §3",
@@ -296,7 +296,7 @@
       ]
     },
     "created_confidence": {
-      "usage": 213,
+      "usage": 216,
       "ring": 2,
       "status": "ruled",
       "decided_by": "S-004 §4",
@@ -317,7 +317,7 @@
       ]
     },
     "created_source": {
-      "usage": 213,
+      "usage": 216,
       "ring": 2,
       "status": "ruled",
       "decided_by": "S-004 §4",
@@ -447,7 +447,7 @@
       ]
     },
     "effort": {
-      "usage": 124,
+      "usage": 127,
       "ring": 3,
       "status": "ruled",
       "decided_by": "S-004 §6",
@@ -592,7 +592,7 @@
       ]
     },
     "guild": {
-      "usage": 190,
+      "usage": 193,
       "ring": "3-all",
       "status": "ruled",
       "decided_by": "S-004 §6",
@@ -644,7 +644,7 @@
       ]
     },
     "id": {
-      "usage": 277,
+      "usage": 280,
       "ring": 1,
       "status": "ruled",
       "decided_by": "S-004 §3",
@@ -745,7 +745,7 @@
       ]
     },
     "license": {
-      "usage": 301,
+      "usage": 304,
       "ring": 1,
       "status": "ruled",
       "decided_by": "S-004 §3",
@@ -888,7 +888,7 @@
       ]
     },
     "owner": {
-      "usage": 260,
+      "usage": 263,
       "ring": 2,
       "status": "ruled",
       "decided_by": "S-004 §4",
@@ -990,7 +990,7 @@
       ]
     },
     "priority": {
-      "usage": 124,
+      "usage": 127,
       "ring": 3,
       "status": "ruled",
       "decided_by": "S-004 §6",
@@ -1348,7 +1348,7 @@
       ]
     },
     "status": {
-      "usage": 301,
+      "usage": 304,
       "ring": 1,
       "status": "ruled",
       "decided_by": "S-004 §3",
@@ -1448,7 +1448,7 @@
       ]
     },
     "tags": {
-      "usage": 262,
+      "usage": 265,
       "ring": "3-all",
       "status": "ruled",
       "decided_by": "S-004 §6",
@@ -1472,7 +1472,7 @@
       ]
     },
     "territory": {
-      "usage": 70,
+      "usage": 73,
       "ring": "3-all",
       "status": "ruled",
       "decided_by": "S-004 §6",
@@ -1523,7 +1523,7 @@
       ]
     },
     "title": {
-      "usage": 301,
+      "usage": 304,
       "ring": 1,
       "status": "ruled",
       "decided_by": "S-004 §3",
@@ -1559,7 +1559,7 @@
       ]
     },
     "type": {
-      "usage": 301,
+      "usage": 304,
       "ring": 1,
       "status": "ruled",
       "decided_by": "S-004 §3",
@@ -1585,7 +1585,7 @@
       ]
     },
     "type_execution": {
-      "usage": 106,
+      "usage": 109,
       "ring": 3,
       "status": "ruled",
       "decided_by": "S-004 §6",
@@ -1624,7 +1624,7 @@
       ]
     },
     "updated": {
-      "usage": 298,
+      "usage": 301,
       "ring": 1,
       "status": "ruled",
       "decided_by": "S-004 §3",
@@ -1660,7 +1660,7 @@
       ]
     },
     "version": {
-      "usage": 303,
+      "usage": 306,
       "ring": 1,
       "status": "ruled",
       "decided_by": "S-004 §3",

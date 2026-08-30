@@ -21,6 +21,20 @@
  * S-004 is a DRAFT until the Oracle signs. So is this lint's authority:
  * it runs, it reports, it ratchets — it does not gate CI until the
  * Oracle wires it there (D-017: workflows are Oracle territory).
+ *
+ * WHAT THIS GUARD DOES NOT CHECK (D-025 — declare your blindness):
+ *
+ *  - **Whether a deferral is honest.** H-32 checks that a `TBA` names a
+ *    mission that will resolve it. It cannot check that the mission is
+ *    alive, funded, or ever worked on. A `TBA` owned by an abandoned
+ *    mission passes this guard and is exactly the parking space ADR-028
+ *    forbids. Only a human reading the mission board catches that.
+ *  - **Whether a value is TRUE.** `created: 2026-01-01` with
+ *    `created_confidence: exact` passes if the format is right. The
+ *    provenance fields record a claim, not a verified fact.
+ *  - **The web layer.** 57 missions were invisible on the rendered board
+ *    for weeks while every guard here stayed green. Nothing in this file
+ *    reads web/.
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
@@ -104,6 +118,25 @@ GOVERNED.add('blueprints').add('guilds').add('operations').add('infra');
 const ISO_TIME = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?(\.\d+)?(Z|[+-]\d{2}:?\d{2})$/;
 const SEMVER = /^\d+\.\d+\.\d+$/;
 
+/* ---------------- deferred values (ADR-028) ----------------
+ *
+ * `TBA` means: the field applies, the value exists, it is not decided yet.
+ * S-001 uses `territory: "TBA"` as the canonical example.
+ *
+ * ADR-028 permits it under one condition and forbids it otherwise: a `TBA`
+ * without a mission that will resolve it is a parking space. So the guard
+ * does not treat `TBA` as a violation — it COUNTS it, and names the mission
+ * that owns each one. An uncounted deferral is indistinguishable from a
+ * forgotten one, and the difference is the whole point of the rule.
+ *
+ * To defer a new field: add it here with its owning mission, or the count
+ * reports it as unowned and the ratchet fails.
+ */
+const DEFERRED = 'TBA';
+const DEFERRAL_OWNER = {
+  territory: 'MIS-124',
+};
+
 /* ---------------- frontmatter parse (same contract as the census) ---------------- */
 
 function parseFM(text) {
@@ -121,6 +154,7 @@ function parseFM(text) {
 /* ---------------- the checks ---------------- */
 
 const findings = []; // { check, file, detail }
+const deferrals = []; // { file, field, owner } — ADR-028 census, not violations
 const F = (check, file, detail) => findings.push({ check, file, detail });
 
 const files = execFileSync('git', ['-C', ROOT, 'ls-files', '*.md'], { encoding: 'utf8' })
@@ -136,6 +170,14 @@ for (const rel of files) {
   const fm = parseFM(text);
 
   if (fm === null) { F('H-00', rel, 'no frontmatter — invisible to every instrument'); continue; }
+
+  /* Deferred values (ADR-028). Counted, never flagged — see DEFERRAL_OWNER. */
+  for (const [k, v] of Object.entries(fm)) {
+    if (v !== DEFERRED) continue;
+    deferrals.push({ file: rel, field: k, owner: DEFERRAL_OWNER[k] || null });
+    if (!DEFERRAL_OWNER[k])
+      F('H-32', rel, `"${k}: ${DEFERRED}" defers a value with no mission to resolve it — ADR-028 forbids a parking space`);
+  }
 
   /* H-09: empty is absent.
      `uid` is the one exception: S-001 §6.2 requires it declared and left
@@ -250,10 +292,24 @@ const byCheck = {};
 for (const f of findings) byCheck[f.check] = (byCheck[f.check] || 0) + 1;
 const summary = Object.entries(byCheck).sort().map(([c, n]) => `${c}:${n}`).join('  ');
 
+/* ADR-028 census: deferrals are reported whether or not anything failed.
+   A deferral nobody prints is a deferral nobody resolves. */
+const deferralLine = () => {
+  if (!deferrals.length) return null;
+  const byField = {};
+  for (const d of deferrals) (byField[d.field] ||= []).push(d);
+  return Object.entries(byField).sort().map(([field, ds]) => {
+    const owner = ds[0].owner;
+    return `  ${DEFERRED} ${field}: ${ds.length} — ${owner ? `owned by ${owner}` : 'UNOWNED'}`;
+  }).join('\n');
+};
+
 if (REPORT) {
   for (const k of keys) console.log(k);
   console.log(`\n${findings.length} findings across ${files.length} governed documents`);
   console.log(summary);
+  const reportDl = deferralLine();
+  if (reportDl) console.log(`\ndeferred values (ADR-028) — counted, not failed:\n${reportDl}`);
   process.exit(0);
 }
 
@@ -264,6 +320,8 @@ const fresh = keys.filter((k) => !baseline.has(k));
 const healed = [...baseline].filter((k) => !keys.includes(k));
 
 console.log(`lint-frontmatter: ${findings.length} findings (${baseline.size} baselined) — ${summary}`);
+const dl = deferralLine();
+if (dl) console.log(`deferred values (ADR-028):\n${dl}`);
 if (healed.length) console.log(`  ${healed.length} baselined finding(s) healed — regenerate the baseline to bank the progress`);
 if (fresh.length) {
   console.log(`\nNEW violations (not in baseline) — the ratchet fails:\n`);

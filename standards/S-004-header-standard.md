@@ -4,11 +4,11 @@ title: "The header in three rings: identity, provenance, extension"
 type: documentation
 subtype: standard
 status: active
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-08-30T10:30:00Z"
+updated: "2026-08-30T15:20:00Z"
 ratified_by: "ADR-029"
 author: "ursa"
 owner: "oracle"
@@ -212,6 +212,40 @@ census names every one; the migration card executes against that list.
 (C-005 material, coordinated with t_d4936cc8) — each is a **H-31** wave
 with its own baseline entry until its migration lands.
 
+### 6.1 Deferred values — `TBA` (H-32)
+
+A field can be required, present, and **not yet decided**. `S-001` uses
+`territory: "TBA"` as the canonical example: the field applies, the value
+exists, the decision has not been taken.
+
+`ADR-028` permits this under exactly one condition and forbids it
+otherwise:
+
+> A `TBA` without a mission that will resolve it is a parking space.
+
+So the lint does **not** treat `TBA` as a violation. It **counts** it, and
+names the mission that owns it:
+
+```
+deferred values (ADR-028):
+  TBA territory: 76 — owned by MIS-124
+```
+
+**H-32 fails when a `TBA` is written into a field no mission owns.** The
+register lives in `lint-frontmatter.mjs` (`DEFERRAL_OWNER`); to defer a new
+field, add it there with its owning mission, or the guard rejects it as
+unowned.
+
+The asymmetry is deliberate. **An uncounted deferral is indistinguishable
+from a forgotten one** — and a value nobody prints is a value nobody
+resolves. The count is what separates a declared unknown from a quiet one.
+
+**What this cannot check** (`D-025`): whether the owning mission is alive.
+A `TBA` pointing at an abandoned mission passes the guard and is exactly
+the parking space `ADR-028` forbids. Only a human reading the board
+catches that.
+
+
 ## 7. Enforcement: strict on the delta, baseline on the stock
 
 The D-021 lesson is that a rule without a mechanism does not survive its
@@ -230,7 +264,7 @@ lint that fails on everything is a lint that gets disabled.
    the baseline; the baseline's size is the public entropy metric of the
    corpus. Zero is the finish line, visible from every PR.
 
-Check-to-rule mapping is 1:1 by construction (H-00…H-31 above); the lint
+Check-to-rule mapping is 1:1 by construction (H-00…H-32 above); the lint
 prints the H-number with every finding, so a failure cites the standard
 that condemns it.
 
