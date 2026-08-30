@@ -12,7 +12,7 @@ created_confidence: exact
 updated: "2026-08-26T13:50:00Z"
 author: "ursa"
 owner: "oracle"
-guild: "Procuradores"
+guild: "Procurators"
 territory: "Governance"
 tags: [audit, process, governance, missions, P-003, self-review]
 license: "CC-BY-4.0"

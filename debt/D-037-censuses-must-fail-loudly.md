@@ -11,7 +11,7 @@ created_confidence: exact
 updated: "2026-08-26T18:10:00Z"
 author: "ursa"
 owner: "oracle"
-guild: "Procuradores"
+guild: "Procurators"
 territory: "Infrastructure"
 tags: [debt, tooling, measurement, guards, D-025, D-032]
 license: "CC-BY-4.0"

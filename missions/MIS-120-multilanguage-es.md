@@ -5,7 +5,7 @@ title: "Multi-language numinia.org: es-ES first"
 status: in-progress
 priority: high
 effort: L
-guild: alchemists
+guild: "Alchemists"
 territory: "TBA"
 type_execution: digital
 assigned_to: "ursa"

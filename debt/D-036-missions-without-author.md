@@ -11,7 +11,7 @@ created_confidence: exact
 updated: "2026-08-26T16:05:00Z"
 author: "ursa"
 owner: "oracle"
-guild: "Procuradores"
+guild: "Procurators"
 territory: "Archive"
 tags: [debt, provenance, missions, C-005, frontmatter, D-021, D-025]
 license: "CC-BY-4.0"

@@ -5,7 +5,7 @@ title: "Replace the agent roster with the operative agent definitions"
 status: done
 priority: high
 effort: M
-guild: procurators
+guild: "Procurators"
 territory: "TBA"
 type_execution: hybrid
 assigned_to: "ursa"

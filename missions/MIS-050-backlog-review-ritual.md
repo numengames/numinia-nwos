@@ -10,7 +10,7 @@ created_confidence: inferred
 updated: "2026-04-07T18:00:00Z"
 territory: "TBA"
 guild: "Procurators"
-type_execution: "híbrido"
+type_execution: "hybrid"
 priority: "high"
 effort: "XS"
 license: "CC-BY-4.0"

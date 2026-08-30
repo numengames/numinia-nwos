@@ -13,7 +13,7 @@ tags: [web, nwos, visualization, ux, i18n, sistema, pablofm]
 license: "CC-BY-4.0"
 territory: "Product"
 guild: "Alchemists"
-type_execution: "técnico"
+type_execution: "digital"
 priority: "high"
 effort: "XL"
 ---
