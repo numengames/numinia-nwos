@@ -2,12 +2,12 @@
 id: "MIS-125"
 title: "The prefix register — four series carry identifiers no rule knows about"
 type: mission
-status: todo
-version: "1.0.0"
+status: in-progress
+version: "1.1.0"
 created: "2026-08-30T11:50:00Z"
 created_source: "git:b09311c"
 created_confidence: exact
-updated: "2026-08-30T11:50:00Z"
+updated: "2026-08-31T09:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC-BY-4.0"
@@ -109,3 +109,51 @@ identifiers someone uses. Nobody uses these.
 
 **Before renaming anything here, measure its incoming citations.** The rule is
 not "never rename"; it is "never break a reference that exists".
+
+## Execution — 2026-08-31 (Ursa)
+
+Design closed in a prior chat session (plan at
+`.hermes/plans/2026-08-31_090215-MIS-125-prefix-standardization.md`,
+repo-local, scratch — deleted at mission close per `P-010`). Execution
+started this session, staged A → B → C → D per that plan.
+
+**Base commit:** `26fea478d33018002e699cb59cdb4d7e0aa67d6d` (`origin/main`,
+merge of ADR-032 / #153).
+
+**Two blockers found before touching anything, both ruled by the Oracle
+before proceeding (not decided unilaterally):**
+
+1. **The plan's own premise was stale.** It states the
+   `check-frontmatter-yaml.mjs` CI guard was "already wired, see the commit
+   for this plan" and lists that as the one repo change already applied.
+   Measured: the change existed only as an uncommitted working-tree diff on
+   `.github/workflows/ci.yml` — no commit contained it, on any branch, local
+   or remote. **Still not committed at time of writing** — see blocker 3.
+2. **Wrong base branch.** The working tree was on
+   `refactor/adr-032-blueprints-extinction` — already merged to `origin/main`
+   (PR #153) and named for deletion in this same plan (§E). Resolved:
+   checked out `main`, fast-forwarded to `origin/main`, carried the pending
+   `ci.yml` diff across, then deleted the stale branch.
+3. **This mission's own workflow error, caught by the Oracle, not by me.**
+   The two commits above (CI guard + this section) were first made directly
+   on local `main`, no branch, no PR — against this repo's fixed convention
+   (branch + PR, always). Reverted: `main` reset back to `origin/main`, work
+   moved to branch `mis-125/mark-in-progress`. **Note, checked after the
+   fact:** `origin/main` is GitHub-protected (`protected: true`, confirmed
+   via API); a push straight to it would very likely have been rejected
+   regardless. The exact rules (required reviews, required checks, bypass
+   list) could not be read — the configured PAT lacks admin scope on the
+   repo (`GET .../branches/main/protection` → 403). Oracle asked to confirm
+   or tighten the ruleset from Settings → Branches directly.
+   Separately, the CI-guard commit hit a real, unrelated blocker: the same
+   PAT lacks the `workflow` scope, so GitHub rejects any push touching
+   `.github/workflows/*.yml` on any branch. **The CI guard commit is parked,
+   not landed** — needs either a token scope fix or a human push. This
+   mission-status update carries no `ci.yml` change and is unblocked.
+
+Both premise corrections (1, 2) confirmed with the Oracle via clarifying
+questions before any file was touched; the workflow correction (3) was the
+Oracle's own catch, applied immediately. Progress against Stages A–D is
+tracked in `missions/MIS-127-entropy-reduction.md` (ledger, per PR) as each
+stage lands; this section records only the execution start and the premise
+corrections.
