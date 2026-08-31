@@ -25,7 +25,9 @@ export const navItems: NavItem[] = [
   { label: "Protocols", href: "/corpus/protocols/", id: "protocols", section: "protocols" },
   { label: "Blueprints", href: "/corpus/blueprints/", id: "planos", section: "blueprints" },
   { label: "Debt", href: "/corpus/debt/", id: "debt", section: "debt" },
-  { label: "Corpus", href: "/corpus", id: "corpus" },
+  // /corpus is no longer listed either: with the six folders in the bar, a
+  // seventh entry meaning "all of them at once" is a second answer to a
+  // question the bar already answers. Every section index still links to it.
   // /reports is no longer listed. The page still builds and still answers at
   // its URL — as with the thirteen MIS-110 retired, this removes the nav entry,
   // not the route.

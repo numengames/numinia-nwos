@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: MIT
 import Icon from "@/components/Icon.astro";
 import SiteSearch from "@/components/SiteSearch.astro";
-import { navItems, type NavChild } from "@/data/navigation";
+import { navItems } from "@/data/navigation";
 import { getSectionDocs } from "@/lib/corpus";
 import { useT, type UIKey } from "@/i18n/ui";
 
@@ -18,21 +18,14 @@ const numaniaIds = navItems
   ?.children?.map((c) => c.id) ?? [];
 const numaniaActive = numaniaIds.includes(activeNav ?? "");
 
-// A section entry's dropdown IS its folder. Derived from the corpus at build
-// time — the same call the section index page makes, so the menu cannot drift
-// from the page it leads to. Nothing is listed by hand (D-031).
-const sectionMenus = new Map<string, { docs: NavChild[]; total: number }>();
+// Section entries are plain links. They lead to the folder's index page, which
+// is where a document gets chosen — one place to browse a folder, not two.
+// The counts are read from the corpus at build time so the bar never claims a
+// number the index contradicts.
+const sectionCounts = new Map<string, number>();
 for (const item of navItems) {
   if (!("section" in item) || !item.section) continue;
-  const docs = await getSectionDocs(item.section);
-  sectionMenus.set(item.id, {
-    total: docs.length,
-    docs: docs.map((d) => ({
-      label: d.docId ? `${d.docId} · ${d.title}` : d.title,
-      href: d.href,
-      id: d.docId ?? d.href,
-    })),
-  });
+  sectionCounts.set(item.id, (await getSectionDocs(item.section)).length);
 }
 
 // MIS-120(e) — one corpus, in English. No locale prefix, no selector: the
@@ -62,55 +55,21 @@ const homeHref = "/";
     <div class="hidden items-center gap-1 sm:flex">
       <SiteSearch />
       {navItems.map((item) => {
-        const menu = sectionMenus.get(item.id);
-        if (menu) {
-          const active = activeNav === item.id;
+        const count = sectionCounts.get(item.id);
+        if (count !== undefined) {
           return (
-            <div class="relative" data-dropdown>
-              <a
-                href={item.href}
-                data-dropdown-btn
-                class:list={[
-                  "flex items-center gap-1 rounded-full px-3 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.12em] transition-all",
-                  active
-                    ? "border border-accent bg-accent/10 text-accent"
-                    : "border border-transparent text-muted-foreground hover:border-border hover:bg-card hover:text-foreground",
-                ]}
-              >
-                {item.label}
-                <span class="text-[0.6rem] text-dim">{menu.total}</span>
-                <span data-chevron class="inline-flex transition-transform duration-200">
-                  <Icon name="caret-down" size={10} />
-                </span>
-              </a>
-              <div class="absolute right-0 top-full h-3 w-full" data-bridge></div>
-              <div
-                data-dropdown-panel
-                class="absolute right-0 top-full mt-3 hidden w-[22rem] rounded-xl border border-border bg-background/95 py-2 shadow-xl backdrop-blur-xl"
-              >
-                <div class="max-h-[70vh] overflow-y-auto">
-                  {menu.docs.map((child) => (
-                    <a
-                      href={child.href}
-                      class="block truncate px-4 py-2 text-[0.78rem] text-muted-foreground transition-colors hover:bg-card hover:text-foreground"
-                    >
-                      {child.label}
-                    </a>
-                  ))}
-                  {menu.total === 0 && (
-                    <p class="px-4 py-2 font-mono text-[0.65rem] leading-relaxed text-dim">
-                      Nothing in this folder declares <code>visibility: public</code> yet (MIS-114).
-                    </p>
-                  )}
-                </div>
-                <a
-                  href={item.href}
-                  class="mt-1 block border-t border-border/60 px-4 py-2.5 font-mono text-[0.65rem] uppercase tracking-[0.15em] text-accent hover:bg-card"
-                >
-                  All {menu.total} →
-                </a>
-              </div>
-            </div>
+            <a
+              href={item.href}
+              class:list={[
+                "flex items-center gap-1.5 rounded-full px-3.5 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.12em] transition-all",
+                activeNav === item.id
+                  ? "border border-accent bg-accent/10 text-accent"
+                  : "border border-transparent text-muted-foreground hover:border-border hover:bg-card hover:text-foreground",
+              ]}
+            >
+              {item.label}
+              <span class="text-[0.6rem] text-dim">{count}</span>
+            </a>
           );
         }
         if (item.children) {
@@ -185,34 +144,21 @@ const homeHref = "/";
   <div id="mobile-menu" class="hidden border-t border-border/50 bg-background/95 backdrop-blur-xl sm:hidden">
     <div class="flex flex-col gap-1 px-6 py-4">
       {navItems.map((item) => {
-        const menu = sectionMenus.get(item.id);
-        if (menu) {
+        const count = sectionCounts.get(item.id);
+        if (count !== undefined) {
           return (
-            <details class="group">
-              <summary class:list={[
-                "flex cursor-pointer items-center justify-between rounded-lg px-4 py-2.5 font-mono text-[0.7rem] uppercase tracking-[0.15em]",
-                activeNav === item.id ? "text-accent" : "text-muted-foreground",
-              ]}>
-                <span>{item.label}</span>
-                <span class="text-[0.6rem] text-dim">{menu.total}</span>
-              </summary>
-              <div class="ml-4 flex flex-col gap-1 border-l border-border/50 pl-3">
-                {menu.docs.map((child) => (
-                  <a
-                    href={child.href}
-                    class="truncate rounded-lg px-3 py-2 text-[0.75rem] text-muted-foreground transition-colors hover:bg-card hover:text-foreground"
-                  >
-                    {child.label}
-                  </a>
-                ))}
-                <a
-                  href={item.href}
-                  class="rounded-lg px-3 py-2 font-mono text-[0.62rem] uppercase tracking-[0.15em] text-accent"
-                >
-                  All {menu.total} →
-                </a>
-              </div>
-            </details>
+            <a
+              href={item.href}
+              class:list={[
+                "flex items-center justify-between rounded-lg px-4 py-2.5 font-mono text-[0.7rem] uppercase tracking-[0.15em] transition-colors",
+                activeNav === item.id
+                  ? "bg-accent/10 text-accent"
+                  : "text-muted-foreground hover:bg-card hover:text-foreground",
+              ]}
+            >
+              <span>{item.label}</span>
+              <span class="text-[0.6rem] text-dim">{count}</span>
+            </a>
           );
         }
         if (item.children) {
