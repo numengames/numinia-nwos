@@ -69,8 +69,8 @@ And six series have **no index at all**: `missions/`, `protocols/`,
 
 ### `blueprints/INDEX.md` is the worst case, and it indicts itself
 
-It lists `BP-cao`, `BLU-002` and `BLU-003`. Nineteen
-others exist, including `BLU-005-archive-fondos.md`, which the site reads at build
+It lists `BP-cao`, `BLU-002` and `the Mission System v2 record`. Nineteen
+others exist, including `SYS-003-archive-fondos.md`, which the site reads at build
 time to render `/archive`.
 
 Its own instructions say:

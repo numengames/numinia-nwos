@@ -61,6 +61,23 @@ path = ["blueprints/**", "protocols/**"]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC0-1.0"
 
+# system/ and history/ (ADR-035, MIS-129) inherit CC0-1.0 from blueprints/,
+# where every one of their documents was published before the move. C-005
+# holds a published CC0 waiver irrevocable: the shelf changed, the licence
+# cannot. New documents born on these shelves are CC0 too, by this annotation.
+[[annotations]]
+path = ["system/**", "history/**"]
+SPDX-FileCopyrightText = "2026 Numen Games S.L."
+SPDX-License-Identifier = "CC0-1.0"
+
+# The Wardley map moved from blueprints/ to reports/ (ADR-035, MIS-129),
+# crossing from the CC0-1.0 regime into reports/'s CC-BY-4.0. C-005 holds a
+# published CC0 waiver irrevocable, so the file keeps CC0 on its new shelf.
+[[annotations]]
+path = "reports/RPT-2026-04-07-wardley-map.md"
+SPDX-FileCopyrightText = "2026 Numen Games S.L."
+SPDX-License-Identifier = "CC0-1.0"
+
 # The rank system is Numinia's, not a platform convention: NOMAD, CITIZEN,
 # PILGRIM, VERNACULAR, ARCHON and ORACLE are the domain model's own names, and
 # promotion is tied to Session Zero, guilds and factions — reserved canon. It

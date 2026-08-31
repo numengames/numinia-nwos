@@ -92,7 +92,7 @@ human_approval_score: 9
 ### Spawned
 
 - **MIS-062** — Mission System v2 + Kanban board (born from QA findings + Pablo direction)
-- **BLU-003-mission-system** — Complete redesign spec: 4 states, sub-missions, new IDs, Kanban UI
+- **the Mission System v2 record-mission-system** — Complete redesign spec: 4 states, sub-missions, new IDs, Kanban UI
 
 ### Key learnings
 

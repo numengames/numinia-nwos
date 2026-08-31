@@ -60,7 +60,9 @@ inherited and what is discarded, in §7.
 | Canon | `canon/` | `C-XXX` | `/canon` (pending, MIS-089 F2) |
 | Mission | `missions/` | `MIS-XXX` | `/missions` ✓ |
 | Decision | `decisions/` | `DEC-XXX` / `ADR-XXX` | `/decisiones` ✓ |
-| Blueprint | `blueprints/` | `BP-<slug>` | `/planos` ✓ |
+| Blueprint | `blueprints/` | `BLU-XXX` | `/blueprints` ✓ |
+| System manual | `system/` | `SYS-XXX` | `/corpus/system` ✓ |
+| Superseded record | `history/` | none — frozen-artifact name (§3.2) | `/corpus/history` ✓ |
 | Protocol | `protocols/` | `P-XXX` | `/protocolos` (pending) |
 | Daily report | `reports/daily/` | `RPT-YYYY-MM-DD` | `/reportes` (hardcoded today — MIS-065) |
 | Audit | `reports/audits/` | `AUD-YYYY-MM-DD-<slug>` | `/audits` ✓ |

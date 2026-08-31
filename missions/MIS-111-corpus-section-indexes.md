@@ -160,7 +160,7 @@ signature.)*
 
   Worse, each of those folders is **split**: 12 `ADR-`/`DEC-` typed plus
   `INDEX.md` in the corpus; 16 `BP-*` typed plus 8 in the corpus (`AUDIT-*`,
-  `BLU-001-wardley-map`, `archive-summa-*`, `INDEX`, `README`). The first version listed
+  `RPT-2026-04-07-wardley-wardley-map`, `archive-summa-*`, `INDEX`, `README`). The first version listed
   only the typed half — 12 of 13 and **17 of 24** — and every omitted row was a
   reachable page. **An index that omits reachable documents is the same lie as
   one that lists none, only harder to notice.** The model now unions both halves
@@ -175,14 +175,14 @@ signature.)*
     `c-001-welcome-to-numinia`, `<title>Redirecting to:`). The index lists
     documents, not redirects — verified by reading the `<title>` of both.
   - **decisions 12, not 13** — same reason, `INDEX.md`.
-  - **blueprints 23, not 24** — `/planos/meta` renders `BLU-001-wardley-map.md` under a
+  - **blueprints 23, not 24** — `/planos/meta` renders `RPT-2026-04-07-wardley-map.md` under a
     second route. One document, two URLs; listed once.
 
   The criteria were not edited to match. They are recorded here as measured, per
   the rule that the brief is not rewritten to fit the outcome.
 
 - **A finding, noted and not chased:** `/planos/meta` is a page with no file of
-  its own — it renders `BLU-001-wardley-map.md` at a second URL. That is `D-028`
+  its own — it renders `RPT-2026-04-07-wardley-map.md` at a second URL. That is `D-028`
   territory (URLs not managed as a lifecycle), and it does not block this
   mission.
 

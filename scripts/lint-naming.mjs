@@ -66,6 +66,10 @@ const SERIES = {
   blueprints:      { prefix: 'BLU', digits: 3 },
   guilds:          { prefix: 'GLD', digits: 3 },
   infra:           { prefix: 'INF', digits: 3 },
+  system:          { prefix: 'SYS', digits: 3 },
+  // history/ deliberately absent — ADR-035 §2: superseded records keep the
+  // frozen-artifact filename shape (S-005 §3.2), which N-02/N-03 already
+  // enforce. A number would assert they are living documents.
   // agents/ deliberately absent — ADR-005 v1.1.0 reversal, folder-named.
 };
 

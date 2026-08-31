@@ -128,6 +128,17 @@ for (const rel of files) {
         if (!idOwner.has(id)) idOwner.set(id, rel);
       }
     }
+    // ADR-004 rule 4 never frees a renumbered document's old identifier, and
+    // ADR-035 requires the new file to declare it in `former_id`. A citation
+    // to that old identifier is therefore not broken — it resolves here, to
+    // the document that used to carry it. Without this, every renumbering
+    // breaks every historical citation of the thing it renumbered, and the
+    // only way to stay green would be to stop writing down what moved.
+    const former = fm[1].match(/^former_id:\s*["']?([A-Z]+-[\w-]+)/m);
+    if (former) {
+      known.add(former[1]);
+      if (!idOwner.has(former[1])) idOwner.set(former[1], rel);
+    }
   }
 }
 
@@ -162,6 +173,22 @@ const IGNORED_PREFIX = /^(CON|FLAG|SEC|ARC|G|MISSION|BP)-/;
 const WEB_ADR_RANGE = (n) => n >= 6 && n <= 22;
 
 /**
+ * Documents that LEFT this repository for another Numen repo. They are not
+ * missing — they exist, elsewhere, and the citations that point at them are
+ * correct history. Deleting the citations to keep this guard green would
+ * erase the record of the move, which is the opposite of what the archive
+ * is for. Each entry names where the document went, so this list stays
+ * auditable rather than becoming a silence list.
+ *
+ * ADR-004 §7 asks cross-repo citations to be qualified (`web:ADR-012`), but
+ * a qualifier cannot help here: ID_RE matches the bare identifier inside the
+ * qualified form too. The register is the mechanism; the qualifier is style.
+ */
+const EXPATRIATE = new Map([
+  ['BLU-008', 'numengames/nwos-deploy → docs/nwos-system-description.md (MIS-129, ADR-035)'],
+]);
+
+/**
  * `P-NN` (two digits) in archive-summa-fundacional means "operating principle
  * 01…12", a numbered list inside that document — not protocol P-001. Protocol
  * identifiers are always three digits (ADR-004 §1). Same for MIS-999, which is
@@ -174,7 +201,7 @@ const isExample = (id) => id === 'MIS-999';
 // deleted — harmless, and documents why P-01..12 were never a citation risk.
 const isPrinciple = (prefix, num) => prefix === 'P' && /^\d{1,2}$/.test(num);
 
-const ID_RE = /\b(MIS|ADR|DEC|RPT|PRO|DBT|STD|CAN|OPS|BLU|GLD|INF)-(\d{1,4}|\d{4}-\d{2}-\d{2})\b/g;
+const ID_RE = /\b(MIS|ADR|DEC|RPT|PRO|DBT|STD|CAN|OPS|BLU|GLD|INF|SYS)-(\d{1,4}|\d{4}-\d{2}-\d{2})\b/g;
 const LINK_RE = /\[[^\]]*\]\(([^)\s#]+\.md)(?:#[^)]*)?\)/g;
 // Kind 3: a bare filename mentioned in prose, outside markdown link syntax
 // — "see credential-map.md", "documented in APPROVAL-REQUEST-template.md".
@@ -214,6 +241,11 @@ for (const rel of files) {
     if (known.has(id)) continue;
     // an ADR in web's range is not missing — it is elsewhere, cited unqualified
     if (m[1] === 'ADR' && WEB_ADR_RANGE(Number(m[2]))) {
+      crossRepo.push({ from: rel, id });
+      continue;
+    }
+    // a document that emigrated is elsewhere, not gone
+    if (EXPATRIATE.has(id)) {
       crossRepo.push({ from: rel, id });
       continue;
     }

@@ -1,18 +1,22 @@
 ---
-id: "BLU-004"
+id: "SYS-001"
 uid: ""
 title: "CAO Architecture — Complete System Reference"
-type: blueprint
+type: documentation
+subtype: reference
 status: active
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-04-08T05:58:00Z"
-updated: "2026-04-08T05:58:00Z"
+updated: "2026-08-31T22:20:00+02:00"
 author: "nimrod"
 owner: "oracle"
-tags: [blueprint, cao, architecture, agents, protocols, tools, system]
+tags: [system, cao, architecture, agents, protocols, tools]
 territory: "CAO"
 license: "CC0-1.0"
 mission: "MIS-045"
+former_id: "BLU-004"
+former_id_note: "Renumbered by MIS-129 under ADR-035: this is a reference manual of how the CAO is wired today, not a plan for a future state. ADR-004 rule 4 conditions recorded in ADR-035."
+accuracy_warning: "Content is from 2026-04-08 and is known stale — the canon repo is named numinia-nwos, Adonaz is now Byblos, Ursa is active. Tracked as debt, not corrected by MIS-129 (move only, no prose edits)."
 ---
 # BP — CAO Architecture
 
@@ -261,7 +265,7 @@ CEO visits pablofm.com/velo → Fills DeployForm
 ## Related documents
 
 - [BP-cao.md](BP-cao.md) — CAO status and objectives
-- [BLU-002-business-metrics.md](BLU-002-business-metrics.md) — KPI framework
+- [BLU-002-business-metrics.md](../blueprints/BLU-002-business-metrics.md) — KPI framework
 - [governance.md](../standards/governance.md) — Roles and permissions
 - [STANDARDS.md](../standards/STANDARDS.md) — Technical conventions (superseded 2026-08-30; see its map)
 - [agents/INDEX.md](../agents/INDEX.md) — Agent registry

@@ -48,6 +48,11 @@ reports    RPT-NNN, subtype: daily | audit (merger — see below)
 blueprints BLU-NNN
 guilds     GLD-NNN
 infra      INF-NNN
+system     SYS-NNN (ADR-035, 2026-08-31 — reference manuals of how the
+           system works today; verified collision-free at assignment)
+history    — (no prefix: superseded records keep the frozen-artifact
+           filename of PRO-010 §3.2. ADR-035 §2 — numbering one would
+           assert it is a living document, which the shelf denies)
 ```
 
 The eight new three-letter prefixes (`PRO DBT STD CAN OPS BLU GLD INF`) were

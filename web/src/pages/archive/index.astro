@@ -168,9 +168,11 @@ const arranqueSteps = [
   { n: "04", cmd: "ls missions/active/", desc: "¿Qué está en movimiento? Aquí empieza la sesión." },
 ];
 import { getCollection } from "astro:content";
-// MIS-065 phase C: the 3D graph data lives in blueprints/BLU-005-archive-fondos.md
-const _bpFondos = (await getCollection("blueprints")).find(
-  (e) => e.data.id === "BLU-005"
+// MIS-065 phase C: the 3D graph data lives in system/SYS-003-archive-fondos.md
+// (moved there from blueprints/ by MIS-129 under ADR-035 — it is a reference
+// manual of the seven fondos, not a plan for a future state).
+const _bpFondos = (await getCollection("system")).find(
+  (e) => e.data.id === "SYS-003"
 )!;
 const _graph = (_bpFondos.data as any).graph;
 const graphNodes = (_graph.nodes as any[]).map((n) => ({ ...n, color: Number(n.color) }));
