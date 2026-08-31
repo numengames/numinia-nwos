@@ -22,6 +22,17 @@ export default defineConfig({
 	// DEUDA-404 records what happens without this: /corpus/canon/c-006-manual-
 	// juego-de-rol/ (890 KB) died in April and nobody noticed. See D-028.
 	redirects: {
+		// standards/ registration, 2026-08-31 (MIS-127, ADR-005 v1.1.0). The
+		// shelf entered the STD-NNN series: S-001 kept its number as STD-001,
+		// and governance/engineering-standards — which never had one — were
+		// numbered by age. Five published addresses died in the rename. Each
+		// points at the same document under its new address; nothing merged,
+		// so there is no "200 that lies" here.
+		"/corpus/standards/s-001-glossary": "/corpus/standards/std-001-glossary",
+		"/corpus/standards/governance": "/corpus/standards/std-002-governance",
+		"/corpus/standards/s-003-platform-role-system": "/corpus/standards/std-003-platform-role-system",
+		"/corpus/standards/s-004-header-standard": "/corpus/standards/std-004-header-standard",
+		"/corpus/standards/engineering-standards": "/corpus/standards/std-005-engineering-standards",
 		// Debt renumbering, 2026-08-31 (RPT-001 §12). The D- series was closed
 		// and renumbered to DBT-NNN; 30 published addresses died. Merged entries
 		// point at the document that now CONTAINS their reasoning, not at a
@@ -171,7 +182,7 @@ export default defineConfig({
 		"/corpus/canon/about-session-zero": "/corpus/canon/c-006-session-zero",
 		"/corpus/canon/rank-specifications": "/corpus/canon/c-007-rank-specifications",
 		// MIS-127: BLU-003 dropped the "-v2" version suffix from its filename
-		// (S-001 §9 — the version lives in frontmatter, not the name).
+		// (STD-001 §9 — the version lives in frontmatter, not the name).
 		// MIS-129 then moved the document itself out of blueprints/ into
 		// history/ (ADR-035): it is a self-declared superseded design, not a
 		// plan. Both the versioned and unversioned addresses now land on the

@@ -47,7 +47,7 @@ import re, sys, subprocess, collections
 
 WRITE = "--write" in sys.argv
 VOCAB = ["CAO", "Product", "Platform", "Infrastructure",
-         "Content", "Sales", "Funding", "Archive"]          # S-001 L964
+         "Content", "Sales", "Funding", "Archive"]          # STD-001 L964
 CANON = {v.lower(): v for v in VOCAB}
 
 ROOT = subprocess.run(["git", "rev-parse", "--show-toplevel"],

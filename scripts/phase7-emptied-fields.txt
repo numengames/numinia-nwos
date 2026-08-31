@@ -1,5 +1,5 @@
 # Campos que estaban escritos VACIOS y se han retirado.
-# S-004 H-09: 'omit the field instead'. Un campo vacio no
+# STD-004 H-09: 'omit the field instead'. Un campo vacio no
 # informa de nada y hace creer que el dato existe.
 # Ninguno tenia valor: se retira la linea, no un dato.
 #
@@ -13,4 +13,4 @@ decisions/ADR-023-four-terms-two-pairs.md	supersedes
 decisions/ADR-024-english-as-canon-language.md	supersedes
 decisions/ADR-026-agent-definitions-are-cc0.md	supersedes
 missions/MIS-062-mission-system-v2.md	sub_missions
-standards/S-003-platform-role-system.md	series_change
+standards/STD-003-platform-role-system.md	series_change

@@ -23,7 +23,7 @@ the repository is the source of truth and this file only says where to look.
 
 ## Engineering standard
 
-standards/engineering-standards.md §6-§7 — this repository's own operative standard
+standards/STD-005-engineering-standards.md §6-§7 — this repository's own operative standard
 
 ## Platform adapter
 

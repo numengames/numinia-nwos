@@ -170,7 +170,7 @@ for (const t of targets) {
   console.log(`   status: ${j.status || '(none)'}${j.sealed ? '   threshold: SEALED' : ''}`);
 
   if (!j.passes4) {
-    console.log(`   ✗ REFUSED (4) — threshold: sealed. Oracle signature + ADR required (S-001 §2.1).`);
+    console.log(`   ✗ REFUSED (4) — threshold: sealed. Oracle signature + ADR required (STD-001 §2.1).`);
     refused++; continue;
   }
   if (j.passes1) {

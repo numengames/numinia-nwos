@@ -43,7 +43,7 @@ satisfacer una regex es dejar constancia de una decision que nadie tomo.
 Los 13 singulares son piezas unicas de su carpeta. `canon-index` no es el
 indice numero N de nada.
 
-S-004 §5.0 ya preve exactamente esto: `registration: exempt` con motivo.
+STD-004 §5.0 ya preve exactamente esto: `registration: exempt` con motivo.
 El mecanismo estaba implementado en el lint (linea 236) y sin usar. No
 hace falta regla nueva: hace falta declararlo.
 

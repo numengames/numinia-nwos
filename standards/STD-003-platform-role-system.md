@@ -1,7 +1,7 @@
 ---
-id: "S-003"
-uid:
 title: "Platform Role System"
+id: "STD-003"
+uid: ""
 type: documentation
 subtype: standard
 status: active
@@ -28,7 +28,7 @@ series_change:
     "Matriz de permisos por rango", "Cómo se determina el rango" and "Reglas de
     promoción y degradación": 18 table rows, zero narrative markers. What a rank
     may do is machine-verifiable, which is the definition of a standard in
-    S-001 §2. Its twin C-007 Rank Specifications NAMES the ranks and stayed in
+    STD-001 §2. Its twin C-007 Rank Specifications NAMES the ranks and stayed in
     canon; this one REGULATES them.
   regime_change: >
     NONE. The file moves folder and KEEPS LicenseRef-Numen-AllRightsReserved,

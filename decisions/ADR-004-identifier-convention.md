@@ -89,11 +89,11 @@ cancelled or deleted document does not free its number.
 > **Precedent, recorded retroactively (v1.1.0).** `MIS-109` (2026-08-25)
 > renumbered canon's seminal series `S-002`…`S-010` → `C-NNN` — in fact an
 > exercise of this exception, before this ADR ever stated it. Measured
-> against the three conditions above: (1) collision — `S-001` identified
+> against the three conditions above: (1) collision — `STD-001` identified
 > two live documents at once (this glossary and canon's own `Welcome to
 > Numinia`); (2) consumers enumerated — 40 citations plus the relation
 > graph in `canon/INDEX.md`, all updated in the same operation (`ADR-005`,
-> `S-001` v2.5.0); (3) verified — `scripts/resolve-citations.py` at the
+> `STD-001` v2.5.0); (3) verified — `scripts/resolve-citations.py` at the
 > time, `check-references.mjs` did not exist yet. This ADR was never
 > amended to say so until now, which let it contradict the repo it
 > governs. It no longer does.

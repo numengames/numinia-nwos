@@ -6,7 +6,7 @@
 # production without anyone touching a panel, and the page footer prints the
 # commit it was built from, so the deployed SHA is checkable from outside.
 #
-# Correction record — 2026-08-25 (S-001 §2.1.2). This comment previously read
+# Correction record — 2026-08-25 (STD-001 §2.1.2). This comment previously read
 # "Deploy from web/: npx wrangler deploy", describing a manual deploy. It was
 # true for eight days: the Workers Builds Git connection had silently dropped
 # ("This project is disconnected from your Git account"), production served a

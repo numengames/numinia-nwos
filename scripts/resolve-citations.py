@@ -3,12 +3,12 @@
 resolve-citations.py — ¿resuelve cada identificador citado?
 
 El lint de referencias comprueba ENLACES entre ficheros. Este comprueba
-IDENTIFICADORES citados en el texto: `ADR-004`, `S-001`, `P-010`, `C-005`.
+IDENTIFICADORES citados en el texto: `ADR-004`, `STD-001`, `P-010`, `C-005`.
 
 Por qué hace falta un instrumento aparte (Oráculo, 2026-08-24):
 
     El lint comprueba enlaces entre ficheros; no comprueba que un documento
-    citado como AUTORIDAD exista. Así es como un S-001 mergeado acabó
+    citado como AUTORIDAD exista. Así es como un STD-001 mergeado acabó
     apoyado en un ADR sin mergear.
 
 Y por qué NO busca frases normativas: la cita más importante del glosario es
@@ -29,11 +29,11 @@ from collections import defaultdict
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REF = sys.argv[sys.argv.index('--at') + 1] if '--at' in sys.argv else None
 
-# Prefijos que este repositorio matricula (S-001 §4.1)
+# Prefijos que este repositorio matricula (STD-001 §4.1)
 PREFIJOS = r'(?:MIS|ADR|DEC|P|RPT|AUD|BP|C|S|D|SEC|SIM|FLAG|CON|GAP)'
 CITA = re.compile(rf'\b({PREFIJOS}-\d{{2,4}}(?:\.\d+)?)\b')
 
-# ADR-006..ADR-022 pertenecen a numinia-web (S-001 §4.4, colisión conocida)
+# ADR-006..ADR-022 pertenecen a numinia-web (STD-001 §4.4, colisión conocida)
 def es_otro_repo(ident):
     m = re.match(r'^ADR-(\d+)$', ident)
     return bool(m) and 6 <= int(m.group(1)) <= 22
@@ -111,7 +111,7 @@ def main():
             if propio.startswith(ident):
                 continue
             # sub-identificador: MIS-062.2 resuelve si MIS-062 existe.
-            # Es una sub-misión, no un documento propio (S-001 §4.1).
+            # Es una sub-misión, no un documento propio (STD-001 §4.1).
             padre = re.match(r'^(.+)\.\d+$', ident)
             if padre and padre.group(1) in existen:
                 continue

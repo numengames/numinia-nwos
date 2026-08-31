@@ -1,5 +1,7 @@
 ---
 title: "Engineering Standards"
+id: "STD-005"
+uid: ""
 type: documentation
 status: active
 version: "1.0.0"
@@ -10,9 +12,7 @@ updated: "2026-08-22T20:44:28+02:00"
 author: "pablofm"
 owner: "oracle"
 tags: [standards]
-license: "CC-BY-4.0"
-registration: exempt
-registration_reason: "not part of a numbered series; header added from git history, nothing invented"
+license: "CC0-1.0"
 ---
 
 <!--

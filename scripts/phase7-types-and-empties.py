@@ -4,7 +4,7 @@ Tanda C, parte mecanica: tipos fuera de vocabulario y campos vacios.
 
 1 · TIPOS FUERA DEL VOCABULARIO (H-03, 16 de 22)
 ------------------------------------------------
-TYPES cerrado en S-004 §4: mission adr protocol blueprint report seminal
+TYPES cerrado en STD-004 §4: mission adr protocol blueprint report seminal
 legal charter documentation meta agent. Lo encontrado y su destino:
 
   technical (4)  -> documentation   debt/D-034..D-037. `technical` no es
@@ -44,7 +44,7 @@ serie propia. Eso decide que significan las cosas. Va al Oraculo.
 -------------------------------------
 `supersedes:` (4), `fondos`, `graph`, `changelog`, `lore`, `sub_missions`,
 `series_change`. Un campo vacio no informa de nada y ademas MIENTE: hace
-creer que el dato existe. S-004 lo dice literalmente — "omit the field
+creer que el dato existe. STD-004 lo dice literalmente — "omit the field
 instead". Se retiran; el valor que tenian queda en el censo.
 
 `uid` NO SE TOCA — Y CASI LO BORRO
@@ -52,7 +52,7 @@ instead". Se retiran; el valor que tenian queda en el censo.
 Mi primer simulacro retiraba 66 `uid:` vacios que el linter no reporta.
 Fui a mirar por que el linter callaba y la respuesta estaba en el canon:
 
-  S-001 §6.2, "Reserved: uid":
+  STD-001 §6.2, "Reserved: uid":
   "The field is declared and left empty. Oracle decision, non-negotiable."
 
 Son 100 documentos (66 vacios + 34 con comillas vacias). El campo esta
@@ -89,7 +89,7 @@ TIPOS = {
 # `decision` NO esta en el mapa: ver docstring.
 
 # Campos reservados a proposito: se declaran vacios y NO se retiran.
-# `uid` es decision del Oraculo, no negociable (S-001 §6.2).
+# `uid` es decision del Oraculo, no negociable (STD-001 §6.2).
 RESERVADOS = {"uid"}
 
 files = subprocess.run(["git", "-C", ROOT, "ls-files", "*.md"],
@@ -170,7 +170,7 @@ if WRITE and censo:
     p = os.path.join(ROOT, "scripts", "phase7-emptied-fields.txt")
     with open(p, "w", encoding="utf8") as fh:
         fh.write("# Campos que estaban escritos VACIOS y se han retirado.\n")
-        fh.write("# S-004 H-09: 'omit the field instead'. Un campo vacio no\n")
+        fh.write("# STD-004 H-09: 'omit the field instead'. Un campo vacio no\n")
         fh.write("# informa de nada y hace creer que el dato existe.\n")
         fh.write("# Ninguno tenia valor: se retira la linea, no un dato.\n#\n")
         fh.write("# documento\tcampo\n")
