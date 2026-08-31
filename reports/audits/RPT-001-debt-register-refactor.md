@@ -5,9 +5,9 @@ title: "Debt register refactor: which entries answer a question still open"
 type: report
 subtype: audit
 status: closed
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-31T20:30:00+02:00"
-updated: "2026-08-31T20:30:00+02:00"
+updated: "2026-08-31T22:10:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -15,7 +15,7 @@ territory: "Archive"
 tags: [debt, entropy, consolidation, audit, MIS-127, ADR-030]
 license: "CC-BY-4.0"
 visibility: "public"
-related: ["ADR-026", "ADR-030", "S-001", "MIS-127", "D-028", "D-050"]
+related: ["ADR-026", "ADR-030", "S-001", "P-010", "D-048", "MIS-127", "D-028", "D-050"]
 ---
 
 # Debt register refactor — analysis, no execution
@@ -220,9 +220,13 @@ evidence tables kept, preambles collapsed. The file counts are exact.
 
 ## 8. Cost, stated before it is paid
 
-- **240 citation occurrences in 63 files** must be reviewed. 19 of those
-  files are closed records that `P-010` §3.4 forbids rewriting: their
-  citations must be left dangling or re-pointed by hand with a note.
+> **Amended 2026-08-31, v1.1.0 — see §11.** v1.0.0 stated this cost as
+> "19 files blocked". That was wrong and is corrected below.
+
+- **240 citation occurrences in 63 files** must be reviewed. Of the 195
+  occurrences inside the 19 closed records, **4 are untouchable** — they
+  name a file path, not an identifier. The other 191 are ordinary
+  pointers.
 - **`ID_RE` must accept `D` first** (§3), or the sweep is unverifiable.
 - **`S-001` §11 links `D-004`…`D-007` directly** and must be edited in the
   same change.
@@ -244,3 +248,48 @@ no `RPT-NNN` identifier exists in the corpus — the nine existing `RPT-`
 files are all date-shaped (`RPT-YYYY-MM-DD`). Its ten `AUD-` siblings in
 `reports/audits/` remain unregistered and baselined under `D-008`; this
 document does not renumber them.
+
+## 11. Amendment, 2026-08-31 (v1.1.0) — the closed-record cost was overstated
+
+**What v1.0.0 said.** *"19 of those files are closed records that `P-010`
+§3.4 forbids rewriting."* Raised by the Oracle as a disagreement; the
+Oracle was right and this is the correction.
+
+**What `P-010` §3.4 actually says.** Its own table defines a **citation**
+as *"a pointer to a document, meant to keep resolving"* → **rewrite —
+that is the point.** An identifier standing alone is that pointer. Rule 2
+(*"a closed record is never rewritten"*) governs the **mention**: the id
+used as data. v1.0.0 applied rule 2 to every occurrence without asking
+which of the two each one was.
+
+**Measured** — `HEAD 369e489`, the 19 closed records, unit: occurrences
+of `D-NNN`.
+
+| What the occurrence is | N | What follows |
+|---|---|---|
+| Points at a **surviving** entry — only the plate changes, `D-NNN` to the registered `DBT` form | **91 (46%)** | **Rewrite.** The document still exists; the number is its handle. |
+| Points at an **extinguished** entry | 58 (29%) | No new plate exists. Not forbidden — there is no destination. |
+| Already points at `D-001`…`D-018`, extinguished in August | 46 (23%) | The precedent is already in the tree, untouched by anyone. |
+| Is a **file path**, not a plate | **4** | Untouchable. Rewriting falsifies the record. |
+
+The four: `debt/D-047` and `debt/D-048` (twice) in
+`debt/D-049-…`, and `debt/D-032-orphan-content-outside-renderer.md` in
+`AUD-2026-08-26-complexity.md`.
+
+**The rule is wider than the evidence that produced it.** `D-048` §§1–4
+records the four corruptions that led to rule 2: two were **file paths**
+(an SBOM whose `FileChecksum` no longer matched its own `FileName`; a
+`status: done` mission naming a guild roster by its pre-rename path) and two
+were **ids used as their own counterexample**. **None was a plate
+rewritten as a pointer.** Rule 2 protects 195 occurrences; its
+demonstrated case is 4.
+
+**Not proposed here.** Whether `P-010` §3.4 should distinguish *plate*
+from *path* is a change to a protocol, and this is a report. It is stated
+as a finding, and the ruling is the Oracle's.
+
+**What does not change.** §3 stands: `check-references.mjs` cannot see
+the `D` prefix, so none of the above is machine-verifiable until `ID_RE`
+is fixed. `scripts/rename-series.mjs` already refuses all of
+`reports/**` via `refusalReason()`, which covers 2 of the 4 untouchable
+occurrences automatically; the other 2 sit in `debt/` and need the eye.
