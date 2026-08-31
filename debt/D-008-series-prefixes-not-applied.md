@@ -4,9 +4,9 @@ uid:
 title: "Twelve series carry a registration scheme most of the corpus does not yet apply"
 type: documentation
 status: active
-version: "2.1.0"
+version: "2.2.0"
 created: "2026-08-24T19:40:00Z"
-updated: "2026-08-31T09:40:00+02:00"
+updated: "2026-08-31T13:11:21+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -44,15 +44,15 @@ opened_by: "S-001 §4.1"
 | `canon/` | `CAN-NNN` | **0/10** |
 | `standards/` | `STD-NNN` | **0/7** |
 | `operations/` | `OPS-NNN` | **0/10** |
-| `debt/` | `DBT-NNN` | **0/36** |
+| `debt/` | `DBT-NNN` | **0/35** |
 | `guilds/` | `GLD-NNN` | **0/8** |
 | `infra/` | `INF-NNN` | **0/0 — no eligible files** (see note) |
 | `agents/` | — (folder name, no number) | n/a — exempt by `ADR-005` v1.1.0, the one deliberate exemption that stays |
 
-Total renameable: **275 files across 11 series** (`decisions/` excluded,
+Total renameable: **274 files across 11 series** (`decisions/` excluded,
 already compliant; `agents/` and `infra/` excluded, see notes;
 `standards/STANDARDS.md` excluded, see note below;
-`debt/D-001` extinguished 2026-08-31, no longer counted).
+`debt/D-001` and `debt/D-002` extinguished 2026-08-31, no longer counted).
 
 **`standards/STANDARDS.md` note:** `type: meta`, `status: closed`,
 `registration: exempt` (`registration_reason: "singular document, not a
@@ -141,7 +141,7 @@ Order — `MIS-125` Stage C, cheapest/lowest-risk first, one commit per series,
 6. `reports/daily/` — 10 files
 7. `reports/audits/` — 12 files (prefix change `AUD-` → `RPT-`, add `subtype: audit`)
 8. `protocols/` — 15 files
-9. `debt/` — 36 files (including this document, renamed last within its own series; was 37, `D-001` extinguished 2026-08-31, see `MIS-127`)
+9. `debt/` — 35 files (including this document, renamed last within its own series; was 37, `D-001` and `D-002` extinguished 2026-08-31, see `MIS-127`)
 10. `missions/` — 131 files, highest volume and citation density, last
 11. `infra/` — 0 eligible files today; no action, prefix reserved
 
@@ -163,6 +163,12 @@ renumbered**, only re-prefixed (`ADR-004` §rule 4).
 
 ## Version history
 
+- v2.2.0 (2026-08-31) — `MIS-125`, same day. `debt/D-002` extinguished
+  after v2.1.0 was written (`docs(debt): close D-002`, `#160`, landed
+  after this document's PR #157 merged) — same pattern as `D-001`:
+  ground moved under a just-closed measurement, not an error in the
+  prior version. `debt/` corrected 0/36 → 0/35. Total renameable:
+  275 → 274.
 - v2.1.0 (2026-08-31) — `MIS-125`, same day. Two corrections after the
   v2.0.0 measurement: (1) `standards/STANDARDS.md` was being counted in
   the `standards/` denominator despite being the same apparatus class as
