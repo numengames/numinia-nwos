@@ -26,12 +26,16 @@ jobs:
           cache-dependency-path: web/package-lock.json
       - name: licence-frontmatter guard (C-005 §5)
         run: node scripts/check-license-frontmatter.mjs
+      - name: frontmatter-yaml guard (D-001 — headers must actually parse)
+        run: node scripts/check-frontmatter-yaml.mjs
       - name: reference lint (ADR-004 — plain-text IDs are invisible to link checkers)
         run: node scripts/check-references.mjs
       - name: frontmatter-delimiter guard (D-039 — a tolerant reader cannot see this damage)
         run: node scripts/check-frontmatter-delimiter.mjs
       - name: header lint (S-004 — the header in three rings, checks H-00…H-31)
         run: node scripts/lint-frontmatter.mjs
+      - name: naming lint (S-001 §9, D-001 item 3 — filename scheme, N-01…N-05)
+        run: node scripts/lint-naming.mjs
       - name: install
         run: npm ci
         working-directory: web
