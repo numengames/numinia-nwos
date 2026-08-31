@@ -1,5 +1,5 @@
 ---
-id: "P-011"
+id: "PRO-011"
 title: "Security Audit — how an agent audits identity, authorization and secrets"
 type: protocol
 status: draft

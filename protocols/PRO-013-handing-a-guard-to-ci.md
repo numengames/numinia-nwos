@@ -1,5 +1,5 @@
 ---
-id: "P-013"
+id: "PRO-013"
 title: "Handing a guard to CI: the procedure for a boundary that will not move"
 type: protocol
 status: active

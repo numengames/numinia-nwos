@@ -22,6 +22,25 @@ export default defineConfig({
 	// DEUDA-404 records what happens without this: /corpus/canon/c-006-manual-
 	// juego-de-rol/ (890 KB) died in April and nobody noticed. See D-028.
 	redirects: {
+		// 2026-08-31 MIS-128: protocols merged 15 -> 7 and renamed P- -> PRO-
+		// (ADR-005 prefix, 0/13 applied until now). Astro derives the URL from
+		// the filename, so every protocol address changed. Absorbed documents
+		// redirect to the protocol that now contains them, not to the section.
+		"/corpus/protocols/p-001-agent-briefing": "/corpus/protocols/pro-001-agent-session",
+		"/corpus/protocols/p-002-onboarding-agente-v1": "/corpus/protocols/pro-001-agent-session",
+		"/corpus/protocols/p-003-ciclo-mision-v1": "/corpus/protocols/pro-003-mission-cycle",
+		"/corpus/protocols/p-004-inter-agent-v1": "/corpus/protocols/pro-003-mission-cycle",
+		"/corpus/protocols/p-005-escalation-v1": "/corpus/protocols/pro-005-escalation",
+		"/corpus/protocols/p-006-session-close-v1": "/corpus/protocols/pro-001-agent-session",
+		"/corpus/protocols/p-007-context-load-v1": "/corpus/protocols/pro-001-agent-session",
+		"/corpus/protocols/p-008-approval-brief-v1": "/corpus/protocols/pro-008-decision",
+		"/corpus/protocols/p-009-mission-briefing": "/corpus/protocols/pro-003-mission-cycle",
+		"/corpus/protocols/p-010-how-to-archive": "/corpus/protocols/pro-010-how-to-archive",
+		"/corpus/protocols/p-011-security-audit": "/corpus/protocols/pro-011-security-audit",
+		"/corpus/protocols/p-012-ruling-with-a-condition": "/corpus/protocols/pro-008-decision",
+		"/corpus/protocols/p-013-handing-a-guard-to-ci": "/corpus/protocols/pro-013-handing-a-guard-to-ci",
+		"/corpus/protocols/approval-request-template": "/corpus/protocols/pro-008-decision",
+		"/corpus/protocols/2026_04_14-read_me_how_to_archive-v020": "/corpus/protocols/pro-010-how-to-archive",
 		// 2026-08-30 ADR-031: root registers dissolved. Old corpus URLs 301.
 		"/corpus/gaps": "/corpus/reports/rpt-2026-04-07-gaps-capability-map",
 		"/corpus/legal_debt": "/corpus/debt",

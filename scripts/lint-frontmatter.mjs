@@ -126,7 +126,7 @@ const RETIRED = {
 
 /** ADR-005 / ADR-004: series prefix per top-level dir. */
 const PREFIX = {
-  missions: 'MIS', decisions: ['ADR', 'DEC'], protocols: 'P', debt: 'D',
+  missions: 'MIS', decisions: ['ADR', 'DEC'], protocols: 'PRO', debt: 'D',
   standards: 'S', canon: 'C', agents: 'AG', reports: ['RPT', 'AUD'],
 };
 
