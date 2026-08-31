@@ -169,7 +169,7 @@ export async function getSectionDocs(slug: string): Promise<SectionDoc[]> {
     docs = (await getCollection("blueprints")).map((e) => {
       const f = e.data as Record<string, unknown>;
       return {
-        href: `/planos/${String(f.id).replace(/^BLU-\d+-/i, "").toLowerCase()}`,
+        href: `/planos/${String(e.id).replace(/^BLU-\d+-/i, "").toLowerCase()}`,
         title: str(f.title) ?? String(f.id),
         docId: str(f.id),
         status: str(f.status),
