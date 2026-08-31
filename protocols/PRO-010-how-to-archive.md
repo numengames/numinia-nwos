@@ -1,5 +1,5 @@
 ---
-id: "P-010"
+id: "PRO-010"
 title: "How to Archive — the NWOS archival protocol"
 type: protocol
 status: draft
@@ -12,7 +12,7 @@ author: "claude-fable-5"
 owner: "oracle"
 tags: [protocols, archive, taxonomy, naming, iso-15489]
 license: "CC-BY-4.0"
-supersedes: "protocols/2026_04_14-Read_Me_How_to_Archive-v0.2.0.md"
+supersedes: "protocols/2026_04_14-Read_Me_How_to_Archive-v0.2.0.md  # deleted 2026-08-31, MIS-127"
 review_next: "2027-02-18"
 ---
 # P-010 — How to Archive (draft)
