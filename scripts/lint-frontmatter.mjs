@@ -66,6 +66,10 @@ const RING3 = {
     // metadata that were always written, never registered (S-004 §6)
     'phase', 'updated_note', 'executor', 'blocks', 'mission_mode'],
   'reports': ['severity', 'period', 'subtype', 'model', 'agent', 'week', 'scope',
+    // ADR-035: a document reshelved into reports/ from another series carries
+    // where it came from (ADR-004 rule 4 never frees the old identifier) and,
+    // when the move deliberately did not fix known-wrong content, says so.
+    'former_id', 'former_id_note', 'accuracy_warning',
     'editorial_note', 'language', 'day_label', 'cost_estimate', 'context_load',
     'extraction_note'],
   'decisions': ['deciders', 'consulted', 'outcome', 'decision',
@@ -98,6 +102,13 @@ const RING3 = {
     'changelog', 'lore', 'extraction_note'],
   'protocols': ['supersedes_version', 'ratified_by', 'applies_to', 'mandatory',
     'human_approval_score', 'mission', 'review_next'],
+  // ADR-035: the two shelves MIS-129 opened. `former_id`/`former_id_note`
+  // record a renumbering under ADR-004 rule 4 — the old identifier is never
+  // freed, so a moved document must say where it came from.
+  // `accuracy_warning` declares known-stale content the move did not edit.
+  'system': ['extraction_note', 'restoration_note', 'mission',
+    'fondos', 'graph', 'former_id', 'former_id_note', 'accuracy_warning'],
+  'history': ['former_id', 'former_id_note', 'supersedes_version'],
 };
 const RING3_ALL = ['tags', 'visibility', 'guild', 'territory', 'registration',
   'registration_reason', 'registration_exemption', 'evidence_script',
@@ -123,7 +134,7 @@ const STATUS = {
 };
 
 /** S-004 §4 H-18: registered subtypes per type. */
-const SUBTYPES = { report: ['audit', 'daily', 'proposal'], documentation: ['standard', 'guide'] };
+const SUBTYPES = { report: ['audit', 'daily', 'proposal'], documentation: ['standard', 'guide', 'reference'] };
 
 /** S-004 §6 H-31: retired fields, each the object of a registered migration. */
 const RETIRED = {
@@ -145,6 +156,7 @@ const RETIRED = {
 const PREFIX = {
   missions: 'MIS', decisions: ['ADR', 'DEC'], protocols: 'PRO', debt: 'DBT',
   standards: 'S', canon: 'C', agents: 'AG', reports: ['RPT', 'AUD'],
+  system: 'SYS',  // ADR-035: reference manuals of how the system works today
 };
 
 /**
@@ -178,6 +190,7 @@ const VOCAB_CHECK = { guild: 'H-33', type_execution: 'H-34', visibility: 'H-35',
 /* The corpus tree this standard governs (S-004 §8): tracked .md outside web/. */
 const GOVERNED = new Set(Object.keys(RING3));
 GOVERNED.add('blueprints').add('guilds').add('operations').add('infra');
+GOVERNED.add('system').add('history');  // ADR-035, the two shelves MIS-129 opened
 
 const ISO_TIME = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?(\.\d+)?(Z|[+-]\d{2}:?\d{2})$/;
 const SEMVER = /^\d+\.\d+\.\d+$/;

@@ -338,7 +338,7 @@ agents (the audit's readers) stop deriving four contradictory answers to
   type_execution, license example CC0→CC-BY per regime); CLAUDE.md
   mission-data section; CHANGELOG [Unreleased] filled (audit F-1.4);
   live references in P-001/P-009/BP-cao-architecture fixed;
-  BLU-003-mission-system marked partially superseded (kept as v2 design
+  the Mission System v2 record-mission-system marked partially superseded (kept as v2 design
   record); archive-summa v0.1.0 snapshots left as history. Follow-up
   flagged, not absorbed: protocol filenames still carry Spanish slugs
   (P-002-onboarding-agente-v1.md etc.) — a rename mission if the

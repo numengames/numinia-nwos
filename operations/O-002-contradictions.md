@@ -32,12 +32,12 @@ entry moves to the "Resolved" section with the decision and its date.
 ### CON-002 — Wardley: commoditization window and layers
 
 - **Detected:** 2026-08-17 (MIS-071 phase 2, reconciliation)
-- **Source A:** `blueprints/BLU-001-wardley-map.md` (pre-v0.2.0) — window of
+- **Source A:** `reports/RPT-2026-04-07-wardley-map.md` (pre-v0.2.0) — window of
   12–18 months; Mission System grouped under "Frontier (Genesis)".
 - **Source B:** the `/wardley` page — window of 18–24 months; Mission
   System under "The Differentiators"; coordinates with ±1 jitter on 7
   of 12 components.
-- **Current state:** both versions coexist in `BLU-001-wardley-map.md`
+- **Current state:** both versions coexist in `RPT-2026-04-07-wardley-map.md`
   v0.2.0, the page's marked "(per /wardley)".
 
 ### CON-004 — Legal texts published with open review flags

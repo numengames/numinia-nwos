@@ -1,20 +1,23 @@
 ---
-id: "BLU-006"
+id: "SYS-002"
 uid: ""
 title: "The Agent Cycle — experience and operation"
-type: blueprint
+type: documentation
+subtype: reference
 status: active
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: exact
-updated: "2026-08-27T22:31:29Z"
+updated: "2026-08-31T22:20:00+02:00"
 author: "nimrod"
 owner: "oracle"
-tags: [blueprint, agents, cycle, experience]
+tags: [system, agents, cycle, experience]
 territory: "CAO"
 license: "CC0-1.0"
-extraction_note: "Extracted verbatim from web/src/pages/agente.astro (MIS-071 phase 2 — File over App): the agent cycle and operating presentation. Translated to English under MIS-116 (ADR-023 (formerly ADR-024)) — language only."
+extraction_note: "Extracted from web/src/pages/agente.astro (MIS-071 phase 2 — File over App). That source file was deleted in 61353f6 (MIS-120a); its successor is web/src/views/AgentView.astro, still in Spanish while this document is English (MIS-116, ADR-023 (formerly ADR-024)). Zero prose strings are now shared between the two — measured in MIS-129."
+former_id: "BLU-006"
+former_id_note: "Renumbered by MIS-129 under ADR-035: describes how an agent operates today, which is a manual, not a plan."
 ---
 
 # How an agent works

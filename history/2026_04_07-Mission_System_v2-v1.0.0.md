@@ -1,18 +1,22 @@
 ---
-id: "BLU-003"
 uid: ""
-title: "Mission System v2 — Kanban, Sub-missions, States, IDs"
-type: blueprint
-status: draft
-version: "0.1.0"
+title: "Mission System v2 — Kanban, Sub-missions (superseded design record)"
+type: documentation
+subtype: reference
+status: closed
+version: "1.0.0"
 created: "2026-04-07T19:27:00Z"
-updated: "2026-04-07T19:27:00Z"
+updated: "2026-08-31T22:20:00+02:00"
 author: "nimrod"
 owner: "oracle"
-tags: [missions, kanban, system-design, architecture, sub-missions]
-territory: "CAO"
-related_missions: ["MIS-057", "MIS-062"]
+tags: [history, missions, kanban, superseded]
+territory: "Archive"
 license: "CC0-1.0"
+registration: exempt
+registration_exemption: frozen-artifact
+registration_reason: "superseded design record — a photograph of a direction, not a living document (S-005 3.2)"
+former_id: "BLU-003"
+former_id_note: "Reshelved by MIS-129 under ADR-035, which opens history/ for superseded records. The folder-per-state layout described here was replaced by MIS-066 (flat missions/, status in frontmatter, PRO-003 v3.0.0); the document survives as the record of a direction that was taken and then abandoned."
 ---
 
 > **2026-08-17 — partially superseded by MIS-066:** the folder-per-state

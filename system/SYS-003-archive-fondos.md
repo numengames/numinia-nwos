@@ -1,20 +1,23 @@
 ---
-id: "BLU-005"
+id: "SYS-003"
 uid: ""
 title: "The Archive's Fondos"
-type: blueprint
+type: documentation
+subtype: reference
 status: active
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-17T19:10:09Z"
 created_source: "git:715cc53"
 created_confidence: exact
-updated: "2026-08-28T09:54:16Z"
+updated: "2026-08-31T22:20:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
-tags: [blueprint, archive, fondos, taxonomy]
+tags: [system, archive, fondos, taxonomy]
 territory: "CAO"
 license: "CC0-1.0"
 extraction_note: "Extracted from web/src/pages/archive/[fondo].astro and archive/index.astro (MIS-065 phase C — File over App). Document paths corrected to the post-MIS-066 flat layout (agents flat, missions flat, P-001 English); 'Archive System' has no matching file in canon/ today — kept as declared, flagged for MIS-071. The per-fondo lore lines live separately in canon/archive-lore.md (reserved regime — one file, one regime). Translated to English under MIS-116 (ADR-023 (formerly ADR-024)) — language only."
+former_id: "BLU-005"
+former_id_note: "Renumbered by MIS-129 under ADR-035: this is the reference manual of the seven fondos, not a plan. Its frontmatter also carries the live data for the /archive pages, which were repointed in the same commit."
 fondos:
   - id: canon
     titulo: "Canon"

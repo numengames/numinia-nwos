@@ -73,6 +73,22 @@ const blueprints = defineCollection({
     .passthrough(),
 });
 
+// system/ — reference manuals of how the system works today (ADR-035).
+// SYS-003 carries the fondos + graph data the /archive pages render, which is
+// why this collection is typed rather than left to the lax corpus mirror.
+const system = defineCollection({
+  loader: glob({ pattern: ["SYS-*.md"], base: "../system" }),
+  schema: z
+    .object({
+      id: z.string(),
+      title: z.string(),
+      status: z.string().default("active"),
+      territory: z.string().optional(),
+      created: z.string(),
+    })
+    .passthrough(),
+});
+
 // The fondos' lore lines — reserved-regime canon content, kept in its own
 // file (one file, one regime; C-005 §5) and read here only for display.
 const canonLore = defineCollection({
@@ -120,6 +136,12 @@ const corpus = defineCollection({
       "!decisions/ADR-*.md",
       "blueprints/**/*.md",
       "!blueprints/BLU-*.md",
+      // No exclusion twin to blueprints' below: BLU-* are excluded here
+      // because /blueprints/<slug> renders them. SYS-* have no route of
+      // their own, so the corpus mirror is where they become readable —
+      // and it is where MIS-129's redirects send the retired addresses.
+      "system/**/*.md",
+      "history/**/*.md",
       "missions/**/*.md",
       "!missions/MIS-*.md",
       // debt/ — the register of what is known to be wrong. It was missing
@@ -141,4 +163,4 @@ const corpus = defineCollection({
   schema: z.object({}).passthrough(),
 });
 
-export const collections = { missions, audits, decisions, blueprints, canonLore, legal, corpus };
+export const collections = { missions, audits, decisions, blueprints, system, canonLore, legal, corpus };

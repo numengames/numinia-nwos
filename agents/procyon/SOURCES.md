@@ -35,7 +35,7 @@ agents/INDEX.md and guilds/ — the roster and its structure
 
 ## The map
 
-blueprints/BLU-005-archive-fondos.md — how the archive is organized for reading
+system/SYS-003-archive-fondos.md — how the archive is organized for reading
 
 ---
 

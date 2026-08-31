@@ -94,10 +94,10 @@ The repo is the declared source of truth of the NWOS. The web reads from hardcod
 - **Divergence:** The repo has 7 decisions (ADR-001, ADR-001, DEC-00001 to DEC-00005). The web only shows the 5 DECs. The technical architecture decisions (GitHub as Archive Summa, Markdown as universal format) are not visible.
 - **Fix:** Add ADR-001 and ADR-001 to the /decisiones page.
 
-### A-007 — BLU-001-wardley-map.md with no page in /planos
+### A-007 — RPT-2026-04-07-wardley-map.md with no page in /planos
 
 - **State:** open
-- **Divergence:** The repo has 8 blueprints, including BLU-001-wardley-map.md. The web /planos shows 7 blueprints. The Wardley lives at /wardley as a separate page, not integrated as the 8th blueprint.
+- **Divergence:** The repo has 8 blueprints, including RPT-2026-04-07-wardley-map.md. The web /planos shows 7 blueprints. The Wardley lives at /wardley as a separate page, not integrated as the 8th blueprint.
 - **Fix:** Add the Wardley Map to /planos or add a cross-reference.
 
 ### A-008 — Procyon on the web with no file in the repo
