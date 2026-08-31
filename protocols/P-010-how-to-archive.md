@@ -3,11 +3,11 @@ id: "P-010"
 title: "How to Archive — the NWOS archival protocol"
 type: protocol
 status: draft
-version: "0.6.0"
+version: "0.7.0"
 created: "2026-08-18T10:51:09Z"
 created_source: "git:9f25053"
 created_confidence: exact
-updated: "2026-08-31T14:20:00+02:00"
+updated: "2026-08-31T16:00:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [protocols, archive, taxonomy, naming, iso-15489]
@@ -249,17 +249,65 @@ Inherited from v0.1.12, still in force, but in the frontmatter:
 
 `draft → active → superseded | frozen → archive fund`
 
-- A **superseded** document is not deleted: it declares
-  `supersedes`/successor and, once no longer consulted, moves to the fund
-  under an artefact name (§3.2).
-- **Deletion** only for exact verified duplicates (clean diff), logged in
-  the mission that orders it.
-- **Operational series are the exception (ADR-030, 2026-08-30; extended
-  by ADR-032, 2026-08-31):** series declared operational — today
-  `debt/` and `blueprints/` — extinguish on close: the
-  entry is deleted once its resolution is written in the ADR, mission or
-  report that closed it. Git keeps the text. This rule stays intact for
-  canon, standards, decisions and every memory series.
+**The rule, since `ADR-033` (2026-08-31): a document may be deleted when
+its consumers are zero or redirected.** Not when its folder has been
+granted permission. What follows are the four tests, in the order a
+deletion must pass them.
+
+1. **Inbound citations.** Zero, or every citing document is itself a
+   closed record (`closed`/`done`/`superseded`/`frozen`). A living
+   document pointing at it is a reader; a closed one is history
+   describing history.
+2. **Public URLs.** Every address the document publishes is redirected in
+   the same change. `numinia.org` derives most addresses from a filename
+   or a frontmatter `id`, so deleting a document deletes a public
+   address — that is `D-028`, open since 2026-08-25, and this test is
+   what pays down most of it. Verified by
+   `scripts/check-url-lifecycle.mjs` against a real build, never by
+   inference.
+3. **Written resolution.** A living document records what the deleted one
+   said and why it no longer holds. Inherited verbatim from `ADR-030` §3:
+   no evidence of resolution, no deletion. **This test is not
+   machine-checkable** and is not claimed to be — `scripts/check-deletable.mjs`
+   prints the prompt and leaves the judgment where §3.4 put it, in the
+   sentence.
+4. **Not sealed.** `threshold: sealed` (`S-001` §2.1) requires the
+   Oracle's signature and an ADR whatever the other three say.
+
+Passing 1–4, **a deletion needs no ADR.** The guards are the authority.
+
+### 5.1 What this replaced, and why
+
+Until `ADR-033`, this section answered "may I delete this?" with the
+document's **genre**: `debt/` could die (`ADR-030`), `blueprints/` could
+die (`ADR-032`), everything else could not, and admitting a third series
+took its own ADR. That is a permission system indexed on folders. It cost
+an ADR per folder, it never checked the thing that actually breaks — the
+consumers — and it made every reduction pass through governance to ask
+about routing.
+
+Measured at `4879aec`, before the change: the corpus was 323 tracked `.md`
+files and 593,774 tokens, of which **106 documents (31.9%) were closed
+records** — `closed`, `done`, `superseded` or `frozen`. Those 106
+published **287 of the site's 847 public URLs (34%)**. The old rule
+protected all of it as memory while the real risk sat in the URL table,
+unguarded. Deleting the prohibition alone would have published dead
+addresses at scale; that is why `ADR-033` lands the instruments and the
+rule in the same change.
+
+The distinction between memory and worklist that `ADR-030` and `ADR-032`
+drew was correct in its finding and wrong in its unit. A document is not
+preserved because of the folder it sits in. It is preserved because
+someone is still reading it.
+
+- **Operational series are dissolved as a category.** `debt/` and
+  `blueprints/` stop being privileged: they pass tests 1–4 like everything
+  else, and typically pass easily, which is what `ADR-030`/`ADR-032` were
+  really observing. Their extinction records stand as history.
+- A **superseded** document that still has living citers is not deleted:
+  it declares `supersedes`/successor and, once no longer consulted, moves
+  to the fund under an artefact name (§3.2). Supersession remains the
+  right move whenever test 1 fails.
 - **Execution plans are scratch, not memory (`MIS-125`, 2026-08-31).** A
   plan in `.hermes/plans/` — repo-local, never `~/.hermes/` — that governs
   a mission's active execution lives only as long as that execution.
@@ -273,14 +321,31 @@ Inherited from v0.1.12, still in force, but in the frontmatter:
 - Review cadence: `review_next` in frontmatter (inherited from v0.1.12's
   "NEXT REVIEW ON"); ISO 15489 inspections (MIS-067) audit it.
 
+### 5.2 What the tests do not see
+
+`D-025` applies to a protocol as much as to a guard. Test 1 counts a
+substring match, so it cannot tell a **citation** from a **mention**
+(§3.4) — it errs toward refusing, which is the safe direction, but a
+document whose only citer names it as evidence will read as blocked. Test
+1 also scans `.md` only: a reference from `.astro` or `.ts` is invisible
+to it and is caught, if at all, by `npm run build`. Test 2 verifies that
+an address still resolves, not that the page it now reaches answers the
+question the old one did — a 301 to a section index satisfies the guard
+and still loses the content. No test sees a consumer outside this
+repository (`D-024`'s cross-repo pin is the standing example). Each guard
+prints these on every run.
+
 ## 6. Compliance
 
 - **ISO 15489** (records management) as the inspections' framework —
   MIS-067.
 - The `/corpus` catalogue is the living inventory (succeeds v0.1.12's
   tree-in-Excel); zero silent exclusions.
-- CI guard: today license-frontmatter; future candidates: name lint and
-  minimum-frontmatter lint (MIS-089 F3).
+- CI guard: today licence-frontmatter, frontmatter-yaml, references,
+  delimiter, header lint, naming lint; plus, since `ADR-033`, the
+  deletion pair — `check-url-lifecycle.mjs` (no public address dies
+  unredirected, `D-028`) and `check-deletable.mjs` (§5 tests 1 and 4).
+  Future candidates: minimum-frontmatter lint (MIS-089 F3).
 
 ## 7. What is inherited and what is discarded from v0.1.12 / v0.2.0
 
@@ -299,6 +364,22 @@ agents.
 
 ## Change history
 
+- v0.7.0 (2026-08-31) — `ADR-033`, `MIS-127`. §5 is rewritten: deletion is
+  decided by **consumers**, not by folder genre. The four tests (inbound
+  citations, public URLs, written resolution, not sealed) replace the
+  "operational series" permission scheme, which is dissolved as a
+  category — `debt/` and `blueprints/` stop being privileged and pass the
+  same tests as everything else. Passing them, a deletion no longer needs
+  an ADR. Two instruments land with the rule: `check-url-lifecycle.mjs`
+  (pays `D-028` — verified by deleting a real document against a real
+  build, where `npm run build` stayed green while losing two pages) and
+  `check-deletable.mjs`. New §5.1 records what was measured at `4879aec`:
+  106 closed documents, 31.9% of the corpus, publishing 34% of the site's
+  public URLs. New §5.2 declares what the tests cannot see (`D-025`).
+  `D-028` goes to three of four conditions met, severity medium → low —
+  not closed.
+- v0.6.0 (2026-08-31) — `MIS-125`. §3.4: a citation may be rewritten, a
+  mention may not; the rules that close `D-048`.
 - v0.5.0 (2026-08-31) — `MIS-125`. §3.2 gains the ruling that settles its
   own conflict with `D-008` v2.0.0: a frozen artefact does not enter a
   registration series, and the criterion is the **filename shape**, not the

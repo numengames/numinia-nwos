@@ -48,6 +48,7 @@ Architectural Decision Records (ADR) of the Narrative Work OS. These records are
 | ADR-030 | Operational series extinguish on close: debt entries are records of work, not memory | ✅ Active | 2026-08-30 |
 | ADR-031 | One debt register: root registers dissolve into debt/ | ✅ Active | 2026-08-30 |
 | ADR-032 | Blueprints join the operational series | ✅ Active | 2026-08-31 |
+| ADR-033 | Deletion is decided by consumers, not by folder: the operational-series scheme is dissolved | ✅ Active | 2026-08-31 |
 | DEC-001 | Self-hosting over SaaS | ⬛ Superseded — practice moved (Workers) | 2026-04-03 |
 | DEC-002 | Build in public with CC0 license | ⬛ Superseded by C-005 | 2026-04-02 |
 | DEC-003 | Arbitrum as Numinia blockchain | ⬛ Superseded — never ratified | 2026-04-05 |
@@ -72,6 +73,7 @@ Architectural Decision Records (ADR) of the Narrative Work OS. These records are
 
 ## Version history
 
+- v1.12.0 (2026-08-31) — ADR-033 registered: deletion is decided by consumers, not by folder. P-010 §5 rewritten around four tests (inbound citations, public URLs, written resolution, not sealed); the "operational series" category dissolved — `debt/` and `blueprints/` stop being privileged and ADR-030 §2 / ADR-032 §4 are spent. Two guards land with the rule: `check-url-lifecycle.mjs` (536-URL baseline, takes D-028 to 3 of 4 conditions) and `check-deletable.mjs`. Nothing deleted by the ADR itself.
 - v1.11.0 (2026-08-31) — ADR-032 registered: `blueprints/` joins the operational series (extends ADR-030/P-010 §5); six April blueprints extinguished (BP-repo, BP-web, BP-misiones, BP-datos, BP-infraestructura, BP-cao-overview), resolves O-002 CON-001.
 - v1.0.0 (2026-04-06) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
