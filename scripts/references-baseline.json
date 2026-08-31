@@ -1,7 +1,7 @@
 {
   "_comment": "Known-broken references frozen at adoption time. The lint fails only on NEW breakage. This list should shrink over time and never grow. Regenerate only when fixing entries.",
-  "generated": "2026-08-31T17:04:07.779Z",
-  "count": 398,
+  "generated": "2026-08-31T18:14:54.904Z",
+  "count": 397,
   "entries": [
     "FILE AGENTS.md -> MEMORY.md",
     "FILE CHANGELOG.md -> APPROVAL-REQUEST-template.md",
@@ -20,14 +20,6 @@
     "FILE agents/INDEX.md -> MEMORY.md",
     "FILE agents/INDEX.md -> STATUS.md",
     "FILE agents/lexa/SOURCES.md -> LEGAL_DEBT.md",
-    "FILE blueprints/BLU-001-wardley-map.md -> MEMORY.md",
-    "FILE blueprints/BLU-004-cao-architecture.md -> GOVERNANCE.md",
-    "FILE blueprints/BLU-004-cao-architecture.md -> MEMORY.md",
-    "FILE blueprints/BLU-004-cao-architecture.md -> STATUS.md",
-    "FILE blueprints/BLU-006-agent-experience.md -> HEARTBEAT.md",
-    "FILE blueprints/BLU-006-agent-experience.md -> MEMORY.md",
-    "FILE blueprints/BLU-006-agent-experience.md -> RPT-YYYY-MM-DD.md",
-    "FILE blueprints/BLU-008-nwos-system.md -> MEMORY.md",
     "FILE canon/C-005-licensing.md -> LEGAL_DEBT.md",
     "FILE canon/INDEX.md -> Numinia-El-juego-de-rol-manual-completo.md",
     "FILE canon/INDEX.md -> Numinia.md",
@@ -250,6 +242,7 @@
     "FILE protocols/PRO-010-how-to-archive.md -> YYYY_MM_DD-Title_With_Underscores-vX.Y.Z.md",
     "FILE protocols/PRO-010-how-to-archive.md -> missions/MIS-NNNN.md",
     "FILE protocols/PRO-010-how-to-archive.md -> protocols/2026_04_14-Read_Me_How_to_Archive-v0.2.0.md",
+    "FILE reports/RPT-2026-04-07-wardley-map.md -> MEMORY.md",
     "FILE reports/audits/AUD-2026-04-07-system-audit.md -> APPROVAL-REQUEST-template.md",
     "FILE reports/audits/AUD-2026-04-07-system-audit.md -> BP-gaps-y-soluciones.md",
     "FILE reports/audits/AUD-2026-04-07-system-audit.md -> BP-simulaciones.md",
@@ -356,6 +349,12 @@
     "FILE standards/S-001-glossary.md -> protocols/APPROVAL-REQUEST-template.md",
     "FILE standards/S-004-header-standard.md -> GOVERNANCE.md",
     "FILE standards/engineering-standards.md -> CODE_OF_CONDUCT.md",
+    "FILE system/SYS-001-cao-architecture.md -> GOVERNANCE.md",
+    "FILE system/SYS-001-cao-architecture.md -> MEMORY.md",
+    "FILE system/SYS-001-cao-architecture.md -> STATUS.md",
+    "FILE system/SYS-002-agent-cycle.md -> HEARTBEAT.md",
+    "FILE system/SYS-002-agent-cycle.md -> MEMORY.md",
+    "FILE system/SYS-002-agent-cycle.md -> RPT-YYYY-MM-DD.md",
     "FILE web/DESIGN.md -> standards/2026_08_18-Sistema_de_Diseno-v5.0.0.md",
     "ID   CHANGELOG.md -> DEC-005",
     "ID   CHANGELOG.md -> DEC-006",
@@ -387,7 +386,6 @@
     "LINK README.md -> decisions/DEC-006-english-official-repo-language.md",
     "LINK README.md -> protocols/P-001-agent-briefing.md",
     "LINK README.md -> protocols/P-003-ciclo-mision-v1.md",
-    "LINK blueprints/BLU-004-cao-architecture.md -> BP-cao.md",
     "LINK missions/MIS-058-approval-brief-protocol.md -> ../protocols/P-008-approval-brief-v1.md",
     "LINK missions/MIS-072-web-monorepo-foundations.md -> ../docs/LEY.md",
     "LINK missions/MIS-073-web-cc0-archive.md -> ../docs/LEY.md",
@@ -400,6 +398,7 @@
     "LINK missions/MIS-080-web-lap-platform.md -> ../docs/LEY.md",
     "LINK missions/MIS-081-web-codex-stats.md -> ../docs/LEY.md",
     "LINK missions/MIS-082-web-settings-session.md -> ../docs/LEY.md",
-    "LINK missions/MIS-083-web-oracle-zone.md -> ../docs/LEY.md"
+    "LINK missions/MIS-083-web-oracle-zone.md -> ../docs/LEY.md",
+    "LINK system/SYS-001-cao-architecture.md -> BP-cao.md"
   ]
 }

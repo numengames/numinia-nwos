@@ -12,7 +12,7 @@ author: "oracle"
 owner: "oracle"
 tags: [canon, lore, archive, fondos]
 license: "LicenseRef-Numen-AllRightsReserved"
-extraction_note: "Lore lines extracted from web/src/pages/archive/[fondo].astro (MIS-065 phase C). Reserved regime per C-005 §2 (lore); the factual fondo data lives separately in blueprints/BLU-005-archive-fondos.md (CC-BY-4.0) — one file, one regime."
+extraction_note: "Lore lines extracted from web/src/pages/archive/[fondo].astro (MIS-065 phase C). Reserved regime per C-005 §2 (lore); the factual fondo data lives separately in system/SYS-003-archive-fondos.md (CC-BY-4.0) — one file, one regime."
 lore:
   canon: "El Archive no comenzó con código. Comenzó con nueve preguntas que nadie supo responder sin ponerse de acuerdo."
   agents: "No son herramientas. Son funciones vivas que existen mientras operan dentro de sus reglas."
@@ -31,4 +31,4 @@ mundo de Numinia — régimen reservado (C-005 §2): se leen donde se
 publican, no se licencian.
 
 Los datos factuales de los fondos (descripciones, gobernanza,
-documentos, relaciones) viven en `blueprints/BLU-005-archive-fondos.md`.
+documentos, relaciones) viven en `system/SYS-003-archive-fondos.md`.

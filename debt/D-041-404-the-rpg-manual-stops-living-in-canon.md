@@ -85,7 +85,7 @@ regression**, not inherited: the `.txt` was never published (the glob is
 | `agents/senet/STATUS.md:43` | ✅ **direct to lore** (same) |
 | `canon/INDEX.md:57` | ✅ S-008 row redirected to the new section |
 | `canon/README.md:20` | ✅ repointed |
-| `blueprints/BLU-005-archive-fondos.md:31` | ✅ repointed + corrected description |
+| `system/SYS-003-archive-fondos.md:31` | ✅ repointed + corrected description |
 | `decisions/ADR-005:154` | ✅ marked resolved |
 | `missions/MIS-089:68` | ✅ D1 corrected with the evidence |
 

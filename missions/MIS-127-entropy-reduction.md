@@ -88,10 +88,10 @@ net −6,740 from the 575,958 re-measured baseline.
   `BP-infraestructura`, `BP-cao-overview`. `BP-financiero` confirmed
   staying active (depends on pending missions, not a dead decision —
   still folds into the point below). The remaining 9 blueprints
-  (`BP-cao`, `BLU-004`, `BLU-005`,
-  `BLU-002`, `BLU-003`,
+  (`BP-cao`, `SYS-001`, `SYS-003`,
+  `BLU-002`, `the Mission System v2 record`,
   `BP-numengames-improvement-roadmap`, `BLU-008`,
-  `BLU-006`, `BLU-007`) were not evaluated
+  `SYS-002`, `BLU-007`) were not evaluated
   against the extinction criterion — out of scope for #153, still an
   open question if the Oracle wants them reviewed. `blueprints/INDEX.md`
   (last touched 2026-04-07, lists 3 of 16) remains stale — not fixed.

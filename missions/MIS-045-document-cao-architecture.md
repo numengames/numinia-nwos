@@ -39,7 +39,7 @@ completed: "2026-08-25"
 
 ## Acceptance criteria
 
-- [x] Blueprint `BLU-004-cao-architecture.md` created in `blueprints/`
+- [x] Blueprint `SYS-001-cao-architecture.md` created in `blueprints/`
 - [x] Covers: agents, repos, protocols, tools, data flows
 - [x] Includes system diagram (text/ASCII)
 - [x] References existing blueprints and decisions
@@ -58,7 +58,7 @@ completed: "2026-08-25"
 or of the criteria.)*
 
 - **Category:** A — done in fact. The reality already satisfies the brief.
-- **Evidence:** `blueprints/BLU-004-cao-architecture.md` exists (10,382 chars). 6/6 criteria ticked.
+- **Evidence:** `system/SYS-001-cao-architecture.md` exists (10,382 chars). 6/6 criteria ticked.
 - **Signed by:** Oracle, 2026-08-25, as part of the board triage of the 111 missions.
   Classified read-only first; nothing was closed on impression.
 - **Closed:** 2026-08-25 · **by:** ursa (administrative), on the Oracle's signature

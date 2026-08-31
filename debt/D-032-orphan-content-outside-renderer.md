@@ -58,7 +58,7 @@ evidence_head: "392ffc6"
 | `/archive/archive-summa-prompt-v0.1.0.md` | 5,722 | **RESOLVED 2026-08-25** |
 | `/diseno/plantillas/2026_08_03-Plantilla_Factura-v1.0.0.html` | 12,615 | orphan |
 
-**Three of the five are closed.** `BLU-005-archive-fondos.md`'s three download links
+**Three of the five are closed.** `SYS-003-archive-fondos.md`'s three download links
 were repointed at `/corpus/blueprints/archive-summa-*-v010.md` and the `public/`
 copies retired, in that order and in separate commits. The guard's allow-list
 drops from 5 entries to 2. **Two remain open**: `/diseno/index.html` and the

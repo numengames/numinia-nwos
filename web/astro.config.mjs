@@ -97,6 +97,29 @@ export default defineConfig({
 		"/planos": "/blueprints",
 		"/planos/[id]": "/blueprints/[id]",
 		"/planos/meta": "/blueprints/meta",
+		// MIS-129 / ADR-035 — six of the eight documents in blueprints/ were
+		// not blueprints. Each moved to the shelf its genre belongs on, so
+		// each of their /blueprints/<slug> addresses dies here. None is
+		// dropped: every one 301s to where its content actually went.
+		// Without this, check-url-lifecycle fails and D-028 repeats itself.
+		"/blueprints/cao-architecture": "/corpus/system/sys-001-cao-architecture",
+		"/blueprints/agent-experience": "/corpus/system/sys-002-agent-cycle",
+		"/blueprints/archive-fondos": "/corpus/system/sys-003-archive-fondos",
+		"/blueprints/wardley-map": "/corpus/reports/rpt-2026-04-07-wardley-map",
+		// mission-system's own redirects live below, with the MIS-127 entry
+		// they supersede — kept together so the chain stays visible.
+		// BLU-008 left this repository entirely: it was product landing copy,
+		// 75% byte-identical to nwos-deploy's home. Its content now lives at
+		// nwos.numen.games, so the address points at the home that already
+		// says the same thing rather than at a document that is not here.
+		"/blueprints/nwos-system": "https://nwos.numen.games/",
+		// The Spanish aliases of the same five, which MIS-120a kept alive.
+		// A redirect to a redirect is one hop too many for a crawler.
+		"/planos/cao-architecture": "/corpus/system/sys-001-cao-architecture",
+		"/planos/agent-experience": "/corpus/system/sys-002-agent-cycle",
+		"/planos/archive-fondos": "/corpus/system/sys-003-archive-fondos",
+		"/planos/wardley-map": "/corpus/reports/rpt-2026-04-07-wardley-map",
+		"/planos/nwos-system": "https://nwos.numen.games/",
 		"/reportes": "/reports",
 		"/reportes/diario-2026-04-02": "/reports/daily-2026-04-02",
 		"/reportes/diario-2026-04-03": "/reports/daily-2026-04-03",
@@ -116,10 +139,15 @@ export default defineConfig({
 		"/corpus/canon/about-session-zero": "/corpus/canon/c-006-session-zero",
 		"/corpus/canon/rank-specifications": "/corpus/canon/c-007-rank-specifications",
 		// MIS-127: BLU-003 dropped the "-v2" version suffix from its filename
-		// (S-001 §9 — the version lives in frontmatter, not the name). The
-		// document is alive; only its address changed. 301, not a tombstone.
-		"/blueprints/mission-system-v2": "/blueprints/mission-system",
-		"/planos/mission-system-v2": "/planos/mission-system",
+		// (S-001 §9 — the version lives in frontmatter, not the name).
+		// MIS-129 then moved the document itself out of blueprints/ into
+		// history/ (ADR-035): it is a self-declared superseded design, not a
+		// plan. Both the versioned and unversioned addresses now land on the
+		// frozen record — one hop, no chain.
+		"/blueprints/mission-system-v2": "/corpus/history/2026_04_07-mission_system_v2-v100",
+		"/planos/mission-system-v2": "/corpus/history/2026_04_07-mission_system_v2-v100",
+		"/blueprints/mission-system": "/corpus/history/2026_04_07-mission_system_v2-v100",
+		"/planos/mission-system": "/corpus/history/2026_04_07-mission_system_v2-v100",
 		// MIS-127 step 1 (ADR-033): two closed daily reports deleted after passing
 		// P-010 §5's four consumer tests — zero inbound citations, no living
 		// reader. Their addresses answer at the reports index instead.

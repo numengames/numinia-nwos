@@ -685,7 +685,7 @@ The 2 non-conforming protocols are `INDEX` and `README` — they are `meta` and
 correctly outside the scheme, so **`protocols/` is effectively 11/11**. The
 counter measures apparatus as if it were record; that is a finding about
 `scripts/count-evidence.py`, noted in §10. The 6 blueprints are the
-`archive-summa-*` and `BLU-001` files, which `MIS-089` §D3 already flags for
+`archive-summa-*` and `RPT-2026-04-07-wardley` files, which `MIS-089` §D3 already flags for
 relocation.
 
 > **What is not acceptable is a scheme declared mandatory and honoured at 8 %,

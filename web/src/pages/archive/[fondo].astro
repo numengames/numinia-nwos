@@ -19,10 +19,11 @@ const FONDO_ICON: Record<string, string> = {
 
 import { getCollection } from "astro:content";
 
-// MIS-065 phase C: fondo data lives in blueprints/BLU-005-archive-fondos.md
+// MIS-065 phase C: fondo data lives in system/SYS-003-archive-fondos.md
+// (moved from blueprints/ by MIS-129 under ADR-035).
 // (CC-BY) and the lore lines in canon/archive-lore.md (reserved).
-const bpEntry = (await getCollection("blueprints")).find(
-  (e) => e.data.id === "BLU-005"
+const bpEntry = (await getCollection("system")).find(
+  (e) => e.data.id === "SYS-003"
 )!;
 const loreEntry = (await getCollection("canonLore"))[0];
 const loreMap = ((loreEntry?.data as any)?.lore ?? {}) as Record<string, string>;

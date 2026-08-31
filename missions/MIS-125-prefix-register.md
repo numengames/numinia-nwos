@@ -392,7 +392,7 @@ All four reverted; the rename stands. The distinction the tool cannot make is
 **citation vs. mention** — `S-001` §9.1's own rule, which the corpus states and
 the tool does not implement. Filed as `D-048`.
 
-`blueprints/BLU-005-archive-fondos.md` was rewritten and **kept**: it is a live
+`system/SYS-003-archive-fondos.md` was rewritten and **kept**: it is a live
 manifest of paths the web build reads, so a stale path there is a real defect.
 
 **Bug 7 — a rename left every file self-contradictory.** All 8 carried
