@@ -3,7 +3,7 @@ id: "D-024"
 uid:
 title: "Five documents cannot be registered without a prior decision (RESOLVED)"
 type: documentation
-status: resolved
+status: closed
 version: "1.2.0"
 created: "2026-08-25T12:54:11Z"
 created_source: "git:7f06626"
