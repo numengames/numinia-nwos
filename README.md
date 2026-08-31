@@ -129,10 +129,9 @@ on every push through [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
 The site build runs in the same pipeline, so a structural change that breaks
 [numinia.org](https://numinia.org) fails before it merges.
 
-**Everything else is convention, held by people and agents reading the rules.**
-Naming, vocabularies, identifiers, the states a mission may hold — none of it
-has a guard yet. [`debt/D-001`](debt/D-001-no-ci-guards.md) tracks that gap and
-[`debt/D-011`](debt/D-011-thresholds-unenforced.md) tracks the sharper version:
+**Naming, vocabularies, and identifiers now have guards; the states a
+mission may hold do not.** `lint-frontmatter.mjs` and `lint-naming.mjs` run
+on every push (closed `debt/D-001`, 2026-08-31). [`debt/D-011`](debt/D-011-thresholds-unenforced.md) tracks what remains:
 the archive describes four levels of change control, and git enforces one.
 
 Stating this is not modesty. An archive that claims more verification than it

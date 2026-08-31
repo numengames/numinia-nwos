@@ -549,7 +549,7 @@ filed for lack of its own.
 | **`S-NNN`** | **`standards/`** | `S-001-glossary.md` | **0/3 · new** |
 | **`AG-NNN`** | **`agents/`** | `AG-001-nimrod/` (folder) | **0/5 · new** |
 | **`O-NNN`** | **`operations/`** | `O-001-governance.md` | **0/11 · new** |
-| **`D-NNN`** | **`debt/`** | `D-001-no-ci-guards.md` | **0/0 · new** |
+| **`D-NNN`** | **`debt/`** | `D-024-registration-blocked-by-rulings.md` | **0/0 · new** |
 | `C-NNN` | `canon/` | `C-005-licensing.md` | 1/12 · 8.3 % — see §4.3 |
 
 **This document is `S-001`**: the first standard registered under its own rule.

@@ -99,6 +99,49 @@ net −6,740 from the 575,958 re-measured baseline.
   `BP-financiero` depends on (MIS-021/031/034/048) — same mandate as
   the first bullet, now with a named blocking dependency.
 
+## Debt extinguished by this mission (ADR-030)
+
+**D-001 — "The glossary declares rules that no machine verifies" — closed
+2026-08-31.** Remeasured against `main` against its original 2026-08-24
+table (2/11 rules `[CI]`) and found the table itself had gone stale, not
+just the repo: `guild`/`territory`/`type_execution` were already covered
+by H-33/H-34/H-36 (added 2026-08-30, unrelated work) with nobody updating
+D-001 to say so. What this closure actually did:
+
+1. Wired `check-frontmatter-yaml.mjs` into `ci.yml` — existed since `D-039`,
+   ran nowhere, no argument for the gap.
+2. Built `scripts/lint-naming.mjs` (N-01…N-05: root-level filenames must
+   be all-uppercase, no
+   version/date in a living filename, frozen-artifact shape, series scheme
+   per `ADR-005` v1.1.0, kebab-case slug). 266 pre-existing violations
+   frozen in `scripts/naming-baseline.json`, same ratchet pattern as
+   `lint-frontmatter.mjs` — shrinks as Stage C lands renames, never grows.
+3. Added H-37/H-38 (`priority`/`effort` closed vocabularies) to
+   `lint-frontmatter.mjs` — zero new violations on adoption, every live
+   value already conformed, only the instrument was missing.
+4. Confirmed `lint-type-vs-folder.mjs` was never a fourth script: it was
+   already merged into `lint-frontmatter.mjs` as H-17 before D-001's table
+   was written. Its row now states the real scope — strict on 8/11 types,
+   argued `[MANUAL]` on `documentation`/`meta` per `S-001` line 448 — instead
+   of implying total coverage.
+
+**Eleven of eleven rules in `S-001`'s table now carry `[CI]` or an argued
+`[MANUAL]`.** Verified live: `node scripts/lint-frontmatter.mjs` and
+`node scripts/lint-naming.mjs` both report `no new violations — the ratchet
+holds` against `main` at closing time.
+
+**Not resolved by this closure** (declared per D-025, not silently
+carried): `lint-naming.mjs` checks slug shape, not slug language — a
+Spanish slug in valid kebab-case still passes. Neither guard verifies a
+timestamp is *true*, only well-formed. The 266-entry naming baseline and
+44-entry frontmatter baseline are real debt this closure does not pay —
+closing D-001 means the archive can no longer lie about verifying itself,
+not that every document already conforms. Paying the baselines down is
+Stage C's job.
+
+Full text of the closed entry is in git history: run
+`git log --follow -- 'debt/D-001*'` to recover it.
+
 ## Done when
 
 The Oracle declares the reduction line closed. Each PR in the ledger

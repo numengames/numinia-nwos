@@ -136,6 +136,7 @@ const PREFIX = {
  * value, a lowercase variant, and a template comment left glued to the value.
  *
  * H-33 guild · H-34 type_execution · H-35 visibility · H-36 territory
+ * H-37 priority · H-38 effort
  */
 const VOCAB = {
   // S-001 §6.3: "English, plural."
@@ -147,8 +148,13 @@ const VOCAB = {
   // S-001 §territory, the 8 words. TBA is legal under ADR-028 (owner MIS-124).
   territory: ['CAO', 'Product', 'Platform', 'Infrastructure',
     'Content', 'Sales', 'Funding', 'Archive'],
+  // S-001 §976: priority/effort, missions/ only (RING3) — debt/ uses `severity`
+  // instead and is untouched by this check since it never carries the field.
+  priority: ['critical', 'high', 'medium', 'low'],
+  effort: ['XS', 'S', 'M', 'L', 'XL'],
 };
-const VOCAB_CHECK = { guild: 'H-33', type_execution: 'H-34', visibility: 'H-35', territory: 'H-36' };
+const VOCAB_CHECK = { guild: 'H-33', type_execution: 'H-34', visibility: 'H-35', territory: 'H-36',
+  priority: 'H-37', effort: 'H-38' };
 
 /* The corpus tree this standard governs (S-004 §8): tracked .md outside web/. */
 const GOVERNED = new Set(Object.keys(RING3));
