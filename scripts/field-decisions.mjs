@@ -10,8 +10,8 @@
  * when all three were already ruled and signed in the corpus:
  *
  *   - territory  -> ADR-028 L144-148 (66 map, 76 take TBA)
- *   - the ~111 orphan fields -> S-004 section 6 ("they die by omission")
- *   - the guild vocabulary -> S-001 L957 (four guilds, not the thirteen invented)
+ *   - the ~111 orphan fields -> STD-004 section 6 ("they die by omission")
+ *   - the guild vocabulary -> STD-001 L957 (four guilds, not the thirteen invented)
  *
  * Root cause: reading the guard's source and concluding that a rule the guard
  * does not implement does not exist. The corpus is ~29,000 lines of governance;
@@ -42,7 +42,7 @@ const OUT = join(ROOT, 'scripts', 'field-decisions.json');
 
 const src = readFileSync(GUARD, 'utf8');
 
-/* The guard is the executable half of S-004. Parse its rings rather than
+/* The guard is the executable half of STD-004. Parse its rings rather than
  * restating them here: a second copy would drift, and drift is the defect
  * this file exists to prevent. */
 const arrayConst = (name) => {
@@ -72,13 +72,13 @@ const RETIRED = {};
   }
 }
 
-/* Vocabularies that S-001 closes. A field with a closed vocabulary is ruled
+/* Vocabularies that STD-001 closes. A field with a closed vocabulary is ruled
  * twice over: the field may appear, AND its value is constrained. */
 const VOCAB = {
-  guild: { source: 'S-001 L957', values: ['Sentinels', 'Alchemists', 'Exegetes', 'Procurators'] },
-  type_execution: { source: 'S-001', values: ['digital', 'physical', 'hybrid'] },
+  guild: { source: 'STD-001 L957', values: ['Sentinels', 'Alchemists', 'Exegetes', 'Procurators'] },
+  type_execution: { source: 'STD-001', values: ['digital', 'physical', 'hybrid'] },
   territory: {
-    source: 'S-001 L964 + ADR-028',
+    source: 'STD-001 L964 + ADR-028',
     values: ['CAO', 'Product', 'Platform', 'Infrastructure', 'Content', 'Sales', 'Funding', 'Archive'],
     note: 'ADR-028: documents that do not map take TBA, owned by the mission that closes the vocabulary',
   },
@@ -120,17 +120,17 @@ for (const field of Object.keys(usage).sort()) {
   } else if (RING1.includes(field)) {
     entry.ring = 1;
     entry.status = 'ruled';
-    entry.decided_by = 'S-004 §3';
+    entry.decided_by = 'STD-004 §3';
     entry.rule = 'mandatory in every document';
   } else if (RING2.includes(field)) {
     entry.ring = 2;
     entry.status = 'ruled';
-    entry.decided_by = 'S-004 §4';
+    entry.decided_by = 'STD-004 §4';
     entry.rule = 'optional, valid anywhere';
   } else if (RING3_ALL.includes(field)) {
     entry.ring = '3-all';
     entry.status = 'ruled';
-    entry.decided_by = 'S-004 §6';
+    entry.decided_by = 'STD-004 §6';
     entry.rule = 'registered for every series';
   } else {
     const series = Object.keys(RING3)
@@ -139,14 +139,14 @@ for (const field of Object.keys(usage).sort()) {
     if (series.length) {
       entry.ring = 3;
       entry.status = 'ruled';
-      entry.decided_by = 'S-004 §6';
+      entry.decided_by = 'STD-004 §6';
       entry.rule = `registered for: ${series.join(', ')}`;
       entry.series = series;
     } else {
       entry.ring = null;
       entry.status = 'unruled';
       entry.decided_by = null;
-      entry.rule = 'unregistered — S-004 §6: dies by omission unless it earns an ADR';
+      entry.rule = 'unregistered — STD-004 §6: dies by omission unless it earns an ADR';
     }
   }
 
@@ -154,7 +154,7 @@ for (const field of Object.keys(usage).sort()) {
   entry.carriers = [...(carriers[field] || [])].sort();
 
   /* A field registered in one series but carried by another is not corpus
-   * debt: it is a transcription gap in the ring table itself. S-004 records
+   * debt: it is a transcription gap in the ring table itself. STD-004 records
    * two prior corrections of exactly this kind. */
   if (entry.series) {
     const stray = entry.carriers.filter((c) => !entry.series.includes(c) && c.endsWith('s'));
@@ -166,7 +166,7 @@ for (const field of Object.keys(usage).sort()) {
 
 const payload = {
   generated_by: 'scripts/field-decisions.mjs',
-  generated_from: 'scripts/lint-frontmatter.mjs + S-001 vocabularies',
+  generated_from: 'scripts/lint-frontmatter.mjs + STD-001 vocabularies',
   note: 'Generated. Do not hand-edit. Ask the canon before asking the Oracle.',
   fields: index,
 };

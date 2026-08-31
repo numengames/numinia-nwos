@@ -55,7 +55,7 @@ inheritance.
 
 ## The error that originates it (verified 2026-08-18)
 
-`standards/engineering-standards.md` declares in its header and in §7.1
+`standards/STD-005-engineering-standards.md` declares in its header and in §7.1
 that numinia-nwos and «any workspace generated from the mould» are
 *downstream forks* that **receive the document through the fork
 relationship**, leaving the sync mechanism as an open decision. From that

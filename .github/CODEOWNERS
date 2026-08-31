@@ -1,4 +1,4 @@
-# SEC-10 (standards/engineering-standards.md): sensitive paths require
+# SEC-10 (standards/STD-005-engineering-standards.md): sensitive paths require
 # Oracle review. Enforcement needs branch protection with "require
 # review from Code Owners" — an org-settings step tracked in MIS-070.
 /LICENSE* @PabloFMM

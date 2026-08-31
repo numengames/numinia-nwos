@@ -112,8 +112,8 @@ Current state, verified against `.github/workflows/ci.yml` at
 | `check-license-frontmatter.mjs` | C-005 §5 licence agreement | yes | **yes** |
 | `check-references.mjs` | ADR-004 plain-text identifiers | yes | **yes** |
 | `check-orphan-content.mjs` | D-032 content outside the renderer | yes | **yes** (post-build) |
-| `lint-frontmatter.mjs` | S-004 header, checks H-00…H-31 | yes (#116) | **yes** — `#126`, run `33276755484` |
-| `lint-naming.mjs` | S-001 §9 filenames | no | no |
+| `lint-frontmatter.mjs` | STD-004 header, checks H-00…H-31 | yes (#116) | **yes** — `#126`, run `33276755484` |
+| `lint-naming.mjs` | STD-001 §9 filenames | no | no |
 | `lint-type-vs-folder.mjs` | folded into `lint-frontmatter` H-17 | n/a | n/a |
 
 > `D-017`'s own table listed `check-references` as unwired and omitted

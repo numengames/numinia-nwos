@@ -196,7 +196,7 @@ const plan = [...withNumber, ...assigned].sort((a, b) => a.num - b.num).map((c) 
   const pad = String(c.num).padStart(DIGITS, '0');
   // Slug: only strip a leading PREFIX- if the file actually had a
   // recognized old-series number (extractExistingNumber matched) — never
-  // guess a prefix off an unnumbered basename. "engineering-standards.md"
+  // guess a prefix off an unnumbered basename. "STD-005-engineering-standards.md"
   // is not "PREFIX=engineering, name=standards"; it is one whole name.
   let slugSource = c.base.replace(/\.md$/, '');
   const hadNumber = fromPrefixes.some((p) => new RegExp(`^${reEscape(p)}-\\d+-`).test(c.base));
@@ -282,7 +282,7 @@ const refused = [];
 
 // D-048: a rename must not rewrite a MENTION as if it were a CITATION.
 // Dated evidence and closed records state what was true when written; a
-// rewrite there is falsification, not maintenance (S-001 §2.1, §9.1).
+// rewrite there is falsification, not maintenance (STD-001 §2.1, §9.1).
 // Found in MIS-125 Stage C: an 8-file rename silently rewrote an SPDX SBOM
 // (filenames changed, FileChecksum SHA1 left stale), a CC0 grant record, a
 // status: done mission's narrative, and two counter-examples — all with
@@ -321,13 +321,68 @@ for (const p of plan) {
     if (ambiguousHits.length) manualReview.push({ file: p.oldRel, base: p.oldBase, citedBy: ambiguousHits });
   }
 
+  // ---- CITATION REWRITE ----
+  //
+  // BUG FIXED 2026-08-31 (MIS-127, standards/ run). These three lines used to
+  // be plain `.split(old).join(new)` — substring replacement with no notion of
+  // a boundary. Renaming STD-001 -> STD-001 corrupted 139 files in one pass:
+  //
+  //   MIS-001            -> MISTD-001   (found the "STD-001" inside "MIS-001")
+  //   governance.md      -> STD-002.md  (word-shaped name, slug lost)
+  //   AUD-...-governance -> AUD-...-STD-002
+  //
+  // It reached LICENSE, CODEOWNERS and .github/workflows/. check-references
+  // caught it and nothing was committed, but the tool is meant to be the safe
+  // way to do this. Each rule is now bounded by the context it is valid in:
+  //
+  //   id   — word boundaries, so MIS-001 cannot match STD-001. Two further
+  //          restrictions, both learned the hard way on this same shelf:
+  //
+  //          (a) not when followed by ".md" — for a word-shaped id like
+  //              "governance" that string is a FILENAME, and rewriting it
+  //              there produced the slugless STD-002.md. The basename rule
+  //              owns that case; it knows the full new name.
+  //
+  //          (b) not at all, if the id is word-shaped. An id like
+  //              "governance" or "engineering-standards" is indistinguishable
+  //              from the English word, and the tool rewrote both: prose
+  //              ("~29,000 lines of governance" became "of STD-002") and,
+  //              worse, code — {fondo.governance} became {fondo.STD-002} in
+  //              archive/[fondo].astro, which does not compile. It also
+  //              rewrote this very comment. A file whose id is a real word
+  //              has no unambiguous bare-id citation; its citations travel as
+  //              filenames, which the other two rules handle. ID_SHAPED below
+  //              is the test: a series id looks like ABC-123, nothing else.
+  //   rel  — full paths are unambiguous, but anchor the left edge so
+  //          "old/standards/x.md" is not rewritten inside a longer path.
+  //   base — only where the basename stands alone: as a path segment, in a
+  //          link, in backticks, or as a frontmatter value.
+  //
+  // Cases are asserted in scripts/rename-series.test.mjs, including every one
+  // that broke above. Run it after touching any of this.
+  const reEsc = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  // A series id: letters, a hyphen, digits. "governance" is not one.
+  const ID_SHAPED = /^[A-Z]{1,6}-\d{1,4}$/i;
+  const rewriteId = (s, oldId, newId) => {
+    if (!ID_SHAPED.test(oldId)) return s;   // see (b) above
+    return s.replace(new RegExp(`(^|[^A-Za-z0-9_-])${reEsc(oldId)}(?![A-Za-z0-9_-])(?!\\.md)`, 'g'),
+      (_m, pre) => pre + newId);
+  };
+  const rewriteRel = (s, oldRel, newRel) =>
+    s.replace(new RegExp(`(^|[^A-Za-z0-9_./-])${reEsc(oldRel)}(?![A-Za-z0-9_-])`, 'g'),
+      (_m, pre) => pre + newRel);
+  // A basename only counts when it is being used AS a filename.
+  const rewriteBase = (s, oldBase, newBase) =>
+    s.replace(new RegExp(`([/\`(\\[<'"]|^|:\\s*)${reEsc(oldBase)}(?![A-Za-z0-9_-])`, 'gm'),
+      (_m, pre) => pre + newBase);
+
   for (const f of safeHits) {
     const abs = path.join(ROOT, f);
     let content = readFileSync(abs, 'utf8');
     const before = content;
-    content = content.split(p.oldId).join(p.newId);
-    content = content.split(p.oldRel).join(p.newRel);
-    if (baseUnique) content = content.split(p.oldBase).join(p.newBase);
+    content = rewriteId(content, p.oldId, p.newId);
+    content = rewriteRel(content, p.oldRel, p.newRel);
+    if (baseUnique) content = rewriteBase(content, p.oldBase, p.newBase);
     if (content !== before) writeFileSync(abs, content);
   }
 
@@ -338,7 +393,7 @@ for (const p of plan) {
 
   // Retire a registration exemption the rename has just falsified.
   // A file that now carries GLD-001 cannot also declare "not a numbered
-  // series" — S-001 §5.0 requires the exemption to state something true,
+  // series" — STD-001 §5.0 requires the exemption to state something true,
   // and count-evidence.py would report 8/8 coverage over 8 files each
   // claiming to be outside the scheme. Only the *entering* reasons are
   // dropped; a frozen-artifact exemption never reaches this code path

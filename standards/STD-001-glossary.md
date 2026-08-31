@@ -1,7 +1,7 @@
 ---
-id: "S-001"
-uid:
 title: "Glossary — the archive's own vocabulary"
+id: "STD-001"
+uid: ""
 type: documentation
 status: active
 version: "5.0.0"
@@ -12,12 +12,12 @@ owner: "oracle"
 guild: "Alchemists"
 territory: "Archive"
 tags: [glossary, vocabulary, frontmatter, archive, standards]
-license: "CC-BY-4.0"
+license: "CC0-1.0"
 ratified_by: "ADR-027"
 evidence_script: "scripts/count-evidence.py"
 evidence_head: "7d17b5a"
 ---
-# S-001 — Glossary: the archive's own vocabulary
+# STD-001 — Glossary: the archive's own vocabulary
 
 > **Summary:** What every series holds, what every frontmatter field means, and
 > which values are valid.
@@ -445,7 +445,7 @@ document. Moving the document corrects the filing.
 ### Two types a guard can never check strictly
 
 **`documentation`** does two jobs under one name. Normative documentation
-(`S-001` itself) belongs in `standards/`; explanatory documentation
+(`STD-001` itself) belongs in `standards/`; explanatory documentation
 (`debt/D-001`, a `README`) belongs with whatever it explains. **The `type` alone
 cannot tell them apart** — only whether the document obliges anything can, and
 that is a reading, not a field.
@@ -567,7 +567,7 @@ Coverage measured by `scripts/count-evidence.py`, which excludes apparatus by
 rule (`type: meta`, `D-014`) and frozen artefacts by the `MIS-125` ruling
 (`P-010` §3.2). It is not copied from an earlier version of this table.
 
-**This document is `S-001`**, registered under the superseded `S-NNN` scheme.
+**This document is `STD-001`**, registered under the superseded `S-NNN` scheme.
 Under `ADR-005` v1.1.0 it becomes a `STD-NNN` document; the rename is `MIS-125`
 Stage C, not this section. **Nothing is renumbered** — see §5. `AG-NNN` was
 withdrawn with the `agents/` reversal and no longer exists as a scheme.
@@ -600,37 +600,37 @@ and it is one by nature, not convenience.
 > first identifier exists — which is the opposite of the `D-` case, where 18
 > identifiers and 121 citations make renaming the wrong trade.
 
-> **`S-` is a live numbering in `canon/`, and `S-001` is taken twice.**
-> Measured 2026-08-25 against `canon/INDEX.md`: `S-001`…`S-010` are not stray
+> **`S-` is a live numbering in `canon/`, and `STD-001` is taken twice.**
+> Measured 2026-08-25 against `canon/INDEX.md`: `STD-001`…`S-010` are not stray
 > frontmatter. They are the canon's own registration, and **9 of the 10 resolve
 > to a file that exists**:
 >
 > | | | |
 > |---|---|---|
-> | `S-001` | Welcome to Numinia | **collides with this glossary** |
+> | `STD-001` | Welcome to Numinia | **collides with this glossary** |
 > | `S-002` | Numinia Brand and Culture | exists |
-> | `S-003` | Epistemic Relations | filename drifted — `INDEX` points at a name that no longer exists |
-> | `S-004`…`S-010` | Compendium, Role Structure, Platform Roles, Session Zero, RPG Manual, Rank Specs, README | exist |
+> | `STD-003` | Epistemic Relations | filename drifted — `INDEX` points at a name that no longer exists |
+> | `STD-004`…`S-010` | Compendium, Role Structure, Platform Roles, Session Zero, RPG Manual, Rank Specs, README | exist |
 >
 > `canon/INDEX.md` also carries a relationship graph built on these numbers
-> (`S-001 summarizes S-002, S-005, S-006`), and `STANDARDS.md` documents `S-` as
+> (`STD-001 summarizes S-002, S-005, S-006`), and `STANDARDS.md` documents `S-` as
 > *Seminal* in its prefix table. **40 of the 88 unresolved citations in `D-018`
 > are this.**
 >
 > The Oracle's ruling stands — `S-` belongs to `standards/`, `seminal_id` is
 > retired — but its cost is now measured: **`MIS-109` must renumber canon to
 > `C-NNN` and rewrite the graph in `canon/INDEX.md`**, not merely delete a
-> frontmatter line. And `S-003` is a second finding: the index points at
+> frontmatter line. And `STD-003` is a second finding: the index points at
 > `Epistemic relations between Numen Games and Numinia.md`, which was renamed to
 > `2026_04_15-Epistemic_Relations_…-v0.2.0.md` without updating the index.
 >
 > **CLOSED 2026-08-25 — `MIS-109` phase C.** The seminal series is now `C-001`…
-> `C-007`; `S-` is unambiguously `standards/`. Both collisions are gone: `S-001`
-> is this glossary alone, `S-003` is Platform Role System alone. The index keeps
+> `C-007`; `S-` is unambiguously `standards/`. Both collisions are gone: `STD-001`
+> is this glossary alone, `STD-003` is Platform Role System alone. The index keeps
 > the old number in an *Antes* column, because it is what pre-2026-08-25
 > documents cite and an identifier is a promise about the past (`ADR-004`).
 > Seven seminal documents, not ten: `S-006` changed series, `S-008` lives in
-> `numinia-lore`, `S-010` was apparatus. The broken `S-003` link is fixed.
+> `numinia-lore`, `S-010` was apparatus. The broken `STD-003` link is fixed.
 
 ### 4.3 Series below full coverage: the plan for each `[MANUAL]`
 
@@ -715,10 +715,6 @@ the publishing glob — *"excluded on purpose" and "forgotten" were the same
 thing to a reader*:
 
 ```yaml
-registration: exempt
-registration_reason: >
-  Renaming would break 18 citations and a scorecard.yml comment the agent
-  cannot edit (D-017). See D-024.
 ```
 
 **Both fields or neither.** `exempt` without a reason is a gap with better
@@ -731,7 +727,7 @@ inconvenient. Three legitimate shapes, all present in the corpus today:
 |---|---|
 | **Frozen artifact** — a dated filename is a photograph, not a living document (`P-010` §3.2) | `2026_04_14-Analogous_Terminology_Numina-v0.2.0.md` |
 | **Apparatus of a registered document** — belongs to its parent, not to the series | `protocols/APPROVAL-REQUEST-template.md`, used by `P-008` |
-| **Consumers cannot all be updated** — see below | `standards/engineering-standards.md` |
+| **Consumers cannot all be updated** — see below | `standards/STD-005-engineering-standards.md` |
 
 Counters read `registration: exempt` as **out of the denominator**, not as a
 miss. A series at `8/8 · 2 exempt` is fully registered; `8/10` is not, and the
@@ -743,7 +739,7 @@ difference is a decision somebody made rather than work somebody skipped.
 updated in the same change, the rename does not happen.
 
 Learned by doing it wrong on 2026-08-25:
-`standards/engineering-standards.md` was renamed to `S-002-…` and reverted in
+`standards/STD-005-engineering-standards.md` was renamed to `S-002-…` and reverted in
 the same session. Measuring came *after* acting. What the measurement found:
 
 - **18 documents** cite it by filename
@@ -1130,7 +1126,7 @@ in both — strip code spans before scanning — and belongs with the guards in
 `D-001`.
 
 **Documents already affected:** `debt/D-018`, `reports/daily/RPT-2026-08-24.md`,
-`reports/audits/AUD-2026-08-17-stack.md` and `S-001` itself. They are
+`reports/audits/AUD-2026-08-17-stack.md` and `STD-001` itself. They are
 reformatted as the convention lands, not exempted.
 
 ---
@@ -1270,7 +1266,7 @@ Two consequences for how guards are written here:
    site showed up as `515 → 559 pages`, noticed only because the number happened
    to be under observation for another reason.
 
-> `S-001` §10.2 requires a figure to declare its unit. Omission is the case
+> `STD-001` §10.2 requires a figure to declare its unit. Omission is the case
 > where the unit is right, the figure is right, **and the denominator is
 > silently wrong.**
 
@@ -1415,7 +1411,7 @@ defect `D-018` exists to catch.
 
 1. **`human_approval_score`** (16 documents) — says `# 1-10` but not *what* it
    measures. → `D-003` (extinguished 2026-08-30, ADR-030: defined as the
-   approval gate in `standards/governance.md`)
+   approval gate in `standards/STD-002-governance.md`)
 2. **`semaforo`** (7) — verde/amarillo/rojo, in Spanish. What triggers each
    colour, and who sets it. → [`D-004`](../debt/D-004-semaforo-undefined.md)
 3. **`confidence_before` / `after`** (2) — scale, and who fills them.
@@ -1506,7 +1502,7 @@ gets filled differently by each person who meets it — which is how
   append-only and a closed entry is worth more than one that never existed.
   §4.1 gains the measured answer to `MIS-109`'s open question: `S-002`…`S-010`
   are **not phantom citations** — 9 of 10 resolve to real canon files, and
-  `S-001` is taken twice. §4.1's `AUD-` example no longer points at a file from
+  `STD-001` is taken twice. §4.1's `AUD-` example no longer points at a file from
   an unmerged branch. `human_approval_score` corrected from 14 to 16 documents.
 - **v2.3.0** (2026-08-24) — §3 gains a step that was missing and cost a bad
   refactor: **verify the `type` before using the map to move anything.** Three
@@ -1534,7 +1530,7 @@ gets filled differently by each person who meets it — which is how
   happen. Gap between declared and enforceable registered as **D-011**.
 - **v2.0.0** (2026-08-24) — Oracle feedback on v1. Blocker 1 executed (12
   missions `cancelled` → `frozen`); blocker 2 resolved (prefixes `S-` `A-` `O-`
-  `D-`, this document becomes `S-001`); `[CI]`/`[MANUAL]` markers with real
+  `D-`, this document becomes `STD-001`); `[CI]`/`[MANUAL]` markers with real
   evidence of the pipeline; `type`↔folder relation written; series-change rule
   written; canon registration plan; all figures moved to
   `scripts/count-evidence.py`. **`[PENDING]` withdrawn** — a third marker was

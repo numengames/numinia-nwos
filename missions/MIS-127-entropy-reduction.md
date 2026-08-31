@@ -65,7 +65,7 @@ same-method start-to-finish. Anyone auditing against the original
 | — | [#159](https://github.com/numengames/numinia-nwos/pull/159) (merged) | *Not a reduction PR* — D-001 closure (this mission, see "Debt extinguished" below): wired yaml/naming CI guards, added H-37/H-38 | +1 file (`scripts/lint-naming.mjs`) | not measured — not a reduction PR |
 | — | [#160](https://github.com/numengames/numinia-nwos/pull/160) (merged) | *Not a reduction PR* — D-002 closure (this mission, see "Debt extinguished" below): `blocked_reason` retired | 0 files (content edits only) | not measured — not a reduction PR |
 | — | [#161](https://github.com/numengames/numinia-nwos/pull/161) (merged, `534e25e`) | *Not a reduction PR* — MIS-125 Stage B: `scripts/rename-series.mjs` built and dry-run tested (6 real bugs caught, incl. a CodeQL regex-injection fix); D-008 v2.2.0 (`debt/D-002` extinguishment recount, discovered via this PR's own dry-run count mismatch). Detail in `MIS-125` itself. | +1 file (`scripts/rename-series.mjs`) | not measured — not a reduction PR |
-| 6 | #TBD (this PR) | **`decisions/` consolidated 16 → 7 by theme.** Nine identifiers absorbed (ADR-002/003/DEC-001→ADR-001; ADR-024→ADR-023; ADR-031→ADR-026; ADR-028/029→ADR-027; ADR-032/033→ADR-030), `INDEX.md` deleted (the site derives its index from the collection). ADR-030 v3.0.0 defines **absorption** and amends `S-001`; `check-references.mjs` reads the new `absorbs:` field so absorbed IDs keep resolving; 18 URLs 301 to their absorbing record, not to the section index | −10 files | **−19,996** in `decisions/`, +715 across 47 files for the citation rewrite = **−19,281 net** |
+| 6 | #TBD (this PR) | **`decisions/` consolidated 16 → 7 by theme.** Nine identifiers absorbed (ADR-002/003/DEC-001→ADR-001; ADR-024→ADR-023; ADR-031→ADR-026; ADR-028/029→ADR-027; ADR-032/033→ADR-030), `INDEX.md` deleted (the site derives its index from the collection). ADR-030 v3.0.0 defines **absorption** and amends `STD-001`; `check-references.mjs` reads the new `absorbs:` field so absorbed IDs keep resolving; 18 URLs 301 to their absorbing record, not to the section index | −10 files | **−19,996** in `decisions/`, +715 across 47 files for the citation rewrite = **−19,281 net** |
 
 **Reduction-line total (PRs #145–148, #153, and this one): −29,306 tokens,
 −16 files net**, against
@@ -95,7 +95,7 @@ net −6,740 from the 575,958 re-measured baseline.
   against the extinction criterion — out of scope for #153, still an
   open question if the Oracle wants them reviewed. `blueprints/INDEX.md`
   (last touched 2026-04-07, lists 3 of 16) remains stale — not fixed.
-- Single status vocabulary across every series (S-001).
+- Single status vocabulary across every series (STD-001).
 - **MIS-125 prefix register execution — started 2026-08-31.** Stage A
   (normative docs, PR #155+#156) merged. Stage B (rename tool, PR
   #157+#161) merged — `scripts/rename-series.mjs` built, dry-run tested,
@@ -130,10 +130,10 @@ D-001 to say so. What this closure actually did:
 4. Confirmed `lint-type-vs-folder.mjs` was never a fourth script: it was
    already merged into `lint-frontmatter.mjs` as H-17 before D-001's table
    was written. Its row now states the real scope — strict on 8/11 types,
-   argued `[MANUAL]` on `documentation`/`meta` per `S-001` line 448 — instead
+   argued `[MANUAL]` on `documentation`/`meta` per `STD-001` line 448 — instead
    of implying total coverage.
 
-**Eleven of eleven rules in `S-001`'s table now carry `[CI]` or an argued
+**Eleven of eleven rules in `STD-001`'s table now carry `[CI]` or an argued
 `[MANUAL]`.** Verified live: `node scripts/lint-frontmatter.mjs` and
 `node scripts/lint-naming.mjs` both report `no new violations — the ratchet
 holds` against `main` at closing time.
@@ -163,12 +163,12 @@ header-burndown phase (`scripts/phase2-mechanical.py`, 2026-08-30, value
 preserved in `scripts/phase8-retired-values.txt` so it wasn't lost in
 silence). Verified 2026-08-31: **zero live `blocked_reason` occurrences**
 in any frontmatter, corpus-wide (`git grep`) — the migration this entry
-called for had already happened, only the debt entry and two `S-001`
+called for had already happened, only the debt entry and two `STD-001`
 citations hadn't caught up. Closure per option 1 of the entry's own text
 ("retire it"): `H-31` (added 2026-08-30, unrelated work) already guards
 the field against regression, corpus-wide, in CI — so this closure adds no
 new guard, only stops the archive from citing an open question that
-usage had already settled. `S-001` §6 and §7 updated to state the
+usage had already settled. `STD-001` §6 and §7 updated to state the
 retirement instead of pointing at an active entry; `debt/D-021`'s
 citation of the file (a historical audit table, not a live reference)
 updated to describe the closure rather than link a deleted path.

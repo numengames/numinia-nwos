@@ -57,7 +57,7 @@ asking an agent.
 
 | Source | What it covers | Why it is not enough |
 |---|---|---|
-| `standards/engineering-standards.md` **ARC-06** | conventional commits, semver tags, GitHub Releases with notes | Internal GitHub artifact; it is not a product page and does not speak the reader's language |
+| `standards/STD-005-engineering-standards.md` **ARC-06** | conventional commits, semver tags, GitHub Releases with notes | Internal GitHub artifact; it is not a product page and does not speak the reader's language |
 | **PM-04** | `CHANGELOG.md` or releases generated from commits | A repo file, written for code readers |
 | **PM-05** | roadmap/TODO as a file in the repo | Looks forward, not back |
 | **MIS-010** (done) | public Numinia roadmap on numengames.com | Promises, not deliveries |

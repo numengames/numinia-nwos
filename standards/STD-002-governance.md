@@ -1,5 +1,7 @@
 ---
 title: "Governance — who may change what, and at what cost"
+id: "STD-002"
+uid: ""
 type: documentation
 status: active
 version: "2.0.0"
@@ -10,9 +12,7 @@ updated: "2026-08-30T17:51:00Z"
 author: "nimrod"
 owner: "oracle"
 tags: [governance, roles, permissions, thresholds, versioning]
-license: "CC-BY-4.0"
-registration: exempt
-registration_reason: "singular document, not a numbered series; moved from repo root 2026-08-30"
+license: "CC0-1.0"
 ---
 
 # Governance — Archive Summa
@@ -60,7 +60,7 @@ Rules derived from 100 mental simulations. Each rule includes the simulation tha
 
 ### Change thresholds
 
-The table above says **who**. `S-001` §2.1 says **how much agreement**, and the
+The table above says **who**. `STD-001` §2.1 says **how much agreement**, and the
 two must be read together:
 
 | Threshold | What it takes | Applies to |
@@ -86,11 +86,11 @@ mechanism.
 
 ## This is the governance document
 
-There were two. `operations/governance.md` (1,136 chars) covered the same
+There were two. `operations/STD-002-governance.md` (1,136 chars) covered the same
 ground as this file (6,413) and carried both false claims above. It was
 deleted by the Oracle on 2026-08-24; references now point here.
 
-`S-001` is the vocabulary — what each series holds and what every field means.
+`STD-001` is the vocabulary — what each series holds and what every field means.
 This document is the authority — who may change what, and at what cost. They do
 not overlap and neither restates the other.
 
@@ -178,7 +178,7 @@ find one, register it as a contradiction before acting on it.
 
 *(Absorbed from `STANDARDS.md` §7F on 2026-08-30 — the rule is the Oracle's,
 established 2026-04-07/08. It lives here because it is authority, not
-vocabulary: SemVer itself is defined in S-001; this table says who may move
+vocabulary: SemVer itself is defined in STD-001; this table says who may move
 a version.)*
 
 Every artifact follows a two-stage lifecycle:

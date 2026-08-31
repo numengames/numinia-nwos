@@ -96,7 +96,7 @@ Format: [type] description — date — author
 - agents/adonaz/ initial design
 - guild charters — sentinels, alquimistas, exegetas
 - canon/INDEX.md v1.1.0 — S-009 Rank Specifications added
-- operations/governance.md, security-policy.md, credential-map.md
+- operations/STD-002-governance.md, security-policy.md, credential-map.md
 - missions/active/MIS-037 — Archive Summa (Adonaz MIS-037 completed)
 - missions/active/MIS-054 — Multi-Oracle Telegram access
 - missions/active/MIS-055 — Dual Nomenclature System

@@ -1,24 +1,24 @@
 #!/usr/bin/env node
 /**
- * lint-frontmatter.mjs — the header lint (S-004, kanban t_1134d057).
+ * lint-frontmatter.mjs — the header lint (STD-004, kanban t_1134d057).
  *
- * Implements S-004 "The header in three rings" mechanically: every rule
+ * Implements STD-004 "The header in three rings" mechanically: every rule
  * in the standard carries a check id (H-NN); every finding this script
  * prints cites that id. If a rule cannot be expressed here, the standard
  * marks it [MANUAL] — there is no third kind. The mapping is 1:1 BY
- * CONSTRUCTION: read S-004 §2-§7 side by side with CHECKS below.
+ * CONSTRUCTION: read STD-004 §2-§7 side by side with CHECKS below.
  *
  *   node scripts/lint-frontmatter.mjs                  # verify vs baseline
  *   node scripts/lint-frontmatter.mjs --report         # full detail, exit 0
  *   node scripts/lint-frontmatter.mjs --write-baseline # freeze current state
  *
- * Enforcement pattern (S-004 §7): strict on the delta, baseline on the
+ * Enforcement pattern (STD-004 §7): strict on the delta, baseline on the
  * stock. Violations present at adoption are frozen in
  * scripts/frontmatter-baseline.json — allowed to exist, not to grow.
  * The baseline's size is the corpus's public entropy metric; migrations
  * (D-009, D-010, ...) shrink it. Zero is the finish line.
  *
- * S-004 is a DRAFT until the Oracle signs. So is this lint's authority:
+ * STD-004 is a DRAFT until the Oracle signs. So is this lint's authority:
  * it runs, it reports, it ratchets — it does not gate CI until the
  * Oracle wires it there (D-017: workflows are Oracle territory).
  *
@@ -49,13 +49,13 @@ const args = process.argv.slice(2);
 const REPORT = args.includes('--report');
 const WRITE = args.includes('--write-baseline');
 
-/* ---------------- S-004 §1: the three rings ---------------- */
+/* ---------------- STD-004 §1: the three rings ---------------- */
 
 const RING1 = ['id', 'title', 'type', 'status', 'version', 'created', 'updated', 'license'];
 const RING2 = ['author', 'owner', 'provenance', 'created_source', 'created_confidence',
   'requested_by', 'supersedes', 'superseded_by', 'derived_from'];
 
-/** S-004 §6: the per-series extension registry. A field in no ring is H-30. */
+/** STD-004 §6: the per-series extension registry. A field in no ring is H-30. */
 const RING3 = {
   'missions': ['priority', 'effort', 'assigned_to', 'started',
     'completed', 'mission_id', 'type_execution', 'freeze_reason', 'in_review_at',
@@ -63,7 +63,7 @@ const RING3 = {
     'requires_oracle_approval', 'human_approval_score', 'paths', 'context',
     'divergence_log',
     // registered 2026-08-30 (final sweep): provenance notes and series
-    // metadata that were always written, never registered (S-004 §6)
+    // metadata that were always written, never registered (STD-004 §6)
     'phase', 'updated_note', 'executor', 'blocks', 'mission_mode'],
   'reports': ['severity', 'period', 'subtype', 'model', 'agent', 'week', 'scope',
     // ADR-035: a document reshelved into reports/ from another series carries
@@ -114,11 +114,11 @@ const RING3_ALL = ['tags', 'visibility', 'guild', 'territory', 'registration',
   'registration_reason', 'registration_exemption', 'evidence_script',
   'evidence_head', 'related', 'uid'];
 
-/** S-004 §4: closed type vocabulary (S-001 §7 + agent, pending its ADR). */
+/** STD-004 §4: closed type vocabulary (STD-001 §7 + agent, pending its ADR). */
 const TYPES = ['mission', 'adr', 'protocol', 'blueprint', 'report', 'seminal',
   'legal', 'charter', 'documentation', 'meta', 'agent'];
 
-/** S-004 §4 H-17 / S-001 §3: type ↔ series, strict except documentation/meta. */
+/** STD-004 §4 H-17 / STD-001 §3: type ↔ series, strict except documentation/meta. */
 const TYPE_SERIES = {
   mission: 'missions', adr: 'decisions', protocol: 'protocols',
   blueprint: 'blueprints', report: 'reports', seminal: 'canon',
@@ -126,17 +126,17 @@ const TYPE_SERIES = {
 };
 const LAX_TYPES = ['documentation', 'meta'];
 
-/** S-004 §5: status lifecycles by type. */
+/** STD-004 §5: status lifecycles by type. */
 const STATUS = {
   mission: ['todo', 'in-progress', 'in-review', 'done', 'frozen'],
   adr: ['draft', 'active', 'superseded'],
   _default: ['draft', 'active', 'closed'],
 };
 
-/** S-004 §4 H-18: registered subtypes per type. */
+/** STD-004 §4 H-18: registered subtypes per type. */
 const SUBTYPES = { report: ['audit', 'daily', 'proposal'], documentation: ['standard', 'guide', 'reference'] };
 
-/** S-004 §6 H-31: retired fields, each the object of a registered migration. */
+/** STD-004 §6 H-31: retired fields, each the object of a registered migration. */
 const RETIRED = {
   area: 'D-010: area → territory',
   blocked_reason: 'D-002: orphaned by the removal of status blocked',
@@ -155,12 +155,16 @@ const RETIRED = {
  */
 const PREFIX = {
   missions: 'MIS', decisions: ['ADR', 'DEC'], protocols: 'PRO', debt: 'DBT',
-  standards: 'S', canon: 'C', agents: 'AG', reports: ['RPT', 'AUD'],
+  // standards: STD since ADR-005 v1.1.0 (2026-08-31). The v1.0.0 ruling this
+  // map was written against said the bare S- prefix stayed; v1.1.0 supersedes
+  // it and registers the shelf as STD-NNN. Updated in the same pass that
+  // renamed the files (MIS-127) — exactly the drift described above.
+  standards: 'STD', canon: 'C', agents: 'AG', reports: ['RPT', 'AUD'],
   system: 'SYS',  // ADR-035: reference manuals of how the system works today
 };
 
 /**
- * S-001 §6.3 / §7: closed vocabularies the linter never checked.
+ * STD-001 §6.3 / §7: closed vocabularies the linter never checked.
  *
  * Every one of these was already declared in the canon and enforced by nobody,
  * which is why each drifted in the same three ways: an untranslated Spanish
@@ -170,16 +174,16 @@ const PREFIX = {
  * H-37 priority · H-38 effort
  */
 const VOCAB = {
-  // S-001 §6.3: "English, plural."
+  // STD-001 §6.3: "English, plural."
   guild: ['Sentinels', 'Alchemists', 'Exegetes', 'Procurators'],
-  // S-001 §7: digital = an agent can do it; biological = needs a human.
+  // STD-001 §7: digital = an agent can do it; biological = needs a human.
   type_execution: ['digital', 'biological', 'hybrid'],
-  // S-004 §6: public unless a reason says otherwise.
+  // STD-004 §6: public unless a reason says otherwise.
   visibility: ['public', 'restricted-oracle'],
-  // S-001 §territory, the 8 words. TBA is legal under ADR-028 (owner MIS-124).
+  // STD-001 §territory, the 8 words. TBA is legal under ADR-028 (owner MIS-124).
   territory: ['CAO', 'Product', 'Platform', 'Infrastructure',
     'Content', 'Sales', 'Funding', 'Archive'],
-  // S-001 §976: priority/effort, missions/ only (RING3) — debt/ uses `severity`
+  // STD-001 §976: priority/effort, missions/ only (RING3) — debt/ uses `severity`
   // instead and is untouched by this check since it never carries the field.
   priority: ['critical', 'high', 'medium', 'low'],
   effort: ['XS', 'S', 'M', 'L', 'XL'],
@@ -187,7 +191,7 @@ const VOCAB = {
 const VOCAB_CHECK = { guild: 'H-33', type_execution: 'H-34', visibility: 'H-35', territory: 'H-36',
   priority: 'H-37', effort: 'H-38' };
 
-/* The corpus tree this standard governs (S-004 §8): tracked .md outside web/. */
+/* The corpus tree this standard governs (STD-004 §8): tracked .md outside web/. */
 const GOVERNED = new Set(Object.keys(RING3));
 GOVERNED.add('blueprints').add('guilds').add('operations').add('infra');
 GOVERNED.add('system').add('history');  // ADR-035, the two shelves MIS-129 opened
@@ -198,7 +202,7 @@ const SEMVER = /^\d+\.\d+\.\d+$/;
 /* ---------------- deferred values (ADR-028) ----------------
  *
  * `TBA` means: the field applies, the value exists, it is not decided yet.
- * S-001 uses `territory: "TBA"` as the canonical example.
+ * STD-001 uses `territory: "TBA"` as the canonical example.
  *
  * ADR-028 permits it under one condition and forbids it otherwise: a `TBA`
  * without a mission that will resolve it is a parking space. So the guard
@@ -270,7 +274,7 @@ for (const rel of files) {
   }
 
   /* H-09: empty is absent.
-     `uid` is the one exception: S-001 §6.2 requires it declared and left
+     `uid` is the one exception: STD-001 §6.2 requires it declared and left
      empty ("Oracle decision, non-negotiable") until the UID system exists.
      Flagging it here punished 65 documents for obeying the standard and
      advised the opposite of what the standard says (MIS-122). */
@@ -278,7 +282,7 @@ for (const rel of files) {
     if (v === '' && k !== 'uid')
       F('H-09', rel, `empty value written for "${k}" — omit the field instead`);
 
-  /* H-33…H-36: closed vocabularies (S-001 §6.3, §7, §territory).
+  /* H-33…H-36: closed vocabularies (STD-001 §6.3, §7, §territory).
      Declared in the canon since the glossary was written, enforced by nobody
      until now — which is exactly why `Procuradores`, `híbrido` and a stray
      template comment all survived in the corpus. A DEFERRED value is legal
@@ -301,7 +305,7 @@ for (const rel of files) {
     if (!(k in fm) || fm[k] === '') {
       const map = { id: 'H-01', title: 'H-02', type: 'H-03', status: 'H-04',
         version: 'H-05', created: 'H-06', updated: 'H-07', license: 'H-08' };
-      if (k === 'id' && fm.registration === 'exempt') continue; // S-001 §5.0
+      if (k === 'id' && fm.registration === 'exempt') continue; // STD-001 §5.0
       F(map[k], rel, `missing mandatory field "${k}"`);
     }
 
@@ -317,7 +321,7 @@ for (const rel of files) {
 
   /* H-03: closed type vocabulary */
   if (fm.type && !TYPES.includes(fm.type))
-    F('H-03', rel, `type "${fm.type}" not in the closed vocabulary (S-004 §4)`);
+    F('H-03', rel, `type "${fm.type}" not in the closed vocabulary (STD-004 §4)`);
 
   /* H-19: status case; H-04: lifecycle */
   if (fm.status) {
@@ -342,7 +346,7 @@ for (const rel of files) {
     if (!ISO_TIME.test(fm.created))
       F('H-06', rel, `created "${fm.created}" lacks a real time (ISO 8601 with time)`);
     else if (/T00:00:00(\.0+)?Z?$/.test(fm.created))
-      F('H-06', rel, `created "${fm.created}" carries the midnight nobody wrote at (S-001 §8)`);
+      F('H-06', rel, `created "${fm.created}" carries the midnight nobody wrote at (STD-001 §8)`);
   }
   if (fm.updated && !IS_TEMPLATE) {
     if (!ISO_TIME.test(fm.updated))
@@ -387,11 +391,11 @@ for (const rel of files) {
     F('H-18', rel, `subtype "${fm.subtype}" not registered for type ${fm.type}`);
 
   /* H-20: uid carries a hand-authored value.
-     S-001 §6.2: the 32 legacy values "are removed, not preserved: they were
+     STD-001 §6.2: the 32 legacy values "are removed, not preserved: they were
      never identifiers". The fix is to empty the field, not to delete it —
      emptying is what the standard asks for, and H-09 no longer punishes it. */
   if (fm.uid && fm.uid !== '')
-    F('H-20', rel, `uid carries a hand-authored value — empty the field, keep it declared (S-001 §6.2)`);
+    F('H-20', rel, `uid carries a hand-authored value — empty the field, keep it declared (STD-001 §6.2)`);
 
   /* H-31: retired fields */
   for (const k of Object.keys(fm))
@@ -402,7 +406,7 @@ for (const rel of files) {
     ...(RING3[top] || []), 'subtype']);
   for (const k of Object.keys(fm))
     if (!allowed.has(k) && !RETIRED[k])
-      F('H-30', rel, `field "${k}" is in no ring and not registered for ${top}/ (S-004 §6)`);
+      F('H-30', rel, `field "${k}" is in no ring and not registered for ${top}/ (STD-004 §6)`);
 }
 
 /* ---------------- baseline ratchet ---------------- */
@@ -411,7 +415,7 @@ const keys = findings.map((f) => `${f.check} ${f.file} :: ${f.detail}`).sort();
 
 if (WRITE) {
   writeFileSync(BASELINE, JSON.stringify({
-    _comment: 'Frontmatter violations frozen at adoption (S-004 §7). The lint fails only on NEW ones. This list shrinks with each migration and never grows; its size is the corpus entropy metric.',
+    _comment: 'Frontmatter violations frozen at adoption (STD-004 §7). The lint fails only on NEW ones. This list shrinks with each migration and never grows; its size is the corpus entropy metric.',
     generated: new Date().toISOString(),
     count: keys.length,
     entries: keys,

@@ -13,10 +13,10 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [lifecycle, deletion, debt, urls, p-010, governance, entropy, d-028]
 absorbs: ["ADR-032", "ADR-033"]
-amends: ["S-001"]
+amends: ["STD-001"]
 superseded_by: null
 license: "CC-BY-4.0"
-related: ["P-010", "D-028", "D-025", "S-001", "MIS-127"]
+related: ["P-010", "D-028", "D-025", "STD-001", "MIS-127"]
 ---
 
 # Lifecycle: closing debt and deleting documents
@@ -39,13 +39,13 @@ deleted when four tests pass. Absorbed from ADR-033, which dissolved the
 2. **No public URL dies unredirected.** `scripts/check-url-lifecycle.mjs`
    against `scripts/url-baseline.json`.
 3. **A written resolution exists.** The only test no machine performs.
-4. **The folder's threshold is met** (`S-001` §2.1). `decisions/` is
+4. **The folder's threshold is met** (`STD-001` §2.1). `decisions/` is
    `governed`: an ADR, or a PR the Oracle approves.
 
 Passing 1–4, deletion needs no ADR of its own. **Merging does**, because it
 extinguishes identifiers.
 
-**Merging is permitted in `decisions/`, and this amends S-001.** S-001
+**Merging is permitted in `decisions/`, and this amends STD-001.** STD-001
 §`decisions/` reads *"append-only: a decision is superseded, never deleted…
 the superseded one stays reachable"*. That clause assumed superseding — a
 new record replacing an old one — and had no case for **absorption**, where

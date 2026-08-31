@@ -21,7 +21,7 @@ Cada uno pide algo distinto, y ninguno era una pregunta para el Oraculo:
                         identificador para lo mismo.
 
   visibility_reason(11) SE REGISTRA en debt/. Justifica por que una deuda
-                        no es publica. S-004 §5.0 ya registra
+                        no es publica. STD-004 §5.0 ya registra
                         `registration_reason` con el mismo patron:
                         el campo que explica una excepcion viaja con ella.
 

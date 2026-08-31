@@ -18,12 +18,12 @@ visibility_reason: >
   Describes which controls are NOT enforced on `main`. The ruleset itself is
   readable via the public API, so this adds a reading, not a disclosure.
 severity: high
-opened_by: "S-001 §2.1"
+opened_by: "STD-001 §2.1"
 absorbs: ["D-011", "D-019", "D-020", "D-026"]
 ---
 # DBT-002 — Root of trust: the archive's highest threshold rests on an unverifiable key
 
-> **Summary:** `S-001` §2.1 defines four change thresholds. To git they are the
+> **Summary:** `STD-001` §2.1 defines four change thresholds. To git they are the
 > same file.
 > **Epistemic:** Measures the distance between the ceremony the archive claims
 > and the ceremony it can require.
@@ -47,12 +47,12 @@ git log --follow -- "canon/C-001-welcome-to-numinia.md"
 git show fee903b -- "canon/C-001-welcome-to-numinia.md"
 ```
 
-`S-001` §2.1 replaces immutability with **change thresholds** — `sealed`,
+`STD-001` §2.1 replaces immutability with **change thresholds** — `sealed`,
 `governed`, `closed`, `open`. That is honest. It is also, today, unenforceable.
 
 ## The gap
 
-| Threshold | What `S-001` requires | What the system actually requires |
+| Threshold | What `STD-001` requires | What the system actually requires |
 |---|---|---|
 | `sealed` | Oracle's signature + ADR | a PR |
 | `governed` | ADR or Oracle-approved PR | a PR |
@@ -98,7 +98,7 @@ is a floor under all four, not a distinction between them.
 The ruleset makes the archive **harder to change carelessly**. It does not yet
 make `sealed` mean anything different from `open`:
 
-| Threshold | `S-001` §2.1 requires | The system requires today |
+| Threshold | `STD-001` §2.1 requires | The system requires today |
 |---|---|---|
 | `sealed` | Oracle's signature + ADR | a PR with green checks |
 | `governed` | ADR or Oracle-approved PR | a PR with green checks |
@@ -124,7 +124,7 @@ agent's, and remains worthless before step 3.
 ## Closing condition
 
 Marked RESOLVED when a change to a `sealed` document **cannot** land without the
-ceremony `S-001` §2.1 describes. Concretely:
+ceremony `STD-001` §2.1 describes. Concretely:
 
 1. ~~**Ruleset on `main`** — require PR, require signed commits, require linear
    history, **include administrators**.~~ **DONE 2026-08-25**, except the
@@ -144,7 +144,7 @@ Steps 1–3 are the Oracle's; step 4 is the agent's and is worthless before them
 
 The other debts are gaps between a rule and the data. This one is a gap between
 **a rule and the ability to have any rule at all**. While it stays open, every
-threshold in `S-001` §2.1 is a statement of intent — which is fine, as long as
+threshold in `STD-001` §2.1 is a statement of intent — which is fine, as long as
 the document says so, and it does.
 
 ## State
@@ -154,7 +154,7 @@ the document says so, and it does.
 | Severity | **high** — governs whether any other rule can be enforced |
 | Owner | Oracle |
 | Blocked by | requires repo admin; the agent has neither admin nor `workflow` scope |
-| Opened | 2026-08-24, by `S-001` §2.1 |
+| Opened | 2026-08-24, by `STD-001` §2.1 |
 | Closes when | a `sealed` change cannot land without its ceremony |
 
 ---
@@ -208,7 +208,7 @@ The signature is present. The means of checking it are not in the repository.
 
 ### Why this is worse than an inconvenience
 
-`S-001` §2.1 defines `sealed` as *"Oracle's signature + an ADR recording the
+`STD-001` §2.1 defines `sealed` as *"Oracle's signature + an ADR recording the
 reason"*. `D-011` records that the four thresholds had no mechanism at all.
 
 The tag closes half of that. **This entry is the other half:** a signature that
@@ -271,7 +271,7 @@ step is documented, and a third party — the agent will do — can run
 
 ### The gap
 
-`S-001` §2.1 defines `sealed` — `canon/` and restore-point tags — as requiring
+`STD-001` §2.1 defines `sealed` — `canon/` and restore-point tags — as requiring
 the Oracle's signature. That signature is currently produced by a software key:
 the private half is a file, readable by anything running as its owner.
 
@@ -442,7 +442,7 @@ Marked RESOLVED when:
 - [ ] A versioned file maps every account that has ever committed to a person
       and a role, including retired ones
 - [ ] `María`'s row is filled or explicitly marked unknown — a blank and an
-      unknown must not look alike (`S-001` §5.0)
+      unknown must not look alike (`STD-001` §5.0)
 - [ ] The file is referenced from `GOVERNANCE.md`, which is where a reader
       looks for who may do what
 - [ ] A guard checks that every author in `git log` appears in it

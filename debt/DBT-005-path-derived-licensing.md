@@ -47,7 +47,7 @@ front of them.
 
 ## What is already decided and does not change
 
-`standards/S-003-platform-role-system.md` **keeps its birth regime**,
+`standards/STD-003-platform-role-system.md` **keeps its birth regime**,
 `LicenseRef-Numen-AllRightsReserved`, declared explicitly in its frontmatter and
 pinned by a per-file annotation in `REUSE.toml`. That ruling stands regardless
 of how this question is eventually answered.
@@ -75,7 +75,7 @@ Per-file exceptions exist and are already used in both directions:
 | `standards/*Sistema_de_Diseno*.md` | `CC0-1.0` | more open than its folder |
 | `operations/legal/**` | reserved | more closed than its folder |
 | `operations/strategy/**` | reserved | more closed than its folder |
-| `standards/S-003-platform-role-system.md` | reserved | more closed than its folder |
+| `standards/STD-003-platform-role-system.md` | reserved | more closed than its folder |
 
 So the current model is **inheritance by folder with per-file overrides**. Four
 overrides exist today against seven folder rules.
@@ -112,7 +112,7 @@ destination for every rename in the repository's history.
 ```
 
 The resolver was checked against the six known regimes before the zero was
-trusted, including both pre-existing per-file exceptions (`S-001` §10.1).
+trusted, including both pre-existing per-file exceptions (`STD-001` §10.1).
 
 ## What is being watched while this stays open
 

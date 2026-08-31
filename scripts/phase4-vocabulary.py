@@ -9,7 +9,7 @@ script cierra los 20 de `guild` y `type_execution`. Los 19 de `territory`
 NO se tocan aqui: son criterio, no mecanica (ver abajo).
 
 Ninguno de estos valores es una opinion. Los cuatro gremios y los tres
-tipos de ejecucion estan declarados en S-001 desde que se escribio el
+tipos de ejecucion estan declarados en STD-001 desde que se escribio el
 glosario; lo unico que faltaba era alguien que los comprobara. Por eso el
 corpus derivo siempre de las mismas tres formas:
 

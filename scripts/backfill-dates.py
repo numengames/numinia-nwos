@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Backfill created/updated from git, per S-001 §8.
+Backfill created/updated from git, per STD-001 §8.
 
 Rules the standard imposes (§8, "Rule for the backfill"):
   - report which commit each date comes from  -> created_source: "git:<sha>"
@@ -131,7 +131,7 @@ for f in targets:
                             rf'\1\ncreated_confidence: {confidence}',
                             new_fm, count=1, flags=re.M)
 
-    # Normalise the quoted form to the bare one S-001 §8 line 1018 writes:
+    # Normalise the quoted form to the bare one STD-001 §8 line 1018 writes:
     #   created_confidence: exact | inferred
     # 37 documents predating this script carry created_confidence: "exact",
     # which is the same value in a second spelling — and two spellings of one
@@ -155,7 +155,7 @@ for f in targets:
     if APPLY:
         open(f, "w", encoding="utf8").write("---" + new_fm + "---" + body)
 
-print("=== BACKFILL created/updated FROM GIT (S-001 §8) ===")
+print("=== BACKFILL created/updated FROM GIT (STD-001 §8) ===")
 print("mode:", "APPLY" if APPLY else "DRY RUN")
 print()
 print("  files flagged H-06/H-07 :", len(targets))
