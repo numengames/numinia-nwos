@@ -1,5 +1,6 @@
 ---
 id: "PRO-013"
+uid: ""
 title: "Handing a guard to CI: the procedure for a boundary that will not move"
 type: protocol
 status: active
@@ -13,7 +14,7 @@ owner: "oracle"
 guild: "Alchemists"
 territory: "Archive"
 tags: [protocol, ci, guards, handoff, permissions]
-license: "CC-BY-4.0"
+license: "CC0-1.0"
 visibility: "public"
 applies_to: "any agent writing a verification guard"
 mandatory: true

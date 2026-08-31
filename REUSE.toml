@@ -35,7 +35,7 @@ SPDX-License-Identifier = "CC-BY-4.0"
 # --- Documentation, ADRs, specs, missions, reports → CC-BY-4.0 -----------
 [[annotations]]
 path = [
-  "decisions/**", "protocols/**", "operations/**", "reports/**",
+  "decisions/**", "operations/**", "reports/**",
   "missions/**", "standards/**", "debt/**",
   "README.md", "CHANGELOG.md", "CONTRIBUTING.md",
   "CLAUDE.md", "TRADEMARKS.md", "LEGAL_DEBT.md",
@@ -44,16 +44,20 @@ path = [
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC-BY-4.0"
 
-# --- Blueprints → CC0-1.0 (MIS-127, Oráculo decision) --------------------
+# --- Blueprints and protocols → CC0-1.0 (MIS-127, Oráculo decision) ------
 # Blueprints are public domain. The CC-BY-4.0 label they carried was applied
 # mechanically by 0157be9 (2026-08-16), which swept the whole documentation
 # block into one annotation; it was never a decision about this folder.
 # BLU-001..BLU-004 were published in April 2026 under the root CC0-1.0
 # LICENSE, so for those the waiver was already made and is irrevocable
 # (C-005: "CC0, published | None. The waiver is irrevocable").
+# protocols/ joins on the same reasoning (Oracle, 2026-08-31): they describe
+# how work is done, carry no reserved lore, and attribution on an operating
+# procedure buys nothing. P-001..P-005 were likewise published in April 2026
+# under the root CC0-1.0 LICENSE, so that waiver is irrevocable too.
 # After the docs block so it wins.
 [[annotations]]
-path = ["blueprints/**"]
+path = ["blueprints/**", "protocols/**"]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC0-1.0"
 

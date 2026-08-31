@@ -1,5 +1,6 @@
 ---
 id: "PRO-005"
+uid: ""
 title: "Escalation Protocol"
 type: protocol
 status: active
@@ -13,7 +14,7 @@ owner: "oracle"
 tags: [protocol, escalation, security]
 applies_to: [all-agents]
 mandatory: true
-license: "CC-BY-4.0"
+license: "CC0-1.0"
 ---
 # PRO-005 — Escalation Protocol
 
