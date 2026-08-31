@@ -109,12 +109,18 @@ export interface Section {
 }
 
 export const SECTIONS: Section[] = [
-  { prefix: "canon/",      slug: "canon",      label: "Canon",      blurb: "What is settled.",            collection: "corpus" },
-  { prefix: "decisions/",  slug: "decisions",  label: "Decisions",  blurb: "What was chosen, and why.",   collection: "decisions" },
-  { prefix: "standards/",  slug: "standards",  label: "Standards",  blurb: "How it is written.",          collection: "corpus" },
-  { prefix: "protocols/",  slug: "protocols",  label: "Protocols",  blurb: "How things are done.",        collection: "corpus" },
-  { prefix: "blueprints/", slug: "blueprints", label: "Blueprints", blurb: "What is being built.",        collection: "blueprints" },
-  { prefix: "debt/",       slug: "debt",       label: "Debt",       blurb: "What is known to be wrong.",  collection: "corpus" },
+  { prefix: "canon/",      slug: "canon",      label: "Canon",      collection: "corpus",
+    blurb: "The ground the rest stands on: what Numinia is, before anyone argues about how to build it." },
+  { prefix: "decisions/",  slug: "decisions",  label: "Decisions",  collection: "decisions",
+    blurb: "Why we went this way and not the other, written down while the reasons were still alive." },
+  { prefix: "standards/",  slug: "standards",  label: "Standards",  collection: "corpus",
+    blurb: "The bar every artifact has to clear before it counts as done, and who checks that." },
+  { prefix: "protocols/",  slug: "protocols",  label: "Protocols",  collection: "corpus",
+    blurb: "The steps an actor follows, in order, so the same job comes out the same way twice." },
+  { prefix: "blueprints/", slug: "blueprints", label: "Blueprints", collection: "blueprints",
+    blurb: "Designs that could be built: argued through on paper, waiting for a decision that turns them real." },
+  { prefix: "debt/",       slug: "debt",       label: "Debt",       collection: "corpus",
+    blurb: "What we know is broken or missing, admitted in writing before anyone else has to find it." },
 ];
 
 // NOT sections, and why — recorded so the next reader does not re-litigate it:

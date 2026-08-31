@@ -30,12 +30,12 @@ const { section, docs } = Astro.props;
 
 <Layout
   title={`${section.label} — Corpus NWOS`}
-  description={`${section.blurb} ${docs.length} documentos.`}
+  description={section.blurb}
 >
   <PageHero
     label="CAO · NWOS"
     title={section.label}
-    description={`${section.blurb} ${docs.length} ${docs.length === 1 ? "documento" : "documentos"}, derivados del repositorio en cada build.`}
+    description={section.blurb}
   />
 
   <section class="pb-24">
