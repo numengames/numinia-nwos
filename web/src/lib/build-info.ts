@@ -63,7 +63,7 @@ export const REPO_URL = "https://github.com/numengames/numinia-nwos";
  * broken link into GitHub is worse than no link.
  */
 const REPO_DIRS =
-  "agents|blueprints|canon|decisions|guilds|missions|operations|protocols|reports|standards|debt|web";
+  "agents|blueprints|canon|decisions|guilds|history|missions|operations|protocols|reports|standards|system|debt|web";
 
 export function repoFileUrl(filePath: string, branch = "main"): string | null {
   const rel = String(filePath).replace(/\\/g, "/");

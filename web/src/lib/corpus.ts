@@ -117,6 +117,8 @@ export const SECTIONS: Section[] = [
     blurb: "The bar every artifact has to clear before it counts as done, and who checks that." },
   { prefix: "protocols/",  slug: "protocols",  label: "Protocols",  collection: "corpus",
     blurb: "The steps an actor follows, in order, so the same job comes out the same way twice." },
+  { prefix: "system/",     slug: "system",     label: "System",     collection: "corpus",
+    blurb: "How the machine is actually wired today: the manual you read when you need it to work, not to argue." },
   { prefix: "blueprints/", slug: "blueprints", label: "Blueprints", collection: "blueprints",
     blurb: "Designs that could be built: argued through on paper, waiting for a decision that turns them real." },
   { prefix: "debt/",       slug: "debt",       label: "Debt",       collection: "corpus",
@@ -236,6 +238,15 @@ const READING_ORDER: Record<string, string[]> = {
     "/corpus/protocols/pro-013-handing-a-guard-to-ci",
   ],
 
+  // Three manuals, read outside in: the shape of the whole machine → the
+  // loop one agent actually runs inside it → the shelves where everything
+  // it produces ends up.
+  system: [
+    "/corpus/system/sys-001-cao-architecture",
+    "/corpus/system/sys-002-agent-cycle",
+    "/corpus/system/sys-003-archive-fondos",
+  ],
+
   // Zoom out to zoom in and out again: what the system is → how it is built →
   // the unit of work → the person doing the work → where the work is kept →
   // what things are called → how it is measured → where it is all going.
@@ -260,6 +271,7 @@ export const READING_NOTE: Record<string, string> = {
   standards: "Language first — nothing below can be read without it. Then who may change what, then the shape a document takes, then how the thing gets built.",
   protocols: "One working day, in order: you sit down, you take a mission, you need a ruling, you get stuck, you file the result — and then you hand the checking to a machine that never forgets.",
   blueprints: "Zoom out, then in, then out again: the system, its architecture, the unit of work, the person doing it, where it is all kept — and where it is going.",
+  system: "Not what we plan to build — what is running. Widest first: the whole machine, then the loop a single agent works inside, then the shelves everything it produces lands on.",
   debt: "No order to argue about. These are confessions, filed by number, and the point of the register is that none of them is hidden.",
 };
 

@@ -129,6 +129,13 @@ const corpus = defineCollection({
       "operations/**/*.md",
       "protocols/**/*.md",
       "standards/**/*.md",
+      // system/ — reference manuals of how the machine works TODAY, opened by
+      // ADR-035 with prefix SYS. Distinct from standards/ (how documents must
+      // be written), protocols/ (steps to follow) and blueprints/ (what does
+      // not exist yet). Three files arrived here on 2026-08-31 by renaming
+      // BLU-004/005/006: their content was always a manual, only the shelf
+      // was wrong.
+      "system/**/*.md",
       "reports/**/*.md",
       "!reports/audits/**",
       "decisions/**/*.md",

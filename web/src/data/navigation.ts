@@ -24,6 +24,10 @@ export const navItems: NavItem[] = [
   { label: "Decisions", href: "/corpus/decisions/", id: "decisiones", section: "decisions" },
   { label: "Standards", href: "/corpus/standards/", id: "standards", section: "standards" },
   { label: "Protocols", href: "/corpus/protocols/", id: "protocols", section: "protocols" },
+  // System: reference manuals of how the machine works TODAY (ADR-035). It sits
+  // after Protocols and before Blueprints on purpose — it is the hinge between
+  // what is prescribed and what is merely proposed: this is what runs.
+  { label: "System", href: "/corpus/system/", id: "system", section: "system" },
   { label: "Blueprints", href: "/corpus/blueprints/", id: "planos", section: "blueprints" },
   { label: "Missions", href: "/missions", id: "missions" },
   { label: "Debt", href: "/corpus/debt/", id: "debt", section: "debt" },
