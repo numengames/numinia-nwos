@@ -58,6 +58,13 @@ function flag(name, def = undefined) {
   if (i === -1) return def;
   return args[i + 1];
 }
+// CodeQL: js/regex-injection — TO/FROM/etc. are CLI args, not literal
+// strings; escape before interpolating into `new RegExp(...)` so a
+// malformed --to/--from value can't build an unintended or catastrophic
+// pattern.
+function reEscape(s) {
+  return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
 const APPLY = args.includes('--apply');
 const INCLUDE_FROZEN = args.includes('--include-frozen-artifacts');
 const INCLUDE_EXEMPT = args.includes('--include-exempt');
@@ -138,7 +145,7 @@ for (const { dir, tag } of dirSpecs) {
       continue;
     }
     // idempotency: already matches the target scheme exactly?
-    const already = new RegExp(`^${TO}-\\d{${DIGITS}}-`).test(base);
+    const already = new RegExp(`^${reEscape(TO)}-\\d{${DIGITS}}-`).test(base);
     if (already) continue;
     candidates.push({ rel, base, fm, text, tag });
   }
@@ -147,8 +154,8 @@ for (const { dir, tag } of dirSpecs) {
 /* ---- number extraction / assignment ---- */
 function extractExistingNumber(base, fm) {
   for (const p of fromPrefixes) {
-    const re = new RegExp(`^${p}-(\\d+)(?:-|\\.md$)`);
-    const m = base.match(re) || (fm.id || '').match(new RegExp(`^${p}-(\\d+)$`));
+    const re = new RegExp(`^${reEscape(p)}-(\\d+)(?:-|\\.md$)`);
+    const m = base.match(re) || (fm.id || '').match(new RegExp(`^${reEscape(p)}-(\\d+)$`));
     if (m) return parseInt(m[1], 10);
   }
   return null;
@@ -191,7 +198,7 @@ const plan = [...withNumber, ...assigned].sort((a, b) => a.num - b.num).map((c) 
   // guess a prefix off an unnumbered basename. "engineering-standards.md"
   // is not "PREFIX=engineering, name=standards"; it is one whole name.
   let slugSource = c.base.replace(/\.md$/, '');
-  const hadNumber = fromPrefixes.some((p) => new RegExp(`^${p}-\\d+-`).test(c.base));
+  const hadNumber = fromPrefixes.some((p) => new RegExp(`^${reEscape(p)}-\\d+-`).test(c.base));
   if (hadNumber) {
     const stripped = c.base.match(/^[A-Za-z]+-\d[\d_-]*-(.+)\.md$/);
     if (stripped) slugSource = stripped[1];
@@ -297,8 +304,8 @@ for (const p of plan) {
   let text = readFileSync(absOld, 'utf8');
   text = text.replace(/^id:\s*.*/m, `id: "${p.newId}"`);
   if (p.tag && SUBTYPE_FIELD) {
-    if (new RegExp(`^${SUBTYPE_FIELD}:`, 'm').test(text)) {
-      text = text.replace(new RegExp(`^${SUBTYPE_FIELD}:.*`, 'm'), `${SUBTYPE_FIELD}: ${p.tag}`);
+    if (new RegExp(`^${reEscape(SUBTYPE_FIELD)}:`, 'm').test(text)) {
+      text = text.replace(new RegExp(`^${reEscape(SUBTYPE_FIELD)}:.*`, 'm'), `${SUBTYPE_FIELD}: ${p.tag}`);
     } else {
       text = text.replace(/^(type:.*)$/m, `$1\n${SUBTYPE_FIELD}: ${p.tag}`);
     }
