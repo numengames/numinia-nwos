@@ -163,22 +163,47 @@ document went.
 
 Marked RESOLVED when:
 
-- [ ] A guard fails a PR that renames a published file without a redirect or a
-      declared retirement
-- [ ] `astro.config.mjs`'s redirect list is reconciled against the published
+- [x] A guard fails a PR that renames a published file without a redirect or a
+      declared retirement — **`scripts/check-url-lifecycle.mjs`, 2026-08-31
+      (`ADR-033`).** Verified against a real deletion rather than asserted:
+      removing `reports/audits/AUD-2026-08-26-complexity.md` and rebuilding
+      leaves `npm run build` at **exit 0** while the site drops 660 → 658
+      pages; the guard fails, names the dead address, and `--propose` emits
+      the redirect line. Wired into `ci.yml` after the build step.
+- [x] `astro.config.mjs`'s redirect list is reconciled against the published
       surface at least once, and the orphans found are recorded rather than
-      silently fixed
-- [ ] `404.astro` exists and points at `/corpus`
-- [ ] The phase-B config comment's misreading of `DEUDA-404` is corrected
+      silently fixed — **`scripts/url-baseline.json`, 2026-08-31**: the
+      manifest of all **536** public URLs (`/print/*` intermediates
+      excluded) at `4879aec`. This is the measurement the entry said nobody
+      had performed. It found **no orphan**: every URL in the baseline was
+      live at the moment of freezing, so there was nothing to record beyond
+      the manifest itself. What it cannot say is which addresses died
+      *before* the baseline existed — that history is not recoverable from
+      the build, only from `git log`'s 192 renames, and this entry does not
+      claim otherwise.
+- [x] `404.astro` exists and points at `/corpus` — landed earlier under
+      `MIS-128`; verified present at `web/src/pages/404.astro`, served via
+      `not_found_handling = "404-page"`.
+- [ ] The phase-B config comment's misreading of `DEUDA-404` is corrected —
+      **still open.** `web/astro.config.mjs:22` retains the comment. Left
+      untouched deliberately: it is a prose correction in a file this change
+      already edits for other reasons, and folding it in would mix a
+      documentation fix into a rule change. Carried below.
 
-The second bullet is the one that carries the entry: **nobody knows today which
-published URLs stopped resolving**, and finding out is a measurement no
-instrument currently performs.
+**Status after `ADR-033`: three of four conditions met.** The entry stays
+open on the fourth, and on the two blind spots the new guard declares
+(`D-025`, printed on every run): a redirect's *target* is not verified to
+answer the question the dead URL answered — a 301 to a section index passes
+— and inbound links from outside this repository are invisible to it. The
+mechanism now exists; the judgment it cannot make is still owed. Downgraded
+from **medium** to **low**: silent breakage is no longer possible, only
+imprecise redirection.
 
 | | |
 |---|---|
-| Severity | medium — public addresses break silently; no data lost |
+| Severity | low (was medium) — breakage now fails CI; what remains is redirect quality and one stale comment |
 | Owner | Oracle |
-| Blocked by | nothing; `D-017` for the CI step |
+| Blocked by | nothing |
 | Opened | 2026-08-25, at the Oracle's instruction during `MIS-109` phase B |
-| Closes when | renames declare their URL consequences and retirement is explicit |
+| Instrument landed | 2026-08-31, `ADR-033` — `check-url-lifecycle.mjs` + 536-URL baseline |
+| Closes when | the `DEUDA-404` comment is corrected and redirect targets are verified to succeed the content, not merely to resolve |

@@ -1,6 +1,61 @@
 {
   "$comment": "Blind-spot registry — D-025. Single source of truth for what each guard CANNOT see. Guards import scripts/lib/blindness.mjs and call declareBlindSpots(<id>), which prints these on every exit path, success or failure. Verified by scripts/test/blindness.test.mjs: every id here must be claimed by a guard, every guard must declare, and the fixture-backed entries are proven against real files rather than asserted.",
   "guards": {
+    "check-deletable": {
+      "script": "scripts/check-deletable.mjs",
+      "sees": "whether a document has living inbound citers, whether it is sealed, and which public URLs it publishes (ADR-033 tests 1, 4, and the evidence for 2)",
+      "blind_to": [
+        {
+          "spot": "test 3 — whether a written resolution EXISTS and is adequate. It prints the prompt and never answers it: that is a judgment about meaning, and P-010 §3.4 already ruled the citation/mention distinction 'lives in the sentence'",
+          "covered_by": null,
+          "debt": "D-028"
+        },
+        {
+          "spot": "the citation/mention distinction itself — it counts a substring match, so a document MENTIONED as evidence in a fixed record counts the same as one CITED as a live pointer (P-010 §3.4). It errs toward refusing, which is the safe direction",
+          "covered_by": null,
+          "debt": "D-048"
+        },
+        {
+          "spot": "consumers outside this repository — numinia-web's design-source.json pin, external inbound links, anything reading the raw GitHub URL. The same class of consumer that reverted the rename in D-024",
+          "covered_by": null,
+          "debt": "D-028"
+        },
+        {
+          "spot": "consumers written in code (.ts, .astro, .json manifests) — it scans .md only, so a slug map or import.meta.glob referencing a document is invisible",
+          "covered_by": "npm run build + check-references"
+        },
+        {
+          "spot": "untracked files — enumerates via `git ls-files`, so a citation from a .md that is not `git add`ed is never seen (D-049). It warns rather than passing silently",
+          "covered_by": "its own untracked-file warning",
+          "debt": "D-049"
+        }
+      ]
+    },
+    "check-url-lifecycle": {
+      "script": "scripts/check-url-lifecycle.mjs",
+      "sees": "public URLs that stop being built without a redirect declared in web/astro.config.mjs (D-028)",
+      "blind_to": [
+        {
+          "spot": "whether a redirect's TARGET actually answers the question the dead URL answered — a 301 to a section index silences this guard and still loses the content",
+          "covered_by": null,
+          "debt": "D-028"
+        },
+        {
+          "spot": "inbound links from OUTSIDE the repository — search engines, other sites, the numinia-web repo, printed QR codes. It knows an address died; it cannot know who was walking to it",
+          "covered_by": null,
+          "debt": "D-028"
+        },
+        {
+          "spot": "URLs that never entered the baseline because the build that would have published them failed or was never run — it measures web/dist, so it inherits that build's coverage exactly",
+          "covered_by": "npm run build in CI"
+        },
+        {
+          "spot": "redirect rules with Astro's [param] syntax (e.g. /misiones/[id]) — those are matched literally against the baseline, so a parameterised route is neither verified nor expanded",
+          "covered_by": null,
+          "debt": "D-028"
+        }
+      ]
+    },
     "check-references": {
       "script": "scripts/check-references.mjs",
       "sees": ".md and .json citations, by identifier and by path",
