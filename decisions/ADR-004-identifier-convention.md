@@ -4,9 +4,9 @@ uid: ""
 title: "Document identifiers are opaque, sequential and permanent"
 type: adr
 status: active
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-24T15:00:00Z"
-updated: "2026-08-24T15:00:00Z"
+updated: "2026-08-31T09:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [decisions, adr, identifiers, naming, archive, provenance]
@@ -26,14 +26,12 @@ license: "CC-BY-4.0"
 ## Context
 
 Every series in this repository already follows the same identifier shape:
+`<PREFIX>-<NNN>` (or `<PREFIX>-YYYY-MM-DD` for date-identified series).
 
-| Series | Prefix | Count | Consistency |
-|---|---|--:|---|
-| `missions/` | `MIS-NNN` | 105 | 100 % |
-| `protocols/` | `P-NNN` | 11 | 100 % |
-| `decisions/` | `ADR-NNN` · `DEC-NNN` | 3 + 6 | 100 % of shape, **two prefixes** |
-| `reports/daily/` | `RPT-YYYY-MM-DD` | 8 | 100 % |
-| `canon/` | `C-NNN` | partial | not all documents carry one |
+A per-series count table lived here in v1.0.0. Removed in v1.1.0: it went
+stale the same day it was written, and this document is not the place that
+measures coverage. `D-008` is — read there for the live count, and for the
+full 13-series register (`MIS-125`).
 
 **No decision records this.** It is a convention of fact: obeyed without
 exception for 105 missions, and written down nowhere. A convention nobody has
@@ -70,10 +68,35 @@ correct because a daily report *is* its date: the date is the report's
 identity, not a mutable attribute of it. This is the sole exception, and it is
 an exception by nature, not by convenience.
 
-**4. Numbers are never reused and never renumbered.** The gap between
-`MIS-096` and `MIS-100` stays open. A retired, cancelled or deleted document
-does not free its number: the 1,619 references in the corpus, in agent memory
-and in commit messages continue to mean what they meant.
+**4. Numbers are never reused. They are not renumbered, except to repair a
+broken registry, and only under three mandatory conditions:**
+
+1. **Measurable collision or violation** — not aesthetic preference. A
+   number identifying two live documents, or a series applying a scheme
+   inconsistently, qualifies. A cleaner-looking number does not.
+2. **Consumers enumerated first.** Every citation, cross-reference and
+   relation graph entry the identifier touches is listed before the rename.
+   If one cannot be updated in the same change, the renumbering is
+   deferred and the document is marked `registration: exempt` with a
+   reason instead of proceeding partially.
+3. **Verified after the fact.** `scripts/check-references.mjs` run clean,
+   plus a dated note in the renamed document's own version history — never
+   a silent edit.
+
+The gap between `MIS-096` and `MIS-100` stays open regardless: a retired,
+cancelled or deleted document does not free its number.
+
+> **Precedent, recorded retroactively (v1.1.0).** `MIS-109` (2026-08-25)
+> renumbered canon's seminal series `S-002`…`S-010` → `C-NNN` — in fact an
+> exercise of this exception, before this ADR ever stated it. Measured
+> against the three conditions above: (1) collision — `S-001` identified
+> two live documents at once (this glossary and canon's own `Welcome to
+> Numinia`); (2) consumers enumerated — 40 citations plus the relation
+> graph in `canon/INDEX.md`, all updated in the same operation (`ADR-005`,
+> `S-001` v2.5.0); (3) verified — `scripts/resolve-citations.py` at the
+> time, `check-references.mjs` did not exist yet. This ADR was never
+> amended to say so until now, which let it contradict the repo it
+> governs. It no longer does.
 
 **5. Allocation.** The next free number is computed over what is **committed**,
 after `git pull` — never over the working tree. On collision, the first commit
@@ -153,6 +176,13 @@ cheaper than recovering from its unrecorded loss.
 
 ## Version history
 
+- v1.1.0 (2026-08-31) — MIS-125. Removed the per-series count table from
+  §Context (stale the day it is written; `D-008`/`MIS-125` own the
+  measurement now). Rewrote rule 4: renumbering is possible under three
+  named conditions instead of forbidden outright, and the `MIS-109`
+  canon renumbering is recorded as its first exercised precedent — it had
+  happened before this rule existed to permit it, which is the
+  contradiction this revision closes.
 - v1.0.0 (2026-08-24) — Initial decision. Records the identifier convention in
   use since 2026-04-06, and closes the `ADR-`/`DEC-` prefix ambiguity.
 

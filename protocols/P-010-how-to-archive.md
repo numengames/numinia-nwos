@@ -3,11 +3,11 @@ id: "P-010"
 title: "How to Archive — the NWOS archival protocol"
 type: protocol
 status: draft
-version: "0.3.0"
+version: "0.4.0"
 created: "2026-08-18T10:51:09Z"
 created_source: "git:9f25053"
 created_confidence: exact
-updated: "2026-08-27T14:42:33Z"
+updated: "2026-08-31T09:40:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [protocols, archive, taxonomy, naming, iso-15489]
@@ -121,6 +121,16 @@ Inherited from v0.1.12, still in force, but in the frontmatter:
   entry is deleted once its resolution is written in the ADR, mission or
   report that closed it. Git keeps the text. This rule stays intact for
   canon, standards, decisions and every memory series.
+- **Execution plans are scratch, not memory (`MIS-125`, 2026-08-31).** A
+  plan in `.hermes/plans/` — repo-local, never `~/.hermes/` — that governs
+  a mission's active execution lives only as long as that execution.
+  Once the mission it governs closes: relevant content is summarised into
+  that mission's own file (`missions/MIS-NNNN.md`), or, if it describes a
+  measurable gap that survives closure, promoted to `debt/`. The plan file
+  itself is deleted in the same commit that closes the mission — it never
+  remains as evidence outside the versioned corpus. Rationale: a plan is
+  working memory for one execution, not a record the corpus should carry
+  forward; the mission and, where warranted, `debt/` are that record.
 - Review cadence: `review_next` in frontmatter (inherited from v0.1.12's
   "NEXT REVIEW ON"); ISO 15489 inspections (MIS-067) audit it.
 
@@ -147,3 +157,12 @@ catalogue generated at build · Drive encryption/MFA/roles → repo
 visibility + Oracle signatures (C-005: what is public is a living license
 offer) · monthly in-person training → protocols P-002/P-007 executable by
 agents.
+
+## Change history
+
+- v0.4.0 (2026-08-31) — `MIS-125`. §5 gains the execution-plan lifecycle
+  rule: a `.hermes/plans/` file is scratch for one mission's active
+  execution and is deleted in the same commit that closes the mission,
+  its relevant content summarised into the mission or promoted to `debt/`.
+- v0.3.0 and earlier — see git history; no changelog was kept before this
+  entry.

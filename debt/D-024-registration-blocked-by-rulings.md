@@ -1,14 +1,14 @@
 ---
 id: "D-024"
 uid:
-title: "Five documents cannot be registered without a prior decision"
+title: "Five documents cannot be registered without a prior decision (RESOLVED)"
 type: documentation
-status: active
-version: "1.0.0"
+status: closed
+version: "1.2.0"
 created: "2026-08-25T12:54:11Z"
 created_source: "git:7f06626"
 created_confidence: exact
-updated: "2026-08-25T12:54:11Z"
+updated: "2026-08-31T10:15:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -115,17 +115,62 @@ artifacts anyway.
 Marked RESOLVED when:
 
 - [x] A declared-exception value exists and is applied *(S-001 §5.0, 2026-08-25)*
-- [ ] An ADR rules the genre of `security-policy` and `credential-map`, and the
+- [x] An ADR rules the genre of `security-policy` and `credential-map`, and the
       two `pending-genre-ruling` exemptions are removed or made permanent
-- [ ] `P-010-how-to-archive.md` and its dated twin declare their relation
-- [ ] `engineering-standards.md` gets frontmatter, or a written decision that it
+      *(Oracle ruling, 2026-08-31, `MIS-125`/`D-008` v2.0.0: both register
+      as `OPS-NNN` by folder membership, independent of the `type:` genre
+      debate — the exemption is removed, not made permanent)*
+- [x] `P-010-how-to-archive.md` and its dated twin declare their relation
+      *(moot: `MIS-125` registers the dated twin as `PRO-NNN` in the same
+      pass rather than leaving it a frozen artifact — see `D-008` v2.0.0)*
+- [x] `engineering-standards.md` gets frontmatter, or a written decision that it
       stays without one — it is the repository's operative standard and the only
       unexplained gap left in `standards/`
+      *(it already had frontmatter with `registration: exempt` by the time
+      this was re-checked, 2026-08-31 — stale claim in this document,
+      corrected here; registers as `STD-NNN` in `MIS-125`)*
+- [x] `protocols/APPROVAL-REQUEST-template.md` — **left exempt, correctly,
+      not registered.** This debt's own §"remaining candidate" already
+      established why: it is apparatus of `P-008-approval-brief-v1.md`
+      (its template), not an orphaned document — same class as
+      `README.md`/`INDEX.md`, which `D-008` also excludes rather than
+      numbers. v1.1.0 first marked this `[x]` as "enters the scheme, no
+      exception" alongside the other 24 — wrong, contradicted this
+      document's own earlier reasoning without re-reading it. Corrected
+      2026-08-31: `D-008` v2.0.0's exempt-set table never listed it either,
+      which is what caught the error.
+
+**Resolved 2026-08-31, by Oracle ruling recorded in `D-008` v2.0.0
+("The `registration: exempt` set" section) and `MIS-125`.** Three of the
+four `registration: exempt` content documents this debt tracked now enter
+the prefix scheme with no exception — closing the genre question that
+blocked two of them, and superseding the "frozen artifact" reasoning that
+had exempted the third. The fourth, `APPROVAL-REQUEST-template.md`, stays
+exempt on its original, still-correct reasoning: it is apparatus, not an
+unregistered document. `S-001` §5.0's `registration: exempt` mechanism
+stays in force for genuine apparatus (README/INDEX/templates); of the five
+documents named in this debt's original scope, it no longer applies to
+four of them.
 
 | | |
 |---|---|
 | Severity | low — nothing is broken; the coverage figure now reads honestly |
-| Owner | Oracle (genre ADR) |
-| Blocked by | genre ruling · `D-017` for the scorecard reference |
+| Owner | Oracle |
 | Opened | 2026-08-25, closing phase 1 |
-| Closes when | the genre is ruled and no unexplained gap remains |
+| Resolved | 2026-08-31, by Oracle ruling — `D-008` v2.0.0, `MIS-125` |
+
+## Version history
+
+- v1.2.0 (2026-08-31) — Corrected by the Oracle's own review: v1.1.0
+  marked `APPROVAL-REQUEST-template.md` `[x]` alongside the other 24,
+  contradicting this document's own earlier finding (§"remaining
+  candidate") that it is apparatus of `P-008`, not orphaned. It stays
+  `registration: exempt`. `D-008` v2.0.0's exempt-set table never listed
+  it either — cross-checking the two closing documents against each other
+  is what caught the contradiction.
+- v1.1.0 (2026-08-31) — `MIS-125`. Closed: the Oracle ruled the pending
+  genre question and elected to register all remaining exempt documents
+  rather than leave any exemption standing. `engineering-standards.md`'s
+  "no frontmatter" claim (v1.0.0) was stale — corrected in the closing
+  checklist rather than left uncorrected.
+- v1.0.0 (2026-08-25) — Initial debt.

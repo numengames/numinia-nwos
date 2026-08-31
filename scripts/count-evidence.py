@@ -64,18 +64,22 @@ def main():
     R['referencias_top'] = menciones.most_common(6)
 
     # --- 3. Uniformidad de matrícula por serie ---
+    # Esquema post-ADR-005 v1.1.0 / MIS-125 (2026-08-31): 13 series
+    # registradas, contra el registro NUEVO — no el viejo (D-008 mide la
+    # distancia a este objetivo, no a un objetivo ya retirado).
     series = {
-        'missions': (r'^MIS-\d{3}-', 'MIS-NNN'),
-        'protocols': (r'^P-\d{3}-', 'P-NNN'),
+        'missions': (r'^MIS-\d{4}-', 'MIS-NNNN'),
+        'protocols': (r'^PRO-\d{3}-', 'PRO-NNN'),
         'decisions': (r'^(ADR|DEC)-\d{3}-', 'ADR/DEC-NNN'),
-        'reports/daily': (r'^RPT-\d{4}-\d{2}-\d{2}', 'RPT-fecha'),
-        'reports/audits': (r'^AUD-\d{4}-\d{2}-\d{2}', 'AUD-fecha'),
-        'blueprints': (r'^BP-', 'BP-slug'),
-        'canon': (r'^C-\d{3}-', 'C-NNN'),
-        'standards': (r'^S-\d{3}-', 'S-NNN'),
-        'agents': (r'^A-\d{3}-', 'A-NNN'),
-        'operations': (r'^O-\d{3}-', 'O-NNN'),
-        'debt': (r'^D-\d{3}-', 'D-NNN'),
+        'reports/daily': (r'^RPT-\d{3}-', 'RPT-NNN (subtype: daily)'),
+        'reports/audits': (r'^RPT-\d{3}-', 'RPT-NNN (subtype: audit)'),
+        'blueprints': (r'^BLU-\d{3}-', 'BLU-NNN'),
+        'canon': (r'^CAN-\d{3}-', 'CAN-NNN'),
+        'standards': (r'^STD-\d{3}-', 'STD-NNN'),
+        'operations': (r'^OPS-\d{3}-', 'OPS-NNN'),
+        'debt': (r'^DBT-\d{3}-', 'DBT-NNN'),
+        'guilds': (r'^GLD-\d{3}-', 'GLD-NNN'),
+        'infra': (r'^INF-\d{3}-', 'INF-NNN'),
     }
     R['matricula'] = {}
     for carpeta, (pat, etiqueta) in series.items():
@@ -87,6 +91,12 @@ def main():
         R['matricula'][carpeta] = {'esquema': etiqueta, 'con': ok,
                                    'total': len(sel),
                                    'pct': round(100 * ok / len(sel), 1) if sel else None}
+    # agents/ queda fuera del registro (ADR-005 v1.1.0, reversión explícita
+    # de la regla AG-NNN — identificado por nombre de carpeta, no numerado).
+    agent_dirs = [d for d in os.listdir(os.path.join(ROOT, 'agents'))
+                  if os.path.isdir(os.path.join(ROOT, 'agents', d)) and d != '_template'] \
+                 if os.path.isdir(os.path.join(ROOT, 'agents')) else []
+    R['agents_sin_prefijo_por_diseno'] = len(agent_dirs)
 
     # --- 4. uid: cuántos y cuántos fabricados ---
     uids = {}

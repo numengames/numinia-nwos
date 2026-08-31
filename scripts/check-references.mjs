@@ -2,24 +2,36 @@
 /**
  * check-references.mjs — the reference lint (ADR-004, known gap).
  *
- * This corpus cites documents two ways, and only one of them is safe:
+ * This corpus cites documents THREE ways, and only one of them was ever
+ * safe:
  *
- *   1. Markdown links   [text](../path/doc.md)   — breakable, and visible
- *   2. Plain-text IDs   "see MIS-085"            — breakable, and INVISIBLE
+ *   1. Markdown links     [text](../path/doc.md)   — breakable, and visible
+ *   2. Plain-text IDs     "see MIS-085"             — breakable, INVISIBLE
+ *   3. Bare filenames     "see credential-map.md"   — breakable, INVISIBLE,
+ *                         and the ONLY way to cite a `registration: exempt`
+ *                         document (it has no PREFIX-NNN by design, so check
+ *                         2 can never see it). Added MIS-125 (2026-08-31),
+ *                         after D-024 closed 24 exempt documents into the
+ *                         prefix scheme and this script turned out unable to
+ *                         verify a single one of their citations.
  *
- * There are ~1,600 mentions of the second kind. No tool has ever validated
- * them, so a rename or a folder move breaks meaning without breaking a build.
- * This script is the missing verification: it is what makes the archive
- * restructuring a verifiable operation instead of a bet.
+ * There are ~1,600+ mentions of kind 2 and, measured on just 2 of the 24
+ * newly-registering documents, 29 more of kind 3 — no tool had ever
+ * validated either, so a rename or a folder move breaks meaning without
+ * breaking a build. This script is the missing verification: it is what
+ * makes the archive restructuring a verifiable operation instead of a bet.
  *
  *   node scripts/check-references.mjs              # verify against baseline
  *   node scripts/check-references.mjs --report     # full detail, exit 0
  *   node scripts/check-references.mjs --write-baseline
  *
- * Baseline: 14 markdown links are already broken in main. Failing on those
- * on day one would mean the check never gets adopted. Instead the current
- * damage is frozen in scripts/references-baseline.json and the script fails
- * only on NEW breakage — a ratchet, not a cliff.
+ * Baseline: known-broken references are frozen at adoption time (kinds 1
+ * and 2 originally; kind 3 baselined MIS-125, 2026-08-31, since it had
+ * never been measured before and could not honestly start at zero).
+ * Failing on pre-existing damage on day one would mean the check never
+ * gets adopted. Instead the current damage is frozen in
+ * scripts/references-baseline.json and the script fails only on NEW
+ * breakage — a ratchet, not a cliff.
  */
 import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
@@ -33,13 +45,24 @@ const args = process.argv.slice(2);
 const REPORT = args.includes('--report');
 const WRITE = args.includes('--write-baseline');
 
-/** Identifier prefixes that name a real series (ADR-004 §1). */
+/** Identifier prefixes that name a real series (ADR-005 v1.1.0, the
+ * 13-series register, MIS-125 2026-08-31). Superseded the 5-prefix map
+ * this script shipped with (MIS/ADR/DEC/P/RPT only) — that map went blind
+ * to every rename this same mission performs, which would have made this
+ * guard's "exit 0" a false green light. */
 const SERIES = {
   MIS: 'missions',
   ADR: 'decisions',
   DEC: 'decisions',
-  P: 'protocols',
-  RPT: 'reports/daily',
+  PRO: 'protocols',
+  RPT: 'reports',
+  DBT: 'debt',
+  STD: 'standards',
+  CAN: 'canon',
+  OPS: 'operations',
+  BLU: 'blueprints',
+  GLD: 'guilds',
+  INF: 'infra',
 };
 
 const files = execFileSync('git', ['-C', ROOT, 'ls-files', '*.md'], { encoding: 'utf8' })
@@ -50,6 +73,8 @@ const files = execFileSync('git', ['-C', ROOT, 'ls-files', '*.md'], { encoding: 
 
 const known = new Set();        // every identifier that resolves to a document
 const idOwner = new Map();      // identifier -> file that defines it
+const basenames = new Set();    // every current file's bare basename ("credential-map.md")
+const basenameOwner = new Map();
 
 for (const rel of files) {
   const base = path.basename(rel, '.md');
@@ -59,6 +84,9 @@ for (const rel of files) {
     known.add(id);
     idOwner.set(id, rel);
   }
+  const bareName = path.basename(rel);
+  basenames.add(bareName);
+  if (!basenameOwner.has(bareName)) basenameOwner.set(bareName, rel);
   // an identifier may also be declared in frontmatter without being in the name
   const text = readFileSync(path.join(ROOT, rel), 'utf8');
   const fm = text.match(/^---\s*\n([\s\S]*?)\n---/);
@@ -76,12 +104,19 @@ for (const rel of files) {
 const brokenLinks = [];
 const unknownIds = [];
 const crossRepo = [];   // identifiers that belong to another repo's namespace
+const unknownFilenames = [];  // bare "some-doc.md" mentions that resolve to nothing
 
 // Identifiers we deliberately do not resolve here:
-//  - C-NNN  : canon/ does not apply the scheme consistently yet (ADR-004 ⚠)
-//  - BP-*   : blueprints use slugs, not numbers
-//  - CON-*, FLAG-*, D-* : registers that live in prose, not as documents
-const IGNORED_PREFIX = /^(C|BP|CON|FLAG|D|SEC|ARC|G|S|MISSION)-/;
+//  - CON-*, FLAG-*, SEC-*, ARC-*, G-*, MISSION- : registers that live in
+//    prose, not as documents
+//  - BP-* : the OLD blueprints slug scheme (MIS-125 replaces it with
+//    BLU-NNN, which DOES resolve below — not ignored)
+// Historically this also ignored C-/D-/S- (canon/debt/standards) because
+// those series did not apply their scheme consistently. MIS-125
+// (2026-08-31) is precisely the mission that makes them consistent
+// (CAN-/DBT-/STD-NNN) — leaving them ignored would make this guard blind
+// to exactly the breakage it exists to catch.
+const IGNORED_PREFIX = /^(CON|FLAG|SEC|ARC|G|MISSION|BP)-/;
 
 /**
  * ADR-006 … ADR-022 exist in numengames/numinia-web, not here. ADR-004 §7
@@ -101,18 +136,31 @@ const WEB_ADR_RANGE = (n) => n >= 6 && n <= 22;
  * the placeholder used in examples.
  */
 const isExample = (id) => id === 'MIS-999';
+// Dead since ID_RE dropped bare 'P' (protocols moved P- -> PRO-, MIS-125):
+// archive-summa-fundacional's "P-01..P-12" principle numbers can no longer
+// match ID_RE at all, so this guard never fires. Left in rather than
+// deleted — harmless, and documents why P-01..12 were never a citation risk.
 const isPrinciple = (prefix, num) => prefix === 'P' && /^\d{1,2}$/.test(num);
 
-const ID_RE = /\b(MIS|ADR|DEC|RPT|P)-(\d{1,4}|\d{4}-\d{2}-\d{2})\b/g;
+const ID_RE = /\b(MIS|ADR|DEC|RPT|PRO|DBT|STD|CAN|OPS|BLU|GLD|INF)-(\d{1,4}|\d{4}-\d{2}-\d{2})\b/g;
 const LINK_RE = /\[[^\]]*\]\(([^)\s#]+\.md)(?:#[^)]*)?\)/g;
+// Kind 3: a bare filename mentioned in prose, outside markdown link syntax
+// — "see credential-map.md", "documented in APPROVAL-REQUEST-template.md".
+// Matches path-or-basename fragments ending in .md; resolved against every
+// CURRENT basename in the corpus (not full path — citations are casual and
+// rarely include the folder, exactly per D-008/D-024's own finding).
+const BARE_FILENAME_RE = /(?:^|[\s(`"'])((?:[\w-]+\/)*[\w][\w.-]*\.md)\b/g;
 
 for (const rel of files) {
   const abs = path.join(ROOT, rel);
   const text = readFileSync(abs, 'utf8');
   const body = text.replace(/^---\s*\n[\s\S]*?\n---/, '');
+  const ownBase = path.basename(rel);
 
-  // --- markdown links ---
+  // --- markdown links --- (track their ranges so kind-3 doesn't recount them)
+  const linkRanges = [];
   for (const m of body.matchAll(LINK_RE)) {
+    linkRanges.push([m.index, m.index + m[0].length]);
     const target = m[1];
     if (/^(https?:|mailto:)/.test(target)) continue;
     const resolved = path.normalize(path.join(path.dirname(abs), target));
@@ -120,6 +168,7 @@ for (const rel of files) {
       brokenLinks.push({ from: rel, link: target });
     }
   }
+  const insideLink = (i) => linkRanges.some(([s, e]) => i >= s && i < e);
 
   // --- plain-text identifiers ---
   const seen = new Set();
@@ -138,12 +187,25 @@ for (const rel of files) {
     }
     unknownIds.push({ from: rel, id });
   }
+
+  // --- bare filenames (kind 3) ---
+  const seenFile = new Set();
+  for (const m of body.matchAll(BARE_FILENAME_RE)) {
+    if (insideLink(m.index)) continue;             // already checked as a link
+    const cited = m[1];
+    const bare = path.basename(cited);
+    if (bare === ownBase) continue;                // self-citation
+    if (seenFile.has(bare)) continue;
+    seenFile.add(bare);
+    if (basenames.has(bare)) continue;              // resolves, current corpus
+    unknownFilenames.push({ from: rel, file: cited });
+  }
 }
 
 /* ---------- 3. Compare against the baseline ---------- */
 
-const key = (o) => (o.link ? `LINK ${o.from} -> ${o.link}` : `ID   ${o.from} -> ${o.id}`);
-const current = [...brokenLinks, ...unknownIds].map(key).sort();
+const key = (o) => (o.link ? `LINK ${o.from} -> ${o.link}` : o.id ? `ID   ${o.from} -> ${o.id}` : `FILE ${o.from} -> ${o.file}`);
+const current = [...brokenLinks, ...unknownIds, ...unknownFilenames].map(key).sort();
 
 if (WRITE) {
   writeFileSync(
@@ -174,10 +236,11 @@ const fixed = [...baseline].filter((b) => !current.includes(b));
 
 /* ---------- 4. Report ---------- */
 
-console.log(`reference lint: ${files.length} documents · ${known.size} identifiers indexed`);
+console.log(`reference lint: ${files.length} documents · ${known.size} identifiers indexed · ${basenames.size} filenames indexed`);
 console.log(
   `  broken markdown links : ${brokenLinks.length}\n` +
     `  unresolved identifiers: ${unknownIds.length}\n` +
+    `  unresolved filenames  : ${unknownFilenames.length}  (kind 3 — bare "doc.md" mentions, MIS-125)\n` +
     `  cross-repo, unqualified: ${crossRepo.length}  (ADR-004 §7 — informational)\n` +
     `  baseline              : ${baseline.size}`,
 );
@@ -190,6 +253,10 @@ if (REPORT) {
   if (unknownIds.length) {
     console.log('\n— identifiers cited but not found anywhere —');
     for (const u of unknownIds) console.log(`  ${u.from}\n      -> ${u.id}`);
+  }
+  if (unknownFilenames.length) {
+    console.log('\n— bare filenames cited but not found in the current corpus —');
+    for (const u of unknownFilenames) console.log(`  ${u.from}\n      -> ${u.file}`);
   }
   if (crossRepo.length) {
     console.log('\n— cross-repo citations missing their qualifier (ADR-004 §7) —');
