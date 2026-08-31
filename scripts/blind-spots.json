@@ -178,6 +178,32 @@
           "debt": null
         }
       ]
+    },
+    "check-prose-in-code": {
+      "script": "scripts/check-prose-in-code.mjs",
+      "sees": "characters of prose (string literals and text nodes over 60 chars) living in .astro/.tsx files under web/src that read no .md at build time — the MIS-071 acceptance criterion, measured",
+      "blind_to": [
+        {
+          "spot": "whether the prose it counts SHOULD be in a .md. Page furniture (a section blurb, a button label, a legend) is prose by this measure and belongs in the component. The number is a ratchet, not a verdict — it says the quantity grew, never that the growth was wrong",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "whether a page that DOES read a .md renders it faithfully. A file containing getCollection is exempt wholesale, so prose hardcoded beside an archive read is invisible here",
+          "covered_by": null,
+          "debt": "DBT-003"
+        },
+        {
+          "spot": "prose in .ts/.js data modules and in web/scripts/ — the scan covers pages, views and components only, so content moved into a lib/ constant leaves the measure without leaving the codebase",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "whether an extracted .md is actually reachable on the site. It measures what left the code, not what arrived in the archive",
+          "covered_by": "check-orphan-content",
+          "debt": null
+        }
+      ]
     }
   }
 }
