@@ -40,6 +40,8 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { declareBlindSpots } from './lib/blindness.mjs';
+declareBlindSpots('lint-frontmatter');
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const BASELINE = path.join(ROOT, 'scripts', 'frontmatter-baseline.json');

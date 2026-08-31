@@ -3,12 +3,12 @@ id: "D-049"
 uid:
 title: "Guards read git ls-files, so a green local run can be blind to untracked new files"
 type: documentation
-status: active
-version: "1.0.0"
+status: closed
+version: "2.0.0"
 created: "2026-08-31T15:55:00+02:00"
 created_source: "git:5ffd1eb"
 created_confidence: exact
-updated: "2026-08-31T15:55:00+02:00"
+updated: "2026-08-31T16:45:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -105,9 +105,52 @@ locally — all steps, without `-e` — before concluding a single fix is enough
 
 ## State
 
+## Resolution (2026-08-31)
+
+Closed on the first condition: **guards warn about untracked corpus files**, and
+name them.
+
+```
+⚠ 2 untracked .md file(s) — NOT scanned (this guard reads git ls-files, D-049):
+    <each untracked path, listed by name>
+  A green result here says nothing about them. `git add` them first.
+```
+
+Naming the files is the part that does the work. A warning saying "some files
+were not scanned" is dismissible; one that prints the filename you just created
+is not.
+
+Proven by fixture in `scripts/test/blindness.test.mjs`: an untracked `.md` with
+a broken citation is created in a scratch copy, the guard runs, and the test
+asserts **both** that the guard stays green (the blindness is real) **and** that
+the file is named in the warning (the blindness is not silent).
+
+### The second condition was deliberately not taken
+
+*Refuse `--write-baseline` while untracked files exist* would have been the
+stronger fix. It was rejected: baselines are regenerated precisely while adding
+new documents, so the refusal would fire on the normal path and be routed around
+within a day. A guard people learn to bypass is worse than one that warns.
+
+### The lesson that outlived the bug
+
+This entry was opened by a CI failure whose real cause was **my verification
+being blind, not the corpus being broken**. Two things follow, and both are
+recorded in the body above:
+
+1. **Stage first, verify second.** Guards read the index. A green run over an
+   incomplete index is a green run about the wrong thing.
+2. **`gh pr checks` reports one failing step, not all of them.** Under `bash -e`
+   the first failure ends the job — there were two, and I read the first as the
+   whole. Reproduce the entire workflow locally, every step, without `-e`.
+
+Point 2 has no mechanism and is not claimed as fixed. It is a working habit.
+
 | | |
 |---|---|
-| Severity | medium — no corpus damage; it makes a verification claim false, which is worse than a visible failure |
+| Severity | medium — no corpus damage; it made a verification claim false, which is worse than a visible failure |
 | Owner | Oracle |
+| Status | **closed 2026-08-31** — warning implemented in 4 guards, fixture-proven |
 | Opened | 2026-08-31, by `MIS-125` Stage C, CI failure on PR #163 |
-| Closes when | guards warn about untracked corpus files, or refuse `--write-baseline` while any exist |
+| Closed by | `MIS-125`, under `D-025` / `S-001` §10.4 |
+| Not closed | `--write-baseline` still writes with untracked files present, by decision |

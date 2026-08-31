@@ -4,9 +4,9 @@ uid:
 title: "Glossary — the archive's own vocabulary"
 type: documentation
 status: active
-version: "4.2.0"
+version: "5.0.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-08-30T10:30:00Z"
+updated: "2026-08-31T17:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -538,27 +538,41 @@ nothing that can change, is never reused, is never renumbered (ADR-004).
 Blocker 2 of the Oracle. Four series had no scheme; this document could not be
 filed for lack of its own.
 
-| Prefix | Series | Example | Coverage today |
-|---|---|---|--:|
-| `MIS-NNN` | `missions/` | `MIS-085-web-codex-reader-lap.md` | **105/105 · 100 %** |
-| `ADR-NNN` | `decisions/` | `ADR-004-identifier-convention.md` | 9/9 · 100 % |
-| `P-NNN` | `protocols/` | `P-010-how-to-archive.md` | 11/13 · 84.6 % |
-| `RPT-YYYY-MM-DD` | `reports/daily/` | `RPT-2026-04-07.md` | 8/8 · 100 % |
-| `AUD-YYYY-MM-DD` | `reports/audits/` | `AUD-2026-08-24-canon-edit.md` | 2/6 · in adoption |
-| `BP-slug` | `blueprints/` | `BP-cao-architecture.md` | 16/22 · 72.7 % |
-| **`S-NNN`** | **`standards/`** | `S-001-glossary.md` | **0/3 · new** |
-| **`AG-NNN`** | **`agents/`** | `AG-001-nimrod/` (folder) | **0/5 · new** |
-| **`O-NNN`** | **`operations/`** | `O-001-governance.md` | **0/11 · new** |
-| **`D-NNN`** | **`debt/`** | `D-024-registration-blocked-by-rulings.md` | **0/0 · new** |
-| `C-NNN` | `canon/` | `C-005-licensing.md` | 1/12 · 8.3 % — see §4.3 |
+| Prefix | Series | Coverage today (2026-08-31) |
+|---|---|--:|
+| `MIS-NNNN` | `missions/` | 0/131 · 0 % |
+| `ADR-NNN` · `DEC-NNN` | `decisions/` | **20/20 · 100 %** |
+| `PRO-NNN` | `protocols/` | 0/13 · 0 % |
+| `RPT-NNN` (subtype `daily`) | `reports/daily/` | 0/10 · 0 % |
+| `RPT-NNN` (subtype `audit`) | `reports/audits/` | 0/12 · 0 % |
+| `BLU-NNN` | `blueprints/` | 0/16 · 0 % |
+| `CAN-NNN` | `canon/` | 0/8 · 0 % |
+| `STD-NNN` | `standards/` | 0/5 · 0 % |
+| `OPS-NNN` | `operations/` | 0/10 · 0 % |
+| `DBT-NNN` | `debt/` | 0/38 · 0 % |
+| `GLD-NNN` | `guilds/` | **8/8 · 100 %** |
+| `INF-NNN` | `infra/` | 0/0 · — |
 
-**This document is `S-001`**: the first standard registered under its own rule.
+Coverage measured by `scripts/count-evidence.py`, which excludes apparatus by
+rule (`type: meta`, `D-014`) and frozen artefacts by the `MIS-125` ruling
+(`P-010` §3.2). It is not copied from an earlier version of this table.
 
-> The four new prefixes are in force from this signature and apply to documents
-> created from now on. The existing corpus does not yet carry them — measured:
-> `standards/` 0/3, `agents/` 0/17, `operations/` 0/11. Renaming the existing
-> files is its own operation with its own verification. **Nothing is
-> renumbered** — see §5. Gap registered as **D-008**.
+**This document is `S-001`**, registered under the superseded `S-NNN` scheme.
+Under `ADR-005` v1.1.0 it becomes a `STD-NNN` document; the rename is `MIS-125`
+Stage C, not this section. **Nothing is renumbered** — see §5. `AG-NNN` was
+withdrawn with the `agents/` reversal and no longer exists as a scheme.
+
+> **Superseded 2026-08-31.** This table previously prescribed `MIS-NNN`,
+> `P-NNN`, `S-NNN`, `D-NNN`, `C-NNN`, `O-NNN`, `BP-slug`, `RPT-YYYY-MM-DD`,
+> `AUD-YYYY-MM-DD` and `AG-NNN` — ten of its eleven rows. All ten were
+> superseded by the Oracle's `ADR-005` v1.1.0 amendment, and `guilds/` and
+> `infra/` were missing entirely. For a day this standard mandated prefixes
+> that the decision governing it had retired, and `MIS-125` was renaming the
+> corpus *against* its own glossary. Found by the Oracle, 2026-08-31.
+>
+> The reason it went unnoticed is registered as **`D-050`**: the reference
+> guard's `ID_RE` never matched the retired prefixes, so a citation to a
+> retired scheme could not be reported as anything.
 
 ### 4.2 Time-based prefixes
 `RPT-` and `AUD-` carry a date because a daily report or an audit **is** its
@@ -731,6 +745,15 @@ The last one is decisive and is not about effort. A consumer outside the
 agent's reach makes the rename **structurally incomplete**, not merely
 expensive. The correct outcome is `registration: exempt` with that reason
 written down.
+
+> **The premise changed, 2026-08-31.** `D-017` was extinguished on 2026-08-30
+> (`ADR-030`) and its resolution reads *"workflow scope granted"* — so the
+> reason above ("the agent has no `workflow` scope") is **no longer true**, and
+> `D-017` is cited here as history, not as a live blocker. The exemption is
+> left standing on its other grounds (18 citing documents, `CLAUDE.md`), which
+> were always the substantive ones. Whether it survives re-examination is
+> `MIS-125` Stage C's business, not this section's. Recorded rather than
+> silently deleted: the measurement was correct on the day it was made.
 
 This is narrower than `ADR-004`'s *never renumber*: it governs renames that are
 not renumbering, where the cost sits in the citation graph rather than in the
@@ -1144,14 +1167,63 @@ plausible artefact is invisible to the layer that produced it.
   cannot be typed
 - **Read the step, not the run** (§10.3) — the conclusion cannot distinguish the
   two cases; the step list can
-- **Know what a guard does not check** — `check-references.mjs` reads markdown;
-  a slug map in `.ts` is outside its world, and only `npm run build` knew
+- **Know what a guard does not check** (§10.4) — `check-references.mjs` reads
+  markdown; a slug map in `.ts` is outside its world, and only `npm run build`
+  knew
 
 > A guard proves what it checks, never what it does not. **A green guard is
 > evidence about the guard, not about the repository.**
 
-The fourth bullet has no mechanism yet: nothing lists what each guard is blind
-to. That is worth writing and belongs with `D-001`.
+The fourth had no mechanism until 2026-08-31. It has one now: §10.4.
+
+### 10.4 Every guard declares what it is blind to `[MECHANISED]`
+
+Each guard prints, on **success as well as failure**, the things it did not
+look at — because a green result is exactly when the reader is least likely to
+ask. The declarations live in `scripts/blind-spots.json`, are printed by
+`scripts/lib/blindness.mjs`, and are checked by
+`scripts/test/blindness.test.mjs`.
+
+The suite is **not yet a CI step** — wiring one is the Oracle's, per `P-013`
+step 3 and `ADR-029`. Until then it is run by hand, and a green CI run does
+not include it.
+
+| Guard | Sees | Blind to | Covered by |
+|---|---|---|---|
+| `check-references` | `.md`/`.json` citations, by id and by path | consumers in `.ts`/`.astro` (slug maps, `import.meta.glob`) | `npm run build` |
+| | | the **folder** in a path citation — resolution falls back to basename (`D-047`) | nothing |
+| | | untracked files — enumerates via `git ls-files` (`D-049`) | its own warning |
+| `lint-naming` | filename shape vs the series scheme | untracked files (`D-049`) | its own warning |
+| | | whether a slug is *meaningful* — a name keeping a dead prefix inside its slug still passes the shape check | nothing |
+| `lint-frontmatter` | header fields H-00…H-31 | whether a deferral is honest — a `TBA` may name a dead mission | nothing |
+| | | untracked files (`D-049`) | its own warning |
+| `check-license-frontmatter` | `license:` vs the `REUSE.toml` regime | whether the licence is **correct** for the content | nothing (`D-042`) |
+| | | files with no `license:` field — skipped, not flagged | nothing |
+| `check-frontmatter-yaml` | frontmatter parses as YAML | whether the parsed **values** are right | `lint-frontmatter`, partially |
+| `check-frontmatter-delimiter` | the closing `---` sits on its own line | files with no frontmatter at all — skipped silently | `lint-frontmatter` |
+| `check-orphan-content` | `public/` content reaching `dist/` unrendered | whether the **rendered page** is correct | nothing |
+| `count-evidence` | registration coverage per series | whether a registered document is any *good* | nothing |
+
+Three properties make this more than a list:
+
+1. **It is printed where the claim is made** — in the guard's own output, not
+   in a document nobody opens while reading CI.
+2. **It names the coverer, or admits there is none.** "Nothing covers this" is
+   the useful half; four rows above say it.
+3. **It is verified, not asserted.** `blindness.test.mjs` builds a file that
+   *should* trip each guard, runs the guard, and asserts it stays green —
+   proving the blindness is real. A declared blind-spot list nobody verified
+   would be a claim about coverage with the shape of evidence, which is the
+   very thing §10.0 is about.
+
+The suite fails when a declaration stops being true. That is deliberate: if a
+guard is fixed and stops being blind, the test fails, and the fix must be
+recorded rather than absorbed silently.
+
+**What §10.4 is itself blind to:** it prints the blind spots that were
+*thought of*. It cannot enumerate the ones nobody has imagined. The mechanism
+narrows the gap between "what this guard checks" and "what a green run is read
+to mean"; it does not close it.
 
 ### 10.0.1 Failure by omission `[MANUAL]`
 

@@ -41,6 +41,8 @@
  */
 import { readFileSync } from 'node:fs';
 import { execSync } from 'node:child_process';
+import { declareBlindSpots } from './lib/blindness.mjs';
+declareBlindSpots('check-frontmatter-yaml');
 
 const root = execSync('git rev-parse --show-toplevel').toString().trim();
 const files = execSync('git ls-files "*.md"', { cwd: root })
