@@ -3,11 +3,11 @@ id: "MIS-125"
 title: "The prefix register — four series carry identifiers no rule knows about"
 type: mission
 status: in-progress
-version: "1.2.0"
+version: "1.3.1"
 created: "2026-08-30T11:50:00Z"
 created_source: "git:b09311c"
 created_confidence: exact
-updated: "2026-08-31T13:11:21+02:00"
+updated: "2026-08-31T14:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC-BY-4.0"
@@ -278,17 +278,135 @@ error in the prior version.
 PR: https://github.com/numengames/numinia-nwos/pull/157 (merged) and
 https://github.com/numengames/numinia-nwos/pull/161 (merged, `534e25e`).
 
-**Open blocker before Stage C can start — not resolved, awaiting Oracle
-ruling (`clarify` sent 2026-08-31, unanswered as of this writing):**
+**Blocker resolved — ruling made 2026-08-31, in `P-010` §3.2.2:**
 `P-010` §3.2 defines `registration_exemption: frozen-artifact` files as
 permanent dated snapshots that never evolve ("a photograph, not a living
-document"). `D-008`'s own "24 exempt enter the scheme" ruling includes 5
+document"). `D-008`'s own "24 exempt enter the scheme" ruling included 5
 such files (3 by explicit field, 2 more by filename shape only — see bug
-5 above) and assigns them `STD-NNN`/`CAN-NNN`/`PRO-NNN` destinations,
-directly contradicting `P-010` §3.2 on its face. `rename-series.mjs`
-defaults to excluding all 5 (`--include-frozen-artifacts` required to
-override), so the tool cannot mis-rename them either way — but Stage C
-cannot proceed on `standards/`, `canon/`, or `protocols/` until the
-Oracle picks a side: `P-010` wins (correct `D-008`, these 5 keep dated
-names permanently) or `D-008` wins (amend `P-010` §3.2 to say
-frozen-artifact no longer blocks series entry).
+5 above) and assigned them `STD-NNN`/`CAN-NNN`/`PRO-NNN` destinations,
+directly contradicting `P-010` §3.2 on its face.
+
+**Ruled: `P-010` §3.2 prevails. `D-008` is corrected; the 5 keep their
+dated names permanently.** Four grounds, each measured against the repo at
+`caf2621` rather than argued from principle:
+
+1. **Public URLs derive from filenames — measured against a real build.**
+   `web/src/pages/corpus/[...slug].astro` routes on `entry.id`, which the
+   Astro loader derives from the filename when the frontmatter declares
+   none. `npm run build` publishes **all five** at filename-derived
+   addresses, e.g. `/corpus/standards/2026_08_18-sistema_de_diseno-v510`.
+   Renaming publishes five dead URLs. `D-028` exists because nothing
+   manages that lifecycle. **This ground alone is sufficient.**
+2. **This mission's own licence to rename does not cover them.** §"The
+   prior constraint" above authorises renaming *because the 13 descriptive
+   ids have zero incoming citations* — "never break a reference that
+   exists". Measured: the five carry **71 incoming citations across 24
+   files** (41 to the Design System alone). The premise is false for this
+   set; applying the conclusion anyway would be the exact error this
+   mission was opened to correct.
+3. **An out-of-repo consumer keys on the path.**
+   `numinia-web/design-source.json` pins the Design System by `path` +
+   `sha256`, verified by that repo's own `scripts/check-design-source.mjs`.
+   `S-001` §5.0.1 makes such a rename **structurally incomplete**.
+   *Qualified 2026-08-31:* that pin currently names `…-v5.0.0.md`, so it is
+   already stale (`D-040`) and a rename would not break it today. The
+   ground rests on the mechanism, not on this pin.
+4. **Two are `threshold: sealed`** (`S-001` §2.1 — both `canon/` documents;
+   the other three declare no threshold) — changing them takes an Oracle
+   signature and an ADR, which a bulk prefix pass is not.
+
+**Correction, 2026-08-31 (same day, see `P-010` §3.2.3):** as first
+published this list said "59 citations across 27 files" (actual: **71
+across 24**), and cited `check-design-source.mjs` as if it ran in this
+repo (it lives in `numinia-web`). Ground order changed accordingly: the
+URL ground is now first because it is the one verified against built
+output. The ruling is unchanged.
+
+**Documents changed:** `P-010` v0.5.0 (§3.2.1 + §3.2.2 — the rule now says
+what it means and how to detect it), `D-008` v3.0.0 (ruling reversed,
+denominators corrected), `D-024` v1.3.0 (two v1.1.0 claims withdrawn),
+`scripts/count-evidence.py`, `scripts/rename-series.mjs` (header + operator
+message; the detection logic was already correct).
+
+**Two defects found while ruling, neither part of the question asked:**
+
+- **`D-008`'s headline total had been wrong since v2.0.0.** The series
+  table summed to **254**, while the text claimed **274** — it was adding
+  the 20-file `decisions/` row that the same sentence declares excluded.
+  Two later "corrections" (275→274, 274→…) adjusted the wrong number
+  without ever re-summing the column. The total is now computed by
+  `count-evidence.py` instead of maintained by hand: **248** after this
+  ruling. Nobody caught this in three revisions because the number looked
+  plausible and no one added the column.
+- **`count-evidence.py` and `P-010` disagreed about what a frozen artefact
+  is.** The script keyed on the `registration_exemption` field; the
+  protocol describes a filename convention. The two files carrying the
+  shape without the field were counted as non-compliance — the counter was
+  manufacturing the very debt this ruling removes. Both now key on the
+  filename shape, and `P-010` §3.2.1 states which is normative.
+- Also excluded from the denominator: `APPROVAL-REQUEST-template.md`,
+  ruled apparatus by `D-024` v1.2.0 on 2026-08-31, which no counter had
+  ever excluded.
+
+**Stage C is unblocked** for all eleven series. `standards/`, `canon/` and
+`protocols/` proceed with the 5 artefacts excluded by the tool's default.
+
+## Stage C — series renames (2026-08-31, in progress)
+
+Order per `D-008`'s risk ranking, lowest first. One commit per series, all
+guards green before the next.
+
+### `guilds/` → `GLD-NNN` (8 files, done)
+
+```
+guilds/alquimistas/charter.md    -> guilds/alquimistas/GLD-001-charter.md
+guilds/exegetas/charter.md       -> guilds/exegetas/GLD-002-charter.md
+guilds/procuradores/charter.md   -> guilds/procuradores/GLD-003-charter.md
+guilds/centinelas/charter.md     -> guilds/centinelas/GLD-004-charter.md
+guilds/alquimistas/roster.md     -> guilds/alquimistas/GLD-005-roster.md
+guilds/centinelas/roster.md      -> guilds/centinelas/GLD-006-roster.md
+guilds/exegetas/roster.md        -> guilds/exegetas/GLD-007-roster.md
+guilds/procuradores/roster.md    -> guilds/procuradores/GLD-008-roster.md
+```
+
+Guards: `check-references` 0 · `lint-frontmatter` 0 · `check-frontmatter-yaml`
+0 · `check-frontmatter-delimiter` 0 · `lint-naming` 0. `naming-baseline`
+264 → 257 (8 healed, 1 added: `D-047` inherits `debt/`'s own pending
+`D-NNN`→`DBT-NNN` violation, shared with its 46 siblings).
+
+**Bug 6 — the tool rewrote four files it should not have touched.**
+`--apply` replaces the old id with the new one across every citing file by
+plain string substitution. That is right for a live cross-reference and wrong
+for four other things, all of which it hit on this 8-file run:
+
+| File | What it did | Why it is wrong |
+|---|---|---|
+| `reports/audits/AUD-2026-08-26-licensing-c005/sbom.spdx`, `cc0-irrevocable.json` | rewrote 8 filenames in a dated SPDX SBOM and a CC0 grant record | dated forensic evidence, and the `FileChecksum: SHA1` lines were left untouched — a manifest whose names and hashes disagree is worse than a stale one |
+| `missions/MIS-118-agent-roster-replacement.md` | `status: done` mission | retrospective narrative: it records what a guard run found on 2026-08-28, under the names of that date |
+| `missions/MIS-125-prefix-register.md` | rewrote `charter-alchemists`, `roster-sentinels` → `GLD-001`, `GLD-006` | those ids appear in §"What this mission decides" **as examples of lowercase descriptive ids**. The sentence became "whether lowercase descriptive ids are legal at all — `GLD-001`, `GLD-006`" — self-refuting |
+| `scripts/phase5-status-and-registration.py` | rewrote an id inside a code comment | the id was a **counter-example** — "`charter-alchemists` has no series" became "`GLD-001` has no series", inverting the comment's meaning |
+
+All four reverted; the rename stands. The distinction the tool cannot make is
+**citation vs. mention** — `S-001` §9.1's own rule, which the corpus states and
+the tool does not implement. Filed as `D-048`.
+
+`blueprints/BP-archive-fondos.md` was rewritten and **kept**: it is a live
+manifest of paths the web build reads, so a stale path there is a real defect.
+
+**Bug 7 — a rename left every file self-contradictory.** All 8 carried
+`registration: exempt` with `registration_reason: "singular document, not a
+numbered series"`. After the rename they *are* a numbered series, but the
+exemption survived: `count-evidence.py` reported `guilds 8/8 100.0%` over 8
+files each declaring itself outside the scheme. `S-001` §5.0 requires an
+exemption to state something true. Retired from all 8 (v1.1.0 → v1.2.0), and
+`rename-series.mjs` now retires a falsified exemption as part of the rename.
+
+**Bug 8 — `check-references.mjs` resolves by basename, so a wrong folder path
+reads as green.** Renaming `guilds/` produced 4 "new" broken references in
+files the rename never touched — all citing `agents/guilds/…`, a directory
+deleted in `b7a2e39`. They were already broken at `caf2621` and the guard
+reported them clean, because *some* file named `charter.md` existed. The
+rename removed the accident that hid them. Baselined, not rewritten (two
+`status: closed` blueprints and a `P-008` template describing the architecture
+that deletion removed). `D-039` again, one layer down. Filed as `D-047`.
+

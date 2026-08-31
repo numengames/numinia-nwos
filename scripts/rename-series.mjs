@@ -31,19 +31,20 @@
  *      type — not just .md), run check-references.mjs at the end. No commit.
  *   5. One run = one series. Never mixes series in the same pass.
  *
- * FROZEN-ARTIFACT SAFETY (declared, not silent):
- * P-010 §3.2 defines `registration_exemption: frozen-artifact` files as
- * permanent dated snapshots ("a photograph, not a living document") — D-008
- * v2.1.0's "24 exempt enter the scheme" ruling includes 3 such files
- * (standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md,
- * canon/2026_04_15-Epistemic_Relations...md,
- * canon/2026_04_15-Pragmatic_Numen_System...md), which contradicts P-010
- * §3.2 on its face. This is an OPEN, UNRESOLVED conflict between two
- * normative documents (flagged to the Oracle via clarify, 2026-08-31,
- * not yet answered). This tool defaults to EXCLUDING
- * registration_exemption: frozen-artifact files from every series —
- * --include-frozen-artifacts is required to touch them, and even then the
- * tool only ever queues them for --dry-run review, never silently.
+ * FROZEN-ARTIFACT SAFETY (ruled, no longer an open conflict):
+ * P-010 §3.2 defines dated-filename files as permanent snapshots ("a
+ * photograph, not a living document"). D-008 v2.0.0's "24 exempt enter the
+ * scheme" ruling had swept 5 of them in, contradicting P-010 §3.2 on its
+ * face. RULED 2026-08-31 (MIS-125): P-010 §3.2 prevails — see P-010 §3.2.2
+ * and D-008 v3.0.0. The 5 keep their dated names permanently and leave
+ * D-008's denominator; they are not debt, they are correctly named.
+ *
+ * Detection is by FILENAME SHAPE (YYYY_MM_DD-Title-vX.Y.Z.md), not by the
+ * registration_exemption field: 2 of the 5 carry the shape without the
+ * field (P-010 §3.2.1), so a field-keyed check would rename them.
+ * --include-frozen-artifacts still exists as an operator override, and even
+ * then the tool only ever queues them for --dry-run review, never silently.
+ * With the ruling in force there is no legitimate reason to pass it.
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
@@ -121,7 +122,7 @@ for (const { dir, tag } of dirSpecs) {
     const looksLikeFrozenShape = /^\d{4}_\d{2}_\d{2}-.+-v\d+(\.\d+){0,2}\.md$/.test(base);
     const isFrozen = fm.registration_exemption === 'frozen-artifact' || looksLikeFrozenShape;
     if (isFrozen && !INCLUDE_FROZEN) {
-      candidates.push({ rel, base, fm, text, skip: 'frozen-artifact (P-010 §3.2 vs D-008 conflict — unresolved, use --include-frozen-artifacts to override)', tag });
+      candidates.push({ rel, base, fm, text, skip: 'frozen-artifact (P-010 §3.2 — ruled 2026-08-31, MIS-125: keeps its dated name permanently, not debt)', tag });
       continue;
     }
     // registration: exempt not otherwise ruled in scope. D-008 v2.1.0's
@@ -277,12 +278,43 @@ if (!APPLY) {
 /* ---- 4. apply ---- */
 console.log('\nAPPLYING...');
 const manualReview = [];
+const refused = [];
+
+// D-048: a rename must not rewrite a MENTION as if it were a CITATION.
+// Dated evidence and closed records state what was true when written; a
+// rewrite there is falsification, not maintenance (S-001 §2.1, §9.1).
+// Found in MIS-125 Stage C: an 8-file rename silently rewrote an SPDX SBOM
+// (filenames changed, FileChecksum SHA1 left stale), a CC0 grant record, a
+// status: done mission's narrative, and two counter-examples — all with
+// every guard green.
+const EVIDENCE_DIRS = ['reports/audits/', 'reports/', 'archive/'];
+function refusalReason(rel) {
+  if (EVIDENCE_DIRS.some((d) => rel.startsWith(d))) {
+    return 'dated evidence — rewriting a record of a past run falsifies it';
+  }
+  const abs = path.join(ROOT, rel);
+  if (!existsSync(abs)) return null;
+  const head = readFileSync(abs, 'utf8').slice(0, 4000);
+  const m = head.match(/^status:\s*["']?(\w[\w-]*)/m);
+  if (m && ['closed', 'done', 'superseded', 'archived'].includes(m[1])) {
+    return `status: ${m[1]} — a closed record states what was true when written`;
+  }
+  return null;
+}
+
 for (const p of plan) {
   const idHits = grepCorpusCount(p.oldId);
   const pathHits = grepCorpusCount(p.oldRel);
   const baseUnique = isBasenameUnique(p.oldBase);
   const baseHits = baseUnique ? grepCorpusCount(p.oldBase) : [];
-  const safeHits = [...new Set([...idHits, ...pathHits, ...baseHits])];
+  const allHits = [...new Set([...idHits, ...pathHits, ...baseHits])];
+
+  const safeHits = [];
+  for (const f of allHits) {
+    const why = refusalReason(f);
+    if (why) refused.push({ file: f, forRename: p.oldRel, why });
+    else safeHits.push(f);
+  }
 
   if (!baseUnique) {
     const ambiguousHits = grepCorpusCount(p.oldBase).filter((f) => f !== p.oldRel && !pathHits.includes(f));
@@ -303,6 +335,23 @@ for (const p of plan) {
   const absOld = path.join(ROOT, p.oldRel);
   let text = readFileSync(absOld, 'utf8');
   text = text.replace(/^id:\s*.*/m, `id: "${p.newId}"`);
+
+  // Retire a registration exemption the rename has just falsified.
+  // A file that now carries GLD-001 cannot also declare "not a numbered
+  // series" — S-001 §5.0 requires the exemption to state something true,
+  // and count-evidence.py would report 8/8 coverage over 8 files each
+  // claiming to be outside the scheme. Only the *entering* reasons are
+  // dropped; a frozen-artifact exemption never reaches this code path
+  // (those files are excluded before the plan is built).
+  // Found in MIS-125 Stage C, guilds/ — the tool renamed correctly and
+  // left every file self-contradictory.
+  if (/^registration:\s*exempt\s*$/m.test(text)) {
+    text = text.replace(/^registration:\s*exempt\s*\n/m, '');
+    text = text.replace(/^registration_reason:\s*(>[-+]?\s*\n(?:[ \t]+.*\n)+|.*\n)/m, '');
+    text = text.replace(/^registration_exemption:\s*.*\n/m, '');
+    console.log(`    registration: exempt retired — the file is now ${p.newId}`);
+  }
+
   if (p.tag && SUBTYPE_FIELD) {
     if (new RegExp(`^${reEscape(SUBTYPE_FIELD)}:`, 'm').test(text)) {
       text = text.replace(new RegExp(`^${reEscape(SUBTYPE_FIELD)}:.*`, 'm'), `${SUBTYPE_FIELD}: ${p.tag}`);
@@ -322,6 +371,12 @@ if (manualReview.length) {
     console.log(`  ${m.file} (now ${m.base} elsewhere too) — cited bare in:`);
     for (const f of m.citedBy) console.log(`    ${f}`);
   }
+}
+
+if (refused.length) {
+  console.log(`\n⛔ ${refused.length} occurrence(s) REFUSED — evidence or closed records, deliberately NOT rewritten (D-048):`);
+  for (const r of refused) console.log(`  ${r.file}\n     ${r.why}`);
+  console.log('  If any of these is a live citation rather than a record, fix it by hand.');
 }
 
 console.log('\nVerifying with check-references.mjs...');

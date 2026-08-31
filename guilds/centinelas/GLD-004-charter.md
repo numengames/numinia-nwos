@@ -1,19 +1,17 @@
 ---
-id: "charter-sentinels"
+id: "GLD-004"
 title: "Guild Charter — Sentinels"
 type: charter
 status: active
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-04-07T12:29:23Z"
 created_source: "git:df48b24"
 created_confidence: inferred
-updated: "2026-04-07T18:00:00Z"
+updated: "2026-08-31T14:40:00+02:00"
 author: "pablo-fm"
 owner: "oracle"
 tags: [guild, sentinels, charter]
 license: "LicenseRef-Numen-AllRightsReserved"
-registration: exempt
-registration_reason: "singular document, not a numbered series"
 ---
 # Guild Charter — Sentinels
 

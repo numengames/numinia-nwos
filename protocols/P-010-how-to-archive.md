@@ -3,11 +3,11 @@ id: "P-010"
 title: "How to Archive — the NWOS archival protocol"
 type: protocol
 status: draft
-version: "0.4.0"
+version: "0.5.1"
 created: "2026-08-18T10:51:09Z"
 created_source: "git:9f25053"
 created_confidence: exact
-updated: "2026-08-31T09:40:00+02:00"
+updated: "2026-08-31T14:20:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [protocols, archive, taxonomy, naming, iso-15489]
@@ -15,7 +15,7 @@ license: "CC-BY-4.0"
 supersedes: "protocols/2026_04_14-Read_Me_How_to_Archive-v0.2.0.md"
 review_next: "2027-02-18"
 ---
-# P-010 — How to Archive (v0.3.0, draft)
+# P-010 — How to Archive (draft)
 
 > **Summary:** How every document in the NWOS archive is named, where it
 > lives, and how it ages. Succeeds `Read_Me_How_to_Archive` v0.2.0 (formerly
@@ -91,6 +91,110 @@ Historical documents archived as an artefact — that do not evolve —
 keep the inherited convention `YYYY_MM_DD-Title_With_Underscores-vX.Y.Z.md`.
 It is the visible mark of "this is a photograph, not a living document."
 
+**A frozen artefact does not enter a registration series** (`MIS-125` ruling,
+2026-08-31, below). The dated filename *is* its identifier. Giving it a
+series number would assert that a photograph is a living document, which is
+the one thing this section exists to deny.
+
+#### 3.2.1 The criterion is the filename shape, not the frontmatter field `[MANUAL]`
+
+A document is a frozen artefact when its **filename** matches the dated
+artefact shape of §3.2 above —
+`YYYY_MM_DD-Title_With_Underscores-vX.Y.Z.md`. The frontmatter field
+`registration_exemption: frozen-artifact` *records* that fact; it does not
+constitute it.
+
+This distinction is not pedantry — it is measured. Of the five frozen
+artefacts in the corpus at `caf2621`, **three carry the field and two do
+not**:
+
+```
+canon/2026_04_15-Epistemic_Relations_…-v0.2.0.md      field present
+canon/2026_04_15-Pragmatic_Numen_System-v0.2.0.md      field present
+standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md       field present
+protocols/2026_04_14-Read_Me_How_to_Archive-v0.2.0.md  field ABSENT
+standards/2026_04_14-Analogous_Terminology_Numina-v0.2.0.md  field ABSENT
+```
+
+The two without it are not oversights: both are `status: closed` and carry
+`registration_reason: "not part of a numbered series"` — the same ruling in
+older words, written before the `frozen-artifact` value existed
+(`S-001` §5.0, 2026-08-25). A guard keyed on the field would have counted
+those two as violations and renamed them. **Any check implementing this
+section matches the filename shape** — `scripts/count-evidence.py` and
+`scripts/rename-series.mjs` both do.
+
+#### 3.2.2 Ruling — `MIS-125`, 2026-08-31: this section prevails over `D-008`
+
+`D-008` v2.0.0's "the 24 exempt documents all enter the scheme, no
+exception" swept in these five and assigned them `STD-NNN`/`CAN-NNN`/
+`PRO-NNN`. That contradicted this section head-on. **This section wins, on
+four grounds, all measured against the repo rather than argued:**
+
+1. **The rename is structurally incomplete** — `S-001` §5.0.1: *a rename
+   whose consumers cannot all be updated is not done.*
+   `2026_08_18-Sistema_de_Diseno-v5.1.0.md` is consumed by **`numinia-web`,
+   a different repository**, via `design-source.json` (`path` + `sha256`,
+   verified there by its own `scripts/check-design-source.mjs` on
+   `npm run design:check`), and by the published kit at
+   `web/public/diseno/kit/manifest.json`. That consumer is outside this
+   repo's reach — exactly the profile that reverted the
+   `engineering-standards.md` rename in `D-024`.
+   **Correction, 2026-08-31 (see §3.2.3):** that pin currently names
+   `…-v5.0.0.md`, not `v5.1.0` — it is already stale, per `D-040`. This
+   ground therefore rests on the *mechanism* (an out-of-repo pin keyed by
+   path) rather than on a pin that a rename would break today. Ground 2 is
+   the load-bearing one.
+2. **Renaming publishes a broken URL.** `web/src/pages/corpus/[...slug].astro`
+   derives every public address from `entry.id`, which the Astro loader
+   derives from the filename when the frontmatter declares none. Verified
+   against a real `npm run build`: **all five are published at a URL built
+   from their filename**, e.g.
+   `/corpus/standards/2026_08_18-sistema_de_diseno-v510`. Renaming
+   publishes five dead addresses. These are not orphans either: the five
+   carry **71 incoming citations across 24 files** (measured 2026-08-31).
+   `D-028` is open precisely because nothing manages that lifecycle.
+3. **`MIS-125`'s own licence to rename does not extend to them.** The
+   mission's §"The prior constraint" permits renaming *because the 13
+   descriptive ids have zero incoming citations* — "the rule is not never
+   rename; it is never break a reference that exists." **None of these
+   five is at zero.** The premise that authorised the renames is false for
+   this set.
+4. **Two of them are `threshold: sealed`** (`S-001` §2.1 — both `canon/`
+   documents; the other three declare no threshold). Changing a sealed
+   document takes the Oracle's signature and an ADR. A bulk prefix pass is
+   neither.
+
+#### 3.2.3 Correction notice — 2026-08-31, same day as the ruling
+
+Three factual defects in §3.2.2 as first published, found while
+investigating a CI failure and corrected here rather than silently:
+
+| Claimed | Actual | Effect on the ruling |
+|---|---|---|
+| `check-design-source.mjs` verifies the pin | that script lives in **`numinia-web`**, not this repo; there is no such file here | the guard exists, in the consuming repo — the citation implied it ran here |
+| the pin secures `v5.1.0` | `numinia-web/design-source.json` names `…-v5.0.0.md` (`sha256: a075e215…`) | ground 1 weakened: the pin is already stale (`D-040`), so a rename would not break it *today* |
+| 59 citations across 27 files | **71 citations across 24 files** | ground 3 unchanged in direction, stronger in magnitude |
+
+The ruling stands. Ground 2 was upgraded from an inference about
+`[...slug].astro` to a measurement against built output (5/5 published
+under filename-derived URLs), and it alone is sufficient. Ground 1 is
+retained for its mechanism, not its current pin.
+
+
+**Consequences.** The five keep their dated names permanently. `D-008`
+removes them from its denominator rather than carrying them as
+non-compliance — a frozen artefact at `0/N` is a measurement error, not
+debt. `D-024`'s closing checkbox that declared the `P-010`/dated-twin
+relation "moot because `MIS-125` registers the twin as `PRO-NNN`" is
+withdrawn: the relation is instead declared with `supersedes:`, which is
+what that checkbox originally asked for.
+
+**What this ruling does not do.** It does not create a general escape from
+registration. It applies to the dated-filename shape and nothing else.
+`registration: exempt` on a *living* document remains what `D-008` ruled it
+was — an exemption to be removed, not honoured.
+
 ### 3.3 Mandatory minimum frontmatter
 
 `id`, `title`, `type`, `status`, `version`, `created`, `updated`,
@@ -160,6 +264,16 @@ agents.
 
 ## Change history
 
+- v0.5.0 (2026-08-31) — `MIS-125`. §3.2 gains the ruling that settles its
+  own conflict with `D-008` v2.0.0: a frozen artefact does not enter a
+  registration series, and the criterion is the **filename shape**, not the
+  `registration_exemption` field (§3.2.1 — measured: 2 of the 5 artefacts
+  carry the shape without the field). Grounds in §3.2.2, each verified
+  against the repo: a cross-repo consumer outside this repo's reach
+  (`S-001` §5.0.1), public URLs derived from filenames (`D-028`), 59
+  incoming citations that falsify `MIS-125`'s own zero-citation premise for
+  this set, and two `threshold: sealed` documents. The H1 also dropped a
+  stale "(v0.3.0)" it had carried since v0.4.0 — form, not substance.
 - v0.4.0 (2026-08-31) — `MIS-125`. §5 gains the execution-plan lifecycle
   rule: a `.hermes/plans/` file is scratch for one mission's active
   execution and is deleted in the same commit that closes the mission,

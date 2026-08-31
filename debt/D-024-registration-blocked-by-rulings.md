@@ -4,11 +4,11 @@ uid:
 title: "Five documents cannot be registered without a prior decision (RESOLVED)"
 type: documentation
 status: closed
-version: "1.2.0"
+version: "1.3.0"
 created: "2026-08-25T12:54:11Z"
 created_source: "git:7f06626"
 created_confidence: exact
-updated: "2026-08-31T10:15:00+02:00"
+updated: "2026-08-31T14:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -121,8 +121,13 @@ Marked RESOLVED when:
       as `OPS-NNN` by folder membership, independent of the `type:` genre
       debate — the exemption is removed, not made permanent)*
 - [x] `P-010-how-to-archive.md` and its dated twin declare their relation
-      *(moot: `MIS-125` registers the dated twin as `PRO-NNN` in the same
-      pass rather than leaving it a frozen artifact — see `D-008` v2.0.0)*
+      *(**not** moot — the reasoning that declared it so was withdrawn
+      2026-08-31: `D-008` v3.0.0 reversed the `PRO-NNN` registration, the
+      twin stays a frozen artefact. Resolved as originally asked instead:
+      `P-010` carries `supersedes:
+      "protocols/2026_04_14-Read_Me_How_to_Archive-v0.2.0.md"` in
+      frontmatter — verified present at `caf2621`, so this checkbox was
+      already satisfiable on its own terms without any rename.)*
 - [x] `engineering-standards.md` gets frontmatter, or a written decision that it
       stays without one — it is the repository's operative standard and the only
       unexplained gap left in `standards/`
@@ -140,14 +145,17 @@ Marked RESOLVED when:
       2026-08-31: `D-008` v2.0.0's exempt-set table never listed it either,
       which is what caught the error.
 
-**Resolved 2026-08-31, by Oracle ruling recorded in `D-008` v2.0.0
-("The `registration: exempt` set" section) and `MIS-125`.** Three of the
-four `registration: exempt` content documents this debt tracked now enter
-the prefix scheme with no exception — closing the genre question that
-blocked two of them, and superseding the "frozen artifact" reasoning that
-had exempted the third. The fourth, `APPROVAL-REQUEST-template.md`, stays
-exempt on its original, still-correct reasoning: it is apparatus, not an
-unregistered document. `S-001` §5.0's `registration: exempt` mechanism
+**Resolved 2026-08-31, by Oracle ruling recorded in `D-008`
+("The `registration: exempt` set" section) and `MIS-125`.** Of the four
+`registration: exempt` content documents this debt tracked, **two** enter
+the prefix scheme — `security-policy.md` and `credential-map.md`, closing
+the genre question that blocked them. The other two stay exempt:
+`APPROVAL-REQUEST-template.md` on its original apparatus reasoning, and
+`2026_08_18-Sistema_de_Diseno-v5.1.0.md` on its original **frozen-artifact**
+reasoning — which v1.1.0 declared superseded and `D-008` v3.0.0 has now
+reinstated. This document's v1.0.0 reasoning about the frozen artefacts was
+right the first time; the intervening "no exception" ruling was the error,
+and the three dated files listed in §3–4 above all keep their names. `S-001` §5.0's `registration: exempt` mechanism
 stays in force for genuine apparatus (README/INDEX/templates); of the five
 documents named in this debt's original scope, it no longer applies to
 four of them.
@@ -161,6 +169,16 @@ four of them.
 
 ## Version history
 
+- v1.3.0 (2026-08-31) — `MIS-125`, same day. Two claims made by v1.1.0 are
+  withdrawn after `D-008` v3.0.0 reversed the ruling they rested on. (1)
+  The `P-010`/dated-twin checkbox was closed as "moot, the twin becomes
+  `PRO-NNN`"; the twin stays a frozen artefact, and the checkbox is closed
+  properly instead — `P-010` already declared `supersedes:` pointing at it,
+  which was all the checkbox ever asked for. (2) The frozen-artifact
+  exemption on `2026_08_18-Sistema_de_Diseno-v5.1.0.md`, declared
+  superseded, is reinstated. **This document's original v1.0.0 reasoning
+  (§3–4) was correct and was overwritten by a broader ruling that had not
+  measured these files** — recorded as a reversal, not quietly restored.
 - v1.2.0 (2026-08-31) — Corrected by the Oracle's own review: v1.1.0
   marked `APPROVAL-REQUEST-template.md` `[x]` alongside the other 24,
   contradicting this document's own earlier finding (§"remaining
