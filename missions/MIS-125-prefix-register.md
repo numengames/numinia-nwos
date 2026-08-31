@@ -3,11 +3,11 @@ id: "MIS-125"
 title: "The prefix register — four series carry identifiers no rule knows about"
 type: mission
 status: in-progress
-version: "1.3.1"
+version: "1.4.0"
 created: "2026-08-30T11:50:00Z"
 created_source: "git:b09311c"
 created_confidence: exact
-updated: "2026-08-31T14:20:00+02:00"
+updated: "2026-08-31T18:10:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC-BY-4.0"
@@ -79,8 +79,10 @@ For every series that carries identifiers:
 
 ## Acceptance criteria
 
-- [ ] Every series carrying identifiers appears in the register — twelve, not
-      eight
+- [x] Every series carrying identifiers appears in the register — twelve, not
+      eight. **Done**: `ADR-005` v1.1.0 (Oracle, 2026-08-31) registers twelve,
+      and `S-001` §4.1 was corrected to match on the same day — it had been
+      carrying the superseded eight.
 - [ ] Every `id` in the corpus matches its series' registered prefix, or its
       exception is declared and dated
 - [ ] The check is live in `lint-frontmatter.mjs` and fails in both directions
@@ -410,3 +412,105 @@ rename removed the accident that hid them. Baselined, not rewritten (two
 `status: closed` blueprints and a `P-008` template describing the architecture
 that deletion removed). `D-039` again, one layer down. Filed as `D-047`.
 
+### Interlude — debt reduction before the next series (PR #164, 2026-08-31)
+
+Stage C stopped after one series on the Oracle's instruction. The reason was
+arithmetic: `guilds/` cost three new debt entries (`D-047`, `D-048`, `D-049`)
+to rename eight files, and `debt/` had gone 35 → 38 in a mission whose purpose
+was to reduce it. *"Vamos a ser muy operativos y vamos a cerrar cosas."*
+
+**Five entries closed. Active debt 37 → 33.**
+
+| Entry | Sev | Closed on which of its own conditions | What is **not** done |
+|---|---|---|---|
+| `D-025` | med | all three | — |
+| `D-047` | med | "the blind spot is declared and accepted" | the resolver still matches by basename |
+| `D-049` | med | "guards warn about untracked files" | `--write-baseline` still writes (by decision) |
+| `D-048` | **high** | both | case 4 is undetectable by tool |
+| `D-014` | low | rule + before/after figures published | — |
+
+**`D-047` and `D-049` were never separate defects.** Both are instances of
+`D-025` — *"no guard declares what it is blind to"*, opened 2026-08-25. Closing
+the parent closed the children. This is worth stating plainly because it
+explains why the debt felt like it was multiplying: three entries were being
+tracked where one gap existed.
+
+The mechanism is `S-001` §10.4: eight guards print what they did **not** check,
+on success as well as failure, from `scripts/blind-spots.json` via
+`scripts/lib/blindness.mjs`. Verified by `scripts/test/blindness.test.mjs`,
+which builds a file that *should* trip each guard and asserts it stays green —
+the blindness is proven, not claimed. The suite was itself checked for
+falsifiability: removing one declaration turns it red.
+
+**The guards are exactly as blind as they were before.** Nothing was fixed.
+What changed is that a green run no longer implies more than it proved.
+
+`D-048` closed on both conditions: the tool refuses dated evidence and closed
+records (60 refusals in a throwaway-clone test), and the interim rule is now
+permanent policy in **`P-010` §3.4 — a citation may be rewritten, a mention may
+not**. Rule 3 of that section (read the full staged diff) remains mandatory for
+the ten series still unrenamed.
+
+### Two corrections by the Oracle, same session
+
+**1. `S-001` §4.1 was out of date — ten of eleven rows.** It prescribed
+`MIS-NNN`, `P-NNN`, `S-NNN`, `D-NNN`, `C-NNN`, `O-NNN`, `BP-slug`,
+`RPT-YYYY-MM-DD`, `AUD-YYYY-MM-DD` and `AG-NNN`, all superseded by `ADR-005`
+v1.1.0 — the amendment this mission itself obtained — and `guilds/` and
+`infra/` were missing entirely. **For a day this mission was renaming the corpus
+against its own glossary**, which 104 files cite. Rewritten from `ADR-005`
+v1.1.0 with coverage measured by `count-evidence.py`, not copied. `S-001` →
+v5.0.0.
+
+**2. A dead debt entry was cited as live authority.** `D-017` was extinguished
+2026-08-30 by `ADR-030`, and was cited here to justify not wiring a CI step —
+while its own resolution record reads *"workflow scope granted"*. The correct
+authority is **`P-013`**, whose step 3 (pasting the YAML) is the Oracle's and
+cannot be delegated. The conclusion was right; the ground under it was not.
+
+Both were found by reading, not by any guard — which is `D-050`.
+
+### `D-050` — why none of it was caught (new, high)
+
+`check-references.mjs` matches only the **twelve current prefixes**. A citation
+written under a retired scheme is not a reference the guard tolerates; it is a
+string the guard never recognises as a reference at all.
+
+- **80 of 246 files (32 %)** carry a prefix no guard can match
+- **~90 genuinely broken citations are invisible**, after netting out the two
+  legitimate classes: citations to extinguished debt (`ADR-030`) and `canon/`'s
+  seminal numbering, which collides with the retired `standards/` prefix
+
+**Warning for the remaining series.** Renaming `debt/` to `DBT-NNN` moves 38
+files from the unmatched set into the matched one, so those citations become
+reportable **all at once**. The reference guard will appear to break. It will
+not be breaking — it will be seeing, for the first time, what was already
+there. Anyone reading that run without `D-050` will blame the rename.
+
+### Stage C — what remains
+
+Ten series, `248` renameable files. `standards/` is next per `D-008`'s risk
+order, and is **held** on two counts, both the Oracle's to release:
+
+1. **The slug defect** (Stage B bug 3, still open): the dry run keeps the dead
+   prefix *inside* the new slug: the glossary would keep its old prefix as
+   slug text, so the new basename would carry the prefix twice — the new one
+   in front, the retired one embedded — instead of just the new prefix plus
+   `-glossary`. Cleaning it changes the basename that **104 files** cite. Not
+   a technical decision.
+
+   *Written in prose rather than as identifiers on purpose: the target names
+   do not exist yet, and spelling them out would make this mission cite files
+   that are not there — a mention, not a citation (`P-010` §3.4). `D-050`
+   is the reason that distinction now matters.*
+2. **`ADR-030` housekeeping**: six entries carry `status: closed` and are still
+   in the tree (`D-014`, `D-024`, `D-025`, `D-047`, `D-048`, `D-049`). Rule 1
+   says an operational entry is deleted on close; rule 3 says a closure without
+   a written resolution does not extinguish. Whether today's closures satisfy
+   rule 1, and whether extinction is per-entry or batched, wants an
+   instruction. Deleting six documents is not something an agent does because a
+   rule appears to permit it.
+
+`P-013` handoff is open: steps 1, 2 and 4 are done (the suite is tested in both
+directions, the YAML block is in PR #164's body, and the merged run is green).
+Step 3 — pasting it into `.github/workflows/ci.yml` — is the Oracle's.
