@@ -77,7 +77,7 @@ const updated = fmtDate(f.updated) ?? fmtDate(f.created);
 
       <h1 class="font-display text-3xl sm:text-4xl text-foreground mb-8">{title}</h1>
 
-      <DocToolbar mdUrl={mdUrl} filename={mdFilename} pdfUrl={"/pdf" + mdUrl.replace(/\.md$/, ".pdf")} lang={docLang} repoUrl={repoUrl} />
+      <DocToolbar mdUrl={mdUrl} filename={mdFilename} lang={docLang} repoUrl={repoUrl} />
       <article class="mission-md rounded-xl border border-border bg-card p-6 sm:p-8">
         <Content />
       </article>

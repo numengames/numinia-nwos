@@ -198,13 +198,12 @@ export default defineConfig({
 		"/corpus/reports/daily/rpt-2026-04-07-tarde": "/corpus/reports",
 		"/corpus/reports/daily/rpt-2026-08-17": "/corpus/reports",
 	},
-	// /print/* pages are PDF-generation intermediates (MIS-088): rendered at
-	// build, printed to /pdf/*.pdf by scripts/generate-pdfs.mjs, then removed
-	// from dist — they must never reach the sitemap.
-	// pagefind (MIS-117) indexes dist/ after the build; /print/* is excluded
-	// at the source (data-pagefind-body only on Layout's article) and the
-	// intermediates are deleted before deploy anyway.
-	integrations: [react(), tailwind(), sitemap({ filter: (page) => !page.includes("/print/") }), pagefind()],
+	// MIS-088's /print/* intermediates are gone (2026-08-31). They existed
+	// only as Chromium print targets for a PDF step the build never ran, so
+	// they were served in production as a public half-feature. Removing the
+	// pages removes the reason for the sitemap filter that hid them: there
+	// is nothing left to exclude. See debt/D-035.
+	integrations: [react(), tailwind(), sitemap(), pagefind()],
 	// Every corpus document opens with a Summary/Epistemic/Pragmatic/Audience
 	// blockquote. Markdown renders those four lines as one paragraph, which
 	// reads as a grey wall. rehypeContextCard turns that one blockquote shape
