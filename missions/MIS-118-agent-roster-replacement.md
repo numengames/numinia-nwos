@@ -139,7 +139,7 @@ structure, and the live inbound links repaired.
 ✓  no file under agents/ contains Spanish prose
    (today: n/a — at PR 2 open, Ursa/SOUL.md arrives in Spanish)
 
-✓  guilds/*/roster.md and blueprints/BP-archive-fondos.md contain no link
+✓  guilds/*/roster.md and blueprints/BLU-005-archive-fondos.md contain no link
    into agents/ that fails to resolve             (today: they resolve, but
                                                    against folders PR 2 deletes)
 
@@ -165,7 +165,7 @@ Against `origin/main @ 9f8627a`:
    renaming him to Byblos breaks no provenance. Nimrod has 57 as
    `Centinela-01` — the archaeology table is what keeps them resolvable.
 3. **34 inbound links** point into `agents/` from 54 documents; only 5 are
-   live navigation (2 guild rosters, `BP-archive-fondos.md`, `INDEX.md`);
+   live navigation (2 guild rosters, `BLU-005-archive-fondos.md`, `INDEX.md`);
    the rest are forensic citations and stay untouched.
 4. **The licence guard reads only `*.md`** (`git ls-files "*.md"`), so the
    six `.yaml` files per agent are covered by `REUSE.toml` alone and need no

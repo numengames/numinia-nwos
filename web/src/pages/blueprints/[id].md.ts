@@ -8,7 +8,7 @@ import { getCollection } from "astro:content";
 export async function getStaticPaths() {
   const entries = await getCollection("blueprints");
   return entries.map((entry) => ({
-    params: { id: (entry.data.id as string).replace(/^BP-/i, "").toLowerCase() },
+    params: { id: String(entry.id).replace(/^BLU-\d+-/i, "").toLowerCase() },
     props: { filePath: entry.filePath as string },
   }));
 }

@@ -13,7 +13,7 @@ const SEMAFORO: Record<string, { dot: string; label: string }> = {
   rojo: { dot: "bg-red", label: "Rojo" },
 };
 
-const slug = (id: string) => id.replace(/^BP-/i, "").toLowerCase();
+const slug = (id: string) => id.replace(/^BLU-\d+-/i, "").toLowerCase();
 
 const planos = (await getCollection("blueprints")).sort((a, b) =>
   (a.data.id as string).localeCompare(b.data.id as string)

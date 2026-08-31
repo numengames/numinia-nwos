@@ -67,7 +67,7 @@ sub_missions:
 
 Born from MIS-057 (Deep QA) + Pablo FM direction on 2026-04-07.
 
-Design blueprint: [BP-mission-system-v2](../../blueprints/BP-mission-system-v2.md)
+Design blueprint: [BLU-003](../blueprints/BLU-003-mission-system.md)
 
 Key decisions:
 - URL: `/missions`

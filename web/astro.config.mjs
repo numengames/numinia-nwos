@@ -67,6 +67,11 @@ export default defineConfig({
 		"/corpus/canon/role-structure-in-the-numinia-system": "/corpus/canon/c-004-role-structure",
 		"/corpus/canon/about-session-zero": "/corpus/canon/c-006-session-zero",
 		"/corpus/canon/rank-specifications": "/corpus/canon/c-007-rank-specifications",
+		// MIS-127: BLU-003 dropped the "-v2" version suffix from its filename
+		// (S-001 §9 — the version lives in frontmatter, not the name). The
+		// document is alive; only its address changed. 301, not a tombstone.
+		"/blueprints/mission-system-v2": "/blueprints/mission-system",
+		"/planos/mission-system-v2": "/planos/mission-system",
 		// MIS-127 step 1 (ADR-033): two closed daily reports deleted after passing
 		// P-010 §5's four consumer tests — zero inbound citations, no living
 		// reader. Their addresses answer at the reports index instead.

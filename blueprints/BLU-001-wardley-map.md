@@ -1,5 +1,6 @@
 ---
-id: "WARDLEY-MAP"
+id: "BLU-001"
+uid: ""
 title: "Wardley Map — Narrative Work OS"
 type: blueprint
 subtype: wardley-map

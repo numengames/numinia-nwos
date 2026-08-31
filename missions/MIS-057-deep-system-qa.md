@@ -45,7 +45,7 @@ human_approval_score: 9
 - [x] P-006 Session Close Protocol created
 - [x] Human-approval template with 1-10 score created (P-008 + APPROVAL-REQUEST-template)
 - [x] Agent architecture — flat structure confirmed and documented
-- [x] Business metrics framework defined (BP-business-metrics v0.1.0)
+- [x] Business metrics framework defined (BLU-002-business-metrics v0.1.0)
 - [x] agents/INDEX.md v2.0.0 — updated to real agents and flat structure
 - [x] CHANGELOG.md — full history 0.1.0 → 0.5.0
 - [x] MIS-037 duplicate removed from active/
@@ -83,16 +83,16 @@ human_approval_score: 9
 - Flat structure confirmed and documented ✅
 - blueprints/INDEX.md created (Adonaz QA finding: fund had no index)
 - BP-cao.md v0.2.0: translated to English, updated agent list, cross-reference added
-- BP-business-metrics.md: uid added, renamed (no version in filename), MIS-048 blocker explicit
+- BLU-002-business-metrics.md: uid added, renamed (no version in filename), MIS-048 blocker explicit
 
 **Area 5 — Business metrics:**
-- BP-business-metrics v0.1.0 created: 5 metric categories, DORA structure, ROI model
+- BLU-002-business-metrics v0.1.0 created: 5 metric categories, DORA structure, ROI model
 - Adonaz QA review applied: 4 issues resolved (uid, rename, INDEX, cross-refs)
 
 ### Spawned
 
 - **MIS-062** — Mission System v2 + Kanban board (born from QA findings + Pablo direction)
-- **BP-mission-system-v2** — Complete redesign spec: 4 states, sub-missions, new IDs, Kanban UI
+- **BLU-003-mission-system** — Complete redesign spec: 4 states, sub-missions, new IDs, Kanban UI
 
 ### Key learnings
 

@@ -8,14 +8,14 @@ import Icon from "@/components/Icon.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
 import { getCollection, render } from "astro:content";
 
-const slug = (id: string) => id.replace(/^BP-/i, "").toLowerCase();
+const slug = (id: string) => id.replace(/^BLU-\d+-/i, "").toLowerCase();
 
 export async function getStaticPaths() {
   const entries = (await getCollection("blueprints")).sort((a, b) =>
     (a.data.id as string).localeCompare(b.data.id as string)
   );
   return entries.map((entry) => ({
-    params: { id: (entry.data.id as string).replace(/^BP-/i, "").toLowerCase() },
+    params: { id: String(entry.id).replace(/^BLU-\d+-/i, "").toLowerCase() },
     props: { entry },
   }));
 }
