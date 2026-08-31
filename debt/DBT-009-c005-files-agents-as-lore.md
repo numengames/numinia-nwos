@@ -1,14 +1,14 @@
 ---
-id: "D-038"
+id: "DBT-009"
 uid:
 title: "C-005 files agent definitions as lore, and the tap it closed was already open"
 type: documentation
 status: active
-version: "1.0.0"
+version: "2.0.0"
 created: "2026-08-28T09:33:53Z"
 created_source: "git:f86569b"
 created_confidence: exact
-updated: "2026-08-28T09:33:53Z"
+updated: "2026-08-31T23:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -19,8 +19,9 @@ visibility: "public"
 severity: high
 opened_by: "Oracle, 2026-08-28"
 supersedes_pending: "canon/C-005-licensing.md §1"
+absorbs: ["D-038"]
 ---
-# D-038 — C-005 files agent definitions as lore
+# DBT-009 — C-005 files agent definitions as lore, and the tap it closed was already open
 
 > **Summary:** the licence canon classifies an agent's definition as
 > reserved lore. It is documentation, and the reservation it declares was
@@ -127,3 +128,11 @@ grep 'version:' canon/C-005-licensing.md            # > 1.4.0
 `D-030` (whether regimes should derive from paths at all — still open) ·
 `D-029` (a decision travelling hidden inside another) ·
 `MIS-118` (the mission that surfaced this) · `REUSE.toml`
+
+---
+
+## Renumbering note, 2026-08-31
+
+This document was `D-038`. The `D-` series
+was closed and renumbered densely to `DBT-NNN` under `ADR-004` rule 4 and
+`ADR-005` v1.1.0 — see `RPT-001` §12. No `D-` number is reused.

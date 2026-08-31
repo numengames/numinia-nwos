@@ -1,14 +1,14 @@
 ---
-id: "D-033"
+id: "DBT-006"
 uid:
 title: "Compliance assertions are falsifiable and nothing falsifies them"
 type: documentation
 status: active
-version: "1.0.0"
+version: "2.0.0"
 created: "2026-08-25T18:00:00Z"
 created_source: "git:2ba3fea"
 created_confidence: exact
-updated: "2026-08-25T18:00:00Z"
+updated: "2026-08-31T23:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"
@@ -24,8 +24,9 @@ severity: high
 opened_by: "Oracle, 2026-08-25, on the credential-map contradiction"
 evidence_script: "salida/sesion-2026-08-25-fase0-websync/barrido-cumplimiento.py"
 evidence_head: "392ffc6"
+absorbs: ["D-033"]
 ---
-# D-033 — The corpus asserts compliance, and nothing checks the assertions
+# DBT-006 — Compliance assertions are falsifiable and nothing falsifies them
 
 > **Summary:** **145 compliance assertions** across 282 documents. **132 (91%)
 > are falsifiable by command and nobody falsifies them — and 61 of those are
@@ -198,3 +199,11 @@ Marked RESOLVED when:
 | Blocked by | `D-017` for the CI step |
 | Opened | 2026-08-25, from the `credential-map` contradiction |
 | Closes when | a compliance claim either has a mechanism or does not exist |
+
+---
+
+## Renumbering note, 2026-08-31
+
+This document was `D-033`. The `D-` series
+was closed and renumbered densely to `DBT-NNN` under `ADR-004` rule 4 and
+`ADR-005` v1.1.0 — see `RPT-001` §12. No `D-` number is reused.

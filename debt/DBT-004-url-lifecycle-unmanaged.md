@@ -1,14 +1,14 @@
 ---
-id: "D-028"
+id: "DBT-004"
 uid:
 title: "The site publishes URLs derived from filenames and nothing manages their lifecycle"
 type: documentation
 status: active
-version: "1.1.0"
+version: "2.0.0"
 created: "2026-08-25T14:22:10Z"
 created_source: "git:a13366b"
 created_confidence: exact
-updated: "2026-08-25T17:30:00Z"
+updated: "2026-08-31T23:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -20,8 +20,9 @@ severity: medium
 opened_by: "Oracle, 2026-08-25"
 evidence_script: "cd web/dist && grep -rl 'http-equiv=\"refresh\"' --include=index.html . | wc -l"
 evidence_head: "392ffc6"
+absorbs: ["D-028"]
 ---
-# D-028 — Published URLs derive from filenames, and nothing manages them
+# DBT-004 — The site publishes URLs derived from filenames and nothing manages their lifecycle
 
 > **Summary:** `numinia.org` serves 688 pages. Most of their addresses come from
 > a filename, so every rename silently changes a public URL, and nothing tracks
@@ -207,3 +208,11 @@ imprecise redirection.
 | Opened | 2026-08-25, at the Oracle's instruction during `MIS-109` phase B |
 | Instrument landed | 2026-08-31, `ADR-030` — `check-url-lifecycle.mjs` + 536-URL baseline |
 | Closes when | the `DEUDA-404` comment is corrected and redirect targets are verified to succeed the content, not merely to resolve |
+
+---
+
+## Renumbering note, 2026-08-31
+
+This document was `D-028`. The `D-` series
+was closed and renumbered densely to `DBT-NNN` under `ADR-004` rule 4 and
+`ADR-005` v1.1.0 — see `RPT-001` §12. No `D-` number is reused.

@@ -83,6 +83,11 @@ const RING3 = {
     'previous_name', 'previous_name_note', 'translation_note'],
   'debt': ['severity', 'severity_reason', 'detected', 'refuted', 'source_audit', 'opened_by',
     'visibility_reason',
+    // registered 2026-08-31 (RPT-001 §12, the debt renumbering). Same
+    // load-bearing role as in decisions/: check-references.mjs reads
+    // `absorbs` to keep a merged entry's original identifiers resolving,
+    // so consolidating debt does not break every citation of it (ADR-030).
+    'absorbs',
     'resolved_by', 'question_status', 'visibility_was', 'scope', 'supersedes_pending'],
   'blueprints': ['extraction_note', 'restoration_note', 'semaforo',
     // fondos/graph are read by web/src/pages/archive/ — checked BEFORE
@@ -140,9 +145,16 @@ const RETIRED = {
   licencia: 'C-005: Spanish-era key', revision: 'C-005: Spanish-era key',
 };
 
-/** ADR-005 / ADR-004: series prefix per top-level dir. */
+/** ADR-005 / ADR-004: series prefix per top-level dir.
+ *
+ * `debt: 'DBT'` — ADR-005 v1.1.0 registered the debt series as DBT-NNN. This
+ * table still said 'D' (the on-disk prefix at the time) until the renumbering
+ * of 2026-08-31 (RPT-001 §12) closed the D- series. Same class of staleness
+ * as check-references.mjs's ID_RE: a guard carrying its own private copy of a
+ * ruling, drifting from the ruling.
+ */
 const PREFIX = {
-  missions: 'MIS', decisions: ['ADR', 'DEC'], protocols: 'PRO', debt: 'D',
+  missions: 'MIS', decisions: ['ADR', 'DEC'], protocols: 'PRO', debt: 'DBT',
   standards: 'S', canon: 'C', agents: 'AG', reports: ['RPT', 'AUD'],
   system: 'SYS',  // ADR-035: reference manuals of how the system works today
 };

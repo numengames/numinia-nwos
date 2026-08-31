@@ -1,14 +1,14 @@
 ---
-id: "D-030"
+id: "DBT-005"
 uid:
 title: "Should the licence regime derive from the path? — open question"
 type: documentation
 status: active
-version: "1.1.0"
+version: "2.0.0"
 created: "2026-08-25T14:38:34Z"
 created_source: "git:1cd313d"
 created_confidence: exact
-updated: "2026-08-28T00:00:00Z"
+updated: "2026-08-31T23:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -21,8 +21,9 @@ opened_by: "Oracle, 2026-08-25"
 question_status: "open — no proposal by instruction"
 evidence_script: "reports/audits/evidence/regime-crossings.py"
 evidence_head: "0a912c0"
+absorbs: ["D-030"]
 ---
-# D-030 — Should the licence regime derive from the path?
+# DBT-005 — Should the licence regime derive from the path? — open question
 
 > **This entry proposes nothing.** It is an open design question, registered at
 > the Oracle's instruction with the evidence and the mechanism, and no closing
@@ -158,3 +159,11 @@ The closing condition is unchanged: the Oracle rules on the mechanism.
 `D-029` (a decision travelling hidden inside another) · `ADR-023` ·
 `LEGAL_DEBT.md` · `C-005` (licence canon) · `REUSE.toml` ·
 `reports/audits/evidence/regime-crossings.py`
+
+---
+
+## Renumbering note, 2026-08-31
+
+This document was `D-030`. The `D-` series
+was closed and renumbered densely to `DBT-NNN` under `ADR-004` rule 4 and
+`ADR-005` v1.1.0 — see `RPT-001` §12. No `D-` number is reused.
