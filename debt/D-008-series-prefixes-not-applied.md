@@ -4,7 +4,7 @@ uid:
 title: "Twelve series carry a registration scheme most of the corpus does not yet apply"
 type: documentation
 status: active
-version: "2.0.0"
+version: "2.1.0"
 created: "2026-08-24T19:40:00Z"
 updated: "2026-08-31T09:40:00+02:00"
 author: "ursa"
@@ -42,15 +42,27 @@ opened_by: "S-001 §4.1"
 | `reports/audits/` | `RPT-NNN` (`subtype: audit`) | **0/12** — currently `AUD-` |
 | `blueprints/` | `BLU-NNN` | **0/16** |
 | `canon/` | `CAN-NNN` | **0/10** |
-| `standards/` | `STD-NNN` | **0/8** |
+| `standards/` | `STD-NNN` | **0/7** |
 | `operations/` | `OPS-NNN` | **0/10** |
-| `debt/` | `DBT-NNN` | **0/37** |
+| `debt/` | `DBT-NNN` | **0/36** |
 | `guilds/` | `GLD-NNN` | **0/8** |
 | `infra/` | `INF-NNN` | **0/0 — no eligible files** (see note) |
 | `agents/` | — (folder name, no number) | n/a — exempt by `ADR-005` v1.1.0, the one deliberate exemption that stays |
 
-Total renameable: **277 files across 11 series** (`decisions/` excluded,
-already compliant; `agents/` and `infra/` excluded, see notes).
+Total renameable: **275 files across 11 series** (`decisions/` excluded,
+already compliant; `agents/` and `infra/` excluded, see notes;
+`standards/STANDARDS.md` excluded, see note below;
+`debt/D-001` extinguished 2026-08-31, no longer counted).
+
+**`standards/STANDARDS.md` note:** `type: meta`, `status: closed`,
+`registration: exempt` (`registration_reason: "singular document, not a
+numbered series"`) — a tombstone/redirector pointing to the living rules
+(`superseded_by: "S-001 · S-004 · governance.md · engineering-standards.md"`),
+the same functional class as `README.md`/`INDEX.md` (excluded from every
+series by the same convention), not a numbered standard itself. Oracle
+ruling, 2026-08-31: stays apparatus, permanently exempt, no `STD-NNN`.
+`count-evidence.py` updated to exclude it by name alongside
+`README.md`/`INDEX.md`/`TEMPLATE.md`.
 
 **`infra/` note:** the register lists it, but the folder holds one
 `README.md` (apparatus, excluded from every series by convention across this
@@ -64,8 +76,9 @@ version measured 4 series (`standards/` 0/3, `agents/` 0/17, `operations/`
 0/11, `debt/` 1/1) against a scheme `ADR-005` v1.0.0 has since been amended.
 Every one of those four figures is now stale — `agents/` no longer carries
 a scheme at all (exempt), and the other three counts changed because the
-corpus grew and, in `debt/`'s case, the 1 originally-compliant file
-(`D-001-no-ci-guards.md`) still used the 3-digit `D-NNN` shape, which is
+corpus grew and, in `debt/`'s case, the 1 originally-compliant file (`D-001`,
+closed and extinguished 2026-08-31 — see `MIS-127`) still used the 3-digit
+`D-NNN` shape, which is
 **not** what `ADR-005` v1.1.0 now specifies (`DBT-NNN`) — so it counts as
 non-compliant under the current rule despite once having been the sole
 example of compliance.
@@ -128,7 +141,7 @@ Order — `MIS-125` Stage C, cheapest/lowest-risk first, one commit per series,
 6. `reports/daily/` — 10 files
 7. `reports/audits/` — 12 files (prefix change `AUD-` → `RPT-`, add `subtype: audit`)
 8. `protocols/` — 15 files
-9. `debt/` — 37 files (including this document, renamed last within its own series)
+9. `debt/` — 36 files (including this document, renamed last within its own series; was 37, `D-001` extinguished 2026-08-31, see `MIS-127`)
 10. `missions/` — 131 files, highest volume and citation density, last
 11. `infra/` — 0 eligible files today; no action, prefix reserved
 
@@ -150,6 +163,15 @@ renumbered**, only re-prefixed (`ADR-004` §rule 4).
 
 ## Version history
 
+- v2.1.0 (2026-08-31) — `MIS-125`, same day. Two corrections after the
+  v2.0.0 measurement: (1) `standards/STANDARDS.md` was being counted in
+  the `standards/` denominator despite being the same apparatus class as
+  `README.md`/`INDEX.md` (a tombstone pointing to living rules, not a
+  numbered standard) — Oracle ruling: stays permanently exempt, no
+  `STD-NNN`; `count-evidence.py` now excludes it by name; `standards/`
+  corrected 0/8 → 0/7. (2) `debt/D-001` was extinguished the same day
+  (`MIS-127`) — `debt/` corrected 0/37 → 0/36. Total renameable:
+  277 → 275.
 - v2.0.0 (2026-08-31) — `MIS-125`. Full re-measurement against `ADR-005`
   v1.1.0's 13-series register (was 4 series). `agents/` dropped —
   exempted, not measured. `infra/` added with a "no eligible files" note.
