@@ -215,12 +215,12 @@ const READING_ORDER: Record<string, string[]> = {
   // who may change what. Then form, then craft, then the superseded document
   // kept for the record.
   standards: [
-    "/corpus/standards/s-001-glossary",
+    "/corpus/standards/std-001-glossary",
     "/corpus/standards/2026_04_14-analogous_terminology_numina-v020",
-    "/corpus/standards/governance",
-    "/corpus/standards/s-004-header-standard",
-    "/corpus/standards/s-003-platform-role-system",
-    "/corpus/standards/engineering-standards",
+    "/corpus/standards/std-002-governance",
+    "/corpus/standards/std-004-header-standard",
+    "/corpus/standards/std-003-platform-role-system",
+    "/corpus/standards/std-005-engineering-standards",
     "/corpus/standards/2026_08_18-sistema_de_diseno-v510",
     "/corpus/standards/standards",
   ],
@@ -247,18 +247,13 @@ const READING_ORDER: Record<string, string[]> = {
     "/corpus/system/sys-003-archive-fondos",
   ],
 
-  // Zoom out to zoom in and out again: what the system is → how it is built →
-  // the unit of work → the person doing the work → where the work is kept →
-  // what things are called → how it is measured → where it is all going.
+  // Three survivors, after ADR-035 moved the manuals to system/ and MIS-129
+  // retired BLU-001 and BLU-003: the system as a whole, then the vocabulary it
+  // has to speak, then how anyone can tell it is working.
   blueprints: [
     "/planos/nwos-system",
-    "/planos/cao-architecture",
-    "/planos/mission-system",
-    "/planos/agent-experience",
-    "/planos/archive-fondos",
     "/planos/dual-nomenclature",
     "/planos/business-metrics",
-    "/planos/wardley-map",
   ],
 };
 
@@ -270,7 +265,7 @@ export const READING_NOTE: Record<string, string> = {
   decisions: "The life of a document, in the order the archive had to settle it: where it lives, what to call it, what the words mean, what it must declare, and how it is allowed to die.",
   standards: "Language first — nothing below can be read without it. Then who may change what, then the shape a document takes, then how the thing gets built.",
   protocols: "One working day, in order: you sit down, you take a mission, you need a ruling, you get stuck, you file the result — and then you hand the checking to a machine that never forgets.",
-  blueprints: "Zoom out, then in, then out again: the system, its architecture, the unit of work, the person doing it, where it is all kept — and where it is going.",
+  blueprints: "What does not exist yet, in the order you would have to argue it: the system as a whole, then the words it has to speak, then how anyone could tell it is working.",
   system: "Not what we plan to build — what is running. Widest first: the whole machine, then the loop a single agent works inside, then the shelves everything it produces lands on.",
   debt: "No order to argue about. These are confessions, filed by number, and the point of the register is that none of them is hidden.",
 };
@@ -370,6 +365,25 @@ export async function getSectionDocs(slug: string): Promise<SectionDoc[]> {
   // The reading order decides the page; the identifier only breaks ties among
   // documents the story does not yet mention. See READING_ORDER above.
   const order = READING_ORDER[slug] ?? [];
+
+  // A reading order is a list of slugs, and slugs move: on 2026-08-31 the
+  // STD- rename retired five of the eight entries below and this function
+  // said nothing — every unmatched row simply fell to the end, alphabetically,
+  // and the section quietly stopped telling its story. Failing loudly at build
+  // time is the only way a curated order stays curated: an entry that matches
+  // nothing is a bug in the order, not a document that went missing.
+  if (order.length) {
+    const live = new Set(docs.map((d) => d.href.replace(/\/$/, "")));
+    const dead = order.filter((href) => !live.has(href));
+    if (dead.length) {
+      throw new Error(
+        `READING_ORDER["${slug}"] points at ${dead.length} slug(s) that no ` +
+          `longer exist: ${dead.join(", ")}. Update the order in ` +
+          `web/src/lib/corpus.ts — the documents renamed, the story did not.`,
+      );
+    }
+  }
+
   const rank = (d: SectionDoc) => {
     const i = order.indexOf(d.href.replace(/\/$/, ""));
     return i === -1 ? Number.MAX_SAFE_INTEGER : i;
