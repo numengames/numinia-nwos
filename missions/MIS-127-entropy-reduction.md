@@ -142,6 +142,32 @@ Stage C's job.
 Full text of the closed entry is in git history: run
 `git log --follow -- 'debt/D-001*'` to recover it.
 
+**D-002 — "`blocked_reason` is orphaned: the status it explained no longer
+exists" — closed 2026-08-31.** The entry's own OPEN QUESTION (does a
+blocked mission need a field distinct from `frozen`/`freeze_reason`, or is
+`blocked_reason` a duplicate?) was already answered by usage, not by a new
+ruling: of 8 carriers measured 2026-08-25, 7 were `null` and the one
+substantive value (`MIS-052`, "PC in transit — pending physical arrival")
+sat on a mission that was never `frozen` — `status: todo`, waiting on an
+external event, not deliberately paused. That is not what `freeze_reason`
+is for either; it moved to body prose instead, during the mechanical
+header-burndown phase (`scripts/phase2-mechanical.py`, 2026-08-30, value
+preserved in `scripts/phase8-retired-values.txt` so it wasn't lost in
+silence). Verified 2026-08-31: **zero live `blocked_reason` occurrences**
+in any frontmatter, corpus-wide (`git grep`) — the migration this entry
+called for had already happened, only the debt entry and two `S-001`
+citations hadn't caught up. Closure per option 1 of the entry's own text
+("retire it"): `H-31` (added 2026-08-30, unrelated work) already guards
+the field against regression, corpus-wide, in CI — so this closure adds no
+new guard, only stops the archive from citing an open question that
+usage had already settled. `S-001` §6 and §7 updated to state the
+retirement instead of pointing at an active entry; `debt/D-021`'s
+citation of the file (a historical audit table, not a live reference)
+updated to describe the closure rather than link a deleted path.
+
+Full text of the closed entry is in git history: run
+`git log --follow -- 'debt/D-002*'` to recover it.
+
 ## Done when
 
 The Oracle declares the reduction line closed. Each PR in the ledger

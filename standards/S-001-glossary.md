@@ -950,8 +950,13 @@ them** (40 `backlog`, 4 `draft`, 1 with a comment corrupting the value). The
 migration is its own operation. Gap registered as **D-009**. Also withdrawn:
 `active` · `queue` · `blocked` · `freeze` · `cancelled`.
 
-`blocked_reason` (8 uses) is orphaned by the removal of `blocked`. Registered as
-**D-002**.
+`blocked_reason` (8 uses at time of writing) was orphaned by the removal of
+`blocked`. Retired 2026-08-31 (`D-002`, closed): the one substantive value
+(`MIS-052`, "PC in transit") lived on a mission that was never actually
+`frozen` — a `todo` mission waiting on an external event, not a
+deliberately-paused one — so it moved to body prose, not `freeze_reason`.
+The other 7 were `null`. `H-31` guards the field against regression,
+corpus-wide, citing this closure.
 
 ### `guild`
 `Sentinels` · `Alchemists` · `Exegetes` · `Procurators` — English, plural.
@@ -1341,9 +1346,8 @@ defect `D-018` exists to catch.
 7. **`guilds/` as a series** — charters to `standards/`, rosters as generated
    apparatus.
 
-Two more fields were named elsewhere in this document and now carry entries:
-`blocked_reason` → [`D-002`](../debt/D-002-blocked-reason-orphaned.md) (§7), and
-`cancelled` → `D-016` (extinguished 2026-08-30, ADR-030), **which is
+One more field was named elsewhere in this document and now carries an
+entry: `cancelled` → `D-016` (extinguished 2026-08-30, ADR-030), **which is
 filed RESOLVED**: the 12 missions were converted to `frozen` with
 `freeze_reason` on the Oracle's ruling. `debt/` is append-only, so a closed
 entry with its trace stays rather than disappearing.

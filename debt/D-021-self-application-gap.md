@@ -53,7 +53,7 @@ Measured at `b95536e` against the creating commit of each file.
 
 | Document | Declares | Its commit |
 |---|---|---|
-| `debt/D-002-blocked-reason-orphaned.md` | `2026-08-25T00:30` | `2026-08-24 22:07` |
+| `D-002` — "blocked_reason is orphaned" (closed 2026-08-31, extinguished; full text in git history) | `2026-08-25T00:30` | `2026-08-24 22:07` |
 | `debt/D-003-human-approval-score-undefined.md` | `2026-08-25T00:32` | `2026-08-24 22:07` |
 | `debt/D-004-semaforo-undefined.md` | `2026-08-25T00:34` | `2026-08-24 22:07` |
 | `debt/D-005-confidence-scale-undefined.md` | `2026-08-25T00:36` | `2026-08-24 22:07` |

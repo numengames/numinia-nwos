@@ -211,7 +211,8 @@ census names every one; the migration card executes against that list.
 
 **Retirements already ruled by S-001 (the lint inherits them):**
 `area` → `territory` (D-010, 142 carriers today) · `blocked_reason`
-(D-002) · Spanish keys `documento/ambito/estado/fecha/licencia/revision`
+(retired, D-002 closed 2026-08-31) · Spanish keys
+`documento/ambito/estado/fecha/licencia/revision`
 (C-005 material, coordinated with t_d4936cc8) — each is a **H-31** wave
 with its own baseline entry until its migration lands.
 
