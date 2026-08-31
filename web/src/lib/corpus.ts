@@ -67,8 +67,20 @@ export async function getPublicCorpus(): Promise<Entry[]> {
 // ---------------------------------------------------------------------------
 
 // The answer to "what counts as a section, and what counts as a document in
-// one" — the question MIS-113 depends on. Ordered least to most uncertain,
-// which is the order a stranger should read them in.
+// one" — the question MIS-113 depends on.
+//
+// ORDERED BY AUTHORITY: what binds the rest first, what is bound by everything
+// last. The order is not invented here — it is the change-threshold table in
+// S-001 §2.1, which is the only place the archive ranks its own series:
+//
+//   sealed    canon/                              Oracle's signature + an ADR
+//   governed  decisions/ · standards/ · protocols/  an ADR, or an approved PR
+//   open      blueprints/ · debt/                 a normal PR
+//
+// Inside `governed` the tie is broken by which one can change which: an ADR
+// changes a standard, a standard defines what a protocol must satisfy, a
+// protocol says how it is carried out. Nothing under `open` binds anything —
+// blueprints propose and debt confesses.
 //
 // A section is a TOP-LEVEL FOLDER of the corpus that holds documents a reader
 // is meant to browse. That excludes folders that are infrastructure for other
@@ -98,8 +110,8 @@ export interface Section {
 
 export const SECTIONS: Section[] = [
   { prefix: "canon/",      slug: "canon",      label: "Canon",      blurb: "What is settled.",            collection: "corpus" },
-  { prefix: "standards/",  slug: "standards",  label: "Standards",  blurb: "How it is written.",          collection: "corpus" },
   { prefix: "decisions/",  slug: "decisions",  label: "Decisions",  blurb: "What was chosen, and why.",   collection: "decisions" },
+  { prefix: "standards/",  slug: "standards",  label: "Standards",  blurb: "How it is written.",          collection: "corpus" },
   { prefix: "protocols/",  slug: "protocols",  label: "Protocols",  blurb: "How things are done.",        collection: "corpus" },
   { prefix: "blueprints/", slug: "blueprints", label: "Blueprints", blurb: "What is being built.",        collection: "blueprints" },
   { prefix: "debt/",       slug: "debt",       label: "Debt",       blurb: "What is known to be wrong.",  collection: "corpus" },

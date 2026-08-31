@@ -15,15 +15,17 @@ export type NavItem =
   | { label: string; href: string; id: string; section: string; children?: never };
 
 export const navItems: NavItem[] = [
-  { label: "Missions", href: "/missions", id: "missions" },
-  // One entry per top-level folder of the repository that publishes documents.
-  // The order is the reading order declared in @/lib/corpus SECTIONS: what is
-  // settled first, what is known to be wrong last.
+  // One entry per top-level folder of the repository that publishes documents,
+  // ORDERED BY AUTHORITY: what binds the rest first, what is bound by
+  // everything last. Not invented here — it mirrors the change-threshold table
+  // in S-001 §2.1 (sealed → governed → open), and @/lib/corpus SECTIONS holds
+  // the same order with the reasoning written out.
   { label: "Canon", href: "/corpus/canon/", id: "canon", section: "canon" },
-  { label: "Standards", href: "/corpus/standards/", id: "standards", section: "standards" },
   { label: "Decisions", href: "/corpus/decisions/", id: "decisiones", section: "decisions" },
+  { label: "Standards", href: "/corpus/standards/", id: "standards", section: "standards" },
   { label: "Protocols", href: "/corpus/protocols/", id: "protocols", section: "protocols" },
   { label: "Blueprints", href: "/corpus/blueprints/", id: "planos", section: "blueprints" },
+  { label: "Missions", href: "/missions", id: "missions" },
   { label: "Debt", href: "/corpus/debt/", id: "debt", section: "debt" },
   // /corpus is no longer listed either: with the six folders in the bar, a
   // seventh entry meaning "all of them at once" is a second answer to a
