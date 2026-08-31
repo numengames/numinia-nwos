@@ -85,7 +85,7 @@ def main():
     for carpeta, (pat, etiqueta) in series.items():
         sel = [d for d in docs
                if d['path'].startswith(carpeta + '/')
-               and d['base'] not in ('INDEX.md', 'README.md', 'TEMPLATE.md')
+               and d['base'] not in ('INDEX.md', 'README.md', 'TEMPLATE.md', 'STANDARDS.md')
                and '/_template/' not in d['path']]
         ok = sum(1 for d in sel if re.match(pat, d['base']))
         R['matricula'][carpeta] = {'esquema': etiqueta, 'con': ok,
