@@ -6,7 +6,7 @@ type: mission
 status: in-progress
 version: "0.5.0"
 created: "2026-08-30T18:50:00Z"
-updated: "2026-08-31T00:20:00+02:00"
+updated: "2026-08-31T10:35:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -59,6 +59,7 @@ same-method start-to-finish. Anyone auditing against the original
 | — | [#151](https://github.com/numengames/numinia-nwos/pull/151) (merged) | *Not a reduction PR* — MIS-128 closure documentation | 0 files | +788 (MIS-128's own closure, not this line) |
 | — | [#152](https://github.com/numengames/numinia-nwos/pull/152) (merged) | *Not a reduction PR* — this mission's own ledger correction (re-measurement note + #148 backfill) | 0 files | not separately measured (self-referential, see note above) |
 | 5 | #153 (pending) | ADR-032: `blueprints/` joins the operational series (extends ADR-030/P-010 §5); six April blueprints extinguished (BP-repo, BP-web, BP-misiones, BP-datos, BP-infraestructura — foundation decisions DEC-001/002/003/005 all superseded; BP-cao-overview — losing side of O-002 CON-001, now resolved); `BP-financiero` kept active per prior Oracle ruling, one dead cross-reference removed | −6 files, +1 file (ADR-032) = **−5 net** | **−1,561** (−3,698 removed + 2,015 new ADR + 128 net edits to P-010/O-002/BP-financiero) |
+| — | [#155](https://github.com/numengames/numinia-nwos/pull/155) (open) | *Not a reduction PR* — MIS-125 Stage A: ADR-004/ADR-005 v1.1.0 (13-series register, `agents/` reversal formalized), P-010 v0.4.0, D-008 v2.0.0 (re-measured), D-024 closed (v1.2.0), `check-references.mjs` extended to the new register + bare-filename citations. Detail in `MIS-125` itself, not duplicated here. | 0 files (frontmatter/content edits only) | not measured — not a reduction PR |
 
 **Reduction-line total (PRs #145–148, #153): −10,025 tokens, −6 files net**, against
 the 575,958-token re-measured baseline. The four non-reduction closures
