@@ -1,12 +1,12 @@
 ---
 id: "ADR-005"
 uid:
-title: "Registration prefixes: S- stays with standards, agents take AG-"
+title: "Registration prefixes: the 13-series register (superseded amendment, MIS-125)"
 type: adr
 status: active
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-25T01:30:00Z"
-updated: "2026-08-25T01:30:00Z"
+updated: "2026-08-31T09:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -17,11 +17,74 @@ related: ["ADR-004", "S-001", "MIS-109", "D-008"]
 evidence_script: "scripts/resolve-citations.py"
 evidence_head: "9b45016"
 ---
-# ADR-005 — Registration prefixes: `S-` stays with standards, agents take `AG-`
+# ADR-005 — Registration prefixes: the 13-series register
 
 ## Status
 
-**Active.** Ruled by the Oracle, 2026-08-24.
+**Active.** Ruled by the Oracle, 2026-08-24. Amended by the Oracle,
+2026-08-31 (`MIS-125`) — see **v1.1.0 amendment** below; the original
+2026-08-24 ruling on `S-`/`AG-`/`O-`/`D-` stays in force and is preserved
+under **Original ruling (v1.0.0, 2026-08-24)**.
+
+## v1.1.0 amendment — the 13-series register (Oracle, 2026-08-31)
+
+`MIS-125` measured the corpus against this ADR and found it registered 8
+series while the corpus carries identifiers in at least 12 (13, counting
+`reports/` as one after the merge below). Four whole series had never been
+registered at all: `blueprints/`, `operations/`, `guilds/`, `infra/`.
+
+**The full register, as of this amendment:**
+
+```
+missions   MIS-NNNN (4 digits — see note below)
+decisions  ADR-NNN (canonical) · DEC-NNN (legacy, frozen, rule 6 below)
+protocols  PRO-NNN
+debt       DBT-NNN
+standards  STD-NNN
+canon      CAN-NNN
+operations OPS-NNN
+agents     — (no prefix, identified by folder name — see reversal below)
+reports    RPT-NNN, subtype: daily | audit (merger — see below)
+blueprints BLU-NNN
+guilds     GLD-NNN
+infra      INF-NNN
+```
+
+The eight new three-letter prefixes (`PRO DBT STD CAN OPS BLU GLD INF`) were
+verified against the full corpus at rename time — zero collisions.
+
+**`missions/` moves to 4-digit padding (`MIS-NNNN`), not urgency-driven.**
+Measured mission rate: 128 missions in 145 days (2026-04-07 → 2026-08-30,
+≈0.88/day). At that rate 3-digit `MIS-NNN` (cap 999) has roughly 2.7 years
+of headroom — not the "a few months" the original premise assumed. The
+4-digit move happens anyway, for cheap margin, not measured urgency.
+
+**`reports/` merges `RPT`/`AUD` into one prefix.** Both series named the
+same folder-level ambiguity `ADR-004` had already fixed for `ADR`/`DEC` —
+one prefix per genre, no formal decision separating two. `RPT` was chosen:
+already in use, zero new-letter cost. `daily/` and `audits/` are
+distinguished by `subtype: daily` / `subtype: audit` in frontmatter, not by
+prefix.
+
+**`agents/` reversal — `AG-NNN` (v1.0.0 below) is withdrawn, not applied.**
+The original 2026-08-24 ruling assigned `agents/` the prefix `AG-NNN` at
+zero cost, since no agent identifier had ever been issued. That ruling was
+never executed — `D-008` still measures `agents/` at 0/17 registered, and
+`S-001` §4.1 records the assignment without a single folder ever having
+carried it. **Reversed by Oracle instruction, 2026-08-31: `agents/` stays
+outside the register, identified by folder name** (`agents/lexa/`) — with
+only 7 agents today (measured `ls agents/*/`, excluding `_template/`; the
+plan that opened this mission said 8 — uncorroborated, corrected here), the
+name is more informative than a number would be. This is a genuine reversal
+of an active decision, recorded as one rather than silently overwritten:
+`D-008`'s `agents/` row closes by **withdrawn scheme**, not by coverage,
+per its own closing condition (*"the Oracle withdraws the scheme for a
+given series and `S-001` records the exception"*). `S-001` §4.1 and
+`STANDARDS.md`'s mapping to it need the same correction, and `D-008`'s own
+`17` figure is stale too (also unverified against current `agents/`) —
+tracked as follow-up, not done in this amendment.
+
+## Original ruling (v1.0.0, 2026-08-24)
 
 ## Context
 
@@ -182,3 +245,16 @@ it — a ruling issued with an explicit condition for being wrong.
 - `D-008` — series prefixes not applied to the existing corpus
 - `D-018` — unresolved authority citations; 40 of its 88 are this
 - `scripts/resolve-citations.py` — the measurement behind every figure here
+- `MIS-125` — the 13-series register, v1.1.0 amendment above
+
+## Version history
+
+- v1.1.0 (2026-08-31) — `MIS-125`. Register expanded from 8 series to 13:
+  four previously-unregistered series added (`blueprints`, `operations`,
+  `guilds`, `infra`) with new collision-free 3-letter prefixes; `reports/`
+  merges `RPT`/`AUD` into one prefix with a `subtype` field; `missions/`
+  moves to 4-digit padding; `agents/` reverses the v1.0.0 `AG-NNN` ruling
+  and stays unregistered, by folder name.
+- v1.0.0 (2026-08-25) — Initial ruling: `S-` stays with `standards/`,
+  `agents/` takes `AG-NNN` (later reversed, see v1.1.0), `O-`/`D-`
+  unchanged.
