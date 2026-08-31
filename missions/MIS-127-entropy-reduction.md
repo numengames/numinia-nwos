@@ -88,7 +88,11 @@ net −6,740 from the 575,958 re-measured baseline.
   open question if the Oracle wants them reviewed. `blueprints/INDEX.md`
   (last touched 2026-04-07, lists 3 of 16) remains stale — not fixed.
 - Single status vocabulary across every series (S-001).
-- MIS-125 prefix register execution.
+- **MIS-125 prefix register execution — started 2026-08-31.** Staged
+  A (normative docs) → B (rename tool, dry-run) → C (per-series renames,
+  one commit each, `check-references.mjs` gated) → D (`scripts/` cleanup).
+  Two premise corrections made before touching files (uncommitted CI guard,
+  stale base branch) — logged in `MIS-125` itself, not duplicated here.
 - protocols/ ↔ standards/ merge assessment.
 - **New, opened by #153:** freeze the April commercial missions that
   `BP-financiero` depends on (MIS-021/031/034/048) — same mandate as
