@@ -14,7 +14,7 @@
 // a document is added.
 import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
-import { SECTIONS, getSectionDocs } from "@/lib/corpus";
+import { SECTIONS, getSectionDocs, READING_NOTE } from "@/lib/corpus";
 
 export async function getStaticPaths() {
   return Promise.all(
@@ -26,6 +26,7 @@ export async function getStaticPaths() {
 }
 
 const { section, docs } = Astro.props;
+const note = READING_NOTE[section.slug];
 ---
 
 <Layout
@@ -40,6 +41,18 @@ const { section, docs } = Astro.props;
 
   <section class="pb-24">
     <div class="mx-auto max-w-[800px] px-6 space-y-10">
+      {/*
+        The rows below are NOT in identifier order (see READING_ORDER in
+        lib/corpus.ts). Without this line a reader assumes the list is
+        arbitrary, or worse, broken. One sentence turns a reordering into
+        an invitation.
+      */}
+      {note && (
+        <p class="text-sm leading-relaxed text-muted-foreground border-l-2 border-accent/40 pl-4">
+          {note}
+        </p>
+      )}
+
       <div class="space-y-2">
         {docs.map((item) => (
           <a
@@ -53,15 +66,15 @@ const { section, docs } = Astro.props;
 
       {docs.length === 0 && (
         <p class="font-mono text-[0.7rem] text-dim leading-relaxed">
-          Esta sección no publica ningún documento todavía. No es un error de
-          esta página: los documentos existen en el repositorio y no declaran
-          <code>visibility: public</code>, así que el build no los sirve (MIS-114).
+          This section publishes nothing yet. That is not a fault of this page:
+          the documents exist in the repository and do not declare
+          <code>visibility: public</code>, so the build does not serve them (MIS-114).
         </p>
       )}
 
       <nav class="border-t border-border/50 pt-6 space-y-2">
         <h2 class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-accent mb-3">
-          Secciones
+          Sections
         </h2>
         <div class="flex flex-wrap gap-2">
           {SECTIONS.map((s) => (
@@ -81,7 +94,7 @@ const { section, docs } = Astro.props;
             href="/corpus/"
             class="rounded-lg border border-border bg-card px-3 py-2 font-mono text-[0.7rem] text-dim hover:bg-card-hover transition-colors"
           >
-            Todo el corpus
+            The whole corpus
           </a>
         </div>
       </nav>
