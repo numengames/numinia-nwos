@@ -172,21 +172,6 @@ const IGNORED_PREFIX = /^(CON|FLAG|SEC|ARC|G|MISSION|BP)-/;
  */
 const WEB_ADR_RANGE = (n) => n >= 6 && n <= 22;
 
-/**
- * Documents that LEFT this repository for another Numen repo. They are not
- * missing — they exist, elsewhere, and the citations that point at them are
- * correct history. Deleting the citations to keep this guard green would
- * erase the record of the move, which is the opposite of what the archive
- * is for. Each entry names where the document went, so this list stays
- * auditable rather than becoming a silence list.
- *
- * ADR-004 §7 asks cross-repo citations to be qualified (`web:ADR-012`), but
- * a qualifier cannot help here: ID_RE matches the bare identifier inside the
- * qualified form too. The register is the mechanism; the qualifier is style.
- */
-const EXPATRIATE = new Map([
-  ['BLU-008', 'numengames/nwos-deploy → docs/nwos-system-description.md (MIS-129, ADR-035)'],
-]);
 
 /**
  * `P-NN` (two digits) in archive-summa-fundacional means "operating principle
@@ -245,10 +230,6 @@ for (const rel of files) {
       continue;
     }
     // a document that emigrated is elsewhere, not gone
-    if (EXPATRIATE.has(id)) {
-      crossRepo.push({ from: rel, id });
-      continue;
-    }
     unknownIds.push({ from: rel, id });
   }
 
