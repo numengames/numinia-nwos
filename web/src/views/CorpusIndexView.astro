@@ -50,7 +50,7 @@ for (const e of await getCollection("decisions")) {
 for (const e of await getCollection("blueprints")) {
   const f = e.data as Record<string, any>;
   add("blueprints", {
-    href: `/planos/${String(f.id).replace(/^BP-/i, "").toLowerCase()}`,
+    href: `/planos/${String(f.id).replace(/^BLU-\d+-/i, "").toLowerCase()}`,
     title: f.title,
     docId: f.id,
     status: f.status,

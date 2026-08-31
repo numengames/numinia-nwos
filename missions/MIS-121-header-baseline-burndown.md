@@ -226,7 +226,7 @@ rename's clothes, and the numbers below say how many decisions each is.
 - [x] **`H-20` non-empty `uid` — 34.** *Done (post-#129 batches): all 34
       hand-authored values emptied per S-001 §6.2. The only `uid` values
       left in the repo are examples inside document bodies (STANDARDS.md,
-      BP-mission-system-v2.md) — prose, not headers.* The hand-authored pseudo-UUIDv7
+      BLU-003-mission-system.md) — prose, not headers.* The hand-authored pseudo-UUIDv7
       values, 2 of them colliding. `uid: "018ef820-…"` → `uid:`. `S-001` §6.2
       already states the disposal: *"the 32 legacy values are removed, not
       preserved: they were never identifiers."*

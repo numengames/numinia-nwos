@@ -169,7 +169,7 @@ export async function getSectionDocs(slug: string): Promise<SectionDoc[]> {
     docs = (await getCollection("blueprints")).map((e) => {
       const f = e.data as Record<string, unknown>;
       return {
-        href: `/planos/${String(f.id).replace(/^BP-/i, "").toLowerCase()}`,
+        href: `/planos/${String(f.id).replace(/^BLU-\d+-/i, "").toLowerCase()}`,
         title: str(f.title) ?? String(f.id),
         docId: str(f.id),
         status: str(f.status),
@@ -195,7 +195,7 @@ export async function getSectionDocs(slug: string): Promise<SectionDoc[]> {
   // across a typed collection and the corpus catch-all. Measured, not assumed:
   //
   //   decisions/   12 ADR-/DEC- in the typed collection + INDEX.md in the corpus
-  //   blueprints/  16 BP-* typed + 8 in the corpus (AUDIT-*, WARDLEY-MAP,
+  //   blueprints/  16 BP-* typed + 8 in the corpus (AUDIT-*, BLU-001,
   //                archive-summa-*, INDEX, README)
   //
   // Listing only the typed half would have shown 12 of 13 and 16 of 24, and the

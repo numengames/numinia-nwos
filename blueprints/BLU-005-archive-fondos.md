@@ -1,5 +1,6 @@
 ---
-id: "BP-archive-fondos"
+id: "BLU-005"
+uid: ""
 title: "The Archive's Fondos"
 type: blueprint
 status: active

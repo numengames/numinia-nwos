@@ -1,5 +1,5 @@
 ---
-id: "BP-mission-system-v2"
+id: "BLU-003"
 uid: ""
 title: "Mission System v2 — Kanban, Sub-missions, States, IDs"
 type: blueprint

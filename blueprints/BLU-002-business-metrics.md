@@ -1,5 +1,5 @@
 ---
-id: "BP-business-metrics"
+id: "BLU-002"
 uid: ""
 title: "Business Metrics Framework — NWOS CAO"
 type: blueprint
@@ -143,7 +143,7 @@ ROI of 80-133x is remarkable but unverifiable without real cost data. This frame
 ## Version history
 
 - v0.1.0 (2026-04-07) — Foundation layer. Cost estimates, output metrics, DORA structure, ROI model. Open questions marked for Pablo. (MIS-057)
-- v0.1.1 (2026-04-07) — uid added, renamed from BP-business-metrics-v0.1.0.md, MIS-048 blocker explicit. Adonaz QA fixes applied.
+- v0.1.1 (2026-04-07) — uid added, renamed from BLU-002-business-metrics.md, MIS-048 blocker explicit. Adonaz QA fixes applied.
 
 ---
 

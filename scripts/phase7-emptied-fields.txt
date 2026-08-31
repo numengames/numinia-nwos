@@ -4,8 +4,8 @@
 # Ninguno tenia valor: se retira la linea, no un dato.
 #
 # documento	campo
-blueprints/BP-archive-fondos.md	fondos
-blueprints/BP-archive-fondos.md	graph
+blueprints/BLU-005.md	fondos
+blueprints/BLU-005.md	graph
 canon/INDEX.md	changelog
 canon/archive-lore.md	lore
 decisions/ADR-005-prefix-ruling.md	supersedes

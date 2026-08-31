@@ -104,8 +104,8 @@ to be wrong.
  20  standards/S-001-glossary.md
  11  operations/legal/O-004-terms-and-conditions-numengames.md
   6  protocols/P-011-security-audit.md
-  5  blueprints/BP-nwos-system.md
-  5  blueprints/WARDLEY-MAP.md
+  5  blueprints/BLU-008-nwos-system.md
+  5  blueprints/BLU-001-wardley-map.md
   4  STANDARDS.md
   4  reports/audits/AUD-2026-08-17-navigability.md
 ```

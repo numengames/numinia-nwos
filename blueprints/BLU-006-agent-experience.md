@@ -1,5 +1,6 @@
 ---
-id: "BP-agent-experience"
+id: "BLU-006"
+uid: ""
 title: "The Agent Cycle — experience and operation"
 type: blueprint
 status: active

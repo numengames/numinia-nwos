@@ -1,5 +1,6 @@
 ---
-id: "BP-dual-nomenclature"
+id: "BLU-007"
+uid: ""
 title: "Sistema de Nomenclatura Dual — Narrative & Gamification Dials"
 type: blueprint
 status: active

@@ -4,16 +4,16 @@
 # Duena de la reconstruccion: MIS-124.
 #
 # documento\tarea original\tterritory escrito\tdescartado
-blueprints/BP-archive-fondos.md	CAO / Archive	CAO	Archive
-blueprints/BP-business-metrics.md	CAO / Business	CAO	Business
+blueprints/BLU-005.md	CAO / Archive	CAO	Archive
+blueprints/BLU-002.md	CAO / Business	CAO	Business
 blueprints/BP-datos.md	Product / Tech	Product	Tech
-blueprints/BP-dual-nomenclature.md	CAO / Product	CAO	Product
+blueprints/BLU-007.md	CAO / Product	CAO	Product
 blueprints/BP-financiero.md	Business	TBA	Business
 blueprints/BP-infraestructura.md	Ops	TBA	Ops
-blueprints/BP-mission-system-v2.md	CAO / Product	CAO	Product
-blueprints/BP-nwos-system.md	CAO / Product	CAO	Product
+blueprints/BLU-003.md	CAO / Product	CAO	Product
+blueprints/BLU-008.md	CAO / Product	CAO	Product
 blueprints/BP-repo.md	Ops	TBA	Ops
-blueprints/WARDLEY-MAP.md	Strategy	TBA	Strategy
+blueprints/BLU-001.md	Strategy	TBA	Strategy
 decisions/DEC-001-self-hosting-sobre-saas.md	Infrastructure / Philosophy	Infrastructure	Philosophy
 decisions/DEC-002-construir-en-publico-cc0.md	Strategy / Culture	TBA	Strategy / Culture
 decisions/DEC-003-arbitrum-blockchain-numinia.md	Product / Tech	Product	Tech

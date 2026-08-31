@@ -32,7 +32,7 @@ llevan type: adr, en la MISMA carpeta. No es un error de escritura:
 
   - decisions/INDEX.md lista solo los ADR. Los seis DEC no estan.
   - pero estan VIVOS: `status: active`, ninguno superseded_by, y los
-    referencian al menos agents/ursa/SOUL.md, BP-dual-nomenclature.md,
+    referencian al menos agents/ursa/SOUL.md, BLU-007.md,
     BP-cao.md y BP-datos.md.
 
 Dos series de decisiones conviviendo con nombres distintos es una
@@ -138,7 +138,7 @@ for rel in files:
         # CUIDADO: `campo:` seguido de lineas INDENTADAS no esta vacio, es
         # una clave YAML con hijos anidados. Borrar la clave deja el bloque
         # huerfano y el YAML deja de parsear. Me paso con
-        # blueprints/BP-archive-fondos.md (`fondos:` y `graph:`, ~90 lineas
+        # blueprints/BLU-005.md (`fondos:` y `graph:`, ~90 lineas
         # de hijos cada uno): el lint seguia verde y el build de la web
         # reventaba. Un campo solo esta vacio si la linea siguiente no esta
         # indentada.

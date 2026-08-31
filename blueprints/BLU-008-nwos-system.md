@@ -1,5 +1,6 @@
 ---
-id: "BP-nwos-system"
+id: "BLU-008"
+uid: ""
 title: "NWOS — System Description, Layers and Principles"
 type: blueprint
 status: active

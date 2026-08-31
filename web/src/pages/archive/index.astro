@@ -168,9 +168,9 @@ const arranqueSteps = [
   { n: "04", cmd: "ls missions/active/", desc: "¿Qué está en movimiento? Aquí empieza la sesión." },
 ];
 import { getCollection } from "astro:content";
-// MIS-065 phase C: the 3D graph data lives in blueprints/BP-archive-fondos.md
+// MIS-065 phase C: the 3D graph data lives in blueprints/BLU-005-archive-fondos.md
 const _bpFondos = (await getCollection("blueprints")).find(
-  (e) => e.data.id === "BP-archive-fondos"
+  (e) => e.data.id === "BLU-005"
 )!;
 const _graph = (_bpFondos.data as any).graph;
 const graphNodes = (_graph.nodes as any[]).map((n) => ({ ...n, color: Number(n.color) }));

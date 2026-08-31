@@ -61,7 +61,7 @@ const ALLOWED = new Map([
   // RESOLVED 2026-08-25, and removed from this list rather than left to rot:
   //   archive/archive-summa-{arquitectura,fundacional,prompt}-v0.1.0.md
   // The three were divergent second copies of blueprints/archive-summa-*.
-  // BP-archive-fondos.md's download links were repointed at the corpus copies
+  // BLU-005-archive-fondos.md's download links were repointed at the corpus copies
   // and the public/ files retired. An allow-list entry that outlives its case
   // is the rot this list is meant to avoid.
 ]);

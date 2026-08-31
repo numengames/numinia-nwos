@@ -111,7 +111,7 @@ is the real finding: **this tool cannot be made fully safe, only safer.**
 
 ## What is wrong versus what is right
 
-`blueprints/BP-archive-fondos.md` was rewritten and the rewrite was **kept**:
+`blueprints/BLU-005-archive-fondos.md` was rewritten and the rewrite was **kept**:
 
 ```yaml
 - { nombre: "Charter — Centinelas", file: "guilds/centinelas/GLD-004-charter.md" }

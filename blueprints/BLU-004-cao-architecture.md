@@ -1,5 +1,5 @@
 ---
-id: "BP-cao-architecture"
+id: "BLU-004"
 uid: ""
 title: "CAO Architecture — Complete System Reference"
 type: blueprint
@@ -253,7 +253,7 @@ CEO visits pablofm.com/velo → Fills DeployForm
 | Can Procyon activate agents without Oracle approval? | Oracle | High |
 | Monthly cost ceiling for the CAO? | Oracle | High |
 | When does Adonaz get a persistent session? | Oracle | Medium |
-| NWOS license price point? | Oracle | High (blocks BP-business-metrics) |
+| NWOS license price point? | Oracle | High (blocks BLU-002) |
 | Can citizens propose missions directly to agents? | Oracle | Low |
 
 ---
@@ -261,7 +261,7 @@ CEO visits pablofm.com/velo → Fills DeployForm
 ## Related documents
 
 - [BP-cao.md](BP-cao.md) — CAO status and objectives
-- [BP-business-metrics.md](BP-business-metrics.md) — KPI framework
+- [BLU-002-business-metrics.md](BLU-002-business-metrics.md) — KPI framework
 - [governance.md](../standards/governance.md) — Roles and permissions
 - [STANDARDS.md](../standards/STANDARDS.md) — Technical conventions (superseded 2026-08-30; see its map)
 - [agents/INDEX.md](../agents/INDEX.md) — Agent registry

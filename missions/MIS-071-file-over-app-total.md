@@ -145,11 +145,11 @@ next cold agent reads everything the visitor sees.
   criterion); `operations/O-001-continuity.md`, `O-005-simulations.md`,
   `O-006-solutions.md`; `operations/strategy/O-007-sales.md` under the reserved
   regime (C-005 §1 born-closed, new REUSE annotation for
-  `operations/strategy/**`); `blueprints/BP-nwos-system.md` (L0–L4
-  layers + principles from index), `BP-agent-experience.md`,
-  `BP-dual-nomenclature.md`, `BP-cao-overview.md` (page-only dashboard
+  `operations/strategy/**`); `blueprints/BLU-008-nwos-system.md` (L0–L4
+  layers + principles from index), `BLU-006-agent-experience.md`,
+  `BLU-007-dual-nomenclature.md`, `BP-cao-overview.md` (page-only dashboard
   snapshot; roster divergence vs BP-cao.md flagged in its
-  extraction_note, not silently reconciled); `WARDLEY-MAP.md`
+  extraction_note, not silently reconciled); `BLU-001-wardley-map.md`
   reconciled to v0.2.0 (union of file + page, contradictions kept and
   marked "según /wardley"). All Spanish/English prose verbatim; source
   pages untouched. Build green (143 pages, licence guard passing); the

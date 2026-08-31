@@ -71,7 +71,7 @@ export async function getStaticPaths() {
   }
   for (const e of await getCollection("blueprints")) {
     const f = e.data as Record<string, unknown>;
-    push(`blueprints/${String(f.id).replace(/^BP-/i, "").toLowerCase()}`, e, {
+    push(`blueprints/${String(f.id).replace(/^BLU-\d+-/i, "").toLowerCase()}`, e, {
       label: "blueprints",
       docId: str(f.id),
       status: str(f.status),

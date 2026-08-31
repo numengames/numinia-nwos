@@ -106,7 +106,7 @@ at once, so each PR stays small and reviewable.
       **15** with Spanish content — merged in
       [PR #96](https://github.com/numengames/numinia-nwos/pull/96). Incl. the
       archive-summa trio (dated filenames untouched, P-010 §3.2) and an
-      incidental fix to BP-nwos-system's colophon.
+      incidental fix to BLU-008-nwos-system's colophon.
 - [x] **`missions/`** — 12 files per the brief (range MIS-078…MIS-096); the
       row's own scan found **15** (MIS-068/076/084 carried Spanish sections,
       plus TEMPLATE.md's core comment) — merged in

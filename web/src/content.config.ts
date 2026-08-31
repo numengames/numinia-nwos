@@ -59,7 +59,7 @@ const decisions = defineCollection({
 // Blueprints/planos — the root blueprints/ folder is the source of truth
 // (MIS-065: the hardcoded planos.ts copy retires).
 const blueprints = defineCollection({
-  loader: glob({ pattern: ["BP-*.md", "WARDLEY-MAP.md"], base: "../blueprints" }),
+  loader: glob({ pattern: ["BLU-*.md"], base: "../blueprints" }),
   schema: z
     .object({
       id: z.string(),
@@ -119,8 +119,7 @@ const corpus = defineCollection({
       "!decisions/DEC-*.md",
       "!decisions/ADR-*.md",
       "blueprints/**/*.md",
-      "!blueprints/BP-*.md",
-      "!blueprints/WARDLEY-MAP.md",
+      "!blueprints/BLU-*.md",
       "missions/**/*.md",
       "!missions/MIS-*.md",
       // debt/ — the register of what is known to be wrong. It was missing
