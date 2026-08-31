@@ -44,3 +44,5 @@ jobs:
         working-directory: web
       - name: orphan-content guard (D-032 — needs web/dist, so it runs after build)
         run: node scripts/check-orphan-content.mjs
+      - name: URL lifecycle ratchet (D-028, ADR-033 — no public address dies unredirected)
+        run: node scripts/check-url-lifecycle.mjs
