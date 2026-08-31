@@ -42,3 +42,31 @@ export const COMMIT_URL: string | null = HAS_SHA
 
 /** What the footer prints: "v0.0.1 · a1b2c3d". */
 export const BUILD_LABEL: string = `${VERSION} · ${COMMIT_SHA}`;
+
+/** The repository this site mirrors. */
+export const REPO_URL = "https://github.com/numengames/numinia-nwos";
+
+/**
+ * Link from a rendered page back to the file it was rendered from.
+ *
+ * Every page here is a view of a markdown file that lives in the repo; the
+ * repo is the original and this is the copy. A reader who wants history,
+ * blame, or the raw source should be one click away from it, not left to
+ * guess the path.
+ *
+ * Astro's `entry.filePath` is relative to the web/ project ("../canon/C-001…"),
+ * but that prefix is an implementation detail of where the site sits inside
+ * the repo. Anchoring on the known top-level folders instead survives a move:
+ * whatever comes before them is dropped.
+ *
+ * Returns null rather than a wrong URL when the path is not recognised — a
+ * broken link into GitHub is worse than no link.
+ */
+const REPO_DIRS =
+  "agents|blueprints|canon|decisions|guilds|history|missions|operations|protocols|reports|standards|system|debt|web";
+
+export function repoFileUrl(filePath: string, branch = "main"): string | null {
+  const rel = String(filePath).replace(/\\/g, "/");
+  const m = rel.match(new RegExp(`(?:^|/)((?:${REPO_DIRS})/.+)$`));
+  return m ? `${REPO_URL}/blob/${branch}/${m[1]}` : null;
+}

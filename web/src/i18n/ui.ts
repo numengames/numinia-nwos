@@ -48,6 +48,7 @@ const en = {
   "toolbar.error": "Error",
   "toolbar.copyAria": "Copy raw markdown",
   "toolbar.downloadAria": "Download {file}",
+  "toolbar.sourceAria": "Open {file} in the repository",
 
   // — missions board (pilot page) —
   "board.searchPlaceholder": "Search missions — ID, title, assignee, guild…",

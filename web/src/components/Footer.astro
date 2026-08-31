@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: MIT
 import { navItems } from "@/data/navigation";
 import { socialLinks } from "@/data/social-links";
-import { VERSION, COMMIT_SHA, COMMIT_URL } from "@/lib/build-info";
+import { VERSION, COMMIT_SHA, COMMIT_URL, REPO_URL } from "@/lib/build-info";
 import { useT } from "@/i18n/ui";
 const t = useT();
 ---
@@ -13,7 +13,7 @@ const t = useT();
     <div class="flex flex-col items-center justify-between gap-8 sm:flex-row sm:items-start">
       <!-- Brand -->
       <div>
-        <a href="/" class="font-display text-2xl text-foreground">
+        <a href="/" class="inline-flex min-h-[44px] items-center font-display text-2xl text-foreground">
           NW<em class="text-accent">OS</em>
         </a>
         <p class="mt-2 max-w-xs text-sm text-muted-foreground">
@@ -27,7 +27,7 @@ const t = useT();
         {navItems.map((item) => (
           <a
             href={item.href}
-            class="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            class="flex min-h-[44px] items-center justify-center text-sm text-muted-foreground transition-colors hover:text-foreground sm:min-h-0 sm:justify-start sm:py-1"
           >
             {item.label}
           </a>
@@ -39,15 +39,15 @@ const t = useT();
         <span class="mb-1 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">{t("footer.legal")}</span>
         <a
           href="/legal/terminos"
-          class="text-sm text-muted-foreground transition-colors hover:text-foreground"
+          class="flex min-h-[44px] items-center justify-center text-sm text-muted-foreground transition-colors hover:text-foreground sm:min-h-0 sm:justify-start sm:py-1"
         >
-          Términos y condiciones
+          Terms and conditions
         </a>
         <a
           href="/legal/privacidad"
-          class="text-sm text-muted-foreground transition-colors hover:text-foreground"
+          class="flex min-h-[44px] items-center justify-center text-sm text-muted-foreground transition-colors hover:text-foreground sm:min-h-0 sm:justify-start sm:py-1"
         >
-          Política de privacidad
+          Privacy policy
         </a>
       </div>
 
@@ -59,7 +59,7 @@ const t = useT();
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-sm text-muted-foreground transition-colors hover:text-accent"
+            class="flex min-h-[44px] items-center justify-center text-sm text-muted-foreground transition-colors hover:text-accent sm:min-h-0 sm:justify-start sm:py-1"
           >
             {link.label}
           </a>
@@ -67,12 +67,34 @@ const t = useT();
       </div>
     </div>
 
-    <!-- Copyright -->
+    <!-- Signature -->
+    <!--
+      No copyright line, and no "all rights reserved": this repository reserves
+      almost nothing. Licences differ by folder and every file declares its own
+      SPDX identifier, resolved through REUSE.toml — a blanket claim in the
+      footer would contradict C-005 and the REUSE manifest at once.
+
+      The shape is numinia.com's: a signature, then the build. Same sentence,
+      because it is the same house.
+    -->
     <div class="mt-12 border-t border-border/50 pt-6 text-center">
-      <p class="font-mono text-xs text-dim">
-        &copy; {new Date().getFullYear()} Numen Games. Todos los derechos reservados.
+      <p class="text-sm text-muted-foreground">
+        by <a
+          href="https://numen.games"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-foreground transition-colors hover:text-accent"
+        >Numen Games</a> — we build for a better future.
       </p>
       <p class="mt-2 font-mono text-[0.65rem] text-dim">
+        <a
+          href={`${REPO_URL}/blob/main/canon/C-005-licensing.md`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="transition-colors hover:text-accent"
+          title="Licensing is per file, declared in REUSE.toml"
+        >Open by licence, per file</a>
+        {" · "}
         {VERSION}
         {" · "}
         {COMMIT_URL ? (
