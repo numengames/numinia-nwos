@@ -31,7 +31,7 @@ const t = useT();
   <SpeechPlayer lang={lang} />
   <button
     type="button"
-    class="copy-md inline-flex items-center gap-1.5 font-mono text-[0.65rem] uppercase tracking-[0.1em] text-dim hover:text-accent border border-border hover:border-accent/40 rounded-lg px-3 py-1.5 transition-colors"
+    class="copy-md inline-flex items-center gap-1.5 font-mono text-[0.65rem] uppercase tracking-[0.1em] text-dim hover:text-accent border border-border hover:border-accent/40 rounded-lg px-3 py-1.5 min-h-[44px] lg:min-h-0 transition-colors"
     aria-label={t("toolbar.copyAria")}
     data-t-copy={t("toolbar.copy")}
     data-t-copied={t("toolbar.copied")}
@@ -43,7 +43,7 @@ const t = useT();
   <a
     href={mdUrl}
     download={filename}
-    class="inline-flex items-center gap-1.5 font-mono text-[0.65rem] uppercase tracking-[0.1em] text-dim hover:text-accent border border-border hover:border-accent/40 rounded-lg px-3 py-1.5 transition-colors"
+    class="inline-flex items-center gap-1.5 font-mono text-[0.65rem] uppercase tracking-[0.1em] text-dim hover:text-accent border border-border hover:border-accent/40 rounded-lg px-3 py-1.5 min-h-[44px] lg:min-h-0 transition-colors"
     aria-label={t("toolbar.downloadAria", { file: filename })}
   >
     <Icon name="download-simple" size={12} />
@@ -59,7 +59,7 @@ const t = useT();
       href={repoUrl}
       target="_blank"
       rel="noopener noreferrer"
-      class="inline-flex items-center gap-1.5 font-mono text-[0.65rem] uppercase tracking-[0.1em] text-dim hover:text-accent border border-border hover:border-accent/40 rounded-lg px-3 py-1.5 transition-colors"
+      class="inline-flex items-center gap-1.5 font-mono text-[0.65rem] uppercase tracking-[0.1em] text-dim hover:text-accent border border-border hover:border-accent/40 rounded-lg px-3 py-1.5 min-h-[44px] lg:min-h-0 transition-colors"
       aria-label={t("toolbar.sourceAria", { file: filename })}
     >
       <Icon name="github-logo" size={12} />

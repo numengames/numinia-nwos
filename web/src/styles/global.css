@@ -5,6 +5,16 @@
 @tailwind utilities;
 
 @layer base {
+	/* The starfield is `position: fixed` and purely decorative, and in mobile
+	   emulation it measures 399 px inside a 375 px viewport: `100%` of the
+	   initial containing block includes the scrollbar gutter. Clipping at the
+	   root is the honest fix — a background must never be able to give a page
+	   of prose a horizontal scrollbar. `clip` rather than `hidden`, because
+	   `hidden` on <html> silently kills `position: sticky` in the navbar. */
+	html {
+		overflow-x: clip;
+	}
+
 	:root {
 		/* Font stacks — §4.1: Geist con los fallbacks canónicos del sistema */
 		--font-display: "Geist Variable", Inter, Aptos, "Segoe UI", Arial, sans-serif;
@@ -170,6 +180,31 @@
 		0%, 100% { opacity: 0.9; }
 		50% { opacity: 0.15; }
 	}
+}
+
+/* ── Long strings must not widen the page ─────────────────────────────────
+   Measured at 375 px: C-001 pushed the document 590 px wide because a bare
+   Huly URL in a paragraph is one unbreakable word, and the glossary's code
+   blocks ran to 691 px. The reader got a horizontal scrollbar on a page of
+   prose, which is the most common mobile defect there is and the least
+   defensible: nothing here is wide, one link was.
+
+   `overflow-wrap` breaks the URL only when it would otherwise overflow, so
+   ordinary words keep their normal line breaking. Code scrolls in its own
+   box instead — wrapping a shell command changes what it means. */
+.mission-md p a,
+.mission-md li a,
+.mission-md td a {
+	overflow-wrap: anywhere;
+}
+
+.mission-md pre {
+	max-width: 100%;
+	overflow-x: auto;
+}
+
+.mission-md :not(pre) > code {
+	overflow-wrap: anywhere;
 }
 
 /* ── Context card ─────────────────────────────────────────────────────────

@@ -43,12 +43,18 @@ const homeHref = "/";
 
 <nav class="sticky top-0 z-50 border-b border-border/50 bg-background/85 backdrop-blur-xl">
   <div class="mx-auto flex h-14 max-w-[1100px] items-center justify-between px-6">
-    <a href={homeHref} class="font-display text-xl text-foreground transition-colors hover:text-accent">
+    <a href={homeHref} class="flex min-h-[44px] items-center font-display text-xl text-foreground transition-colors hover:text-accent">
       NW<em class="text-accent">OS</em>
     </a>
 
-    <!-- Desktop nav -->
-    <div class="hidden items-center gap-1 sm:flex">
+    <!--
+      Desktop nav. The breakpoint is `lg`, not `sm`: measured at 768 px the
+      seven entries plus the search field ran to 774 px inside a 683 px
+      column and pushed the whole page 91 px wide. A bar that overflows is
+      worse than a hamburger — it hides its own last entries with no
+      affordance saying so.
+    -->
+    <div class="hidden items-center gap-1 lg:flex">
       <SiteSearch />
       {navItems.map((item) => {
         if (sectionIds.has(item.id)) {
@@ -126,7 +132,7 @@ const homeHref = "/";
     <!-- Mobile hamburger -->
     <button
       id="mobile-menu-btn"
-      class="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:bg-card hover:text-foreground sm:hidden"
+      class="flex h-11 w-11 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:bg-card hover:text-foreground lg:hidden"
       aria-label={t("nav.openMenu")}
       aria-expanded="false"
     >
@@ -135,7 +141,7 @@ const homeHref = "/";
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden border-t border-border/50 bg-background/95 backdrop-blur-xl sm:hidden">
+  <div id="mobile-menu" class="hidden border-t border-border/50 bg-background/95 backdrop-blur-xl lg:hidden">
     <div class="flex flex-col gap-1 px-6 py-4">
       {navItems.map((item) => {
         if (sectionIds.has(item.id)) {
@@ -143,7 +149,7 @@ const homeHref = "/";
             <a
               href={item.href}
               class:list={[
-                "rounded-lg px-4 py-2.5 font-mono text-[0.7rem] uppercase tracking-[0.15em] transition-colors",
+                "flex min-h-[44px] items-center rounded-lg px-4 font-mono text-[0.7rem] uppercase tracking-[0.15em] transition-colors",
                 activeNav === item.id
                   ? "bg-accent/10 text-accent"
                   : "text-muted-foreground hover:bg-card hover:text-foreground",
@@ -167,7 +173,7 @@ const homeHref = "/";
                   <a
                     href={l(child.href)}
                     class:list={[
-                      "rounded-lg px-3 py-2 font-mono text-[0.65rem] uppercase tracking-[0.15em] transition-colors",
+                      "flex min-h-[44px] items-center rounded-lg px-3 font-mono text-[0.65rem] uppercase tracking-[0.15em] transition-colors",
                       activeNav === child.id
                         ? "bg-accent/10 text-accent"
                         : "text-muted-foreground hover:bg-card hover:text-foreground",
@@ -184,7 +190,7 @@ const homeHref = "/";
           <a
             href={l(item.href)}
             class:list={[
-              "rounded-lg px-4 py-2.5 font-mono text-[0.7rem] uppercase tracking-[0.15em] transition-colors",
+              "flex min-h-[44px] items-center rounded-lg px-4 font-mono text-[0.7rem] uppercase tracking-[0.15em] transition-colors",
               activeNav === item.id
                 ? "bg-accent/10 text-accent"
                 : "text-muted-foreground hover:bg-card hover:text-foreground",

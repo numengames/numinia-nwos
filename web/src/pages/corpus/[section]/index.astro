@@ -81,7 +81,7 @@ const note = READING_NOTE[section.slug];
             <a
               href={`/corpus/${s.slug}/`}
               class={
-                "rounded-lg border px-3 py-2 font-mono text-[0.7rem] transition-colors " +
+                "inline-flex min-h-[44px] items-center rounded-lg border px-3 font-mono text-[0.7rem] transition-colors " +
                 (s.slug === section.slug
                   ? "border-accent/40 bg-accent/10 text-accent"
                   : "border-border bg-card text-dim hover:bg-card-hover")
@@ -92,7 +92,7 @@ const note = READING_NOTE[section.slug];
           ))}
           <a
             href="/corpus/"
-            class="rounded-lg border border-border bg-card px-3 py-2 font-mono text-[0.7rem] text-dim hover:bg-card-hover transition-colors"
+            class="inline-flex min-h-[44px] items-center rounded-lg border border-border bg-card px-3 font-mono text-[0.7rem] text-dim hover:bg-card-hover transition-colors"
           >
             The whole corpus
           </a>

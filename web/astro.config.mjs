@@ -9,6 +9,7 @@ import tailwind from "@astrojs/tailwind";
 import pagefind from "astro-pagefind";
 import { defineConfig } from "astro/config";
 import rehypeContextCard from "./src/lib/rehype-context-card.mjs";
+import { rehypeShiftHeadings } from "./src/lib/rehype-shift-headings.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -210,7 +211,10 @@ export default defineConfig({
 	// into a definition list — one field per row — and leaves every other
 	// blockquote untouched. See src/lib/rehype-context-card.mjs.
 	markdown: {
-		rehypePlugins: [rehypeContextCard],
+		// Order matters: the card is built from the document's opening
+		// blockquote, then every heading drops one level so the page keeps the
+		// single h1 it printed itself. See rehype-shift-headings.mjs.
+		rehypePlugins: [rehypeContextCard, rehypeShiftHeadings],
 	},
 	vite: {
 		resolve: {

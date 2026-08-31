@@ -226,7 +226,7 @@ const stats = [
           <span class="font-mono text-[0.6rem] uppercase tracking-widest text-dim w-14 shrink-0">{t("board.status")}</span>
           {["all", "todo", "in-progress", "in-review", "done"].map((s) => (
             <button data-filter="status" data-value={s}
-              class={"filter-btn font-mono text-[0.65rem] px-3 py-1.5 rounded-full border transition-all duration-150 " + (s === "all" ? "border-accent bg-accent/10 text-accent" : "border-border text-dim hover:border-accent/40 hover:text-foreground")}
+              class={"filter-btn inline-flex min-h-[44px] min-w-[44px] items-center justify-center font-mono text-[0.65rem] px-3 rounded-full border transition-all duration-150 lg:min-h-0 lg:min-w-0 lg:py-1.5 " + (s === "all" ? "border-accent bg-accent/10 text-accent" : "border-border text-dim hover:border-accent/40 hover:text-foreground")}
               aria-pressed={s === "all" ? "true" : "false"}>
               {s === "all" ? t("board.filter.all") : s === "todo" ? t("board.col.backlog") : s === "in-progress" ? t("board.filter.inProgress") : s === "in-review" ? t("board.filter.inReview") : t("board.col.done")}
             </button>
@@ -236,7 +236,7 @@ const stats = [
           <span class="font-mono text-[0.6rem] uppercase tracking-widest text-dim w-14 shrink-0">{t("board.priority")}</span>
           {["all", "critical", "high", "medium", "low"].map((p) => (
             <button data-filter="priority" data-value={p}
-              class={"filter-btn font-mono text-[0.65rem] px-3 py-1.5 rounded-full border transition-all duration-150 " + (p === "all" ? "border-accent bg-accent/10 text-accent" : "border-border text-dim hover:border-accent/40 hover:text-foreground")}
+              class={"filter-btn inline-flex min-h-[44px] min-w-[44px] items-center justify-center font-mono text-[0.65rem] px-3 rounded-full border transition-all duration-150 lg:min-h-0 lg:min-w-0 lg:py-1.5 " + (p === "all" ? "border-accent bg-accent/10 text-accent" : "border-border text-dim hover:border-accent/40 hover:text-foreground")}
               aria-pressed={p === "all" ? "true" : "false"}>
               {p === "all" ? t("board.filter.all") : p === "critical" ? t("board.filter.critical") : p === "high" ? t("board.filter.high") : p === "medium" ? t("board.filter.medium") : t("board.filter.low")}
             </button>
@@ -246,7 +246,7 @@ const stats = [
           <span class="font-mono text-[0.6rem] uppercase tracking-widest text-dim w-14 shrink-0">{t("board.effort")}</span>
           {["all", "XS", "S", "M", "L", "XL"].map((e) => (
             <button data-filter="effort" data-value={e}
-              class={"filter-btn font-mono text-[0.65rem] px-3 py-1.5 rounded-full border transition-all duration-150 " + (e === "all" ? "border-accent bg-accent/10 text-accent" : "border-border text-dim hover:border-accent/40 hover:text-foreground")}
+              class={"filter-btn inline-flex min-h-[44px] min-w-[44px] items-center justify-center font-mono text-[0.65rem] px-3 rounded-full border transition-all duration-150 lg:min-h-0 lg:min-w-0 lg:py-1.5 " + (e === "all" ? "border-accent bg-accent/10 text-accent" : "border-border text-dim hover:border-accent/40 hover:text-foreground")}
               aria-pressed={e === "all" ? "true" : "false"}>
               {e}
             </button>
@@ -256,7 +256,7 @@ const stats = [
           <span class="font-mono text-[0.6rem] uppercase tracking-widest text-dim w-14 shrink-0">{t("board.guild")}</span>
           {["all", "Sentinels", "Alchemists", "Exegetes", "Procurators"].map((g) => (
             <button data-filter="guild" data-value={g}
-              class={"filter-btn font-mono text-[0.65rem] px-3 py-1.5 rounded-full border transition-all duration-150 " + (g === "all" ? "border-accent bg-accent/10 text-accent" : "border-border text-dim hover:border-accent/40 hover:text-foreground")}
+              class={"filter-btn inline-flex min-h-[44px] min-w-[44px] items-center justify-center font-mono text-[0.65rem] px-3 rounded-full border transition-all duration-150 lg:min-h-0 lg:min-w-0 lg:py-1.5 " + (g === "all" ? "border-accent bg-accent/10 text-accent" : "border-border text-dim hover:border-accent/40 hover:text-foreground")}
               aria-pressed={g === "all" ? "true" : "false"}>
               {g}
             </button>
@@ -355,7 +355,7 @@ const stats = [
       <!-- Frozen -->
       {frozen.length > 0 && (
         <div class="mt-8">
-          <button id="freeze-toggle" class="flex items-center gap-3 w-full text-left mb-3 group" aria-expanded="false">
+          <button id="freeze-toggle" class="flex min-h-[44px] items-center gap-3 w-full text-left mb-3 group" aria-expanded="false">
             <span class="inline-flex items-center gap-1.5 font-mono text-[0.65rem] uppercase tracking-widest text-dim group-hover:text-foreground transition-colors"><Icon name="snowflake" size={11} /> Frozen</span>
             <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-border font-mono text-[0.6rem] text-foreground">{frozen.length}</span>
             <span class="h-px flex-1 bg-border"></span>
@@ -392,7 +392,7 @@ const stats = [
       <!-- Cancelled (kept visible: closed, never deleted — P-003/SIM-2.7) -->
       {cancelled.length > 0 && (
         <div class="mt-8">
-          <button id="cancel-toggle" class="flex items-center gap-3 w-full text-left mb-3 group" aria-expanded="false">
+          <button id="cancel-toggle" class="flex min-h-[44px] items-center gap-3 w-full text-left mb-3 group" aria-expanded="false">
             <span class="inline-flex items-center gap-1.5 font-mono text-[0.65rem] uppercase tracking-widest text-dim group-hover:text-foreground transition-colors"><Icon name="prohibit" size={11} /> Cancelled</span>
             <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-border font-mono text-[0.6rem] text-foreground">{cancelled.length}</span>
             <span class="h-px flex-1 bg-border"></span>
