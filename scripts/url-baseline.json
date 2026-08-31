@@ -1,7 +1,7 @@
 {
   "$comment": "URL manifest — D-028/ADR-033. Every public address the site published at the last accepted build. check-url-lifecycle.mjs fails when one of these stops being built without a redirect in web/astro.config.mjs. Regenerate deliberately with --write-baseline, in the same PR as the deletion that changed it, never to silence a failure.",
   "generated": "2026-08-31",
-  "count": 524,
+  "count": 522,
   "urls": [
     "/",
     "/agent",
@@ -71,8 +71,6 @@
     "/corpus/blueprints/archive-summa-arquitectura-v010",
     "/corpus/blueprints/archive-summa-fundacional-v010",
     "/corpus/blueprints/archive-summa-prompt-v010",
-    "/corpus/blueprints/audit-2026-04-07-web-vs-repo",
-    "/corpus/blueprints/audit-numengames-2026-04-08",
     "/corpus/blueprints/readme",
     "/corpus/canon",
     "/corpus/canon/2026_04_15-epistemic_relations_between_numen_games_and_numina-v020",
