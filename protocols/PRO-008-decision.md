@@ -1,5 +1,6 @@
 ---
 id: "PRO-008"
+uid: ""
 title: "Decision Protocol — requesting approval, issuing rulings"
 type: protocol
 status: active
@@ -11,7 +12,7 @@ owner: "oracle"
 guild: "Alchemists"
 territory: "Archive"
 tags: [approval, human-in-the-loop, security, protocol, rulings, falsifiability]
-license: "CC-BY-4.0"
+license: "CC0-1.0"
 related: ["ADR-004", "ADR-005", "S-001"]
 ---
 # PRO-008 — Decision Protocol

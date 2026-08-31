@@ -14,7 +14,7 @@ owner: "oracle"
 tags: [protocol, briefing, startup, session, close, context, mandatory]
 applies_to: [all-agents]
 mandatory: true
-license: "CC-BY-4.0"
+license: "CC0-1.0"
 ---
 # PRO-001 — Agent Session Protocol
 

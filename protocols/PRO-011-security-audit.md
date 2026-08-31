@@ -1,5 +1,6 @@
 ---
 id: "PRO-011"
+uid: ""
 title: "Security Audit — how an agent audits identity, authorization and secrets"
 type: protocol
 status: draft
@@ -11,7 +12,7 @@ updated: "2026-08-25T11:00:28Z"
 author: "claude-opus-5"
 owner: "oracle"
 tags: [protocols, security, audit, credentials, secrets, identity, authorization]
-license: "CC-BY-4.0"
+license: "CC0-1.0"
 review_next: "2027-08-21"
 ---
 # P-011 — Security Audit (v0.1.0, draft)

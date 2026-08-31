@@ -1,5 +1,6 @@
 ---
 id: "PRO-003"
+uid: ""
 title: "Mission Protocol — briefing, cycle, coordination"
 type: protocol
 status: active
@@ -13,7 +14,7 @@ owner: "oracle"
 tags: [protocol, missions, cycle, briefing, coordination]
 applies_to: [all-agents]
 mandatory: true
-license: "CC-BY-4.0"
+license: "CC0-1.0"
 ---
 # PRO-003 — Mission Protocol
 
