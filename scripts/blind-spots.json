@@ -1,0 +1,128 @@
+{
+  "$comment": "Blind-spot registry — D-025. Single source of truth for what each guard CANNOT see. Guards import scripts/lib/blindness.mjs and call declareBlindSpots(<id>), which prints these on every exit path, success or failure. Verified by scripts/test/blindness.test.mjs: every id here must be claimed by a guard, every guard must declare, and the fixture-backed entries are proven against real files rather than asserted.",
+  "guards": {
+    "check-references": {
+      "script": "scripts/check-references.mjs",
+      "sees": ".md and .json citations, by identifier and by path",
+      "blind_to": [
+        {
+          "spot": "consumers written in code (.ts, .astro) — slug maps and import.meta.glob",
+          "covered_by": "npm run build",
+          "fixture": "ts-consumer"
+        },
+        {
+          "spot": "the FOLDER in a path citation: the resolver falls back to basename, so agents/guilds/x.md resolves against guilds/x.md and a wrong directory reads as green",
+          "covered_by": null,
+          "debt": "D-047",
+          "fixture": "wrong-folder"
+        },
+        {
+          "spot": "untracked files — enumerates via `git ls-files`, so a .md created but not `git add`ed is never scanned",
+          "covered_by": "its own untracked-file warning (D-049)",
+          "debt": "D-049",
+          "fixture": "untracked"
+        }
+      ]
+    },
+    "lint-naming": {
+      "script": "scripts/lint-naming.mjs",
+      "sees": "filename shape against the series scheme (N-01…N-05)",
+      "blind_to": [
+        {
+          "spot": "untracked files — enumerates via `git ls-files`",
+          "covered_by": "its own untracked-file warning (D-049)",
+          "debt": "D-049",
+          "fixture": "untracked"
+        },
+        {
+          "spot": "whether a filename slug is meaningful — a name that keeps a dead prefix inside its slug still passes the shape check",
+          "covered_by": null,
+          "debt": null
+        }
+      ]
+    },
+    "check-license-frontmatter": {
+      "script": "scripts/check-license-frontmatter.mjs",
+      "sees": "frontmatter `license:` against the REUSE.toml regime",
+      "blind_to": [
+        {
+          "spot": "whether the licence is CORRECT for the content — this checks consistency between two declarations, not legal fit",
+          "covered_by": null,
+          "debt": "D-042"
+        },
+        {
+          "spot": "files with no `license:` field at all — they are skipped, not flagged",
+          "covered_by": null,
+          "debt": null,
+          "fixture": "no-license-field"
+        }
+      ]
+    },
+    "check-frontmatter-yaml": {
+      "script": "scripts/check-frontmatter-yaml.mjs",
+      "sees": "frontmatter parses as YAML",
+      "blind_to": [
+        {
+          "spot": "whether the parsed VALUES are right — a well-formed header full of wrong dates or invented sources parses clean",
+          "covered_by": "lint-frontmatter (H-00…H-31), partially",
+          "debt": null
+        }
+      ]
+    },
+    "check-frontmatter-delimiter": {
+      "script": "scripts/check-frontmatter-delimiter.mjs",
+      "sees": "the closing --- sits on its own line",
+      "blind_to": [
+        {
+          "spot": "files that do not open with --- at byte 0 — a document with no frontmatter is silently skipped, not reported as missing one",
+          "covered_by": "lint-frontmatter",
+          "debt": null
+        }
+      ]
+    },
+    "lint-frontmatter": {
+      "script": "scripts/lint-frontmatter.mjs",
+      "sees": "header fields H-00…H-31",
+      "blind_to": [
+        {
+          "spot": "whether a deferral is honest — H-32 checks a TBA names a mission, not that the mission is alive, funded, or ever worked on",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "untracked files — enumerates via `git ls-files`",
+          "covered_by": "its own untracked-file warning (D-049)",
+          "debt": "D-049",
+          "fixture": "untracked"
+        }
+      ]
+    },
+    "check-orphan-content": {
+      "script": "scripts/check-orphan-content.mjs",
+      "sees": "files in web/public/ that reach web/dist/ without the renderer",
+      "blind_to": [
+        {
+          "spot": "whether the RENDERED page is correct — it checks that content passed through the renderer, not what came out",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "content served from outside web/public/ — a route added directly in src/pages is not orphan content and is not examined here",
+          "covered_by": "npm run build",
+          "debt": null
+        }
+      ]
+    },
+    "count-evidence": {
+      "script": "scripts/count-evidence.py",
+      "sees": "registration coverage per series",
+      "blind_to": [
+        {
+          "spot": "whether a registered document is any GOOD — it counts conforming filenames, which is a measure of naming, not of content",
+          "covered_by": null,
+          "debt": null
+        }
+      ]
+    }
+  }
+}

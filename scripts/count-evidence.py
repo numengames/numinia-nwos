@@ -93,19 +93,34 @@ def main():
     #      campo registration_exemption, porque dos de los cinco del corpus
     #      llevan la forma y no llevan el campo — un criterio que dependa
     #      del campo los cuenta como incumplimiento.
+    #  (c) D-014 (cerrada 2026-08-31): el aparato se excluye por REGLA, no por
+    #      una lista de nombres heredada. La regla es `type: meta` O uno de los
+    #      nombres canónicos de aparato — la segunda mitad existe porque hay
+    #      aparato sin `type: meta` declarado, y un criterio que dependa solo
+    #      del campo lo contaría como incumplimiento. Cada serie reporta su
+    #      aparato por separado ("aparato: N"), que era el otro requisito.
     APPARATUS = ('INDEX.md', 'README.md', 'TEMPLATE.md', 'STANDARDS.md',
                  'APPROVAL-REQUEST-template.md')
     FROZEN_ARTIFACT = re.compile(r'^\d{4}_\d{2}_\d{2}-.+-v\d+\.\d+\.\d+\.md$')
+
+    def es_aparato(d):
+        """D-014: aparato = type meta, o nombre canónico de aparato."""
+        if d['base'] in APPARATUS:
+            return True
+        m = re.search(r'^type:\s*["\']?([\w-]+)', d['fm'], re.M)
+        return bool(m and m.group(1).strip() == 'meta')
 
     R['matricula'] = {}
     R['excluidos'] = {'aparato': [], 'congelados': []}
     for carpeta, (pat, etiqueta) in series.items():
         sel = []
+        aparato_serie = 0
         for d in docs:
             if not d['path'].startswith(carpeta + '/') or '/_template/' in d['path']:
                 continue
-            if d['base'] in APPARATUS:
+            if es_aparato(d):
                 R['excluidos']['aparato'].append(d['path'])
+                aparato_serie += 1
                 continue
             if FROZEN_ARTIFACT.match(d['base']):
                 R['excluidos']['congelados'].append(d['path'])
@@ -114,6 +129,7 @@ def main():
         ok = sum(1 for d in sel if re.match(pat, d['base']))
         R['matricula'][carpeta] = {'esquema': etiqueta, 'con': ok,
                                    'total': len(sel),
+                                   'aparato': aparato_serie,
                                    'pct': round(100 * ok / len(sel), 1) if sel else None}
     # agents/ queda fuera del registro (ADR-005 v1.1.0, reversión explícita
     # de la regla AG-NNN — identificado por nombre de carpeta, no numerado).
@@ -204,10 +220,12 @@ def main():
         p(f"    {k:<12} {v}")
 
     p(f"\n── MATRÍCULA POR SERIE ──")
-    p(f"  {'serie':<18}{'esquema':<14}{'con':>5}{'/':^3}{'total':<7}{'%':>7}")
+    p(f"  {'serie':<18}{'esquema':<14}{'con':>5}{'/':^3}{'total':<7}{'%':>7}{'aparato':>9}")
     for c, m in R['matricula'].items():
         pct = f"{m['pct']}%" if m['pct'] is not None else "—"
-        p(f"  {c:<18}{m['esquema']:<14}{m['con']:>5}{'/':^3}{m['total']:<7}{pct:>7}")
+        ap = str(m['aparato']) if m['aparato'] else "·"
+        p(f"  {c:<18}{m['esquema']:<14}{m['con']:>5}{'/':^3}{m['total']:<7}{pct:>7}{ap:>9}")
+    p(f"  (aparato: excluido del denominador por regla type:meta — D-014)")
 
     p(f"\n── UID ──")
     p(f"  presentes  : {R['uid_presentes']}")

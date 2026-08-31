@@ -3,7 +3,7 @@ id: "P-010"
 title: "How to Archive — the NWOS archival protocol"
 type: protocol
 status: draft
-version: "0.5.1"
+version: "0.6.0"
 created: "2026-08-18T10:51:09Z"
 created_source: "git:9f25053"
 created_confidence: exact
@@ -201,6 +201,41 @@ was — an exemption to be removed, not honoured.
 `license`, `tags`. Normalized optionals: `guild`, `owner`, `author`,
 `supersedes`, `review_next`. (The CI guard today only requires `license`;
 extending it to the full minimum is MIS-089 F3's job.)
+
+### 3.4 Renaming: a citation may be rewritten, a mention may not
+
+Ruled 2026-08-31 (`MIS-125` Stage C, closes `D-048`). A bulk rename tool
+rewrites every occurrence of an old identifier. Not every occurrence means the
+same thing, and the difference is not decidable by pattern:
+
+| | What it is | On rename |
+|---|---|---|
+| **Citation** | a pointer to a document, meant to keep resolving | **rewrite** — that is the point |
+| **Mention** | the identifier used *as data*: evidence, a fixed record, or an example | **leave alone** — rewriting it destroys the record |
+
+A mention rewritten as a citation produced four corruptions in one eight-file
+run: an SPDX SBOM whose `FileName` no longer matched its own `FileChecksum`, a
+CC0 dedication naming files that were never dedicated under those names, a
+`status: done` mission's account of what happened, and — twice — a sentence
+citing an old id **as the counterexample being discussed**, which the rename
+turned into nonsense.
+
+**The rules, in force:**
+
+1. **Dated evidence is never rewritten.** Anything matching the frozen-artefact
+   shape of §3.2, plus SBOMs, audit reports and licence dedications. These
+   describe a moment; editing them makes them describe a moment that never
+   happened.
+2. **A closed record is never rewritten.** `status: done`, `closed`, or
+   `superseded` documents are accounts of what was true then, not indexes of
+   what is true now.
+3. **Everything else is rewritten, and the diff is read.** Not the exit code —
+   the diff. `scripts/rename-series.mjs` enforces 1 and 2 automatically and
+   prints every refusal; it **cannot** detect case 4, an id used as its own
+   counterexample, because that distinction lives in the sentence.
+
+Rule 3 is the expensive one and it is not optional. A rename run whose diff was
+not read is not verified, however green the guards are (`S-001` §10.4).
 
 ## 4. Documentary semantic versioning
 

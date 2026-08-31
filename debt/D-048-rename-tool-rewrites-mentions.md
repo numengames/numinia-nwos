@@ -3,12 +3,12 @@ id: "D-048"
 uid:
 title: "The rename tool rewrites mentions as if they were citations"
 type: documentation
-status: active
-version: "1.0.0"
+status: closed
+version: "2.0.0"
 created: "2026-08-31T15:10:00+02:00"
 created_source: "git:f229a4c"
 created_confidence: exact
-updated: "2026-08-31T15:10:00+02:00"
+updated: "2026-08-31T16:45:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -150,10 +150,57 @@ The `guilds/` run was 8 files. `standards/` is 5, `canon/` 8, `protocols/` 12,
 
 ## State
 
+## Resolution (2026-08-31)
+
+**Both** conditions met, which is why this one closes despite being the high-
+severity entry.
+
+### 1. The tool refuses
+
+`scripts/rename-series.mjs` now refuses to rewrite dated evidence (SBOMs, audit
+reports, licence dedications, frozen-artefact filenames) and closed records
+(`status: done` / `closed` / `superseded`), and prints every refusal:
+
+```
+⛔ N occurrence(s) REFUSED — evidence or closed records, deliberately NOT
+   rewritten (D-048)
+```
+
+Tested against a throwaway copy of the corpus before being trusted: **60
+refusals**, `reports/` untouched, no `status: closed` mission modified. The
+missions it did rewrite were all `status: active` — correct behaviour, verified
+by reading them, not by the exit code.
+
+### 2. The interim rule is now permanent policy
+
+`P-010` §3.4 — *a citation may be rewritten, a mention may not* — with the
+citation/mention distinction as a table, the two automatic refusals as rules 1
+and 2, and **rule 3: everything else is rewritten and the diff is read.**
+
+### The case that is NOT fixed, and cannot be
+
+Case 4 from the body above: an identifier used **as its own counterexample**.
+The `guilds/` run turned
+
+> whether lowercase descriptive ids are legal at all — `charter-alchemists`,
+> `roster-sentinels`
+
+into `— GLD-001, GLD-006`, which destroys the sentence's meaning while leaving
+it grammatical and green. No pattern distinguishes that from a citation; the
+difference lives in the surrounding prose. **This is why rule 3 exists and why
+it is not optional.**
+
+So this entry closes with its mechanism in place and its expensive obligation
+intact: every remaining Stage C rename requires reading the full staged diff.
+Ten series, including `debt/` at 38 files and `missions/` at 131. That cost is
+now written into the protocol rather than living in one agent's habits — which
+was the point.
+
 | | |
 |---|---|
-| Severity | high — silently corrupts dated evidence and closed records, with all guards green |
+| Severity | high — silently corrupted dated evidence and closed records, with all guards green |
 | Owner | Oracle |
+| Status | **closed 2026-08-31** — refusals in the tool, policy in `P-010` §3.4 |
 | Opened | 2026-08-31, by `MIS-125` Stage C |
-| Blocks | nothing outright; makes every remaining Stage C rename a manual-review operation |
-| Closes when | the tool refuses to rewrite evidence and closed records, or the interim rule is made permanent policy |
+| Closed by | `MIS-125`, on the Oracle's instruction (option D) |
+| Not closed | case 4 (id as counterexample) is undetectable by tool; `P-010` §3.4 rule 3 covers it by procedure |

@@ -34,6 +34,8 @@
  * breakage — a ratchet, not a cliff.
  */
 import { execFileSync } from 'node:child_process';
+import { declareBlindSpots } from './lib/blindness.mjs';
+declareBlindSpots('check-references');
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

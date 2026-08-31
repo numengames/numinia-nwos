@@ -3,12 +3,12 @@ id: "D-047"
 uid:
 title: "The reference guard resolves by basename, so a wrong folder path still reads as green"
 type: documentation
-status: active
-version: "1.0.0"
+status: closed
+version: "2.0.0"
 created: "2026-08-31T14:40:00+02:00"
 created_source: "git:f229a4c"
 created_confidence: exact
-updated: "2026-08-31T14:40:00+02:00"
+updated: "2026-08-31T16:45:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -143,9 +143,52 @@ describes when it did.
 
 ## State
 
+## Resolution (2026-08-31)
+
+Closed on the **second** of its two conditions: *the blind spot is declared in
+the guard's own output and accepted.* The first — teaching the resolver to
+distinguish a path citation from a basename citation — was **not** done.
+
+That distinction matters, so it is stated plainly rather than buried:
+
+**`check-references.mjs` is still blind to the folder.** A citation to
+`agents/guilds/alquimistas/GLD-001-charter.md` still resolves against
+`guilds/alquimistas/GLD-001-charter.md` and still reads green. What changed is
+that the guard now says so, every run, in its own output:
+
+```
+  BLIND TO (D-025) — this guard did not look at:
+    · the FOLDER in a path citation: the resolver falls back to basename, so
+      a citation naming the wrong directory still resolves against the right
+      basename and reads as green
+        NOT covered by any guard · tracked as D-047
+```
+
+And it is **proven**, not asserted: `scripts/test/blindness.test.mjs` builds a
+citation with a deliberately wrong folder, runs the guard, and asserts it stays
+green. If the resolver is ever fixed, that fixture fails — deliberately, so the
+improvement gets recorded instead of absorbed.
+
+### The four dangling references remain a lower bound
+
+The four found during the `guilds/` rename were added to
+`scripts/references-baseline.json` (347 → 351). **The corpus was never swept**
+for others of the same shape. Nothing here changes that, and the count should
+not be read as complete.
+
+### Why closing on the weaker condition is the right call
+
+Fixing the resolver means changing what the guard accepts across the whole
+corpus, mid-`MIS-125`, with ten series still to rename. That is a change to the
+ruler during the measurement — the habit `D-014` exists to break. The blindness
+is now visible in every run and provable by test; the fix belongs to whoever
+sweeps the corpus, and should open its own entry.
+
 | | |
 |---|---|
 | Severity | medium — no data is wrong; the guard's assurance is narrower than it reads |
 | Owner | Oracle |
+| Status | **closed 2026-08-31** — declared and test-proven, resolver unchanged |
 | Opened | 2026-08-31, by `MIS-125` Stage C |
-| Closes when | the resolver distinguishes a path citation from a basename citation, or the blind spot is declared in the guard's own output and accepted |
+| Closed by | `MIS-125`, under `D-025` / `S-001` §10.4 |
+| Not closed | the resolver still matches by basename; the 4 dangling refs are a lower bound |
