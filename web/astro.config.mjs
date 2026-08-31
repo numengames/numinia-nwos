@@ -67,6 +67,11 @@ export default defineConfig({
 		"/corpus/canon/role-structure-in-the-numinia-system": "/corpus/canon/c-004-role-structure",
 		"/corpus/canon/about-session-zero": "/corpus/canon/c-006-session-zero",
 		"/corpus/canon/rank-specifications": "/corpus/canon/c-007-rank-specifications",
+		// MIS-127 step 1 (ADR-033): two closed daily reports deleted after passing
+		// P-010 §5's four consumer tests — zero inbound citations, no living
+		// reader. Their addresses answer at the reports index instead.
+		"/corpus/reports/daily/rpt-2026-04-07-tarde": "/corpus/reports",
+		"/corpus/reports/daily/rpt-2026-08-17": "/corpus/reports",
 	},
 	// /print/* pages are PDF-generation intermediates (MIS-088): rendered at
 	// build, printed to /pdf/*.pdf by scripts/generate-pdfs.mjs, then removed
