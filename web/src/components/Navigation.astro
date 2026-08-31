@@ -4,7 +4,6 @@
 import Icon from "@/components/Icon.astro";
 import SiteSearch from "@/components/SiteSearch.astro";
 import { navItems } from "@/data/navigation";
-import { getSectionDocs } from "@/lib/corpus";
 import { useT, type UIKey } from "@/i18n/ui";
 
 interface Props {
@@ -19,14 +18,11 @@ const numaniaIds = navItems
 const numaniaActive = numaniaIds.includes(activeNav ?? "");
 
 // Section entries are plain links. They lead to the folder's index page, which
-// is where a document gets chosen — one place to browse a folder, not two.
-// The counts are read from the corpus at build time so the bar never claims a
-// number the index contradicts.
-const sectionCounts = new Map<string, number>();
-for (const item of navItems) {
-  if (!("section" in item) || !item.section) continue;
-  sectionCounts.set(item.id, (await getSectionDocs(item.section)).length);
-}
+// is where a document gets chosen — one place to browse a folder, not two, and
+// no count in the bar: the number belongs on the page that lists the documents.
+const sectionIds = new Set(
+  navItems.filter((i) => "section" in i && i.section).map((i) => i.id),
+);
 
 // MIS-120(e) — one corpus, in English. No locale prefix, no selector: the
 // reader's browser offers the translation, and lang="en" is what triggers it.
@@ -55,20 +51,18 @@ const homeHref = "/";
     <div class="hidden items-center gap-1 sm:flex">
       <SiteSearch />
       {navItems.map((item) => {
-        const count = sectionCounts.get(item.id);
-        if (count !== undefined) {
+        if (sectionIds.has(item.id)) {
           return (
             <a
               href={item.href}
               class:list={[
-                "flex items-center gap-1.5 rounded-full px-3.5 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.12em] transition-all",
+                "rounded-full px-3.5 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.12em] transition-all",
                 activeNav === item.id
                   ? "border border-accent bg-accent/10 text-accent"
                   : "border border-transparent text-muted-foreground hover:border-border hover:bg-card hover:text-foreground",
               ]}
             >
               {item.label}
-              <span class="text-[0.6rem] text-dim">{count}</span>
             </a>
           );
         }
@@ -144,20 +138,18 @@ const homeHref = "/";
   <div id="mobile-menu" class="hidden border-t border-border/50 bg-background/95 backdrop-blur-xl sm:hidden">
     <div class="flex flex-col gap-1 px-6 py-4">
       {navItems.map((item) => {
-        const count = sectionCounts.get(item.id);
-        if (count !== undefined) {
+        if (sectionIds.has(item.id)) {
           return (
             <a
               href={item.href}
               class:list={[
-                "flex items-center justify-between rounded-lg px-4 py-2.5 font-mono text-[0.7rem] uppercase tracking-[0.15em] transition-colors",
+                "rounded-lg px-4 py-2.5 font-mono text-[0.7rem] uppercase tracking-[0.15em] transition-colors",
                 activeNav === item.id
                   ? "bg-accent/10 text-accent"
                   : "text-muted-foreground hover:bg-card hover:text-foreground",
               ]}
             >
-              <span>{item.label}</span>
-              <span class="text-[0.6rem] text-dim">{count}</span>
+              {item.label}
             </a>
           );
         }
