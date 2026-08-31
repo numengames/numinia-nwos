@@ -340,3 +340,62 @@ message; the detection logic was already correct).
 **Stage C is unblocked** for all eleven series. `standards/`, `canon/` and
 `protocols/` proceed with the 5 artefacts excluded by the tool's default.
 
+## Stage C — series renames (2026-08-31, in progress)
+
+Order per `D-008`'s risk ranking, lowest first. One commit per series, all
+guards green before the next.
+
+### `guilds/` → `GLD-NNN` (8 files, done)
+
+```
+guilds/alquimistas/charter.md    -> guilds/alquimistas/GLD-001-charter.md
+guilds/exegetas/charter.md       -> guilds/exegetas/GLD-002-charter.md
+guilds/procuradores/charter.md   -> guilds/procuradores/GLD-003-charter.md
+guilds/centinelas/charter.md     -> guilds/centinelas/GLD-004-charter.md
+guilds/alquimistas/roster.md     -> guilds/alquimistas/GLD-005-roster.md
+guilds/centinelas/roster.md      -> guilds/centinelas/GLD-006-roster.md
+guilds/exegetas/roster.md        -> guilds/exegetas/GLD-007-roster.md
+guilds/procuradores/roster.md    -> guilds/procuradores/GLD-008-roster.md
+```
+
+Guards: `check-references` 0 · `lint-frontmatter` 0 · `check-frontmatter-yaml`
+0 · `check-frontmatter-delimiter` 0 · `lint-naming` 0. `naming-baseline`
+264 → 257 (8 healed, 1 added: `D-047` inherits `debt/`'s own pending
+`D-NNN`→`DBT-NNN` violation, shared with its 46 siblings).
+
+**Bug 6 — the tool rewrote four files it should not have touched.**
+`--apply` replaces the old id with the new one across every citing file by
+plain string substitution. That is right for a live cross-reference and wrong
+for four other things, all of which it hit on this 8-file run:
+
+| File | What it did | Why it is wrong |
+|---|---|---|
+| `reports/audits/AUD-2026-08-26-licensing-c005/sbom.spdx`, `cc0-irrevocable.json` | rewrote 8 filenames in a dated SPDX SBOM and a CC0 grant record | dated forensic evidence, and the `FileChecksum: SHA1` lines were left untouched — a manifest whose names and hashes disagree is worse than a stale one |
+| `missions/MIS-118-agent-roster-replacement.md` | `status: done` mission | retrospective narrative: it records what a guard run found on 2026-08-28, under the names of that date |
+| `missions/MIS-125-prefix-register.md` | rewrote `charter-alchemists`, `roster-sentinels` → `GLD-001`, `GLD-006` | those ids appear in §"What this mission decides" **as examples of lowercase descriptive ids**. The sentence became "whether lowercase descriptive ids are legal at all — `GLD-001`, `GLD-006`" — self-refuting |
+| `scripts/phase5-status-and-registration.py` | rewrote an id inside a code comment | the id was a **counter-example** — "`charter-alchemists` has no series" became "`GLD-001` has no series", inverting the comment's meaning |
+
+All four reverted; the rename stands. The distinction the tool cannot make is
+**citation vs. mention** — `S-001` §9.1's own rule, which the corpus states and
+the tool does not implement. Filed as `D-048`.
+
+`blueprints/BP-archive-fondos.md` was rewritten and **kept**: it is a live
+manifest of paths the web build reads, so a stale path there is a real defect.
+
+**Bug 7 — a rename left every file self-contradictory.** All 8 carried
+`registration: exempt` with `registration_reason: "singular document, not a
+numbered series"`. After the rename they *are* a numbered series, but the
+exemption survived: `count-evidence.py` reported `guilds 8/8 100.0%` over 8
+files each declaring itself outside the scheme. `S-001` §5.0 requires an
+exemption to state something true. Retired from all 8 (v1.1.0 → v1.2.0), and
+`rename-series.mjs` now retires a falsified exemption as part of the rename.
+
+**Bug 8 — `check-references.mjs` resolves by basename, so a wrong folder path
+reads as green.** Renaming `guilds/` produced 4 "new" broken references in
+files the rename never touched — all citing `agents/guilds/…`, a directory
+deleted in `b7a2e39`. They were already broken at `caf2621` and the guard
+reported them clean, because *some* file named `charter.md` existed. The
+rename removed the accident that hid them. Baselined, not rewritten (two
+`status: closed` blueprints and a `P-008` template describing the architecture
+that deletion removed). `D-039` again, one layer down. Filed as `D-047`.
+

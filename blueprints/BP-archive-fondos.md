@@ -43,8 +43,8 @@ fondos:
       - { nombre: "Agents — Index", desc: "The operative roster: seven agents, their routing, and the authorship archaeology.", file: "agents/INDEX.md" }
       - { nombre: "Ursa — SOUL.md", desc: "Technical Architect & Orchestrator. Identity, function, limits.", file: "agents/ursa/SOUL.md" }
       - { nombre: "Byblos — SOUL.md", desc: "Records Manager & Information Governance. The custodian of the archive (formerly Adonaz).", file: "agents/byblos/SOUL.md" }
-      - { nombre: "Charter — Centinelas", desc: "Common rules of the Centinelas guild. Security, watch, gates.", file: "guilds/centinelas/charter.md" }
-      - { nombre: "Charter — Exégetas", desc: "Common rules of the Exégetas guild. Knowledge, archive, narrative.", file: "guilds/exegetas/charter.md" }
+      - { nombre: "Charter — Centinelas", desc: "Common rules of the Centinelas guild. Security, watch, gates.", file: "guilds/centinelas/GLD-004-charter.md" }
+      - { nombre: "Charter — Exégetas", desc: "Common rules of the Exégetas guild. Knowledge, archive, narrative.", file: "guilds/exegetas/GLD-002-charter.md" }
   - id: missions
     titulo: "Missions"
     subtitulo: "Movement"

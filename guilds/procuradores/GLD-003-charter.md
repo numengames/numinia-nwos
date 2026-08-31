@@ -1,19 +1,17 @@
 ---
-id: "charter-procurators"
+id: "GLD-003"
 title: "Guild Charter — Procurators"
 type: charter
 status: active
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: inferred
-updated: "2026-04-07T18:00:00Z"
+updated: "2026-08-31T14:40:00+02:00"
 author: "pablo-fm"
 owner: "oracle"
 tags: [guild, procurators, charter]
 license: "LicenseRef-Numen-AllRightsReserved"
-registration: exempt
-registration_reason: "singular document, not a numbered series"
 ---
 # Guild Charter — Procurators
 

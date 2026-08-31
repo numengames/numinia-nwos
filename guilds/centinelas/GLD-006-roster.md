@@ -1,15 +1,13 @@
 ---
-id: "roster-sentinels"
+id: "GLD-006"
 title: "Roster — Sentinels"
 type: charter
 status: active
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-04-07T12:59:00Z"
-updated: "2026-04-07T18:00:00Z"
+updated: "2026-08-31T14:40:00+02:00"
 author: "nimrod"
 license: "LicenseRef-Numen-AllRightsReserved"
-registration: exempt
-registration_reason: "singular document, not a numbered series"
 ---
 # Roster — Sentinels
 

@@ -278,12 +278,43 @@ if (!APPLY) {
 /* ---- 4. apply ---- */
 console.log('\nAPPLYING...');
 const manualReview = [];
+const refused = [];
+
+// D-048: a rename must not rewrite a MENTION as if it were a CITATION.
+// Dated evidence and closed records state what was true when written; a
+// rewrite there is falsification, not maintenance (S-001 §2.1, §9.1).
+// Found in MIS-125 Stage C: an 8-file rename silently rewrote an SPDX SBOM
+// (filenames changed, FileChecksum SHA1 left stale), a CC0 grant record, a
+// status: done mission's narrative, and two counter-examples — all with
+// every guard green.
+const EVIDENCE_DIRS = ['reports/audits/', 'reports/', 'archive/'];
+function refusalReason(rel) {
+  if (EVIDENCE_DIRS.some((d) => rel.startsWith(d))) {
+    return 'dated evidence — rewriting a record of a past run falsifies it';
+  }
+  const abs = path.join(ROOT, rel);
+  if (!existsSync(abs)) return null;
+  const head = readFileSync(abs, 'utf8').slice(0, 4000);
+  const m = head.match(/^status:\s*["']?(\w[\w-]*)/m);
+  if (m && ['closed', 'done', 'superseded', 'archived'].includes(m[1])) {
+    return `status: ${m[1]} — a closed record states what was true when written`;
+  }
+  return null;
+}
+
 for (const p of plan) {
   const idHits = grepCorpusCount(p.oldId);
   const pathHits = grepCorpusCount(p.oldRel);
   const baseUnique = isBasenameUnique(p.oldBase);
   const baseHits = baseUnique ? grepCorpusCount(p.oldBase) : [];
-  const safeHits = [...new Set([...idHits, ...pathHits, ...baseHits])];
+  const allHits = [...new Set([...idHits, ...pathHits, ...baseHits])];
+
+  const safeHits = [];
+  for (const f of allHits) {
+    const why = refusalReason(f);
+    if (why) refused.push({ file: f, forRename: p.oldRel, why });
+    else safeHits.push(f);
+  }
 
   if (!baseUnique) {
     const ambiguousHits = grepCorpusCount(p.oldBase).filter((f) => f !== p.oldRel && !pathHits.includes(f));
@@ -304,6 +335,23 @@ for (const p of plan) {
   const absOld = path.join(ROOT, p.oldRel);
   let text = readFileSync(absOld, 'utf8');
   text = text.replace(/^id:\s*.*/m, `id: "${p.newId}"`);
+
+  // Retire a registration exemption the rename has just falsified.
+  // A file that now carries GLD-001 cannot also declare "not a numbered
+  // series" — S-001 §5.0 requires the exemption to state something true,
+  // and count-evidence.py would report 8/8 coverage over 8 files each
+  // claiming to be outside the scheme. Only the *entering* reasons are
+  // dropped; a frozen-artifact exemption never reaches this code path
+  // (those files are excluded before the plan is built).
+  // Found in MIS-125 Stage C, guilds/ — the tool renamed correctly and
+  // left every file self-contradictory.
+  if (/^registration:\s*exempt\s*$/m.test(text)) {
+    text = text.replace(/^registration:\s*exempt\s*\n/m, '');
+    text = text.replace(/^registration_reason:\s*(>[-+]?\s*\n(?:[ \t]+.*\n)+|.*\n)/m, '');
+    text = text.replace(/^registration_exemption:\s*.*\n/m, '');
+    console.log(`    registration: exempt retired — the file is now ${p.newId}`);
+  }
+
   if (p.tag && SUBTYPE_FIELD) {
     if (new RegExp(`^${reEscape(SUBTYPE_FIELD)}:`, 'm').test(text)) {
       text = text.replace(new RegExp(`^${reEscape(SUBTYPE_FIELD)}:.*`, 'm'), `${SUBTYPE_FIELD}: ${p.tag}`);
@@ -323,6 +371,12 @@ if (manualReview.length) {
     console.log(`  ${m.file} (now ${m.base} elsewhere too) — cited bare in:`);
     for (const f of m.citedBy) console.log(`    ${f}`);
   }
+}
+
+if (refused.length) {
+  console.log(`\n⛔ ${refused.length} occurrence(s) REFUSED — evidence or closed records, deliberately NOT rewritten (D-048):`);
+  for (const r of refused) console.log(`  ${r.file}\n     ${r.why}`);
+  console.log('  If any of these is a live citation rather than a record, fix it by hand.');
 }
 
 console.log('\nVerifying with check-references.mjs...');
