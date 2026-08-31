@@ -81,12 +81,36 @@ def main():
         'guilds': (r'^GLD-\d{3}-', 'GLD-NNN'),
         'infra': (r'^INF-\d{3}-', 'INF-NNN'),
     }
+    # Fuera del denominador de matrícula — no son documentos de una serie
+    # viva, así que contarlos hace leer la cobertura peor de lo que es.
+    # Fallo MIS-125 (2026-08-31), ver D-008 §"El fallo frozen-artifact".
+    #
+    #  (a) Aparato: índices, plantillas y la lápida STANDARDS.md. Se excluían
+    #      ya por nombre; se suma APPROVAL-REQUEST-template.md, aparato de
+    #      P-008 (D-024 v1.2.0), que se excluía por nadie.
+    #  (b) Artefactos congelados: nombre datado = fotografía, no documento
+    #      vivo (P-010 §3.2). Se detectan por FORMA DE NOMBRE, no por el
+    #      campo registration_exemption, porque dos de los cinco del corpus
+    #      llevan la forma y no llevan el campo — un criterio que dependa
+    #      del campo los cuenta como incumplimiento.
+    APPARATUS = ('INDEX.md', 'README.md', 'TEMPLATE.md', 'STANDARDS.md',
+                 'APPROVAL-REQUEST-template.md')
+    FROZEN_ARTIFACT = re.compile(r'^\d{4}_\d{2}_\d{2}-.+-v\d+\.\d+\.\d+\.md$')
+
     R['matricula'] = {}
+    R['excluidos'] = {'aparato': [], 'congelados': []}
     for carpeta, (pat, etiqueta) in series.items():
-        sel = [d for d in docs
-               if d['path'].startswith(carpeta + '/')
-               and d['base'] not in ('INDEX.md', 'README.md', 'TEMPLATE.md', 'STANDARDS.md')
-               and '/_template/' not in d['path']]
+        sel = []
+        for d in docs:
+            if not d['path'].startswith(carpeta + '/') or '/_template/' in d['path']:
+                continue
+            if d['base'] in APPARATUS:
+                R['excluidos']['aparato'].append(d['path'])
+                continue
+            if FROZEN_ARTIFACT.match(d['base']):
+                R['excluidos']['congelados'].append(d['path'])
+                continue
+            sel.append(d)
         ok = sum(1 for d in sel if re.match(pat, d['base']))
         R['matricula'][carpeta] = {'esquema': etiqueta, 'con': ok,
                                    'total': len(sel),

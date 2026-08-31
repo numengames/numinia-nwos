@@ -3,11 +3,11 @@ id: "MIS-125"
 title: "The prefix register — four series carry identifiers no rule knows about"
 type: mission
 status: in-progress
-version: "1.2.0"
+version: "1.3.0"
 created: "2026-08-30T11:50:00Z"
 created_source: "git:b09311c"
 created_confidence: exact
-updated: "2026-08-31T13:11:21+02:00"
+updated: "2026-08-31T14:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC-BY-4.0"
@@ -278,17 +278,65 @@ error in the prior version.
 PR: https://github.com/numengames/numinia-nwos/pull/157 (merged) and
 https://github.com/numengames/numinia-nwos/pull/161 (merged, `534e25e`).
 
-**Open blocker before Stage C can start — not resolved, awaiting Oracle
-ruling (`clarify` sent 2026-08-31, unanswered as of this writing):**
+**Blocker resolved — ruling made 2026-08-31, in `P-010` §3.2.2:**
 `P-010` §3.2 defines `registration_exemption: frozen-artifact` files as
 permanent dated snapshots that never evolve ("a photograph, not a living
-document"). `D-008`'s own "24 exempt enter the scheme" ruling includes 5
+document"). `D-008`'s own "24 exempt enter the scheme" ruling included 5
 such files (3 by explicit field, 2 more by filename shape only — see bug
-5 above) and assigns them `STD-NNN`/`CAN-NNN`/`PRO-NNN` destinations,
-directly contradicting `P-010` §3.2 on its face. `rename-series.mjs`
-defaults to excluding all 5 (`--include-frozen-artifacts` required to
-override), so the tool cannot mis-rename them either way — but Stage C
-cannot proceed on `standards/`, `canon/`, or `protocols/` until the
-Oracle picks a side: `P-010` wins (correct `D-008`, these 5 keep dated
-names permanently) or `D-008` wins (amend `P-010` §3.2 to say
-frozen-artifact no longer blocks series entry).
+5 above) and assigned them `STD-NNN`/`CAN-NNN`/`PRO-NNN` destinations,
+directly contradicting `P-010` §3.2 on its face.
+
+**Ruled: `P-010` §3.2 prevails. `D-008` is corrected; the 5 keep their
+dated names permanently.** Four grounds, each measured against the repo at
+`caf2621` rather than argued from principle:
+
+1. **A consumer outside this repo cannot be updated.**
+   `standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md` is pinned by
+   `numinia-web/design-source.json` (`path` + `sha256`) and verified by
+   `check-design-source.mjs`. `S-001` §5.0.1 — the rule written by
+   *reverting* exactly this kind of rename in `D-024` — makes such a rename
+   **structurally incomplete, not merely expensive**. `D-040` is still open
+   about the last time this pin broke.
+2. **Public URLs derive from filenames.**
+   `web/src/pages/corpus/[...slug].astro` builds every route from the file
+   id; `D-028` exists because nothing manages that lifecycle. Renaming
+   these publishes five dead addresses.
+3. **This mission's own licence to rename does not cover them.** §"The
+   prior constraint" above authorises renaming *because the 13 descriptive
+   ids have zero incoming citations* — "never break a reference that
+   exists". Measured: the five carry **59 incoming citations across 27
+   files** (36 of them to the Design System alone). The premise is false
+   for this set; applying the conclusion anyway would be the exact error
+   this mission was opened to correct.
+4. **Two are `threshold: sealed`** (`S-001` §2.1, `canon/`) — changing them
+   takes an Oracle signature and an ADR, which a bulk prefix pass is not.
+
+**Documents changed:** `P-010` v0.5.0 (§3.2.1 + §3.2.2 — the rule now says
+what it means and how to detect it), `D-008` v3.0.0 (ruling reversed,
+denominators corrected), `D-024` v1.3.0 (two v1.1.0 claims withdrawn),
+`scripts/count-evidence.py`, `scripts/rename-series.mjs` (header + operator
+message; the detection logic was already correct).
+
+**Two defects found while ruling, neither part of the question asked:**
+
+- **`D-008`'s headline total had been wrong since v2.0.0.** The series
+  table summed to **254**, while the text claimed **274** — it was adding
+  the 20-file `decisions/` row that the same sentence declares excluded.
+  Two later "corrections" (275→274, 274→…) adjusted the wrong number
+  without ever re-summing the column. The total is now computed by
+  `count-evidence.py` instead of maintained by hand: **248** after this
+  ruling. Nobody caught this in three revisions because the number looked
+  plausible and no one added the column.
+- **`count-evidence.py` and `P-010` disagreed about what a frozen artefact
+  is.** The script keyed on the `registration_exemption` field; the
+  protocol describes a filename convention. The two files carrying the
+  shape without the field were counted as non-compliance — the counter was
+  manufacturing the very debt this ruling removes. Both now key on the
+  filename shape, and `P-010` §3.2.1 states which is normative.
+- Also excluded from the denominator: `APPROVAL-REQUEST-template.md`,
+  ruled apparatus by `D-024` v1.2.0 on 2026-08-31, which no counter had
+  ever excluded.
+
+**Stage C is unblocked** for all eleven series. `standards/`, `canon/` and
+`protocols/` proceed with the 5 artefacts excluded by the tool's default.
+

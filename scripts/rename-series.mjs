@@ -31,19 +31,20 @@
  *      type — not just .md), run check-references.mjs at the end. No commit.
  *   5. One run = one series. Never mixes series in the same pass.
  *
- * FROZEN-ARTIFACT SAFETY (declared, not silent):
- * P-010 §3.2 defines `registration_exemption: frozen-artifact` files as
- * permanent dated snapshots ("a photograph, not a living document") — D-008
- * v2.1.0's "24 exempt enter the scheme" ruling includes 3 such files
- * (standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md,
- * canon/2026_04_15-Epistemic_Relations...md,
- * canon/2026_04_15-Pragmatic_Numen_System...md), which contradicts P-010
- * §3.2 on its face. This is an OPEN, UNRESOLVED conflict between two
- * normative documents (flagged to the Oracle via clarify, 2026-08-31,
- * not yet answered). This tool defaults to EXCLUDING
- * registration_exemption: frozen-artifact files from every series —
- * --include-frozen-artifacts is required to touch them, and even then the
- * tool only ever queues them for --dry-run review, never silently.
+ * FROZEN-ARTIFACT SAFETY (ruled, no longer an open conflict):
+ * P-010 §3.2 defines dated-filename files as permanent snapshots ("a
+ * photograph, not a living document"). D-008 v2.0.0's "24 exempt enter the
+ * scheme" ruling had swept 5 of them in, contradicting P-010 §3.2 on its
+ * face. RULED 2026-08-31 (MIS-125): P-010 §3.2 prevails — see P-010 §3.2.2
+ * and D-008 v3.0.0. The 5 keep their dated names permanently and leave
+ * D-008's denominator; they are not debt, they are correctly named.
+ *
+ * Detection is by FILENAME SHAPE (YYYY_MM_DD-Title-vX.Y.Z.md), not by the
+ * registration_exemption field: 2 of the 5 carry the shape without the
+ * field (P-010 §3.2.1), so a field-keyed check would rename them.
+ * --include-frozen-artifacts still exists as an operator override, and even
+ * then the tool only ever queues them for --dry-run review, never silently.
+ * With the ruling in force there is no legitimate reason to pass it.
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
@@ -121,7 +122,7 @@ for (const { dir, tag } of dirSpecs) {
     const looksLikeFrozenShape = /^\d{4}_\d{2}_\d{2}-.+-v\d+(\.\d+){0,2}\.md$/.test(base);
     const isFrozen = fm.registration_exemption === 'frozen-artifact' || looksLikeFrozenShape;
     if (isFrozen && !INCLUDE_FROZEN) {
-      candidates.push({ rel, base, fm, text, skip: 'frozen-artifact (P-010 §3.2 vs D-008 conflict — unresolved, use --include-frozen-artifacts to override)', tag });
+      candidates.push({ rel, base, fm, text, skip: 'frozen-artifact (P-010 §3.2 — ruled 2026-08-31, MIS-125: keeps its dated name permanently, not debt)', tag });
       continue;
     }
     // registration: exempt not otherwise ruled in scope. D-008 v2.1.0's
