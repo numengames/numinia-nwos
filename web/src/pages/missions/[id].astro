@@ -6,6 +6,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
+import { repoFileUrl } from "@/lib/build-info";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -27,6 +28,7 @@ const { Content } = await render(entry);
 const f = entry.data as Record<string, any>;
 const missionId = (f.id as string).toUpperCase();
 const mdFilename = (entry.filePath as string).split("/").pop()!;
+const repoUrl = repoFileUrl(entry.filePath as string);
 const mdUrl = `/missions/${missionId.toLowerCase()}.md`;
 
 const PRIORITY_COLOR: Record<string, string> = {
@@ -98,7 +100,7 @@ const completed = f.completed ? String(f.completed).slice(0, 10) : null;
       </div>
 
       <!-- Full mission document -->
-      <DocToolbar mdUrl={mdUrl} filename={mdFilename} pdfUrl={"/pdf" + mdUrl.replace(/\.md$/, ".pdf")} />
+      <DocToolbar mdUrl={mdUrl} filename={mdFilename} pdfUrl={"/pdf" + mdUrl.replace(/\.md$/, ".pdf")} repoUrl={repoUrl} />
       <article class="mission-md rounded-xl border border-border bg-card p-6 sm:p-8">
         <Content />
       </article>

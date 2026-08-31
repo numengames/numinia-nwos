@@ -6,6 +6,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
+import { repoFileUrl } from "@/lib/build-info";
 import { getCollection, render } from "astro:content";
 
 const slug = (id: string) => id.replace(/^BLU-\d+-/i, "").toLowerCase();
@@ -24,6 +25,7 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const f = entry.data as Record<string, any>;
 const mdFilename = (entry.filePath as string).split("/").pop()!;
+const repoUrl = repoFileUrl(entry.filePath as string);
 const mdUrl = `/blueprints/${slug(entry.id as string)}.md`;
 
 const SEMAFORO: Record<string, { dot: string; label: string }> = {
@@ -61,7 +63,7 @@ const sem = SEMAFORO[(f.semaforo as string) || ""];
 
       <h1 class="font-display text-3xl sm:text-4xl text-foreground mb-8">{f.title}</h1>
 
-      <DocToolbar mdUrl={mdUrl} filename={mdFilename} pdfUrl={"/pdf" + mdUrl.replace(/\.md$/, ".pdf")} />
+      <DocToolbar mdUrl={mdUrl} filename={mdFilename} pdfUrl={"/pdf" + mdUrl.replace(/\.md$/, ".pdf")} repoUrl={repoUrl} />
       <article class="mission-md rounded-xl border border-border bg-card p-6 sm:p-8">
         <Content />
       </article>

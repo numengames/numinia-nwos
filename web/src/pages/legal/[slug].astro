@@ -6,6 +6,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
+import { repoFileUrl } from "@/lib/build-info";
 import { getEntry, render } from "astro:content";
 
 const SLUGS: Record<string, string> = {
@@ -24,6 +25,7 @@ if (!entry) throw new Error(`Legal entry not found for slug: ${slug}`);
 const { Content } = await render(entry);
 const f = entry.data as Record<string, any>;
 const mdFilename = (entry.filePath as string).split("/").pop()!;
+const repoUrl = repoFileUrl(entry.filePath as string);
 const mdUrl = `/legal/${slug}.md`;
 ---
 
@@ -48,7 +50,7 @@ const mdUrl = `/legal/${slug}.md`;
 
       <h1 class="font-display text-3xl sm:text-4xl text-foreground mb-8">{f.title}</h1>
 
-      <DocToolbar mdUrl={mdUrl} filename={mdFilename} pdfUrl={"/pdf" + mdUrl.replace(/\.md$/, ".pdf")} />
+      <DocToolbar mdUrl={mdUrl} filename={mdFilename} pdfUrl={"/pdf" + mdUrl.replace(/\.md$/, ".pdf")} repoUrl={repoUrl} />
       <article class="mission-md rounded-xl border border-border bg-card p-6 sm:p-8">
         <Content />
       </article>
