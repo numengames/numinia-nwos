@@ -7,7 +7,7 @@ version: "1.1.0"
 created: "2026-08-30T11:50:00Z"
 created_source: "git:b09311c"
 created_confidence: exact
-updated: "2026-08-31T09:40:00+02:00"
+updated: "2026-08-31T10:35:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC-BY-4.0"
@@ -157,3 +157,51 @@ Oracle's own catch, applied immediately. Progress against Stages A–D is
 tracked in `missions/MIS-127-entropy-reduction.md` (ledger, per PR) as each
 stage lands; this section records only the execution start and the premise
 corrections.
+
+## Stage A — normative docs (PR #155, 2026-08-31)
+
+Two Oracle rulings closed before writing anything, both via `clarify`, not
+decided unilaterally:
+
+1. **`agents/` prefix.** The plan's premise — `agents/` stays without a
+   prefix — silently reversed `ADR-005`'s own ratified Decision 2
+   (`agents/` takes `AG-NNN`). Flagged, not written over. Oracle ruled:
+   formalize the reversal as an explicit `ADR-005` v1.1.0 amendment
+   (not just extend the new table), plus a reasoned `D-008` closure —
+   rather than silently reinstating or silently dropping it. Folder count
+   corrected 8→7 (plan was stale; verified via `git ls-files`/`find`).
+2. **`registration: exempt` scope.** 50 files carry the exemption; 24 are
+   content documents inside a registered series, not apparatus. Oracle
+   ruled: all 24 enter the new scheme, no exception — this closed `D-024`
+   as a side effect (including its `pending-genre-ruling` blocker for
+   `operations/security-policy.md` + `credential-map.md`, both `OPS-NNN`).
+   One document, `APPROVAL-REQUEST-template.md`, was first marked `[x]`
+   in error (it is apparatus of `P-008`, not orphaned) — caught and
+   corrected same session, `D-024` → v1.2.0.
+
+**Documents changed:** `ADR-004` v1.1.0, `ADR-005` v1.1.0, `P-010` v0.4.0,
+`D-008` v2.0.0 (rewritten, measured against the new register via
+`git ls-files`, not the plan's stale census), `D-024` v1.2.0 (closed).
+
+**A verification gap found and closed before it could reach Stage C:**
+`check-references.mjs` was blind to the 13-series register (hardcoded 5
+old prefixes, ignored the `C-/BP-/D-/S-` prefixes this mission retires)
+and to a third citation kind — bare filenames in prose, the only way
+`registration: exempt` documents are ever cited. Left unfixed, every
+Stage-C "exit 0" would have been a false green light. Extended, measured
+(331 pre-existing hits, unrelated historical debt, frozen in baseline),
+verified with a positive test (renaming `credential-map.md` correctly
+triggers 12 new failures).
+
+**CI catch, fixed same day:** `debt/D-024`'s `status: resolved` is not a
+valid value in `S-004`'s `documentation` lifecycle (`draft → active →
+closed`) — build failed on `H-04`. Corrected to `status: closed`;
+`(RESOLVED)` stays in the title as a human-readable note.
+
+PR: https://github.com/numengames/numinia-nwos/pull/155 (open, reviewers
+assigned, CI green as of `91bb1ca`).
+
+Two follow-up debts noted, not yet filed: `D-017` (cited by `D-024`, does
+not exist in `debt/`); `.github/workflows/scorecard.yml` cites
+`engineering-standards.md` by bare name in a comment, outside any guard's
+reach — will break silently when Stage C renames that file.
