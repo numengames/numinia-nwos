@@ -11,7 +11,7 @@ author: "nimrod"
 owner: "oracle"
 tags: [blueprint, cao, architecture, agents, protocols, tools, system]
 territory: "CAO"
-license: "CC-BY-4.0"
+license: "CC0-1.0"
 mission: "MIS-045"
 ---
 # BP — CAO Architecture

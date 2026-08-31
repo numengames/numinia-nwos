@@ -12,7 +12,7 @@ owner: "oracle"
 tags: [missions, kanban, system-design, architecture, sub-missions]
 territory: "CAO"
 related_missions: ["MIS-057", "MIS-062"]
-license: "CC-BY-4.0"
+license: "CC0-1.0"
 ---
 
 > **2026-08-17 — partially superseded by MIS-066:** the folder-per-state

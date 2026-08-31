@@ -36,13 +36,26 @@ SPDX-License-Identifier = "CC-BY-4.0"
 [[annotations]]
 path = [
   "decisions/**", "protocols/**", "operations/**", "reports/**",
-  "missions/**", "blueprints/**", "standards/**", "debt/**",
+  "missions/**", "standards/**", "debt/**",
   "README.md", "CHANGELOG.md", "CONTRIBUTING.md",
   "CLAUDE.md", "TRADEMARKS.md", "LEGAL_DEBT.md",
   "GAPS.md", "DEUDA-404.md", "SECURITY.md",
 ]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC-BY-4.0"
+
+# --- Blueprints → CC0-1.0 (MIS-127, Oráculo decision) --------------------
+# Blueprints are public domain. The CC-BY-4.0 label they carried was applied
+# mechanically by 0157be9 (2026-08-16), which swept the whole documentation
+# block into one annotation; it was never a decision about this folder.
+# BLU-001..BLU-004 were published in April 2026 under the root CC0-1.0
+# LICENSE, so for those the waiver was already made and is irrevocable
+# (C-005: "CC0, published | None. The waiver is irrevocable").
+# After the docs block so it wins.
+[[annotations]]
+path = ["blueprints/**"]
+SPDX-FileCopyrightText = "2026 Numen Games S.L."
+SPDX-License-Identifier = "CC0-1.0"
 
 # The rank system is Numinia's, not a platform convention: NOMAD, CITIZEN,
 # PILGRIM, VERNACULAR, ARCHON and ORACLE are the domain model's own names, and
