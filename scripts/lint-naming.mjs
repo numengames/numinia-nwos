@@ -97,6 +97,18 @@ const files = execFileSync('git', ['-C', ROOT, 'ls-files', '*.md'], { encoding: 
   .split('\n').filter(Boolean)
   .filter((f) => !f.startsWith('web/'));
 
+// D-049: this guard reads the INDEX, not the working tree. A .md file that
+// exists on disk but has not been `git add`ed is invisible here — the guard
+// cannot disagree about input it was never given (D-039, sharper form).
+const untracked = execFileSync('git', ['-C', ROOT, 'ls-files', '--others', '--exclude-standard', '*.md'], { encoding: 'utf8' })
+  .split('\n').filter(Boolean)
+  .filter((f) => !f.startsWith('web/'));
+if (untracked.length) {
+  console.warn(`\n\u26a0 ${untracked.length} untracked .md file(s) — NOT scanned (this guard reads git ls-files, D-049):`);
+  for (const f of untracked) console.warn(`    ${f}`);
+  console.warn('  A green result here says nothing about them. `git add` them first.\n');
+}
+
 for (const rel of files) {
   const parts = rel.split('/');
   const top = parts[0];

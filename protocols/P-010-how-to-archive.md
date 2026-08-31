@@ -3,7 +3,7 @@ id: "P-010"
 title: "How to Archive — the NWOS archival protocol"
 type: protocol
 status: draft
-version: "0.5.0"
+version: "0.5.1"
 created: "2026-08-18T10:51:09Z"
 created_source: "git:9f25053"
 created_confidence: exact
@@ -133,27 +133,54 @@ four grounds, all measured against the repo rather than argued:**
 
 1. **The rename is structurally incomplete** — `S-001` §5.0.1: *a rename
    whose consumers cannot all be updated is not done.*
-   `2026_08_18-Sistema_de_Diseno-v5.1.0.md` is pinned by **`numinia-web`,
-   a different repository** (`design-source.json`, `path` + `sha256`,
-   verified by `check-design-source.mjs` on `npm run design:check`) and by
-   the published kit at `web/public/diseno/kit/manifest.json`. That
-   consumer is outside this repo's reach — exactly the profile that
-   reverted the `engineering-standards.md` rename in `D-024`, and exactly
-   the failure `D-040` is still open about.
+   `2026_08_18-Sistema_de_Diseno-v5.1.0.md` is consumed by **`numinia-web`,
+   a different repository**, via `design-source.json` (`path` + `sha256`,
+   verified there by its own `scripts/check-design-source.mjs` on
+   `npm run design:check`), and by the published kit at
+   `web/public/diseno/kit/manifest.json`. That consumer is outside this
+   repo's reach — exactly the profile that reverted the
+   `engineering-standards.md` rename in `D-024`.
+   **Correction, 2026-08-31 (see §3.2.3):** that pin currently names
+   `…-v5.0.0.md`, not `v5.1.0` — it is already stale, per `D-040`. This
+   ground therefore rests on the *mechanism* (an out-of-repo pin keyed by
+   path) rather than on a pin that a rename would break today. Ground 2 is
+   the load-bearing one.
 2. **Renaming publishes a broken URL.** `web/src/pages/corpus/[...slug].astro`
-   derives every public address from the filename. These are not orphans:
-   the five carry **59 incoming citations across 27 files** (measured, not
-   assumed). `D-028` is open precisely because nothing manages that
-   lifecycle.
+   derives every public address from `entry.id`, which the Astro loader
+   derives from the filename when the frontmatter declares none. Verified
+   against a real `npm run build`: **all five are published at a URL built
+   from their filename**, e.g.
+   `/corpus/standards/2026_08_18-sistema_de_diseno-v510`. Renaming
+   publishes five dead addresses. These are not orphans either: the five
+   carry **71 incoming citations across 24 files** (measured 2026-08-31).
+   `D-028` is open precisely because nothing manages that lifecycle.
 3. **`MIS-125`'s own licence to rename does not extend to them.** The
    mission's §"The prior constraint" permits renaming *because the 13
    descriptive ids have zero incoming citations* — "the rule is not never
    rename; it is never break a reference that exists." **None of these
    five is at zero.** The premise that authorised the renames is false for
    this set.
-4. **Two of them are `threshold: sealed`** (`S-001` §2.1 — `canon/`).
-   Changing a sealed document takes the Oracle's signature and an ADR. A
-   bulk prefix pass is neither.
+4. **Two of them are `threshold: sealed`** (`S-001` §2.1 — both `canon/`
+   documents; the other three declare no threshold). Changing a sealed
+   document takes the Oracle's signature and an ADR. A bulk prefix pass is
+   neither.
+
+#### 3.2.3 Correction notice — 2026-08-31, same day as the ruling
+
+Three factual defects in §3.2.2 as first published, found while
+investigating a CI failure and corrected here rather than silently:
+
+| Claimed | Actual | Effect on the ruling |
+|---|---|---|
+| `check-design-source.mjs` verifies the pin | that script lives in **`numinia-web`**, not this repo; there is no such file here | the guard exists, in the consuming repo — the citation implied it ran here |
+| the pin secures `v5.1.0` | `numinia-web/design-source.json` names `…-v5.0.0.md` (`sha256: a075e215…`) | ground 1 weakened: the pin is already stale (`D-040`), so a rename would not break it *today* |
+| 59 citations across 27 files | **71 citations across 24 files** | ground 3 unchanged in direction, stronger in magnitude |
+
+The ruling stands. Ground 2 was upgraded from an inference about
+`[...slug].astro` to a measurement against built output (5/5 published
+under filename-derived URLs), and it alone is sufficient. Ground 1 is
+retained for its mechanism, not its current pin.
+
 
 **Consequences.** The five keep their dated names permanently. `D-008`
 removes them from its denominator rather than carrying them as

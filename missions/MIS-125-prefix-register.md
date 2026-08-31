@@ -3,7 +3,7 @@ id: "MIS-125"
 title: "The prefix register — four series carry identifiers no rule knows about"
 type: mission
 status: in-progress
-version: "1.3.0"
+version: "1.3.1"
 created: "2026-08-30T11:50:00Z"
 created_source: "git:b09311c"
 created_confidence: exact
@@ -290,26 +290,37 @@ directly contradicting `P-010` §3.2 on its face.
 dated names permanently.** Four grounds, each measured against the repo at
 `caf2621` rather than argued from principle:
 
-1. **A consumer outside this repo cannot be updated.**
-   `standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md` is pinned by
-   `numinia-web/design-source.json` (`path` + `sha256`) and verified by
-   `check-design-source.mjs`. `S-001` §5.0.1 — the rule written by
-   *reverting* exactly this kind of rename in `D-024` — makes such a rename
-   **structurally incomplete, not merely expensive**. `D-040` is still open
-   about the last time this pin broke.
-2. **Public URLs derive from filenames.**
-   `web/src/pages/corpus/[...slug].astro` builds every route from the file
-   id; `D-028` exists because nothing manages that lifecycle. Renaming
-   these publishes five dead addresses.
-3. **This mission's own licence to rename does not cover them.** §"The
+1. **Public URLs derive from filenames — measured against a real build.**
+   `web/src/pages/corpus/[...slug].astro` routes on `entry.id`, which the
+   Astro loader derives from the filename when the frontmatter declares
+   none. `npm run build` publishes **all five** at filename-derived
+   addresses, e.g. `/corpus/standards/2026_08_18-sistema_de_diseno-v510`.
+   Renaming publishes five dead URLs. `D-028` exists because nothing
+   manages that lifecycle. **This ground alone is sufficient.**
+2. **This mission's own licence to rename does not cover them.** §"The
    prior constraint" above authorises renaming *because the 13 descriptive
    ids have zero incoming citations* — "never break a reference that
-   exists". Measured: the five carry **59 incoming citations across 27
-   files** (36 of them to the Design System alone). The premise is false
-   for this set; applying the conclusion anyway would be the exact error
-   this mission was opened to correct.
-4. **Two are `threshold: sealed`** (`S-001` §2.1, `canon/`) — changing them
-   takes an Oracle signature and an ADR, which a bulk prefix pass is not.
+   exists". Measured: the five carry **71 incoming citations across 24
+   files** (41 to the Design System alone). The premise is false for this
+   set; applying the conclusion anyway would be the exact error this
+   mission was opened to correct.
+3. **An out-of-repo consumer keys on the path.**
+   `numinia-web/design-source.json` pins the Design System by `path` +
+   `sha256`, verified by that repo's own `scripts/check-design-source.mjs`.
+   `S-001` §5.0.1 makes such a rename **structurally incomplete**.
+   *Qualified 2026-08-31:* that pin currently names `…-v5.0.0.md`, so it is
+   already stale (`D-040`) and a rename would not break it today. The
+   ground rests on the mechanism, not on this pin.
+4. **Two are `threshold: sealed`** (`S-001` §2.1 — both `canon/` documents;
+   the other three declare no threshold) — changing them takes an Oracle
+   signature and an ADR, which a bulk prefix pass is not.
+
+**Correction, 2026-08-31 (same day, see `P-010` §3.2.3):** as first
+published this list said "59 citations across 27 files" (actual: **71
+across 24**), and cited `check-design-source.mjs` as if it ran in this
+repo (it lives in `numinia-web`). Ground order changed accordingly: the
+URL ground is now first because it is the one verified against built
+output. The ruling is unchanged.
 
 **Documents changed:** `P-010` v0.5.0 (§3.2.1 + §3.2.2 — the rule now says
 what it means and how to detect it), `D-008` v3.0.0 (ruling reversed,

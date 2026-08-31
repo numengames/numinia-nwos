@@ -1,7 +1,7 @@
 {
   "_comment": "Known-broken references frozen at adoption time. The lint fails only on NEW breakage. This list should shrink over time and never grow. Regenerate only when fixing entries.",
-  "generated": "2026-08-31T11:59:20.755Z",
-  "count": 357,
+  "generated": "2026-08-31T12:09:09.338Z",
+  "count": 359,
   "entries": [
     "FILE AGENTS.md -> MEMORY.md",
     "FILE CHANGELOG.md -> GOVERNANCE.md",
@@ -91,6 +91,8 @@
     "FILE debt/D-047-reference-guard-basename-blindness.md -> charter.md",
     "FILE debt/D-047-reference-guard-basename-blindness.md -> filename.md",
     "FILE debt/D-047-reference-guard-basename-blindness.md -> roster.md",
+    "FILE debt/D-048-rename-tool-rewrites-mentions.md -> guilds/procuradores/roster.md",
+    "FILE debt/D-049-guards-blind-to-untracked-files.md -> guilds/procuradores/roster.md",
     "FILE decisions/ADR-005-prefix-ruling.md -> GOVERNANCE.md",
     "FILE decisions/ADR-005-prefix-ruling.md -> canon/Numinia-El-juego-de-rol-manual-completo.md",
     "FILE decisions/ADR-023-four-terms-two-pairs.md -> MEMORY.md",

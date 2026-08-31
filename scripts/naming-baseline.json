@@ -1,7 +1,7 @@
 {
  "_comment": "Filename violations frozen at adoption (S-001 §9, D-001 item 3). The lint fails only on NEW ones. Shrinks as MIS-125 Stage C renames land; never grows.",
- "generated": "2026-08-31T11:59:20.690Z",
- "count": 257,
+ "generated": "2026-08-31T12:09:09.414Z",
+ "count": 259,
  "entries": [
   "N-02 blueprints/BP-mission-system-v2.md :: filename carries a version suffix — version: lives in frontmatter, not the name (S-001 §9)",
   "N-02 blueprints/archive-summa-arquitectura-v0.1.0.md :: filename carries a version suffix — version: lives in frontmatter, not the name (S-001 §9)",
@@ -77,6 +77,8 @@
   "N-04 debt/D-045-legal-the-verification-instrument-is-not-pinned.md :: filename does not match DBT-NNN-<slug>.md for debt/ (S-001 §9, ADR-005 v1.1.0)",
   "N-04 debt/D-046-legal-the-canon-cites-a-cutoff-commit-that-isn-t-the-e.md :: filename does not match DBT-NNN-<slug>.md for debt/ (S-001 §9, ADR-005 v1.1.0)",
   "N-04 debt/D-047-reference-guard-basename-blindness.md :: filename does not match DBT-NNN-<slug>.md for debt/ (S-001 §9, ADR-005 v1.1.0)",
+  "N-04 debt/D-048-rename-tool-rewrites-mentions.md :: filename does not match DBT-NNN-<slug>.md for debt/ (S-001 §9, ADR-005 v1.1.0)",
+  "N-04 debt/D-049-guards-blind-to-untracked-files.md :: filename does not match DBT-NNN-<slug>.md for debt/ (S-001 §9, ADR-005 v1.1.0)",
   "N-04 missions/ANNEX-mission-selection-draft.md :: filename does not match MIS-NNNN-<slug>.md for missions/ (S-001 §9, ADR-005 v1.1.0)",
   "N-04 missions/MIS-001-numinia-mvp-definition.md :: filename does not match MIS-NNNN-<slug>.md for missions/ (S-001 §9, ADR-005 v1.1.0)",
   "N-04 missions/MIS-002-user-map-who-pays.md :: filename does not match MIS-NNNN-<slug>.md for missions/ (S-001 §9, ADR-005 v1.1.0)",
