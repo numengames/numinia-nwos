@@ -4,9 +4,9 @@ uid:
 title: "Entropy reduction: fewer documents, one vocabulary, registers that die"
 type: mission
 status: in-progress
-version: "0.5.0"
+version: "0.6.0"
 created: "2026-08-30T18:50:00Z"
-updated: "2026-08-31T10:35:00+02:00"
+updated: "2026-08-31T13:11:21+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -59,7 +59,12 @@ same-method start-to-finish. Anyone auditing against the original
 | — | [#151](https://github.com/numengames/numinia-nwos/pull/151) (merged) | *Not a reduction PR* — MIS-128 closure documentation | 0 files | +788 (MIS-128's own closure, not this line) |
 | — | [#152](https://github.com/numengames/numinia-nwos/pull/152) (merged) | *Not a reduction PR* — this mission's own ledger correction (re-measurement note + #148 backfill) | 0 files | not separately measured (self-referential, see note above) |
 | 5 | #153 (pending) | ADR-032: `blueprints/` joins the operational series (extends ADR-030/P-010 §5); six April blueprints extinguished (BP-repo, BP-web, BP-misiones, BP-datos, BP-infraestructura — foundation decisions DEC-001/002/003/005 all superseded; BP-cao-overview — losing side of O-002 CON-001, now resolved); `BP-financiero` kept active per prior Oracle ruling, one dead cross-reference removed | −6 files, +1 file (ADR-032) = **−5 net** | **−1,561** (−3,698 removed + 2,015 new ADR + 128 net edits to P-010/O-002/BP-financiero) |
-| — | [#155](https://github.com/numengames/numinia-nwos/pull/155) (open) | *Not a reduction PR* — MIS-125 Stage A: ADR-004/ADR-005 v1.1.0 (13-series register, `agents/` reversal formalized), P-010 v0.4.0, D-008 v2.0.0 (re-measured), D-024 closed (v1.2.0), `check-references.mjs` extended to the new register + bare-filename citations. Detail in `MIS-125` itself, not duplicated here. | 0 files (frontmatter/content edits only) | not measured — not a reduction PR |
+| — | [#155](https://github.com/numengames/numinia-nwos/pull/155) (merged, squash `e8571cb`) | *Not a reduction PR* — MIS-125 Stage A: ADR-004/ADR-005 v1.1.0 (13-series register, `agents/` reversal formalized), P-010 v0.4.0, D-008 v2.0.0 (re-measured), D-024 closed (v1.2.0), `check-references.mjs` extended to the new register + bare-filename citations. Detail in `MIS-125` itself, not duplicated here. | 0 files (frontmatter/content edits only) | not measured — not a reduction PR |
+| — | [#156](https://github.com/numengames/numinia-nwos/pull/156) (merged) | *Not a reduction PR* — MIS-125 Stage A mission-log rescue (a commit pushed after #155's squash-merge, orphaned on the closed branch, cherry-picked here) | 0 files (content edits only) | not measured — not a reduction PR |
+| — | [#157](https://github.com/numengames/numinia-nwos/pull/157) (merged) | *Not a reduction PR* — MIS-125 Stage B pre-work: D-008 v2.1.0 (`standards/STANDARDS.md` excluded as apparatus, `debt/D-001` extinguishment recount) | 0 files (content edits only) | not measured — not a reduction PR |
+| — | [#159](https://github.com/numengames/numinia-nwos/pull/159) (merged) | *Not a reduction PR* — D-001 closure (this mission, see "Debt extinguished" below): wired yaml/naming CI guards, added H-37/H-38 | +1 file (`scripts/lint-naming.mjs`) | not measured — not a reduction PR |
+| — | [#160](https://github.com/numengames/numinia-nwos/pull/160) (merged) | *Not a reduction PR* — D-002 closure (this mission, see "Debt extinguished" below): `blocked_reason` retired | 0 files (content edits only) | not measured — not a reduction PR |
+| — | [#161](https://github.com/numengames/numinia-nwos/pull/161) (merged, `534e25e`) | *Not a reduction PR* — MIS-125 Stage B: `scripts/rename-series.mjs` built and dry-run tested (6 real bugs caught, incl. a CodeQL regex-injection fix); D-008 v2.2.0 (`debt/D-002` extinguishment recount, discovered via this PR's own dry-run count mismatch). Detail in `MIS-125` itself. | +1 file (`scripts/rename-series.mjs`) | not measured — not a reduction PR |
 
 **Reduction-line total (PRs #145–148, #153): −10,025 tokens, −6 files net**, against
 the 575,958-token re-measured baseline. The four non-reduction closures
@@ -89,11 +94,12 @@ net −6,740 from the 575,958 re-measured baseline.
   open question if the Oracle wants them reviewed. `blueprints/INDEX.md`
   (last touched 2026-04-07, lists 3 of 16) remains stale — not fixed.
 - Single status vocabulary across every series (S-001).
-- **MIS-125 prefix register execution — started 2026-08-31.** Staged
-  A (normative docs) → B (rename tool, dry-run) → C (per-series renames,
-  one commit each, `check-references.mjs` gated) → D (`scripts/` cleanup).
-  Two premise corrections made before touching files (uncommitted CI guard,
-  stale base branch) — logged in `MIS-125` itself, not duplicated here.
+- **MIS-125 prefix register execution — started 2026-08-31.** Stage A
+  (normative docs, PR #155+#156) merged. Stage B (rename tool, PR
+  #157+#161) merged — `scripts/rename-series.mjs` built, dry-run tested,
+  6 real bugs caught. **Blocked before Stage C**: `P-010` §3.2 vs `D-008`
+  conflict over 5 frozen-artifact/legacy-dated files — Oracle ruling
+  pending. Detail in `MIS-125` itself, not duplicated here.
 - protocols/ ↔ standards/ merge assessment.
 - **New, opened by #153:** freeze the April commercial missions that
   `BP-financiero` depends on (MIS-021/031/034/048) — same mandate as
