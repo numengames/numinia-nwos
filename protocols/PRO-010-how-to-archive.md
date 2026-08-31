@@ -250,7 +250,7 @@ Inherited from v0.1.12, still in force, but in the frontmatter:
 
 `draft → active → superseded | frozen → archive fund`
 
-**The rule, since `ADR-033` (2026-08-31): a document may be deleted when
+**The rule, since `ADR-030 (formerly ADR-033)` (2026-08-31): a document may be deleted when
 its consumers are zero or redirected.** Not when its folder has been
 granted permission. What follows are the four tests, in the order a
 deletion must pass them.
@@ -279,9 +279,9 @@ Passing 1–4, **a deletion needs no ADR.** The guards are the authority.
 
 ### 5.1 What this replaced, and why
 
-Until `ADR-033`, this section answered "may I delete this?" with the
+Until `ADR-030`, this section answered "may I delete this?" with the
 document's **genre**: `debt/` could die (`ADR-030`), `blueprints/` could
-die (`ADR-032`), everything else could not, and admitting a third series
+die (`ADR-030 (formerly ADR-032)`), everything else could not, and admitting a third series
 took its own ADR. That is a permission system indexed on folders. It cost
 an ADR per folder, it never checked the thing that actually breaks — the
 consumers — and it made every reduction pass through governance to ask
@@ -293,17 +293,17 @@ records** — `closed`, `done`, `superseded` or `frozen`. Those 106
 published **287 of the site's 847 public URLs (34%)**. The old rule
 protected all of it as memory while the real risk sat in the URL table,
 unguarded. Deleting the prohibition alone would have published dead
-addresses at scale; that is why `ADR-033` lands the instruments and the
+addresses at scale; that is why `ADR-030` lands the instruments and the
 rule in the same change.
 
-The distinction between memory and worklist that `ADR-030` and `ADR-032`
+The distinction between memory and worklist that `ADR-030` and `ADR-030`
 drew was correct in its finding and wrong in its unit. A document is not
 preserved because of the folder it sits in. It is preserved because
 someone is still reading it.
 
 - **Operational series are dissolved as a category.** `debt/` and
   `blueprints/` stop being privileged: they pass tests 1–4 like everything
-  else, and typically pass easily, which is what `ADR-030`/`ADR-032` were
+  else, and typically pass easily, which is what `ADR-030`/`ADR-030` were
   really observing. Their extinction records stand as history.
 - A **superseded** document that still has living citers is not deleted:
   it declares `supersedes`/successor and, once no longer consulted, moves
@@ -343,7 +343,7 @@ prints these on every run.
 - The `/corpus` catalogue is the living inventory (succeeds v0.1.12's
   tree-in-Excel); zero silent exclusions.
 - CI guard: today licence-frontmatter, frontmatter-yaml, references,
-  delimiter, header lint, naming lint; plus, since `ADR-033`, the
+  delimiter, header lint, naming lint; plus, since `ADR-030`, the
   deletion pair — `check-url-lifecycle.mjs` (no public address dies
   unredirected, `D-028`) and `check-deletable.mjs` (§5 tests 1 and 4).
   Future candidates: minimum-frontmatter lint (MIS-089 F3).
@@ -365,7 +365,7 @@ agents.
 
 ## Change history
 
-- v0.7.0 (2026-08-31) — `ADR-033`, `MIS-127`. §5 is rewritten: deletion is
+- v0.7.0 (2026-08-31) — `ADR-030`, `MIS-127`. §5 is rewritten: deletion is
   decided by **consumers**, not by folder genre. The four tests (inbound
   citations, public URLs, written resolution, not sealed) replace the
   "operational series" permission scheme, which is dissolved as a

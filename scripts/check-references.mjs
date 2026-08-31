@@ -111,6 +111,23 @@ for (const rel of files) {
       known.add(decl[1]);
       if (!idOwner.has(decl[1])) idOwner.set(decl[1], rel);
     }
+    // ABSORBED IDENTIFIERS (ADR-030, MIS-127). When records merge, the
+    // absorbed reasoning survives inside the absorbing document and its
+    // identifier keeps resolving — to the record that now contains it.
+    // Without this, a merge looks identical to a deletion: every citation
+    // of the absorbed ID reports broken, and the guard would force the
+    // corpus to choose between consolidating and staying verifiable.
+    //
+    // Reachability, not file existence, is what ADR-030 requires.
+    const abs = fm[1].match(/^absorbs:\s*\[(.*?)\]/m);
+    if (abs) {
+      for (const raw of abs[1].split(',')) {
+        const id = raw.trim().replace(/^["']|["']$/g, '');
+        if (!id) continue;
+        known.add(id);
+        if (!idOwner.has(id)) idOwner.set(id, rel);
+      }
+    }
   }
 }
 

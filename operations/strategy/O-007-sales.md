@@ -12,7 +12,7 @@ author: "nimrod"
 owner: "oracle"
 tags: [strategy, sales, commercial]
 license: "LicenseRef-Numen-AllRightsReserved"
-extraction_note: "Extracted verbatim from web/src/pages/ventas.astro (MIS-071 phase 2 — File over App). Reserved regime: commercial strategy is born closed (C-005 §1; Oracle-delegated decision 2026-08-17). Translated to English under MIS-116 (ADR-024) — language only."
+extraction_note: "Extracted verbatim from web/src/pages/ventas.astro (MIS-071 phase 2 — File over App). Reserved regime: commercial strategy is born closed (C-005 §1; Oracle-delegated decision 2026-08-17). Translated to English under MIS-116 (ADR-023 (formerly ADR-024)) — language only."
 ---
 
 # How to get the first clients

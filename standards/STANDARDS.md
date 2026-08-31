@@ -36,7 +36,7 @@ before 2026-08-30).
 | §1 Timestamps | superseded | `S-001` §8 — ISO 8601, backfill rules |
 | §2A Display IDs / prefixes | **superseded — was wrong** | `ADR-005` + MIS-125. This file still said `S- = Seminal`; ADR-005 renumbered S-002…S-010 → C-NNN |
 | §2B uid / UUID v7 | **superseded — was wrong** | `S-001` §6.2 — uid is declared and left EMPTY, Oracle decision. Nobody fills it by hand |
-| §3 Languages | superseded | `ADR-024` / `DEC-006` — English is the repo language |
+| §3 Languages | superseded | `ADR-023 (formerly ADR-024)` / `DEC-006` — English is the repo language |
 | §4A Agent file structure | superseded | `S-001` §3 (agents fund) |
 | §4B Mission states | **superseded — was wrong** | `S-001` §7 — `draft`/`backlog`/`cancelled` were withdrawn (D-009, D-016). This file kept teaching them |
 | §4C Decisions layout | superseded | `S-001` §3 (decisions fund) |

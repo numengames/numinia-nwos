@@ -14,12 +14,12 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [debt, legal, c-005]
 license: "CC-BY-4.0"
-related: ["ADR-031", "C-005"]
+related: ["ADR-026 (formerly ADR-031)", "C-005"]
 ---
 
 # D-043 — NOTICE missing with Apache-2.0 in the tree
 
-> **Summary:** Legal debt (was LD-002; dissolved into debt/ by ADR-031).
+> **Summary:** Legal debt (was LD-002; dissolved into debt/ by ADR-026).
 > **Epistemic:** What C-005 compliance still owes, and its exit threshold.
 > **Pragmatic:** Close when the threshold below is met; then extinguish (ADR-030).
 

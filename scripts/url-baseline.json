@@ -1,7 +1,7 @@
 {
   "$comment": "URL manifest — D-028/ADR-033. Every public address the site published at the last accepted build. check-url-lifecycle.mjs fails when one of these stops being built without a redirect in web/astro.config.mjs. Regenerate deliberately with --write-baseline, in the same PR as the deletion that changed it, never to silence a failure.",
   "generated": "2026-08-31",
-  "count": 516,
+  "count": 519,
   "urls": [
     "/",
     "/agent",
@@ -34,6 +34,7 @@
     "/blueprints/cao-architecture",
     "/blueprints/dual-nomenclature",
     "/blueprints/meta",
+    "/blueprints/mission-system",
     "/blueprints/mission-system-v2",
     "/blueprints/nwos-system",
     "/blueprints/wardley-map",
@@ -120,6 +121,7 @@
     "/corpus/debt/d-048-rename-tool-rewrites-mentions",
     "/corpus/debt/d-049-guards-blind-to-untracked-files",
     "/corpus/decisions",
+    "/corpus/decisions.md",
     "/corpus/deuda-404",
     "/corpus/gaps",
     "/corpus/governance",
@@ -497,6 +499,7 @@
     "/planos/cao-architecture",
     "/planos/dual-nomenclature",
     "/planos/meta",
+    "/planos/mission-system",
     "/planos/mission-system-v2",
     "/planos/nwos-system",
     "/planos/wardley-map",

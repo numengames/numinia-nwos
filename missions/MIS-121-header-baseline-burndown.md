@@ -141,7 +141,7 @@ rename's clothes, and the numbers below say how many decisions each is.
 
 - [x] **`H-31` retired fields — 158, of which `area → territory` is 142 and
       only 66 are a rename.** *Done (#139, #141, #143) except 9 findings in
-      the two fragile documents. ADR-028 unblocked the migration: 66 mapped
+      the two fragile documents. ADR-027 (formerly ADR-028) unblocked the migration: 66 mapped
       1:1, 76 took `"TBA"`; the Astro schema moved with the rename.* The other keys (`blocked_reason` ×7, five
       Spanish-era keys ×9) are deletions and genuinely mechanical.
       **`area` is not.** Measured across 142 documents, 35 distinct values:
@@ -253,7 +253,7 @@ rename's clothes, and the numbers below say how many decisions each is.
 | `baf188b` | starting point, before any of this | **844** |
 | `ec4c968` (#129) | `H-09` exempts `uid`; `H-20`'s message corrected; `todo` column restored to the web | **779** |
 | `7fae24f` (#130) | `created`/`updated` backfilled from git with provenance; `git:pending` redeemed; `created_confidence` settled on one spelling | **543** |
-| `0499b8c` (#139) | `area → territory` (66 mapped, 76 took `TBA` per ADR-028); guild/type_execution/visibility vocabularies enforced; ring-table transcription errors; single-cycle statuses; `AG-`/singular ids resolved with `registration: exempt` | **304** |
+| `0499b8c` (#139) | `area → territory` (66 mapped, 76 took `TBA` per ADR-027); guild/type_execution/visibility vocabularies enforced; ring-table transcription errors; single-cycle statuses; `AG-`/singular ids resolved with `registration: exempt` | **304** |
 | `9d3afaa` (#140) | status lifecycles (60 out-of-cycle values); 42 non-series documents exempted instead of renumbered | **207** |
 | `86431b3` (#141) | orphan fields: `adr_id` retired (verified duplicate ×8), `decision`/`threshold`/`visibility_reason`/`semaforo` registered — `semaforo` is painted by the site, checked value-by-value | **168** |
 | `eb674f3` (#142) | 6 impostor types resolved from the corpus's own vocabulary; truly-empty fields dropped; **`check-frontmatter-yaml.mjs` born** (D-039 §2: no instrument checked that headers parse — the web build was the only witness) | **150** |
@@ -408,9 +408,9 @@ rulings are recorded here rather than in a chat log, because a mission that
 hides its decisions makes the next reader guess.
 
 > **Update 2026-08-30 — two of these blockers were decided the same day.**
-> `ADR-028` (*absence is declared, not omitted*) rules that a field may carry
+> `ADR-027` (*absence is declared, not omitted*) rules that a field may carry
 > `"TBA"` when the value applies but is not yet decided, and that no closed
-> vocabulary ships without a check. `ADR-029` ratifies `S-004`
+> vocabulary ships without a check. `ADR-027 (formerly ADR-029)` ratifies `S-004`
 > (`draft` → `active`, `1.0.0`) and admits `type: agent`, which the guard was
 > already enforcing without a decision.
 >

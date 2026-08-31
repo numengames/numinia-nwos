@@ -12,7 +12,7 @@ author: "nimrod"
 owner: "oracle"
 tags: [operations, simulations, failure-modes]
 license: "CC-BY-4.0"
-extraction_note: "Extracted verbatim from web/src/pages/simulaciones.astro (MIS-071 phase 2 — File over App). Translated to English under MIS-116 (ADR-024) — language only."
+extraction_note: "Extracted verbatim from web/src/pages/simulaciones.astro (MIS-071 phase 2 — File over App). Translated to English under MIS-116 (ADR-023 (formerly ADR-024)) — language only."
 ---
 
 # What happens when the Narrative Work OS meets the real world?

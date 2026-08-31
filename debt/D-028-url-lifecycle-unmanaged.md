@@ -165,7 +165,7 @@ Marked RESOLVED when:
 
 - [x] A guard fails a PR that renames a published file without a redirect or a
       declared retirement — **`scripts/check-url-lifecycle.mjs`, 2026-08-31
-      (`ADR-033`).** Verified against a real deletion rather than asserted:
+      (`ADR-030 (formerly ADR-033)`).** Verified against a real deletion rather than asserted:
       removing `reports/audits/AUD-2026-08-26-complexity.md` and rebuilding
       leaves `npm run build` at **exit 0** while the site drops 660 → 658
       pages; the guard fails, names the dead address, and `--propose` emits
@@ -190,7 +190,7 @@ Marked RESOLVED when:
       already edits for other reasons, and folding it in would mix a
       documentation fix into a rule change. Carried below.
 
-**Status after `ADR-033`: three of four conditions met.** The entry stays
+**Status after `ADR-030`: three of four conditions met.** The entry stays
 open on the fourth, and on the two blind spots the new guard declares
 (`D-025`, printed on every run): a redirect's *target* is not verified to
 answer the question the dead URL answered — a 301 to a section index passes
@@ -205,5 +205,5 @@ imprecise redirection.
 | Owner | Oracle |
 | Blocked by | nothing |
 | Opened | 2026-08-25, at the Oracle's instruction during `MIS-109` phase B |
-| Instrument landed | 2026-08-31, `ADR-033` — `check-url-lifecycle.mjs` + 536-URL baseline |
+| Instrument landed | 2026-08-31, `ADR-030` — `check-url-lifecycle.mjs` + 536-URL baseline |
 | Closes when | the `DEUDA-404` comment is corrected and redirect targets are verified to succeed the content, not merely to resolve |

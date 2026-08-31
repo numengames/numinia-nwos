@@ -120,7 +120,7 @@ repo-local, scratch — deleted at mission close per `P-010`). Execution
 started this session, staged A → B → C → D per that plan.
 
 **Base commit:** `26fea478d33018002e699cb59cdb4d7e0aa67d6d` (`origin/main`,
-merge of ADR-032 / #153).
+merge of ADR-030 (formerly ADR-032) / #153).
 
 **Two blockers found before touching anything, both ruled by the Oracle
 before proceeding (not decided unilaterally):**

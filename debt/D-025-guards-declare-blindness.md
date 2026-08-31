@@ -136,7 +136,7 @@ All three conditions met. The mechanism is `S-001` §10.4.
       **The suite is not yet wired into CI, and this entry does not claim it
       is.** Wiring follows `P-013` — step 3, pasting the block into
       `.github/workflows/ci.yml`, is the Oracle's and cannot be delegated —
-      and `ADR-029`: the apparatus must not acquire authority as a side
+      and `ADR-027 (formerly ADR-029)`: the apparatus must not acquire authority as a side
       effect of an agent wiring its own guard. Steps 1 and 2 are done: the
       suite is tested in both directions (it fails on planted breakage, passes
       when clean), and the block is ready to paste after the `naming lint`

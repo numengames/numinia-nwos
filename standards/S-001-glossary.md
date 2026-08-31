@@ -361,6 +361,16 @@ and the commit must say so.
 **Pragmatic.** Append-only: a decision is superseded, never deleted. Superseding
 takes an ADR; the superseded one stays reachable.
 
+**Absorption** (ADR-030, 2026-08-31) is the second way a record leaves the
+folder. Where superseding replaces reasoning, absorption carries it into
+another record — the file goes, the reasoning and the identifier do not.
+Permitted only when all three hold: the reasoning survives in the absorbing
+document, every citation is rewritten in the same change, and every public
+URL redirects to the absorbing record. The absorbing document declares
+`absorbs: [...]`, and `check-references.mjs` reads that field so the absorbed
+identifiers keep resolving. Reachability is what this clause protects; the
+file is one way to serve it, not the only one.
+
 ### `blueprints/` — what **could** be
 **Epistemic.** Which designs exist and which gap each attacks.
 **Pragmatic.** Consult when designing something new.
@@ -912,7 +922,7 @@ not preserved: they were never identifiers.
 `author` · `owner` · `tags` · `guild` · `territory` · `subtype` ·
 `supersedes` / `superseded_by` · `derived_from`
 
-**Absence is declared, not omitted (ADR-028).** A field that is not filled in
+**Absence is declared, not omitted (ADR-027 (formerly ADR-028)).** A field that is not filled in
 carries information, and that information has three distinct forms. Writing the
 wrong one is a lie about the shape of the gap.
 
@@ -1185,7 +1195,7 @@ ask. The declarations live in `scripts/blind-spots.json`, are printed by
 `scripts/test/blindness.test.mjs`.
 
 The suite is **not yet a CI step** — wiring one is the Oracle's, per `P-013`
-step 3 and `ADR-029`. Until then it is run by hand, and a green CI run does
+step 3 and `ADR-027 (formerly ADR-029)`. Until then it is run by hand, and a green CI run does
 not include it.
 
 | Guard | Sees | Blind to | Covered by |

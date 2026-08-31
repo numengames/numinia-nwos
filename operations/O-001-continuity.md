@@ -12,7 +12,7 @@ author: "nimrod"
 owner: "oracle"
 tags: [operations, continuity, adaptability, failure-patterns]
 license: "CC-BY-4.0"
-extraction_note: "Extracted verbatim from web/src/pages/continuidad.astro (MIS-071 phase 2 — File over App). Covers system adaptability and critical failure patterns. Translated to English under MIS-116 (ADR-024) — language only."
+extraction_note: "Extracted verbatim from web/src/pages/continuidad.astro (MIS-071 phase 2 — File over App). Covers system adaptability and critical failure patterns. Translated to English under MIS-116 (ADR-023 (formerly ADR-024)) — language only."
 ---
 
 # If Nimrod disappears tomorrow

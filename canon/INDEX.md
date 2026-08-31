@@ -15,7 +15,7 @@ license: "CC-BY-4.0"
 changelog:
   - version: "1.2.2"
     date: "2026-08-27T00:00:00Z"
-    change: "Translated to English (MIS-116, ADR-024). C-005 listed as v1.4.0, language EN."
+    change: "Translated to English (MIS-116, ADR-023 (formerly ADR-024)). C-005 listed as v1.4.0, language EN."
   - version: "1.2.1"
     date: "2026-08-16T00:00:00Z"
     change: "C-005 updated to v1.1.0 — repo is not a legal unit (apps/AGPL + packages/MIT via REUSE.toml), header exception for pinned files, CLA per repo."

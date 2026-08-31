@@ -14,12 +14,12 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [debt, 404, cross-repo]
 license: "CC-BY-4.0"
-related: ["ADR-031", "C-005"]
+related: ["ADR-026 (formerly ADR-031)", "C-005"]
 ---
 
 # D-040 — Design System v5.0.0 retired
 
-> **Summary:** Broken cross-repo consumers (was 404-001 in DEUDA-404.md; moved by ADR-031).
+> **Summary:** Broken cross-repo consumers (was 404-001 in DEUDA-404.md; moved by ADR-026).
 > **Epistemic:** What broke when the source was retired, and where repair happens.
 > **Pragmatic:** Close when every consumer listed resolves; then extinguish (ADR-030).
 

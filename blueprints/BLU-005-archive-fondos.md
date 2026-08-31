@@ -14,7 +14,7 @@ owner: "oracle"
 tags: [blueprint, archive, fondos, taxonomy]
 territory: "CAO"
 license: "CC0-1.0"
-extraction_note: "Extracted from web/src/pages/archive/[fondo].astro and archive/index.astro (MIS-065 phase C — File over App). Document paths corrected to the post-MIS-066 flat layout (agents flat, missions flat, P-001 English); 'Archive System' has no matching file in canon/ today — kept as declared, flagged for MIS-071. The per-fondo lore lines live separately in canon/archive-lore.md (reserved regime — one file, one regime). Translated to English under MIS-116 (ADR-024) — language only."
+extraction_note: "Extracted from web/src/pages/archive/[fondo].astro and archive/index.astro (MIS-065 phase C — File over App). Document paths corrected to the post-MIS-066 flat layout (agents flat, missions flat, P-001 English); 'Archive System' has no matching file in canon/ today — kept as declared, flagged for MIS-071. The per-fondo lore lines live separately in canon/archive-lore.md (reserved regime — one file, one regime). Translated to English under MIS-116 (ADR-023 (formerly ADR-024)) — language only."
 fondos:
   - id: canon
     titulo: "Canon"
@@ -79,8 +79,8 @@ fondos:
     descripcion: "The architectural decisions that are not revisited, only superseded. Every ADR exists because someone had to choose and did so explicitly. They are the permanent record of the why."
     governance: "Append-only. Never delete. Only 'superseded by ADR-XXX' may be added."
     documentos:
-      - { nombre: "ADR-001 — GitHub as Archive", desc: "Why GitHub and not Notion, Confluence or another system?", file: "decisions/ADR-001-github-como-archivo.md" }
-      - { nombre: "ADR-002 — Universal Markdown", desc: "Why .md and not PDF, Word or other formats?", file: "decisions/ADR-002-formato-markdown.md" }
+      - { nombre: "ADR-001 — GitHub as Archive", desc: "Why GitHub and not Notion, Confluence or another system?", file: "decisions/ADR-001-the-archive.md" }
+      - { nombre: "ADR-001 (formerly ADR-002) — Universal Markdown", desc: "Why .md and not PDF, Word or other formats?", file: "decisions/ADR-001-formato-markdown.md" }
   - id: blueprints
     titulo: "Blueprints"
     subtitulo: "Unmanifested Potential"

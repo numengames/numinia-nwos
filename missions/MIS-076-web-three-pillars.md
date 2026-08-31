@@ -51,7 +51,7 @@ human/agent-readable charter.
    history (Holberins → Registros Akáshicos → Oráculos), the city (Ágora + 4 districts
    - spaces), inhabitants (ranks, species, guilds, factions — localized names straight
      from `@numinia/domain`), life (roles Venn, agrupaciones, rituals, Akashic Records),
-     the game (play as first narrative). Lore prose ES+EN (ADR-002); shell ×5 locales.
+     the game (play as first narrative). Lore prose ES+EN (ADR-001 (formerly ADR-002)); shell ×5 locales.
 2. **Assets hub** (`/assets/`): one pillar page grouping gallery, archive, finder,
    inspector, and resources/docs.
 3. **L.A.P.** (`/lap/`): public page explaining the player area (access to the virtual

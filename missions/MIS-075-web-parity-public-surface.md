@@ -115,7 +115,7 @@ Then each exists in 5 locales, passes axe, and carries a "pending Oracle
 ### P4 — Docs (`/docs/**` — content en/ja from origin, shell ×5) — M
 
 Astro content collections; sidebar, TOC, prev/next. Original content exists in
-en/ja only: the shell is 5-locale, untranslated content shows the ADR-002-style
+en/ja only: the shell is 5-locale, untranslated content shows the ADR-001 (formerly ADR-002)-style
 notice. Client-side search deferred until content volume justifies it.
 
 ### P5 — Inspectors (`/inspector/glb`, `/inspector/vrm`) — M

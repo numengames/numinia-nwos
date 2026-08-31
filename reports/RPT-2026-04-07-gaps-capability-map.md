@@ -11,7 +11,7 @@ author: "nimrod"
 owner: "oracle"
 tags: [gaps, strategy, capability-map]
 license: "CC-BY-4.0"
-related: ["ADR-031", "MIS-044"]
+related: ["ADR-026 (formerly ADR-031)", "MIS-044"]
 extraction_note: "Extracted verbatim from web/src/pages/gaps.astro (MIS-071 phase 2 — File over App). Fulfils MIS-044's original criterion 'Publicado como GAPS.md', which had been satisfied only as a web page."
 registration: exempt
 registration_reason: "singular document, not a numbered series"

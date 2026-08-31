@@ -52,21 +52,23 @@ same-method start-to-finish. Anyone auditing against the original
 |---|---|---|---|---|
 | 1 | [#145](https://github.com/numengames/numinia-nwos/pull/145) (merged) | Root norms into `standards/`: GOVERNANCE moved+absorbed §7F/§9; STANDARDS superseded to a map; D-003 ruling; ARC-06 commit types | −1 active norm, 0 files | **−2,401** |
 | 2 | [#146](https://github.com/numengames/numinia-nwos/pull/146) (merged) | ADR-030 debt extinction; nine closed/de-facto-resolved entries extinguished; INDEX backfill ADR-027..030 | −7 files | **−8,903** |
-| 3 | [#147](https://github.com/numengames/numinia-nwos/pull/147) (merged) | ADR-031: LD-NNN dissolved into D-042..046 (tag `legal`), 404→D-040/041, GAPS frozen to reports/, C-005 v1.3.0 amended | +6 files | **+2,422** (root register genre extinct; live text kept, restructured into more, smaller files — a document-count win with a token cost) |
+| 3 | [#147](https://github.com/numengames/numinia-nwos/pull/147) (merged) | ADR-026 (formerly ADR-031): LD-NNN dissolved into D-042..046 (tag `legal`), 404→D-040/041, GAPS frozen to reports/, C-005 v1.3.0 amended | +6 files | **+2,422** (root register genre extinct; live text kept, restructured into more, smaller files — a document-count win with a token cost) |
 | 4 | [#148](https://github.com/numengames/numinia-nwos/pull/148) (merged) | Five DEC entries (001,002,003,005,006) retired as superseded, one-line succession banners; decisions/ down to one living series (ADR) | 0 files | **+418** |
 | — | [#149](https://github.com/numengames/numinia-nwos/pull/149) (merged) | *Not a reduction PR* — MIS-128 link hygiene fix, listed here only because it touched a mission `.md` (frontmatter timestamp fix) | +1 file | +1,330 (not part of this line; MIS-128's own scope) |
 | — | [#150](https://github.com/numengames/numinia-nwos/pull/150) (merged) | *Not a reduction PR* — MIS-120 closure documentation | 0 files | +1,167 (MIS-120's own closure, not this line) |
 | — | [#151](https://github.com/numengames/numinia-nwos/pull/151) (merged) | *Not a reduction PR* — MIS-128 closure documentation | 0 files | +788 (MIS-128's own closure, not this line) |
 | — | [#152](https://github.com/numengames/numinia-nwos/pull/152) (merged) | *Not a reduction PR* — this mission's own ledger correction (re-measurement note + #148 backfill) | 0 files | not separately measured (self-referential, see note above) |
-| 5 | #153 (pending) | ADR-032: `blueprints/` joins the operational series (extends ADR-030/P-010 §5); six April blueprints extinguished (BP-repo, BP-web, BP-misiones, BP-datos, BP-infraestructura — foundation decisions DEC-001/002/003/005 all superseded; BP-cao-overview — losing side of O-002 CON-001, now resolved); `BP-financiero` kept active per prior Oracle ruling, one dead cross-reference removed | −6 files, +1 file (ADR-032) = **−5 net** | **−1,561** (−3,698 removed + 2,015 new ADR + 128 net edits to P-010/O-002/BP-financiero) |
+| 5 | #153 (pending) | ADR-030 (formerly ADR-032): `blueprints/` joins the operational series (extends ADR-030/P-010 §5); six April blueprints extinguished (BP-repo, BP-web, BP-misiones, BP-datos, BP-infraestructura — foundation decisions DEC-001/002/003/005 all superseded; BP-cao-overview — losing side of O-002 CON-001, now resolved); `BP-financiero` kept active per prior Oracle ruling, one dead cross-reference removed | −6 files, +1 file (ADR-030) = **−5 net** | **−1,561** (−3,698 removed + 2,015 new ADR + 128 net edits to P-010/O-002/BP-financiero) |
 | — | [#155](https://github.com/numengames/numinia-nwos/pull/155) (merged, squash `e8571cb`) | *Not a reduction PR* — MIS-125 Stage A: ADR-004/ADR-005 v1.1.0 (13-series register, `agents/` reversal formalized), P-010 v0.4.0, D-008 v2.0.0 (re-measured), D-024 closed (v1.2.0), `check-references.mjs` extended to the new register + bare-filename citations. Detail in `MIS-125` itself, not duplicated here. | 0 files (frontmatter/content edits only) | not measured — not a reduction PR |
 | — | [#156](https://github.com/numengames/numinia-nwos/pull/156) (merged) | *Not a reduction PR* — MIS-125 Stage A mission-log rescue (a commit pushed after #155's squash-merge, orphaned on the closed branch, cherry-picked here) | 0 files (content edits only) | not measured — not a reduction PR |
 | — | [#157](https://github.com/numengames/numinia-nwos/pull/157) (merged) | *Not a reduction PR* — MIS-125 Stage B pre-work: D-008 v2.1.0 (`standards/STANDARDS.md` excluded as apparatus, `debt/D-001` extinguishment recount) | 0 files (content edits only) | not measured — not a reduction PR |
 | — | [#159](https://github.com/numengames/numinia-nwos/pull/159) (merged) | *Not a reduction PR* — D-001 closure (this mission, see "Debt extinguished" below): wired yaml/naming CI guards, added H-37/H-38 | +1 file (`scripts/lint-naming.mjs`) | not measured — not a reduction PR |
 | — | [#160](https://github.com/numengames/numinia-nwos/pull/160) (merged) | *Not a reduction PR* — D-002 closure (this mission, see "Debt extinguished" below): `blocked_reason` retired | 0 files (content edits only) | not measured — not a reduction PR |
 | — | [#161](https://github.com/numengames/numinia-nwos/pull/161) (merged, `534e25e`) | *Not a reduction PR* — MIS-125 Stage B: `scripts/rename-series.mjs` built and dry-run tested (6 real bugs caught, incl. a CodeQL regex-injection fix); D-008 v2.2.0 (`debt/D-002` extinguishment recount, discovered via this PR's own dry-run count mismatch). Detail in `MIS-125` itself. | +1 file (`scripts/rename-series.mjs`) | not measured — not a reduction PR |
+| 6 | #TBD (this PR) | **`decisions/` consolidated 16 → 7 by theme.** Nine identifiers absorbed (ADR-002/003/DEC-001→ADR-001; ADR-024→ADR-023; ADR-031→ADR-026; ADR-028/029→ADR-027; ADR-032/033→ADR-030), `INDEX.md` deleted (the site derives its index from the collection). ADR-030 v3.0.0 defines **absorption** and amends `S-001`; `check-references.mjs` reads the new `absorbs:` field so absorbed IDs keep resolving; 18 URLs 301 to their absorbing record, not to the section index | −10 files | **−19,996** in `decisions/`, +715 across 47 files for the citation rewrite = **−19,281 net** |
 
-**Reduction-line total (PRs #145–148, #153): −10,025 tokens, −6 files net**, against
+**Reduction-line total (PRs #145–148, #153, and this one): −29,306 tokens,
+−16 files net**, against
 the 575,958-token re-measured baseline. The four non-reduction closures
 (#149–152, +3,285 tokens combined, #152 not separately measured) are unrelated mission
 paperwork that happened to land in the same window — real, necessary, and outside this
@@ -80,7 +82,7 @@ net −6,740 from the 575,958 re-measured baseline.
 
 - Freeze April-era commercial missions (MIS-017..050 todo, ~40 docs).
 - ~~Freeze April blueprints nothing invokes (20 active, ~160K chars).~~
-  **Partially resolved by ADR-032/#153**: 6 of 16 tracked blueprints
+  **Partially resolved by ADR-030/#153**: 6 of 16 tracked blueprints
   extinguished (foundation decisions dead, or losing side of a resolved
   contradiction) — `BP-repo`, `BP-web`, `BP-misiones`, `BP-datos`,
   `BP-infraestructura`, `BP-cao-overview`. `BP-financiero` confirmed
