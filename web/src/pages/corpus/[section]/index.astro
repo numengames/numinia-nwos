@@ -44,14 +44,9 @@ const { section, docs } = Astro.props;
         {docs.map((item) => (
           <a
             href={item.href}
-            class="flex flex-wrap items-baseline gap-x-3 gap-y-1 rounded-lg border border-border bg-card px-4 py-3 hover:bg-card-hover transition-colors"
+            class="block rounded-lg border border-border bg-card px-4 py-3 hover:bg-card-hover transition-colors"
           >
-            {item.docId && <span class="font-mono text-[0.65rem] text-accent">{item.docId}</span>}
             <span class="text-sm text-foreground leading-snug">{item.title}</span>
-            {item.status && (
-              <span class="font-mono text-[0.6rem] uppercase tracking-widest text-dim">{item.status}</span>
-            )}
-            {item.updated && <span class="font-mono text-[0.6rem] text-dim">{item.updated}</span>}
           </a>
         ))}
       </div>
