@@ -22,6 +22,44 @@ export default defineConfig({
 	// DEUDA-404 records what happens without this: /corpus/canon/c-006-manual-
 	// juego-de-rol/ (890 KB) died in April and nobody noticed. See D-028.
 	redirects: {
+		// Debt renumbering, 2026-08-31 (RPT-001 §12). The D- series was closed
+		// and renumbered to DBT-NNN; 30 published addresses died. Merged entries
+		// point at the document that now CONTAINS their reasoning, not at a
+		// section index — check-url-lifecycle.mjs warns that a redirect to a page
+		// which does not answer the question is 'a 200 that lies'.
+		"/corpus/debt/d-008-series-prefixes-not-applied": "/corpus/debt/dbt-001-series-prefixes-not-applied",
+		"/corpus/debt/d-011-thresholds-unenforced": "/corpus/debt/dbt-002-root-of-trust-unestablished",
+		"/corpus/debt/d-019-signatures-not-third-party-verifiable": "/corpus/debt/dbt-002-root-of-trust-unestablished",
+		"/corpus/debt/d-020-software-key-for-sealed": "/corpus/debt/dbt-002-root-of-trust-unestablished",
+		"/corpus/debt/d-023-no-guard-for-new-series": "/corpus/debt/dbt-003-publication-integrity",
+		"/corpus/debt/d-026-no-identity-map": "/corpus/debt/dbt-002-root-of-trust-unestablished",
+		"/corpus/debt/d-028-url-lifecycle-unmanaged": "/corpus/debt/dbt-004-url-lifecycle-unmanaged",
+		"/corpus/debt/d-030-path-derived-licensing": "/corpus/debt/dbt-005-path-derived-licensing",
+		"/corpus/debt/d-031-index-coverage-unverified": "/corpus/debt/dbt-003-publication-integrity",
+		"/corpus/debt/d-032-orphan-content-outside-renderer": "/corpus/debt/dbt-003-publication-integrity",
+		"/corpus/debt/d-034-dependabot-advisories-untriaged": "/corpus/debt/dbt-007-dependabot-advisories-untriaged",
+		"/corpus/debt/d-035-build-pdf-not-run": "/corpus/debt/dbt-003-publication-integrity",
+		"/corpus/debt/d-036-missions-without-author": "/corpus/debt/dbt-008-missions-without-author",
+		"/corpus/debt/d-038-c005-files-agents-as-lore": "/corpus/debt/dbt-009-c005-files-agents-as-lore",
+		"/corpus/debt/d-039-green-ratchet-certified-corruption": "/corpus/debt/dbt-010-guard-blindness",
+		// Extinguished entries (RPT-001 §6): no document answers these any more.
+		// They resolve to the debt register itself — the honest target, since the
+		// question was withdrawn rather than moved.
+		"/corpus/debt/d-004-semaforo-undefined": "/corpus/debt",
+		"/corpus/debt/d-005-confidence-scale-undefined": "/corpus/debt",
+		"/corpus/debt/d-006-cost-estimate-no-unit": "/corpus/debt",
+		"/corpus/debt/d-007-week-no-year": "/corpus/debt",
+		"/corpus/debt/d-014-counter-counts-apparatus": "/corpus/debt",
+		"/corpus/debt/d-021-self-application-gap": "/corpus/debt",
+		"/corpus/debt/d-022-counters-measure-wrong-unit": "/corpus/debt",
+		"/corpus/debt/d-024-registration-blocked-by-rulings": "/corpus/debt",
+		"/corpus/debt/d-025-guards-declare-blindness": "/corpus/debt",
+		"/corpus/debt/d-027-agent-rename-breaks-provenance": "/corpus/debt",
+		"/corpus/debt/d-029-decision-hidden-inside-another": "/corpus/debt",
+		"/corpus/debt/d-037-censuses-must-fail-loudly": "/corpus/debt",
+		"/corpus/debt/d-047-reference-guard-basename-blindness": "/corpus/debt",
+		"/corpus/debt/d-048-rename-tool-rewrites-mentions": "/corpus/debt",
+		"/corpus/debt/d-049-guards-blind-to-untracked-files": "/corpus/debt",
 		// 2026-08-31 MIS-128: protocols merged 15 -> 7 and renamed P- -> PRO-
 		// (ADR-005 prefix, 0/13 applied until now). Astro derives the URL from
 		// the filename, so every protocol address changed. Absorbed documents

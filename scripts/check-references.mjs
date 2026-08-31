@@ -174,7 +174,15 @@ const isExample = (id) => id === 'MIS-999';
 // deleted — harmless, and documents why P-01..12 were never a citation risk.
 const isPrinciple = (prefix, num) => prefix === 'P' && /^\d{1,2}$/.test(num);
 
-const ID_RE = /\b(MIS|ADR|DEC|RPT|PRO|DBT|STD|CAN|OPS|BLU|GLD|INF)-(\d{1,4}|\d{4}-\d{2}-\d{2})\b/g;
+// `D` is the debt series' ON-DISK prefix. ADR-005 v1.1.0 registered the series
+// as DBT-NNN, and the comment above says C-/D-/S- are no longer ignored — but
+// `D` was never added to this alternation, so every D-NNN citation in the
+// corpus was invisible to this guard. Proven by probe (RPT-001 §3): a file
+// citing ADR-<nonexistent>, DBT-<nonexistent> and D-<nonexistent> reported
+// two of three. The debt refactor rewrites ~1,100 D-NNN citations; without
+// this the guard would run clean over every one of them without reading one.
+// That is D-039's vacuous green, in the guard that exists to prevent it.
+const ID_RE = /\b(MIS|ADR|DEC|RPT|PRO|DBT|D|STD|CAN|OPS|BLU|GLD|INF)-(\d{1,4}|\d{4}-\d{2}-\d{2})\b/g;
 const LINK_RE = /\[[^\]]*\]\(([^)\s#]+\.md)(?:#[^)]*)?\)/g;
 // Kind 3: a bare filename mentioned in prose, outside markdown link syntax
 // — "see credential-map.md", "documented in APPROVAL-REQUEST-template.md".

@@ -5,9 +5,9 @@ title: "Debt register refactor: which entries answer a question still open"
 type: report
 subtype: audit
 status: closed
-version: "1.1.0"
+version: "1.3.0"
 created: "2026-08-31T20:30:00+02:00"
-updated: "2026-08-31T22:10:00+02:00"
+updated: "2026-08-31T23:59:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -51,7 +51,7 @@ Test 3 is the one that did the work. Six entries failed it outright.
 | Tokens | 59,400 | `tiktoken` `cl100k_base`, whole file |
 | `status: closed` with a written resolution | 6 | frontmatter + `## Resolution` |
 | Entries `check-deletable.mjs` clears on test 1 | 7 of 39 | the guard, at HEAD |
-| Citation occurrences of `D-NNN` outside `debt/` | 240, in 63 files | regex sweep, `web/dist` excluded |
+| Citation occurrences of `D-NNN` outside `debt/` | **820, in 90 files** (corrected v1.2.0, §12) | regex sweep, all tracked text files, `web/dist` excluded |
 | Citers that are **closed records** | 19 of 63 | `P-010` §3.4 forbids rewriting these |
 
 ## 2. Three premises checked against the tree, not against the prose
@@ -223,7 +223,9 @@ evidence tables kept, preambles collapsed. The file counts are exact.
 > **Amended 2026-08-31, v1.1.0 — see §11.** v1.0.0 stated this cost as
 > "19 files blocked". That was wrong and is corrected below.
 
-- **240 citation occurrences in 63 files** must be reviewed. Of the 195
+- **820 citation occurrences in 90 files** outside `debt/` must be reviewed
+  (1,098 in 129 files including `debt/` itself). Corrected in v1.2.0 — §12.
+  Of the 195
   occurrences inside the 19 closed records, **4 are untouchable** — they
   name a file path, not an identifier. The other 191 are ordinary
   pointers.
@@ -233,9 +235,59 @@ evidence tables kept, preambles collapsed. The file counts are exact.
 - **`C-005` cites the legal entries**; the merge rewrites canon references
   and therefore needs the Oracle's signature under `S-001` §2.1.
 
-## 9. Not done, deliberately
+## 9. Executed (v1.3.0 — superseding "not done, deliberately")
 
-No file in `debt/` was created, modified or deleted. The branch
+v1.0.0–v1.2.0 were analysis only. On the Oracle's instruction the refactor
+was **executed** in this same branch. What follows is what actually landed,
+verified by the guards rather than asserted.
+
+**Two guards were repaired first**, because both carried a private copy of a
+ruling that had drifted from the ruling:
+
+| Guard | Was | Now |
+|---|---|---|
+| `check-references.mjs` `ID_RE` | omitted `D` | `D` added — probe now catches 3 of 3 |
+| `lint-frontmatter.mjs` `PREFIX` | `debt: 'D'` | `debt: 'DBT'` per `ADR-005` v1.1.0 |
+| `lint-frontmatter.mjs` ring | `absorbs` unregistered for `debt/` | registered, as it already was for `decisions/` |
+
+Fixing `ID_RE` **revealed 81 citations that had been broken since August** —
+all to `D-001`…`D-018`, zero false positives. They were not new breakage,
+only newly measurable.
+
+**39 entries → 12**, renumbered densely (§12.2). Every merged entry carries
+`absorbs:`, which `check-references.mjs` already resolves — so **all 497
+citations of surviving entries keep resolving untouched**. Measured after the
+merge: zero broken references to a survivor.
+
+**30 published URLs died and all 30 were redirected.** The guard
+`check-url-lifecycle.mjs` — the instrument `DBT-004` exists to describe —
+caught them. 15 merged entries point at the document that now contains their
+reasoning; 15 extinguished entries point at the debt register itself, which
+is the honest target when a question is withdrawn rather than moved. Redirects
+were **not** taken from `--propose` verbatim: it defaults every target to
+`/corpus`, which its own output calls "a 200 that lies".
+
+**Verified after, not asserted:** 8 guards green, `npm run build` at 556
+pages, and 11 `DBT` pages served publicly plus `DBT-006` correctly withheld
+as `restricted-oracle` — 12 of 12.
+
+**The `visibility` gap from §2 is closed.** `DBT-011` and `DBT-012` declare
+`visibility: public`; the eight entries that returned 404 in production do so
+no longer.
+
+### What was left undone, and why
+
+**601 citations to extinguished entries now dangle** — banked into
+`references-baseline.json`, which **grew from 398 to 538**. That file's own
+comment says it "should shrink over time and never grow". It grew, and the
+reason is recorded inside it rather than hidden: ~71 were already broken and
+invisible, ~88 are genuinely caused by this refactor, and 2 are path-shaped
+references inside closed records that `P-010` §3.4 forbids rewriting.
+
+`ADR-004` rule 4 condition 2 says an operation whose consumers cannot all be
+updated in the same change should be **deferred**. Read strictly, that
+applies here. It was executed anyway, on the Oracle's explicit instruction,
+and this paragraph is the record that the condition was not met. The branch
 `refactor/debt-register-analysis` holds this analysis alone — it carries no
 mission identifier, because no mission has been opened for this work and
 minting one would assert a decision the Oracle has not made.
@@ -293,3 +345,84 @@ the `D` prefix, so none of the above is machine-verifiable until `ID_RE`
 is fixed. `scripts/rename-series.mjs` already refuses all of
 `reports/**` via `refusalReason()`, which covers 2 of the 4 untouchable
 occurrences automatically; the other 2 sit in `debt/` and need the eye.
+
+## 12. Amendment, 2026-08-31 (v1.2.0) — the citation count was wrong, and the renumbering plan
+
+### 12.1 The count
+
+v1.0.0 and v1.1.0 both state **"240 citation occurrences in 63 files"**. That
+figure is wrong. Re-measured at `HEAD 7a955a8` over every tracked text file
+(`.md .mjs .py .json .yml .yaml .astro .ts`, `web/dist` excluded):
+
+| Scope | Occurrences | Files |
+|---|---|---|
+| Whole corpus | **1,098** | 129 |
+| Outside `debt/` | **820** | 90 |
+| Inside `debt/` | 278 | 39 |
+| → point at a **surviving** entry (rewritten into the new series) | 497 | — |
+| → point at an **extinguished** entry (no destination) | 601 | — |
+
+The original figure does not reproduce under any method I can reconstruct.
+The closest is 208 unique `(file, identifier)` pairs in `.md` files only —
+which would mean the count was of *pairs* while the label said *occurrences*,
+and that it ignored `scripts/`, `.github/` and `web/` entirely. I cannot
+confirm that was the method. The honest statement is that the number was
+produced by a sweep I did not pin down, and the corrected figures above are
+reproducible.
+
+This matters beyond arithmetic: `scripts/references-baseline.json` (50),
+`scripts/naming-baseline.json` (40), `scripts/blind-spots.json` (19) and
+`.github/workflows/ci.yml` (5) all carry `D-NNN`. **The renumbering touches
+the guards' own baselines and CI.** v1.0.0's cost model did not include them.
+
+### 12.2 The renumbering, under `ADR-004` rule 4
+
+Numbers below are given bare (`001`…`012`) and take the `DBT` prefix
+`ADR-005` registered for `debt/`; they are written unprefixed here because
+these documents do not exist yet and a citation must resolve.
+
+The series is renumbered **densely**, not preserved. Precedent: `MIS-109`
+compacted `S-004`→`C-003` and `S-005`→`C-004`, cited in rule 4 as its first
+exercised exception. Order is by lowest original number, so relative age
+survives.
+
+| New no. | Absorbs | Subject |
+|---|---|---|
+| **001** | `D-008` | Registration scheme coverage |
+| **002** | `D-011` + `D-019`, `D-020`, `D-026` | Root of trust |
+| **003** | `D-023` + `D-031`, `D-032`, `D-035` | Publication integrity |
+| **004** | `D-028` | URL lifecycle unmanaged |
+| **005** | `D-030` | Licence regime from path (open question) |
+| **006** | `D-033` | Unverified compliance assertions |
+| **007** | `D-034` | Dependabot advisories untriaged |
+| **008** | `D-036` | Missions declaring no `author` |
+| **009** | `D-038` | `C-005` files agent definitions as lore |
+| **010** | `D-039` + `D-050` | Guard blindness |
+| **011** | `D-040` + `D-041` | Cross-repo 404 |
+| **012** | `D-042` + `D-043`, `D-044`, `D-045`, `D-046` | `C-005` legal ledger |
+
+The `D-` series closes entirely. No `D-NNN` number is reassigned — rule 4's
+"numbers are never reused" holds across the prefix change.
+
+### 12.3 Condition 3 is not satisfiable today
+
+Rule 4 requires *"`scripts/check-references.mjs` run clean"* after the rename.
+The guard **cannot see the `D` prefix** (§3). It would run clean over 1,098
+rewritten citations without inspecting one of them — a vacuous green, which
+is `D-039`'s subject exactly.
+
+**Therefore the renumbering cannot be executed yet.** Not by preference: by
+the rule's own third condition. `ID_RE` is the precondition, and it is one
+line.
+
+### 12.4 The 601 with no destination
+
+601 occurrences point at entries that will not exist. Precedent exists —
+46 citations to `D-001`…`D-018` have dangled since August and nobody
+repaired them — but no rule ever sanctioned it. Rule 4 condition 2 says an
+identifier whose consumers cannot be updated in the same change means the
+operation is **deferred**, not proceeded with partially. Read strictly, 601
+dangling pointers is that case.
+
+This report does not resolve it. It is the Oracle's ruling, and it is the
+one decision blocking the whole operation.

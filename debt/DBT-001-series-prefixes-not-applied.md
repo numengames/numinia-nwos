@@ -1,12 +1,12 @@
 ---
-id: "D-008"
+id: "DBT-001"
 uid:
 title: "Twelve series carry a registration scheme most of the corpus does not yet apply"
 type: documentation
 status: active
-version: "3.0.0"
+version: "4.0.0"
 created: "2026-08-24T19:40:00Z"
-updated: "2026-08-31T14:20:00+02:00"
+updated: "2026-08-31T23:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -16,8 +16,9 @@ license: "CC-BY-4.0"
 visibility: "public"
 severity: medium
 opened_by: "S-001 §4.1"
+absorbs: ["D-008"]
 ---
-# D-008 — Twelve series carry a scheme most of the corpus does not yet apply
+# DBT-001 — Twelve series carry a registration scheme most of the corpus does not yet apply
 
 > **Summary:** `ADR-005` v1.1.0 (`MIS-125`, 2026-08-31) registers 13 series
 > under a collision-free prefix scheme. Twelve carry it; `agents/` is
@@ -273,3 +274,11 @@ renumbered**, only re-prefixed (`ADR-004` §rule 4).
   been superseded.
 - v1.0.0 (2026-08-24) — Initial debt. Measured `standards/` `agents/`
   `operations/` `debt/` against `ADR-005` v1.0.0.
+
+---
+
+## Renumbering note, 2026-08-31
+
+This document was `D-008`. The `D-` series
+was closed and renumbered densely to `DBT-NNN` under `ADR-004` rule 4 and
+`ADR-005` v1.1.0 — see `RPT-001` §12. No `D-` number is reused.

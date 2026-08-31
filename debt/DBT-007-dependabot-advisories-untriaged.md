@@ -1,14 +1,14 @@
 ---
-id: "D-034"
+id: "DBT-007"
 uid:
 title: "Ten Dependabot advisories on main, unreviewed and unrecorded"
 type: documentation
 status: active
-version: "1.0.0"
+version: "2.0.0"
 created: "2026-08-25T18:30:00Z"
 created_source: "git:6d96106"
 created_confidence: exact
-updated: "2026-08-25T18:30:00Z"
+updated: "2026-08-31T23:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"
@@ -25,8 +25,9 @@ severity: medium
 opened_by: "Ursa, 2026-08-25, from git push output"
 evidence_script: "git push (remote advisory banner) — counts not independently verified"
 evidence_head: "392ffc6"
+absorbs: ["D-034"]
 ---
-# D-034 — Ten Dependabot advisories on `main`, and no record that anyone saw them
+# DBT-007 — Ten Dependabot advisories on main, unreviewed and unrecorded
 
 > **Summary:** GitHub reports **10 vulnerabilities on the default branch —
 > 3 high, 4 moderate, 3 low**. Nothing in the corpus acknowledges them.
@@ -105,3 +106,11 @@ nobody questions a restriction.
 | Blocked by | `D-017` for any CI-side automation |
 | Opened | 2026-08-25, noted from push output while landing the orphan guard |
 | Closes when | every advisory has a verdict and accepted ones have a reason |
+
+---
+
+## Renumbering note, 2026-08-31
+
+This document was `D-034`. The `D-` series
+was closed and renumbered densely to `DBT-NNN` under `ADR-004` rule 4 and
+`ADR-005` v1.1.0 — see `RPT-001` §12. No `D-` number is reused.

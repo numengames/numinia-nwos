@@ -1,23 +1,92 @@
 ---
-id: "D-041"
+id: "DBT-011"
 uid:
-title: "The RPG manual stops living in canon/ (was 404-002)"
+title: "Cross-repository consumers left with dead addresses"
 type: documentation
 status: active
-version: "1.0.0"
+version: "2.0.0"
 created: "2026-08-24T12:05:35Z"
 created_source: "git:f0f3d16"
-updated: "2026-08-30T19:40:00Z"
+updated: "2026-08-31T23:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
 territory: "Archive"
 tags: [debt, 404, cross-repo]
 license: "CC-BY-4.0"
+visibility: "public"
 related: ["ADR-026 (formerly ADR-031)", "C-005"]
+absorbs: ["D-040", "D-041"]
 ---
 
-# D-041 — The RPG manual stops living in canon/
+# DBT-011 — Cross-repository consumers left with dead addresses
+
+> **Summary:** Broken cross-repo consumers (was 404-001 in DEUDA-404.md; moved by ADR-026).
+> **Epistemic:** What broke when the source was retired, and where repair happens.
+> **Pragmatic:** Close when every consumer listed resolves; then extinguish (ADR-030).
+
+*Was `404-001` in `DEUDA-404.md` (root); text verbatim from v1.1.0.*
+
+**Decision:** the Design System has one single current version, **v5.1.0**.
+v5.0.0 is retired from the repository.
+
+**Retired:** `standards/2026_08_18-Sistema_de_Diseno-v5.0.0.md`
+**Current:** `standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md` (declares `supersedes:`)
+**Date:** 2026-08-24 · **Commit:** see PR "chore: retire Design System v5.0.0"
+
+### What breaks
+
+| # | Consumer | What happens | Severity |
+|---|---|---|---|
+| 1 | `numinia.org/corpus/standards/2026_08_18-sistema_de_diseno-v500.md` | **HTTP 404.** The route is generated from the repo (`web/src/pages/corpus/[...slug].astro`). Today it returns 200. | high |
+| 2 | `numinia-web/design-source.json` | Dangling pin: `path`, `published`, and `sha256` (`a075e215…`) point to the retired file. | **critical** |
+| 3 | `numinia-web/scripts/check-design-source.mjs` | Fails with *"Could not read the published master: HTTP 404"* → exit 1. Invoked via `npm run design:check`. | high |
+| 4 | `numinia-web/apps/store/src/lib/__tests__/design-system-bridge.test.ts` | Reads `design-source.json`; the pin is incoherent even though the test doesn't download it. | medium |
+| 5 | 6 nwos missions (MIS-078, 085, 091, 092, 093 and others) | Cite "v5.0.0" **in text**, not by link: they don't error, they remain as historical references to a non-existent document. | low |
+
+> **CI notice:** `numinia-nwos`'s CI **detects none of these breakages** —
+> they are cross-repo. A green PR here does not mean numinia.org and
+> numinia-web are still sound. Manual verification is mandatory.
+
+### Verification state (2026-08-24, before deletion)
+
+The three digests matched — the pin was **sound** until this decision:
+
+```
+local nwos file ................... a075e2154aa648d44484d7df2bf8d573da044f7154c96464a1c1bd58680c107a
+numinia-web/design-source.json pin  a075e2154aa648d44484d7df2bf8d573da044f7154c96464a1c1bd58680c107a
+published on numinia.org (HTTP 200) a075e2154aa648d44484d7df2bf8d573da044f7154c96464a1c1bd58680c107a
+```
+
+v5.1.0 is already published and returns **HTTP 200** at
+`numinia.org/corpus/standards/2026_08_18-sistema_de_diseno-v510.md`.
+
+### Pending repair — exact order
+
+1. **`numinia-web`** — update `design-source.json`:
+   - `path` → `standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md`
+   - `published` → `…/2026_08_18-sistema_de_diseno-v510.md`
+   - `version` → `5.1.0`
+   - `sha256` → recalculate against the published file
+2. **`numinia-web`** — review the vendored kit (`packages/ui/src/sistema.css`,
+   `apps/store/src/scripts/sistema.js`): v5.1.0 may have moved tokens.
+   Their sha256 in the `vendored` block get re-pinned too.
+3. **Verify:** `npm run design:check` → must output *"✓ In sync"*.
+4. **`numinia-nwos`** — the 6 missions citing "v5.0.0" in text: decide
+   whether to annotate as historical or update. Not blocking.
+5. **Mark this entry RESOLVED** with date and commit.
+
+**Owner:** Oracle · **Status:** ⬜ OPEN
+
+---
+
+---
+
+## Absorbed: `D-041` — The RPG manual stops living in canon/ (was 404-002)
+
+> Merged into `DBT-011` on 2026-08-31 under `ADR-030`. The identifier `D-041`
+> keeps resolving to this document via `absorbs:`; its evidence is preserved
+> verbatim below, only its heading levels are demoted.
 
 > **Summary:** Broken cross-repo consumers (was 404-002 in DEUDA-404.md; moved by ADR-026).
 > **Epistemic:** What broke when the source was retired, and where repair happens.
@@ -35,7 +104,7 @@ Literal quote from the correction that set the design:
 > file in canon/, with a manual name and a C-00N, manufactures the same
 > object with better intentions. A pointer is not a foundational document."*
 
-### What was retired
+#### What was retired
 
 | File | Size | What it was |
 |---|---|---|
@@ -45,7 +114,7 @@ Literal quote from the correction that set the design:
 **Source of truth now:** `numengames/numinia-lore` →
 `seminal/Numinia_Manual_del_juego_de_rol_v0_6_0.md` (v0.6.0, 21,459 lines).
 
-### Verification state prior to deletion
+#### Verification state prior to deletion
 
 - Retired `.txt`: `sha256 2f9e58dea73a4629c9c370dc8ab46c440a133fd4e12e267421c548b6a591a0ea`
   — **byte-identical** to `numinia-lore/seminal-legacy/…txt`. Nothing is lost.
@@ -60,7 +129,7 @@ Literal quote from the correction that set the design:
   2026-08-17 (MIS-085 D1). The pointer resolves for anyone and the regime
   is preserved.
 
-### Why a pointer and not a copy — with the figures that decided it
+#### Why a pointer and not a copy — with the figures that decided it
 
 An earlier version of this change (discarded without pushing, `72bff4c`)
 put the converted manual in `canon/`. The build published it and measured
@@ -77,7 +146,7 @@ reserved-rights content served in the open. And it was a **new
 regression**, not inherited: the `.txt` was never published (the glob is
 `*.md`) and the stub weighed 131 lines.
 
-### Consumers repaired on this branch
+#### Consumers repaired on this branch
 
 | Document | State |
 |---|---|
@@ -92,7 +161,7 @@ regression**, not inherited: the `.txt` was never published (the glob is
 Senet goes **direct**, not through the index: an agent's mandatory-reading
 table resolves in one hop or it isn't operational reading.
 
-### Breakages outside write scope — OPEN
+#### Breakages outside write scope — OPEN
 
 | Repo | File | Severity |
 |---|---|---|
@@ -100,7 +169,7 @@ table resolves in one hop or it isn't operational reading.
 | `numinia-web` | `docs/onboarding-report.md:23` | 🟠 medium |
 | `numinia-lore` | `seminal-legacy/README.md:20` | 🟢 low |
 
-### Pending repair — exact order
+#### Pending repair — exact order
 
 1. **`numinia-web`** — repoint `DECISIONS.md:111` and
    `docs/onboarding-report.md:23` to
@@ -113,3 +182,11 @@ table resolves in one hop or it isn't operational reading.
 **Owner:** Oracle · **Status:** ⬜ OPEN
 
 ---
+
+---
+
+## Renumbering note, 2026-08-31
+
+This document was `D-040`, and absorbs `D-041`. The `D-` series
+was closed and renumbered densely to `DBT-NNN` under `ADR-004` rule 4 and
+`ADR-005` v1.1.0 — see `RPT-001` §12. No `D-` number is reused.

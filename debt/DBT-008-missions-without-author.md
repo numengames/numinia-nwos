@@ -1,14 +1,14 @@
 ---
-id: "D-036"
+id: "DBT-008"
 uid:
 title: "33 missions declare no author: the field the whole provenance census rests on"
 type: documentation
 status: active
-version: "1.0.0"
+version: "2.0.0"
 created: "2026-08-26T16:05:00Z"
 created_source: "git:3277a9a"
 created_confidence: exact
-updated: "2026-08-26T16:05:00Z"
+updated: "2026-08-31T23:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -27,8 +27,9 @@ severity_reason: >
   it is the difference between a document that can be classified and one that
   has to be held back.
 scope: "numinia-nwos @ 3277a9a · public surface: numinia.org"
+absorbs: ["D-036"]
 ---
-# D-036 — 33 missions declare no `author`
+# DBT-008 — 33 missions declare no author: the field the whole provenance census rests on
 
 > **Summary:** The provenance census that gates the CC0 sweep is computed from
 > the `author:` frontmatter field. 33 of 114 missions do not have one.
@@ -108,3 +109,11 @@ Two sub-conditions, because they resolve differently:
 - `D-021` — a new rule does not apply itself to whoever writes it
 - `D-025` — no guard declares what it is blind to
 - C-005 §2.6 — provenance declaration, `human` / `ai-assisted` / `ai-generated`
+
+---
+
+## Renumbering note, 2026-08-31
+
+This document was `D-036`. The `D-` series
+was closed and renumbered densely to `DBT-NNN` under `ADR-004` rule 4 and
+`ADR-005` v1.1.0 — see `RPT-001` §12. No `D-` number is reused.
