@@ -1,7 +1,7 @@
 {
   "_comment": "Known-broken references frozen at adoption time. The lint fails only on NEW breakage. This list should shrink over time and never grow. Regenerate only when fixing entries.",
-  "generated": "2026-08-31T18:14:54.904Z",
-  "count": 397,
+  "generated": "2026-08-31T18:32:31.515Z",
+  "count": 398,
   "entries": [
     "FILE AGENTS.md -> MEMORY.md",
     "FILE CHANGELOG.md -> APPROVAL-REQUEST-template.md",
@@ -20,6 +20,7 @@
     "FILE agents/INDEX.md -> MEMORY.md",
     "FILE agents/INDEX.md -> STATUS.md",
     "FILE agents/lexa/SOURCES.md -> LEGAL_DEBT.md",
+    "FILE blueprints/BLU-008-nwos-system.md -> MEMORY.md",
     "FILE canon/C-005-licensing.md -> LEGAL_DEBT.md",
     "FILE canon/INDEX.md -> Numinia-El-juego-de-rol-manual-completo.md",
     "FILE canon/INDEX.md -> Numinia.md",

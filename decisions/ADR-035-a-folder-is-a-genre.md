@@ -1,7 +1,7 @@
 ---
 id: "ADR-035"
 uid: ""
-title: "A folder is a genre: system/ and history/ open, and six blueprints move to the shelf their content belongs on"
+title: "A folder is a genre: system/ and history/ open, and five blueprints move to the shelf their content belongs on"
 type: adr
 status: active
 version: "1.0.0"
@@ -20,7 +20,7 @@ related: ["ADR-004", "ADR-005", "ADR-030", "PRO-010", "MIS-129"]
 
 > **Summary:** `blueprints/` held eight documents of four genres. Two are
 > blueprints. This ADR opens `system/` (reference manuals, prefix `SYS`) and
-> `history/` (superseded records, no series), moves six documents out, and
+> `history/` (superseded records, no series), moves five documents out, and
 > records the renumbering under `ADR-004` rule 4.
 > **Epistemic:** `ADR-032` (now in `ADR-030`) ruled on blueprints whose foundation is dead.
 > This rules on the other failure — blueprints that were never blueprints.
@@ -52,7 +52,9 @@ Measured at `ca62d86`, the eight `BLU-*` files are:
 
 The archive's own definition of the folder is in `SYS-003` itself —
 *"unmanifested potential; the future lives here before becoming
-present"*. Six of eight fail it.
+present"*. Six of eight fail it. Five of those six move here; the sixth,
+`BLU-008`, fails the test too but its shelf is in another repository, so
+this ADR declares the fault and leaves the file where it is (see §3).
 
 This is not `ADR-032` (now in `ADR-030`)'s case. None of these six has a dead foundation;
 they are alive and shelved wrong. Extinguishing them would destroy
@@ -77,23 +79,32 @@ which is precisely what the shelf denies.
 
 **3. The moves.**
 
-| From | To | Genre |
+| From — in `blueprints/` at `ca62d86` | To | Genre |
 |---|---|---|
-| `system/SYS-001-cao-architecture.md` | `system/SYS-001-cao-architecture.md` | reference |
-| `system/SYS-002-agent-cycle.md` | `system/SYS-002-agent-cycle.md` | reference |
-| `system/SYS-003-archive-fondos.md` | `system/SYS-003-archive-fondos.md` | reference |
-| `history/2026_04_07-Mission_System_v2-v1.0.0.md` | `history/2026_04_07-Mission_System_v2-v1.0.0.md` | superseded |
-| `reports/RPT-2026-04-07-wardley-map.md` | `reports/RPT-2026-04-07-wardley-map.md` | report |
-| `blueprints/BLU-008 (deleted 2026-08-31)` | `numengames/nwos-deploy` | product copy |
+| `BLU-004` cao-architecture | `system/SYS-001-cao-architecture.md` | reference |
+| `BLU-006` agent-experience | `system/SYS-002-agent-cycle.md` | reference |
+| `BLU-005` archive-fondos | `system/SYS-003-archive-fondos.md` | reference |
+| `BLU-003` mission-system | `history/2026_04_07-Mission_System_v2-v1.0.0.md` | superseded |
+| `BLU-001` wardley-map | `reports/RPT-2026-04-07-wardley-map.md` | report |
 
 `BLU-002` and `BLU-007` stay. They are what the folder is for.
+
+`BLU-008` also stays, and its genre is the one exception this ADR declares
+without acting on. It is product landing copy, 75% byte-identical to the
+`nwos.numen.games` home; by this ADR's own test it does not belong in
+`blueprints/`. It is not moved because its destination is another
+repository, and a move whose destination is out of scope is not a move —
+it is a deletion with a story attached. The shelf is wrong and stays
+wrong, declared here rather than fixed quietly. `MIS-129` records it as
+the debt it is.
 
 **4. `ADR-004` rule 4 is exercised, not bypassed.** Renumbering requires
 three conditions, met here and recorded:
 
 1. *Measurable violation* — six documents carry a series prefix whose
-   genre they do not belong to. `S-005` §2 asserts one genre per folder;
-   the folder asserted otherwise about six of its eight documents.
+   genre they do not belong to, and five are renumbered here. `S-005` §2
+   asserts one genre per folder; the folder asserted otherwise about six
+   of its eight documents.
 2. *Consumers enumerated first* — every citation, both `/archive` pages
    that read `SYS-003`'s frontmatter, seven public URLs, the Astro
    collection glob, and the URL baseline. All listed in `MIS-129` before
@@ -108,8 +119,11 @@ frontmatter. The old identifier is not freed and is not reused
 
 **5. Every retired address is redirected, not dropped.** `ADR-033` (now in `ADR-030`) rules
 that a document may be deleted when its consumers are zero or
-redirected. Seven public addresses die here. Each gets a redirect to
-where its content went. `check-url-lifecycle.mjs` is the proof.
+redirected. Twelve public addresses die here — five documents across the
+English and Spanish route aliases, plus the two `mission-system-v2`
+aliases `MIS-127` had already redirected once. Each gets a redirect to
+where its content went, chained so no crawler takes two hops.
+`check-url-lifecycle.mjs` is the proof.
 
 **6. `blueprints/` remains an operational series** (`ADR-032` (now in `ADR-030`) §1). This
 ADR amends `S-005` §2's table by adding two rows; it does not touch
@@ -117,9 +131,9 @@ ADR amends `S-005` §2's table by adding two rows; it does not touch
 
 ## Alternatives discarded
 
-- **Extinguish the six under `ADR-032` (now in `ADR-030`).** Rejected: their foundation is
+- **Extinguish the five under `ADR-032` (now in `ADR-030`).** Rejected: their foundation is
   alive. `ADR-032` (now in `ADR-030`)'s criterion is a dead cited decision, and none of the
-  six qualifies. Stretching a lifecycle rule to solve a taxonomy fault
+  five qualifies. Stretching a lifecycle rule to solve a taxonomy fault
   would have destroyed correct content and left the taxonomy just as
   wrong.
 
@@ -142,8 +156,11 @@ ADR amends `S-005` §2's table by adding two rows; it does not touch
 
 ## Consequences
 
-- `blueprints/` holds two documents, both of which match the folder's own
-  definition. Opening it now predicts what you will read.
+- `blueprints/` holds three documents. Two match the folder's own
+  definition. The third, `BLU-008`, does not and is declared in §3 rather
+  than moved: its shelf is in another repository, and this mission's scope
+  is this one. Opening the folder now predicts what you will read in two
+  cases out of three, and names the exception instead of hiding it.
 - Two shelves exist that did not, and `S-005` §2 has two more rows —
   which means the next manual has somewhere to go and will not silently
   become a blueprint.

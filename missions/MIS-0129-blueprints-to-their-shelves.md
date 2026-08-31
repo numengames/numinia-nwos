@@ -85,7 +85,7 @@ taxonomy fault, not a lifecycle one.
   Ursa as pending activation) is real and is recorded as debt here, not
   fixed here.
 - The duplicated product copy between `numinia-nwos` and `nwos-deploy`.
-  `BLU-008` leaves this repository; deciding which of the surviving copies
+  `BLU-008` stays where it is; deciding which of the three copies
   is the master is a separate, still-open question.
 - `blueprints/INDEX.md`, already flagged as stale by `ADR-032` (now in `ADR-030`).
 
@@ -114,8 +114,8 @@ Every criterion below is false at `ca62d86`.
       mapped in `S-005` §2
 - [ ] No public address that resolved at `ca62d86` returns 404 after this
       mission — each is redirected to where its content went
-- [ ] `BLU-008` is deleted here and present in `nwos-deploy` on its own
-      branch, with the redirect for `/blueprints/nwos-system` in place
+- [ ] `BLU-008` stays in `blueprints/` and its two public addresses stay
+      alive — out of scope, declared as debt below rather than moved
 - [ ] The `git mv` history of every moved file is preserved (moves, not
       delete-and-create)
 
@@ -128,12 +128,16 @@ document that records the outcome. This is that record.
 
 | Was | Is now | Why |
 |---|---|---|
-| `blueprints/BLU-001` (retired path) | `reports/RPT-2026-04-07-wardley-map.md` | Dated strategic analysis. Keeps CC0 by REUSE override. |
-| `blueprints/BLU-003` (retired path) | `history/2026_04_07-Mission_System_v2-v1.0.0.md` | Self-declared superseded by MIS-066. |
-| `blueprints/BLU-004` (retired path) | `system/SYS-001-cao-architecture.md` | Reference manual. Content known stale — see debt below. |
-| `blueprints/BLU-005` (retired path) | `system/SYS-003-archive-fondos.md` | Reference manual + live data for `/archive`. |
-| `blueprints/BLU-006` (retired path) | `system/SYS-002-agent-cycle.md` | Reference manual. |
-| `blueprints/BLU-008 (deleted 2026-08-31)` | `numengames/nwos-deploy`, `docs/nwos-system-description` in nwos-deploy | Product copy. Deleted here; branch `docs/MIS-129-receive-nwos-system-description` holds it there. |
+| `BLU-001` wardley-map | `reports/RPT-2026-04-07-wardley-map.md` | Dated strategic analysis. Keeps CC0 by REUSE override. |
+| `BLU-003` mission-system | `history/2026_04_07-Mission_System_v2-v1.0.0.md` | Self-declared superseded by MIS-066. |
+| `BLU-004` cao-architecture | `system/SYS-001-cao-architecture.md` | Reference manual. Content known stale — see debt below. |
+| `BLU-005` archive-fondos | `system/SYS-003-archive-fondos.md` | Reference manual + live data for `/archive`. |
+| `BLU-006` agent-experience | `system/SYS-002-agent-cycle.md` | Reference manual. |
+
+The left column names identifiers, not paths: each file lived under
+`blueprints/` at `ca62d86` and none of those paths exists now. The
+identifiers still resolve — `former_id` in each moved file is what makes
+that true, and `check-references.mjs` follows it.
 
 Every retired public address 301s in `web/astro.config.mjs`. No identifier
 was freed for reuse (`ADR-004` rule 4): each moved document carries
@@ -141,6 +145,13 @@ was freed for reuse (`ADR-004` rule 4): each moved document carries
 
 `BLU-002` and `BLU-007` stay in `blueprints/`. They are designs that do not
 exist yet, with open missions, which is what the folder is for.
+
+`BLU-008` also stays, and it should not. It is product landing copy and by
+this mission's own test it is mis-shelved. It is not moved because its
+destination is `numengames/nwos-deploy`, which the Oracle ruled out of
+scope; a move with no destination inside this repository is a deletion,
+and deleting a live document to satisfy a taxonomy is the wrong trade.
+The fault is left standing and named — see the debt below.
 
 ## Debt opened by this mission
 
@@ -154,20 +165,26 @@ exist yet, with open missions, which is what the folder is for.
   it declares itself: two coordinate sets, two component groupings, and a
   commoditisation window given as both 12-18 and 18-24 months. Reshelving
   dates them; it does not resolve them.
+- **`BLU-008` is mis-shelved and stays mis-shelved.** It is product
+  landing copy sitting in the folder for things that do not exist yet.
+  Its shelf is `numengames/nwos-deploy`, which the Oracle ruled out of
+  scope for this mission, so the fault is recorded rather than fixed.
+  Closing it needs a decision this mission does not own: whether that
+  repository receives corpus documents at all.
 - **Three copies of the product description exist and have diverged.**
-  `nwos-deploy/src/pages/index.astro`,
-  `numinia-nwos/web/src/views/HomeView.astro`, and now
-  `nwos-deploy, under `docs/`, as `nwos-system-description``. Measured: 27/36 prose
-  strings identical between the file and that repo's home, 32/48 with this
-  repo's. The `area` -> `territory` rename (`D-010`) reached only one of
-  the three — `nwos.numen.games` still serves the retired field name
-  today. Which copy is the master is **undecided** and is not this
-  mission's to decide.
+  `BLU-008` here, `web/src/views/HomeView.astro` here, and
+  `src/pages/index.astro` in `nwos-deploy`. Measured: 32/48 prose strings
+  byte-identical between `BLU-008` and this repo's home view, 27/36
+  against the other repo's landing page. The `area` -> `territory` rename
+  (`D-010`) reached only one of the three — `nwos.numen.games` still
+  serves the retired field name today. Which copy is the master is
+  **undecided** and is not this mission's to decide.
 - **`SYS-002` no longer matches the page it was extracted from.** Its
   `extraction_note` cited `web/src/pages/agente.astro`, deleted in
   `61353f6`. Its successor is in Spanish; the document is in English
-  (`MIS-116`, `ADR-024`). Zero prose strings are shared. The note now
-  records this instead of asserting an extraction that is no longer true.
+  (`MIS-116`, `ADR-023` (formerly `ADR-024`)). Zero prose strings are
+  shared. The note now records this instead of asserting an extraction
+  that is no longer true.
 
 ## Closure
 
