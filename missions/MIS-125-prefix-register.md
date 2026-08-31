@@ -3,11 +3,11 @@ id: "MIS-125"
 title: "The prefix register — four series carry identifiers no rule knows about"
 type: mission
 status: in-progress
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-30T11:50:00Z"
 created_source: "git:b09311c"
 created_confidence: exact
-updated: "2026-08-31T10:35:00+02:00"
+updated: "2026-08-31T13:11:21+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC-BY-4.0"
@@ -198,10 +198,97 @@ valid value in `S-004`'s `documentation` lifecycle (`draft → active →
 closed`) — build failed on `H-04`. Corrected to `status: closed`;
 `(RESOLVED)` stays in the title as a human-readable note.
 
-PR: https://github.com/numengames/numinia-nwos/pull/155 (open, reviewers
-assigned, CI green as of `91bb1ca`).
+PR: https://github.com/numengames/numinia-nwos/pull/155 — merged
+(squash, by María, `e8571cb`). A same-day commit
+(`missions`/`D-008` cross-referencing) was pushed after the squash and
+orphaned on the closed branch; rescued via cherry-pick into PR #156
+(https://github.com/numengames/numinia-nwos/pull/156, merged). Stage A
+closed end-to-end on `main` at `307c7bc`.
 
 Two follow-up debts noted, not yet filed: `D-017` (cited by `D-024`, does
 not exist in `debt/`); `.github/workflows/scorecard.yml` cites
 `engineering-standards.md` by bare name in a comment, outside any guard's
 reach — will break silently when Stage C renames that file.
+
+## Stage B — rename tool (PR #157, PR #161, 2026-08-31)
+
+**Pre-work (PR #157):** re-measured the register against `main` post-Stage-A
+before writing any tool. Found a real contradiction in `D-008` v2.0.0:
+`standards/` coverage claimed `0/8`, but only 7 files actually qualify —
+`standards/STANDARDS.md` (`type: meta`, tombstone/redirector) was being
+counted like a numbered standard instead of excluded like
+`README.md`/`INDEX.md`. Oracle ruled: permanent apparatus, no `STD-NNN`
+("vamos con la A"). `count-evidence.py` fixed, `D-008` corrected to v2.1.0
+(`standards/` `0/8→0/7`). A concurrent session closed `debt/D-001` in
+parallel during the same window (legitimate, documented in this file's
+own ledger below) — `D-008`'s `debt/` count corrected `0/37→0/36` in the
+same v2.1.0 pass. PR: https://github.com/numengames/numinia-nwos/pull/157
+(merged).
+
+**Tool (PR #161):** built `scripts/rename-series.mjs` per the plan's §B
+algorithm — `--dir/--to/--from/--apply`, corpus-wide citation rewrite
+(id + full path + basename, any file type), dry-run by default, no
+auto-commit, runs `check-references.mjs` at the end of `--apply`.
+
+Dry-run tested against 6 series (`infra` 0-file edge case, `guilds`,
+`standards`, `protocols`, `debt`, `blueprints`) before any `--apply` —
+**6 real bugs found and fixed, none hypothetical:**
+
+1. Ambiguous basename collision (`guilds/*/charter.md`,
+   `*/roster.md` — 4 identical basenames across sibling folders): a naive
+   corpus-wide basename replace would have silently repointed one guild's
+   citation to another. Fixed — bare-basename auto-rewrite only fires when
+   the basename is unique across the whole corpus; ambiguous hits are
+   listed for manual review, never auto-touched.
+2. `standards/STANDARDS.md` tried to enter the plan under a live
+   `standards/` series number, contradicting the ruling made minutes
+   earlier in the same session.
+   Fixed — excluded by name.
+3. Slug bug: `engineering-standards.md` was mistaken for
+   `PREFIX-name` and mangled, colliding with `STANDARDS.md`'s slug. Fixed —
+   only strip a leading prefix when the file had a recognized *old series
+   number*, never guessed off an unnumbered basename.
+4. `registration: exempt` files entering unconditionally —
+   `protocols/APPROVAL-REQUEST-template.md` surfaced with a live
+   `protocols/` series number assigned,
+   directly contradicting this session's own `D-024` v1.2.0 correction.
+   Fixed — any `registration: exempt` file is excluded by default;
+   `--include-exempt` is a per-run operator assertion, required after
+   verifying `D-008`'s enumerated list actually covers the `--dir` in
+   question.
+5. Surfaced, not fixed by the tool: 2 more files carry the exact `P-010`
+   §3.2 frozen-artifact filename shape (dated-title-versioned) but
+   are **missing** the `registration_exemption: frozen-artifact` field
+   (`protocols/2026_04_14-Read_Me_How_to_Archive-v0.2.0.md`,
+   `standards/2026_04_14-Analogous_Terminology_Numina-v0.2.0.md`) — same
+   conflict as item 6 below, now 5 files total. Detected by filename
+   shape, not just the field, so a missing field can't silently bypass
+   the guard.
+6. CodeQL flagged 6 high-severity regex-injection findings on PR #161
+   (`TO`/`FROM`/`SUBTYPE_FIELD` — unescaped CLI args interpolated into
+   `new RegExp(...)`). Fixed with a `reEscape()` helper at all 6 sites;
+   re-verified all 6 dry-run series produce identical plans afterward.
+
+Also caught in the same window: `debt/D-002` was extinguished by another
+session in PR #160, landing *after* this PR's own `D-008` v2.1.0 commit
+— `D-008` corrected again to v2.2.0 (`debt/` `0/36→0/35`, total
+renameable `275→274`), same pattern as the `D-001` correction, not an
+error in the prior version.
+
+PR: https://github.com/numengames/numinia-nwos/pull/157 (merged) and
+https://github.com/numengames/numinia-nwos/pull/161 (merged, `534e25e`).
+
+**Open blocker before Stage C can start — not resolved, awaiting Oracle
+ruling (`clarify` sent 2026-08-31, unanswered as of this writing):**
+`P-010` §3.2 defines `registration_exemption: frozen-artifact` files as
+permanent dated snapshots that never evolve ("a photograph, not a living
+document"). `D-008`'s own "24 exempt enter the scheme" ruling includes 5
+such files (3 by explicit field, 2 more by filename shape only — see bug
+5 above) and assigns them `STD-NNN`/`CAN-NNN`/`PRO-NNN` destinations,
+directly contradicting `P-010` §3.2 on its face. `rename-series.mjs`
+defaults to excluding all 5 (`--include-frozen-artifacts` required to
+override), so the tool cannot mis-rename them either way — but Stage C
+cannot proceed on `standards/`, `canon/`, or `protocols/` until the
+Oracle picks a side: `P-010` wins (correct `D-008`, these 5 keep dated
+names permanently) or `D-008` wins (amend `P-010` §3.2 to say
+frozen-artifact no longer blocks series entry).
