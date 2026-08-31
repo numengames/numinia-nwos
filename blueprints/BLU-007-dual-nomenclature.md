@@ -13,7 +13,7 @@ author: "nimrod"
 owner: "oracle"
 tags: [blueprint, nomenclature, narrative-dial, gamification-dial, i18n]
 territory: "CAO"
-license: "CC-BY-4.0"
+license: "CC0-1.0"
 extraction_note: "Extracted verbatim from web/src/pages/idioma.astro (MIS-071 phase 2 — File over App). Related mission: MIS-055."
 ---
 
