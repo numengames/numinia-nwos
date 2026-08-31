@@ -1,6 +1,6 @@
 {
   "_comment": "Known-broken references frozen at adoption time. The lint fails only on NEW breakage. This list should shrink over time and never grow. Regenerate only when fixing entries.",
-  "generated": "2026-08-31T16:04:56.439Z",
+  "generated": "2026-08-31T16:27:35.493Z",
   "count": 383,
   "entries": [
     "FILE AGENTS.md -> MEMORY.md",
