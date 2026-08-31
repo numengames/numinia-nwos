@@ -12,7 +12,7 @@ author: "nimrod"
 owner: "oracle"
 tags: [operations, solutions]
 license: "CC-BY-4.0"
-extraction_note: "Extracted verbatim from web/src/pages/soluciones.astro (MIS-071 phase 2 — File over App). Translated to English under MIS-116 (ADR-024) — language only."
+extraction_note: "Extracted verbatim from web/src/pages/soluciones.astro (MIS-071 phase 2 — File over App). Translated to English under MIS-116 (ADR-023 (formerly ADR-024)) — language only."
 ---
 
 # From blind spots to answers

@@ -104,7 +104,7 @@ entry moves to the "Resolved" section with the decision and its date.
   System and had not been applied to the standards themselves.
 - **What is missing:** version the original NWOS and define the
   sovereign-adoption model (MIS-096). The §7.1 part was resolved in
-  **ADR-003** (2026-08-20): it does not go upstream because there is
+  **ADR-001 (formerly ADR-003)** (2026-08-20): it does not go upstream because there is
   no upstream — the correction is local and the mould is **offered**
   it (MIS-108).
 
@@ -118,7 +118,7 @@ entry moves to the "Resolved" section with the decision and its date.
   Procurador-01 "designed" with no target year.
 - **Source B:** `blueprints/BP-cao.md` (v0.2.0) — lists Ursa and Senet;
   Adonaz on `claude-haiku-3-5`.
-- **Resolved:** 2026-08-31 by **ADR-032**.
+- **Resolved:** 2026-08-31 by **ADR-030 (formerly ADR-032)**.
 - **Decision:** the losing side removed. `blueprints/BP-cao-overview.md`
   — the 2026-04-07 dashboard snapshot that held the third, stalest
   version of the roster — extinguished as part of `blueprints/` joining
@@ -138,7 +138,7 @@ entry moves to the "Resolved" section with the decision and its date.
   from it, and numinia-nwos is not a fork of nwos-workspace-template.
 - **Note:** the correction, if warranted, goes upstream via ADR + PR
   (§7.1); the local copy is not edited.
-- **Resolved:** 2026-08-20 by **ADR-003**.
+- **Resolved:** 2026-08-20 by **ADR-001**.
 - **Decision:** it was not a falsehood, it was a **register confusion**
   between two distinct artifacts. `engineering-standards.md`
   **originates here**: Numinia is NWOS's first client and its proving

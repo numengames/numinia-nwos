@@ -59,7 +59,7 @@ Format: [type] description — date — author
 - All protocols P-001 through P-008 → v1.1.0 (EN)
 - All operations documents → v1.1.0 (EN)
 - All guild charters and rosters → v1.1.0 (EN)
-- All decisions ADR-001, ADR-002, DEC-001 through DEC-005 → v1.1.0 (EN)
+- All decisions ADR-001, ADR-001 (formerly ADR-002), DEC-001 through DEC-005 → v1.1.0 (EN)
 
 ## [0.3.0] — 2026-04-07 (morning)
 
@@ -100,7 +100,7 @@ Format: [type] description — date — author
 - missions/active/MIS-037 — Archive Summa (Adonaz MIS-037 completed)
 - missions/active/MIS-054 — Multi-Oracle Telegram access
 - missions/active/MIS-055 — Dual Nomenclature System
-- decisions/ADR-001, ADR-002, DEC-001 through DEC-005
+- decisions/ADR-001, ADR-001, DEC-001 through DEC-005
 - reports/daily/RPT-2026-04-06
 
 ## [0.1.0] — 2026-04-06 (initial)

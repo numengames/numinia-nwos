@@ -69,7 +69,12 @@ const RING3 = {
     'editorial_note', 'language', 'day_label', 'cost_estimate', 'context_load',
     'extraction_note'],
   'decisions': ['deciders', 'consulted', 'outcome', 'decision',
-    'context', 'pending_dark_council'],
+    'context', 'pending_dark_council',
+    // registered 2026-08-31 (MIS-127). `absorbs` is load-bearing, not a
+    // note: check-references.mjs reads it to keep absorbed identifiers
+    // resolving, so a merged decision stays reachable (ADR-030). `amends`
+    // records a decision that narrows a standard without superseding it.
+    'absorbs', 'amends'],
   'agents': ['role', 'platform', 'model', 'soul', 'agent',
     'previous_name', 'previous_name_note', 'translation_note'],
   'debt': ['severity', 'severity_reason', 'detected', 'refuted', 'source_audit', 'opened_by',

@@ -132,7 +132,7 @@ completes the work.
 
 ### Out of scope
 
-- The RPG manual (`numinia-lore`, reserved lore, ADR-024 exception).
+- The RPG manual (`numinia-lore`, reserved lore, ADR-023 (formerly ADR-024) exception).
 - A hand-maintained mirror corpus — refused; the machine layer plus
   opt-in twins is the model.
 - Retiring the 301s — old Spanish URLs answer forever.

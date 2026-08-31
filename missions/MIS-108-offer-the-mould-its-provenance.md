@@ -24,13 +24,13 @@ requires_oracle_approval: true
 human_approval_score: 8
 parent_mission: null
 sub_missions: []
-depends_on: ["ADR-003"]
+depends_on: ["ADR-001 (formerly ADR-003)"]
 started: null
 completed: null
 ---
 # MIS-108 — Offer the mould its own provenance
 
-> **Summary:** ADR-003 corrected where the engineering standards come from. The
+> **Summary:** ADR-001 corrected where the engineering standards come from. The
 > mould still carries the old text, and its `CLAUDE.md` still orders agents to
 > route changes to an upstream that does not exist.
 > **Epistemic:** What it takes to correct a document in a repository you do not
@@ -59,7 +59,7 @@ repository is not asking permission from someone who never had authority over me
 
 ## Context (2026-08-20)
 
-ADR-003 established: the engineering standards **originate in
+ADR-001 established: the engineering standards **originate in
 `numengames/numinia-nwos`**; the copy in the mould is a *starting proposal* that
 whoever adopts it owns. Neither copy is downstream of the other.
 

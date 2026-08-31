@@ -27,7 +27,7 @@ canon/C-005-licensing.md — the four regimes and their rules
 
 ## Legal debt
 
-`debt/` entries tagged `legal` (ADR-031; was LEGAL_DEBT.md) — granted waivers, exit thresholds; LICENSES/ and REUSE.toml — declarations of record
+`debt/` entries tagged `legal` (ADR-026 (formerly ADR-031); was LEGAL_DEBT.md) — granted waivers, exit thresholds; LICENSES/ and REUSE.toml — declarations of record
 
 ## Marks
 

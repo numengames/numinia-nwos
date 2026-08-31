@@ -128,8 +128,8 @@ So the two entry documents for a cold agent (README, CONTRIBUTING) each hand the
 
 | File | id |
 |---|---|
-| `ADR-001-github-como-archivo.md` | ADR-001 |
-| `ADR-002-formato-markdown.md` | ADR-002 |
+| `ADR-001-the-archive.md` | ADR-001 |
+| `ADR-001 (formerly ADR-002)-formato-markdown.md` | ADR-001 |
 | `DEC-001-self-hosting-sobre-saas.md` … `DEC-005-pablofm-portal-publico-cao.md` | DEC-001…DEC-005 |
 | `DEC-006-english-official-repo-language.md` | DEC-006 |
 

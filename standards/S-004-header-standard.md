@@ -9,7 +9,7 @@ created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
 updated: "2026-08-30T17:51:00Z"
-ratified_by: "ADR-029"
+ratified_by: "ADR-027 (formerly ADR-029)"
 author: "ursa"
 owner: "oracle"
 license: "CC-BY-4.0"
@@ -18,7 +18,7 @@ tags: [frontmatter, standard, lint, metadata]
 
 # S-004 — The header in three rings
 
-> **Status: ACTIVE** — ratified by `ADR-029` (2026-08-30), which moved this
+> **Status: ACTIVE** — ratified by `ADR-027` (2026-08-30), which moved this
 > document from `draft`/0.2.0 to `active`/1.0.0. The DRAFT banner that stood
 > here outlived its own ratification by two days; removed 2026-08-30 in the
 > standards-consolidation PR.
@@ -102,7 +102,7 @@ what they must carry, that card decides when.
 **Empty is absent (H-09):** a field with an empty value is a lint error.
 Absence is *declared*, not left blank: omit the field, or write `null`, or
 write `"TBA"` — whichever tells the truth about the gap (S-001 §6.3,
-ADR-028). Every `"TBA"` is counted and reported by the guard, and names the
+ADR-027 (formerly ADR-028)). Every `"TBA"` is counted and reported by the guard, and names the
 mission that resolves it. 74 violations today.
 
 ## 3. Ring 2 — provenance (strict where evidence exists)
@@ -126,7 +126,7 @@ from a commit is evidence; a typed one is a claim*).
 S-001 §7 declares 10 values; the corpus uses 18. The census splits the 8
 intruders into two classes, and they deserve opposite treatment:
 
-**Legitimate, ADMITTED (ADR-029, 2026-08-30):**
+**Legitimate, ADMITTED (ADR-027, 2026-08-30):**
 
 - **`agent`** — 24 documents, the whole `agents/` series. S-001 §3's own
   canonical map has **no row for `agents/`**: the series that answers
@@ -134,7 +134,7 @@ intruders into two classes, and they deserve opposite treatment:
   drift in the corpus. `type: agent` ↔ `agents/`, strict.
 
   *This value was already enforced by `lint-frontmatter.mjs` before any
-  decision admitted it — the guard ran ahead of the standard. ADR-029
+  decision admitted it — the guard ran ahead of the standard. ADR-027
   closes that inversion rather than pretending it never happened.*
 
 **Drift, propose to MIGRATE (mechanical, one PR each):**
@@ -195,7 +195,7 @@ Initial registry — transcribed from actual majority use, not invented:
 |---|---|
 | `missions/` | `priority` `effort` `assigned_to` `started` `completed` `mission_id` `type_execution` `freeze_reason` `in_review_at` `depends_on` `parent_mission` `sub_missions` `blocked_by` `requires_oracle_approval` `human_approval_score` `paths` `context` `divergence_log` |
 | `reports/` | `severity` `period` `subtype` `model` `agent` `week` `scope` |
-| `decisions/` | `deciders` `consulted` `outcome` `decision` |
+| `decisions/` | `deciders` `consulted` `outcome` `decision` `absorbs` `amends` |
 | `agents/` | `role` `platform` `model` `soul` `agent` |
 | `debt/` | `severity` `severity_reason` `detected` `refuted` `source_audit` `opened_by` `visibility_reason` |
 | `blueprints/` `operations/` | `extraction_note` `restoration_note` |
@@ -222,7 +222,7 @@ A field can be required, present, and **not yet decided**. `S-001` uses
 `territory: "TBA"` as the canonical example: the field applies, the value
 exists, the decision has not been taken.
 
-`ADR-028` permits this under exactly one condition and forbids it
+`ADR-027` permits this under exactly one condition and forbids it
 otherwise:
 
 > A `TBA` without a mission that will resolve it is a parking space.
@@ -231,7 +231,7 @@ So the lint does **not** treat `TBA` as a violation. It **counts** it, and
 names the mission that owns it:
 
 ```
-deferred values (ADR-028):
+deferred values (ADR-027):
   TBA territory: 76 — owned by MIS-124
 ```
 
@@ -246,7 +246,7 @@ resolves. The count is what separates a declared unknown from a quiet one.
 
 **What this cannot check** (`D-025`): whether the owning mission is alive.
 A `TBA` pointing at an abandoned mission passes the guard and is exactly
-the parking space `ADR-028` forbids. Only a human reading the board
+the parking space `ADR-027` forbids. Only a human reading the board
 catches that.
 
 
@@ -272,7 +272,7 @@ A vocabulary nobody checks is not a vocabulary. It is a suggestion.
 
 Two rules govern the edges:
 
-- **`TBA` is legal here.** A deferred value is ruled by `ADR-028` and §6.1
+- **`TBA` is legal here.** A deferred value is ruled by `ADR-027` and §6.1
   above; H-33…H-36 skip it rather than double-report it.
 - **A `TEMPLATE.md` may document its options inline** (`digital  # digital|hybrid`).
   The comment is stripped before judging: the vocabulary gets checked and

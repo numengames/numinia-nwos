@@ -87,7 +87,7 @@ at once, so each PR stays small and reviewable.
             history noted inline.
 - [x] **`canon/`** — 3 files (`C-005-licensing.md`, `C-007-rank-specifications.md`, `INDEX.md`)
       — merged in [PR #90](https://github.com/numengames/numinia-nwos/pull/90).
-      Required a prior canon-change: `ADR-024` ([PR #89](https://github.com/numengames/numinia-nwos/pull/89))
+      Required a prior canon-change: `ADR-023 (formerly ADR-024)` ([PR #89](https://github.com/numengames/numinia-nwos/pull/89))
       revoked C-005 §5's es-ES exception — amendment first, translation second.
       Sole language exception system-wide, recorded as debt in the ADR: the RPG
       manual (`numinia-lore`).
@@ -165,7 +165,7 @@ All nine rows translated and merged. Real PR list, in order:
 | [#85](https://github.com/numengames/numinia-nwos/pull/85) | `protocols/` row (P-010) |
 | [#86](https://github.com/numengames/numinia-nwos/pull/86) | `standards/` — S-003 |
 | [#87](https://github.com/numengames/numinia-nwos/pull/87) | `standards/` — Design System v5.1.0 (largest file) |
-| [#89](https://github.com/numengames/numinia-nwos/pull/89) | **ADR-024** — canon-change prerequisite, not in the plan |
+| [#89](https://github.com/numengames/numinia-nwos/pull/89) | **ADR-023** — canon-change prerequisite, not in the plan |
 | [#90](https://github.com/numengames/numinia-nwos/pull/90) | `canon/` row (3 files) |
 | [#92](https://github.com/numengames/numinia-nwos/pull/92) | `reports/` row (5 files) |
 | [#94](https://github.com/numengames/numinia-nwos/pull/94) | `operations/` row (7 files, O-003 EN master) |
@@ -178,7 +178,7 @@ All nine rows translated and merged. Real PR list, in order:
 1. **The canon-change nobody planned.** C-005 §5 *prescribed* its own
    language (es-ES) — translating it without amending it first would have
    made the file contradict itself. Resolved as two acts on the Oracle's
-   signed decision (option B): ADR-024 amends §5 (#89), then the
+   signed decision (option B): ADR-023 amends §5 (#89), then the
    translation lands (#90). English is now the base language of every
    summa document; the sole exception, recorded as debt in the ADR, is
    the RPG manual (`numinia-lore`).

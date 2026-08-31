@@ -37,7 +37,7 @@ series_change:
 
     The move would otherwise have released it under CC-BY-4.0 by folder
     inheritance — and CC-BY is irrevocable, the same mechanism as the CC0
-    incident recorded as legal debt (D-042, was LEGAL_DEBT.md LD-001; ADR-031). This document is not platform
+    incident recorded as legal debt (D-042, was LEGAL_DEBT.md LD-001; ADR-026 (formerly ADR-031)). This document is not platform
     mechanics: NOMAD, CITIZEN, PILGRIM, VERNACULAR, ARCHON and ORACLE are
     Numinia's own rank names, and promotion is tied to Session Zero, guilds
     and factions — all reserved canon. A document defining how one ascends

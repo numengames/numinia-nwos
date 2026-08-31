@@ -1,7 +1,7 @@
 ---
 # CORE — the ten fields the build verifies (web/src/content.config.ts).
 id: "MIS-123"
-title: "Make ADR-028 real: value checks, a TBA counter, and the vocabulary the guard never read"
+title: "Make ADR-027 (formerly ADR-028) real: value checks, a TBA counter, and the vocabulary the guard never read"
 status: todo
 priority: high
 effort: M
@@ -22,17 +22,17 @@ tags: [standards, frontmatter, guard, vocabulary, adr-028, tba]
 license: "CC-BY-4.0"
 
 paths: [scripts/lint-frontmatter.mjs, standards/S-001-glossary.md, standards/S-004-header-standard.md]
-depends_on: [ADR-028, ADR-029]
+depends_on: [ADR-027, ADR-027 (formerly ADR-029)]
 blocked_by: null
 ---
 
-# MIS-123 — Make ADR-028 real
+# MIS-123 — Make ADR-027 real
 
-**Base:** `main` @ `fd4d045` · **Decisions:** `ADR-028`, `ADR-029`
+**Base:** `main` @ `fd4d045` · **Decisions:** `ADR-027`, `ADR-027`
 
 ## Why this mission exists
 
-`ADR-028` was signed on 2026-08-30. It declares three forms of absence and
+`ADR-027` was signed on 2026-08-30. It declares three forms of absence and
 rules that a closed vocabulary without a check is not a vocabulary.
 
 **Nothing in it changes what any machine does.** An ADR is a record, not a
@@ -57,7 +57,7 @@ This mission is the difference between deciding and enforcing.
 
 Thirty-four documents carry values `S-001` §7 calls invalid and **no
 instrument has ever said so**. `guild` holds `Procuradores` ×8 — Spanish,
-from before `ADR-024` renamed the guilds.
+from before `ADR-023 (formerly ADR-024)` renamed the guilds.
 
 `visibility` is the worst of the six: `web/src/lib/corpus.ts` decides **what
 reaches the public site** by reading it, and its vocabulary was never written
@@ -136,7 +136,7 @@ in use are undeclared; six declared values are unused.
 Measured on `main` @ `fd4d045`, 2026-08-30. Counts of invalid values per
 field come from comparing each document's frontmatter against the lists in
 `S-001` §7; the `null` census (`completed` ×37, `assigned_to` ×24 = 61
-documents, zero baseline entries) is what `ADR-028` legalises.
+documents, zero baseline entries) is what `ADR-027` legalises.
 
 ## A mission can be conformant or visible, not both — RESOLVED 2026-08-30
 

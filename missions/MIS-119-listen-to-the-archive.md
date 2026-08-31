@@ -130,7 +130,7 @@ engine default rather than failing.
 The document language comes from frontmatter (`idioma_canonico` / `lang`)
 when declared, else the site default (`en`) — a Spanish document read by an
 English voice is unusable, and the corpus still carries Spanish documents
-mid-migration (ADR-024).
+mid-migration (ADR-023 (formerly ADR-024)).
 
 ---
 

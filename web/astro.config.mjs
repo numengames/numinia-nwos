@@ -41,7 +41,36 @@ export default defineConfig({
 		"/corpus/protocols/p-013-handing-a-guard-to-ci": "/corpus/protocols/pro-013-handing-a-guard-to-ci",
 		"/corpus/protocols/approval-request-template": "/corpus/protocols/pro-008-decision",
 		"/corpus/protocols/2026_04_14-read_me_how_to_archive-v020": "/corpus/protocols/pro-010-how-to-archive",
-		// 2026-08-30 ADR-031: root registers dissolved. Old corpus URLs 301.
+		// 2026-08-31 MIS-127: decisions consolidated 16 -> 7 by theme.
+		// Nine identifiers were ABSORBED, not deleted: each address points at
+		// the record that now contains that reasoning, never at the section
+		// index. A 301 to /decisiones would satisfy the guard and lose the
+		// answer — the failure mode check-url-lifecycle declares it is blind
+		// to (D-028). ADR-030 test 2.
+		"/decisiones/adr-002": "/decisiones/adr-001",
+		"/decisiones/adr-003": "/decisiones/adr-001",
+		"/decisiones/dec-001": "/decisiones/adr-001",
+		"/decisiones/adr-024": "/decisiones/adr-023",
+		"/decisiones/adr-031": "/decisiones/adr-026",
+		"/decisiones/adr-028": "/decisiones/adr-027",
+		"/decisiones/adr-029": "/decisiones/adr-027",
+		"/decisiones/adr-032": "/decisiones/adr-030",
+		"/decisiones/adr-033": "/decisiones/adr-030",
+		"/decisions/adr-002": "/decisions/adr-001",
+		"/decisions/adr-003": "/decisions/adr-001",
+		"/decisions/dec-001": "/decisions/adr-001",
+		"/decisions/adr-024": "/decisions/adr-023",
+		"/decisions/adr-031": "/decisions/adr-026",
+		"/decisions/adr-028": "/decisions/adr-027",
+		"/decisions/adr-029": "/decisions/adr-027",
+		"/decisions/adr-032": "/decisions/adr-030",
+		"/decisions/adr-033": "/decisions/adr-030",
+		// /corpus/decisions.md and /print/corpus/decisions/ die with
+		// decisions/INDEX.md. The section index /corpus/decisions survives —
+		// it is derived from the collection (web/src/lib/corpus.ts), which is
+		// why the hand-written INDEX was redundant.
+		"/corpus/decisions.md": "/corpus/decisions",
+		// 2026-08-30 ADR-026 (formerly ADR-031): root registers dissolved. Old corpus URLs 301.
 		"/corpus/gaps": "/corpus/reports/rpt-2026-04-07-gaps-capability-map",
 		"/corpus/legal_debt": "/corpus/debt",
 		"/corpus/deuda-404": "/corpus/debt",

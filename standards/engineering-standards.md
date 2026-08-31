@@ -173,7 +173,7 @@ history, never in new commits): `session`, `qa`, `standards`, `canon`,
 
 ### 2.8 Legal / Compliance — by reference
 
-Governed entirely by **Canon C-005** (licensing trichotomy, REUSE 3.3, SPDX, dual-licensing, legal debt in `debt/` tagged `legal` — ADR-031, visibility gate). This document adds only one operational rule:
+Governed entirely by **Canon C-005** (licensing trichotomy, REUSE 3.3, SPDX, dual-licensing, legal debt in `debt/` tagged `legal` — ADR-026 (formerly ADR-031), visibility gate). This document adds only one operational rule:
 
 | ID | Practice | Level | Check |
 |---|---|---|---|

@@ -29,7 +29,7 @@ All three were already ruled, signed, and sitting in this repository:
 
 | What I said | What the canon already said |
 |---|---|
-| "`territory` is blocked — decide the vocabulary" | `ADR-028` L144-148: 66 documents map, **76 take `TBA`** |
+| "`territory` is blocked — decide the vocabulary" | `ADR-027 (formerly ADR-028)` L144-148: 66 documents map, **76 take `TBA`** |
 | "111 orphan fields — register them or delete them?" | `S-004` §6: **they die by omission** |
 | "the guild vocabulary has thirteen values" | `S-001` L957: it has **four**. I invented the rest |
 
@@ -55,7 +55,7 @@ territory  (70 uses, ring 3-all)
   status:     ruled
   decided by: S-004 §6
   vocabulary: CAO · Product · Platform · Infrastructure · Content · Sales · Funding · Archive
-  note:       ADR-028: documents that do not map take TBA, owned by the mission
+  note:       ADR-027: documents that do not map take TBA, owned by the mission
               that closes the vocabulary
   carried by: canon, debt, decisions, missions, protocols, reports, standards
 ```
@@ -125,7 +125,7 @@ has **no** guard implementation at all, this index will still call the field
 `unruled`.
 
 `territory` is the proof: it reports `ruled` only because I hand-wired the
-`VOCAB` block from `S-001` L964 and `ADR-028`. Three vocabularies are wired
+`VOCAB` block from `S-001` L964 and `ADR-027`. Three vocabularies are wired
 that way. **The other four declared vocabularies are not, and the index cannot
 see them.**
 

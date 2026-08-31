@@ -78,7 +78,7 @@ This mission generalizes that seed into a narrative system:
    ONE contextual line per moment. Tone: reassure and inform, never alarm,
    never lecture (rule inherited from MISSION-002 UX: no fear words).
 3. **/city/ narrative page:** "Numinia vs the internet of today" — lore prose
-   ES+EN (ADR-002), sourced from the seminal corpus + Lanier, with the
+   ES+EN (ADR-001 (formerly ADR-002)), sourced from the seminal corpus + Lanier, with the
    trust-moment lines quoting it.
 4. **Instrumentation:** `data-metric` on any interactive element these copy
    blocks introduce; no new PII, by construction.
@@ -102,4 +102,4 @@ Scenario: The narrative page grounds the claim
 
 Data-dignity payments/pricing (Lanier's MID concept as mechanism), any
 tokenomics, consent-banner legal work (D12), translating the deep essay beyond
-ES+EN (ADR-002).
+ES+EN (ADR-001).

@@ -15,7 +15,7 @@ supersedes_note: >-
   numinia-nwos. Consumers pending re-anchor: numinia-web/design-source.json is
   still pinned to v5.0.0 (sha a075e215…) and its guard
   scripts/check-design-source.mjs will fail with HTTP 404 until re-pinned to
-  this document. See `debt/D-040` (was DEUDA-404.md, dissolved by ADR-031).
+  this document. See `debt/D-040` (was DEUDA-404.md, dissolved by ADR-026 (formerly ADR-031)).
 deriva_de: 2026_08_15-Numen_Design_System-v4_2_0 + 2026_03_20-Numinia_Brand_and_Culture-v0.1.2
 registros: "1 Umbral · 2 Velo · 3 Low-poly · 4 Píxel"
 idioma_canonico: en  # es-ES until MIS-116 (DEC-006: English as repo language)

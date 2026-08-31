@@ -23,10 +23,10 @@ type_execution: digital
 
 ## Why this mission exists
 
-`ADR-028` ruled how `area` becomes `territory`: the documents that map to a
+`ADR-027 (formerly ADR-028)` ruled how `area` becomes `territory`: the documents that map to a
 declared territory take their value, **and the ones that do not take `TBA`**.
 
-`TBA` is not a shrug. `ADR-028` L95-97 is explicit: **a `TBA` without a mission
+`TBA` is not a shrug. `ADR-027` L95-97 is explicit: **a `TBA` without a mission
 that will resolve it is a parking space, and parking spaces are forbidden.**
 
 This is that mission. Every `TBA` written into `territory` by phase 3 of the
@@ -53,7 +53,7 @@ Verified at `b09311c`. Of the 142 documents still carrying `area`:
 | orphan (`web` ×12, `Documentation`) | 34 |
 | **→ will take `TBA`** | **76** |
 
-`ADR-028` predicted 66 / 76. The measurement agrees exactly.
+`ADR-027` predicted 66 / 76. The measurement agrees exactly.
 
 ## The judgement on the table
 

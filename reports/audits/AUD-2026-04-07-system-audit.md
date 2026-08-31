@@ -12,7 +12,7 @@ updated: "2026-08-27T22:31:29Z"
 author: "nimrod"
 tags: [audit, transparency, divergences, web, repo]
 license: "CC-BY-4.0"
-extraction_note: "Extracted verbatim from web/src/pages/auditoria.astro (MIS-071 phase 1 — audits/auditoria merge). Supersedes and extends blueprints/AUDIT-2026-04-07-web-vs-repo.md. Content was preserved in its original Spanish at extraction; translated to English under MIS-116 (ADR-024) — language only, facts untouched."
+extraction_note: "Extracted verbatim from web/src/pages/auditoria.astro (MIS-071 phase 1 — audits/auditoria merge). Supersedes and extends blueprints/AUDIT-2026-04-07-web-vs-repo.md. Content was preserved in its original Spanish at extraction; translated to English under MIS-116 (ADR-023 (formerly ADR-024)) — language only, facts untouched."
 ---
 
 # System audit
@@ -88,11 +88,11 @@ The repo is the declared source of truth of the NWOS. The web reads from hardcod
 
 *They affect completeness.*
 
-### A-006 — ADR-001 and ADR-002 do not appear in /decisiones
+### A-006 — ADR-001 and ADR-001 (formerly ADR-002) do not appear in /decisiones
 
 - **State:** open
-- **Divergence:** The repo has 7 decisions (ADR-001, ADR-002, DEC-00001 to DEC-00005). The web only shows the 5 DECs. The technical architecture decisions (GitHub as Archive Summa, Markdown as universal format) are not visible.
-- **Fix:** Add ADR-001 and ADR-002 to the /decisiones page.
+- **Divergence:** The repo has 7 decisions (ADR-001, ADR-001, DEC-00001 to DEC-00005). The web only shows the 5 DECs. The technical architecture decisions (GitHub as Archive Summa, Markdown as universal format) are not visible.
+- **Fix:** Add ADR-001 and ADR-001 to the /decisiones page.
 
 ### A-007 — BLU-001-wardley-map.md with no page in /planos
 
@@ -165,7 +165,7 @@ The previous 9.5/10 score counted the missions as if they were in the repo. In r
 | 🔴 | Update the CAO dashboard (Nimrod, 57 missions, $100, 40 PRs) | This week |
 | 🔴 | Publish RPT-2026-04-07 on the web | This week |
 | 🔴 | Add MIS-00055, 056, 057 to misiones.ts | This week |
-| 🟡 | Add ADR-001 and ADR-002 to /decisiones | This week |
+| 🟡 | Add ADR-001 and ADR-001 to /decisiones | This week |
 | 🟡 | Create agents/procyon/ with a basic SOUL.md | This week |
 | 🔴 | GitHub API as real-time data source (MIS-00040) | Next sprint |
 | 🟢 | BP-simulaciones.md and BP-gaps-y-soluciones.md in the repo | Next sprint |
