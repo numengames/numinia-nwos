@@ -8,6 +8,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import pagefind from "astro-pagefind";
 import { defineConfig } from "astro/config";
+import rehypeContextCard from "./src/lib/rehype-context-card.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -204,6 +205,14 @@ export default defineConfig({
 	// at the source (data-pagefind-body only on Layout's article) and the
 	// intermediates are deleted before deploy anyway.
 	integrations: [react(), tailwind(), sitemap({ filter: (page) => !page.includes("/print/") }), pagefind()],
+	// Every corpus document opens with a Summary/Epistemic/Pragmatic/Audience
+	// blockquote. Markdown renders those four lines as one paragraph, which
+	// reads as a grey wall. rehypeContextCard turns that one blockquote shape
+	// into a definition list — one field per row — and leaves every other
+	// blockquote untouched. See src/lib/rehype-context-card.mjs.
+	markdown: {
+		rehypePlugins: [rehypeContextCard],
+	},
 	vite: {
 		resolve: {
 			alias: {

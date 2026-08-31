@@ -171,3 +171,81 @@
 		50% { opacity: 0.15; }
 	}
 }
+
+/* ── Context card ─────────────────────────────────────────────────────────
+   The header every corpus document opens with: Summary, Epistemic,
+   Pragmatic, Audience. In markdown it is one blockquote of four soft-broken
+   lines, which the browser reflows into an unreadable grey block — labels
+   and prose in the same voice, no boundary between "what you learn" and
+   "what you can do".
+
+   rehype-context-card.mjs turns that blockquote into this <dl>. One field
+   per row: label in the mono accent voice used for section headings, value
+   in reading prose. The Summary reads first and largest because it is the
+   one line that answers "should I read this at all"; Audience closes the
+   card as a quiet tag, since it addresses someone rather than describing
+   the document.
+
+   Below 640px the two columns stack — a 6rem label column next to a full
+   sentence is a column of broken words on a phone.
+   ──────────────────────────────────────────────────────────────────────── */
+.context-card {
+	margin: 0 0 2rem;
+	padding: 1.1rem 1.25rem;
+	border: 1px solid rgb(var(--border));
+	border-left: 2px solid rgb(var(--accent) / 0.55);
+	border-radius: 0.6rem;
+	background: rgb(var(--bg-card-hover) / 0.45);
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 0.15rem 1.1rem;
+}
+
+.context-card dt {
+	font-family: var(--font-mono);
+	font-size: 0.6rem;
+	text-transform: uppercase;
+	letter-spacing: 0.16em;
+	color: rgb(var(--accent));
+	padding-top: 0.15rem;
+}
+
+.context-card dd {
+	margin: 0 0 0.7rem;
+	font-size: 0.875rem;
+	line-height: 1.6;
+	color: rgb(var(--text-muted));
+}
+
+.context-card dd:last-child { margin-bottom: 0; }
+
+/* Summary: the sentence that decides whether the rest gets read. */
+.context-card dd.ctx-summary,
+.context-card dd.ctx-resumen {
+	font-size: 0.95rem;
+	color: rgb(var(--text));
+}
+
+/* Audience names a reader; it is not a description. Quieter, and monospaced
+   so a list of roles reads as labels rather than as a sentence. Keyed on the
+   label, not on position: 62 of the 208 cards end on some other field. */
+.context-card dd.ctx-audience,
+.context-card dd.ctx-track,
+.context-card dd.ctx-status,
+.context-card dd.ctx-priority,
+.context-card dd.ctx-effort,
+.context-card dd.ctx-size {
+	font-family: var(--font-mono);
+	font-size: 0.7rem;
+	letter-spacing: 0.04em;
+	color: rgb(var(--text-dim));
+}
+
+@media (min-width: 640px) {
+	.context-card {
+		grid-template-columns: 6.25rem 1fr;
+		gap: 0.55rem 1.25rem;
+		padding: 1.35rem 1.5rem;
+	}
+	.context-card dd { margin-bottom: 0; }
+}

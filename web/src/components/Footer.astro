@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: MIT
 import { navItems } from "@/data/navigation";
 import { socialLinks } from "@/data/social-links";
-import { VERSION, COMMIT_SHA, COMMIT_URL } from "@/lib/build-info";
+import { VERSION, COMMIT_SHA, COMMIT_URL, REPO_URL } from "@/lib/build-info";
 import { useT } from "@/i18n/ui";
 const t = useT();
 ---
@@ -88,7 +88,7 @@ const t = useT();
       </p>
       <p class="mt-2 font-mono text-[0.65rem] text-dim">
         <a
-          href="https://github.com/numen-games/numinia-nwos/blob/main/canon/C-005-licensing.md"
+          href={`${REPO_URL}/blob/main/canon/C-005-licensing.md`}
           target="_blank"
           rel="noopener noreferrer"
           class="transition-colors hover:text-accent"
