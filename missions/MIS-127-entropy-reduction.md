@@ -4,16 +4,16 @@ uid:
 title: "Entropy reduction: fewer documents, one vocabulary, registers that die"
 type: mission
 status: in-progress
-version: "0.6.0"
+version: "0.7.0"
 created: "2026-08-30T18:50:00Z"
-updated: "2026-08-31T13:11:21+02:00"
+updated: "2026-09-01T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
 territory: "Archive"
 tags: [entropy, consolidation, debt, standards, reduction]
 license: "CC-BY-4.0"
-related: ["ADR-030", "P-010", "MIS-125", "MIS-121"]
+related: ["ADR-030", "ADR-036", "P-010", "MIS-125", "MIS-121"]
 ---
 
 # Entropy reduction: fewer documents, one vocabulary, registers that die
@@ -67,8 +67,10 @@ same-method start-to-finish. Anyone auditing against the original
 | — | [#161](https://github.com/numengames/numinia-nwos/pull/161) (merged, `534e25e`) | *Not a reduction PR* — MIS-125 Stage B: `scripts/rename-series.mjs` built and dry-run tested (6 real bugs caught, incl. a CodeQL regex-injection fix); D-008 v2.2.0 (`debt/D-002` extinguishment recount, discovered via this PR's own dry-run count mismatch). Detail in `MIS-125` itself. | +1 file (`scripts/rename-series.mjs`) | not measured — not a reduction PR |
 | 6 | #TBD (this PR) | **`decisions/` consolidated 16 → 7 by theme.** Nine identifiers absorbed (ADR-002/003/DEC-001→ADR-001; ADR-024→ADR-023; ADR-031→ADR-026; ADR-028/029→ADR-027; ADR-032/033→ADR-030), `INDEX.md` deleted (the site derives its index from the collection). ADR-030 v3.0.0 defines **absorption** and amends `STD-001`; `check-references.mjs` reads the new `absorbs:` field so absorbed IDs keep resolving; 18 URLs 301 to their absorbing record, not to the section index | −10 files | **−19,996** in `decisions/`, +715 across 47 files for the citation rewrite = **−19,281 net** |
 
-**Reduction-line total (PRs #145–148, #153, and this one): −29,306 tokens,
-−16 files net**, against
+| 7 | [#190](https://github.com/numengames/numinia-nwos/pull/190) (pending) | **`canon/` consolidated 12 → 7, one series, one regime.** `C-` renamed to `CAN-` (eight `N-04` violations closed); the two dated documents ruled NOT frozen artifacts and entered the series as `CAN-006`/`CAN-007`; `C-007` merged verbatim into `CAN-003`; `C-006 Session Zero` moved to `numinia-lore` (`ADR-035` — game design, not governing canon); the three apparatus files (index, readme and the lore sheet) retired, the index's historical record inherited by `ADR-036` §6 and the lore lines folded into `SYS-003`'s frontmatter (the `canonLore` collection is gone). `REUSE.toml` corrected to `CC0-1.0`: the documents were first published under the CC0 root licence in April 2026, four months before the reserved regime, and a CC0 grant is irrevocable — same fault `ADR-026` fixed for `agents/**`. ⚠️ `ADR-004` rule 4 suspended by Oracle ruling (`CAN-006`/`007` reuse burned numbers) until `uid` is populated | −4 files | **−9,043** in `canon/` (−9,835 retired, +792 the merge), +4,391 `ADR-036`, +427 across citations, guards and web = **−4,225 net** |
+
+**Reduction-line total (PRs #145–148, #153, #190, and this one): −33,531 tokens,
+−20 files net**, against
 the 575,958-token re-measured baseline. The four non-reduction closures
 (#149–152, +3,285 tokens combined, #152 not separately measured) are unrelated mission
 paperwork that happened to land in the same window — real, necessary, and outside this
@@ -77,6 +79,13 @@ ledger's mandate, not netted against it.
 **Cumulative repo state before #153: 328 files, 570,779 tokens** (per #152's
 measurement). **After #153 lands: 323 files, ≈569,218 tokens** — a projected
 net −6,740 from the 575,958 re-measured baseline.
+
+**Measured at #190's base (`3b570ee`): 268 files, 549,435 tokens; at its head
+(`f42b4f3`): 264 files, 545,210 tokens.** Same method as the re-measurement
+above — every tracked `.md` except `.github/`, `git show <rev>:<path>` through
+`cl100k_base`. Note the census population differs from the 328-file figures
+above: those counted a repository that still held the `decisions/`,
+`blueprints/` and `debt/` documents this line has since retired.
 
 ## Open decision queue (one at a time, Oracle signs each)
 

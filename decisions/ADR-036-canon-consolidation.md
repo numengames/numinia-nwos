@@ -13,7 +13,7 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [canon, taxonomy, series, prefixes, licensing, CC0, deletion, ADR-004, ADR-005, ADR-030, CAN-005]
 license: "CC-BY-4.0"
-related: ["ADR-004", "ADR-005", "ADR-023", "ADR-026", "ADR-030", "ADR-035", "CAN-005", "PRO-010", "SYS-003", "DBT-001"]
+related: ["MIS-127", "ADR-004", "ADR-005", "ADR-023", "ADR-026", "ADR-030", "ADR-035", "CAN-005", "PRO-010", "SYS-003", "DBT-001"]
 threshold: sealed
 supersedes_record_of: ["canon/INDEX.md", "canon/README.md"]
 ---
@@ -22,6 +22,10 @@ supersedes_record_of: ["canon/INDEX.md", "canon/README.md"]
 
 **Status:** accepted · **Date:** 2026-09-01 · **Threshold:** `sealed`
 (Oracle signature required — `S-001` §2.1)
+
+**Mission:** `MIS-127` (entropy reduction), ledger entry 7 — measured at
+**−4 files, −4,225 tokens** (`cl100k_base`, same method as the rest of that
+line).
 
 ## Context
 
