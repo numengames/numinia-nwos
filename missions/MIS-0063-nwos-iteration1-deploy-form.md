@@ -13,11 +13,11 @@ started: "2026-04-07T22:55:00Z"
 completed: "2026-04-07T22:59:00Z"
 
 type: mission
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-04-07T22:55:00Z"
 created_source: "git:749f75c"
 created_confidence: inferred
-updated: "2026-04-07T23:00:00Z"
+updated: "2026-09-02T01:48:11+02:00"
 author: "pablo-fm"
 owner: "oracle"
 requested_by: "oracle"
@@ -31,17 +31,9 @@ license: "CC0-1.0"
 > **Pragmatic:** The NWOS product pipeline now has a live entry point. One click creates a client workspace.
 > **Audience:** Agents · Oracles
 
----
-
-**Area:** Product · **Guild:** Alchemists · **Type:** 🤖 Digital · **Priority:** 🔴 Critical · **Effort:** M
-
----
-
 ## Story
 
 As Pablo, I want a CEO to visit pablofm.com/velo, fill in their company name and email, click "Deploy Workspace", and have a personalized GitHub repo created automatically in the numen-games-nwos-orgs organization — so the NWOS product pipeline has a live entry point.
-
----
 
 ## Acceptance criteria
 
@@ -53,8 +45,6 @@ As Pablo, I want a CEO to visit pablofm.com/velo, fill in their company name and
 - [x] Follows DESIGN.md design system throughout
 - [x] No other pages touched
 - [x] Pushed to production (pablofm.com via Vercel)
-
----
 
 ## Execution
 
@@ -74,6 +64,8 @@ As Pablo, I want a CEO to visit pablofm.com/velo, fill in their company name and
 
 **Reference:** `nwos-phase2-guide.md` (provided by Pablo via Telegram)
 
----
-
 *Nimrod 🗡️ — 2026-04-07*
+
+## Version history
+
+- v1.0.1 (2026-09-02) — Form: inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed. missions/ normalisation, lot 2.

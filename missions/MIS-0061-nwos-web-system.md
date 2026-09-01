@@ -12,11 +12,11 @@ assigned_to: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-04-07T18:00:00Z"
 created_source: "git:749f75c"
 created_confidence: inferred
-updated: "2026-08-17T00:00:00Z"
+updated: "2026-09-02T01:48:11+02:00"
 author: "pablo-fm"
 owner: "oracle"
 tags: [web, nwos, visualization, ux, i18n, sistema, pablofm]
@@ -31,12 +31,6 @@ freeze_reason: cancelled
 > **Pragmatic:** A deployed, live web at pablofm.com/sistema that syncs from the repo and serves as the primary human interface for NWOS discovery and adoption.
 > **Audience:** Agents · Oracles · External teams considering NWOS adoption
 
----
-
-**Area:** Product · **Guild:** Alquimistas · **Type:** 🔧 Technical · **Priority:** 🟠 High · **Effort:** XL · **Human Approval:** 8/10
-
----
-
 ## Origin
 
 Decision taken 2026-04-07. The repo is the source of truth for NWOS — but repos are not human-friendly. The web is the interface that makes the system legible, beautiful, and adoptable.
@@ -48,8 +42,6 @@ This is not documentation. This is **the product face of NWOS**.
 - pablofm.com/sistema → presentation layer (with i18n)
 - Translations live in the web layer, not in the repo
 
----
-
 ## Vision
 
 El Sistema is the place where humans:
@@ -59,8 +51,6 @@ El Sistema is the place where humans:
 - Consider adopting NWOS for their own organization
 
 It must be **10/10 UX and UI** — the kind of interface that makes people say "I want this for my team."
-
----
 
 ## Core Features
 
@@ -101,8 +91,6 @@ Live KPIs of the NWOS instance:
 ### 10. Adoption Path
 For external organizations: "How would this work for my team?" → guided walkthrough of NWOS principles with examples from the live system.
 
----
-
 ## UX Principles
 
 - **Zero learning curve** — first visit should be self-explanatory
@@ -111,8 +99,6 @@ For external organizations: "How would this work for my team?" → guided walkth
 - **Mobile-first** — fully usable on phone
 - **Accessible** — WCAG AA minimum
 - **Delightful details** — micro-animations, hover states, transitions that feel intentional
-
----
 
 ## Technical Approach (proposed)
 
@@ -123,8 +109,6 @@ For external organizations: "How would this work for my team?" → guided walkth
 - **i18n:** Astro i18n with EN as default
 - **Deployment:** Vercel (same as pablofm.com)
 - **URL:** pablofm.com/sistema
-
----
 
 ## Acceptance Criteria
 
@@ -140,8 +124,6 @@ For external organizations: "How would this work for my team?" → guided walkth
 - [ ] Mobile-responsive
 - [ ] Pablo UX/UI approval: 10/10
 - [ ] Performance: Lighthouse score ≥ 90
-
----
 
 ## Phases
 
@@ -162,8 +144,6 @@ For external organizations: "How would this work for my team?" → guided walkth
 - System metrics dashboard
 - Adoption path for external orgs
 
----
-
 ## Epistemic Value
 
 A system that can only be read in a GitHub repo is a system for developers. A system with a beautiful web interface is a system for everyone. This is the difference between a tool and a product.
@@ -175,17 +155,11 @@ A system that can only be read in a GitHub repo is a system for developers. A sy
 - Demonstrates NWOS in action — the system documents itself
 - Part of the NWOS value proposition: the system is legible, navigable, alive
 
----
-
 ## Human Approval Required: 8/10
 
 Significant product build. UX/UI decisions require Pablo review before development starts. Phase 1 requires explicit go-ahead.
 
----
-
 *Nimrod 🗡️ — 2026-04-07*
-
----
 
 ## Closure (2026-08-17)
 
@@ -195,3 +169,6 @@ Closed as **cancelled — obsolete**, board triage ordered and approved by the O
 - **Evidence:** numinia.org live, board built from the canonical repo (MIS-066).
 - **Rule:** file preserved per P-003/SIM-2.7 and GOVERNANCE G-05 — closed, never deleted.
 
+## Version history
+
+- v1.0.1 (2026-09-02) — Form: inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed. missions/ normalisation, lot 2.

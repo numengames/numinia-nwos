@@ -13,11 +13,11 @@ started: "2026-04-08T05:59:00Z"
 completed: "2026-08-25"
 
 type: mission
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-04-08T06:02:27Z"
 created_source: "git:a5b6a0d"
 created_confidence: inferred
-updated: "2026-08-25T20:05:59Z"
+updated: "2026-09-02T01:48:11+02:00"
 author: "pablo-fm"
 owner: "oracle"
 requested_by: "oracle"
@@ -31,13 +31,9 @@ license: "CC0-1.0"
 > **Pragmatic:** Structured logs feed future dashboards, cost tracking, and compliance.
 > **Audience:** Agents · Oracles
 
----
-
 ## Story
 
 As operator, I want a structured log of every action executed by every agent, so I can audit the system at any time.
-
----
 
 ## Acceptance criteria
 
@@ -47,11 +43,7 @@ As operator, I want a structured log of every action executed by every agent, so
 - [x] Location convention defined (workspace/logs/)
 - [x] missions-index.json updated
 
----
-
 *Nimrod 🗡️ — started 2026-04-08*
-
----
 
 ## Epistemic value
 
@@ -60,8 +52,6 @@ Without logs, there is no audit. Without an audit, there is no trust.
 ## Pragmatic value
 
 Full traceability of what each agent did and how much it cost.
-
----
 
 ## Closure
 
@@ -73,3 +63,7 @@ or of the criteria.)*
 - **Signed by:** Oracle, 2026-08-25, as part of the board triage of the 111 missions.
   Classified read-only first; nothing was closed on impression.
 - **Closed:** 2026-08-25 · **by:** ursa (administrative), on the Oracle's signature
+
+## Version history
+
+- v0.2.1 (2026-09-02) — Form: import-era `---` rules removed. missions/ normalisation, lot 2.

@@ -13,11 +13,11 @@ started: "2026-04-08T05:46:00Z"
 completed: "2026-04-08T05:50:00Z"
 
 type: mission
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-04-08T05:47:08Z"
 created_source: "git:7bc2278"
 created_confidence: inferred
-updated: "2026-08-17T12:12:00Z"
+updated: "2026-09-02T01:48:11+02:00"
 author: "pablo-fm"
 owner: "oracle"
 requested_by: "oracle"
@@ -31,17 +31,9 @@ license: "CC0-1.0"
 > **Pragmatic:** A briefing protocol ensures every mission starts with the same quality of context, regardless of which agent executes it.
 > **Audience:** Agents · Oracles
 
----
-
-**Area:** CAO · **Guild:** Sentinels · **Type:** 🤖 Digital · **Priority:** 🔴 Critical · **Effort:** M
-
----
-
 ## Story
 
 As Pablo, I want every agent to follow a standard protocol when receiving a new mission, so that context is always understood correctly before execution begins — minimizing wasted effort and misaligned work.
-
----
 
 ## Acceptance criteria
 
@@ -52,6 +44,8 @@ As Pablo, I want every agent to follow a standard protocol when receiving a new 
 - [x] At least 3 BDD scenarios written
 - [x] missions-index.json updated
 
----
-
 *Nimrod 🗡️ — started 2026-04-08*
+
+## Version history
+
+- v0.2.1 (2026-09-02) — Form: inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed. missions/ normalisation, lot 2.

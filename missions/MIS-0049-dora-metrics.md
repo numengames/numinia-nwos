@@ -12,11 +12,11 @@ assigned_to: null
 completed: null
 
 type: mission
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-04-07T05:58:49Z"
 created_source: "git:428349f"
 created_confidence: inferred
-updated: "2026-08-26T13:03:10Z"
+updated: "2026-09-02T01:48:11+02:00"
 owner: "oracle"
 license: "CC0-1.0"
 
@@ -24,14 +24,10 @@ freeze_reason: cancelled
 ---
 # MIS-049 — DORA Metrics for numengames-web
 
-> **Summary:** NWOS system mission.
-> **Epistemic:** What you learn by reading this document.
-> **Pragmatic:** What you can do with this document.
+> **Summary:** Measure the 4 DORA metrics of the development flow, to know if we are a high-performance team.
+> **Epistemic:** DORA metrics are the industry standard for measuring engineering efficiency.
+> **Pragmatic:** Identify bottlenecks in the development flow before they scale.
 > **Audience:** Agents · Oracles
-
----
-
-**Area:** Operations · **Guild:** Sentinels · **Type:** 🤖 Digital · **Priority:** 🟡 Medium · **Effort:** M
 
 ## Story
 
@@ -52,14 +48,11 @@ DORA metrics are the industry standard for measuring engineering efficiency.
 
 Identify bottlenecks in the development flow before they scale.
 
----
-
 ## Version history
 
 - v1.0.0 (2026-04-04) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
-
----
+- v1.1.1 (2026-09-02) — Form: context card completed from the brief's own Story/Epistemic/Pragmatic text; inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed. missions/ normalisation, lot 2.
 
 ## Closure (2026-08-17)
 

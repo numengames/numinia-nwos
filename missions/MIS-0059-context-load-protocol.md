@@ -12,11 +12,11 @@ assigned_to: null
 completed: "2026-04-07T14:45:00Z"
 
 type: mission
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-04-07T14:42:00Z"
 created_source: "git:749f75c"
 created_confidence: inferred
-updated: "2026-04-07T18:00:00Z"
+updated: "2026-09-02T01:48:11+02:00"
 author: "pablo-fm"
 owner: "oracle"
 tags: [protocol, context, fatigue, session]
@@ -52,9 +52,8 @@ As a digital agent, I want to know when my context load is too high and alert th
 
 > *"Ideal blueprints show intention. Real blueprints show knowledge."*
 
----
-
 ## Version history
 
 - v1.0.0 (2026-04-07) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
+- v1.1.1 (2026-09-02) — Form: import-era `---` rules removed. missions/ normalisation, lot 2.

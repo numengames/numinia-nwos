@@ -8,16 +8,16 @@ effort: "L"
 guild: "Sentinels"
 territory: "Infrastructure"
 type_execution: "digital"
-assigned_to: "nimrod"
+assigned_to: null
 started: null
 completed: null
 
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-04-07T05:49:03Z"
 created_source: "git:e56f6e8"
 created_confidence: inferred
-updated: "2026-08-25T20:05:59Z"
+updated: "2026-09-02T01:48:11+02:00"
 author: "pablo-fm"
 owner: "oracle"
 requested_by: "oracle"
@@ -26,23 +26,14 @@ license: "CC0-1.0"
 ---
 # MIS-052 — On-premises infrastructure — Dedicated PC
 
-> **Summary:** NWOS system mission.
-> **Epistemic:** What you learn by reading this document.
-> **Pragmatic:** What you can do with this document.
+> **Summary:** Dedicated on-premises PC with Ubuntu 24.04 and Ollama, to reduce inference costs by 60-70% by running local models.
+> **Epistemic:** Determines which models fit in 16 GB VRAM and which tasks can migrate to local.
+> **Pragmatic:** Drastic reduction in monthly Anthropic API costs (~60-70%).
 > **Audience:** Agents · Oracles
-
----
-
-**Area:** Infrastructure · **Guild:** Sentinels · **Type:** 🤖 Digital
-**Priority:** 🟠 High · **Effort:** L
-
----
 
 ## Story
 
 As operator, I want a dedicated on-premises PC with Ubuntu 24.04 and Ollama, to reduce inference costs by 60-70% by running local models.
-
----
 
 ## Acceptance criteria
 
@@ -52,8 +43,6 @@ As operator, I want a dedicated on-premises PC with Ubuntu 24.04 and Ollama, to 
 - [ ] OpenClaw connected to local node
 - [ ] VPS services migrated
 
----
-
 ## Epistemic value
 
 Determines which models fit in 16 GB VRAM and which tasks can migrate to local.
@@ -61,8 +50,6 @@ Determines which models fit in 16 GB VRAM and which tasks can migrate to local.
 ## Pragmatic value
 
 Drastic reduction in monthly Anthropic API costs (~60-70%).
-
----
 
 ## Hardware
 
@@ -73,20 +60,15 @@ Drastic reduction in monthly Anthropic API costs (~60-70%).
 - **Motherboard:** ASUS PRIME X670E-PRO WIFI
 - **OS:** Ubuntu 24.04 LTS
 
----
-
 ## Notes
 
 PC in transit. When it arrives: install Ubuntu → CUDA → Ollama → connect to OpenClaw as local node.
-
----
 
 ## Version history
 
 - v1.0.0 (2026-04-05) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
-
----
+- v1.2.0 (2026-09-02) — context card completed from the brief's own Story/Epistemic/Pragmatic text; inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 2.
 
 ## Board triage — 2026-08-25
 
@@ -99,3 +81,10 @@ what changed is the claim that it was underway.
   in question (`D-026`, `D-027`). That is context; the evidence for this move is
   the absence of its own commit, not who it was assigned to.
 - **Signed by:** Oracle, 2026-08-25.
+
+## Status check — 2026-09-02
+
+*Read against `aebcf54` during the missions/ normalisation (lot 2). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** Triaged 2026-08-25 (category D, stale). Hardware in transit since April; 0/5 criteria. Assigned nimrod (retired).
+- **Recommendation:** Unassign; freeze with reason 'waiting on hardware delivery' — a todo that cannot start is frozen by STD-001's own definition. Unfreeze when the PC exists.

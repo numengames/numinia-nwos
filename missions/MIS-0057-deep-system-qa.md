@@ -12,11 +12,11 @@ started: "2026-04-07T00:00:00Z"
 completed: "2026-04-07T19:43:00Z"
 
 type: mission
-version: "2.0.0"
+version: "2.0.1"
 created: "2026-04-07T19:49:05Z"
 created_source: "git:36dee95"
 created_confidence: inferred
-updated: "2026-08-17T12:12:00Z"
+updated: "2026-09-02T01:48:11+02:00"
 author: "pablo-fm"
 owner: "oracle"
 requested_by: "oracle"
@@ -33,12 +33,6 @@ human_approval_score: 9
 > **Pragmatic:** System coherence restored. Ready to incorporate new agents and organizations.
 > **Audience:** Agents · Oracles
 
----
-
-**Area:** CAO · **Guild:** Sentinels · **Priority:** 🔴 Critical · **Effort:** XL
-
----
-
 ## Acceptance criteria — all met ✅
 
 - [x] All seminal documents correctly referenced in canon/INDEX.md
@@ -54,8 +48,6 @@ human_approval_score: 9
 - [x] blueprints/INDEX.md created
 - [x] BP-cao.md translated to English
 - [x] All changes validated by Oracle (Pablo FM)
-
----
 
 ## Real execution
 
@@ -102,8 +94,6 @@ human_approval_score: 9
 - A system audit is only complete when cross-references are validated (Adonaz contribution)
 - Consulting the archivist before marking work complete adds real value — 4 issues found in a well-written blueprint
 
----
-
 ## Epistemic value
 
 A deep QA reveals inconsistencies only visible when the system is observed as a whole. Each gap found is a learning about how a living system accumulates architectural debt. This session: 5 structural fixes, 1 new blueprint, 1 new mission spawned.
@@ -112,14 +102,11 @@ A deep QA reveals inconsistencies only visible when the system is observed as a 
 
 System coherence: 9.1/10 → maintained + extended. Foundation ready for MIS-062 (Mission System v2).
 
----
-
 ## Version history
 
 - v1.0.0 (2026-04-07) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
 - v2.0.0 (2026-04-07) — Closed. Full execution log. (Oracle: Pablo FM)
-
----
+- v2.0.1 (2026-09-02) — Form: inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed. missions/ normalisation, lot 2.
 
 *Nimrod 🗡️ · Guardian of the Gates · Numen Games / Numinia · 2026-04-07*

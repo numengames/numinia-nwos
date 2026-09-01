@@ -12,11 +12,11 @@ started: null
 completed: "2026-08-17"
 
 type: mission
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-04-07T19:43:00Z"
 created_source: "git:749f75c"
 created_confidence: inferred
-updated: "2026-08-17T00:00:00Z"
+updated: "2026-09-02T01:48:11+02:00"
 author: "pablo-fm"
 owner: "oracle"
 requested_by: "oracle"
@@ -30,17 +30,9 @@ license: "CC0-1.0"
 > **Pragmatic:** Foundation for strategic decisions in Q2.
 > **Audience:** Agents · Oracles
 
----
-
-**Area:** Documentation · **Guild:** Procurators · **Type:** 🔀 Hybrid · **Priority:** 🔴 Critical · **Effort:** S
-
----
-
 ## Story
 
 As a team, I want a structured document of current gaps, so we make informed decisions about priorities.
-
----
 
 ## Acceptance criteria
 
@@ -48,8 +40,6 @@ As a team, I want a structured document of current gaps, so we make informed dec
 - [ ] Each gap: description, impact, proposed solution, priority
 - [ ] Reviewed with Pablo in a dedicated session
 - [ ] Published as GAPS.md
-
----
 
 ## Epistemic value
 
@@ -59,24 +49,17 @@ Without a capability map, resources are assigned to the urgent but not the impor
 
 Foundation for strategic decisions in Q2.
 
----
-
 *Nimrod 🗡️ — recovered from pablofm-web (MIS-062.2) — 2026-04-07*
-
----
 
 ## Notes
 
 Identified on 2026-04-02. Promised to Pablo. Pending execution.
 
----
-
 ## Version history
 
 - v1.0.0 (2026-04-04) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
-
----
+- v1.0.1 (2026-09-02) — Form: inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed. missions/ normalisation, lot 2.
 
 ## Closure (2026-08-17)
 

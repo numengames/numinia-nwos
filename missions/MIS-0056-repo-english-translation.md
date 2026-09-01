@@ -12,11 +12,11 @@ assigned_to: null
 completed: "2026-08-17"
 
 type: mission
-version: "2.1.0"
+version: "2.1.1"
 created: "2026-04-07T18:07:56Z"
 created_source: "git:ce4aad1"
 created_confidence: inferred
-updated: "2026-08-17T15:02:30Z"
+updated: "2026-09-02T01:48:11+02:00"
 author: "pablo-fm"
 owner: "oracle"
 tags: [documentation, i18n, english, nwos, repo]
@@ -29,12 +29,6 @@ license: "CC0-1.0"
 > **Pragmatic:** Full translation scope, criteria, and execution plan.
 > **Audience:** Agents · Oracles
 
----
-
-**Area:** Documentation · **Guild:** Exegetas · **Type:** 🔀 Hybrid · **Priority:** 🟠 High · **Effort:** L
-
----
-
 ## Origin
 
 Decision taken 2026-04-07. The repo is the technical source of truth and must be fully accessible to any English-speaking team, contributor, or organization that wants to adopt NWOS.
@@ -45,13 +39,9 @@ Decision taken 2026-04-07. The repo is the technical source of truth and must be
 
 This eliminates repo bloat from duplicate files and keeps the canon clean.
 
----
-
 ## Story
 
 As an organization building in public and targeting international adoption, we want the entire NWOS repo to be in English, so that any team in the world can read, understand, and adopt the system without language barriers.
-
----
 
 ## Scope
 
@@ -78,8 +68,6 @@ As an organization building in public and targeting international adoption, we w
 - All new protocols: English
 - Agents communicate internally in the language their Oracle prefers — but repo artifacts are English
 
----
-
 ## Acceptance Criteria
 
 - [x] All `.md` files in `agents/` translated to English
@@ -93,8 +81,6 @@ As an organization building in public and targeting international adoption, we w
 - [x] `reports/` translated to English (RPT-2026-04-04 through 07-tarde → v1.1.0)
 - [x] Spanish stylistic phrases in SOUL.md files: preserved as character artifacts (DEC-006)
 - [x] DEC-006 created: "English as the official language of the NWOS repo"
-
----
 
 ## Execution Plan
 
@@ -115,8 +101,6 @@ As an organization building in public and targeting international adoption, we w
 10. Verify `canon/` — seminal documents (may already have EN versions)
 11. Final audit: any Spanish-language file remaining?
 
----
-
 ## Epistemic Value
 
 The language of documentation defines who can contribute to a system. English-only repo removes the barrier for international teams, investors, and contributors to engage with NWOS directly.
@@ -128,11 +112,7 @@ The language of documentation defines who can contribute to a system. English-on
 - Consistent with CC0 — building in the open means building for everyone
 - Web layer (MIS-061) handles multilingual presentation — repo stays clean
 
----
-
 *Nimrod 🗡️ — 2026-04-07 — v2.0.0 (replaces bilingual ES+EN scope)*
-
----
 
 ## Closure (2026-08-17)
 
@@ -142,3 +122,6 @@ Closed as **done — achieved by reality**, board triage ordered and approved by
 - **Evidence:** 26 files carry 'Translated to English (MIS-056)' in their version history; DEC-006; MIS-066 PR #5.
 - **Rule:** file preserved per P-003/SIM-2.7 and GOVERNANCE G-05 — closed, never deleted.
 
+## Version history
+
+- v2.1.1 (2026-09-02) — Form: inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed. missions/ normalisation, lot 2.

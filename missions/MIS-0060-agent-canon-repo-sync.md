@@ -8,15 +8,15 @@ effort: "M"
 guild: "Sentinels"
 territory: "CAO"
 type_execution: "digital"
-assigned_to: "nimrod"
+assigned_to: null
 completed: null
 
 type: mission
-version: "1.2.0"
+version: "1.3.0"
 created: "2026-04-07T17:45:51Z"
 created_source: "git:01f7878"
 created_confidence: inferred
-updated: "2026-04-07T18:00:00Z"
+updated: "2026-09-02T01:48:11+02:00"
 author: "nimrod"
 owner: "oracle"
 requested_by: "oracle"
@@ -28,18 +28,12 @@ phase: "backlog"
 
 # MIS-060 — Agent Synchronization with the Canonical Repo
 
-**Area:** CAO · **Guild:** Sentinels · **Priority:** 🟠 High · **Effort:** M
-
----
-
 ## Origin
 
 Session of 2026-04-07. Pablo detected that Christian's agent was operating with an outdated map of the organization. Concrete symptom: mission ID collision.
 
 - **In Nimrod's memory:** MIS-055 = "Approval Brief Protocol"
 - **In the repo:** MIS-055 = "Dual Nomenclature System"
-
----
 
 ## Full diagnosis
 
@@ -65,8 +59,6 @@ During the analysis, a more relevant scale problem emerged:
 Real use case: an organization with 5 employees onboards NWOS. Each one opens their OpenClaw instance. The organization evolves for 3 months. All agents' AGENTS.md files are still the ones from installation day.
 
 **There is no native mechanism that propagates changes from the canonical repo to agents' local workspaces.**
-
----
 
 ## Solutions analyzed
 
@@ -105,8 +97,6 @@ AGENTS.md stops being a local file — it points directly to the one in the repo
 
 **Conclusion:** Option C is the solution for now (Nimrod + Christian). Option B is the target when the organization grows.
 
----
-
 ## Implementation plan — Two phases
 
 ### PHASE 1 — Now (Option C + ID validation rule)
@@ -117,7 +107,7 @@ cd /home/node/.openclaw/workspace
 ln -sf numinia-digital-agents/agents/nimrod/AGENTS.md AGENTS.md
 ```
 
-**1b. Amendment to P-003 (Mission Cycle)**
+**1b. Amendment to PRO-003 (Mission Cycle)**
 Add rule: "Before assigning any mission ID, list `missions/active/` and `missions/backlog/` in the repo. If you cannot verify: do not assign ID."
 
 **1c. AGENTS.md of all active agents**
@@ -140,30 +130,24 @@ The original Option B (GitHub Action with SSH) was discarded by the infrastructu
 */15 * * * * cd /home/node/.openclaw/workspace/numinia-digital-agents && git pull origin main >> /home/node/.openclaw/logs/git-pull.log 2>&1
 ```
 
----
-
 ## Deliverables
 
 - [x] E1 — Christian's workspace audit completed
-- [ ] E2 — P-003 amendment: ID verification rule before assigning
+- [ ] E2 — PRO-003 amendment: ID verification rule before assigning
 - [ ] E3 — AGENTS.md of active agents updated with validation rule
 - [ ] E4 — Symlink + Cron job on server
 - [ ] E5 — ADR: Workspace sync architecture (cron pull vs GitHub Actions push)
 
----
-
 ## Acceptance criteria
 
 - [x] E1 completed — Christian workspace audit
-- [ ] P-003 has the ID verification rule before assigning
+- [ ] PRO-003 has the ID verification rule before assigning
 - [ ] Nimrod's AGENTS.md has the validation rule
 - [ ] Christian has the same rule in his workspace
 - [ ] Symlink active and verified on server
 - [ ] Cron job active (crontab -l shows it, log confirms execution)
 - [ ] DEC created documenting the architecture decision
 - [ ] Mission ID collisions cannot recur
-
----
 
 ## Epistemic value
 
@@ -172,8 +156,6 @@ This mission demonstrates that the reliability of a multi-agent system depends n
 ## Pragmatic value
 
 Eliminates the possibility of ID collisions. Establishes the architectural foundation for scaling the system to new instances in a reproducible and auditable way.
-
----
 
 ## Key lessons
 
@@ -185,12 +167,18 @@ Eliminates the possibility of ID collisions. Establishes the architectural found
 
 > *"Push requires opening doors. Pull only needs a path that already exists. Always prefer pull in hardened architectures."*
 
----
-
 ## Version history
 
 - v1.0.0 (2026-04-07) — Initial creation.
 - v1.1.0 (2026-04-07) — Extended with full architecture analysis.
 - v1.2.0 (2026-04-07) — Translated to English (MIS-056).
+- v1.3.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; retired identifiers repointed: P-003→PRO-003; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 2.
 
 *Nimrod 🗡️ — 2026-04-07*
+
+## Status check — 2026-09-02
+
+*Read against `aebcf54` during the missions/ normalisation (lot 2). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** 1/4 deliverables; the ID-verification rule (E2) was added to PRO-003 ('Before assigning any ID… against what is COMMITTED after a git pull'); AGENTS.md rules (E3) and the symlink/cron (E4) targeted Nimrod's OpenClaw server, retired. The Origin/Diagnosis text is a record worth keeping (MIS-068 cites it).
+- **Recommendation:** Close as done — partially achieved (E1, E2) and the rest cancelled with the server. The propagation problem it diagnosed lives on in MIS-068 (NWOS propagation drift guard), which should cite this as its origin.

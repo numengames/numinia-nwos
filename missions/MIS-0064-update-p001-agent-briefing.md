@@ -13,11 +13,11 @@ started: "2026-04-08T06:02:00Z"
 completed: "2026-08-25"
 
 type: mission
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-04-08T06:02:00Z"
 created_source: "git:749f75c"
 created_confidence: inferred
-updated: "2026-08-25T20:05:59Z"
+updated: "2026-09-02T01:48:11+02:00"
 author: "pablo-fm"
 owner: "oracle"
 requested_by: "oracle"
@@ -31,8 +31,6 @@ license: "CC0-1.0"
 > **Pragmatic:** After this update, any agent starting a session has the complete and current picture.
 > **Audience:** Agents · Oracles
 
----
-
 ## Acceptance criteria
 
 - [x] New file `P-001-agent-briefing.md` created (canonical English name)
@@ -42,11 +40,7 @@ license: "CC0-1.0"
 - [x] Version bumped to v0.2.0 (development stage — Oracle promotes to v1.0.0)
 - [x] missions-index.json updated
 
----
-
 *Nimrod 🗡️ — started 2026-04-08*
-
----
 
 ## Closure
 
@@ -58,3 +52,7 @@ or of the criteria.)*
 - **Signed by:** Oracle, 2026-08-25, as part of the board triage of the 111 missions.
   Classified read-only first; nothing was closed on impression.
 - **Closed:** 2026-08-25 · **by:** ursa (administrative), on the Oracle's signature
+
+## Version history
+
+- v0.1.1 (2026-09-02) — Form: import-era `---` rules removed. missions/ normalisation, lot 2.

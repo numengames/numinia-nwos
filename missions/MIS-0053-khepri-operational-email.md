@@ -13,11 +13,11 @@ started: "2026-04-05T00:00:00Z"
 completed: "2026-04-05T00:00:00Z"
 
 type: mission
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-04-07T05:49:03Z"
 created_source: "git:e56f6e8"
 created_confidence: inferred
-updated: "2026-04-07T18:00:00Z"
+updated: "2026-09-02T01:48:11+02:00"
 author: "pablo-fm"
 owner: "oracle"
 requested_by: "oracle"
@@ -26,23 +26,14 @@ license: "CC0-1.0"
 ---
 # MIS-053 — Khepri — Numen Games email operational
 
-> **Summary:** NWOS system mission.
-> **Epistemic:** What you learn by reading this document.
-> **Pragmatic:** What you can do with this document.
+> **Summary:** Khepri@ai.numengames.com to be a real and operational digital identity, so agents can communicate professionally on behalf of Numen Games.
+> **Epistemic:** Digital agents need verifiable identity to act in the world.
+> **Pragmatic:** Professional communication channel for the CAO at no additional tooling cost.
 > **Audience:** Agents · Oracles
-
----
-
-**Area:** CAO · **Guild:** Sentinels · **Type:** 🤖 Digital
-**Priority:** 🟠 High · **Effort:** S
-
----
 
 ## Story
 
 As Nimrod, I want khepri@ai.numengames.com to be a real and operational digital identity, so agents can communicate professionally on behalf of Numen Games.
-
----
 
 ## Acceptance criteria
 
@@ -52,8 +43,6 @@ As Nimrod, I want khepri@ai.numengames.com to be a real and operational digital 
 - [x] First calendar invitation created with external attendees
 - [x] Identity with name and signature: Nimrod, Guardian of the Gates
 
----
-
 ## Epistemic value
 
 Digital agents need verifiable identity to act in the world.
@@ -61,8 +50,6 @@ Digital agents need verifiable identity to act in the world.
 ## Pragmatic value
 
 Professional communication channel for the CAO at no additional tooling cost.
-
----
 
 ## Real execution
 
@@ -74,9 +61,8 @@ Professional communication channel for the CAO at no additional tooling cost.
 
 > *"Ideal blueprints show intention. Real blueprints show knowledge."*
 
----
-
 ## Version history
 
 - v1.0.0 (2026-04-05) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
+- v1.1.1 (2026-09-02) — Form: context card completed from the brief's own Story/Epistemic/Pragmatic text; inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed. missions/ normalisation, lot 2.

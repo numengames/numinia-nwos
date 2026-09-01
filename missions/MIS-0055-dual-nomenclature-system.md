@@ -8,16 +8,16 @@ effort: "L"
 guild: "Exegetes"
 territory: "CAO"
 type_execution: "hybrid"
-assigned_to: "nimrod"
+assigned_to: null
 started: "2026-04-07T00:00:00Z"
 completed: null
 
 type: mission
-version: "1.2.0"
+version: "1.3.0"
 created: "2026-04-07T06:48:45Z"
 created_source: "git:9cdd2d2"
 created_confidence: inferred
-updated: "2026-08-25T20:05:59Z"
+updated: "2026-09-02T01:48:11+02:00"
 author: "pablo-fm"
 owner: "oracle"
 requested_by: "oracle"
@@ -26,16 +26,10 @@ license: "CC0-1.0"
 ---
 # MIS-055 — Dual Nomenclature System
 
-> **Summary:** NWOS system mission.
-> **Epistemic:** What you learn by reading this document.
-> **Pragmatic:** What you can do with this document.
+> **Summary:** Be able to choose the narrative and gamification level of my implementation, so the system speaks my language without losing any functionality.
+> **Epistemic:** The dual nomenclature system demonstrates that NWOS is not a product with a fixed identity — it is an adaptable framework whose value does not depend on the language in which it is expressed. This resolves Tension #1 of the Wardley Map.
+> **Pragmatic:** - Unlocks ICPs that rejected NWOS due to narrative vocabulary - Allows presenting the system to corporate executives without loss of functionality - The Narrative Dial turns narrative into a feature, not a requirement - Opens the traditional SME market (10% current success → scale potential)
 > **Audience:** Agents · Oracles
-
----
-
-**Area:** CAO · **Guild:** Exegetes · **Type:** 🔀 Hybrid · **Priority:** 🔴 Critical · **Effort:** L
-
----
 
 ## Origin
 
@@ -45,13 +39,9 @@ Consensus between digital and biological agents: between the narrative layer and
 
 **Agreed solution:** Two independent adjustment dials per organization.
 
----
-
 ## Story
 
 As an organization that wants to adopt NWOS, I want to be able to choose the narrative and gamification level of my implementation, so the system speaks my language without losing any functionality.
-
----
 
 ## The two dials
 
@@ -86,8 +76,6 @@ Gamification has qualitative jumps, not a smooth curve. 5 named thresholds defin
 > **Numinia** = Narrative 10 · Gamification in design (target: 10)
 > **Standard Corp** = Narrative 1 · Gamification 1–3
 
----
-
 ## Acceptance criteria
 
 - [ ] Complete equivalence table: Numinia vocabulary ↔ business vocabulary for all 5 levels
@@ -97,8 +85,6 @@ Gamification has qualitative jumps, not a smooth curve. 5 named thresholds defin
       interactive 1–5 selectors for both dials (2026-08-18)
 - [ ] Decision DEC-006 created once the model is validated
 - [ ] Integrate in `/nwos` as an adaptability feature
-
----
 
 ## Equivalences — Narrative Dial
 
@@ -154,8 +140,6 @@ Gamification has qualitative jumps, not a smooth curve. 5 named thresholds defin
 | Prism Cell | Membership token | Membership Token |
 | Seal | Certificate | Badge / Certificate |
 
----
-
 ## Epistemic value
 
 The dual nomenclature system demonstrates that NWOS is not a product with a fixed identity — it is an adaptable framework whose value does not depend on the language in which it is expressed. This resolves Tension #1 of the Wardley Map.
@@ -167,20 +151,14 @@ The dual nomenclature system demonstrates that NWOS is not a product with a fixe
 - The Narrative Dial turns narrative into a feature, not a requirement
 - Opens the traditional SME market (10% current success → scale potential)
 
----
-
 ## Pending decision
 
 Once validated, create **DEC-006 — Dual Nomenclature System** modifying the NWOS architecture to include the two dials as implementation configuration.
-
----
 
 ## Notes
 
 The Gamification Dial will be discussed in a dedicated later session.
 The Narrative Dial is the immediate priority — resolves the most urgent adoption problem.
-
----
 
 ## Version history
 
@@ -189,10 +167,9 @@ The Narrative Dial is the immediate priority — resolves the most urgent adopti
 - v1.2.0 (2026-08-18) — External scale fixed at 1–5 per dial (internal map
   1·3·5·7·10); `/idioma` gets the interactive configurator. A token-free demo
   workspace is registered separately as MIS-090.
+- v1.3.0 (2026-09-02) — context card completed from the brief's own Story/Epistemic/Pragmatic text; inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 2.
 
 *Nimrod 🗡️ + Team — 2026-04-07*
-
----
 
 ## Board triage — 2026-08-25
 
@@ -205,3 +182,10 @@ what changed is the claim that it was underway.
   in question (`D-026`, `D-027`). That is context; the evidence for this move is
   the absence of its own commit, not who it was assigned to.
 - **Signed by:** Oracle, 2026-08-25.
+
+## Status check — 2026-09-02
+
+*Read against `aebcf54` during the missions/ normalisation (lot 2). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** Triaged 2026-08-25 (D, stale), 1/6 — but the one tick is substantive: /idioma configurator live on numinia.org (2026-08-18). Cited by 18 (9 files). Assigned nimrod (retired). BLU-007 (dual nomenclature) is its blueprint.
+- **Recommendation:** Unassign; keep todo. The remaining criteria (equivalence tables approved, DEC, /nwos integration) are Oracle work. This is the most valuable open mission of the lot; do not freeze.

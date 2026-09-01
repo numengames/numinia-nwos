@@ -12,11 +12,11 @@ started: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-04-07T19:43:00Z"
 created_source: "git:749f75c"
 created_confidence: inferred
-updated: "2026-08-17T00:00:00Z"
+updated: "2026-09-02T01:48:11+02:00"
 author: "pablo-fm"
 owner: "oracle"
 requested_by: "oracle"
@@ -32,25 +32,15 @@ freeze_reason: cancelled
 > **Pragmatic:** Eliminates circular conversations. All subsequent work has a single reference point.
 > **Audience:** Agents · Oracles
 
----
-
-**Area:** Product · **Guild:** Alchemists · **Type:** 🧬 Biological · **Priority:** 🔴 Critical · **Effort:** S
-
----
-
 ## Story
 
 As a founder, I want a one-page document that defines exactly what Numinia MVP is — what it does, who uses it, what problem it solves, what it does NOT include — so that all Oracles work from the same mental model.
-
----
 
 ## Acceptance criteria
 
 - [ ] Document ≤1 page: what it does, who uses it, what problem it solves, what is NOT in the MVP
 - [ ] Approved by all active Oracles
 - [ ] Published as MVP.md in the repository
-
----
 
 ## Epistemic value
 
@@ -60,11 +50,7 @@ We learn whether there is real consensus or hidden divergence between founders.
 
 Eliminates circular conversations. All subsequent work has a single reference point.
 
----
-
 *Nimrod 🗡️ — recovered from pablofm-web (MIS-062.2) — 2026-04-07*
-
----
 
 ## Closure (2026-08-17)
 
@@ -74,3 +60,6 @@ Closed as **cancelled — obsolete**, board triage ordered and approved by the O
 - **Evidence:** numinia.com v0.39.2 — city, L.A.P. login, CC0 asset catalog, 5 languages; numinia.org live.
 - **Rule:** file preserved per P-003/SIM-2.7 and GOVERNANCE G-05 — closed, never deleted.
 
+## Version history
+
+- v1.0.1 (2026-09-02) — Form: inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed. missions/ normalisation, lot 2.

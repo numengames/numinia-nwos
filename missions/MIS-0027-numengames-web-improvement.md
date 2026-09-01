@@ -13,11 +13,11 @@ started: "2026-04-08T05:59:00Z"
 completed: "2026-08-25"
 
 type: mission
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-04-07T19:49:05Z"
 created_source: "git:36dee95"
 created_confidence: inferred
-updated: "2026-08-25T20:05:59Z"
+updated: "2026-09-02T01:48:11+02:00"
 author: "pablo-fm"
 owner: "oracle"
 requested_by: "oracle"
@@ -33,15 +33,9 @@ blocked_by: "MIS-011 audit (done) — has input needed"
 > **Pragmatic:** A prioritized action plan Oracle can execute or delegate to Ursa when active.
 > **Audience:** Agents · Oracles
 
----
-
 ## Story
 
 As a visitor, I want to understand in 5 seconds what Numen Games is, so I can decide whether to contact or explore further.
-
----
-
----
 
 ## Acceptance criteria
 
@@ -51,11 +45,7 @@ As a visitor, I want to understand in 5 seconds what Numen Games is, so I can de
 - [x] Fix sequence prioritized by impact/effort (Phase 0-3)
 - [x] missions-index.json updated
 
----
-
 *Nimrod 🗡️ — started 2026-04-08*
-
----
 
 ## Epistemic value
 
@@ -64,10 +54,6 @@ A confusing website signals that internal positioning is also unclear.
 ## Pragmatic value
 
 Increases organic conversion.
-
----
-
----
 
 ## Prior scope (2026-04-07, superseded)
 
@@ -80,8 +66,6 @@ acceptance criteria targeted the implementation itself:
 - [ ] Load time <3s on mobile
 - [ ] Basic SEO: title tags, meta descriptions, og:image
 
----
-
 ## Closure
 
 *(Administrative close. The brief above is untouched — not one line of Scope
@@ -92,3 +76,7 @@ or of the criteria.)*
 - **Signed by:** Oracle, 2026-08-25, as part of the board triage of the 111 missions.
   Classified read-only first; nothing was closed on impression.
 - **Closed:** 2026-08-25 · **by:** ursa (administrative), on the Oracle's signature
+
+## Version history
+
+- v0.1.1 (2026-09-02) — Form: import-era `---` rules removed. missions/ normalisation, lot 2.

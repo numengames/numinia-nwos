@@ -12,25 +12,20 @@ assigned_to: null
 completed: null
 
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-04-07T05:58:49Z"
 created_source: "git:428349f"
 created_confidence: inferred
-updated: "2026-08-17T12:41:39Z"
+updated: "2026-09-02T01:48:11+02:00"
 owner: "oracle"
 license: "CC0-1.0"
 ---
 # MIS-009 — Closed pilot with 5 beta users
 
-> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
-> **Epistemic:** What you learn by reading this document.
-> **Pragmatic:** What you can do with this document.
+> **Summary:** Run Numinia with 5 real organizations in a closed pilot, to validate the model before launch.
+> **Epistemic:** Validates whether the model works outside the founding team.
+> **Pragmatic:** Social proof + real learning before scaling.
 > **Audience:** Agents · Oracles
-
----
-
-
-**Area:** Product · **Guild:** Alchemists · **Type:** 🔀 Hybrid · **Priority:** 🟠 High · **Effort:** L
 
 ## Story
 
@@ -51,3 +46,14 @@ Validates whether the model works outside the founding team.
 ## Pragmatic value
 
 Social proof + real learning before scaling.
+
+## Status check — 2026-09-02
+
+*Read against `aebcf54` during the missions/ normalisation (lot 2). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** 2026-04 import, no commit. Depends on MIS-006 (cancelled) and MIS-003 (cancelled) by its own Pragmatic text. Cited only from MIS-006.
+- **Recommendation:** Freeze as cancelled — its two prerequisites were cancelled as obsolete; a closed pilot with five organisations is a product/sales programme, not a mission of this archive.
+
+## Version history
+
+- v1.2.0 (2026-09-02) — context card completed from the brief's own Story/Epistemic/Pragmatic text; inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 2.

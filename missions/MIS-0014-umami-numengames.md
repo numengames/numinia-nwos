@@ -12,11 +12,11 @@ assigned_to: null
 completed: null
 
 type: mission
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-04-07T05:58:49Z"
 created_source: "git:428349f"
 created_confidence: inferred
-updated: "2026-08-26T13:03:10Z"
+updated: "2026-09-02T01:48:11+02:00"
 owner: "oracle"
 license: "CC0-1.0"
 
@@ -24,15 +24,10 @@ freeze_reason: cancelled
 ---
 # MIS-014 — Install Umami on numengames.com
 
-> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
-> **Epistemic:** What you learn by reading this document.
-> **Pragmatic:** What you can do with this document.
+> **Summary:** Analytics on numengames.com without handing data to Google, to make decisions based on real data.
+> **Epistemic:** Baseline of numengames.com's real traffic before improvements.
+> **Pragmatic:** Data to measure the impact of MIS-027 (website improvement).
 > **Audience:** Agents · Oracles
-
----
-
-
-**Area:** Infrastructure · **Guild:** Sentinels · **Type:** 🤖 Digital · **Priority:** 🟠 High · **Effort:** XS
 
 ## Story
 
@@ -53,8 +48,6 @@ Baseline of numengames.com's real traffic before improvements.
 
 Data to measure the impact of MIS-027 (website improvement).
 
----
-
 ## Closure (2026-08-17)
 
 Closed as **cancelled — obsolete**, board triage ordered and approved by the Oracle (2026-08-17).
@@ -63,3 +56,6 @@ Closed as **cancelled — obsolete**, board triage ordered and approved by the O
 - **Evidence:** numengames.com returns 404.
 - **Rule:** file preserved per P-003/SIM-2.7 and GOVERNANCE G-05 — closed, never deleted.
 
+## Version history
+
+- v1.1.1 (2026-09-02) — Form: context card completed from the brief's own Story/Epistemic/Pragmatic text; inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed. missions/ normalisation, lot 2.

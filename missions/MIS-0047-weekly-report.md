@@ -12,11 +12,11 @@ started: "2026-04-07T22:35:00Z"
 completed: "2026-04-07T22:40:00Z"
 
 type: mission
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-04-07T22:39:04Z"
 created_source: "git:7829844"
 created_confidence: inferred
-updated: "2026-04-07T22:40:00Z"
+updated: "2026-09-02T01:48:11+02:00"
 author: "pablo-fm"
 owner: "oracle"
 requested_by: "oracle"
@@ -30,17 +30,9 @@ license: "CC0-1.0"
 > **Pragmatic:** One less thing to remember. One more thing that just works.
 > **Audience:** Agents · Oracles
 
----
-
-**Area:** Operations · **Guild:** Sentinels · **Type:** 🤖 Digital · **Priority:** 🟠 High · **Effort:** S
-
----
-
 ## Story
 
 As Pablo, I want to receive a weekly summary every Monday morning with what was accomplished, the mission status, key learnings, and priorities for the coming week — without having to ask for it.
-
----
 
 ## Acceptance criteria
 
@@ -49,8 +41,6 @@ As Pablo, I want to receive a weekly summary every Monday morning with what was 
 - [x] Report delivered via Telegram
 - [x] Covers: achievements, mission status, learnings, alerts, next priorities, cost estimate
 - [x] Uses claude-haiku-3-5 (cost-efficient)
-
----
 
 ## Execution
 
@@ -62,6 +52,8 @@ As Pablo, I want to receive a weekly summary every Monday morning with what was 
 **Agent:** Nimrod
 **Closed:** 2026-04-07
 
----
-
 *Nimrod 🗡️ — 2026-04-07*
+
+## Version history
+
+- v1.0.1 (2026-09-02) — Form: inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed. missions/ normalisation, lot 2.

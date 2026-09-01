@@ -12,25 +12,20 @@ assigned_to: null
 completed: "2026-08-17"
 
 type: mission
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-04-07T05:58:49Z"
 created_source: "git:428349f"
 created_confidence: inferred
-updated: "2026-08-17T15:02:30Z"
+updated: "2026-09-02T01:48:11+02:00"
 owner: "oracle"
 license: "CC0-1.0"
 ---
 # MIS-010 — Numinia public roadmap v1.0
 
-> **Summary:** NWOS system mission with criteria, epistemic and pragmatic value.
-> **Epistemic:** What you learn by reading this document.
-> **Pragmatic:** What you can do with this document.
+> **Summary:** See where the product is heading, to decide whether to invest time now or wait.
+> **Epistemic:** Reveals whether the Oracles share a common vision.
+> **Pragmatic:** Communication tool for the community and investors.
 > **Audience:** Agents · Oracles
-
----
-
-
-**Area:** Product · **Guild:** Exegetes · **Type:** 🔀 Hybrid · **Priority:** 🟡 Medium · **Effort:** S
 
 ## Story
 
@@ -51,8 +46,6 @@ Reveals whether the Oracles share a common vision.
 
 Communication tool for the community and investors.
 
----
-
 ## Closure (2026-08-17)
 
 Closed as **done — achieved by reality**, board triage ordered and approved by the Oracle (2026-08-17).
@@ -61,3 +54,6 @@ Closed as **done — achieved by reality**, board triage ordered and approved by
 - **Evidence:** https://numinia.com/updates/ — designated by the Oracle as the roadmap's real-world form.
 - **Rule:** file preserved per P-003/SIM-2.7 and GOVERNANCE G-05 — closed, never deleted.
 
+## Version history
+
+- v1.1.1 (2026-09-02) — Form: context card completed from the brief's own Story/Epistemic/Pragmatic text; inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed. missions/ normalisation, lot 2.

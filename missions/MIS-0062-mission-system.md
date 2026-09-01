@@ -12,11 +12,11 @@ started: "2026-04-07T19:43:00Z"
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-04-07T19:43:00Z"
 created_source: "git:749f75c"
 created_confidence: inferred
-updated: "2026-08-25T20:05:59Z"
+updated: "2026-09-02T01:48:11+02:00"
 author: "pablo-fm"
 owner: "oracle"
 requested_by: "oracle"
@@ -61,12 +61,6 @@ sub_missions:
 > **Pragmatic:** A live Kanban at pablofm.com/missions backed by the canonical repo.
 > **Audience:** Agents · Oracles
 
----
-
-**Area:** CAO / Product · **Guild:** Sentinels · **Priority:** 🟠 High · **Effort:** XL
-
----
-
 ## Origin
 
 Born from MIS-057 (Deep QA) + Pablo FM direction on 2026-04-07.
@@ -80,13 +74,9 @@ Key decisions:
 - State: update frontmatter only (no file rename)
 - Mission data: extracted from pablofm-web, migrated to repo
 
----
-
 ## Story
 
 As an Oracle, I want a Kanban board at pablofm.com/missions showing all real missions with their actual state, so the system is legible and auditable by anyone at a glance.
-
----
 
 ## Sub-missions
 
@@ -96,9 +86,7 @@ As an Oracle, I want a Kanban board at pablofm.com/missions showing all real mis
 | MIS-062.2 | Recover lost missions from pablofm-web into repo | M | in-progress |
 | MIS-062.3 | Build Kanban page at pablofm.com/missions | M | todo |
 | MIS-062.4 | Update STANDARDS.md — mission system v2 | S | todo |
-| MIS-062.5 | Update P-003 Mission Cycle Protocol to v2 | S | todo |
-
----
+| MIS-062.5 | Update PRO-003 Mission Cycle Protocol to v2 | S | todo |
 
 ## Acceptance criteria
 
@@ -108,10 +96,8 @@ As an Oracle, I want a Kanban board at pablofm.com/missions showing all real mis
 - [ ] pablofm.com/missions live with Kanban view
 - [ ] STANDARDS.md §2 updated: MIS-NNN format (3 digits)
 - [ ] STANDARDS.md — mission states documented
-- [ ] P-003 updated to v2 cycle
+- [ ] PRO-003 updated to v2 cycle
 - [ ] Oracle validation before merge
-
----
 
 ## Epistemic value
 
@@ -124,17 +110,12 @@ A Kanban board backed by a real repo is the difference between a system that exi
 - Enables parallel work on complex missions (sub-missions)
 - Frozen missions are visible instead of lost
 
----
-
 ## Version history
 
 - v1.0.0 (2026-04-07) — Initial creation. (MIS-057 → MIS-062)
-
----
+- v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; retired identifiers repointed: P-003→PRO-003; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 2.
 
 *Nimrod 🗡️ — 2026-04-07*
-
----
 
 ## Board triage — 2026-08-25: scope cut, signed
 
@@ -175,3 +156,10 @@ avoided**, and the same result is cheaper to reproduce than to reconcile.
 
 Returned to `backlog` because what survives has not been started on this base.
 - **Signed by:** Oracle, 2026-08-25.
+
+## Status check — 2026-09-02
+
+*Read against `aebcf54` during the missions/ normalisation (lot 2). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** Its five sub-missions were absorbed by MIS-066 (done, 2026-08-17) per its own note; its 2026-08-25 audit table marks 3 of 4 criteria done and the fourth (pablofm.com/missions) as dead context replaced by numinia.org/missions. 46 citations (17 files) — a design record.
+- **Recommendation:** Close as done — achieved through MIS-066; the file stays as the v2 design record (already declared so in its own note). Oracle signs.

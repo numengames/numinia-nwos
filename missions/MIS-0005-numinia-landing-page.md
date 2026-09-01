@@ -12,11 +12,11 @@ started: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-04-07T19:43:00Z"
 created_source: "git:749f75c"
 created_confidence: inferred
-updated: "2026-08-17T00:00:00Z"
+updated: "2026-09-02T01:48:11+02:00"
 author: "pablo-fm"
 owner: "oracle"
 requested_by: "oracle"
@@ -32,17 +32,9 @@ freeze_reason: cancelled
 > **Pragmatic:** Waitlist = audience for launch + social proof.
 > **Audience:** Agents · Oracles
 
----
-
-**Area:** Product · **Guild:** Alchemists · **Type:** 🔀 Hybrid · **Priority:** 🔴 Critical · **Effort:** M
-
----
-
 ## Story
 
 As a team, I want a landing page that captures emails from interested parties, so we build a waitlist before the launch.
-
----
 
 ## Acceptance criteria
 
@@ -52,8 +44,6 @@ As a team, I want a landing page that captures emails from interested parties, s
 - [ ] Umami tracking active
 - [ ] 50 emails in first 30 days
 
----
-
 ## Epistemic value
 
 We measure real interest before building the complete product.
@@ -62,11 +52,7 @@ We measure real interest before building the complete product.
 
 Waitlist = audience for launch + social proof.
 
----
-
 *Nimrod 🗡️ — recovered from pablofm-web (MIS-062.2) — 2026-04-07*
-
----
 
 ## Closure (2026-08-17)
 
@@ -76,3 +62,6 @@ Closed as **cancelled — obsolete**, board triage ordered and approved by the O
 - **Evidence:** numengames.com returns 404; numinia.com live.
 - **Rule:** file preserved per P-003/SIM-2.7 and GOVERNANCE G-05 — closed, never deleted.
 
+## Version history
+
+- v1.0.1 (2026-09-02) — Form: inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed. missions/ normalisation, lot 2.
