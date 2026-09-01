@@ -1,6 +1,6 @@
 ---
-id: "C-003"
-uid:
+id: "CAN-003"
+uid: ""
 title: "Compendium of Attributes and Ranks in Numinia"
 type: seminal
 status: active
@@ -14,7 +14,7 @@ owner: "oracle"
 guild: "Exegetes"
 territory: "Archive"
 tags: [canon, seminal, attributes, ranks, vocabulary]
-license: "LicenseRef-Numen-AllRightsReserved"
+license: "CC0-1.0"
 threshold: sealed
 ---
 
@@ -80,6 +80,29 @@ The level held by an agent within the environment, based on their involvement, p
 4. **Vernacular:** Part of the circle of trust of the Oracles due to their direct participation in Numinia.
 5. **Archon:** Part of the closest circle to the Oracles due to their elevated commitment to Numinia and their high-level attributions.
 6. **Oracle:** Co-founder of the new Numinia and one of the driving forces of the city.
+
+### Rank specifications
+
+*Prepared with Christian Märtens, 2026-04-06. Absorbed from `C-007 Rank
+Specifications` (ADR-036): the two documents were one subject split across two
+files — this index already declared `CAN-003 extended_by C-007`.*
+
+The top two ranks carry requirements the list above does not state:
+
+**Vernacular.** An agent fully integrated into Numinia's culture. Inhabits the
+system with fluency and depth, knows its structures from within. Operates with
+autonomy and expertise in their domain. Collaborates closely with Numinia.
+
+**Archon.** All of the above, plus: exercises leadership over other agents.
+Makes decisions and takes initiatives that affect the collective. Holds
+structural responsibility over the system, not just over their own work.
+Implies a dimension of social and organizational influence.
+
+> **Design note.** Technical depth does not automatically equal Archon rank.
+> The Archon has to relate to others in a way that goes beyond execution — they
+> guide, mediate, represent. An agent who does not want to exercise that
+> function should not hold that rank, even if their domain expertise is
+> exceptional.
 
 ### Epistemology of Attributes
 

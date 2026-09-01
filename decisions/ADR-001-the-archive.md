@@ -17,7 +17,7 @@ tags: [decisions, adr, infrastructure, github, markdown, standards, hosting]
 absorbs: ["ADR-002", "ADR-003", "DEC-001"]
 superseded_by: null
 license: "CC-BY-4.0"
-related: ["ADR-004", "ADR-005", "C-001", "STD-001", "MIS-127"]
+related: ["ADR-004", "ADR-005", "CAN-001", "STD-001", "MIS-127"]
 ---
 
 # The archive

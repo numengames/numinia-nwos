@@ -177,12 +177,41 @@ export default defineConfig({
 		"/simulaciones": "/simulations",
 		"/soluciones": "/solutions",
 		"/ventas": "/sales",
-		"/corpus/canon/welcome-to-numinia": "/corpus/canon/c-001-welcome-to-numinia",
-		"/corpus/canon/numinia-brand-and-culture": "/corpus/canon/c-002-brand-and-culture",
-		"/corpus/canon/compendium-of-attributes-and-ranks-in-numinia": "/corpus/canon/c-003-attributes-and-ranks",
-		"/corpus/canon/role-structure-in-the-numinia-system": "/corpus/canon/c-004-role-structure",
-		"/corpus/canon/about-session-zero": "/corpus/canon/c-006-session-zero",
-		"/corpus/canon/rank-specifications": "/corpus/canon/c-007-rank-specifications",
+		// ADR-036 (2026-09-01): the canon became the CAN- series and shrank to
+		// seven documents. These April addresses were already redirecting to
+		// /c-00N pages; they are repointed straight at the new address rather
+		// than chained through the retired one — one hop, no chain.
+		"/corpus/canon/welcome-to-numinia": "/corpus/canon/can-001-welcome-to-numinia",
+		"/corpus/canon/numinia-brand-and-culture": "/corpus/canon/can-002-brand-and-culture",
+		"/corpus/canon/compendium-of-attributes-and-ranks-in-numinia": "/corpus/canon/can-003-attributes-and-ranks",
+		"/corpus/canon/role-structure-in-the-numinia-system": "/corpus/canon/can-004-role-structure",
+		"/corpus/canon/c-001-welcome-to-numinia": "/corpus/canon/can-001-welcome-to-numinia",
+		"/corpus/canon/c-002-brand-and-culture": "/corpus/canon/can-002-brand-and-culture",
+		"/corpus/canon/c-003-attributes-and-ranks": "/corpus/canon/can-003-attributes-and-ranks",
+		"/corpus/canon/c-004-role-structure": "/corpus/canon/can-004-role-structure",
+		"/corpus/canon/c-005-licensing": "/corpus/canon/can-005-licensing",
+		// The two dated documents were ruled NOT frozen artifacts (ADR-036 §2)
+		// and entered the series, so their dated addresses retire too.
+		"/corpus/canon/2026_04_15-epistemic_relations_between_numen_games_and_numina-v020": "/corpus/canon/can-006-epistemic-relations",
+		"/corpus/canon/2026_04_15-pragmatic_numen_system-v020": "/corpus/canon/can-007-pragmatic-numen-system",
+		// Session Zero left the repository for numinia-lore (ADR-036 §4): game
+		// design, not governing canon. No in-repo page can answer, so the
+		// address lands on the ADR that records where it went — DEUDA-404's
+		// rule: a retired address explains itself, it does not 404. NOTE the
+		// target is /decisiones/<id>, not /corpus/decisions/: ADRs are a typed
+		// collection with their own route (corpus.ts §Section.collection), and
+		// /corpus/decisions/... does not exist. Caught by checking the built
+		// dist, not by the build itself — redirects are not validated.
+		"/corpus/canon/about-session-zero": "/decisiones/adr-036",
+		"/corpus/canon/c-006-session-zero": "/decisiones/adr-036",
+		// Rank Specifications was absorbed into CAN-003 (ADR-036 §4).
+		"/corpus/canon/rank-specifications": "/corpus/canon/can-003-attributes-and-ranks",
+		"/corpus/canon/c-007-rank-specifications": "/corpus/canon/can-003-attributes-and-ranks",
+		// The three apparatus files retired by ADR-036 §5. The lore lines now
+		// live in SYS-003's frontmatter; the index's record lives in the ADR.
+		"/corpus/canon/archive-lore": "/corpus/system/sys-003-archive-fondos",
+		"/corpus/canon/index": "/decisiones/adr-036",
+		"/corpus/canon/readme": "/decisiones/adr-036",
 		// MIS-127: BLU-003 dropped the "-v2" version suffix from its filename
 		// (STD-001 §9 — the version lives in frontmatter, not the name).
 		// MIS-129 then moved the document itself out of blueprints/ into

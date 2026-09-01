@@ -1,6 +1,6 @@
 ---
-id: "C-001"
-uid:
+id: "CAN-001"
+uid: ""
 title: "Welcome to Numinia"
 type: seminal
 status: active
@@ -14,7 +14,7 @@ owner: "oracle"
 guild: "Exegetes"
 territory: "Archive"
 tags: [canon, seminal, gamification, guilds, factions]
-license: "LicenseRef-Numen-AllRightsReserved"
+license: "CC0-1.0"
 threshold: sealed
 ---
 

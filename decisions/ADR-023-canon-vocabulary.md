@@ -15,7 +15,7 @@ tags: [canon, vocabulary, language, english, terminology]
 absorbs: ["ADR-024"]
 superseded_by: null
 license: "CC-BY-4.0"
-related: ["ADR-001", "STD-001", "C-001", "MIS-127"]
+related: ["ADR-001", "STD-001", "CAN-001", "MIS-127"]
 ---
 
 # The canon's vocabulary

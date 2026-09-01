@@ -1,6 +1,6 @@
 ---
-id: "canon-pragmatic-numen-system-v020"
-uid:
+id: "CAN-007"
+uid: ""
 title: "Pragmatic Numen System"
 type: seminal
 status: active
@@ -14,12 +14,10 @@ owner: "oracle"
 guild: "Exegetes"
 territory: "Archive"
 tags: [canon, seminal, function, structure, ADR-023]
-license: "LicenseRef-Numen-AllRightsReserved"
-registration: exempt
-registration_exemption: "frozen-artifact"
-registration_reason: >
-  Dated filename: a photograph at 2026-04-15 (P-010 §3.2). Its §2.3 is what
-  settled the Functional/Regulatory question in ADR-023.
+license: "CC0-1.0"
+registration: registered
+former_id: "canon-pragmatic-numen-system-v020"
+former_id_note: "Renumbered by ADR-036 (2026-09-01). The dated filename declared this a frozen artifact under P-010 §3.2; the Oracle ruled that classification wrong — these two are living canon, not photographs, and they enter the CAN series like the rest of the folder. Former filename: 2026_04_15-Pragmatic_Numen_System-v0.2.0.md"
 threshold: sealed
 ---
 

@@ -78,7 +78,13 @@ const RING3 = {
     // note: check-references.mjs reads it to keep absorbed identifiers
     // resolving, so a merged decision stays reachable (ADR-030). `amends`
     // records a decision that narrows a standard without superseding it.
-    'absorbs', 'amends'],
+    // `absorbs`, `amends` as above. Registered 2026-09-01 (ADR-036):
+    // `threshold` marks a decision that itself sits at a sealed threshold
+    // (it amends canon/, so it needs the Oracle's signature like the canon
+    // does); `supersedes_record_of` names the retired files whose ONLY copy
+    // of a record this decision inherited — the field is what makes deleting
+    // an INDEX.md auditable instead of merely tidy.
+    'absorbs', 'amends', 'threshold', 'supersedes_record_of'],
   'agents': ['role', 'platform', 'model', 'soul', 'agent',
     'previous_name', 'previous_name_note', 'translation_note'],
   'debt': ['severity', 'severity_reason', 'detected', 'refuted', 'source_audit', 'opened_by',
@@ -99,7 +105,19 @@ const RING3 = {
   'standards': ['supersedes_version', 'ratified_by', 'subtype', 'threshold',
     'series_change'],
   'canon': ['supersedes_version', 'ratified_by', 'threshold',
-    'changelog', 'lore', 'extraction_note'],
+    'changelog', 'lore', 'extraction_note',
+    // registered 2026-09-01 (ADR-036). `former_id`/`former_id_note` carry the
+    // renumbering to the CAN- series exactly as they do in reports/ and
+    // system/: ADR-004 rule 4 never frees an old identifier, so a renamed
+    // document must say what it used to be called. The rest are CAN-005's
+    // legacy Spanish header fields, migrated to English keys rather than
+    // dropped — they encode the licensing canon's scope, authority and
+    // downstream editions, and deleting them to satisfy a linter would have
+    // destroyed the only record of where the distributed file and the public
+    // guide live.
+    'former_id', 'former_id_note', 'distributed_file', 'public_guide',
+    'reasoned_edition', 'scope', 'out_of_scope', 'canonical_language',
+    'normative_conventions', 'authority', 'revision_policy'],
   'protocols': ['supersedes_version', 'ratified_by', 'applies_to', 'mandatory',
     'human_approval_score', 'mission', 'review_next'],
   // ADR-035: the two shelves MIS-129 opened. `former_id`/`former_id_note`
@@ -159,7 +177,7 @@ const PREFIX = {
   // map was written against said the bare S- prefix stayed; v1.1.0 supersedes
   // it and registers the shelf as STD-NNN. Updated in the same pass that
   // renamed the files (MIS-127) — exactly the drift described above.
-  standards: 'STD', canon: 'C', agents: 'AG', reports: ['RPT', 'AUD'],
+  standards: 'STD', canon: 'CAN', agents: 'AG', reports: ['RPT', 'AUD'],
   system: 'SYS',  // ADR-035: reference manuals of how the system works today
 };
 

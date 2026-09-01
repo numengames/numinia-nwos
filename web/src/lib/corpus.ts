@@ -155,7 +155,7 @@ export function sectionOf(entry: Entry): Section | undefined {
 // ---------------------------------------------------------------------------
 
 // A section index sorted by identifier is sorted by the order things HAPPENED
-// TO BE WRITTEN. C-001 came before C-002 because someone typed it first, and
+// TO BE WRITTEN. CAN-001 came before CAN-002 because someone typed it first, and
 // the reader who lands on /corpus/canon/ inherits that accident as if it were
 // an argument. It is not one: "Welcome to Numinia" followed by "Brand and
 // Culture" tells a stranger nothing, because the second document answers a
@@ -179,22 +179,23 @@ export function sectionOf(entry: Entry): Section | undefined {
 const READING_ORDER: Record<string, string[]> = {
   // What this place is → why the fiction is not decoration → how it becomes
   // an operating system → what it feels like → who lives here → what they are
-  // made of → how far they climb → how you get in → what the archive sounds
-  // like → what you may take with you.
+  // made of, and how far they climb → what you may take with you.
+  //
+  // Rewritten 2026-09-01 (ADR-036) when canon went from twelve files to
+  // seven. The story lost three of its beats and kept the rest in order:
+  // "how far they climb" is no longer its own document — Rank Specifications
+  // was absorbed into CAN-003, so the ranks are now read where the attributes
+  // are; "how you get in" left for numinia-lore, because Session Zero is game
+  // design, not governing canon; "what the archive sounds like" moved into
+  // system/SYS-003 with the fondos it describes; and the cover page is gone.
   canon: [
-    "/corpus/canon/c-001-welcome-to-numinia",
-    "/corpus/canon/2026_04_15-epistemic_relations_between_numen_games_and_numina-v020",
-    "/corpus/canon/2026_04_15-pragmatic_numen_system-v020",
-    "/corpus/canon/c-002-brand-and-culture",
-    "/corpus/canon/c-004-role-structure",
-    "/corpus/canon/c-003-attributes-and-ranks",
-    "/corpus/canon/c-007-rank-specifications",
-    "/corpus/canon/c-006-session-zero",
-    "/corpus/canon/archive-lore",
-    "/corpus/canon/c-005-licensing",
-    // The folder's cover page, not a document of the canon. Last, until the
-    // repo stops publishing READMEs as corpus entries.
-    "/corpus/canon/readme",
+    "/corpus/canon/can-001-welcome-to-numinia",
+    "/corpus/canon/can-006-epistemic-relations",
+    "/corpus/canon/can-007-pragmatic-numen-system",
+    "/corpus/canon/can-002-brand-and-culture",
+    "/corpus/canon/can-004-role-structure",
+    "/corpus/canon/can-003-attributes-and-ranks",
+    "/corpus/canon/can-005-licensing",
   ],
 
   // The life of a document, in the order the archive had to decide it:

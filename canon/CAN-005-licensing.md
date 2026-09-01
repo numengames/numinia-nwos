@@ -1,23 +1,36 @@
 ---
-documento: Numinia · Licensing Canon
-canon: C-005
-ruta_en_repositorio: canon/C-005-licensing.md   # NWOS inside the repo
-archivo_distribuido: 2026_08_16-Numinia_Canon_C005_Licencias-v1.3.0.md   # Khepri §11 outside it
-guia_publica: 2026_08_16-Numinia_Guia_Licencias-v1.1.0.html
-edicion_razonada: 2026_08_16-Numinia_Legal_Book_Edicion_Razonada-v0.6.1.md
-version: 1.4.0
-fecha: 2026-08-27
-estado: canon — immutable; modifying it requires formal consensus (NWOS)
-ambito: every piece created from this date onward
-no_ambito: inventory of the inherited (`debt/` entries tagged `legal`, ADR-026 (formerly ADR-031)) · reasoning and alternatives (Legal Book v0.6.1, archived)
-idioma_canonico: en   # es-ES until 2026-08-27 — exception revoked by ADR-023 (formerly ADR-024), translated under MIS-116
-procedencia_secciones: every section marked [UNIVERSAL] or [NUMEN] (§0)
-convenciones_normativas: RFC 2119 (MUST / SHOULD / MAY)
-autoridad: Brand & Culture > C-001…C-004 > this canon > any Numen Games repository
-revision: by formal consensus, not by calendar
+id: "CAN-005"
+uid: ""
+title: "Numinia Licensing Canon"
+type: seminal
+status: active
+version: "1.5.0"
+created: "2026-08-16T19:58:17+02:00"
+created_source: "git:2efd546"
+created_confidence: exact
+updated: "2026-09-01T12:00:00+02:00"
+author: "oracle"
+owner: "oracle"
+guild: "Procurators"
+territory: "Archive"
+tags: [canon, seminal, licensing, legal, REUSE]
+license: "CC0-1.0"
+registration: registered
+former_id: "C-005"
+former_id_note: "Renumbered by ADR-036 (2026-09-01), which also migrated this header from the legacy Spanish schema (documento/canon/version/fecha/estado/ambito/autoridad) to the standard one. The legacy fields are preserved below as prose so nothing is lost."
+distributed_file: "2026_08_16-Numinia_Canon_C005_Licencias-v1.3.0.md"
+public_guide: "2026_08_16-Numinia_Guia_Licencias-v1.1.0.html"
+reasoned_edition: "2026_08_16-Numinia_Legal_Book_Edicion_Razonada-v0.6.1.md"
+scope: "every piece created from 2026-08-16 onward"
+out_of_scope: "inventory of the inherited (debt/ entries tagged legal, ADR-026) · reasoning and alternatives (Legal Book v0.6.1, archived)"
+canonical_language: "en"
+normative_conventions: "RFC 2119 (MUST / SHOULD / MAY)"
+authority: "Brand & Culture > CAN-001…CAN-004 > this canon > any Numen Games repository"
+revision_policy: "by formal consensus, not by calendar"
+threshold: sealed
 ---
 
-# C-005 · Licensing Canon
+# CAN-005 · Licensing Canon
 
 ## 0. Scope and provenance
 
@@ -50,6 +63,16 @@ Four regimes, one per type of value:
 | Edge — domain, UI, viewer, SDK, scripts, infrastructure | **MIT** | Shared: its value grows with adoption |
 | Core — identity, progression, billing | **AGPL-3.0-only + CLA** | Free for those who share; paid for those who close |
 | World and name — lore, narrative, brand | **Reserved** | The irreplicable is not licensed |
+
+**Exception, recorded rather than hidden (ADR-036, 2026-09-01): the `canon/`
+corpus itself is `CC0-1.0`.** The seven canon documents were first published on
+2026-04-07 (`f765b99`) under the repository's root `CC0-1.0` `LICENSE`, four
+months before the reservation regime existed. That grant is irrevocable, so the
+reservation applied to `canon/**` on 2026-08-16 never took effect on them: it
+described a state that was already legally impossible. `REUSE.toml` now declares
+what is true instead of what was intended. The rule above still governs
+everything born after the cut — including the lore in `numinia-lore`, which was
+never under the open root license.
 
 A file with no declared license is not neutral: the default is **all rights
 reserved**. Declaring is what liberates.
@@ -436,6 +459,7 @@ work; when it is silent, ask rather than infer.
 
 | Version | Date | Changes |
 |---|---|---|
+| 1.5.0 | 2026-09-01 | **Regime correction and renumbering (`ADR-036`, canon-change).** §1 gains a recorded exception: `canon/**` is `CC0-1.0`, not reserved. The seven documents were published in `f765b99` (2026-04-07) under the root `CC0-1.0` `LICENSE`, four months before the 2026-08-16 reservation; that grant is irrevocable, so the reservation never took effect and `REUSE.toml` was declaring a regime the repository did not have — the same fault `ADR-026` corrected for `agents/**`. This document also becomes `CAN-005` and its legacy Spanish header (`documento`/`canon`/`fecha`/`estado`/`ambito`/`autoridad`) migrates to the standard schema, closing the last frontmatter migration pending in `S-004` §6. |
 | 1.4.0 | 2026-08-27 | **Language amendment (`ADR-023`, canon-change).** §5 revokes the exception *«this canon is internal governance and remains in es-ES»*: English is the base language of every summa (`DEC-006`), canon included — governance documents are part of what an organization adopting NWOS reads. The body translation was executed as a separate PR under `MIS-116` (`canon/` row); `idioma_canonico` moved to `en` in that PR, once the fact it describes became true. Sole exception, recorded as debt in the ADR: the role-playing game manual (`numinia-lore`, reserved lore, external source of truth). §9's closing line follows the document's translated title. |
 | 1.3.0 | 2026-08-16 | **Consolidation.** Resolved the §1↔§5 contradiction: *silence does not declare* — the reserved is expressed with a reservation `LICENSE`, not with absence. New **§2.5, the generator rule** [UNIVERSAL]: a template never propagates its license to what it generates and emits a reservation in the client's name; client *workspaces* fall outside §5. New **§2.6, AI provenance**: `human · ai-assisted · ai-generated`, with the contractual part marked [LAWYER]. New **visibility-change gate** (§4): turning a repo public **is** the grant, before `npm publish`, and it is verified against a real directory listing, not a hand-written list. **One file, one regime** (§5): an `AND` mixing an open license with reservation is an impossible permission; the content is separated. **Default severity error** and no naming of domains; debt thresholds are evaluated by CI on every build. **Language**: the enforceable artifacts —`LICENSE`, `TRADEMARKS.md`, `NOTICE`, CLA, fragment— in English; the canon stays in es-ES. New **§0**: scope limited to Numen Games repositories and [UNIVERSAL]/[NUMEN] marks per section so that future promotion is mechanical. The §9 fragment becomes self-sufficient: present≠distributed, one file one regime, generators, visibility in *stop and ask*. |
 | 1.3.0 | 2026-08-30 | **One debt register** (ADR-026, formal consensus): every clause that named `LEGAL_DEBT.md` now points at `debt/` entries tagged `legal`. LD-001..005 became D-042..D-046, text verbatim. The MUSTs are untouched; only the register moved. |

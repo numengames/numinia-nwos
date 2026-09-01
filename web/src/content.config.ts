@@ -89,13 +89,6 @@ const system = defineCollection({
     .passthrough(),
 });
 
-// The fondos' lore lines — reserved-regime canon content, kept in its own
-// file (one file, one regime; C-005 §5) and read here only for display.
-const canonLore = defineCollection({
-  loader: glob({ pattern: "archive-lore.md", base: "../canon" }),
-  schema: z.object({ lore: z.record(z.string(), z.string()) }).passthrough(),
-});
-
 // Legal artifacts — operations/legal/ is the master copy (per the FLAG-1
 // record): the published pages derive from it at build time. Reserved-
 // rights content, read here only for display (C-005 §5). Publication with
@@ -115,9 +108,8 @@ const legal = defineCollection({
 
 // The full-canon mirror (MIS-087): every repo .md outside the detail
 // collections above gets a generic corpus entry. Negated patterns keep
-// single ownership of a file between corpus and the typed collections
-// (canon/archive-lore.md is the deliberate exception: data in canonLore,
-// page in corpus). Schema is lax on purpose — frontmatter varies per
+// single ownership of a file between corpus and the typed collections.
+// Schema is lax on purpose — frontmatter varies per
 // directory and some files (README, INDEX) carry none.
 const corpus = defineCollection({
   loader: glob({
@@ -163,4 +155,4 @@ const corpus = defineCollection({
   schema: z.object({}).passthrough(),
 });
 
-export const collections = { missions, audits, decisions, blueprints, system, canonLore, legal, corpus };
+export const collections = { missions, audits, decisions, blueprints, system, legal, corpus };

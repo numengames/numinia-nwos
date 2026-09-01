@@ -115,7 +115,7 @@ Regimes differ by folder, and the difference is deliberate: code, prose and lore
 are not offered on the same terms. Every file declares its own SPDX identifier,
 resolved through [`REUSE.toml`](REUSE.toml) following REUSE 3.3.
 
-See [`LICENSE`](LICENSE) and [`C-005`](canon/C-005-licensing.md) — do not infer
+See [`LICENSE`](LICENSE) and [`CAN-005`](canon/CAN-005-licensing.md) — do not infer
 a licence from a neighbouring file.
 
 ---

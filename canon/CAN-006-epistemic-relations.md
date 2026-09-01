@@ -1,6 +1,6 @@
 ---
-id: "canon-epistemic-relations-v020"
-uid:
+id: "CAN-006"
+uid: ""
 title: "Epistemic Relations between Numen Games and Numinia"
 type: seminal
 status: active
@@ -14,13 +14,10 @@ owner: "oracle"
 guild: "Exegetes"
 territory: "Archive"
 tags: [canon, seminal, peirce, semiotics, ADR-023]
-license: "LicenseRef-Numen-AllRightsReserved"
-registration: exempt
-registration_exemption: "frozen-artifact"
-registration_reason: >
-  Dated filename: a photograph of the model at 2026-04-15, not a living
-  document (P-010 §3.2). It is the source of the Germinal Motive /
-  Regulatory Model distinction — see ADR-023.
+license: "CC0-1.0"
+registration: registered
+former_id: "canon-epistemic-relations-v020"
+former_id_note: "Renumbered by ADR-036 (2026-09-01). The dated filename declared this a frozen artifact under P-010 §3.2; the Oracle ruled that classification wrong — these two are living canon, not photographs, and they enter the CAN series like the rest of the folder. Former filename: 2026_04_15-Epistemic_Relations_Between_Numen_Games_and_Numina-v0.2.0.md"
 threshold: sealed
 ---
 

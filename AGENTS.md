@@ -26,8 +26,9 @@ The principal areas of this repository:
 
 - `agents/` — canonical definitions of persistent agents (`AGENT.yaml`,
   `SOUL.md`, `OPERATOR.md`, `SOURCES.md`, `adapters/`).
-- `canon/` — the world and the governing canons (C-001…C-006). Reserved
-  lore lives here; read it, never republish it.
+- `canon/` — the world and the governing canons (CAN-001…CAN-007). Published
+  under CC0-1.0 since the April grant (ADR-036); the reserved lore lives in
+  `numinia-lore`, not here.
 - `standards/` — the archive's own operative standards, including
   `STD-001-glossary.md` (controlled vocabularies) and
   `STD-005-engineering-standards.md` (§6–§7: the working protocol).

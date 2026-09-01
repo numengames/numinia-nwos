@@ -5,10 +5,10 @@
 # documento\tpedia\tescrito
 canon/2026_04_15-Epistemic_Relations_Between_Numen_Games_and_Numina-v0.2.0.md	Canon	Archive
 canon/2026_04_15-Pragmatic_Numen_System-v0.2.0.md	Canon	Archive
-canon/C-001-welcome-to-numinia.md	Canon	Archive
-canon/C-002-brand-and-culture.md	Canon	Archive
-canon/C-003-attributes-and-ranks.md	Canon	Archive
-canon/C-004-role-structure.md	Canon	Archive
+canon/CAN-001-welcome-to-numinia.md	Canon	Archive
+canon/CAN-002-brand-and-culture.md	Canon	Archive
+canon/CAN-003-attributes-and-ranks.md	Canon	Archive
+canon/CAN-004-role-structure.md	Canon	Archive
 canon/C-006-session-zero.md	Canon	Archive
 canon/C-007-rank-specifications.md	Canon	Archive
 missions/MIS-122-fix-uid-rule.md	Standards	Archive

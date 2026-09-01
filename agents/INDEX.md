@@ -78,7 +78,7 @@ retired author strings here — this table survives any roster change
 | `Ursa (agente) <ursa@numen.games>` | [Ursa](ursa/SOUL.md) | 2026-08-24 → | 30+ |
 
 `Centinela-01` committed the ten seminal canon documents on 2026-04-07,
-including `C-001-welcome-to-numinia.md`. The agent was renamed to Nimrod by
+including `CAN-001-welcome-to-numinia.md`. The agent was renamed to Nimrod by
 `MIS-089` and retired by `MIS-118`; the history did not change and cannot.
 See `D-027`.
 

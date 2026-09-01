@@ -197,7 +197,7 @@ reader, and readers are the point.
 Both would work. Canon renumbering was chosen because:
 
 - **`C-NNN` is already the declared scheme for `canon/`** (`STD-001` §4.1, and
-  `C-005-licensing.md` already carries it). The seminal `S-` numbering is the
+  `CAN-005-licensing.md` already carries it). The seminal `S-` numbering is the
   anomaly, not the target.
 - `MIS-109` is already opening every canon file for frontmatter, filenames and
   the `D-012` terminology divergence. **Renumbering is a fifth operation on

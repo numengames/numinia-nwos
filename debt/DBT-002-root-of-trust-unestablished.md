@@ -37,14 +37,14 @@ immutable. **Both statements were false**, and the history proves it:
 
 | Claim | Evidence against it |
 |---|---|
-| `canon/` "must not be modified" | 14 of 14 canon documents have >1 commit. `C-001-welcome-to-numinia.md`, edited 2026-05-06 by a third party: *"operating system"* → *"germinal motive"*, *"Functional Model"* → *"Regulatory Model"* |
+| `canon/` "must not be modified" | 14 of 14 canon documents have >1 commit. `CAN-001-welcome-to-numinia.md`, edited 2026-05-06 by a third party: *"operating system"* → *"germinal motive"*, *"Functional Model"* → *"Regulatory Model"* |
 | A `done` mission "is immutable" | 9 of 33 edited after being marked `done` |
 
 Reproduce:
 
 ```bash
-git log --follow -- "canon/C-001-welcome-to-numinia.md"
-git show fee903b -- "canon/C-001-welcome-to-numinia.md"
+git log --follow -- "canon/CAN-001-welcome-to-numinia.md"
+git show fee903b -- "canon/CAN-001-welcome-to-numinia.md"
 ```
 
 `STD-001` §2.1 replaces immutability with **change thresholds** — `sealed`,
@@ -359,7 +359,7 @@ Christian Märtens  christianmartens@numengames.com          2 commits
 Christian Numinia  129116311+ChristianNumenGames@users.…    7 commits
 ```
 
-Two accounts, similar names, and `canon/C-002-brand-and-culture.md:198` lists
+Two accounts, similar names, and `canon/CAN-002-brand-and-culture.md:198` lists
 **"Christian Martens | Oracle"** in a roles table — a third spelling, with no
 account attached.
 

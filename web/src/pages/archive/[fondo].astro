@@ -20,16 +20,15 @@ const FONDO_ICON: Record<string, string> = {
 import { getCollection } from "astro:content";
 
 // MIS-065 phase C: fondo data lives in system/SYS-003-archive-fondos.md
-// (moved from blueprints/ by MIS-129 under ADR-035).
-// (CC-BY) and the lore lines in canon/archive-lore.md (reserved).
+// (moved from blueprints/ by MIS-129 under ADR-035). ADR-036 folded the
+// lore lines into that same frontmatter: canon/ is CC0 now, so the
+// one-file-one-regime split that justified a separate file is gone.
 const bpEntry = (await getCollection("system")).find(
   (e) => e.data.id === "SYS-003"
 )!;
-const loreEntry = (await getCollection("canonLore"))[0];
-const loreMap = ((loreEntry?.data as any)?.lore ?? {}) as Record<string, string>;
 const fondosData = ((bpEntry.data as any).fondos as any[]).map((f) => ({
   ...f,
-  lore: loreMap[f.id] ?? "",
+  lore: f.lore ?? "",
 }));
 
 export function getStaticPaths() {
