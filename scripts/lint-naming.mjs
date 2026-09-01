@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * lint-naming.mjs — the filename lint (S-001 §9, D-001 item 3).
+ * lint-naming.mjs — the filename lint (STD-001 §9, D-001 item 3).
  *
- * S-001 §9 states three rules about filenames that no instrument checked
+ * STD-001 §9 states three rules about filenames that no instrument checked
  * before this one:
  *
  *   1. Series documents: `<PREFIX>-<NNN|NNNN>-<slug-kebab-case>.md`
@@ -15,16 +15,16 @@
  *   node scripts/lint-naming.mjs --report         # full detail, exit 0
  *   node scripts/lint-naming.mjs --write-baseline # freeze current state
  *
- * Enforcement pattern (same as lint-frontmatter.mjs, S-004 §7): strict on
+ * Enforcement pattern (same as lint-frontmatter.mjs, STD-004 §7): strict on
  * the delta, baseline on the stock. Violations present at adoption are
  * frozen in scripts/naming-baseline.json — allowed to exist, not to grow.
  *
  * WHAT THIS GUARD DOES NOT CHECK (D-025 — declare your blindness):
  *
- *  - **Whether the slug is actually English.** S-001 §9 says "english
+ *  - **Whether the slug is actually English.** STD-001 §9 says "english
  *    kebab-case"; this guard verifies the *shape* (lowercase, hyphens,
  *    no underscores/spaces) but cannot verify the *language*. A Spanish
- *    slug in valid kebab-case passes. Same class of gap as S-001's own
+ *    slug in valid kebab-case passes. Same class of gap as STD-001's own
  *    admission about `lint-type-vs-folder.mjs` and documentation/meta:
  *    mechanizable up to a point, [MANUAL] past it.
  *  - **Whether the numeric part is actually free of gaps or collisions.**
@@ -120,10 +120,10 @@ for (const rel of files) {
   const top = parts[0];
   const base = parts[parts.length - 1];
 
-  /* Root documents: UPPERCASE.md (S-001 §9). */
+  /* Root documents: UPPERCASE.md (STD-001 §9). */
   if (parts.length === 1) {
     if (!ROOT_UPPERCASE_RE.test(base))
-      F('N-01', rel, `root document "${base}" is not UPPERCASE.md (S-001 §9)`);
+      F('N-01', rel, `root document "${base}" is not UPPERCASE.md (STD-001 §9)`);
     continue;
   }
 
@@ -140,9 +140,9 @@ for (const rel of files) {
      shape — checked for the RIGHT shape below, not flagged here. */
   const looksFrozen = DATED_PREFIX_RE.test(base) || exemption === 'frozen-artifact';
   if (!looksFrozen && VERSION_SUFFIX_RE.test(base))
-    F('N-02', rel, `filename carries a version suffix — version: lives in frontmatter, not the name (S-001 §9)`);
+    F('N-02', rel, `filename carries a version suffix — version: lives in frontmatter, not the name (STD-001 §9)`);
   if (!looksFrozen && DATED_PREFIX_RE.test(base))
-    F('N-02', rel, `filename carries a date prefix without being a declared frozen artifact (S-001 §9, P-010 §3.2)`);
+    F('N-02', rel, `filename carries a date prefix without being a declared frozen artifact (STD-001 §9, P-010 §3.2)`);
 
   /* Frozen artifacts: verify they actually carry the reserved shape
      (YYYY_MM_DD-Title_With_Underscores-vX.Y.Z.md), not just some date. */
@@ -159,11 +159,11 @@ for (const rel of files) {
   const re = new RegExp(`^${scheme.prefix}-\\d{${scheme.digits}}-(.+)\\.md$`);
   const m = base.match(re);
   if (!m) {
-    F('N-04', rel, `filename does not match ${scheme.prefix}-${'N'.repeat(scheme.digits)}-<slug>.md for ${key}/ (S-001 §9, ADR-005 v1.1.0)`);
+    F('N-04', rel, `filename does not match ${scheme.prefix}-${'N'.repeat(scheme.digits)}-<slug>.md for ${key}/ (STD-001 §9, ADR-005 v1.1.0)`);
     continue;
   }
   if (!KEBAB_SLUG_RE.test(m[1]))
-    F('N-05', rel, `slug "${m[1]}" is not lowercase kebab-case (S-001 §9)`);
+    F('N-05', rel, `slug "${m[1]}" is not lowercase kebab-case (STD-001 §9)`);
 }
 
 /* ---------------- baseline ratchet (same pattern as lint-frontmatter.mjs) ---------------- */
@@ -172,7 +172,7 @@ const keys = findings.map((f) => `${f.check} ${f.file} :: ${f.detail}`).sort();
 
 if (WRITE) {
   writeFileSync(BASELINE, JSON.stringify({
-    _comment: 'Filename violations frozen at adoption (S-001 §9, D-001 item 3). The lint fails only on NEW ones. Shrinks as MIS-125 Stage C renames land; never grows.',
+    _comment: 'Filename violations frozen at adoption (STD-001 §9, D-001 item 3). The lint fails only on NEW ones. Shrinks as MIS-125 Stage C renames land; never grows.',
     generated: new Date().toISOString(),
     count: keys.length,
     entries: keys,

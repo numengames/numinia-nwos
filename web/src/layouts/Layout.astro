@@ -72,10 +72,16 @@ const ogLocale = "en_US";
     <slot name="head" />
   </head>
   <body class="relative overflow-x-hidden">
-    <!-- El cielo del Velo (§2.7.1) -->
+    <!-- El cielo del Velo (§2.7.1).
+         `width`/`height` are set in JS from window.innerWidth, which on mobile
+         includes the scrollbar gutter: measured at 375 px the canvas came back
+         399 px and dragged the page 24 px wide. The attribute below only sizes
+         the drawing buffer; `w-full h-full` keeps the ELEMENT inside its fixed
+         inset, so the bitmap can be as wide as it likes without the layout
+         noticing. -->
     <canvas
       id="starfield"
-      class="pointer-events-none fixed inset-0 -z-10"
+      class="pointer-events-none fixed inset-0 -z-10 h-full w-full"
       aria-hidden="true"
     ></canvas>
     <!-- Registro del Velo (§2.7): niebla + rejilla las pinta body::before
@@ -118,8 +124,12 @@ const ogLocale = "en_US";
         let W = 0, H = 0;
 
         function resize() {
-          W = canvas.width = window.innerWidth;
-          H = canvas.height = window.innerHeight;
+          // clientWidth, not innerWidth: innerWidth counts the scrollbar
+          // gutter, and a canvas sized to it reports 399 px inside a 375 px
+          // viewport — which is exactly how a decorative background ends up
+          // giving a page of prose a horizontal scrollbar.
+          W = canvas.width = document.documentElement.clientWidth;
+          H = canvas.height = document.documentElement.clientHeight;
         }
 
         function initStars() {

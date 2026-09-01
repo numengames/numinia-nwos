@@ -4,17 +4,17 @@ Fase 2 del burndown de cabeceras — SOLO cambios mecanicos, cero decisiones.
 
 Cuatro operaciones, todas con regla ya escrita en el canon:
 
-  1. status: backlog -> todo        S-004 par.5: backlog no esta en el ciclo.
+  1. status: backlog -> todo        STD-004 par.5: backlog no esta en el ciclo.
                                     La web ya lo traduce al pintar
                                     (RETIRED_TO_TODO), asi que el tablero se ve
                                     IGUAL antes y despues.
-  2. uid: <valor> -> uid: ""        S-001 par.6.2: declarado y vacio hasta que
+  2. uid: <valor> -> uid: ""        STD-001 par.6.2: declarado y vacio hasta que
                                     exista el sistema de UID. Decision del
                                     Oraculo, no negociable.
   3. blocked_reason: null -> fuera   D-002 lo retiro. Solo se borra cuando el
                                     valor es null/vacio: no hay informacion
                                     que perder.
-  4. version: "v1.2.3" -> "1.2.3"   S-004: SemVer desnudo, sin prefijo v.
+  4. version: "v1.2.3" -> "1.2.3"   STD-004: SemVer desnudo, sin prefijo v.
 
 NO TOCA (medido, no supuesto):
   - Las claves en castellano de C-005 y del Sistema de Diseno. Verificado:

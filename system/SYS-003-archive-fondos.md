@@ -32,7 +32,7 @@ fondos:
       - { nombre: "Epistemic Relations", desc: "The OS→Model→Narrative triad. Peirce + Jung applied to organizations.", file: "canon/2026_04_15-Epistemic_Relations_Between_Numen_Games_and_Numina-v0.2.0.md" }
       - { nombre: "Compendium of Attributes", desc: "Attribute system, ranks and the agent's character sheet.", file: "canon/C-003-attributes-and-ranks.md" }
       - { nombre: "Role Structure", desc: "Role theory: Basic Level (guilds) + Prototype (factions).", file: "canon/C-004-role-structure.md" }
-      - { nombre: "Platform Role System", desc: "Ranks and permissions of the Digital Goods v2 platform.", file: "standards/S-003-platform-role-system.md" }
+      - { nombre: "Platform Role System", desc: "Ranks and permissions of the Digital Goods v2 platform.", file: "standards/STD-003-platform-role-system.md" }
       - { nombre: "About Session Zero", desc: "4 introductory escape rooms, seals, Prism Cells.", file: "canon/C-006-session-zero.md" }
       - { nombre: "Numinia — The Role-Playing Game", desc: "Complete RPG manual in Spanish, v0.6.0. Lives in numinia-lore, not in this repo.", file: "numinia-lore:seminal/Numinia_Manual_del_juego_de_rol_v0_6_0.md" }
       - { nombre: "Archive System", desc: "Numinia's documentary archive system. How knowledge is organized.", file: "archive-system.md" }
@@ -92,9 +92,15 @@ fondos:
     descripcion: "The designs and architectures being thought out. The Archive Summa itself began as a blueprint. The future lives here before becoming present."
     governance: "Oracle and agents may create. Oracle approves the merge."
     documentos:
-      - { nombre: "Archive Summa — Architecture v0.1.0", desc: "Complete structure, governance, permissions and delegation hierarchy.", file: "blueprints/archive-summa-arquitectura-v0.1.0.md", descargable: true, downloadPath: "/corpus/blueprints/archive-summa-arquitectura-v010.md" }
-      - { nombre: "Archive Summa — Foundational v0.1.0", desc: "100 simulations, 12 operating principles, canonical boot protocol.", file: "blueprints/archive-summa-fundacional-v0.1.0.md", descargable: true, downloadPath: "/corpus/blueprints/archive-summa-fundacional-v010.md" }
-      - { nombre: "Prompt for AIs v0.1.0", desc: "Complete prompt for studying the Archive Summa with any external AI.", file: "blueprints/archive-summa-prompt-v0.1.0.md", descargable: true, downloadPath: "/corpus/blueprints/archive-summa-prompt-v010.md" }
+      # The three archive-summa v0.1.0 documents were the whole of this shelf
+      # until 2026-08-31. PR #170 deleted them as closed April drafts from the
+      # old numinia-agents repo — their surviving content became the PRO- and
+      # STD- series and the canon — and this list kept offering them, so
+      # /archive/blueprints served three dead download links. Removed rather
+      # than repointed: the content was dissolved into other series, not moved,
+      # so there is no successor file to name. BLU-008 is what the shelf holds
+      # now; the empty list this briefly left behind broke the build.
+      - { nombre: "BLU-008 — NWOS System", desc: "What this system is and what it is for.", file: "blueprints/BLU-008-nwos-system.md" }
   - id: operations
     titulo: "Operations"
     subtitulo: "Circulatory System"

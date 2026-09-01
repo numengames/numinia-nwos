@@ -10,7 +10,7 @@ SPDX-License-Identifier: CC0-1.0
 ## Why
 
 <!-- The mission, decision, or incident that motivates it. Reference
-practice IDs from standards/engineering-standards.md when applicable
+practice IDs from standards/STD-005-engineering-standards.md when applicable
 (e.g. SEC-07, ARC-03). -->
 
 ## How to verify

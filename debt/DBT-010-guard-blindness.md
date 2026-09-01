@@ -175,7 +175,7 @@ mistake this entry documents.
 
 ### Why it matters
 
-It hid a contradiction in the most-cited document in the corpus. `S-001` §4.1
+It hid a contradiction in the most-cited document in the corpus. `STD-001` §4.1
 prescribed ten prefixes that `ADR-005` v1.1.0 had retired, and cited eight debt
 entries that no longer exist. The glossary that governs naming was mandating
 names the corpus had abandoned — for a day, while `MIS-125` renamed the corpus
@@ -212,7 +212,7 @@ declaration does not help a reader who is not there when the run happens.
 |---|---|
 | Severity | high — hid a contradiction between the glossary and the decision governing it, with all guards green |
 | Owner | Oracle |
-| Opened | 2026-08-31, by the Oracle's finding that `S-001` was out of date |
+| Opened | 2026-08-31, by the Oracle's finding that `STD-001` was out of date |
 | Blocks | nothing outright; makes the `debt/` rename look like a regression when it is a revelation |
 | Closes when | the guard reports retired-prefix citations, and the corpus has been swept once |
 

@@ -120,7 +120,7 @@ Marked RESOLVED when:
 - [ ] `scripts/check-published-coverage.mjs` exists and fails on an unlisted
       series, verified in both directions
 - [ ] It runs as a step in `ci.yml`, verified by reading the **step** and not
-      the run's conclusion (`S-001` §10.3)
+      the run's conclusion (`STD-001` §10.3)
 - [ ] The current exclusions carry a written reason in `content.config.ts`
 
 | | |
@@ -140,7 +140,7 @@ Marked RESOLVED when:
 > verbatim below, only its heading levels are demoted.
 
 > **Summary:** An index is apparatus — regenerable from the documents it lists
-> (`S-001` §3). Nothing checks that it was. **32 documents are missing from
+> (`STD-001` §3). Nothing checks that it was. **32 documents are missing from
 > their series index**, and `blueprints/INDEX.md` lists 3 of 22.
 > **Epistemic:** A document absent from its index is invisible to every reader
 > who trusts the index — which is what an index is for.
@@ -158,7 +158,7 @@ listed:
 > time today with the same shape: something that looks complete and is not.*
 >
 > *Debt of its own: nothing verifies that the apparatus reflects its records.
-> An index is regenerable by definition (`S-001` §3) and still went four months
+> An index is regenerable by definition (`STD-001` §3) and still went four months
 > without three documents. The guard is obvious and cheap — every file in a
 > series appears in its INDEX — and goes with the others in `D-001`.*
 >
@@ -234,7 +234,7 @@ lint: a baseline of the 32 known absences, which then only shrinks.
 
 **And the exemption matters** — `reports/audits/evidence/` holds recovered
 evidence that is deliberately not indexed. That must be declarable, not
-achieved by omission (`S-001` §5.0).
+achieved by omission (`STD-001` §5.0).
 
 ### What this does not claim
 
@@ -251,7 +251,7 @@ Marked RESOLVED when:
 
 - [ ] `check-index-coverage.mjs` exists, with a baseline of the 32 current
       absences and an `index_exempt` mechanism
-- [ ] It runs as a step in `ci.yml`, verified by reading the step (`S-001` §10.3)
+- [ ] It runs as a step in `ci.yml`, verified by reading the step (`STD-001` §10.3)
 - [ ] The 32 absences are worked down, or declared exempt with a reason
 - [ ] A decision on the six series with no index: they get one, or it is written
       down that they do not need one
@@ -394,7 +394,7 @@ The prior estimate was **1** orphan, derived from an aggregate subtraction
 (`pages − redirects − astro_declared`). The enumeration found **5**. The
 subtraction was not merely imprecise, it was structurally incapable: it counts
 `index.html`, so it can only see orphans that occupy a route, and four of these
-are served under their own filename. Recorded per `S-001` §10.0.1: a guard that
+are served under their own filename. Recorded per `STD-001` §10.0.1: a guard that
 validates what is present cannot detect what is missing, and **an aggregate
 identity cannot name anything**.
 
@@ -488,7 +488,7 @@ the defect.
 
 The original figures are left standing with the HEAD they were taken at rather
 than overwritten: a measurement without its commit is not a measurement
-(`S-001` §10.2). What should be re-run rather than trusted is the command.
+(`STD-001` §10.2). What should be re-run rather than trusted is the command.
 
 **The defect is that the count is not zero.** Any specific value is a snapshot,
 and an acceptance criterion that hard-codes one has a shelf life — see the
@@ -542,7 +542,7 @@ returns `0`: the intermediates are not indexed.
 But the comment states a guarantee about the **sitemap**, and the property that
 matters is that the intermediates **stop existing** — which it delegates to
 `generate-pdfs.mjs`, a step nothing runs. The control is green while the thing
-it was protecting is untrue. `S-001` §10.0 in its purest form: no error, and
+it was protecting is untrue. `STD-001` §10.0 in its purest form: no error, and
 a correct-looking artefact.
 
 ### The documentary discrepancy
@@ -564,7 +564,7 @@ footer.** That claim was true when written and is not true now.
 
 **The `build:pdf` half stands.** The panel runs `npm ci && npm run build`, and
 `build` does not chain `build:pdf`. **The document and the reality disagree, and
-the reality is the record** (`S-001` §2.1.1).
+the reality is the record** (`STD-001` §2.1.1).
 
 `CLAUDE.md` is an agent-instruction file and outside this agent's write
 permission; the corrected text is proposed in the PR body for the Oracle to

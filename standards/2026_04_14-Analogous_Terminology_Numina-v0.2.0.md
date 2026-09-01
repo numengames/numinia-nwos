@@ -1,5 +1,6 @@
 ---
 title: "Analogous Terminology in Numinia"
+uid: ""
 type: documentation
 status: closed
 version: "0.2.0"
@@ -10,7 +11,7 @@ updated: "2026-04-14T19:55:14+02:00"
 author: "christian-numinia"
 owner: "oracle"
 tags: [standards]
-license: "CC-BY-4.0"
+license: "CC0-1.0"
 registration: exempt
 registration_reason: "not part of a numbered series; header added from git history, nothing invented"
 ---

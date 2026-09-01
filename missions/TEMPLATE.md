@@ -5,7 +5,7 @@
 id: "MIS-000"
 title: "One line, in the imperative: what this mission does"
 status: todo
-# ^ todo|in-progress|in-review|done|frozen  (S-001 §7, ratified ADR-027)
+# ^ todo|in-progress|in-review|done|frozen  (STD-001 §7, ratified ADR-027)
 #   Keep the comment on its own line: an inline `#` after the value ends up
 #   INSIDE the value in some parsers — that is how D-009's corrupt document
 #   was created, by copying this template.
@@ -18,7 +18,7 @@ assigned_to: null        # agent-id, or null while unassigned
 completed: null          # YYYY-MM-DD when status becomes done
 
 # REGISTRO — not consumed by the build, but every document in this archive
-# carries them (S-001 §5).
+# carries them (STD-001 §5).
 type: mission
 version: "1.0.0"
 created: "YYYY-MM-DD"

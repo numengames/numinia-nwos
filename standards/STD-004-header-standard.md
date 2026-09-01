@@ -1,5 +1,6 @@
 ---
-id: "S-004"
+id: "STD-004"
+uid: ""
 title: "The header in three rings: identity, provenance, extension"
 type: documentation
 subtype: standard
@@ -12,11 +13,11 @@ updated: "2026-08-30T17:51:00Z"
 ratified_by: "ADR-027 (formerly ADR-029)"
 author: "ursa"
 owner: "oracle"
-license: "CC-BY-4.0"
+license: "CC0-1.0"
 tags: [frontmatter, standard, lint, metadata]
 ---
 
-# S-004 — The header in three rings
+# STD-004 — The header in three rings
 
 > **Status: ACTIVE** — ratified by `ADR-027` (2026-08-30), which moved this
 > document from `draft`/0.2.0 to `active`/1.0.0. The DRAFT banner that stood
@@ -41,7 +42,7 @@ reproducible, corpus tree excluding `web/` and `evidence/`):
 | **without frontmatter** — invisible to every instrument | **18** |
 | distinct fields in use | **127** |
 | fields used ≤2 times (noise or stillborn conventions) | **62** |
-| distinct `type` values vs 10 admitted by S-001 §7 | **18** |
+| distinct `type` values vs 10 admitted by STD-001 §7 | **18** |
 | dates without time (`T00:00:00Z` or bare date) | 114 |
 | empty values written instead of omitted | 75 |
 | `version` with `v` prefix | 7 |
@@ -80,7 +81,7 @@ what stops 127 fields becoming 200.
 
 ## 2. Ring 1 — identity (strict)
 
-The eight fields of S-001 §6.1, unchanged in meaning, now each with its
+The eight fields of STD-001 §6.1, unchanged in meaning, now each with its
 check:
 
 | Field | Rule | Check |
@@ -101,7 +102,7 @@ what they must carry, that card decides when.
 
 **Empty is absent (H-09):** a field with an empty value is a lint error.
 Absence is *declared*, not left blank: omit the field, or write `null`, or
-write `"TBA"` — whichever tells the truth about the gap (S-001 §6.3,
+write `"TBA"` — whichever tells the truth about the gap (STD-001 §6.3,
 ADR-027 (formerly ADR-028)). Every `"TBA"` is counted and reported by the guard, and names the
 mission that resolves it. 74 violations today.
 
@@ -111,24 +112,24 @@ mission that resolves it. 74 violations today.
 |---|---|---|
 | `author` | who wrote it (person or agent, ∈ identity file of D-026 when it exists) | **H-10** (presence per series policy; identity match deferred to D-026) |
 | `owner` | who answers for it now | **H-11** |
-| `provenance` | `human` · `ai-assisted` · `ai-generated` (S-001 §7) | **H-12** |
-| `created_source` | `git:<sha>` or `declared` — where the date came from (S-001 §8) | **H-13** |
+| `provenance` | `human` · `ai-assisted` · `ai-generated` (STD-001 §7) | **H-12** |
+| `created_source` | `git:<sha>` or `declared` — where the date came from (STD-001 §8) | **H-13** |
 | `created_confidence` | `exact` · `inferred` — never invented (D-021) | **H-14** |
 | `requested_by` | optional; who commissioned | **H-15** (vocabulary-free; presence only) |
 | `supersedes` / `superseded_by` / `derived_from` | resolvable identifiers; superseded documents are never deleted (P-010 §5) | **H-16** (resolvability) |
 
 Ring 2 admits `declared` where git cannot testify — the point is that a
-reader can always tell **evidence from claim** (S-001: *a date derived
+reader can always tell **evidence from claim** (STD-001: *a date derived
 from a commit is evidence; a typed one is a claim*).
 
 ## 4. The `type` vocabulary — adopt reality where it is right
 
-S-001 §7 declares 10 values; the corpus uses 18. The census splits the 8
+STD-001 §7 declares 10 values; the corpus uses 18. The census splits the 8
 intruders into two classes, and they deserve opposite treatment:
 
 **Legitimate, ADMITTED (ADR-027, 2026-08-30):**
 
-- **`agent`** — 24 documents, the whole `agents/` series. S-001 §3's own
+- **`agent`** — 24 documents, the whole `agents/` series. STD-001 §3's own
   canonical map has **no row for `agents/`**: the series that answers
   "who acts" has no admitted genre. This is a gap in the standard, not
   drift in the corpus. `type: agent` ↔ `agents/`, strict.
@@ -139,7 +140,7 @@ intruders into two classes, and they deserve opposite treatment:
 
 **Drift, propose to MIGRATE (mechanical, one PR each):**
 
-| Value | Count | Correction (already ruled by S-001 §7) |
+| Value | Count | Correction (already ruled by STD-001 §7) |
 |---|---|---|
 | `decision` | 6 | → `adr` |
 | `audit` | 2 | → `report` + `subtype: audit` |
@@ -150,8 +151,8 @@ intruders into two classes, and they deserve opposite treatment:
 | `template` | 1 | → `meta` |
 
 **H-03 enforces the closed list; H-17** enforces the §3 type↔series map
-(strict for the strict 9 — the 8 of S-001 plus `agent` — warn-only for
-`documentation` and `meta`, exactly as S-001 §3 already concedes).
+(strict for the strict 9 — the 8 of STD-001 plus `agent` — warn-only for
+`documentation` and `meta`, exactly as STD-001 §3 already concedes).
 
 **`subtype` becomes load-bearing (H-18):** free-text today, it is how
 `report/audit` and `documentation/standard` keep their identity after
@@ -160,7 +161,7 @@ now: `report: audit, daily` · `documentation: standard, guide`.
 
 ## 5. Status lifecycles
 
-S-001 §7 defines the mission lifecycle. This standard states the check
+STD-001 §7 defines the mission lifecycle. This standard states the check
 and adds the two lifecycles the corpus already uses implicitly:
 
 - **missions:** `todo → in-progress → in-review → done` + `frozen`
@@ -183,9 +184,9 @@ Initial registry — transcribed from actual majority use, not invented:
 > **Amendment 2026-08-28 (v0.2.0).** Building the lint against v0.1.0
 > exposed two transcription errors in this table, caught before any
 > baseline was frozen: (1) `guild` and `territory` are normalized
-> optional **globals** in S-001 §6.3 — v0.1.0 wrongly caged them in
+> optional **globals** in STD-001 §6.3 — v0.1.0 wrongly caged them in
 > `missions/`; (2) the mission dependency graph (`depends_on`,
-> `parent_mission`, `sub_missions`, `blocked_by`), the S-001 evidence
+> `parent_mission`, `sub_missions`, `blocked_by`), the STD-001 evidence
 > apparatus (`evidence_script`, `evidence_head` — a number without a
 > script is not evidence), and the registration mechanics of §5.0
 > (`registration_reason`, `registration_exemption`) are systematic use,
@@ -203,13 +204,13 @@ Initial registry — transcribed from actual majority use, not invented:
 | `protocols/` | `applies_to` `mandatory` |
 | `standards/` `canon/` | `threshold` (change threshold, P-003) |
 | `standards/` `canon/` `protocols/` | `supersedes_version` `ratified_by` |
-| all | `tags` `visibility` `guild` `territory` (S-001 §6.3) · `registration` `registration_reason` `registration_exemption` (§5.0) · `evidence_script` `evidence_head` (evidence apparatus) · `related` (cross-references) · `uid` (reserved-empty, S-001 §6.2 — **H-20**: non-empty `uid` is an error until the UID system exists) |
+| all | `tags` `visibility` `guild` `territory` (STD-001 §6.3) · `registration` `registration_reason` `registration_exemption` (§5.0) · `evidence_script` `evidence_head` (evidence apparatus) · `related` (cross-references) · `uid` (reserved-empty, STD-001 §6.2 — **H-20**: non-empty `uid` is an error until the UID system exists) |
 
 The remaining ~50 rare fields not registered here die by omission: the
 lint flags them, their carriers migrate or the field earns its ADR. The
 census names every one; the migration card executes against that list.
 
-**Retirements already ruled by S-001 (the lint inherits them):**
+**Retirements already ruled by STD-001 (the lint inherits them):**
 `area` → `territory` (D-010, 142 carriers today) · `blocked_reason`
 (retired, D-002 closed 2026-08-31) · Spanish keys
 `documento/ambito/estado/fecha/licencia/revision`
@@ -218,7 +219,7 @@ with its own baseline entry until its migration lands.
 
 ### 6.1 Deferred values — `TBA` (H-32)
 
-A field can be required, present, and **not yet decided**. `S-001` uses
+A field can be required, present, and **not yet decided**. `STD-001` uses
 `territory: "TBA"` as the canonical example: the field applies, the value
 exists, the decision has not been taken.
 
@@ -252,7 +253,7 @@ catches that.
 
 ### 6.2 Closed vocabularies (H-33…H-36)
 
-Four fields take their values from a closed list declared in `S-001`:
+Four fields take their values from a closed list declared in `STD-001`:
 
 | check | field | vocabulary |
 |---|---|---|
@@ -308,7 +309,7 @@ territory; the deliverable of t_1134d057 is the script + this mapping.
 
 - It does not migrate anything. Every count above stays as-is until its
   card executes (D-009, D-010, t_1c32aeb0, t_c848ef09, t_d4936cc8).
-- It does not rename fields or documents (S-001 §5.0.1 governs renames).
+- It does not rename fields or documents (STD-001 §5.0.1 governs renames).
 - It does not decide the 18 naked governance documents' content — only
   what a conformant header is when t_1c32aeb0 dresses them.
 - It does not touch `web/src/content/` — Astro's own schema governs the

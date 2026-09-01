@@ -21,4 +21,4 @@ reports/audits/AUD-2026-08-26-governance.md	Governance	Archive
 reports/audits/AUD-2026-08-26-licensing-c005.md	Legal	Archive
 reports/audits/AUD-2026-08-26-process.md	Governance	Archive
 reports/audits/AUD-2026-08-26-provenance.md	Legal	Archive
-standards/S-003-platform-role-system.md	Standards	Archive
+standards/STD-003-platform-role-system.md	Standards	Archive

@@ -84,7 +84,7 @@ entry moves to the "Resolved" section with the decision and its date.
 ### CON-006 — Authority by fork vs sovereignty of the derived repo
 
 - **Detected:** 2026-08-18 (the Oracle, on the MIS-095 draft)
-- **Source A:** `standards/engineering-standards.md` §7.1 and header —
+- **Source A:** `standards/STD-005-engineering-standards.md` §7.1 and header —
   numinia-nwos and «any workspace generated from the mould» are
   **downstream forks** that «receive this document through the fork
   relationship»; the sync mechanism is left open but the authority is
@@ -126,10 +126,10 @@ entry moves to the "Resolved" section with the decision and its date.
   remain; their own divergence, if any, is a separate question this
   entry never covered.
 
-### CON-003 — Provenance of engineering-standards.md
+### CON-003 — Provenance of `STD-005-engineering-standards.md`
 
 - **Detected:** 2026-08-17 (adoption of the standard)
-- **Source A:** `standards/engineering-standards.md` §Downstream and
+- **Source A:** `standards/STD-005-engineering-standards.md` §Downstream and
   §7.1 — claims that `numengames/numinia-nwos` "is a fork of the mould"
   (`numen-games-nwos-orgs/nwos-workspace-template`) and receives the
   document through the fork relationship.
@@ -140,7 +140,7 @@ entry moves to the "Resolved" section with the decision and its date.
   (§7.1); the local copy is not edited.
 - **Resolved:** 2026-08-20 by **ADR-001**.
 - **Decision:** it was not a falsehood, it was a **register confusion**
-  between two distinct artifacts. `engineering-standards.md`
+  between two distinct artifacts. `STD-005-engineering-standards.md`
   **originates here**: Numinia is NWOS's first client and its proving
   ground. The mould's copy is a **starting proposal** that binds
   nobody and becomes governed by whoever adopts it (G-12). They are

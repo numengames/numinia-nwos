@@ -21,11 +21,11 @@ owner: "oracle"
 tags: [archive, frontmatter, s-004, migration, debt]
 license: "CC-BY-4.0"
 
-paths: [scripts/lint-frontmatter.mjs, scripts/frontmatter-baseline.json, standards/S-004-header-standard.md, debt/, missions/, web/src/content.config.ts]
+paths: [scripts/lint-frontmatter.mjs, scripts/frontmatter-baseline.json, standards/STD-004-header-standard.md, debt/, missions/, web/src/content.config.ts]
 ---
 # MIS-121 — Burn the header baseline down
 
-> **Summary:** `S-004` is now enforced by a guard in CI, and the guard froze
+> **Summary:** `STD-004` is now enforced by a guard in CI, and the guard froze
 > **843 existing violations** so it could ratchet instead of cliff. This
 > mission spends that baseline down to zero.
 > **Epistemic:** the baseline's size is the corpus's public entropy metric.
@@ -67,7 +67,7 @@ debt entries that already register individual classes (`D-002`, `D-008`,
 `D-009`, `D-010`, `D-012`); the Astro content schema where a field rename
 would otherwise break the board.
 
-**Out of scope:** changing what `S-004` *says* — the `H-09` rule that
+**Out of scope:** changing what `STD-004` *says* — the `H-09` rule that
 punishes the conforming empty `uid` is a normative fix and lives in
 `MIS-122`. Emptying the 34 written `uid` values is **in** scope (blocker 1).
 Also out of scope: the *content* of any document. This mission moves keys
@@ -123,7 +123,7 @@ Order is deliberate: mechanically safe first, contested last.
       `open → active` ×35, `resolved → closed` ×2; the two entries needing
       reading were read. Today `debt/` emits 0.*
       `open → active` ×35, `resolved → closed` ×2, against the
-      `[draft active closed]` cycle `S-004` already gives
+      `[draft active closed]` cycle `STD-004` already gives
       `type: documentation`. Two entries need reading, not renaming: one
       carries the literal `status: cancelled  →  status: frozen`, another a
       trailing comment that corrupts the value (`D-016` territory).
@@ -148,11 +148,11 @@ rename's clothes, and the numbers below say how many decisions each is.
 
       | | |
       |---|---|
-      | map 1:1 onto `S-001` §7 `territory` | **66** |
+      | map 1:1 onto `STD-001` §7 `territory` | **66** |
       | compound — `Platform / numinia-web`, `CAO / Product`, one with `{a\|b\|c}` | **43** |
       | orphan — `web` ×12, `Documentation` ×9, `Operations` ×5, `Ops`, `Business`, `Strategy` | **33** |
 
-      `S-001` §7 already diagnosed the compounds: *"the slash reveals the
+      `STD-001` §7 already diagnosed the compounds: *"the slash reveals the
       field doing two jobs: functional domain plus technical surface."*
       **76 of the 142 need a judgement, not a rename** — and this is exactly
       what `D-010` says it is blocked on. This check is therefore three
@@ -160,7 +160,7 @@ rename's clothes, and the numbers below say how many decisions each is.
       Do not schedule it as one.
 
       **A worse finding, and it is not this mission's to fix.**
-      `S-001` §7 declares `territory` as `CAO · Product · Platform ·
+      `STD-001` §7 declares `territory` as `CAO · Product · Platform ·
       Infrastructure · Content · Sales · Funding · Archive`. The 67
       documents that already carry `territory` use `Archive` ×48, `Canon` ×8,
       `Infrastructure` ×4, `Legal` ×3, `Governance` ×2, `Standards` ×2.
@@ -224,10 +224,10 @@ rename's clothes, and the numbers below say how many decisions each is.
       are registered in `SETTLED_ELSEWHERE` with reasons.*
       *These* are mechanical. 15 findings, no judgement.
 - [x] **`H-20` non-empty `uid` — 34.** *Done (post-#129 batches): all 34
-      hand-authored values emptied per S-001 §6.2. The only `uid` values
+      hand-authored values emptied per STD-001 §6.2. The only `uid` values
       left in the repo are examples inside document bodies (STANDARDS.md,
       2026_04_07-Mission_System_v2-v1.0.0.md) — prose, not headers.* The hand-authored pseudo-UUIDv7
-      values, 2 of them colliding. `uid: "018ef820-…"` → `uid:`. `S-001` §6.2
+      values, 2 of them colliding. `uid: "018ef820-…"` → `uid:`. `STD-001` §6.2
       already states the disposal: *"the 32 legacy values are removed, not
       preserved: they were never identifiers."*
       **Ordering constraint (`MIS-122` first), measured not assumed:**
@@ -283,7 +283,7 @@ guard — all in CI, all tested in both directions (P-013).
 
 - [x] **`H-06`/`H-07` invented dates — 252. DONE 2026-08-30, baseline
       779 → 546.** `created` with a midnight nobody wrote at (182) and
-      `updated` with no time at all (70). `S-001`
+      `updated` with no time at all (70). `STD-001`
       §8 governs: backfill from git, report the commit each date comes from,
       mark inferred ones, **never invent a date to fill the field**.
 
@@ -297,7 +297,7 @@ guard — all in CI, all tested in both directions (P-013).
       repository, which for a migrated corpus is not when it was created.
 
       So the backfill is derivable but not automatic: each date must be
-      marked as inferred-from-commit, and `S-001` §8's requirement to
+      marked as inferred-from-commit, and `STD-001` §8's requirement to
       *"report the commit each date comes from"* is what keeps it honest.
       A bulk rewrite that silently stamps 49 documents with one identical
       timestamp would replace an obvious lie with a plausible one — which is
@@ -320,7 +320,7 @@ guard — all in CI, all tested in both directions (P-013).
       minting ids that `check-references.mjs` would then have to resolve.*
       **Measured: 25 of the 41 are in `agents/`**, including `_template/`
       files, plus `guilds/` ×8 and README/INDEX apparatus. Giving apparatus a
-      registered identifier is a filing decision (`S-001` §5.0 already
+      registered identifier is a filing decision (`STD-001` §5.0 already
       exempts some), and **`check-references.mjs` reads frontmatter `id`** —
       minting ids creates references that must then resolve.
 - [ ] **`H-02` missing `title` — 2**, **`H-08` missing `license` — 2.**
@@ -410,7 +410,7 @@ hides its decisions makes the next reader guess.
 > **Update 2026-08-30 — two of these blockers were decided the same day.**
 > `ADR-027` (*absence is declared, not omitted*) rules that a field may carry
 > `"TBA"` when the value applies but is not yet decided, and that no closed
-> vocabulary ships without a check. `ADR-027 (formerly ADR-029)` ratifies `S-004`
+> vocabulary ships without a check. `ADR-027 (formerly ADR-029)` ratifies `STD-004`
 > (`draft` → `active`, `1.0.0`) and admits `type: agent`, which the guard was
 > already enforcing without a decision.
 >
@@ -426,12 +426,12 @@ hides its decisions makes the next reader guess.
    **FIXED the same day (`MIS-122`, baseline 843 → 779).** `H-09` no longer
    flags an empty `uid`, and `H-20` now advises emptying the field rather than
    the opposite. The 64 documents that were being counted as debt for obeying
-   `S-001` §6.2 are gone from the baseline, and **emptying the 34 written
+   `STD-001` §6.2 are gone from the baseline, and **emptying the 34 written
    values no longer trades one violation for another** — that work is
    unblocked and still belongs to this mission.
    **No document should carry a `uid` value. Where one exists it is debt, not
    data; the field is declared and left empty. Emptying the 34 written values
-   belongs to THIS mission.** The ruling restates `S-001` §6.2 verbatim —
+   belongs to THIS mission.** The ruling restates `STD-001` §6.2 verbatim —
    *"the field is declared and left empty, Oracle decision, non-negotiable"* —
    so nothing new is being decided; what is new is that the guard does not
    agree with it.
@@ -439,7 +439,7 @@ hides its decisions makes the next reader guess.
    **The guard punishes the conforming form.** `H-09` fires on `uid:` written
    empty and says *"omit the field instead"*, which is the opposite of what
    the standard requires. **64 of those findings are documents doing exactly
-   what `S-001` §6.2 mandates.** The remaining 34 (`H-20`) are the real
+   what `STD-001` §6.2 mandates.** The remaining 34 (`H-20`) are the real
    defect: hand-authored pseudo-UUIDv7 values, 2 of them colliding.
 
    **Measured, not assumed — and it sets the order.** Emptying a written
@@ -455,7 +455,7 @@ hides its decisions makes the next reader guess.
    The split is not about who owns `uid` — it is that changing a rule and
    obeying a rule are different acts, and one must precede the other.
 
-   Two numbers that disagree, for `MIS-122` to settle: `S-001` §6.2 records
+   Two numbers that disagree, for `MIS-122` to settle: `STD-001` §6.2 records
    **32** present, the guard finds **34**, and 100 tracked files carry the
    field.
 
@@ -480,7 +480,7 @@ hides its decisions makes the next reader guess.
    before everything else for exactly that reason.
 
 4. **`territory` has no working vocabulary — found 2026-08-30, unruled.**
-   `S-001` §7 declares eight values: `CAO · Product · Platform ·
+   `STD-001` §7 declares eight values: `CAO · Product · Platform ·
    Infrastructure · Content · Sales · Funding · Archive`. The 67 documents
    already carrying `territory` use `Archive` ×48, `Canon` ×8,
    `Infrastructure` ×4, `Legal` ×3, `Governance` ×2, `Standards` ×2.

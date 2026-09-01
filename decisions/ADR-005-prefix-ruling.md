@@ -13,7 +13,7 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [decisions, adr, identifiers, prefixes, registration, canon]
 license: "CC-BY-4.0"
-related: ["ADR-004", "S-001", "MIS-109", "D-008"]
+related: ["ADR-004", "STD-001", "MIS-109", "D-008"]
 evidence_script: "scripts/resolve-citations.py"
 evidence_head: "9b45016"
 ---
@@ -75,7 +75,7 @@ prefix.
 The original 2026-08-24 ruling assigned `agents/` the prefix `AG-NNN` at
 zero cost, since no agent identifier had ever been issued. That ruling was
 never executed — `D-008` still measures `agents/` at 0/17 registered, and
-`S-001` §4.1 records the assignment without a single folder ever having
+`STD-001` §4.1 records the assignment without a single folder ever having
 carried it. **Reversed by Oracle instruction, 2026-08-31: `agents/` stays
 outside the register, identified by folder name** (`agents/lexa/`) — with
 only 7 agents today (measured `ls agents/*/`, excluding `_template/`; the
@@ -84,7 +84,7 @@ name is more informative than a number would be. This is a genuine reversal
 of an active decision, recorded as one rather than silently overwritten:
 `D-008`'s `agents/` row closes by **withdrawn scheme**, not by coverage,
 per its own closing condition (*"the Oracle withdraws the scheme for a
-given series and `S-001` records the exception"*). `S-001` §4.1 and
+given series and `STD-001` records the exception"*). `STD-001` §4.1 and
 `STANDARDS.md`'s mapping to it need the same correction, and `D-008`'s own
 `17` figure is stale too (also unverified against current `agents/`) —
 tracked as follow-up, not done in this amendment.
@@ -93,24 +93,24 @@ tracked as follow-up, not done in this amendment.
 
 ## Context
 
-`S-001` §4.1 introduced four new prefixes — `S-` for `standards/`, `A-` for
+`STD-001` §4.1 introduced four new prefixes — `S-` for `standards/`, `A-` for
 `agents/`, `O-` for `operations/`, `D-` for `debt/`. Two collisions were then
 found by measurement, and an alternative scheme was proposed.
 
-### Collision 1 — `S-` is already the seminal numbering, and `S-001` is taken twice
+### Collision 1 — `S-` is already the seminal numbering, and `STD-001` is taken twice
 
-`canon/INDEX.md` registers `S-001`…`S-010` against real documents. **Nine of the
+`canon/INDEX.md` registers `STD-001`…`S-010` against real documents. **Nine of the
 ten resolve to a file that exists.** The index also carries a relationship graph
 built on those numbers:
 
 ```
-| S-001 Welcome | `summarizes` | S-002, S-005, S-006 |
+| STD-001 Welcome | `summarizes` | S-002, S-005, S-006 |
 | S-008 RPG Manual | `is_narrative_of` | S-… |
 ```
 
 and `STANDARDS.md` documents `S-` as *Seminal* in its own prefix table.
 
-**So `S-001` currently identifies two live documents**: this archive's glossary,
+**So `STD-001` currently identifies two live documents**: this archive's glossary,
 and `Welcome to Numinia`.
 
 > A registration scheme that assigns the same number to two live documents is
@@ -186,7 +186,7 @@ costs a rename of the whole series afterwards. **The right moment to pick a
 prefix is before it is used, and that moment is now.**
 
 Note also that `A-NNN` findings are *section* identifiers inside a document —
-the same class as `SEC-10` in `engineering-standards.md`, which
+the same class as `SEC-10` in `STD-005-engineering-standards.md`, which
 `resolve-citations.py` resolves to its container. They are not documents, and
 they are not going away: the audits that define them are frozen records.
 Coexistence would be possible. It would also be permanently ambiguous to a
@@ -196,20 +196,20 @@ reader, and readers are the point.
 
 Both would work. Canon renumbering was chosen because:
 
-- **`C-NNN` is already the declared scheme for `canon/`** (`S-001` §4.1, and
+- **`C-NNN` is already the declared scheme for `canon/`** (`STD-001` §4.1, and
   `C-005-licensing.md` already carries it). The seminal `S-` numbering is the
   anomaly, not the target.
 - `MIS-109` is already opening every canon file for frontmatter, filenames and
   the `D-012` terminology divergence. **Renumbering is a fifth operation on
   files already being read**, not a new pass.
-- Renaming `S-001-glossary.md` would mean touching the README and
+- Renaming `STD-001-glossary.md` would mean touching the README and
   `GOVERNANCE.md`, which cite it by filename.
 
 ## Consequences
 
 ### Immediate
 
-- `S-001` §4.1 changes `A-NNN` to `AG-NNN`. Cost: one table row. No file is
+- `STD-001` §4.1 changes `A-NNN` to `AG-NNN`. Cost: one table row. No file is
   renamed, because none was registered.
 - `AG-` is verified clean: zero occurrences in the corpus.
 
@@ -226,7 +226,7 @@ Both would work. Canon renumbering was chosen because:
 
 ### Not a consequence
 
-**`S-001` is not signed by this ADR.** Until canon renumbers, a signed `S-001`
+**`STD-001` is not signed by this ADR.** Until canon renumbers, a signed `STD-001`
 would declare `S-NNN = standards` while canon declares `S-NNN = seminal`. The
 signature is an acceptance criterion of `MIS-109`.
 
@@ -234,7 +234,7 @@ signature is an acceptance criterion of `MIS-109`.
 
 Because a decision that hides what it cost is worth less than one that shows it:
 
-1. **`S-001` was occupied twice** — by the glossary and by `Welcome to Numinia`.
+1. **`STD-001` was occupied twice** — by the glossary and by `Welcome to Numinia`.
 2. **`A-` was already in use** for audit findings, and was believed clean when
    the ruling was first given. It was found by verification, not by review.
 
@@ -245,7 +245,7 @@ it — a ruling issued with an explicit condition for being wrong.
 ## References
 
 - `ADR-004` — identifiers are opaque, sequential and permanent
-- `S-001` §4.1 (prefixes) · §4.3 (canon registration plan)
+- `STD-001` §4.1 (prefixes) · §4.3 (canon registration plan)
 - `MIS-109` — make canon filable
 - `D-008` — series prefixes not applied to the existing corpus
 - `D-018` — unresolved authority citations; 40 of its 88 are this

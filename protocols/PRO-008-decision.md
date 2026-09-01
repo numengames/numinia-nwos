@@ -13,7 +13,7 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [approval, human-in-the-loop, security, protocol, rulings, falsifiability]
 license: "CC0-1.0"
-related: ["ADR-004", "ADR-005", "S-001"]
+related: ["ADR-004", "ADR-005", "STD-001"]
 ---
 # PRO-008 — Decision Protocol
 
@@ -395,4 +395,4 @@ semantic distinction that is central to the NWOS model.
 - v1.0.0 (2026-04-07) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
 - v1.2.0 (2026-08-18) — Canonical URL rule: every artifact under review carries its numinia.org URL (Oracle order; enabled by MIS-087's full mirror). `Links:` line added to both compact formats.
-- v2.0.0 (2026-08-31) — **Merged.** Absorbs `P-012` (ruling with a condition) as §2 and `APPROVAL-REQUEST-template.md` as §3 — the template's own frontmatter already declared this document its parent (`apparatus-of-registered-document`, S-001 §5.0). The protocol now covers both directions of the decision interface: requesting and issuing. Renamed `P-008` → `PRO-008` per ADR-005. MIS-127.
+- v2.0.0 (2026-08-31) — **Merged.** Absorbs `P-012` (ruling with a condition) as §2 and `APPROVAL-REQUEST-template.md` as §3 — the template's own frontmatter already declared this document its parent (`apparatus-of-registered-document`, STD-001 §5.0). The protocol now covers both directions of the decision interface: requesting and issuing. Renamed `P-008` → `PRO-008` per ADR-005. MIS-127.

@@ -49,7 +49,7 @@ STEP 1 — Identity:
 
 STEP 2 — Security (always, every session):
   → Read operations/security-policy.md
-  → Read standards/governance.md (if not read in <7 days)
+  → Read standards/STD-002-governance.md (if not read in <7 days)
 
 STEP 3 — Active missions:
   → Check missions/ for status: in-progress — do I have assigned missions?
@@ -86,9 +86,9 @@ These 5 elements are the inviolable minimum. Without them, there is no valid sta
 
 | Standard | Where | What |
 |----------|-------|------|
-| Versioning lifecycle | standards/governance.md «Versioning authority» | v0.X.0 = development, v1.0.0 = Oracle promotes |
-| Commit format | standards/engineering-standards.md ARC-06 | Conventional Commits, seven standard types |
-| Frontmatter schema | standards/S-004-header-standard.md | The three rings |
+| Versioning lifecycle | standards/STD-002-governance.md «Versioning authority» | v0.X.0 = development, v1.0.0 = Oracle promotes |
+| Commit format | standards/STD-005-engineering-standards.md ARC-06 | Conventional Commits, seven standard types |
+| Frontmatter schema | standards/STD-004-header-standard.md | The three rings |
 
 ### Onboarding a new agent
 
