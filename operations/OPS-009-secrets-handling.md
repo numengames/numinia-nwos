@@ -1,36 +1,67 @@
 ---
-id: "ops-credential-map"
+id: "OPS-009"
 uid: ""
-registration: exempt
-registration_exemption: "pending-genre-ruling"
-registration_reason: >
-  Declares type: protocol and is an inventory nobody executes. Same ADR as
-  security-policy. See D-024.
-title: "Credential Map"
+title: "Secrets handling — what never enters the repository, and where it lives instead"
 type: protocol
 status: active
-version: "1.2.0"
+version: "2.0.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-08-25T15:50:59Z"
+updated: "2026-09-01T22:05:00+02:00"
 author: "nimrod"
 owner: "oracle"
+territory: "Archive"
 tags: [operations, security, credentials]
 license: "CC-BY-4.0"
 ---
-# Credential Map
+# OPS-009 — Secrets handling
 
-> **Summary:** Structure of credentials without real values.
-> **Epistemic:** Where credentials live — not what they are.
-> **Pragmatic:** Reference map for configuring new agents or services.
+> **Summary:** The rule about secret material in this repository, the
+> checklist that applies it, and the inventory of where credentials actually
+> live — structure only, never values.
+> **Epistemic:** One subject, previously split across two documents that
+> each pointed at the other.
+> **Pragmatic:** Read before any commit; consult the map when configuring a
+> new agent or service.
 > **Audience:** Agents
 
 ---
 
-Structure of credentials without real values. This document shows WHERE things live, not WHAT they are.
+## 1. What NEVER goes in this repository
 
-## Google Workspace
+| Category | Examples | Where it goes instead |
+|----------|---------|----------------------|
+| Credentials | Passwords, API keys, tokens | Server config (SSH only) |
+| Server IPs | VPS addresses, internal IPs | Private documentation |
+| Personal data | Private emails, phone numbers | Not documented |
+| Private conversations | Chat logs, session transcripts | Local workspace |
+
+## 2. Rule
+
+When in doubt about whether something is sensitive: **don't commit it**. Ask first.
+
+This rule comes from SIM-5.4 (simulation 54 of 100): an agent accidentally
+committed a credential to a public repo. Impact: security exposure.
+Prevention: the doubt = don't commit rule.
+
+## 3. Pre-commit checklist (mental)
+
+Before any commit, verify:
+- [ ] No real passwords or tokens
+- [ ] No real IPs or server addresses
+- [ ] No real personal data of third parties
+- [ ] No internal configuration files
+
+---
+
+## 4. Credential map — structure, not values
+
+This section shows WHERE things live, not WHAT they are. **Real values are
+never documented here** — an intent this inventory asserted while it was
+untrue elsewhere in the corpus; see §5.
+
+### 4.1 Google Workspace
 
 | Service | Account | Where configured |
 |---------|---------|-----------------|
@@ -39,23 +70,23 @@ Structure of credentials without real values. This document shows WHERE things l
 | Drive | khepri@ai.numengames.com | OpenClaw config (server) |
 | Auth method | OAuth2 via gog CLI | /home/node/.config/gogcli/ |
 
-## GitHub
+### 4.2 GitHub
 
 | Service | Account | Where configured |
 |---------|---------|-----------------|
 | Personal access token (PabloFMM) | PabloFMM | GitHub Settings → Tokens |
 | Org access (numengames) | PabloFMM | Via existing PAT |
 
-## Infrastructure
+### 4.3 Infrastructure
 
 | Service | Notes |
 |---------|-------|
-| VPS server | IP not documented here. **This row asserted "documented privately. Not in this repo." from 2026-04-06 to 2026-08-25; the assertion was false — see Correction record below.** |
+| VPS server | IP not documented here. **This row asserted "documented privately. Not in this repo." from 2026-04-06 to 2026-08-25; the assertion was false — see §5.** |
 | OpenClaw config | /home/node/.openclaw/ on server |
 | Umami Analytics | Port configured via Caddy reverse proxy |
 | Cal.com | Port configured via Caddy reverse proxy |
 
-## Services in design phase
+### 4.4 Services in design phase
 
 | Service | Notes |
 |---------|-------|
@@ -64,12 +95,7 @@ Structure of credentials without real values. This document shows WHERE things l
 
 ---
 
-*Real values are NEVER documented here. This is structure only — an intent this
-document asserted while it was untrue elsewhere in the corpus; see below.*
-
----
-
-## Correction record — 2026-08-25 (§2.1.2)
+## 5. Correction record — 2026-08-25 (§2.1.2)
 
 **What this document asserted.** The `VPS server` row read *"IP documented
 privately. Not in this repo."* — from `84a9f71` (2026-04-06) to `392ffc6`
@@ -110,9 +136,18 @@ across the corpus, 132 of them unverified**.
 
 ## Version history
 
-- v1.0.0 (2026-04-06) — Initial creation.
+- v1.0.0 (2026-04-06) — Initial creation (as two documents: `security-policy.md`
+  and `credential-map.md`).
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
-- v1.2.0 (2026-08-25) — Correction record (§2.1.2): the `VPS server` row
+- v1.2.0 (2026-08-25) — Correction record (§5): the `VPS server` row
   asserted for 141 days that the address was not in this repository. It was.
   Assertion corrected in place, not silently; the address retired from 6 `.md`
   files. Detected incidentally, by no guard.
+- v2.0.0 (2026-09-01) — **Merged.** Absorbs `credential-map.md` as §4–5. The
+  two documents were one subject split in two: the rule said "see the map for
+  credential management", the map said "real values are never here" — the
+  same claim, cross-referenced instead of stated once. Both carried
+  `registration: exempt` with reason `pending-genre-ruling` (D-024); the merged
+  document enters the `OPS-` series as a protocol, which is what both
+  already declared themselves to be in `type:`. Renamed per ADR-005 v1.1.0.
+  MIS-127.

@@ -21,7 +21,7 @@ This repository is the canonical truth of the Numinia Digital Agents system.
 ## Rules
 
 1. **Never modify `canon/`** — these documents are immutable by policy
-2. **Never include real credentials, IPs, or tokens** — use credential-map.md for structure
+2. **Never include real credentials, IPs, or tokens** — use OPS-009-secrets-handling.md for structure
 3. **Commit messages in English** — always
 4. **One PR per logical change** — don't bundle unrelated modifications
 5. **Missions follow the TEMPLATE.md format** — PRs rejected otherwise

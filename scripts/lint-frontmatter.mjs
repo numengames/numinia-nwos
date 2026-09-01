@@ -391,13 +391,11 @@ for (const rel of files) {
       'historical audit, cited by path from ADR-005 and 12+ files',
     'blueprints/AUDIT-numengames-2026-04-08.md':
       'historical audit, cited by path from ADR-005 and 12+ files',
-    'operations/credential-map.md':
+    'operations/OPS-009-secrets-handling.md':
       'operational protocol living with the operations it governs',
-    'operations/security-policy.md':
-      'operational protocol living with the operations it governs',
-    'operations/legal/O-003-privacy-policy-numengames.md':
+    'operations/OPS-003-privacy-policy-numengames.md':
       'operational legal text of numengames, not canon',
-    'operations/legal/O-004-terms-and-conditions-numengames.md':
+    'operations/OPS-004-terms-and-conditions-numengames.md':
       'operational legal text of numengames, not canon',
   };
   if (fm.type && TYPE_SERIES[fm.type] && TYPE_SERIES[fm.type] !== top && !LAX_TYPES.includes(fm.type)

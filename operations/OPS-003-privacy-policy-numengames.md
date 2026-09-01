@@ -1,5 +1,5 @@
 ---
-id: "O-003"
+id: "OPS-003"
 uid: ""
 title: "Privacy Policy — Numen Games"
 type: legal

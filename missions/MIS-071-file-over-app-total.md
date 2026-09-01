@@ -142,8 +142,8 @@ next cold agent reads everything the visitor sees.
   /audits; nav duplicate removed. One page, one folder — as ordered.
 - 2026-08-17 — Phase 2 DONE (essay extraction, 4 parallel agents, 10
   pieces): `GAPS.md` at root (19 gaps, fulfils MIS-044's original
-  criterion); `operations/O-001-continuity.md`, `O-005-simulations.md`,
-  `O-006-solutions.md`; `operations/strategy/O-007-sales.md` under the reserved
+  criterion); `operations/OPS-001-continuity.md`, `OPS-005-simulations.md`,
+  `OPS-006-solutions.md`; `operations/OPS-007-sales.md` under the reserved
   regime (C-005 §1 born-closed, new REUSE annotation for
   `operations/strategy/**`); `blueprints/BLU-008 (deleted 2026-08-31)` (L0–L4
   layers + principles from index), `SYS-002-agent-cycle.md`,

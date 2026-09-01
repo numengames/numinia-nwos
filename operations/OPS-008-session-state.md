@@ -1,5 +1,5 @@
 ---
-id: "O-008"
+id: "OPS-008"
 uid: ""
 title: "Session state — where to pick up"
 type: documentation

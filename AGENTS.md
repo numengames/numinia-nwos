@@ -38,8 +38,8 @@ The principal areas of this repository:
 - `missions/` — the unit of work; `TEMPLATE.md` defines the contract.
 - `decisions/` — ADRs, append-only; `debt/` — the register of what is known
   to be wrong; `reports/` — audits and evidence.
-- `operations/` — business records (`operations/legal/**` and
-  `operations/strategy/**` are reserved).
+- `operations/` — business records, one flat `OPS-` series (`OPS-003`,
+  `OPS-004` and `OPS-007` are reserved, pinned per-file in `REUSE.toml`).
 - `blueprints/` — architecture documents; `web/` — the Astro viewer serving
   numinia.org; `scripts/` — CI guards.
 

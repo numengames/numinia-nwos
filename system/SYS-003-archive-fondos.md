@@ -119,8 +119,7 @@ fondos:
     governance: "Oracle modifies. Agents may propose via PR."
     documentos:
       - { nombre: "Governance", desc: "Complete table: who can create, modify, archive each document type.", file: "GOVERNANCE.md" }
-      - { nombre: "Security Policy", desc: "The system's security rules. What never goes in the repo.", file: "operations/security-policy.md" }
-      - { nombre: "Credential Map", desc: "Credential structure without real values. A map of where what lives.", file: "operations/credential-map.md" }
+      - { nombre: "Secrets handling", desc: "The system's security rules and the credential map. What never goes in the repo, and where things actually live.", file: "operations/OPS-009-secrets-handling.md" }
 graph:
   nodes:
     - { id: canon, label: "canon/", subtitle: "Immutable Memory", color: "0x00ff88", x: 0, y: 2, z: 0 }

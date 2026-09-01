@@ -1,5 +1,5 @@
 ---
-id: "O-001"
+id: "OPS-001"
 uid: ""
 title: "Continuity and adaptability of the system"
 type: documentation

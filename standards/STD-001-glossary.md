@@ -270,7 +270,7 @@ carried a model the canon no longer holds:
 
 | Threshold | What it takes | Series |
 |---|---|---|
-| **`live`** | Corrected when it contradicts canon or a signed decision. **The correction is recorded inside the document itself**, naming who corrected it and against which decision | `agents/*/MEMORY.md` · `operations/O-008-session-state.md` |
+| **`live`** | Corrected when it contradicts canon or a signed decision. **The correction is recorded inside the document itself**, naming who corrected it and against which decision | `agents/*/MEMORY.md` · `operations/OPS-008-session-state.md` |
 
 **Why it is not `closed`.** `closed` protects a claim about the past: a `done`
 mission keeps saying what it achieved. A memory makes no claim about the past —

@@ -48,7 +48,7 @@ STEP 1 — Identity:
   → Read agents/{my-name}/STATUS.md
 
 STEP 2 — Security (always, every session):
-  → Read operations/security-policy.md
+  → Read operations/OPS-009-secrets-handling.md
   → Read standards/STD-002-governance.md (if not read in <7 days)
 
 STEP 3 — Active missions:

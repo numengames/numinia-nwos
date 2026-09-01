@@ -27,7 +27,7 @@ canon/CAN-001…CAN-004 — what Numinia is; the product this narrative serves
 
 ## Strategy record
 
-operations/ — business and strategy documents (operations/strategy/** is reserved; read under authorization)
+operations/ — business and strategy documents (OPS-007-sales.md is reserved; read under authorization)
 
 ## System blueprints
 

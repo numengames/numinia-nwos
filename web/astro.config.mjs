@@ -194,6 +194,31 @@ export default defineConfig({
 		// and entered the series, so their dated addresses retire too.
 		"/corpus/canon/2026_04_15-epistemic_relations_between_numen_games_and_numina-v020": "/corpus/canon/can-006-epistemic-relations",
 		"/corpus/canon/2026_04_15-pragmatic_numen_system-v020": "/corpus/canon/can-007-pragmatic-numen-system",
+		// ADR-005 v1.1.0 / MIS-127 (2026-09-01): operations/ became the OPS-
+		// series and flattened to one level, so both the prefix and the
+		// legal/ and strategy/ path segments retire. The two published legal
+		// pages (/legal/terminos, /legal/privacidad) are unaffected — they
+		// are built from a slug map, which now points at the new filenames.
+		"/corpus/operations/o-001-continuity": "/corpus/operations/ops-001-continuity",
+		"/corpus/operations/o-002-contradictions": "/corpus/operations/ops-002-contradictions",
+		"/corpus/operations/o-005-simulations": "/corpus/operations/ops-005-simulations",
+		"/corpus/operations/o-006-solutions": "/corpus/operations/ops-006-solutions",
+		"/corpus/operations/o-008-session-state": "/corpus/operations/ops-008-session-state",
+		"/corpus/operations/legal/o-003-privacy-policy-numengames": "/corpus/operations/ops-003-privacy-policy-numengames",
+		"/corpus/operations/legal/o-004-terms-and-conditions-numengames": "/corpus/operations/ops-004-terms-and-conditions-numengames",
+		"/corpus/operations/strategy/o-007-sales": "/corpus/operations/ops-007-sales",
+		// The same three addresses in their intermediate form: the rename
+		// landed before the flatten in the published baseline, so both the
+		// old-prefix and new-prefix folder paths existed. Not proposed as
+		// /corpus (the guard's default): a section index does not answer
+		// what these URLs answered.
+		"/corpus/operations/legal/ops-003-privacy-policy-numengames": "/corpus/operations/ops-003-privacy-policy-numengames",
+		"/corpus/operations/legal/ops-004-terms-and-conditions-numengames": "/corpus/operations/ops-004-terms-and-conditions-numengames",
+		"/corpus/operations/strategy/ops-007-sales": "/corpus/operations/ops-007-sales",
+		// MIS-127: security-policy and credential-map merged into OPS-009 —
+		// one subject that had been split in two, each pointing at the other.
+		"/corpus/operations/security-policy": "/corpus/operations/ops-009-secrets-handling",
+		"/corpus/operations/credential-map": "/corpus/operations/ops-009-secrets-handling",
 		// Session Zero left the repository for numinia-lore (ADR-036 §4): game
 		// design, not governing canon. No in-repo page can answer, so the
 		// address lands on the ADR that records where it went — DEUDA-404's
