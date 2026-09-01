@@ -54,7 +54,7 @@ export const REPO_URL = "https://github.com/numengames/numinia-nwos";
  * blame, or the raw source should be one click away from it, not left to
  * guess the path.
  *
- * Astro's `entry.filePath` is relative to the web/ project ("../canon/C-001…"),
+ * Astro's `entry.filePath` is relative to the web/ project ("../canon/CAN-001…"),
  * but that prefix is an implementation detail of where the site sits inside
  * the repo. Anchoring on the known top-level folders instead survives a move:
  * whatever comes before them is dropped.

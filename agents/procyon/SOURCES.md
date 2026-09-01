@@ -23,7 +23,7 @@ the repository is the source of truth and this file only says where to look.
 
 ## The front door
 
-README.md and canon/C-001-welcome-to-numinia.md — what a newcomer sees first
+README.md and canon/CAN-001-welcome-to-numinia.md — what a newcomer sees first
 
 ## The public site
 

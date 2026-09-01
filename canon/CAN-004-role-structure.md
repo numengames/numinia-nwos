@@ -1,6 +1,6 @@
 ---
-id: "C-004"
-uid:
+id: "CAN-004"
+uid: ""
 title: "Role Structure in the Numinia System"
 type: seminal
 status: active
@@ -14,7 +14,7 @@ owner: "oracle"
 guild: "Exegetes"
 territory: "Archive"
 tags: [canon, seminal, roles, prototype-theory, semantics]
-license: "LicenseRef-Numen-AllRightsReserved"
+license: "CC0-1.0"
 threshold: sealed
 ---
 

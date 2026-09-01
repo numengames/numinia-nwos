@@ -66,7 +66,7 @@ WRITE = "--write" in sys.argv
 ROOT = subprocess.run(["git", "rev-parse", "--show-toplevel"],
                       capture_output=True, text=True).stdout.strip()
 
-FRAGILES = {"canon/C-005-licensing.md",
+FRAGILES = {"canon/CAN-005-licensing.md",
             "standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md"}
 
 # campos que se retiran del frontmatter

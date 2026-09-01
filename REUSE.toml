@@ -9,16 +9,31 @@ version = 1
 # Ordering matters: when several annotations match a file, the LAST one in
 # this file wins. Specific overrides therefore come after their directory.
 
-# --- Lore, narrative, brand → reserved (C-005 §2) ------------------------
+# --- Lore, narrative, brand → reserved (CAN-005 §2) ----------------------
 # agents/** left this annotation on 2026-08-28 (ADR-026): an agent's
 # operational definition is documentation, not lore, and CC0 was already
 # granted over agents/ through commit 0157be9 (LEGAL_DEBT.md LD-001) —
 # irrevocably. The reserved annotation declared a regime the repository did
 # not have.
+#
+# canon/** left it on 2026-09-01 (ADR-036) for the same reason, verified
+# rather than assumed: all seven canon documents were first published in
+# f765b99 (2026-04-07), four months before the 2026-08-16 reservation, under
+# the root CC0-1.0 LICENSE that was in force from 9f51ad1 until 2efd546.
+# `git merge-base --is-ancestor f765b99 0157be9` confirms they precede the
+# cut. The grant is irrevocable, so the reservation never took effect on
+# them; keeping it would have been the second time this repository declared
+# a regime it did not have.
 [[annotations]]
-path = ["canon/**", "guilds/**"]
+path = ["guilds/**"]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "LicenseRef-Numen-AllRightsReserved"
+
+# --- Canon corpus → CC0-1.0 (ADR-036, pre-cut publication) ---------------
+[[annotations]]
+path = ["canon/**"]
+SPDX-FileCopyrightText = "2026 Numen Games S.L."
+SPDX-License-Identifier = "CC0-1.0"
 
 # --- Agent definitions → CC0-1.0 (ADR-026) -------------------------------
 [[annotations]]
@@ -26,11 +41,12 @@ path = ["agents/**"]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC0-1.0"
 
-# Governance documents living inside canon/ are docs, not lore.
-[[annotations]]
-path = ["canon/C-005-licensing.md", "canon/INDEX.md", "canon/README.md"]
-SPDX-FileCopyrightText = "2026 Numen Games S.L."
-SPDX-License-Identifier = "CC-BY-4.0"
+# The CC-BY-4.0 override that used to sit here — for CAN-005, INDEX.md and
+# README.md, "governance documents living inside canon/ are docs, not lore" —
+# was removed by ADR-036 (2026-09-01). It existed to carve the non-lore files
+# out of a reserved folder; with canon/** now CC0-1.0 there is nothing to
+# carve out, and two of its three paths were retired in the same change.
+# CAN-005 follows the folder like every other canon document.
 
 # --- Documentation, ADRs, specs, missions, reports → CC-BY-4.0 -----------
 [[annotations]]

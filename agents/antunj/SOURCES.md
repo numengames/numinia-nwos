@@ -23,7 +23,7 @@ the repository is the source of truth and this file only says where to look.
 
 ## Identity and world
 
-canon/C-001…C-004 — what Numinia is; the product this narrative serves
+canon/CAN-001…CAN-004 — what Numinia is; the product this narrative serves
 
 ## Strategy record
 

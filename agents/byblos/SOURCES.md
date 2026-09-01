@@ -39,7 +39,7 @@ debt/ — the debt register; reports/audits/ — measured findings
 
 ## Licence regimes
 
-REUSE.toml and canon/C-005-licensing.md — which regime governs which path
+REUSE.toml and canon/CAN-005-licensing.md — which regime governs which path
 
 ---
 

@@ -1,6 +1,6 @@
 ---
-id: "C-002"
-uid:
+id: "CAN-002"
+uid: ""
 title: "Numinia Brand and Culture"
 type: seminal
 status: active
@@ -14,7 +14,7 @@ owner: "oracle"
 guild: "Exegetes"
 territory: "Archive"
 tags: [canon, seminal, brand, culture, narrative]
-license: "LicenseRef-Numen-AllRightsReserved"
+license: "CC0-1.0"
 threshold: sealed
 ---
 

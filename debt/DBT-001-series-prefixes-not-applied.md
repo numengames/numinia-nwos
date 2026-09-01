@@ -101,7 +101,7 @@ on its face. The full reasoning is written where the rule lives, in
 
 ```
 canon/2026_04_15-Epistemic_Relations_…-v0.2.0.md            5 citations
-canon/2026_04_15-Pragmatic_Numen_System-v0.2.0.md           7
+canon/CAN-007-pragmatic-numen-system.md           7
 protocols/2026_04_14-Read_Me_How_to_Archive-v0.2.0.md       6
 standards/2026_04_14-Analogous_Terminology_Numina-v0.2.0.md 5
 standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md           36
@@ -175,7 +175,7 @@ still removed, not honoured.
 |---|--:|---|---|
 | `guilds/` | 8 | `singular document, not a numbered series` | `GLD-NNN`, in scope, already counted above |
 | `blueprints/` (archive-summa ×3) | 3 | none stated | `BLU-NNN`, in scope, already counted above |
-| `canon/` (`archive-lore.md` only) | 1 | none stated | `CAN-NNN`, in scope. **The 2 legacy-dated are OUT** — frozen artefacts, see the ruling above |
+| `canon/` (the lore file only) | 1 | none stated | **Resolved by ADR-036 (2026-09-01): the file was retired**, its seven lore lines folded into `system/SYS-003-archive-fondos.md`. The 2 legacy-dated documents were reclassified as NOT frozen in the same ruling and now carry `CAN-006`/`CAN-007` |
 | `standards/` (`STD-005-engineering-standards.md` + `STD-002-governance.md`) | 2 | no frontmatter (historically) | `STD-NNN`, in scope. **The 2 legacy-dated are OUT** — frozen artefacts, see the ruling above. `STD-005-engineering-standards.md` enters despite `D-024`'s reverted attempt: its consumers are all in-repo except a `scorecard.yml` comment — re-verify before Stage C reaches `standards/` |
 | `protocols/` (1 legacy-dated) | 0 | frozen-artifact | **OUT** — frozen artefact, see the ruling above. `P-010` declares the relation with `supersedes:` instead |
 | `operations/security-policy.md`, `credential-map.md` | 2 | `pending-genre-ruling` (`D-024`) | **Genre ruling made here: both register as `OPS-NNN` like the rest of the series.** `D-024`'s open checkbox for this closes. |

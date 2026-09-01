@@ -15,28 +15,32 @@ owner: "oracle"
 tags: [system, archive, fondos, taxonomy]
 territory: "CAO"
 license: "CC0-1.0"
-extraction_note: "Extracted from web/src/pages/archive/[fondo].astro and archive/index.astro (MIS-065 phase C — File over App). Document paths corrected to the post-MIS-066 flat layout (agents flat, missions flat, P-001 English); 'Archive System' has no matching file in canon/ today — kept as declared, flagged for MIS-071. The per-fondo lore lines live separately in canon/archive-lore.md (reserved regime — one file, one regime). Translated to English under MIS-116 (ADR-023 (formerly ADR-024)) — language only."
+extraction_note: "Extracted from web/src/pages/archive/[fondo].astro and archive/index.astro (MIS-065 phase C — File over App). Document paths corrected to the post-MIS-066 flat layout (agents flat, missions flat, P-001 English); 'Archive System' has no matching file in canon/ today — kept as declared, flagged for MIS-071. The per-fondo lore lines were folded into this file's fondos[].lore under ADR-036 (2026-09-01): canon/ became CC0, so the one-file-one-regime split that justified the separate lore file no longer applied and that file was retired. Translated to English under MIS-116 (ADR-023 (formerly ADR-024)) — language only."
 former_id: "BLU-005"
 former_id_note: "Renumbered by MIS-129 under ADR-035: this is the reference manual of the seven fondos, not a plan. Its frontmatter also carries the live data for the /archive pages, which were repointed in the same commit."
 fondos:
   - id: canon
+    lore: "El Archive no comenzó con código. Comenzó con nueve preguntas que nadie supo responder sin ponerse de acuerdo."
     titulo: "Canon"
     subtitulo: "Immutable Memory"
     icono: "📜"
     color: green
-    descripcion: "The 9 foundational documents of Numinia. Immutable by policy and by technique. They are the ground everything else is built upon."
+    descripcion: "The 7 foundational documents of Numinia. Immutable by policy and by technique. They are the ground everything else is built upon."
     governance: "Only Oracle can modify. Blocking CODEOWNERS. No exceptions."
     documentos:
-      - { nombre: "Welcome to Numinia", desc: "Gateway into the world. Historical context and purpose of the system.", file: "canon/C-001-welcome-to-numinia.md" }
-      - { nombre: "Numinia Brand & Culture", desc: "Visual, verbal and cultural identity of Numinia v0.1.2.", file: "canon/C-002-brand-and-culture.md" }
-      - { nombre: "Epistemic Relations", desc: "The OS→Model→Narrative triad. Peirce + Jung applied to organizations.", file: "canon/2026_04_15-Epistemic_Relations_Between_Numen_Games_and_Numina-v0.2.0.md" }
-      - { nombre: "Compendium of Attributes", desc: "Attribute system, ranks and the agent's character sheet.", file: "canon/C-003-attributes-and-ranks.md" }
-      - { nombre: "Role Structure", desc: "Role theory: Basic Level (guilds) + Prototype (factions).", file: "canon/C-004-role-structure.md" }
-      - { nombre: "Platform Role System", desc: "Ranks and permissions of the Digital Goods v2 platform.", file: "standards/STD-003-platform-role-system.md" }
-      - { nombre: "About Session Zero", desc: "4 introductory escape rooms, seals, Prism Cells.", file: "canon/C-006-session-zero.md" }
-      - { nombre: "Numinia — The Role-Playing Game", desc: "Complete RPG manual in Spanish, v0.6.0. Lives in numinia-lore, not in this repo.", file: "numinia-lore:seminal/Numinia_Manual_del_juego_de_rol_v0_6_0.md" }
-      - { nombre: "Archive System", desc: "Numinia's documentary archive system. How knowledge is organized.", file: "archive-system.md" }
+      - { nombre: "Welcome to Numinia", desc: "Gateway into the world. Historical context and purpose of the system.", file: "canon/CAN-001-welcome-to-numinia.md" }
+      - { nombre: "Numinia Brand & Culture", desc: "Visual, verbal and cultural identity of Numinia v0.1.2.", file: "canon/CAN-002-brand-and-culture.md" }
+      - { nombre: "Compendium of Attributes and Ranks", desc: "Attribute system, ranks and the agent's character sheet. Absorbed the rank specifications (ADR-036).", file: "canon/CAN-003-attributes-and-ranks.md" }
+      - { nombre: "Role Structure", desc: "Role theory: Basic Level (guilds) + Prototype (factions).", file: "canon/CAN-004-role-structure.md" }
+      - { nombre: "Licensing", desc: "The licensing regimes of the corpus: what is open, what is reserved, and why.", file: "canon/CAN-005-licensing.md" }
+      - { nombre: "Epistemic Relations", desc: "The OS→Model→Narrative triad. Peirce + Jung applied to organizations.", file: "canon/CAN-006-epistemic-relations.md" }
+      - { nombre: "Pragmatic Numen System", desc: "The pragmatic framework underneath the system's epistemology.", file: "canon/CAN-007-pragmatic-numen-system.md" }
+    documentos_relacionados:
+      - { nombre: "Platform Role System", desc: "Ranks and permissions of the Digital Goods v2 platform. Left canon under ADR-035 — a platform spec, not world canon.", file: "standards/STD-003-platform-role-system.md" }
+      - { nombre: "About Session Zero", desc: "4 introductory escape rooms, seals, Prism Cells. Left canon under ADR-036 — game design, not governance.", file: "numinia-lore:seminal/About_Session_Zero.md" }
+      - { nombre: "Numinia — The Role-Playing Game", desc: "Complete RPG manual in Spanish, v0.6.0.", file: "numinia-lore:seminal/Numinia_Manual_del_juego_de_rol_v0_6_0.md" }
   - id: agents
+    lore: "No son herramientas. Son funciones vivas que existen mientras operan dentro de sus reglas."
     titulo: "Agents"
     subtitulo: "Living Entities"
     icono: "🤖"
@@ -50,6 +54,7 @@ fondos:
       - { nombre: "Charter — Centinelas", desc: "Common rules of the Centinelas guild. Security, watch, gates.", file: "guilds/centinelas/GLD-004-charter.md" }
       - { nombre: "Charter — Exégetas", desc: "Common rules of the Exégetas guild. Knowledge, archive, narrative.", file: "guilds/exegetas/GLD-002-charter.md" }
   - id: missions
+    lore: "Una misión no termina cuando se cierra. Termina cuando se entiende por qué divergió del plan."
     titulo: "Missions"
     subtitulo: "Movement"
     icono: "⚡"
@@ -62,6 +67,7 @@ fondos:
       - { nombre: "MIS-051 — Gmail/Drive/Calendar", desc: "Google Workspace integration with the gog CLI. Completed.", file: "missions/MIS-051-gmail-calendar-drive-gog.md" }
       - { nombre: "MIS-054 — Multi-Oracle access", desc: "Oracle onboarding to Telegram with Nimrod. In progress.", file: "missions/MIS-054-multi-oracle-telegram-access.md" }
   - id: protocols
+    lore: "Un ritual no es burocracia. Es la forma en que el sistema recuerda cómo hacerlo bien."
     titulo: "Protocols"
     subtitulo: "Operating Rituals"
     icono: "📋"
@@ -75,6 +81,7 @@ fondos:
       - { nombre: "P-004 Inter-Agent v1", desc: "Coordination between agents without ambiguity or write conflicts.", file: "protocols/P-004-inter-agent-v1.md" }
       - { nombre: "P-005 Escalation v1", desc: "When and how to escalate to the coordinator or the Oracle.", file: "protocols/P-005-escalation-v1.md" }
   - id: decisions
+    lore: "Una decisión no documentada es una deuda que otro pagará sin saber que existe."
     titulo: "Decisions"
     subtitulo: "Crystallized Will"
     icono: "🗿"
@@ -85,6 +92,7 @@ fondos:
       - { nombre: "ADR-001 — GitHub as Archive", desc: "Why GitHub and not Notion, Confluence or another system?", file: "decisions/ADR-001-the-archive.md" }
       - { nombre: "ADR-001 (formerly ADR-002) — Universal Markdown", desc: "Why .md and not PDF, Word or other formats?", file: "decisions/ADR-001-formato-markdown.md" }
   - id: blueprints
+    lore: "Todo lo que existe fue primero potencial. Los blueprints son el lugar donde el potencial espera."
     titulo: "Blueprints"
     subtitulo: "Unmanifested Potential"
     icono: "🔮"
@@ -102,6 +110,7 @@ fondos:
       # now; the empty list this briefly left behind broke the build.
       - { nombre: "BLU-008 — NWOS System", desc: "What this system is and what it is for.", file: "blueprints/BLU-008-nwos-system.md" }
   - id: operations
+    lore: "Sin governance explícita, el sistema se deteriora. Sin seguridad, el sistema se expone."
     titulo: "Operations"
     subtitulo: "Circulatory System"
     icono: "⚙️"
@@ -177,5 +186,7 @@ diagram live in the frontmatter (`graph:`).
 
 - v1.0.0 (2026-08-17) — Extraction from the viewer's components
   (MIS-065 phase C), with document paths corrected to the post-MIS-066
-  flat layout. Each fondo's lore lives in `canon/archive-lore.md`
+  flat layout. Each fondo's lore lives in this file's own `fondos[].lore`
+  field (ADR-036 folded the retired «canon/archive-lore.md» in here when canon/ became
+  CC0 and the one-file-one-regime split stopped being necessary)
   (reserved regime).

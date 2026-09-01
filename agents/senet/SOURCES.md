@@ -27,11 +27,11 @@ numinia-lore (separate repository) — the RPG manual and canonical lore; author
 
 ## Session Zero
 
-canon/C-006-session-zero.md — the four introductory escape rooms
+numinia-lore:seminal/About_Session_Zero.md — the four introductory escape rooms
 
 ## World identity
 
-canon/C-001…C-004 — reserved lore; read, never republish
+canon/CAN-001…CAN-004 — reserved lore; read, never republish
 
 ## Guild context
 

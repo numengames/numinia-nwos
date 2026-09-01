@@ -23,7 +23,7 @@ the repository is the source of truth and this file only says where to look.
 
 ## Licensing canon
 
-canon/C-005-licensing.md — the four regimes and their rules
+canon/CAN-005-licensing.md — the four regimes and their rules
 
 ## Legal debt
 

@@ -113,7 +113,7 @@ not**:
 
 ```
 canon/2026_04_15-Epistemic_Relations_…-v0.2.0.md      field present
-canon/2026_04_15-Pragmatic_Numen_System-v0.2.0.md      field present
+canon/CAN-007-pragmatic-numen-system.md      field present
 standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md       field present
 protocols/2026_04_14-Read_Me_How_to_Archive-v0.2.0.md  field ABSENT
 standards/2026_04_14-Analogous_Terminology_Numina-v0.2.0.md  field ABSENT

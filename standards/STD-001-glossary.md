@@ -173,7 +173,7 @@ it happens:
 
 | Claim | What the history shows |
 |---|---|
-| `canon/` "must not be modified" | **14 of 14** canon documents have more than one commit. `C-001-welcome-to-numinia.md` was edited on 2026-05-06 by a third party, changing *"operating system"* → *"germinal motive"* and *"Functional Model"* → *"Regulatory Model"* — definitions, not typos |
+| `canon/` "must not be modified" | **14 of 14** canon documents have more than one commit. `CAN-001-welcome-to-numinia.md` was edited on 2026-05-06 by a third party, changing *"operating system"* → *"germinal motive"* and *"Functional Model"* → *"Regulatory Model"* — definitions, not typos |
 | A `done` mission "is immutable" | **9 of 33** were edited after being marked `done` (MIS-066 Phase 3.2, the emoji retirement, the misiones.ts recovery) |
 
 **Neither of those edits was wrong.** Translating the corpus to English and
@@ -513,7 +513,7 @@ The first four list `id · title · status · version` — every field already i
 frontmatter of the file being listed. **Hand-maintaining them is copying, and
 `D-031`'s 32 absences are what copying produces.**
 
-`canon/INDEX.md` also carries `C-001 summarizes C-002, C-004`, values like
+`canon/INDEX.md` also carries `CAN-001 summarizes CAN-002, CAN-004`, values like
 `9/10`, and reasons like *"genre: a permissions matrix regulates an artifact, it
 does not name the world"*. **None of that is in any file.** It is a judgement
 about the corpus, and generating the index would destroy it — along with the
@@ -624,7 +624,7 @@ and it is one by nature, not convenience.
 > `Epistemic relations between Numen Games and Numinia.md`, which was renamed to
 > `2026_04_15-Epistemic_Relations_…-v0.2.0.md` without updating the index.
 >
-> **CLOSED 2026-08-25 — `MIS-109` phase C.** The seminal series is now `C-001`…
+> **CLOSED 2026-08-25 — `MIS-109` phase C.** The seminal series is now `CAN-001`…
 > `C-007`; `S-` is unambiguously `standards/`. Both collisions are gone: `STD-001`
 > is this glossary alone, `STD-003` is Platform Role System alone. The index keeps
 > the old number in an *Antes* column, because it is what pre-2026-08-25

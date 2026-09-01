@@ -100,8 +100,7 @@ A guard, and this one is genuinely mechanical:
 Three categories, all already present in the repository:
 
 - **In the glob** — `canon/`, `missions/`, `debt/`, …
-- **Own collection** — `reports/audits/` (`audits`, page `/audits`),
-  `canon/archive-lore.md` (`canonLore`)
+- **Own collection** — `reports/audits/` (`audits`, page `/audits`)
 - **Deliberately excluded, with a written reason** — `.github/` templates,
   `web/` itself
 

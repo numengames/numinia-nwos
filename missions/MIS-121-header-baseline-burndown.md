@@ -201,7 +201,7 @@ rename's clothes, and the numbers below say how many decisions each is.
       50 `backlog` + 5 `draft` in missions (`D-009`), 35 `open` + 2
       `resolved` in `debt/` (check **B**), 19 `published` in reports, and a
       tail: `designed` ×3, `provisional`, `done`, plus **2 documents missing
-      `status` entirely** (`canon/C-005-licensing.md`,
+      `status` entirely** (`canon/CAN-005-licensing.md`,
       `standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md`) that the same check
       code reports. Each group is a different lifecycle question. Only
       `debt/` is settled (ruled 2026-08-30).
@@ -260,7 +260,7 @@ rename's clothes, and the numbers below say how many decisions each is.
 | `a086d56` (#143) | final sweep: `DEC-001..006 → type: adr` ids intact (Oracle ruling, 154 refs preserved); 5 missions `draft → todo` ("draft = backlog"); 12 headerless docs given headers from git history; ~35 fields registered after checking the web layer FIRST; 3 lint false positives fixed at the source | **44** |
 
 **844 → 44 (95%). 328 of 330 documents clean (99%).** The 44 survivors all
-live in two documents — `canon/C-005-licensing.md` and
+live in two documents — `canon/CAN-005-licensing.md` and
 `standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md`, the Spanish-era fragile
 pair — set aside for a short one-by-one session: translate ~20 header keys
 with the document in front, bodies untouched.

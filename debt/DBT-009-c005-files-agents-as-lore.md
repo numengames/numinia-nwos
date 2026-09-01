@@ -18,7 +18,7 @@ license: "CC-BY-4.0"
 visibility: "public"
 severity: high
 opened_by: "Oracle, 2026-08-28"
-supersedes_pending: "canon/C-005-licensing.md §1"
+supersedes_pending: "canon/CAN-005-licensing.md §1"
 absorbs: ["D-038"]
 ---
 # DBT-009 — C-005 files agent definitions as lore, and the tap it closed was already open
@@ -109,8 +109,8 @@ recorded in the canon's own frontmatter.
 Not a date. The condition is the amendment existing, verifiable by:
 
 ```
-grep -A8 'Four regimes' canon/C-005-licensing.md   # the table names both objects
-grep 'version:' canon/C-005-licensing.md            # > 1.4.0
+grep -A8 'Four regimes' canon/CAN-005-licensing.md   # the table names both objects
+grep 'version:' canon/CAN-005-licensing.md            # > 1.4.0
 ```
 
 | | |

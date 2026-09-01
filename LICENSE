@@ -1,17 +1,22 @@
 Copyright (c) 2026 Numen Games S.L.
 
 This repository holds work under several regimes, declared per path in
-REUSE.toml with full texts in LICENSES/ (Numinia canon C-005):
+REUSE.toml with full texts in LICENSES/ (Numinia canon CAN-005):
 
   - Viewer and scripts (web/**, scripts/**)         MIT
-  - Documentation, ADRs, specs, missions, reports,
-    and the governance files inside canon/
-    (C-005-licensing.md, INDEX.md, README.md)       CC-BY-4.0
+  - Documentation, ADRs, specs, missions, reports   CC-BY-4.0
   - Repo metadata (.gitignore)                      CC0-1.0
-  - Lore, narrative, brand (canon/** except the
-    governance files above, guilds/**, agents/**)
-    and enforceable legal texts (operations/legal/**) All rights reserved
+  - The canon (canon/**), the standards (standards/**)
+    and the agent definitions (agents/**)           CC0-1.0
+  - Lore, narrative, brand (guilds/**) and
+    enforceable legal texts (operations/legal/**)   All rights reserved
                                                     (LicenseRef-Numen-AllRightsReserved)
+
+The canon is CC0 because it was first published that way: every canon/
+document was released under this repository's CC0 root license in April 2026,
+before the reserved regime was introduced, and a CC0 grant cannot be revoked.
+ADR-036 (2026-09-01) corrected the annotation to say what was actually
+granted. The reserved lore lives in the numinia-lore repository.
 
 Where REUSE.toml declares no license for a path, no rights are granted:
 all rights reserved.
