@@ -128,7 +128,7 @@ document that records the outcome. This is that record.
 
 | Was | Is now | Why |
 |---|---|---|
-| `BLU-001` wardley-map | `reports/RPT-2026-04-07-wardley-map.md` | Dated strategic analysis. Keeps CC0 by REUSE override. |
+| `BLU-001` wardley-map | `reports/RPT-003-wardley-map.md` | Dated strategic analysis. Keeps CC0 by REUSE override. |
 | `BLU-003` mission-system | `history/2026_04_07-Mission_System_v2-v1.0.0.md` | Self-declared superseded by MIS-066. |
 | `BLU-004` cao-architecture | `system/SYS-001-cao-architecture.md` | Reference manual. Content known stale — see debt below. |
 | `BLU-005` archive-fondos | `system/SYS-003-archive-fondos.md` | Reference manual + live data for `/archive`. |

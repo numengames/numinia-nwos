@@ -1,20 +1,22 @@
 ---
-id: "RPT-2026-04-07"
+id: "RPT-008"
+uid: ""
+former_id: "RPT-2026-04-07"
+former_id_note: "Renumbered 2026-09-01 by ADR-005 v1.2.0. The old id collided with the daily RPT-2026-04-07 (ADR-004 rule 4, condition 1) and the date form is for dailies only. type corrected documentation → report (it is a dated analysis, filed in reports/). Content unchanged."
 title: "GAPS.md — Numen Games' map of blind spots"
-type: documentation
+type: report
+subtype: analysis
 status: closed
 version: "1.1.0"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
-updated: "2026-08-30T19:40:00Z"
+updated: "2026-09-02T00:20:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [gaps, strategy, capability-map]
 license: "CC-BY-4.0"
 related: ["ADR-026 (formerly ADR-031)", "MIS-044"]
 extraction_note: "Extracted verbatim from web/src/pages/gaps.astro (MIS-071 phase 2 — File over App). Fulfils MIS-044's original criterion 'Publicado como GAPS.md', which had been satisfied only as a web page."
-registration: exempt
-registration_reason: "singular document, not a numbered series"
 ---
 
 # The blind spots to see before the market points them out

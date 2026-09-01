@@ -1,6 +1,8 @@
 ---
-id: "AUD-2026-08-26-provenance"
+id: "RPT-014"
 uid:
+former_id: "AUD-2026-08-26-provenance"
+former_id_note: "Renumbered 2026-09-01 by ADR-005 v1.2.0 (reports/ normalisation): AUD- retired, one RPT-NNN counter by created ascending, folder flattened from reports/audits/. Content unchanged."
 title: "Provenance census over the 190 new CC0 grants, and a proposed cut"
 type: report
 subtype: audit
@@ -9,7 +11,7 @@ version: "1.2.0"
 created: "2026-08-26T14:20:00Z"
 created_source: "git:47c599e"
 created_confidence: exact
-updated: "2026-08-26T15:10:00Z"
+updated: "2026-09-02T00:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"

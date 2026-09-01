@@ -1,10 +1,11 @@
 ---
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
-// Audit detail rendered at build from reports/ (MIS-066 pattern). The
-// collection holds every report subtype since ADR-005 v1.2.0; this route
-// keeps the historic /audits/<id> address for the audit subset. /reports/<id>
-// renders all of them.
+// Report detail rendered at build from reports/ (MIS-066 pattern). One
+// route for every subtype — daily, audit, analysis, proposal — since the
+// folder is flat and the subtype lives in frontmatter (ADR-005 v1.2.0).
+// /audits/[id] renders the same audits at their historic address until the
+// web collapses to one head (plan step 3).
 import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
@@ -12,9 +13,8 @@ import { repoFileUrl } from "@/lib/build-info";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-  const audits = (await getCollection("audits"))
-    .filter((e) => (e.data as Record<string, unknown>).subtype === "audit");
-  return audits.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+  const reports = await getCollection("audits");
+  return reports.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
 }
 
 const { entry } = Astro.props;
@@ -22,26 +22,28 @@ const { Content } = await render(entry);
 const f = entry.data as Record<string, any>;
 const mdFilename = (entry.filePath as string).split("/").pop()!;
 const repoUrl = repoFileUrl(entry.filePath as string);
-const mdUrl = `/audits/${entry.id}.md`;
+const mdUrl = `/reports/${entry.id}.md`;
+const subtype = typeof f.subtype === "string" ? f.subtype : "report";
 ---
 
 <Layout
   title={`${f.id} — Numen Games CAO`}
   description={f.title}
-  canonicalPath={`/audits/${entry.id}`}
+  canonicalPath={`/reports/${entry.id}`}
 >
   <section class="pb-20 pt-16">
     <div class="mx-auto max-w-[800px] px-6">
 
-      <a href="/audits" class="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-8">
+      <a href="/reports" class="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-8">
         <Icon name="caret-left" size={12} />
-        Audits
+        Reports
       </a>
 
       <div class="flex flex-wrap items-center gap-2 mb-4">
         <span class="font-mono text-[0.65rem] text-accent">{f.id}</span>
         <span class="font-mono text-[0.6rem] text-dim">{String(f.created).slice(0, 10)}</span>
         <span class="inline-flex rounded-full border border-border bg-card px-2.5 py-0.5 font-mono text-[0.6rem] text-muted-foreground">{f.status}</span>
+        <span class="font-mono text-[0.6rem] uppercase tracking-widest text-dim">{subtype}</span>
         {f.author && <span class="font-mono text-[0.6rem] text-dim">by {f.author}</span>}
       </div>
 

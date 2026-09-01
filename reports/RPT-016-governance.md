@@ -1,6 +1,8 @@
 ---
-id: "AUD-2026-08-26-governance"
+id: "RPT-016"
 uid:
+former_id: "AUD-2026-08-26-governance"
+former_id_note: "Renumbered 2026-09-01 by ADR-005 v1.2.0 (reports/ normalisation): AUD- retired, one RPT-NNN counter by created ascending, folder flattened from reports/audits/. Content unchanged."
 title: "Three governance findings that are probably one, and the YAML two guards are waiting for"
 type: report
 subtype: audit
@@ -9,7 +11,7 @@ version: "1.0.0"
 created: "2026-08-26T17:15:00Z"
 created_source: "git:6ca384a"
 created_confidence: exact
-updated: "2026-08-26T17:15:00Z"
+updated: "2026-09-02T00:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"

@@ -1,12 +1,12 @@
 ---
 title: "Annexes — AUD-2026-08-26 · Licensing audit of `numinia-nwos`"
 type: documentation
-status: active
+status: closed
 version: "1.0.0"
 created: "2026-08-26T11:58:52+02:00"
 created_source: "git:e4918fa"
 created_confidence: exact
-updated: "2026-08-26T11:58:52+02:00"
+updated: "2026-09-02T00:20:00+02:00"
 author: "pablofm"
 owner: "oracle"
 tags: [reports]
@@ -14,6 +14,12 @@ license: "CC-BY-4.0"
 registration: exempt
 registration_reason: "not part of a numbered series; header added from git history, nothing invented"
 ---
+
+> **2026-09-01 — moved as a block (ADR-005 v1.2.0 rule 5).** This annex was
+> `reports/audits/AUD-2026-08-26-licensing-c005/`; the report it belongs to is
+> now `RPT-011` (`reports/RPT-011-licensing-c005.md`, former id
+> `AUD-2026-08-26-licensing-c005`). Nothing inside was rewritten: the SBOM,
+> the JSON captures and the robots files are what they were on 2026-08-26.
 
 # Annexes — AUD-2026-08-26 · Licensing audit of `numinia-nwos`
 

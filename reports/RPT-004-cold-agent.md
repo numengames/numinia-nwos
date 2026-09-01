@@ -1,13 +1,17 @@
 ---
-id: "AUD-2026-08-17-cold-agent"
+id: "RPT-004"
+uid: ""
+former_id: "AUD-2026-08-17-cold-agent"
+former_id_note: "Renumbered 2026-09-01 by ADR-005 v1.2.0 (reports/ normalisation): AUD- retired, one RPT-NNN counter by created ascending, folder flattened from reports/audits/. Content unchanged."
 title: "Cold-Agent Audit — Six Discrepancies Verified Against the Tree"
 type: report
+subtype: audit
 status: closed
 version: "1.0.0"
 created: "2026-08-17T10:58:22Z"
 created_source: "git:836ec36"
 created_confidence: inferred
-updated: "2026-08-25T11:00:28Z"
+updated: "2026-09-02T00:20:00+02:00"
 author: "claude-fable"
 owner: "oracle"
 tags: [audit, missions, legibility, cold-agent]

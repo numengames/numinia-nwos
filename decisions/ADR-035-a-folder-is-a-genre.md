@@ -85,7 +85,7 @@ which is precisely what the shelf denies.
 | `BLU-006` agent-experience | `system/SYS-002-agent-cycle.md` | reference |
 | `BLU-005` archive-fondos | `system/SYS-003-archive-fondos.md` | reference |
 | `BLU-003` mission-system | `history/2026_04_07-Mission_System_v2-v1.0.0.md` | superseded |
-| `BLU-001` wardley-map | `reports/RPT-2026-04-07-wardley-map.md` | report |
+| `BLU-001` wardley-map | `reports/RPT-003-wardley-map.md` | report |
 
 `BLU-002` and `BLU-007` stay. They are what the folder is for.
 

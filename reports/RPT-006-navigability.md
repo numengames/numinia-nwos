@@ -1,12 +1,15 @@
 ---
-id: "AUD-2026-08-17-navigability"
+id: "RPT-006"
+uid: ""
+former_id: "AUD-2026-08-17-navigability"
+former_id_note: "Renumbered 2026-09-01 by ADR-005 v1.2.0 (reports/ normalisation): AUD- retired, one RPT-NNN counter by created ascending, folder flattened from reports/audits/. Content unchanged."
 title: "Audit — NWOS Navigability & Placement (read-only)"
 type: report
 subtype: audit
 status: draft
 version: "1.0.0"
 created: "2026-08-17T16:30:00Z"
-updated: "2026-08-17T16:30:00Z"
+updated: "2026-09-02T00:20:00+02:00"
 author: "claude-fable-5"
 tags: [audit, navigability, taxonomy, file-over-app]
 license: "CC-BY-4.0"

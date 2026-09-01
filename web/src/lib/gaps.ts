@@ -54,13 +54,15 @@ export interface GapsDocument {
   perspectives: Perspective[];
   /** Convenience: every gap, flattened, document order preserved. */
   all: Gap[];
-  /** Address of the source document in the corpus mirror. */
+  /** Address of the source document (/reports/<id> since ADR-005 v1.2.0). */
   sourceUrl: string;
   /** Raw .md endpoint, for the DocToolbar. */
   mdUrl: string;
 }
 
-const ENTRY_ID = "reports/rpt-2026-04-07-gaps-capability-map";
+// The reports collection ("audits" in content.config.ts — one collection for
+// every RPT-* since ADR-005 v1.2.0). Was the corpus mirror until 2026-09-01.
+const ENTRY_ID = "rpt-008-gaps-capability-map";
 
 /**
  * Collapse the .md's hard-wrapped lines into flowing prose.
@@ -122,10 +124,10 @@ function scores(block: string): { impact: number; urgency: number } {
  * That is deliberate: this page has no content of its own to fall back on.
  */
 export async function getGaps(): Promise<GapsDocument> {
-  const entry = await getEntry("corpus", ENTRY_ID);
+  const entry = await getEntry("audits", ENTRY_ID);
   if (!entry) {
     throw new Error(
-      `gaps.ts: ${ENTRY_ID} not found in the corpus collection. ` +
+      `gaps.ts: ${ENTRY_ID} not found in the reports collection. ` +
         `The gaps page renders from that file and has no local copy.`
     );
   }
@@ -206,7 +208,7 @@ export async function getGaps(): Promise<GapsDocument> {
     introduction,
     perspectives,
     all,
-    sourceUrl: `/corpus/${ENTRY_ID}`,
-    mdUrl: `/corpus/${ENTRY_ID}.md`,
+    sourceUrl: `/reports/${ENTRY_ID}`,
+    mdUrl: `/reports/${ENTRY_ID}.md`,
   };
 }

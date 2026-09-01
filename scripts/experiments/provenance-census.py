@@ -29,7 +29,7 @@ import subprocess
 from collections import Counter
 
 ROOT = "/var/home/uruk/arkitecktonia-home/repos/numinia-nwos"
-SBOM = os.path.join(ROOT, "reports/audits/AUD-2026-08-26-licensing-c005/sbom.spdx")
+SBOM = os.path.join(ROOT, "reports/evidence/RPT-011/sbom.spdx")
 OUT = "/tmp/surf/provenance-190-v3.json"
 
 PROV_FIELDS = ("provenance", "procedencia", "ai_provenance")

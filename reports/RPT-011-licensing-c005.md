@@ -1,6 +1,8 @@
 ---
-id: "AUD-2026-08-26-licensing-c005"
+id: "RPT-011"
 uid:
+former_id: "AUD-2026-08-26-licensing-c005"
+former_id_note: "Renumbered 2026-09-01 by ADR-005 v1.2.0 (reports/ normalisation): AUD- retired, one RPT-NNN counter by created ascending, folder flattened from reports/audits/. Content unchanged. Annex moved with it: reports/audits/AUD-2026-08-26-licensing-c005/ → reports/evidence/RPT-011/ (paths quoted in the body are as captured on 2026-08-26)."
 title: "Licensing audit of numinia-nwos against C-005 v1.3.0, and the measured impact of the CC0 decision"
 type: report
 subtype: audit
@@ -9,7 +11,7 @@ version: "1.4.0"
 created: "2026-08-26T09:40:00Z"
 created_source: "git:8a529fa"
 created_confidence: exact
-updated: "2026-08-26T15:10:00Z"
+updated: "2026-09-02T00:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"

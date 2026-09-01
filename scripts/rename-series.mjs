@@ -16,6 +16,7 @@
  *     [--digits N]                      zero-pad width, default 3
  *     [--subtype-field <name>]          frontmatter field written per --dir tag
  *     [--order created|filename]        assignment order for unnumbered files
+ *     [--into <dir>]                    relocate renamed files into <dir> (flatten)
  *     [--include-frozen-artifacts]      opt-in override, see note below
  *     [--apply]                         default: dry-run, prints the plan only
  *
@@ -75,9 +76,15 @@ const FROM = flag('from', '');
 const DIGITS = parseInt(flag('digits', '3'), 10);
 const SUBTYPE_FIELD = flag('subtype-field', null);
 const ORDER = flag('order', 'created');
+// --into <dir>: relocate the renamed files into <dir> instead of leaving
+// them where they were. Added 2026-09-01 for reports/ (ADR-005 v1.2.0 rule
+// 4 flattens the folder: reports/audits/AUD-x.md -> reports/RPT-NNN-x.md).
+// Full-path citations are rewritten by the same rel rule as before; the
+// relocation is just a different newRel.
+const INTO = flag('into', null);
 
 if (!DIR_ARG || !TO) {
-  console.error('usage: rename-series.mjs --dir <d1[:tag],d2[:tag]> --to <PREFIX> [--from p1,p2] [--digits N] [--subtype-field name] [--include-exempt] [--include-frozen-artifacts] [--apply]');
+  console.error('usage: rename-series.mjs --dir <d1[:tag],d2[:tag]> --to <PREFIX> [--from p1,p2] [--digits N] [--subtype-field name] [--into <dir>] [--include-exempt] [--include-frozen-artifacts] [--apply]');
   process.exit(2);
 }
 
@@ -103,8 +110,16 @@ const fromPrefixes = FROM ? FROM.split(',').filter(Boolean) : [];
 
 /* ---- 1. collect candidates ---- */
 const candidates = [];
+// Numbers already taken by files that match the target scheme exactly. They
+// are not candidates (idempotency below) but their numbers are NOT free:
+// without this set the first unnumbered file received 001 on a shelf where
+// RPT-001 already existed. Found dry-running reports/ (2026-09-01) — every
+// earlier run either had --from numbers for all files or an empty shelf.
+const reserved = new Set();
 for (const { dir, tag } of dirSpecs) {
-  const files = execFileSync('git', ['-C', ROOT, 'ls-files', `${dir}/*.md`], { encoding: 'utf8' })
+  // ':(glob)' keeps '*' from crossing '/', so --dir reports lists
+  // reports/*.md and not reports/daily/*.md (git's default pathspec would).
+  const files = execFileSync('git', ['-C', ROOT, 'ls-files', '--', `:(glob)${dir}/*.md`], { encoding: 'utf8' })
     .split('\n').filter(Boolean);
   for (const rel of files) {
     const base = path.basename(rel);
@@ -146,8 +161,8 @@ for (const { dir, tag } of dirSpecs) {
       continue;
     }
     // idempotency: already matches the target scheme exactly?
-    const already = new RegExp(`^${reEscape(TO)}-\\d{${DIGITS}}-`).test(base);
-    if (already) continue;
+    const already = base.match(new RegExp(`^${reEscape(TO)}-(\\d{${DIGITS}})-`));
+    if (already) { reserved.add(parseInt(already[1], 10)); continue; }
     candidates.push({ rel, base, fm, text, tag });
   }
 }
@@ -155,7 +170,12 @@ for (const { dir, tag } of dirSpecs) {
 /* ---- number extraction / assignment ---- */
 function extractExistingNumber(base, fm) {
   for (const p of fromPrefixes) {
-    const re = new RegExp(`^${reEscape(p)}-(\\d+)(?:-|\\.md$)`);
+    // A dated legacy id (AUD-2026-08-17-stack) carries no reusable number:
+    // "2026" is a year, not a position in the series. Without the lookahead
+    // the reports/ dry-run (2026-09-01) proposed RPT-2026-stack.md for
+    // every audit. The date form is retired by ADR-005 v1.2.0; the file
+    // gets a fresh number by --order like any unnumbered candidate.
+    const re = new RegExp(`^${reEscape(p)}-(\\d+)(?!-\\d{2}-\\d{2})(?:-|\\.md$)`);
     const m = base.match(re) || (fm.id || '').match(new RegExp(`^${reEscape(p)}-(\\d+)$`));
     if (m) return parseInt(m[1], 10);
   }
@@ -181,7 +201,7 @@ for (const c of active) {
   if (n !== null) withNumber.push({ ...c, num: n });
   else needsNumber.push(c);
 }
-const used = new Set(withNumber.map((c) => c.num));
+const used = new Set([...withNumber.map((c) => c.num), ...reserved]);
 needsNumber.sort((a, b) => (sortKey(a) < sortKey(b) ? -1 : sortKey(a) > sortKey(b) ? 1 : 0));
 let next = 1;
 const assigned = [];
@@ -203,10 +223,21 @@ const plan = [...withNumber, ...assigned].sort((a, b) => a.num - b.num).map((c) 
   if (hadNumber) {
     const stripped = c.base.match(/^[A-Za-z]+-\d[\d_-]*-(.+)\.md$/);
     if (stripped) slugSource = stripped[1];
+  } else {
+    // A --from prefix is the operator's declaration that the shelf's old
+    // prefix is legacy, so it is never part of the new slug even when no
+    // number follows it (AUD-2026-08-17-stack -> stack; PROP-C005-5.2-x ->
+    // c005-5.2-x). A dated form drops the date too — the date was the id,
+    // and the id is what is being replaced. Unlisted prefixes are still
+    // never guessed off the basename (the STD-005 case above).
+    for (const p of fromPrefixes) {
+      const m = c.base.match(new RegExp(`^${reEscape(p)}-(?:\\d{4}-\\d{2}-\\d{2}-)?(.+)\\.md$`));
+      if (m) { slugSource = m[1]; break; }
+    }
   }
   const slug = slugSource.toLowerCase().replace(/[_\s]+/g, '-').replace(/[^a-z0-9-]/g, '').replace(/-+/g, '-').replace(/^-|-$/g, '');
   const newBase = `${TO}-${pad}-${slug}.md`;
-  const newRel = path.join(path.dirname(c.rel), newBase);
+  const newRel = path.join(INTO ?? path.dirname(c.rel), newBase);
   const oldId = c.fm.id || c.base.replace(/\.md$/, '');
   const newId = `${TO}-${pad}`;
   return { oldRel: c.rel, newRel, oldBase: c.base, newBase, oldId, newId, tag: c.tag };
@@ -248,7 +279,9 @@ for (const b of allBasenames) basenameCount[b] = (basenameCount[b] || 0) + 1;
 function isBasenameUnique(base) { return basenameCount[base] === 1; }
 
 console.log(`rename-series.mjs — ${APPLY ? 'APPLY' : 'DRY-RUN'}`);
-console.log(`  dirs: ${DIR_ARG}  to: ${TO}  from: ${FROM || '(none — fresh numbering)'}  digits: ${DIGITS}\n`);
+console.log(`  dirs: ${DIR_ARG}  to: ${TO}  from: ${FROM || '(none — fresh numbering)'}  digits: ${DIGITS}${INTO ? `  into: ${INTO}/` : ''}`);
+if (reserved.size) console.log(`  reserved (already ${TO}-NNN on the shelf, not free): ${[...reserved].sort((a, b) => a - b).map((n) => String(n).padStart(DIGITS, '0')).join(' ')}`);
+console.log('');
 
 if (skipped.length) {
   console.log(`SKIPPED (${skipped.length}) — not renamed this run:`);
@@ -301,6 +334,23 @@ const EVIDENCE_DIRS = ['reports/audits/', 'reports/', 'archive/'];
 function refusalReason(rel) {
   if (EVIDENCE_DIRS.some((d) => rel.startsWith(d))) {
     return 'dated evidence — rewriting a record of a past run falsifies it';
+  }
+  // A ratchet baseline is regenerated by its own guard after the rename;
+  // hand-rewriting it is at best noise. For url-baseline.json it is worse:
+  // the file records the addresses the site PUBLISHED, and rewriting the
+  // old slug to the new one erases the very URL check-url-lifecycle exists
+  // to see die. Measured on #192 (operations/): the tool rewrote 8 entries
+  // o-NNN -> ops-NNN and the guard never saw those addresses vanish — the
+  // redirects were added by hand, so nothing broke, but the guard was blind.
+  // A test file's fixtures MEAN the old name: rewriting them turns a
+  // regression test into a tautology. This tool rewrote its own test on
+  // the reports/ run (2026-09-01) and the suite went 24/25 — the one case
+  // that asserted the retired shape now asserted the new one.
+  if (/\.test\.(mjs|js|ts|py)$/.test(rel)) {
+    return 'test fixture — the old name is the point of the assertion';
+  }
+  if (/^scripts\/[a-z-]+-baseline\.json$/.test(rel)) {
+    return 'ratchet baseline — regenerate it with its guard; url-baseline must keep the retired address or the lifecycle guard goes blind';
   }
   const abs = path.join(ROOT, rel);
   if (!existsSync(abs)) return null;

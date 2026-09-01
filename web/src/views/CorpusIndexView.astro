@@ -34,9 +34,10 @@ for (const e of await getCollection("missions")) {
     status: f.status,
   });
 }
+// One collection for every RPT-* since ADR-005 v1.2.0 (the folder is flat).
 for (const e of await getCollection("audits")) {
   const f = e.data as Record<string, any>;
-  add("reports/audits", { href: `/audits/${e.id}`, title: f.title, docId: f.id, status: f.status });
+  add("reports", { href: `/reports/${e.id}`, title: f.title, docId: f.id, status: f.status });
 }
 for (const e of await getCollection("decisions")) {
   const f = e.data as Record<string, any>;

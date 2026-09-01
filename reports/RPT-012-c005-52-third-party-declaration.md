@@ -1,6 +1,8 @@
 ---
-id: "PROP-C005-5.2"
+id: "RPT-012"
 uid:
+former_id: "PROP-C005-5.2"
+former_id_note: "Renumbered 2026-09-01 by ADR-005 v1.2.0: PROP- was never a registered prefix. Still a draft: CAN-005 v1.5.0 has no §5.2 and has not adopted this text (verified 2026-09-01). Whether it becomes a canon change is the Oracle's decision. Content unchanged."
 title: "C-005 v2.0.0 §5.2 — Third-party declaration: proposed text and the measurements behind it"
 type: report
 subtype: proposal
@@ -9,7 +11,7 @@ version: "1.0.0"
 created: "2026-08-26T13:05:00Z"
 created_source: "git:e4918fa"
 created_confidence: exact
-updated: "2026-08-26T13:05:00Z"
+updated: "2026-09-02T00:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -19,8 +21,6 @@ license: "CC-BY-4.0"
 evidence_script: "scripts/verify-third-party-attribution.py · /tmp/reuse-lab · /tmp/migsim"
 evidence_head: "e4918fa"
 scope: "numinia-nwos @ e4918fa · public surface: numinia.org"
-registration: exempt
-registration_reason: "proposal attached to the report series, not a numbered report"
 ---
 # §5.2 — Third-party declaration
 

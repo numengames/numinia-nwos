@@ -1,5 +1,8 @@
 ---
-id: "AUD-2026-04-07"
+id: "RPT-007"
+uid: ""
+former_id: "AUD-2026-04-07"
+former_id_note: "Renumbered 2026-09-01 by ADR-005 v1.2.0 (reports/ normalisation): AUD- retired, one RPT-NNN counter by created ascending, folder flattened from reports/audits/. Content unchanged."
 title: "System audit — 16 web vs repo divergences"
 type: report
 subtype: audit
@@ -8,7 +11,7 @@ version: "1.0.0"
 created: "2026-08-17T19:12:39Z"
 created_source: "git:2cd0a67"
 created_confidence: inferred
-updated: "2026-08-27T22:31:29Z"
+updated: "2026-09-02T00:20:00+02:00"
 author: "nimrod"
 tags: [audit, transparency, divergences, web, repo]
 license: "CC-BY-4.0"

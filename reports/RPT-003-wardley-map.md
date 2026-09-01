@@ -1,24 +1,22 @@
 ---
-id: "RPT-2026-04-07-wardley"
+id: "RPT-003"
 uid: ""
 title: "Wardley Map — Narrative Work OS"
 type: report
-subtype: audit
+subtype: analysis
 status: closed
 version: "0.3.0"
 created: "2026-04-07T12:29:23Z"
 created_source: "git:df48b24"
 created_confidence: exact
-updated: "2026-08-31T22:20:00+02:00"
+updated: "2026-09-02T00:20:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [strategy, wardley, market, moat, evolution]
 territory: "CAO"
 license: "CC0-1.0"
-registration: exempt
-registration_reason: "dated strategic analysis, not a numbered series document"
 former_id: "BLU-001"
-former_id_note: "Reshelved by MIS-129 under ADR-035: a dated market analysis with a running clock is a report, not a plan. The 18-24 month window it declares started 2026-04-07."
+former_id_note: "Chain: BLU-001 → RPT-2026-04-07-wardley (MIS-129, 2026-08-31) → RPT-003 (ADR-005 v1.2.0, 2026-09-01). former_id keeps BLU-001 because it is the identifier still cited (ADR-004 rule 4); the 2026-09-01 step retired the date form (dailies only) and corrected subtype audit → analysis: a dated market observation measures nothing against a norm. MIS-129 note: a dated market analysis with a running clock is a report, not a plan; the 18-24 month window it declares started 2026-04-07. Content unchanged."
 accuracy_warning: "This document knowingly preserves three internal contradictions (two coordinate sets, two component groupings, and a commoditisation window given as both 12-18 and 18-24 months). Recorded as measured in MIS-129; not resolved by that mission, which moved files without editing prose."
 ---
 # Wardley Map — Narrative Work OS

@@ -41,6 +41,30 @@ const rewriteSlug = (s, oldBase, newBase) => {
 };
 
 const cases = [
+  // --- numbering and slug rules added 2026-09-01 (reports/, ADR-005 v1.2.0) ---
+  // Mirrors of extractExistingNumber's regex and the slug rule in
+  // rename-series.mjs. A dated legacy id carries no reusable number.
+  ['number: AUD-2026-08-17-stack has no reusable number (year is not a position)',
+    () => { const m = 'AUD-2026-08-17-stack.md'.match(/^AUD-(\d+)(?!-\d{2}-\d{2})(?:-|\.md$)/); return m ? m[1] : null; },
+    null],
+  ['number: AUD-007-x still reuses 7',
+    () => { const m = 'AUD-007-x.md'.match(/^AUD-(\d+)(?!-\d{2}-\d{2})(?:-|\.md$)/); return m ? m[1] : null; },
+    '007'],
+  ['slug: legacy prefix and date dropped from an unnumbered basename',
+    () => { const m = 'AUD-2026-08-17-stack.md'.match(/^AUD-(?:\d{4}-\d{2}-\d{2}-)?(.+)\.md$/); return m ? m[1] : null; },
+    'stack'],
+  ['slug: legacy prefix without a date dropped too',
+    () => { const m = 'PROP-C005-5.2-third-party.md'.match(/^PROP-(?:\d{4}-\d{2}-\d{2}-)?(.+)\.md$/); return m ? m[1] : null; },
+    'C005-5.2-third-party'],
+  ['refuse: a test file is never rewritten by the tool (it rewrote this one, 2026-09-01)',
+    () => /\.test\.mjs$/.test('scripts/rename-series.test.mjs'),
+    true],
+  ['refuse: a ratchet baseline is never rewritten by the tool',
+    () => /^scripts\/[a-z-]+-baseline\.json$/.test('scripts/url-baseline.json'),
+    true],
+  ['refuse: blind-spots.json is not a baseline',
+    () => /^scripts\/[a-z-]+-baseline\.json$/.test('scripts/blind-spots.json'),
+    false],
   // --- the ones that actually broke -------------------------------------
   // --- the slug form: the hand-written map in [slug].astro (MIS-127) ----
   ['slug: hand-written slug map value is rewritten',
@@ -71,8 +95,8 @@ const cases = [
     'see standards/STD-002-governance.md today'],
 
   ['base: does not fire inside another filename',
-    () => rewriteBase('AUD-2026-08-26-governance.md', 'STD-002-governance.md', 'STD-002-governance.md'),
-    'AUD-2026-08-26-governance.md'],
+    () => rewriteBase('RPT-016-governance.md', 'STD-002-governance.md', 'STD-002-governance.md'),
+    'RPT-016-governance.md'],
 
   // Second pass, same day: the first fix still produced STD-005.md, because
   // for a word-shaped id the string "STD-005-engineering-standards.md" matches the ID

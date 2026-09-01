@@ -24,10 +24,15 @@ const missions = defineCollection({
     .passthrough(),
 });
 
-// Audit reports are read from the repo's reports/audits/ folder at build
-// time — same source-of-truth pattern as missions.
+// Reports are read from the repo's reports/ folder at build time — same
+// source-of-truth pattern as missions. Since 2026-09-01 (ADR-005 v1.2.0) the
+// folder is flat and one collection holds every subtype: audit, analysis,
+// proposal (RPT-NNN) and daily (RPT-YYYY-MM-DD). /audits renders the audit
+// subset; the corpus mirror below excludes RPT-* so ownership stays single.
+// The collection keeps the name "audits" until the /reports route exists
+// (plan step 2c/3): renaming it now would touch every consumer twice.
 const audits = defineCollection({
-  loader: glob({ pattern: "*.md", base: "../reports/audits" }),
+  loader: glob({ pattern: "RPT-*.md", base: "../reports" }),
   schema: z
     .object({
       id: z.string(),
@@ -125,7 +130,7 @@ const corpus = defineCollection({
       "protocols/**/*.md",
       "standards/**/*.md",
       "reports/**/*.md",
-      "!reports/audits/**",
+      "!reports/RPT-*.md",
       // reports/evidence/<RPT-id>/ (ADR-005 v1.2.0 rule 5): annexes of a
       // report — captured artefacts, moved as an opaque block. The report
       // that owns them is the published document; the annex is reachable on

@@ -122,7 +122,7 @@ export default defineConfig({
 		// why the hand-written INDEX was redundant.
 		"/corpus/decisions.md": "/corpus/decisions",
 		// 2026-08-30 ADR-026 (formerly ADR-031): root registers dissolved. Old corpus URLs 301.
-		"/corpus/gaps": "/corpus/reports/rpt-2026-04-07-gaps-capability-map",
+		"/corpus/gaps": "/reports/rpt-008-gaps-capability-map",
 		"/corpus/legal_debt": "/corpus/debt",
 		"/corpus/deuda-404": "/corpus/debt",
 		// 2026-08-30 standards consolidation: GOVERNANCE.md and STANDARDS.md
@@ -156,7 +156,7 @@ export default defineConfig({
 		"/blueprints/cao-architecture": "/corpus/system/sys-001-cao-architecture",
 		"/blueprints/agent-experience": "/corpus/system/sys-002-agent-cycle",
 		"/blueprints/archive-fondos": "/corpus/system/sys-003-archive-fondos",
-		"/blueprints/wardley-map": "/corpus/reports/rpt-2026-04-07-wardley-map",
+		"/blueprints/wardley-map": "/reports/rpt-003-wardley-map",
 		// mission-system's own redirects live below, with the MIS-127 entry
 		// they supersede — kept together so the chain stays visible.
 		// The Spanish aliases of the same four, which MIS-120a kept alive.
@@ -164,7 +164,7 @@ export default defineConfig({
 		"/planos/cao-architecture": "/corpus/system/sys-001-cao-architecture",
 		"/planos/agent-experience": "/corpus/system/sys-002-agent-cycle",
 		"/planos/archive-fondos": "/corpus/system/sys-003-archive-fondos",
-		"/planos/wardley-map": "/corpus/reports/rpt-2026-04-07-wardley-map",
+		"/planos/wardley-map": "/reports/rpt-003-wardley-map",
 		"/reportes": "/reports",
 		"/reportes/diario-2026-04-02": "/reports/daily-2026-04-02",
 		"/reportes/diario-2026-04-03": "/reports/daily-2026-04-03",
@@ -259,6 +259,26 @@ export default defineConfig({
 		"/corpus/reports/daily/rpt-2026-04-07-tarde": "/reports",
 		"/corpus/reports/daily/rpt-2026-08-17": "/reports",
 		"/corpus/reports": "/reports",
+		// reports/ normalisation, 2026-09-01 (ADR-005 v1.2.0). AUD- is retired:
+		// the eleven audits took RPT-NNN numbers by created date and the folder
+		// flattened. Same document, same head, new address — one hop each.
+		"/audits/aud-2026-04-07-system-audit": "/audits/rpt-007-system-audit",
+		"/audits/aud-2026-08-17-cold-agent": "/audits/rpt-004-cold-agent",
+		"/audits/aud-2026-08-17-navigability": "/audits/rpt-006-navigability",
+		"/audits/aud-2026-08-17-stack": "/audits/rpt-005-stack",
+		"/audits/aud-2026-08-24-canon-edit": "/audits/rpt-009-canon-edit",
+		"/audits/aud-2026-08-24-phase0-inventory": "/audits/rpt-010-phase0-inventory",
+		"/audits/aud-2026-08-26-complexity": "/audits/rpt-015-complexity",
+		"/audits/aud-2026-08-26-governance": "/audits/rpt-016-governance",
+		"/audits/aud-2026-08-26-licensing-c005": "/audits/rpt-011-licensing-c005",
+		"/audits/aud-2026-08-26-process": "/audits/rpt-013-process",
+		"/audits/aud-2026-08-26-provenance": "/audits/rpt-014-provenance",
+		// The three root reports left the corpus mirror for the reports
+		// collection (they were the only RPT-* the mirror still served; the
+		// gaps map's old id RPT-2026-04-07 collided with the daily of that day).
+		"/corpus/reports/rpt-2026-04-07-wardley-map": "/reports/rpt-003-wardley-map",
+		"/corpus/reports/rpt-2026-04-07-gaps-capability-map": "/reports/rpt-008-gaps-capability-map",
+		"/corpus/reports/prop-c005-52-third-party-declaration": "/reports/rpt-012-c005-52-third-party-declaration",
 	},
 	// MIS-088's /print/* intermediates are gone (2026-08-31). They existed
 	// only as Chromium print targets for a PDF step the build never ran, so

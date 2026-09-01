@@ -1,6 +1,8 @@
 ---
-id: "AUD-2026-08-26-process"
+id: "RPT-013"
 uid:
+former_id: "AUD-2026-08-26-process"
+former_id_note: "Renumbered 2026-09-01 by ADR-005 v1.2.0 (reports/ normalisation): AUD- retired, one RPT-NNN counter by created ascending, folder flattened from reports/audits/. Content unchanged."
 title: "Process review — did today's seven PRs follow how Numinia works?"
 type: report
 subtype: audit
@@ -9,7 +11,7 @@ version: "1.0.0"
 created: "2026-08-26T13:50:00Z"
 created_source: "git:47c599e"
 created_confidence: exact
-updated: "2026-08-26T13:50:00Z"
+updated: "2026-09-02T00:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"

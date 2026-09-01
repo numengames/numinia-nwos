@@ -16,8 +16,9 @@
 
 import { getEntry } from "astro:content";
 
-/** The report, as the corpus collection addresses it. */
-const ENTRY_ID = "reports/rpt-2026-04-07-wardley-map";
+/** The report, as the reports collection ("audits" in content.config.ts —
+ *  one collection for every RPT-* since ADR-005 v1.2.0) addresses it. */
+const ENTRY_ID = "rpt-003-wardley-map";
 
 export interface WardleyComponent {
   /** Slug used by the page for SVG node ids and layer membership. */
@@ -70,7 +71,7 @@ function section(body: string, heading: string): string {
   if (i === -1) {
     throw new Error(
       `wardley: section "## ${heading}" not found in ` +
-        `reports/RPT-2026-04-07-wardley-map.md. The page renders from that ` +
+        `reports/RPT-003-wardley-map.md. The page renders from that ` +
         `document; a renamed section must be fixed there or here, not worked ` +
         `around by putting the prose back in the component (MIS-071).`
     );
@@ -88,7 +89,7 @@ function field(block: string, label: string, gap: string): string {
   if (!m) {
     throw new Error(
       `wardley: component "${gap}" has no "${label}" field in ` +
-        `reports/RPT-2026-04-07-wardley-map.md.`
+        `reports/RPT-003-wardley-map.md.`
     );
   }
   return unmark(fold(m[1]));
@@ -134,10 +135,10 @@ const LAYER_ID: Record<string, string> = {
 };
 
 export async function getWardley(): Promise<WardleyDoc> {
-  const entry = await getEntry("corpus", ENTRY_ID);
+  const entry = await getEntry("audits", ENTRY_ID);
   if (!entry) {
     throw new Error(
-      `wardley.ts: ${ENTRY_ID} not found in the corpus collection. ` +
+      `wardley.ts: ${ENTRY_ID} not found in the reports collection. ` +
         `The wardley page renders from that file and has no local copy.`
     );
   }
@@ -232,7 +233,7 @@ export async function getWardley(): Promise<WardleyDoc> {
     title,
     components,
     layers,
-    sourceUrl: "/corpus/reports/rpt-2026-04-07-wardley-map",
-    mdUrl: "/reports/RPT-2026-04-07-wardley-map.md",
+    sourceUrl: `/reports/${ENTRY_ID}`,
+    mdUrl: `/reports/${ENTRY_ID}.md`,
   };
 }

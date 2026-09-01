@@ -4,10 +4,10 @@ uid:
 title: "C-005 legal compliance ledger: five unmet obligations"
 type: documentation
 status: active
-version: "2.0.0"
+version: "2.0.1"
 created: "2026-08-16T17:58:17Z"
 created_source: "git:e1a7ac8"
-updated: "2026-08-31T23:20:00+02:00"
+updated: "2026-09-02T00:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -82,8 +82,8 @@ brand: no — CC0 never granted Numinia, Numen Games, or Khepri (§7,
 Apache-2.0 packages**, two of them direct (`class-variance-authority`,
 `playwright-core`). `NOTICE` does not exist.
 
-**Measured state** (AUD-2026-08-26 §C3, evidence in
-`reports/audits/AUD-2026-08-26-licensing-c005/`). The test was run against
+**Measured state** (`RPT-011` §C3 — then `AUD-2026-08-26`; evidence in
+`reports/evidence/RPT-011/`, moved there 2026-09-01). The test was run against
 `dist/`'s **content**, as §3 mandates, not against tree names:
 
 ```
@@ -186,7 +186,7 @@ depending on the auditor's local environment.
 
 **Scope.** Affects the comparability of future audits, not the validity of
 today's: the literal SBOM is archived at
-`reports/audits/AUD-2026-08-26-licensing-c005/sbom.spdx` with the declared
+`reports/evidence/RPT-011/sbom.spdx` (was `reports/audits/AUD-2026-08-26-licensing-c005/`) with the declared
 version.
 
 ---

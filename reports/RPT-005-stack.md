@@ -1,5 +1,8 @@
 ---
-id: "AUD-2026-08-17-stack"
+id: "RPT-005"
+uid: ""
+former_id: "AUD-2026-08-17-stack"
+former_id_note: "Renumbered 2026-09-01 by ADR-005 v1.2.0 (reports/ normalisation): AUD- retired, one RPT-NNN counter by created ascending, folder flattened from reports/audits/. Content unchanged."
 title: "Stack audit — Numen Games / NWOS repos"
 type: report
 subtype: audit
@@ -8,7 +11,7 @@ version: "1.2.0"
 created: "2026-08-17T15:30:02Z"
 created_source: "git:47b853b"
 created_confidence: inferred
-updated: "2026-08-27T19:16:58Z"
+updated: "2026-09-02T00:20:00+02:00"
 author: "claude (at Pablo's request)"
 tags: [audit, numengames, nwos, stack, github, astro, licensing, ci-cd]
 license: "CC-BY-4.0"

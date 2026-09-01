@@ -1,13 +1,15 @@
 ---
-id: "AUD-2026-08-24-canon-edit"
+id: "RPT-009"
 uid:
+former_id: "AUD-2026-08-24-canon-edit"
+former_id_note: "Renumbered 2026-09-01 by ADR-005 v1.2.0 (reports/ normalisation): AUD- retired, one RPT-NNN counter by created ascending, folder flattened from reports/audits/. Content unchanged."
 title: "Audit — the 2026-05-06 canon edit: authorised, complete, coherent?"
 type: report
 subtype: audit
 status: closed
 version: "1.0.0"
 created: "2026-08-24T20:40:00Z"
-updated: "2026-08-24T20:40:00Z"
+updated: "2026-09-02T00:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
