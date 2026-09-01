@@ -1,16 +1,19 @@
 ---
 id: "MIS-TEMPLATE-CHANGES"
+uid: ""
 title: "What changed in the mission template, and the figures that decided it"
-type: documentation
-subtype: standard
 status: active
+
+type: documentation
 version: "1.1.0"
 created: "2026-08-25"
 updated: "2026-08-25"
 author: "ursa"
 owner: "oracle"
 tags: [missions, template, standards]
-license: "CC-BY-4.0"
+license: "CC0-1.0"
+
+subtype: standard
 ---
 # The mission template, v2 — what changed and why
 

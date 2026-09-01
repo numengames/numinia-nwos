@@ -4,7 +4,7 @@ uid: ""
 title: "How to Archive — the NWOS archival protocol"
 type: protocol
 status: draft
-version: "0.8.1"
+version: "0.8.2"
 created: "2026-08-18T10:51:09Z"
 created_source: "git:9f25053"
 created_confidence: exact
@@ -80,7 +80,7 @@ inherited and what is discarded, in §7.
 
 ### 3.1 Operational documents (living)
 
-`<ID>-<slug-in-kebab-case>.md` — example: `MIS-089-information-architecture.md`,
+`<ID>-<slug-in-kebab-case>.md` — example: `MIS-0089-information-architecture.md`,
 `P-010-how-to-archive.md`. No spaces, no special characters, no version or
 date in the filename (git and the frontmatter already carry them).
 
@@ -372,6 +372,7 @@ agents.
 
 ## Change history
 
+- v0.8.2 (2026-09-02) — §3 example filename follows the missions/ rename (`MIS-0089-…`); the rule itself is unchanged.
 - v0.8.1 (2026-09-02) — §2 web column for `reports/`: the "hardcoded today —
   MIS-065" debt is paid; `/reports` renders from the collection and is the
   only head (`web/reports-single-source`).

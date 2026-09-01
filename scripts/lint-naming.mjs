@@ -81,7 +81,12 @@ const SERIES = {
    lint-frontmatter.mjs already use — not a document of the series, the
    scaffolding around it. */
 const APPARATUS_BASENAMES = new Set(['README.md', 'INDEX.md', 'TEMPLATE.md']);
-const isApparatusPath = (rel) => /\/_template\//.test(rel) || rel.startsWith('agents/_template/');
+// missions/TEMPLATE-*.md: the template's worked example and its change record —
+// lint-frontmatter.mjs already reads them as templates (IS_TEMPLATE). Same rule
+// here since 2026-09-02 (missions/ normalisation); before that the two guards
+// disagreed about the same three files.
+const isApparatusPath = (rel) => /\/_template\//.test(rel) || rel.startsWith('agents/_template/')
+  || /^missions\/TEMPLATE-/.test(rel);
 
 const ROOT_UPPERCASE_RE = /^[A-Z][A-Z_]*\.md$/;
 const KEBAB_SLUG_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;

@@ -1,7 +1,7 @@
 {
   "$comment": "URL manifest — D-028/ADR-033. Every public address the site published at the last accepted build. check-url-lifecycle.mjs fails when one of these stops being built without a redirect in web/astro.config.mjs. Regenerate deliberately with --write-baseline, in the same PR as the deletion that changed it, never to silence a failure.",
   "generated": "2026-09-01",
-  "count": 616,
+  "count": 622,
   "urls": [
     "/",
     "/agent",
@@ -433,6 +433,9 @@
     "/misiones/mis-129",
     "/misiones/mis-130",
     "/misiones/mis-131",
+    "/misiones/mis-132",
+    "/misiones/mis-133",
+    "/misiones/mis-134",
     "/missions",
     "/missions/mis-001",
     "/missions/mis-002",
@@ -564,6 +567,9 @@
     "/missions/mis-129",
     "/missions/mis-130",
     "/missions/mis-131",
+    "/missions/mis-132",
+    "/missions/mis-133",
+    "/missions/mis-134",
     "/openclaw-test",
     "/planos",
     "/planos/agent-experience",

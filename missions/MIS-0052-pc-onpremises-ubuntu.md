@@ -1,0 +1,101 @@
+---
+id: "MIS-052"
+uid: ""
+title: "On-premises infrastructure — Dedicated PC"
+status: todo
+priority: "high"
+effort: "L"
+guild: "Sentinels"
+territory: "Infrastructure"
+type_execution: "digital"
+assigned_to: "nimrod"
+started: null
+completed: null
+
+type: mission
+version: "1.1.0"
+created: "2026-04-07T05:49:03Z"
+created_source: "git:e56f6e8"
+created_confidence: inferred
+updated: "2026-08-25T20:05:59Z"
+author: "pablo-fm"
+owner: "oracle"
+requested_by: "oracle"
+tags: [infrastructure, hardware, ollama, sentinels]
+license: "CC0-1.0"
+---
+# MIS-052 — On-premises infrastructure — Dedicated PC
+
+> **Summary:** NWOS system mission.
+> **Epistemic:** What you learn by reading this document.
+> **Pragmatic:** What you can do with this document.
+> **Audience:** Agents · Oracles
+
+---
+
+**Area:** Infrastructure · **Guild:** Sentinels · **Type:** 🤖 Digital
+**Priority:** 🟠 High · **Effort:** L
+
+---
+
+## Story
+
+As operator, I want a dedicated on-premises PC with Ubuntu 24.04 and Ollama, to reduce inference costs by 60-70% by running local models.
+
+---
+
+## Acceptance criteria
+
+- [ ] Ubuntu 24.04 LTS installed on Ryzen 9 7950X + RTX 4080
+- [ ] NVIDIA drivers + CUDA configured
+- [ ] Ollama installed with Mistral 7B, Qwen2.5 14B
+- [ ] OpenClaw connected to local node
+- [ ] VPS services migrated
+
+---
+
+## Epistemic value
+
+Determines which models fit in 16 GB VRAM and which tasks can migrate to local.
+
+## Pragmatic value
+
+Drastic reduction in monthly Anthropic API costs (~60-70%).
+
+---
+
+## Hardware
+
+- **CPU:** AMD Ryzen 9 7950X
+- **GPU:** RTX 4080 (16 GB VRAM)
+- **RAM:** 32 GB DDR5
+- **SSD:** Corsair MP600 2TB NVMe
+- **Motherboard:** ASUS PRIME X670E-PRO WIFI
+- **OS:** Ubuntu 24.04 LTS
+
+---
+
+## Notes
+
+PC in transit. When it arrives: install Ubuntu → CUDA → Ollama → connect to OpenClaw as local node.
+
+---
+
+## Version history
+
+- v1.0.0 (2026-04-05) — Initial creation.
+- v1.1.0 (2026-04-07) — Translated to English (MIS-056).
+
+---
+
+## Board triage — 2026-08-25
+
+Returned from `in-progress` to `backlog` by the Oracle, in the triage of the 111
+missions. **Nothing about the brief changed and the work is still wanted** —
+what changed is the claim that it was underway.
+
+- **Category:** D — stale. No commit has ever touched this mission outside a bulk maintenance commit.
+- **Signal, not proof:** this mission was assigned to an agent whose identity is
+  in question (`D-026`, `D-027`). That is context; the evidence for this move is
+  the absence of its own commit, not who it was assigned to.
+- **Signed by:** Oracle, 2026-08-25.

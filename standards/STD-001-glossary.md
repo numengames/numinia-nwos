@@ -4,9 +4,9 @@ id: "STD-001"
 uid: ""
 type: documentation
 status: active
-version: "5.1.0"
+version: "5.1.1"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-09-01T23:30:00+02:00"
+updated: "2026-09-02T01:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -550,7 +550,7 @@ filed for lack of its own.
 
 | Prefix | Series | Coverage today (2026-08-31) |
 |---|---|--:|
-| `MIS-NNNN` | `missions/` | 0/131 · 0 % |
+| `MIS-NNNN` | `missions/` | **134/134 · 100 %** (2026-09-02) |
 | `ADR-NNN` · `DEC-NNN` | `decisions/` | **20/20 · 100 %** |
 | `PRO-NNN` | `protocols/` | 0/13 · 0 % |
 | `RPT-NNN` (subtype `audit` · `analysis` · `proposal`) · `RPT-YYYY-MM-DD` (subtype `daily` only) | `reports/` (flat, `ADR-005` v1.2.0) | 10/25 · 40 % |
@@ -1449,6 +1449,7 @@ gets filled differently by each person who meets it — which is how
 
 ## Version history
 
+- **v5.1.1** (2026-09-02) — §4.1: `missions/` 0/131 → 134/134 (missions/ normalisation: every file renamed to `MIS-0NNN-<slug>.md`, `MIS-115a`/`MIS-115b` and the closure-guard proposal registered as `MIS-132`…`MIS-134`). Figure from `count-evidence.py`.
 - **v5.1.0** (2026-09-01) — `ADR-005` v1.2.0, `reports/` normalisation. §4.1:
   the two `reports/` rows merge into one (the series is one folder, flat);
   coverage re-measured by `count-evidence.py` at 10/25 — the eight dailies

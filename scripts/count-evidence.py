@@ -104,7 +104,12 @@ def main():
     #      del campo lo contaría como incumplimiento. Cada serie reporta su
     #      aparato por separado ("aparato: N"), que era el otro requisito.
     APPARATUS = ('INDEX.md', 'README.md', 'TEMPLATE.md', 'STANDARDS.md',
-                 'APPROVAL-REQUEST-template.md')
+                 'APPROVAL-REQUEST-template.md',
+                 # la familia de la plantilla de misiones: el ejemplo escrito con
+                 # ella y el registro de sus cambios. lint-frontmatter ya los
+                 # trata como plantilla (IS_TEMPLATE); aquí contaban como
+                 # incumplimiento de serie (2026-09-02, normalización missions/).
+                 'TEMPLATE-EXAMPLE.md', 'TEMPLATE-CHANGES.md')
     FROZEN_ARTIFACT = re.compile(r'^\d{4}_\d{2}_\d{2}-.+-v\d+\.\d+\.\d+\.md$')
 
     def es_aparato(d):

@@ -1,5 +1,6 @@
 ---
 id: "MIS-129"
+uid: ""
 title: "Send each blueprint to the shelf its content belongs on, and open the two shelves that were missing"
 status: in-progress
 priority: high
@@ -13,11 +14,14 @@ completed: null
 type: mission
 version: "1.0.0"
 created: "2026-08-31T22:10:00+02:00"
+created_source: "git:44d5e96"
+created_confidence: exact
 updated: "2026-08-31T22:10:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [archive, taxonomy, blueprints, url-lifecycle, ADR-005, S-005]
-license: "CC-BY-4.0"
+license: "CC0-1.0"
+
 context: "2026-08-31"
 paths: [blueprints/, system/, history/, reports/, web/src/pages/archive/, web/astro.config.mjs, scripts/]
 ---

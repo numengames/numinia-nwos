@@ -1,5 +1,6 @@
 ---
 id: "MIS-131"
+uid: ""
 title: "Measure whether earlier migrations left frontmatter damage invisible to the tolerant parsers"
 status: todo
 priority: medium
@@ -13,11 +14,14 @@ completed: null
 type: mission
 version: "1.0.0"
 created: "2026-09-01T17:34:00Z"
+created_source: "git:f8fa6e1"
+created_confidence: exact
 updated: "2026-09-01T17:34:00Z"
 author: "ursa"
 owner: "oracle"
 tags: [debt, guards, frontmatter, DBT-010, MIS-125, history, archive]
-license: "CC-BY-4.0"
+license: "CC0-1.0"
+
 context: "2026-09-01"
 paths: [scripts/check-frontmatter-delimiter.mjs, debt/DBT-010-guard-blindness.md]
 ---

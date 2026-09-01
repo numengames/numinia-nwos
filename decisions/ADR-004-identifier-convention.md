@@ -4,9 +4,9 @@ uid: ""
 title: "Document identifiers are opaque, sequential and permanent"
 type: adr
 status: active
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-08-24T15:00:00Z"
-updated: "2026-08-31T09:40:00+02:00"
+updated: "2026-09-02T01:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [decisions, adr, identifiers, naming, archive, provenance]
@@ -54,8 +54,12 @@ identifier* — deserves an answer that outlives the proposal.
 
 **1. Shape.** `<PREFIX>-<NNN>` for series documents, zero-padded to three
 digits. The filename adds a slug in English kebab-case:
-`MIS-085-web-codex-reader-lap.md`. The identifier is the prefix and number;
+`MIS-0085-web-codex-reader-lap.md`. The identifier is the prefix and number;
 the slug is a human courtesy and may be corrected without consequence.
+`missions/` pads the **filename** to four digits (`ADR-005` v1.1.0); the
+`id:` field keeps the registered number — `MIS-085` in the example — so that
+no citation, URL or relation entry changed when the shelf moved
+(2026-09-02, the `MIS-0129` precedent applied to all 134).
 
 **2. Identifiers are opaque.** An identifier MUST NOT encode any attribute
 that can change: status, guild, territory, owner, version, or date. Those are
@@ -176,6 +180,7 @@ cheaper than recovering from its unrecorded loss.
 
 ## Version history
 
+- v1.1.1 (2026-09-02) — §1: the `missions/` four-digit filename is the shelf's, not the identifier's; example updated. missions/ normalisation.
 - v1.1.0 (2026-08-31) — MIS-125. Removed the per-series count table from
   §Context (stale the day it is written; `D-008`/`MIS-125` own the
   measurement now). Rewrote rule 4: renumbering is possible under three

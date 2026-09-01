@@ -5,11 +5,11 @@ title: "The Archive's Fondos"
 type: documentation
 subtype: reference
 status: active
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-08-17T19:10:09Z"
 created_source: "git:715cc53"
 created_confidence: exact
-updated: "2026-08-31T22:20:00+02:00"
+updated: "2026-09-02T01:20:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [system, archive, fondos, taxonomy]
@@ -63,9 +63,9 @@ fondos:
     governance: "Only the executor edits their active mission. A done mission is immutable."
     documentos:
       - { nombre: "Mission Template v2", desc: "Standard template with divergence_log, executor, blocked_reason.", file: "missions/TEMPLATE.md" }
-      - { nombre: "MIS-037 — Archive Summa", desc: "The mission that created this repository. Completed.", file: "missions/MIS-037-create-archive-summa-repo.md" }
-      - { nombre: "MIS-051 — Gmail/Drive/Calendar", desc: "Google Workspace integration with the gog CLI. Completed.", file: "missions/MIS-051-gmail-calendar-drive-gog.md" }
-      - { nombre: "MIS-054 — Multi-Oracle access", desc: "Oracle onboarding to Telegram with Nimrod. In progress.", file: "missions/MIS-054-multi-oracle-telegram-access.md" }
+      - { nombre: "MIS-037 — Archive Summa", desc: "The mission that created this repository. Completed.", file: "missions/MIS-0037-create-archive-summa-repo.md" }
+      - { nombre: "MIS-051 — Gmail/Drive/Calendar", desc: "Google Workspace integration with the gog CLI. Completed.", file: "missions/MIS-0051-gmail-calendar-drive-gog.md" }
+      - { nombre: "MIS-054 — Multi-Oracle access", desc: "Oracle onboarding to Telegram with Nimrod. In progress.", file: "missions/MIS-0054-multi-oracle-telegram-access.md" }
   - id: protocols
     lore: "Un ritual no es burocracia. Es la forma en que el sistema recuerda cómo hacerlo bien."
     titulo: "Protocols"

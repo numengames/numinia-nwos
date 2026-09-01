@@ -1,6 +1,6 @@
 ---
 id: "MIS-130"
-uid:
+uid: ""
 title: "Fix the four dead links in README.md — the entry point resolves"
 status: in-review
 priority: low
@@ -10,7 +10,6 @@ territory: "Archive"
 type_execution: digital
 assigned_to: "ursa"
 started: "2026-09-01T17:03:10Z"
-in_review_at: "2026-09-01T17:32:43Z"
 completed: null
 
 type: mission
@@ -22,7 +21,9 @@ updated: "2026-09-01T17:32:43Z"
 author: "ursa"
 owner: "oracle"
 tags: [archive, links, readme, adr-005, url-lifecycle]
-license: "CC-BY-4.0"
+license: "CC0-1.0"
+
+in_review_at: "2026-09-01T17:32:43Z"
 ---
 
 # MIS-130 — Fix the four dead links in README.md

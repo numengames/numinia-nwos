@@ -5,11 +5,11 @@ title: "The header in three rings: identity, provenance, extension"
 type: documentation
 subtype: standard
 status: active
-version: "1.4.0"
+version: "1.4.1"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-09-01T23:30:00+02:00"
+updated: "2026-09-02T01:30:00+02:00"
 ratified_by: "ADR-027 (formerly ADR-029)"
 author: "ursa"
 owner: "oracle"
@@ -198,7 +198,7 @@ Initial registry — transcribed from actual majority use, not invented:
 
 | Series | Registered fields |
 |---|---|
-| `missions/` | `priority` `effort` `assigned_to` `started` `completed` `mission_id` `type_execution` `freeze_reason` `in_review_at` `depends_on` `parent_mission` `sub_missions` `blocked_by` `requires_oracle_approval` `human_approval_score` `paths` `context` `divergence_log` |
+| `missions/` | `priority` `effort` `assigned_to` `started` `completed` `type_execution` `freeze_reason` `in_review_at` `depends_on` `parent_mission` `sub_missions` `blocked_by` `requires_oracle_approval` `human_approval_score` `paths` `context` `divergence_log` |
 | `reports/` | `severity` `period` `subtype` `model` `agent` `week` `scope` `former_id` `former_id_note` |
 | `decisions/` | `deciders` `consulted` `outcome` `decision` `absorbs` `amends` |
 | `agents/` | `role` `platform` `model` `soul` `agent` |
