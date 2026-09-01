@@ -56,7 +56,7 @@ numinia-nwos does it" is advice and not a trap.
 
 ## Context (2026-08-18)
 
-Audited today against §4 of `standards/engineering-standards.md`:
+Audited today against §4 of `standards/STD-005-engineering-standards.md`:
 
 | Required by §4 | `numinia-nwos` | `numengames-web` | `nwos-deploy` |
 |---|---|---|---|

@@ -15,7 +15,7 @@ tags: [debt, identifiers, registration, archive]
 license: "CC-BY-4.0"
 visibility: "public"
 severity: medium
-opened_by: "S-001 §4.1"
+opened_by: "STD-001 §4.1"
 absorbs: ["D-008"]
 ---
 # DBT-001 — Twelve series carry a registration scheme most of the corpus does not yet apply
@@ -92,10 +92,10 @@ on its face. The full reasoning is written where the rule lives, in
 
 | # | Ground | Evidence |
 |---|---|---|
-| 1 | A consumer outside this repo cannot be updated | `numinia-web/design-source.json` pins `2026_08_18-Sistema_de_Diseno-v5.1.0.md` by path + `sha256`; `S-001` §5.0.1 makes that rename **not done**, not merely expensive |
+| 1 | A consumer outside this repo cannot be updated | `numinia-web/design-source.json` pins `2026_08_18-Sistema_de_Diseno-v5.1.0.md` by path + `sha256`; `STD-001` §5.0.1 makes that rename **not done**, not merely expensive |
 | 2 | Renaming publishes a dead URL | `web/src/pages/corpus/[...slug].astro` derives addresses from filenames; `D-028` open |
 | 3 | The zero-citation premise is false here | 59 incoming citations across 27 files. `MIS-125` authorised renames *because* the descriptive ids had **zero** |
-| 4 | Two are `threshold: sealed` | `S-001` §2.1 — `canon/` takes a signature + an ADR, not a bulk pass |
+| 4 | Two are `threshold: sealed` | `STD-001` §2.1 — `canon/` takes a signature + an ADR, not a bulk pass |
 
 **The five:**
 
@@ -109,7 +109,7 @@ standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md           36
 
 They leave the denominator rather than sit in it as non-compliance: a
 photograph measured against a living-series scheme is a **measurement
-error, not debt**. This is the second half of `S-001` §5.0's own principle —
+error, not debt**. This is the second half of `STD-001` §5.0's own principle —
 a gap and a declared exception must not look alike, and that cuts both ways.
 
 **Detection is by filename shape, not by the `registration_exemption`
@@ -125,7 +125,7 @@ narrow by construction.
 **`standards/STANDARDS.md` note:** `type: meta`, `status: closed`,
 `registration: exempt` (`registration_reason: "singular document, not a
 numbered series"`) — a tombstone/redirector pointing to the living rules
-(`superseded_by: "S-001 · S-004 · governance.md · engineering-standards.md"`),
+(`superseded_by: "STD-001 · STD-004 · STD-002-governance.md · STD-005-engineering-standards.md"`),
 the same functional class as `README.md`/`INDEX.md` (excluded from every
 series by the same convention), not a numbered standard itself. Oracle
 ruling, 2026-08-31: stays apparatus, permanently exempt, no `STD-NNN`.
@@ -153,7 +153,7 @@ example of compliance.
 
 ## The `registration: exempt` set — closed by Oracle ruling, 2026-08-31
 
-50 files in the corpus carry `registration: exempt` in frontmatter (`S-001`
+50 files in the corpus carry `registration: exempt` in frontmatter (`STD-001`
 §5.0 mechanism, opened by `D-024`, 2026-08-25). Most are apparatus that was
 never going to carry a series prefix — `README.md`, `INDEX.md`,
 `agents/*/SOUL.md`/`OPERATOR.md`/`SOURCES.md`, templates, and the entire
@@ -176,7 +176,7 @@ still removed, not honoured.
 | `guilds/` | 8 | `singular document, not a numbered series` | `GLD-NNN`, in scope, already counted above |
 | `blueprints/` (archive-summa ×3) | 3 | none stated | `BLU-NNN`, in scope, already counted above |
 | `canon/` (`archive-lore.md` only) | 1 | none stated | `CAN-NNN`, in scope. **The 2 legacy-dated are OUT** — frozen artefacts, see the ruling above |
-| `standards/` (`engineering-standards.md` + `governance.md`) | 2 | no frontmatter (historically) | `STD-NNN`, in scope. **The 2 legacy-dated are OUT** — frozen artefacts, see the ruling above. `engineering-standards.md` enters despite `D-024`'s reverted attempt: its consumers are all in-repo except a `scorecard.yml` comment — re-verify before Stage C reaches `standards/` |
+| `standards/` (`STD-005-engineering-standards.md` + `STD-002-governance.md`) | 2 | no frontmatter (historically) | `STD-NNN`, in scope. **The 2 legacy-dated are OUT** — frozen artefacts, see the ruling above. `STD-005-engineering-standards.md` enters despite `D-024`'s reverted attempt: its consumers are all in-repo except a `scorecard.yml` comment — re-verify before Stage C reaches `standards/` |
 | `protocols/` (1 legacy-dated) | 0 | frozen-artifact | **OUT** — frozen artefact, see the ruling above. `P-010` declares the relation with `supersedes:` instead |
 | `operations/security-policy.md`, `credential-map.md` | 2 | `pending-genre-ruling` (`D-024`) | **Genre ruling made here: both register as `OPS-NNN` like the rest of the series.** `D-024`'s open checkbox for this closes. |
 | `debt/D-024`, `D-028` | 2 | apparatus of a frozen exemption / none | `DBT-NNN`, in scope, already counted above |
@@ -202,7 +202,7 @@ because nobody has renamed them yet.
 ## Closing condition
 
 Marked RESOLVED when the eleven eligible series reach 100 % coverage **or**
-when the Oracle withdraws the scheme for a given series and `ADR-005`/`S-001`
+when the Oracle withdraws the scheme for a given series and `ADR-005`/`STD-001`
 record the exception (as already done for `agents/`).
 
 Order — `MIS-125` Stage C, cheapest/lowest-risk first, one commit per series,
@@ -232,7 +232,7 @@ renumbered**, only re-prefixed (`ADR-004` §rule 4).
 |---|---|
 | Severity | medium — affects citability, not correctness |
 | Owner | Oracle |
-| Opened | 2026-08-24, by `S-001` §4.1 |
+| Opened | 2026-08-24, by `STD-001` §4.1 |
 | Re-measured | 2026-08-31, by `MIS-125`, against `ADR-005` v1.1.0's 13-series register |
 | Closes when | 100 % coverage of the 11 eligible series (248 files), or recorded exception |
 

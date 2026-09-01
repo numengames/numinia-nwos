@@ -38,7 +38,7 @@ censusing around it.
 1. **Hot finding** — a real secret value, live or of unknown state, becomes
    visible (§8).
 2. **An irreversible action is within reach** — anything that revokes, deletes,
-   rewrites history, changes visibility or publishes. `engineering-standards.md`
+   rewrites history, changes visibility or publishes. `STD-005-engineering-standards.md`
    §7 already classifies these: when in doubt, irreversible.
 3. **The brief does not match what you see** — the declared scope does not
    exist, or something much larger does. Say so before executing, not after
@@ -229,7 +229,7 @@ an incident begins:
    Rewriting history revokes nothing and destroys the evidence.
 4. **Do not rotate.** That is phase C: prepare the list of what to rotate, in
    what order, and what each rotation breaks — then wait for a signature.
-   `engineering-standards.md` §7 forbids an agent creating, rotating or deleting
+   `STD-005-engineering-standards.md` §7 forbids an agent creating, rotating or deleting
    credentials, and this protocol does not lift that.
 5. The incident gets its own document, outside the session report.
 
@@ -330,7 +330,7 @@ when the document is.
 - [ ] Phase B2 branches and canaries deleted.
 - [ ] The audit credential, revoked.
 - [ ] Commit, at the right classification tier (§10), referencing the practice
-      IDs touched (`SEC-04`, `SEC-06`, …) per `engineering-standards.md` §7.
+      IDs touched (`SEC-04`, `SEC-06`, …) per `STD-005-engineering-standards.md` §7.
 - [ ] `review_next` in this document updated to the next run's date.
 - [ ] Session closed per P-006.
 

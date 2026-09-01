@@ -60,7 +60,7 @@ another specialist when a task materially exceeds its own domain
 
 ## Renames
 
-**An agent that has committed never loses its previous name** (`S-001` §5.2).
+**An agent that has committed never loses its previous name** (`STD-001` §5.2).
 
 - **Byblos** is the agent previously designed as **Adonaz** (renamed
   2026-08-28). Adonaz recorded no commits, so no git authorship is affected.

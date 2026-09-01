@@ -53,16 +53,16 @@ The foundational documents of Numinia. They are immutable by policy and by techn
 ## The seminal documents — C series
 
 > **Renumbered on 2026-08-25 (`MIS-109` phase C).** The seminal series used
-> `S-NNN`, which `ADR-005` assigned to `standards/`: `S-001` and `S-003` each
+> `S-NNN`, which `ADR-005` assigned to `standards/`: `STD-001` and `STD-003` each
 > meant two living documents. The seminals are now `C-NNN`. **The old number
 > is kept in the table**: it is what documents prior to that date cite, and an
 > identifier is a promise about the past (`ADR-004`).
 
 | # | ID | Was | Document | File | Language | Value |
 |---|----|-----|----------|------|----------|-------|
-| 1 | **C-001** | `S-001` | Welcome to Numinia | `C-001-welcome-to-numinia.md` | EN | 9/10 |
+| 1 | **C-001** | `STD-001` | Welcome to Numinia | `C-001-welcome-to-numinia.md` | EN | 9/10 |
 | 2 | **C-002** | `S-002` | Numinia Brand & Culture | `C-002-brand-and-culture.md` | EN | 9/10 |
-| 3 | **C-003** | `S-004` | Compendium of Attributes | `C-003-attributes-and-ranks.md` | EN | 9/10 |
+| 3 | **C-003** | `STD-004` | Compendium of Attributes | `C-003-attributes-and-ranks.md` | EN | 9/10 |
 | 4 | **C-004** | `S-005` | Role Structure | `C-004-role-structure.md` | EN | 10/10 |
 | 5 | **C-005** | — | Licensing Canon | `C-005-licensing.md` | EN | — |
 | 6 | **C-006** | `S-007` | About Session Zero | `C-006-session-zero.md` | EN | 8/10 |
@@ -79,7 +79,7 @@ registration numbers living series. **They carry no `C-NNN`.**
 
 | Was | Document | File |
 |-----|----------|------|
-| `S-003` | Epistemic Relations | `2026_04_15-Epistemic_Relations_Between_Numen_Games_and_Numina-v0.2.0.md` |
+| `STD-003` | Epistemic Relations | `2026_04_15-Epistemic_Relations_Between_Numen_Games_and_Numina-v0.2.0.md` |
 | — | Pragmatic Numen System | `2026_04_15-Pragmatic_Numen_System-v0.2.0.md` |
 
 `Epistemic Relations` is the source of the *Germinal Motive /
@@ -92,7 +92,7 @@ that phase.
 
 | Was | Document | Where it is | Why |
 |-----|----------|-------------|-----|
-| `S-006` | Platform Role System | **`standards/S-003-platform-role-system.md`** | Genre: a permissions matrix regulates an artifact, it does not name the world. `ADR-023`. Keeps its reserved regime (`D-030`) |
+| `S-006` | Platform Role System | **`standards/STD-003-platform-role-system.md`** | Genre: a permissions matrix regulates an artifact, it does not name the world. `ADR-023`. Keeps its reserved regime (`D-030`) |
 | `S-008` | Numinia — The Role-Playing Game | **`numinia-lore`**, outside this repository | The manual lives in the lore repository. Kept here as an external pointer: whoever fails to find it would conclude it does not exist, and it does |
 | `S-010` | Archive System | `canon/README.md` | **Apparatus, not seminal**: it is regenerable from the others. An index that lists itself as foundational confuses instrument with record |
 
@@ -159,13 +159,13 @@ correcting it is an editorial decision for the Oracle, not for the archive.
 
 ## Notes on S-009
 
-`Rank Specifications` was prepared on 2026-04-06 with Christian Märtens. It defines the **social dimension of the Archon**: that technical depth alone does not confer the rank — leadership capacity and contribution to the community are also required. It complements S-004 (Compendium) by adding the *why* behind the rank distinctions.
+`Rank Specifications` was prepared on 2026-04-06 with Christian Märtens. It defines the **social dimension of the Archon**: that technical depth alone does not confer the rank — leadership capacity and contribution to the community are also required. It complements STD-004 (Compendium) by adding the *why* behind the rank distinctions.
 
 It was detected in the QA audit of 2026-04-07 as an existing document with no canonical ID assigned.
 
 ## Notes on S-010
 
-S-010 is a meta-document: it describes the canon folder itself. It is included for completeness and navigability, but it is not a content seminal in the same sense as S-001–S-009.
+S-010 is a meta-document: it describes the canon folder itself. It is included for completeness and navigability, but it is not a content seminal in the same sense as STD-001–S-009.
 
 ## Relations between documents (Knowledge Graph)
 
@@ -174,12 +174,12 @@ S-010 is a meta-document: it describes the canon folder itself. It is included f
 | **C-003** Compendium | `extended_by` | **C-007** Rank Specifications |
 | Epistemic Relations *(dated)* | `grounds` | **C-004** Role Structure |
 | Epistemic Relations *(dated)* | `grounds` | **C-002** Brand & Culture |
-| **C-004** Role Structure | `implements` | `standards/S-003` Platform Role System |
+| **C-004** Role Structure | `implements` | `standards/STD-003` Platform Role System |
 | **C-006** Session Zero | `instantiates` | The role-playing game manual *(`numinia-lore`)* |
-| **C-001** Welcome | `summarizes` | **C-002**, **C-004**, `standards/S-003` |
+| **C-001** Welcome | `summarizes` | **C-002**, **C-004**, `standards/STD-003` |
 | The role-playing game manual *(`numinia-lore`)* | `is_narrative_of` | Epistemic Relations *(dated)* |
 
-> **The `S-003` collision is resolved.** Until 2026-08-25 that number meant
+> **The `STD-003` collision is resolved.** Until 2026-08-25 that number meant
 > two living documents: *Epistemic Relations* in the canon and *Platform Role
 > System* in `standards/`. The renumbering to `C-NNN` closed it — the
 > seminals no longer use `S-`, which `ADR-005` reserved for `standards/`.
@@ -189,7 +189,7 @@ S-010 is a meta-document: it describes the canon folder itself. It is included f
 
 | Was | Left | Now | Why |
 |---|---|---|---|
-| `S-006` Platform Role System | 2026-08-25 | `standards/S-003-platform-role-system.md` | Genre, not filing: a permissions matrix for an artifact is a standard, not world vocabulary. Oracle ruling, `ADR-023` |
+| `S-006` Platform Role System | 2026-08-25 | `standards/STD-003-platform-role-system.md` | Genre, not filing: a permissions matrix for an artifact is a standard, not world vocabulary. Oracle ruling, `ADR-023` |
 
 **A series change with a file move is recorded here, in the index of origin —
 not with a tombstone in the folder.** `canon/` is `sealed`, and adding a file to

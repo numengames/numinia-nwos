@@ -23,11 +23,11 @@ the repository is the source of truth and this file only says where to look.
 
 ## The archive's own vocabulary
 
-standards/S-001-glossary.md — controlled vocabularies, header rules
+standards/STD-001-glossary.md — controlled vocabularies, header rules
 
 ## Engineering standard
 
-standards/engineering-standards.md — the operative standard of this repository
+standards/STD-005-engineering-standards.md — the operative standard of this repository
 
 ## Procedures
 

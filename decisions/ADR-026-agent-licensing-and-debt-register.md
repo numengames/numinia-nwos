@@ -15,7 +15,7 @@ tags: [licensing, cc0, agents, debt, c-005, governance]
 absorbs: ["ADR-031"]
 superseded_by: null
 license: "CC-BY-4.0"
-related: ["C-005", "D-038", "ADR-030", "S-001", "MIS-127"]
+related: ["C-005", "D-038", "ADR-030", "STD-001", "MIS-127"]
 ---
 
 # Agent licensing and the debt register

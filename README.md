@@ -33,14 +33,14 @@ of everything this archive knows it is missing.
 **Agents** open with [`P-001`](protocols/P-001-agent-briefing.md), then read
 [`CLAUDE.md`](CLAUDE.md). One path, no menu.
 
-**Humans** read [`S-001`](standards/S-001-glossary.md) — what each folder holds
+**Humans** read [`STD-001`](standards/STD-001-glossary.md) — what each folder holds
 and what every field means — then whichever series they came for.
 
 ---
 
 ## Where things live
 
-Each folder answers one question. [`S-001`](standards/S-001-glossary.md) is the
+Each folder answers one question. [`STD-001`](standards/STD-001-glossary.md) is the
 full definition; this is only the map.
 
 | Series | Answers |
@@ -92,7 +92,7 @@ folders was tried and deliberately undone.
 
 The live board is [numinia.org/missions](https://numinia.org/missions), built
 from `missions/` on every deploy. States and lifecycle are defined in
-[`S-001`](standards/S-001-glossary.md) §7 and
+[`STD-001`](standards/STD-001-glossary.md) §7 and
 [`P-003`](protocols/P-003-ciclo-mision-v1.md).
 
 ---
@@ -141,7 +141,7 @@ performs is the failure mode this repository exists to avoid.
 
 ## Contributing
 
-Read [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`standards/governance.md`](standards/governance.md).
+Read [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`standards/STD-002-governance.md`](standards/STD-002-governance.md).
 Work enters through pull requests; the Oracle signs what changes the shape of
 the archive. The repository is written in English
 ([`DEC-006`](decisions/DEC-006-english-official-repo-language.md)).

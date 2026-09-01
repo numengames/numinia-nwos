@@ -12,7 +12,7 @@ Los cuatro valores fuera del vocabulario son nombres de SERIE DOCUMENTAL,
 no dominios de trabajo:
 
     Canon       8   todos en canon/
-    Standards   6   cinco misiones sobre el estandar + standards/S-003
+    Standards   6   cinco misiones sobre el estandar + standards/STD-003
     Legal       3   reports/ y reports/audits/
     Governance  2   reports/audits/
 
@@ -27,14 +27,14 @@ llevan valores distintos:
 
     MIS-121  burndown de cabeceras      -> "Archive"
     MIS-122  misma familia de trabajo   -> "Standards"
-    S-001    glosario                   -> "Archive"
-    S-003    mismo tipo                 -> "Standards"
+    STD-001    glosario                   -> "Archive"
+    STD-003    mismo tipo                 -> "Standards"
 
 Uno de los dos es deriva. `Archive` esta en el vocabulario de las ocho
 palabras y `Standards` no: la deriva es `Standards`. Lo mismo para los
 otros tres.
 
-Y encaja con la definicion: S-001 §territory sostiene `Archive` contra el
+Y encaja con la definicion: STD-001 §territory sostiene `Archive` contra el
 sentido archivistico del termino. El trabajo sobre el propio corpus —
 canon, estandares, auditorias del corpus — es territorio de archivo.
 

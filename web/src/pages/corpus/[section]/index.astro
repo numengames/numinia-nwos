@@ -14,7 +14,7 @@
 // a document is added.
 import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
-import { SECTIONS, getSectionDocs } from "@/lib/corpus";
+import { SECTIONS, getSectionDocs, READING_NOTE } from "@/lib/corpus";
 
 export async function getStaticPaths() {
   return Promise.all(
@@ -26,54 +26,62 @@ export async function getStaticPaths() {
 }
 
 const { section, docs } = Astro.props;
+const note = READING_NOTE[section.slug];
 ---
 
 <Layout
   title={`${section.label} — Corpus NWOS`}
-  description={`${section.blurb} ${docs.length} documentos.`}
+  description={section.blurb}
 >
   <PageHero
     label="CAO · NWOS"
     title={section.label}
-    description={`${section.blurb} ${docs.length} ${docs.length === 1 ? "documento" : "documentos"}, derivados del repositorio en cada build.`}
+    description={section.blurb}
   />
 
   <section class="pb-24">
     <div class="mx-auto max-w-[800px] px-6 space-y-10">
+      {/*
+        The rows below are NOT in identifier order (see READING_ORDER in
+        lib/corpus.ts). Without this line a reader assumes the list is
+        arbitrary, or worse, broken. One sentence turns a reordering into
+        an invitation.
+      */}
+      {note && (
+        <p class="text-sm leading-relaxed text-muted-foreground border-l-2 border-accent/40 pl-4">
+          {note}
+        </p>
+      )}
+
       <div class="space-y-2">
         {docs.map((item) => (
           <a
             href={item.href}
-            class="flex flex-wrap items-baseline gap-x-3 gap-y-1 rounded-lg border border-border bg-card px-4 py-3 hover:bg-card-hover transition-colors"
+            class="block rounded-lg border border-border bg-card px-4 py-3 hover:bg-card-hover transition-colors"
           >
-            {item.docId && <span class="font-mono text-[0.65rem] text-accent">{item.docId}</span>}
             <span class="text-sm text-foreground leading-snug">{item.title}</span>
-            {item.status && (
-              <span class="font-mono text-[0.6rem] uppercase tracking-widest text-dim">{item.status}</span>
-            )}
-            {item.updated && <span class="font-mono text-[0.6rem] text-dim">{item.updated}</span>}
           </a>
         ))}
       </div>
 
       {docs.length === 0 && (
         <p class="font-mono text-[0.7rem] text-dim leading-relaxed">
-          Esta sección no publica ningún documento todavía. No es un error de
-          esta página: los documentos existen en el repositorio y no declaran
-          <code>visibility: public</code>, así que el build no los sirve (MIS-114).
+          This section publishes nothing yet. That is not a fault of this page:
+          the documents exist in the repository and do not declare
+          <code>visibility: public</code>, so the build does not serve them (MIS-114).
         </p>
       )}
 
       <nav class="border-t border-border/50 pt-6 space-y-2">
         <h2 class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-accent mb-3">
-          Secciones
+          Sections
         </h2>
         <div class="flex flex-wrap gap-2">
           {SECTIONS.map((s) => (
             <a
               href={`/corpus/${s.slug}/`}
               class={
-                "rounded-lg border px-3 py-2 font-mono text-[0.7rem] transition-colors " +
+                "inline-flex min-h-[44px] items-center rounded-lg border px-3 font-mono text-[0.7rem] transition-colors " +
                 (s.slug === section.slug
                   ? "border-accent/40 bg-accent/10 text-accent"
                   : "border-border bg-card text-dim hover:bg-card-hover")
@@ -84,9 +92,9 @@ const { section, docs } = Astro.props;
           ))}
           <a
             href="/corpus/"
-            class="rounded-lg border border-border bg-card px-3 py-2 font-mono text-[0.7rem] text-dim hover:bg-card-hover transition-colors"
+            class="inline-flex min-h-[44px] items-center rounded-lg border border-border bg-card px-3 font-mono text-[0.7rem] text-dim hover:bg-card-hover transition-colors"
           >
-            Todo el corpus
+            The whole corpus
           </a>
         </div>
       </nav>

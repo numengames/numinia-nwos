@@ -49,7 +49,7 @@ Before reading the briefing, the mission must exist in the repo.
 
 ```
 IF missions/MIS-NNN-*.md does not exist:
-  CREATE it following the frontmatter schema (S-004)
+  CREATE it following the frontmatter schema (STD-004)
   SET status: backlog
   COMMIT to repo
   THEN proceed to Step 2

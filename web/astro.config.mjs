@@ -8,6 +8,8 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import pagefind from "astro-pagefind";
 import { defineConfig } from "astro/config";
+import rehypeContextCard from "./src/lib/rehype-context-card.mjs";
+import { rehypeShiftHeadings } from "./src/lib/rehype-shift-headings.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -22,6 +24,17 @@ export default defineConfig({
 	// DEUDA-404 records what happens without this: /corpus/canon/c-006-manual-
 	// juego-de-rol/ (890 KB) died in April and nobody noticed. See D-028.
 	redirects: {
+		// standards/ registration, 2026-08-31 (MIS-127, ADR-005 v1.1.0). The
+		// shelf entered the STD-NNN series: S-001 kept its number as STD-001,
+		// and governance/engineering-standards — which never had one — were
+		// numbered by age. Five published addresses died in the rename. Each
+		// points at the same document under its new address; nothing merged,
+		// so there is no "200 that lies" here.
+		"/corpus/standards/s-001-glossary": "/corpus/standards/std-001-glossary",
+		"/corpus/standards/governance": "/corpus/standards/std-002-governance",
+		"/corpus/standards/s-003-platform-role-system": "/corpus/standards/std-003-platform-role-system",
+		"/corpus/standards/s-004-header-standard": "/corpus/standards/std-004-header-standard",
+		"/corpus/standards/engineering-standards": "/corpus/standards/std-005-engineering-standards",
 		// Debt renumbering, 2026-08-31 (RPT-001 §12). The D- series was closed
 		// and renumbered to DBT-NNN; 30 published addresses died. Merged entries
 		// point at the document that now CONTAINS their reasoning, not at a
@@ -171,7 +184,7 @@ export default defineConfig({
 		"/corpus/canon/about-session-zero": "/corpus/canon/c-006-session-zero",
 		"/corpus/canon/rank-specifications": "/corpus/canon/c-007-rank-specifications",
 		// MIS-127: BLU-003 dropped the "-v2" version suffix from its filename
-		// (S-001 §9 — the version lives in frontmatter, not the name).
+		// (STD-001 §9 — the version lives in frontmatter, not the name).
 		// MIS-129 then moved the document itself out of blueprints/ into
 		// history/ (ADR-035): it is a self-declared superseded design, not a
 		// plan. Both the versioned and unversioned addresses now land on the
@@ -186,13 +199,23 @@ export default defineConfig({
 		"/corpus/reports/daily/rpt-2026-04-07-tarde": "/corpus/reports",
 		"/corpus/reports/daily/rpt-2026-08-17": "/corpus/reports",
 	},
-	// /print/* pages are PDF-generation intermediates (MIS-088): rendered at
-	// build, printed to /pdf/*.pdf by scripts/generate-pdfs.mjs, then removed
-	// from dist — they must never reach the sitemap.
-	// pagefind (MIS-117) indexes dist/ after the build; /print/* is excluded
-	// at the source (data-pagefind-body only on Layout's article) and the
-	// intermediates are deleted before deploy anyway.
-	integrations: [react(), tailwind(), sitemap({ filter: (page) => !page.includes("/print/") }), pagefind()],
+	// MIS-088's /print/* intermediates are gone (2026-08-31). They existed
+	// only as Chromium print targets for a PDF step the build never ran, so
+	// they were served in production as a public half-feature. Removing the
+	// pages removes the reason for the sitemap filter that hid them: there
+	// is nothing left to exclude. See debt/D-035.
+	integrations: [react(), tailwind(), sitemap(), pagefind()],
+	// Every corpus document opens with a Summary/Epistemic/Pragmatic/Audience
+	// blockquote. Markdown renders those four lines as one paragraph, which
+	// reads as a grey wall. rehypeContextCard turns that one blockquote shape
+	// into a definition list — one field per row — and leaves every other
+	// blockquote untouched. See src/lib/rehype-context-card.mjs.
+	markdown: {
+		// Order matters: the card is built from the document's opening
+		// blockquote, then every heading drops one level so the page keeps the
+		// single h1 it printed itself. See rehype-shift-headings.mjs.
+		rehypePlugins: [rehypeContextCard, rehypeShiftHeadings],
+	},
 	vite: {
 		resolve: {
 			alias: {

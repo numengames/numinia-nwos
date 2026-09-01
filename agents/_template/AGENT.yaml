@@ -10,7 +10,7 @@ version: "0.1.0"
 status: designed        # designed | active | retired
 activated: null
 
-# previous_names:       # only after a rename; never delete entries (S-001 §5.2)
+# previous_names:       # only after a rename; never delete entries (STD-001 §5.2)
 #   - name: {{old-id}}
 #     in_use: "{{YYYY-MM-DD}} -> {{YYYY-MM-DD}}"
 #     note: "why"

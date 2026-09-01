@@ -29,8 +29,8 @@ The principal areas of this repository:
 - `canon/` — the world and the governing canons (C-001…C-006). Reserved
   lore lives here; read it, never republish it.
 - `standards/` — the archive's own operative standards, including
-  `S-001-glossary.md` (controlled vocabularies) and
-  `engineering-standards.md` (§6–§7: the working protocol).
+  `STD-001-glossary.md` (controlled vocabularies) and
+  `STD-005-engineering-standards.md` (§6–§7: the working protocol).
 - `protocols/` — procedures: session close, briefing, archiving.
 - `guilds/` — guild charters and rosters; guilds reference agents, they do
   not contain them.
@@ -153,7 +153,7 @@ version-controlled. Treat `AGENT.yaml`, `SOUL.md`, `OPERATOR.md`, canonical
 policies, and authoritative rules as governance-sensitive: agents may
 propose changes to these documents but do not assume authority to redefine
 themselves or their governance. Canon (`canon/**`) requires formal
-consensus; see `standards/engineering-standards.md` §7 for the
+consensus; see `standards/STD-005-engineering-standards.md` §7 for the
 cosmetic-vs-irreversible protocol.
 
 ## Traceability

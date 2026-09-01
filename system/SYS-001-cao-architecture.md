@@ -266,7 +266,7 @@ CEO visits pablofm.com/velo → Fills DeployForm
 
 - [BP-cao.md](BP-cao.md) — CAO status and objectives
 - [BLU-002-business-metrics.md](../blueprints/BLU-002-business-metrics.md) — KPI framework
-- [governance.md](../standards/governance.md) — Roles and permissions
+- [STD-002-governance.md](../standards/STD-002-governance.md) — Roles and permissions
 - [STANDARDS.md](../standards/STANDARDS.md) — Technical conventions (superseded 2026-08-30; see its map)
 - [agents/INDEX.md](../agents/INDEX.md) — Agent registry
 
