@@ -151,8 +151,12 @@ const STATUS = {
   _default: ['draft', 'active', 'closed'],
 };
 
-/** STD-004 §4 H-18: registered subtypes per type. */
-const SUBTYPES = { report: ['audit', 'daily', 'proposal'], documentation: ['standard', 'guide', 'reference'] };
+/** STD-004 §4 H-18: registered subtypes per type. `report` is a closed
+ *  vocabulary since ADR-005 v1.2.0 (2026-09-01): daily · audit · analysis ·
+ *  proposal. `analysis` = dated observation that measures nothing against a
+ *  norm (Wardley map, gaps map) — before it existed those two carried
+ *  `subtype: audit` and `type: documentation`, one false, one out of genre. */
+const SUBTYPES = { report: ['audit', 'daily', 'analysis', 'proposal'], documentation: ['standard', 'guide', 'reference'] };
 
 /** STD-004 §6 H-31: retired fields, each the object of a registered migration. */
 const RETIRED = {
@@ -177,7 +181,9 @@ const PREFIX = {
   // map was written against said the bare S- prefix stayed; v1.1.0 supersedes
   // it and registers the shelf as STD-NNN. Updated in the same pass that
   // renamed the files (MIS-127) — exactly the drift described above.
-  standards: 'STD', canon: 'CAN', agents: 'AG', reports: ['RPT', 'AUD'],
+  // reports: AUD- retired by ADR-005 v1.2.0 (2026-09-01); RPT only, with the
+  // date form for dailies checked by lint-naming N-04, not here.
+  standards: 'STD', canon: 'CAN', agents: 'AG', reports: 'RPT',
   system: 'SYS',  // ADR-035: reference manuals of how the system works today
 };
 

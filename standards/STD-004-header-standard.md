@@ -5,11 +5,11 @@ title: "The header in three rings: identity, provenance, extension"
 type: documentation
 subtype: standard
 status: active
-version: "1.3.0"
+version: "1.4.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-08-30T17:51:00Z"
+updated: "2026-09-01T23:30:00+02:00"
 ratified_by: "ADR-027 (formerly ADR-029)"
 author: "ursa"
 owner: "oracle"
@@ -157,7 +157,11 @@ intruders into two classes, and they deserve opposite treatment:
 **`subtype` becomes load-bearing (H-18):** free-text today, it is how
 `report/audit` and `documentation/standard` keep their identity after
 migration. Rule: if present, value ∈ registered list per type. Registered
-now: `report: audit, daily` · `documentation: standard, guide`.
+now: `report: audit, daily, analysis, proposal` (closed vocabulary,
+`ADR-005` v1.2.0 rule 3 — `analysis` is a dated observation that measures
+nothing against a norm; `proposal` a text offered for adoption by another
+genre, kept as a report once that genre has ruled) ·
+`documentation: standard, guide`.
 
 ## 5. Status lifecycles
 
@@ -195,7 +199,7 @@ Initial registry — transcribed from actual majority use, not invented:
 | Series | Registered fields |
 |---|---|
 | `missions/` | `priority` `effort` `assigned_to` `started` `completed` `mission_id` `type_execution` `freeze_reason` `in_review_at` `depends_on` `parent_mission` `sub_missions` `blocked_by` `requires_oracle_approval` `human_approval_score` `paths` `context` `divergence_log` |
-| `reports/` | `severity` `period` `subtype` `model` `agent` `week` `scope` |
+| `reports/` | `severity` `period` `subtype` `model` `agent` `week` `scope` `former_id` `former_id_note` |
 | `decisions/` | `deciders` `consulted` `outcome` `decision` `absorbs` `amends` |
 | `agents/` | `role` `platform` `model` `soul` `agent` |
 | `debt/` | `severity` `severity_reason` `detected` `refuted` `source_audit` `opened_by` `visibility_reason` |

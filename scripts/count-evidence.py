@@ -71,8 +71,12 @@ def main():
         'missions': (r'^MIS-\d{4}-', 'MIS-NNNN'),
         'protocols': (r'^PRO-\d{3}-', 'PRO-NNN'),
         'decisions': (r'^(ADR|DEC)-\d{3}-', 'ADR/DEC-NNN'),
-        'reports/daily': (r'^RPT-\d{3}-', 'RPT-NNN (subtype: daily)'),
-        'reports/audits': (r'^RPT-\d{3}-', 'RPT-NNN (subtype: audit)'),
+        # ADR-005 v1.2.0 (2026-09-01): reports/ es plana y admite dos formas —
+        # RPT-NNN para todo, RPT-YYYY-MM-DD sólo para subtype: daily
+        # (ADR-004 regla 3). Se cuenta la forma, no el subtype: este script
+        # mide cobertura de matrícula, la coherencia forma↔subtype la vigila
+        # lint-naming N-04. reports/evidence/ queda fuera (anexo opaco).
+        'reports': (r'^RPT-(\d{3}-|\d{4}-\d{2}-\d{2}\.md$)', 'RPT-NNN · RPT-YYYY-MM-DD (daily)'),
         'blueprints': (r'^BLU-\d{3}-', 'BLU-NNN'),
         'canon': (r'^CAN-\d{3}-', 'CAN-NNN'),
         'standards': (r'^STD-\d{3}-', 'STD-NNN'),
@@ -118,6 +122,8 @@ def main():
         for d in docs:
             if not d['path'].startswith(carpeta + '/') or '/_template/' in d['path']:
                 continue
+            if d['path'].startswith('reports/evidence/'):
+                continue  # anexo opaco, no documento de la serie (ADR-005 v1.2.0 r.5)
             if es_aparato(d):
                 R['excluidos']['aparato'].append(d['path'])
                 aparato_serie += 1

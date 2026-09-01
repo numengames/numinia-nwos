@@ -4,9 +4,9 @@ uid:
 title: "Registration prefixes: the 13-series register (superseded amendment, MIS-125)"
 type: adr
 status: active
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-25T01:30:00Z"
-updated: "2026-08-31T09:40:00+02:00"
+updated: "2026-09-01T23:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -24,7 +24,71 @@ evidence_head: "9b45016"
 **Active.** Ruled by the Oracle, 2026-08-24. Amended by the Oracle,
 2026-08-31 (`MIS-125`) — see **v1.1.0 amendment** below; the original
 2026-08-24 ruling on `S-`/`AG-`/`O-`/`D-` stays in force and is preserved
-under **Original ruling (v1.0.0, 2026-08-24)**.
+under **Original ruling (v1.0.0, 2026-08-24)**. Amended again 2026-09-01
+(**v1.2.0**, below) to settle what v1.1.0 left contradicting `ADR-004`:
+the shape of a daily report's identifier, and the layout of `reports/`.
+
+## v1.2.0 amendment — `reports/`: one folder, two id shapes, four subtypes (2026-09-01)
+
+**Proposed by Ursa; applied under the Oracle's standing instruction to
+execute, pending his review of the PR.** A reversal at review time costs one
+revert of a single PR; nothing below reuses or frees an identifier.
+
+v1.1.0 merged `RPT`/`AUD` into `RPT-NNN` and said the two kinds "are
+distinguished by `subtype`, not by prefix". The same day, `ADR-004` v1.1.0
+rule 3 said the opposite about the dailies — *"`RPT-YYYY-MM-DD`: the date
+**is** the report's identity — the sole exception, by nature"* — and neither
+amendment cites the other. `STD-001` §4.2 carried the `ADR-004` reading in
+prose while its own §4.1 table carried the v1.1.0 reading three screens
+above; `PRO-010` §2 carried a third (`AUD-YYYY-MM-DD-<slug>` for audits).
+The guards (`lint-naming.mjs`, `count-evidence.py`) implemented v1.1.0, so the
+eight dailies `ADR-004` called correctly named sat in the naming baseline as
+violations. Four active documents, three answers, measured 2026-09-01.
+
+**Ruled:**
+
+1. **Dailies keep `RPT-YYYY-MM-DD`.** `ADR-004` rule 3 argued it; v1.1.0
+   never argued against it, it simply did not look. A daily is the only
+   document whose number would hide the one attribute that identifies it.
+   The date form is legal **only** for `subtype: daily` and **only** in
+   `reports/` — anywhere else it is an N-04 violation, as before.
+2. **Everything else in `reports/` is `RPT-NNN`** (3 digits). Audits,
+   analyses, proposals: one counter, assigned by `created` ascending on
+   entry (`ADR-004` rule 5). `RPT-001` and `RPT-002` keep their numbers even
+   though later documents will sort before them by date: `ADR-004` rule 4
+   forbids renumbering for aesthetics.
+3. **`subtype` is the only discriminator, and its vocabulary is closed:**
+   `daily` · `audit` · `analysis` · `proposal`. `analysis` is new: a dated
+   observation of the system or the market that measures nothing against a
+   norm (the Wardley map, the gaps capability map). Before this amendment
+   those two carried `subtype: audit` and `type: documentation`
+   respectively — one false, one out of genre — because the vocabulary had
+   no word for them.
+4. **`reports/` is flat.** `daily/` and `audits/` were a second
+   classification axis duplicating `subtype`, and it had already failed: three
+   documents lived in the root because they fitted neither, and the Wardley
+   map inherited `subtype: audit` from the folder it sat next to. Same defect
+   `ADR-035` removed from `blueprints/`, same fix `missions/` and (2026-09-01,
+   `MIS-127`) `operations/` already have. `PRO-010` §1.6's "maximum two
+   levels" is restored at the same time: the folder had reached three.
+5. **Evidence has one home: `reports/evidence/<RPT-id>/`.** An annex is
+   named after the report it belongs to, moves as an opaque block, and is
+   never rewritten by any rename (`PRO-010` §3.4 rule 1; `MIS-125` bug 6 was
+   exactly a rename tool reaching into `AUD-2026-08-26-licensing-c005/`
+   because the exclusion list named only `reports/audits/evidence/`). The
+   annex may nest one level deeper than §1.6 allows (`robots/`): that is the
+   declared exception, recorded in `reports/evidence/README.md`, not a
+   licence to nest documents.
+6. **`AUD-` and `PROP-` are retired prefixes.** Never reassigned. A file
+   renamed out of them carries `former_id` and `former_id_note`
+   (`ADR-035` precedent; both fields are registered for `reports/`).
+
+**Register row, as of this amendment:**
+
+```
+reports    RPT-NNN (audit | analysis | proposal) · RPT-YYYY-MM-DD (daily only)
+           flat folder · evidence in reports/evidence/<RPT-id>/
+```
 
 ## v1.1.0 amendment — the 13-series register (Oracle, 2026-08-31)
 
@@ -254,6 +318,13 @@ it — a ruling issued with an explicit condition for being wrong.
 
 ## Version history
 
+- v1.2.0 (2026-09-01) — `reports/` normalisation. Settles the v1.1.0 ↔
+  `ADR-004` rule 3 contradiction: dailies keep `RPT-YYYY-MM-DD`, everything
+  else in the series is `RPT-NNN`; `subtype` vocabulary closed at
+  `daily | audit | analysis | proposal` (`analysis` new); the folder goes
+  flat; evidence lives in `reports/evidence/<RPT-id>/`; `AUD-` and `PROP-`
+  retired. Applied by Ursa under the standing instruction to execute,
+  pending Oracle review.
 - v1.1.0 (2026-08-31) — `MIS-125`. Register expanded from 8 series to 13:
   four previously-unregistered series added (`blueprints`, `operations`,
   `guilds`, `infra`) with new collision-free 3-letter prefixes; `reports/`

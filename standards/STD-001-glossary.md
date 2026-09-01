@@ -4,9 +4,9 @@ id: "STD-001"
 uid: ""
 type: documentation
 status: active
-version: "5.0.0"
+version: "5.1.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-08-31T17:30:00+02:00"
+updated: "2026-09-01T23:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -553,8 +553,7 @@ filed for lack of its own.
 | `MIS-NNNN` | `missions/` | 0/131 · 0 % |
 | `ADR-NNN` · `DEC-NNN` | `decisions/` | **20/20 · 100 %** |
 | `PRO-NNN` | `protocols/` | 0/13 · 0 % |
-| `RPT-NNN` (subtype `daily`) | `reports/daily/` | 0/10 · 0 % |
-| `RPT-NNN` (subtype `audit`) | `reports/audits/` | 0/12 · 0 % |
+| `RPT-NNN` (subtype `audit` · `analysis` · `proposal`) · `RPT-YYYY-MM-DD` (subtype `daily` only) | `reports/` (flat, `ADR-005` v1.2.0) | 10/25 · 40 % |
 | `BLU-NNN` | `blueprints/` | 0/16 · 0 % |
 | `CAN-NNN` | `canon/` | 0/8 · 0 % |
 | `STD-NNN` | `standards/` | 0/5 · 0 % |
@@ -585,9 +584,14 @@ withdrawn with the `agents/` reversal and no longer exists as a scheme.
 > retired scheme could not be reported as anything.
 
 ### 4.2 Time-based prefixes
-`RPT-` and `AUD-` carry a date because a daily report or an audit **is** its
-date: the date is identity, not a mutable attribute. This is the only exception
-and it is one by nature, not convenience.
+A **daily report** carries a date because it **is** its date: the date is
+identity, not a mutable attribute. This is the only exception and it is one
+by nature, not convenience. `ADR-005` v1.2.0 (2026-09-01) closed the question
+its v1.1.0 had left open against `ADR-004` rule 3: the date form is legal for
+`type: report` + `subtype: daily` **only**, and only inside `reports/`.
+Audits do **not** carry a date — an audit is its *subject* on a date, which
+is what the number plus `created` already record; `AUD-YYYY-MM-DD-<slug>` is
+a retired shape, never reassigned.
 
 > **`AG-`, not `A-`, and the reason is cost.** `A-001`…`A-016` already exist as
 > numbered findings inside two audits, cited from a different document than the
@@ -871,10 +875,17 @@ corpus that no longer exists, and the reference lint counts such links among its
 known-broken baseline — which is exactly where a historical reference belongs.
 
 Practical consequence for any bulk rename: **exclude `reports/`, `CHANGELOG`,
-`debt/` entries that quote past states, and `reports/audits/evidence/`** before
+`debt/` entries that quote past states, and every file under
+`reports/evidence/`** before
 running the substitution, then read the diff of what remains. The mechanical
 part is the exclusion list; the judgement is deciding whether each remaining hit
 points or records.
+
+> **Corrected 2026-09-01.** Until `ADR-005` v1.2.0 this list named
+> `reports/audits/evidence/` — a path that did not cover the licensing audit's
+> annex (`reports/audits/AUD-2026-08-26-licensing-c005/`), which is how
+> `MIS-125` bug 6 rewrote an SBOM. Evidence now has a single home
+> (`reports/evidence/<RPT-id>/`) so the exclusion can be stated once.
 
 
 ## 6. Frontmatter fields
@@ -1438,6 +1449,15 @@ gets filled differently by each person who meets it — which is how
 
 ## Version history
 
+- **v5.1.0** (2026-09-01) — `ADR-005` v1.2.0, `reports/` normalisation. §4.1:
+  the two `reports/` rows merge into one (the series is one folder, flat);
+  coverage re-measured by `count-evidence.py` at 10/25 — the eight dailies
+  count as compliant now that their shape is legal, and the denominator will
+  shrink when the evidence annex leaves the series. §4.2 rewritten: the date form is for dailies
+  only, audits are numbered — the section previously carried `ADR-004`'s
+  reading while §4.1 carried `ADR-005` v1.1.0's, three screens apart. §5.3:
+  the bulk-rename exclusion list names `reports/evidence/` instead of the
+  narrower path that let `MIS-125` bug 6 through.
 - **v4.0.0** (2026-08-25) — **`status: active`.** MIS-109 closed: canon no longer
   contradicts this document. The seminal series is `C-NNN`, `S-` is unambiguously
   `standards/`, and the four terms of ADR-023 coexist with distinct senses. Adds
