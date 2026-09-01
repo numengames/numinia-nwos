@@ -279,6 +279,18 @@ export default defineConfig({
 		"/corpus/reports/rpt-2026-04-07-wardley-map": "/reports/rpt-003-wardley-map",
 		"/corpus/reports/rpt-2026-04-07-gaps-capability-map": "/reports/rpt-008-gaps-capability-map",
 		"/corpus/reports/prop-c005-52-third-party-declaration": "/reports/rpt-012-c005-52-third-party-declaration",
+		// The eight dailies keep their ids (RPT-YYYY-MM-DD is the daily's shape,
+		// ADR-004 rule 3 / ADR-005 v1.2.0 rule 1) and leave reports/daily/ for
+		// the flat folder; they render from the reports collection now, not the
+		// corpus mirror. One hop each.
+		"/corpus/reports/daily/rpt-2026-04-02": "/reports/rpt-2026-04-02",
+		"/corpus/reports/daily/rpt-2026-04-03": "/reports/rpt-2026-04-03",
+		"/corpus/reports/daily/rpt-2026-04-04": "/reports/rpt-2026-04-04",
+		"/corpus/reports/daily/rpt-2026-04-05": "/reports/rpt-2026-04-05",
+		"/corpus/reports/daily/rpt-2026-04-06": "/reports/rpt-2026-04-06",
+		"/corpus/reports/daily/rpt-2026-04-07": "/reports/rpt-2026-04-07",
+		"/corpus/reports/daily/rpt-2026-08-24": "/reports/rpt-2026-08-24",
+		"/corpus/reports/daily/rpt-2026-08-25": "/reports/rpt-2026-08-25",
 	},
 	// MIS-088's /print/* intermediates are gone (2026-08-31). They existed
 	// only as Chromium print targets for a PDF step the build never ran, so

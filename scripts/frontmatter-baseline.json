@@ -1,6 +1,6 @@
 {
  "_comment": "Frontmatter violations frozen at adoption (STD-004 §7). The lint fails only on NEW ones. This list shrinks with each migration and never grows; its size is the corpus entropy metric.",
- "generated": "2026-09-01T21:33:52.609Z",
+ "generated": "2026-09-01T21:35:32.552Z",
  "count": 21,
  "entries": [
   "H-02 standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md :: missing mandatory field \"title\"",

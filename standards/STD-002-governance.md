@@ -4,11 +4,11 @@ id: "STD-002"
 uid: ""
 type: documentation
 status: active
-version: "2.0.0"
+version: "2.1.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-08-30T17:51:00Z"
+updated: "2026-09-02T00:45:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [governance, roles, permissions, thresholds, versioning]
@@ -55,8 +55,8 @@ Rules derived from 100 mental simulations. Each rule includes the simulation tha
 | `missions/` — status: done | Automatic on close | Substance: nobody. Form: with the commit saying so | oracle | N/A |
 | `decisions/` | oracle + custodian | Only add superseded_by | **Never delete** | oracle |
 | `blueprints/` | oracle + agents | oracle + agents | oracle | oracle |
-| `reports/daily/` | active-agent + system | Same day only | custodian (90d retention) | Auto-merge |
-| `reports/weekly/` | custodian + system | Current week only | custodian (1y retention) | oracle |
+| `reports/` — `subtype: daily` | active-agent + system | Same day only | ADR-030 consumer tests (no fixed retention) | Auto-merge |
+| `reports/` — `subtype: audit` · `analysis` · `proposal` | author + oracle | Closed on publication; form only (STD-001 §2.1) | ADR-030 consumer tests | oracle |
 
 ### Change thresholds
 
@@ -212,5 +212,5 @@ recorded the field as undefined; the definition existed here all along.)*
 
 ---
 
-*Rules derived from simulations. Version 2.0.0 — 2026-08-30*
+*Rules derived from simulations. Version 2.0.0 — 2026-08-30. v2.1.0 — 2026-09-01: the two `reports/` rows of "Permissions by fund" follow `ADR-005` v1.2.0 — one flat folder, `subtype` as the discriminator; `reports/weekly/` (never existed) and the 90-day retention (replaced by `ADR-030`) removed.*
 *Nimrod 🗡️ — Numen Games*
