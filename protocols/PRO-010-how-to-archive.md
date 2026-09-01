@@ -4,11 +4,11 @@ uid: ""
 title: "How to Archive — the NWOS archival protocol"
 type: protocol
 status: draft
-version: "0.7.0"
+version: "0.8.0"
 created: "2026-08-18T10:51:09Z"
 created_source: "git:9f25053"
 created_confidence: exact
-updated: "2026-08-31T16:00:00+02:00"
+updated: "2026-09-01T23:30:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [protocols, archive, taxonomy, naming, iso-15489]
@@ -50,8 +50,12 @@ inherited and what is discarded, in §7.
    expressed in `guild:` in the frontmatter, not in folders.
 5. **1:1 web mirror.** Each type folder has its section on numinia.org;
    `/corpus` is the global cross-cutting catalogue.
-6. **Limited depth.** Maximum two levels under root (`reports/daily/`,
-   `operations/legal/`). Inherited from v0.1.12 and still in force.
+6. **Limited depth.** Maximum two levels under root (`reports/evidence/`,
+   `agents/<name>/`). Inherited from v0.1.12 and still in force. One declared
+   exception: a report's evidence annex (`reports/evidence/<RPT-id>/`) may
+   nest one level more for captured artefacts (`robots/*.txt`), because those
+   files are moved as an opaque block and never authored — `ADR-005` v1.2.0
+   rule 5.
 
 ## 2. Taxonomy: type → folder → ID → web section
 
@@ -64,8 +68,7 @@ inherited and what is discarded, in §7.
 | System manual | `system/` | `SYS-XXX` | `/corpus/system` ✓ |
 | Superseded record | `history/` | none — frozen-artifact name (§3.2) | `/corpus/history` ✓ |
 | Protocol | `protocols/` | `P-XXX` | `/protocolos` (pending) |
-| Daily report | `reports/daily/` | `RPT-YYYY-MM-DD` | `/reportes` (hardcoded today — MIS-065) |
-| Audit | `reports/audits/` | `AUD-YYYY-MM-DD-<slug>` | `/audits` ✓ |
+| Report | `reports/` (flat) | `RPT-NNN` · `RPT-YYYY-MM-DD` for `subtype: daily` only (`ADR-005` v1.2.0) | `/audits` ✓ · `/reports` (hardcoded today — MIS-065) |
 | Agent | `agents/<name>/` | agent name | `/agentes` (pending) |
 | Guild | `guilds/` | guild name | `/guilds` (pending) |
 | Operation | `operations/` | by subfolder | `/operaciones` (pending) |
@@ -226,7 +229,9 @@ turned into nonsense.
 **The rules, in force:**
 
 1. **Dated evidence is never rewritten.** Anything matching the frozen-artefact
-   shape of §3.2, plus SBOMs, audit reports and licence dedications. These
+   shape of §3.2, plus SBOMs, audit reports, licence dedications and every
+   file under `reports/evidence/` (`ADR-005` v1.2.0 rule 5 — the annexes are
+   opaque blocks). These
    describe a moment; editing them makes them describe a moment that never
    happened.
 2. **A closed record is never rewritten.** `status: done`, `closed`, or
@@ -367,6 +372,13 @@ agents.
 
 ## Change history
 
+- v0.8.0 (2026-09-01) — `ADR-005` v1.2.0, `reports/` normalisation. §2: the
+  two `reports/` rows (`RPT-YYYY-MM-DD` daily, `AUD-YYYY-MM-DD-<slug>` audit)
+  collapse into one — `RPT-NNN`, date form for dailies only — matching the
+  register instead of contradicting it. §1.6: examples updated for the flat
+  folder; the evidence annex gains its declared depth exception. §3.4 rule 1
+  names `reports/evidence/` explicitly, the gap through which `MIS-125` bug 6
+  reached an SBOM.
 - v0.7.0 (2026-08-31) — `ADR-030`, `MIS-127`. §5 is rewritten: deletion is
   decided by **consumers**, not by folder genre. The four tests (inbound
   citations, public URLs, written resolution, not sealed) replace the

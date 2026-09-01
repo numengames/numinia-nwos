@@ -61,8 +61,12 @@ const SERIES = {
   standards:       { prefix: 'STD', digits: 3 },
   canon:           { prefix: 'CAN', digits: 3 },
   operations:      { prefix: 'OPS', digits: 3 },
-  'reports/daily': { prefix: 'RPT', digits: 3 },
-  'reports/audits':{ prefix: 'RPT', digits: 3 },
+  // ADR-005 v1.2.0 (2026-09-01): reports/ is flat and carries two legal
+  // shapes — RPT-NNN for everything, RPT-YYYY-MM-DD for `subtype: daily`
+  // ONLY (ADR-004 rule 3: a daily IS its date). The date form is checked
+  // against the frontmatter, not just the filename: a dated name on a
+  // non-daily is the N-04 violation ADR-005 v1.1.0 always meant it to be.
+  reports:         { prefix: 'RPT', digits: 3, dailyDate: true },
   blueprints:      { prefix: 'BLU', digits: 3 },
   guilds:          { prefix: 'GLD', digits: 3 },
   infra:           { prefix: 'INF', digits: 3 },
@@ -84,6 +88,9 @@ const KEBAB_SLUG_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const VERSION_SUFFIX_RE = /-v\d+(\.\d+){0,2}\.md$/i;
 const DATED_PREFIX_RE = /^\d{4}_\d{2}_\d{2}-/;
 const FROZEN_ARTIFACT_RE = /^\d{4}_\d{2}_\d{2}-[A-Za-z0-9_]+-v\d+\.\d+\.\d+\.md$/;
+/* ADR-005 v1.2.0 rule 1 / ADR-004 rule 3: the daily-report shape. No slug —
+   the date is the whole identity. */
+const DAILY_REPORT_RE = /^RPT-\d{4}-\d{2}-\d{2}\.md$/;
 
 function parseFM(text) {
   const m = text.match(/^---\s*\n([\s\S]*?)\n---(\n|$)/);
@@ -152,16 +159,35 @@ for (const rel of files) {
   if (looksFrozen) continue; // frozen artifacts are not held to the series scheme below
 
   /* N-04: series prefix + id shape + kebab-case slug. */
-  const key = (top === 'reports') ? `reports/${parts[1]}` : top;
-  const scheme = SERIES[key];
-  if (!scheme) continue; // series with no registered naming scheme (e.g. operations/legal/)
+  const scheme = SERIES[top];
+  if (!scheme) continue; // series with no registered naming scheme (e.g. history/)
+
+  /* reports/evidence/<RPT-id>/…: an annex, moved as an opaque block, never
+     authored (ADR-005 v1.2.0 rule 5, PRO-010 §3.4 rule 1). Its .md files are
+     captured artefacts, not documents of the series. */
+  if (top === 'reports' && parts[1] === 'evidence') continue;
+
+  if (scheme.dailyDate && DAILY_REPORT_RE.test(base)) {
+    if (fm.subtype !== 'daily')
+      F('N-04', rel, `date-shaped identifier on a report whose subtype is "${fm.subtype || '(none)'}" — RPT-YYYY-MM-DD is for subtype: daily only (ADR-005 v1.2.0 rule 1)`);
+    continue;
+  }
 
   const re = new RegExp(`^${scheme.prefix}-\\d{${scheme.digits}}-(.+)\\.md$`);
   const m = base.match(re);
   if (!m) {
-    F('N-04', rel, `filename does not match ${scheme.prefix}-${'N'.repeat(scheme.digits)}-<slug>.md for ${key}/ (STD-001 §9, ADR-005 v1.1.0)`);
+    /* Message text is part of the baseline key — keep the historic wording
+       for every series except reports/, whose rule (and key) changed in
+       ADR-005 v1.2.0. Re-keying the other twelve would read as 140 "new"
+       violations that are the same old ones. */
+    const expected = scheme.dailyDate
+      ? `${scheme.prefix}-${'N'.repeat(scheme.digits)}-<slug>.md (or RPT-YYYY-MM-DD.md for subtype: daily) for ${top}/ (STD-001 §9, ADR-005 v1.2.0)`
+      : `${scheme.prefix}-${'N'.repeat(scheme.digits)}-<slug>.md for ${top}/ (STD-001 §9, ADR-005 v1.1.0)`;
+    F('N-04', rel, `filename does not match ${expected}`);
     continue;
   }
+  if (scheme.dailyDate && fm.subtype === 'daily')
+    F('N-04', rel, `subtype: daily report carries a numbered identifier — dailies are RPT-YYYY-MM-DD (ADR-005 v1.2.0 rule 1)`);
   if (!KEBAB_SLUG_RE.test(m[1]))
     F('N-05', rel, `slug "${m[1]}" is not lowercase kebab-case (STD-001 §9)`);
 }

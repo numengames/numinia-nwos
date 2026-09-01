@@ -4,9 +4,9 @@ uid:
 title: "Twelve series carry a registration scheme most of the corpus does not yet apply"
 type: documentation
 status: active
-version: "4.0.0"
+version: "4.1.0"
 created: "2026-08-24T19:40:00Z"
-updated: "2026-08-31T23:20:00+02:00"
+updated: "2026-09-01T23:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -40,8 +40,7 @@ before `MIS-125`'s Stage C renames):
 | `missions/` | `MIS-NNNN` | **0/131** |
 | `protocols/` | `PRO-NNN` | **0/13** |
 | `decisions/` | `ADR/DEC-NNN` | 20/20 — already compliant, no action |
-| `reports/daily/` | `RPT-NNN` (`subtype: daily`) | **0/10** |
-| `reports/audits/` | `RPT-NNN` (`subtype: audit`) | **0/12** — currently `AUD-` |
+| `reports/` | `RPT-NNN` · `RPT-YYYY-MM-DD` (`subtype: daily` only, `ADR-005` v1.2.0) | **10/25** — 8 dailies + `RPT-001`/`RPT-002`; 11 `AUD-`, 3 unprefixed root files, 1 evidence `.md` still in the denominator until the folder is flattened |
 | `blueprints/` | `BLU-NNN` | **0/16** |
 | `canon/` | `CAN-NNN` | **0/8** |
 | `standards/` | `STD-NNN` | **0/5** |
@@ -213,8 +212,10 @@ Order — `MIS-125` Stage C, cheapest/lowest-risk first, one commit per series,
 3. `canon/` — 8 files (2 frozen artefacts excluded)
 4. `operations/` — 10 files
 5. `blueprints/` — 16 files
-6. `reports/daily/` — 10 files
-7. `reports/audits/` — 12 files (prefix change `AUD-` → `RPT-`, add `subtype: audit`)
+6. `reports/` — one flat series since `ADR-005` v1.2.0: 8 dailies keep
+   `RPT-YYYY-MM-DD` (already compliant, no rename); 11 `AUD-` + 3 root files
+   take `RPT-NNN` (prefix change, `subtype` set from the closed vocabulary)
+7. *(merged into 6 — `reports/audits/` no longer exists as a folder)*
 8. `protocols/` — 13 files (1 frozen artefact + `APPROVAL-REQUEST-template.md` excluded)
 9. `debt/` — 35 files (including this document, renamed last within its own series; was 37, `D-001` and `D-002` extinguished 2026-08-31, see `MIS-127`)
 10. `missions/` — 131 files, highest volume and citation density, last
@@ -238,6 +239,15 @@ renumbered**, only re-prefixed (`ADR-004` §rule 4).
 
 ## Version history
 
+- v4.1.0 (2026-09-01) — `ADR-005` v1.2.0. The two `reports/` rows become
+  one: the series is flat, dailies keep `RPT-YYYY-MM-DD` as a legal shape
+  (so they leave the debt without a rename), and the rest take `RPT-NNN`.
+  Coverage row re-measured by `count-evidence.py` at 10/25. **Note on the
+  ledger itself:** the frontmatter already read `version: 4.0.0` while this
+  history ended at v3.0.0 — the v4.0.0 entry was never written. Recorded
+  here rather than back-filled: what it changed is unknown to this author
+  (candidate: the `MIS-127` rename of this file from `D-008` to `DBT-001`,
+  2026-08-31 23:20, per `updated:`).
 - v3.0.0 (2026-08-31) — `MIS-125`. **Two reversals of this document's own
   prior rulings, both against it.** (1) *Frozen artefacts.* v2.0.0's "all
   24 exempt documents enter the scheme, no exception" contradicted
