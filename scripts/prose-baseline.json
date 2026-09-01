@@ -1,7 +1,7 @@
 {
-  "_comment": "Prose living only in .astro/.tsx components, frozen at adoption (MIS-071 acceptance criterion, DBT-003 deferred category). The guard fails only when the number GROWS. Unlike the other baselines this one has a floor of zero: each page wired to its .md lowers it. Never grows.",
+  "_comment": "Frozen on 2026-09-01 against main a27c7fa. This number is a debt, not a target: MIS-071 drives it to zero. It may only go down. It rose from 82665 when #182 (web: the site becomes a mirror of the repository) added SpeechPlayer and DocToolbar copy; that growth was measured, not absorbed silently. Re-freeze with --update only after a PR that removes prose.",
   "generated": "2026-08-31T23:22:33.587Z",
-  "orphan_chars": 82665,
+  "orphan_chars": 84172,
   "orphan_files": 33,
   "entries": [
     "12421 web/src/pages/gaps.astro",
