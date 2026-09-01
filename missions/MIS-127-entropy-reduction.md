@@ -112,6 +112,49 @@ above: those counted a repository that still held the `decisions/`,
   conflict over 5 frozen-artifact/legacy-dated files — Oracle ruling
   pending. Detail in `MIS-125` itself, not duplicated here.
 - protocols/ ↔ standards/ merge assessment.
+- **`operations/` — surveyed 2026-09-01 (ursa), nothing executed.** 10 files,
+  21,739 tokens, two subfolders (`legal/`, `strategy/`). The Oracle's
+  instruction is that territory becomes a **frontmatter tag, not a folder**.
+  Survey findings, in descending order of how much surprise they carry:
+  1. **`territory` is absent from all 10 files.** The field is registered in
+     `STD-001` (it replaced `area`) and is in use in 351 documents elsewhere,
+     with a closed 9-value vocabulary. `operations/` uses folders instead.
+     Tagging is additive and reversible — it can be done before any move.
+  2. **The two subfolders carry the licence regime.** `REUSE.toml` gives
+     `operations/legal/**` and `operations/strategy/**`
+     `LicenseRef-Numen-AllRightsReserved` **by path**, while `operations/**`
+     is CC-BY-4.0. Flattening the folders silently relicenses four reserved
+     documents to open. This is exactly the mechanism registered as `DBT-005`,
+     which the Oracle left open as an unresolved design question on
+     2026-08-25 with no closing proposal. **`DBT-005` gates the flattening;
+     the tagging does not depend on it.**
+  3. **`web/src/pages/legal/[slug].astro` maps Spanish URLs to filenames by
+     hand** (`terminos`/`privacidad` → `o-004`/`o-003`). A rename breaks the
+     two public legal pages, and no guard covers it — the page throws at
+     build, so CI would catch it, but only after the fact.
+  4. **`O-` should be `OPS-` and the guard already says so**: 10 of 10 files
+     are baselined `N-04` violations. Note that `ADR-005` rule 4 (2026-08-24)
+     *rejected* `OPS-`; its own v1.1.0 amendment (2026-08-31, `MIS-125`)
+     reinstated it. The live register is the amendment. 165 citations of
+     `O-00N` exist outside `operations/`, concentrated in `PRO-001` (13),
+     `AUD-2026-08-26` (11) and `PRO-003` (10).
+  5. **`O-001-continuity.md` is not an operational document.** It is a dated
+     audit report of a resilience test on the Nimrod agent ("If Nimrod
+     disappears tomorrow", before/after scores). Genre question, so per
+     `STD-001` §3 it needs a ruling, not a move inside a refactor — the same
+     bar already applied to `security-policy.md` and `credential-map.md`.
+  6. **`O-008-session-state.md` contradicts its own usage rule.** It declares
+     "rewritten at the close of every session"; its content is the state of
+     the 2026-08-18 session and its last real commit is 2026-08-30. A file
+     that promises to be current and is not is worse than no file.
+  7. **`operations/security-policy.md` and root `SECURITY.md` share a name
+     and do not share a subject** — internal rule (what never enters the
+     repo) versus external disclosure policy (how to report a
+     vulnerability). Not duplicates; the collision is in the name only.
+  8. **`simulations.astro` and `solutions.astro` (736 lines) re-type the
+     content of `O-005`/`O-006` with zero collection reads.** Verified
+     2026-09-01: the numbers still agree (29/31/23/17, n=100). Latent
+     divergence, not yet actual — recorded now so the claim stays honest.
 - **New, opened by #153:** freeze the April commercial missions that
   `BP-financiero` depends on (MIS-021/031/034/048) — same mandate as
   the first bullet, now with a named blocking dependency.
