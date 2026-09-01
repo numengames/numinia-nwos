@@ -2,7 +2,7 @@
 id: "MIS-130"
 uid:
 title: "Fix the four dead links in README.md — the entry point resolves"
-status: in-progress
+status: in-review
 priority: low
 effort: XS
 guild: "Alchemists"
@@ -10,14 +10,15 @@ territory: "Archive"
 type_execution: digital
 assigned_to: "ursa"
 started: "2026-09-01T17:03:10Z"
+in_review_at: "2026-09-01T17:32:43Z"
 completed: null
 
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-09-01T17:03:10Z"
 created_source: "git:969597e"
 created_confidence: exact
-updated: "2026-09-01T17:03:10Z"
+updated: "2026-09-01T17:32:43Z"
 author: "ursa"
 owner: "oracle"
 tags: [archive, links, readme, adr-005, url-lifecycle]
@@ -89,4 +90,21 @@ node scripts/check-references.mjs   # "broken markdown links : 19"
 
 ## Closure
 
-*(Fill when the mission closes.)*
+- **What was done:** README.md's four dead links repointed to their living
+  homes: `P-001-agent-briefing` → `PRO-001-agent-session` (line 33),
+  `P-003-ciclo-mision-v1` → `PRO-003-mission-cycle` (line 96),
+  `D-011-thresholds-unenforced` → `DBT-002-root-of-trust-unestablished` (line
+  134), and the retired English-language decision → `ADR-023-canon-vocabulary`
+  (line 147). The prose identifiers were updated in the same lines.
+- **What diverged, and why:** the guard that caught the two originally-scoped
+  links also surfaced two more in the same file, of the same class; the
+  mission's scope was corrected to all four before execution rather than
+  leaving half the file's rot. Also corrected during the mission: a dead
+  `created` timestamp (H-06) and a 3-digit mission filename (N-04) — both
+  healed before this closure.
+- **Evidence:** `node scripts/check-references.mjs` → `broken markdown links :
+  19` (was 23, exactly −4); `--report` lists no README.md under broken links
+  and shows the four as previously-broken-now-resolve; `lint-frontmatter.mjs`
+  and `lint-naming.mjs` → no new violations. All verified at commit
+  `4595773`+fix, before this file was marked in-review.
+- **Closed:** not yet — awaiting Oracle review.

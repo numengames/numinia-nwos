@@ -30,7 +30,7 @@ of everything this archive knows it is missing.
 
 ## Start here
 
-**Agents** open with [`P-001`](protocols/P-001-agent-briefing.md), then read
+**Agents** open with [`PRO-001`](protocols/PRO-001-agent-session.md), then read
 [`CLAUDE.md`](CLAUDE.md). One path, no menu.
 
 **Humans** read [`STD-001`](standards/STD-001-glossary.md) — what each folder holds
@@ -93,7 +93,7 @@ folders was tried and deliberately undone.
 The live board is [numinia.org/missions](https://numinia.org/missions), built
 from `missions/` on every deploy. States and lifecycle are defined in
 [`STD-001`](standards/STD-001-glossary.md) §7 and
-[`P-003`](protocols/P-003-ciclo-mision-v1.md).
+[`PRO-003`](protocols/PRO-003-mission-cycle.md).
 
 ---
 
@@ -131,7 +131,7 @@ The site build runs in the same pipeline, so a structural change that breaks
 
 **Naming, vocabularies, and identifiers now have guards; the states a
 mission may hold do not.** `lint-frontmatter.mjs` and `lint-naming.mjs` run
-on every push (closed `debt/D-001`, 2026-08-31). [`debt/D-011`](debt/D-011-thresholds-unenforced.md) tracks what remains:
+on every push (closed `debt/D-001`, 2026-08-31). [`debt/DBT-002`](debt/DBT-002-root-of-trust-unestablished.md) tracks what remains:
 the archive describes four levels of change control, and git enforces one.
 
 Stating this is not modesty. An archive that claims more verification than it
@@ -144,7 +144,7 @@ performs is the failure mode this repository exists to avoid.
 Read [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`standards/STD-002-governance.md`](standards/STD-002-governance.md).
 Work enters through pull requests; the Oracle signs what changes the shape of
 the archive. The repository is written in English
-([`DEC-006`](decisions/DEC-006-english-official-repo-language.md)).
+([`ADR-023`](decisions/ADR-023-canon-vocabulary.md)).
 
 ---
 
