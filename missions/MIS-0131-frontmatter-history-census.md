@@ -67,7 +67,8 @@ recording**, not repairing: the debt's value here is the verdict.
 
 **Out of scope:** fixing any damage found (report it to the Oracle instead —
 repair of historical content is a separate decision); wiring the census into CI
-(that is Oracle territory per `DBT-010`, blocked by `D-017`); the current-tree
+(that is Oracle territory, as `DBT-010` records — the CI step is the Oracle's
+hands, not an agent's); the current-tree
 guard, which already passes; any change to documents outside the census itself.
 
 ## Acceptance criteria
