@@ -13,11 +13,11 @@ started: "2026-08-18"
 completed: "2026-08-25"
 
 type: mission
-version: "1.3.0"
+version: "1.3.1"
 created: "2026-08-18T13:20:30Z"
 created_source: "git:9091f7f"
 created_confidence: exact
-updated: "2026-08-27T22:05:37Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -40,15 +40,10 @@ depends_on: ["MIS-090"]
 > nwos.numen.games) speak a single visual vocabulary and a single CI pipeline.
 > **Audience:** Oracle · Agents of `numengames-web` and `nwos-deploy`
 
----
-
-**Area:** Corporate web / NWOS deploy
 **Guild:** Alchemists
 **Type:** digital
 **Priority:** high
 **Effort:** XL
-
----
 
 ## Story
 
@@ -56,8 +51,6 @@ As an Oracle, I want `numen.games` and `nwos.numen.games` to comply with the
 house standards — the Design System v5.0.0 visually and the
 engineering-standards structurally — so that the first surface a client sees
 is not the first drift they see.
-
----
 
 ## Context (2026-08-18)
 
@@ -88,8 +81,6 @@ Real-state audit before touching anything (AGT-01, §7.2.1):
 agent does not edit the `standards/` documents; it executes them. §7.3:
 everything legal (LICENSE, SPDX, REUSE, visibility) is **irreversible level** —
 it is reported to the Oracle, not touched.
-
----
 
 ## Scope
 
@@ -137,8 +128,6 @@ In **both** repos, up to parity with the §4 checklist:
   A composition redesign would be another mission.
 - Full migration of the `public/icons` set to Phosphor: the §7.3 subset is
   declared and the rest reported as debt.
-
----
 
 ## Acceptance criteria
 
@@ -195,8 +184,6 @@ Feature: The house standards, applied to the two public surfaces
 - [x] Observed debt reported in each repo's `TODO.md`, not fixed on own
       initiative (§7.4)
 
----
-
 ## Epistemic value
 
 Knowing whether the Design System v5.0.0 can be *executed* on an inherited
@@ -210,8 +197,6 @@ The house's three public surfaces stop needing translation between them. A
 component written for one serves in the other; a CI rule that fails in one
 fails in all three. The marginal cost of the fourth surface — the default
 flavor of an external organization (§2.8.2) — drops to copying the kit.
-
----
 
 ## Execution log
 
@@ -328,8 +313,6 @@ flavor of an external organization (§2.8.2) — drops to copying the kit.
   TODO as in the other house; `license-check.yml` keeps its own (C-005 guard
   and CLA gate) and stops duplicating the tests. `DESIGN.md` superseded.
 
----
-
 ## Execution Reality
 
 - **Technology/approach used:** the same two-layer method that closed MIS-090
@@ -391,8 +374,6 @@ flavor of an external organization (§2.8.2) — drops to copying the kit.
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
 
----
-
 ## Closure
 
 *(Administrative close. The brief above is untouched — not one line of Scope
@@ -403,3 +384,7 @@ or of the criteria.)*
 - **Signed by:** Oracle, 2026-08-25, as part of the board triage of the 111 missions.
   Classified read-only first; nothing was closed on impression.
 - **Closed:** 2026-08-25 · **by:** ursa (administrative), on the Oracle's signature
+
+## Version history
+
+- v1.3.1 (2026-09-02) — Form: inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed. missions/ normalisation, lot 3.

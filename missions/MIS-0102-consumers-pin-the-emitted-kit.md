@@ -13,11 +13,11 @@ started: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-18T14:47:39Z"
 created_source: "git:b91848e"
 created_confidence: exact
-updated: "2026-08-18T14:47:39Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -42,23 +42,16 @@ depends_on: ["MIS-094", "MIS-091", "MIS-068"]
 > a verifiable digest.
 > **Audience:** Oracle · Alchemists
 
----
-
-**Area:** Product
 **Guild:** Alchemists
 **Type:** digital
 **Priority:** high
 **Effort:** L
-
----
 
 ## Story
 
 As an agent maintaining any Numen Games surface, I want to pin the system
 rather than retype it, so that the next errata reaches me instead of waiting
 to be noticed.
-
----
 
 ## Context (2026-08-18)
 
@@ -102,8 +95,6 @@ the value from the tokens, so both sites are correct by construction. Had the
 agent worked from the fragment instead, two production sites would carry the
 wrong radius today. **Pinning tokens beats reading prose.**
 
----
-
 ## Scope
 
 - **Pin, do not copy.** Each of the three consumers declares the version it
@@ -125,8 +116,6 @@ wrong radius today. **Pinning tokens beats reading prose.**
   mission log to a CI check (`[MANUAL]` → `[AUTO]`).
 
 **Out of scope:** merging the codebases; the emitter itself (MIS-094, done).
-
----
 
 ## Acceptance criteria
 
@@ -170,8 +159,6 @@ Feature: four surfaces, one source, verifiable
 - [ ] `numinia-nwos/web` included — the emitter's own site is a consumer too,
       and today it hand-writes like the rest
 
----
-
 ## Epistemic value
 
 MIS-094 proved the doctrine works when the consumer commissions it. This
@@ -185,8 +172,6 @@ Errata E1 becomes a version bump instead of an archaeology exercise. And the
 mould's default theme (§2.8.2) gets a real precedent: four surfaces consuming
 one emission.
 
----
-
 ## Execution log
 
 - 2026-08-18 — Opened from the standards review requested by the Oracle. Note
@@ -194,10 +179,19 @@ one emission.
   rewritten the same hour after finding MIS-094 had already built and shipped
   it. The gap moved from production to adoption while the draft was open.
 
----
-
 ## Execution Reality
 
 *(Fill when closing)*
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
+
+## Status check — 2026-09-02
+
+*Read against `8907a56` during the missions/ normalisation (lot 3). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** Consumers are numinia-web, numengames-web, nwos-deploy (other repos). 0/6. This repo's own web/ is listed as a consumer (criterion 6) — it reads the master directly (standards/*Sistema_de_Diseno*), so criterion 6 is satisfied by construction.
+- **Recommendation:** Keep todo; the work is in three other repositories and needs their agents. Tick criterion 6 with the reason. Candidate to move to those repos' boards; here it is a tracking card.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.

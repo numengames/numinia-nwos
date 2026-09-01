@@ -13,11 +13,11 @@ started: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-18T14:47:39Z"
 created_source: "git:b91848e"
 created_confidence: exact
-updated: "2026-08-25T20:05:59Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -39,22 +39,15 @@ depends_on: ["MIS-091"]
 > **Pragmatic:** A red build stops being information and starts being a wall.
 > **Audience:** Oracle · Sentinels
 
----
-
-**Area:** Infrastructure
 **Guild:** Sentinels
 **Type:** biological (GitHub settings — no agent can do this)
 **Priority:** critical
 **Effort:** S
 
----
-
 ## Story
 
 As the Oracle, I want `main` to refuse a broken merge in every repository of
 the organization, so that the checks we just wrote stop being decoration.
-
----
 
 ## Context (2026-08-18)
 
@@ -84,8 +77,6 @@ them failing today:
 This is the mission that makes the Scorecard number move: Branch-Protection,
 Code-Review and Token-Permissions are among its heaviest checks.
 
----
-
 ## Scope
 
 - The three active repositories first: `numengames-web`, `nwos-deploy`,
@@ -96,9 +87,7 @@ Code-Review and Token-Permissions are among its heaviest checks.
   protection is scoped by MIS-095, not here.
 
 **Out of scope:** repository visibility (LEG-01 gate), licence regimes
-(C-005), and any change to what the pipelines actually run.
-
----
+(CAN-005), and any change to what the pipelines actually run.
 
 ## Acceptance criteria
 
@@ -146,8 +135,6 @@ Feature: main refuses what CI rejects
       a written statement per repo. A setting nobody can verify later is a
       setting that will drift.
 
----
-
 ## Epistemic value
 
 Whether "we have CI" and "broken code cannot ship" are the same sentence. The
@@ -158,23 +145,17 @@ org has believed they were for as long as it has had platform deploys.
 Every future mission that adds a check gets enforcement for free. Until this
 is done, each one has to argue for its own relevance.
 
----
-
 ## Execution log
 
 - 2026-08-18 — Opened from the standards review requested by the Oracle. The
   finding is the audit's 🟠 5, unresolved by MIS-091 by design: an agent
   cannot set branch protection.
 
----
-
 ## Execution Reality
 
 *(Fill when closing)*
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
-
----
 
 ## Board triage — 2026-08-25: stays open, with two scenarios resolved
 
@@ -213,3 +194,14 @@ work. The API hides `security_and_analysis` from unauthenticated reads, so the
 honest state is *unknown*, not *absent*.
 
 - **Signed by:** Oracle, 2026-08-25.
+
+## Status check — 2026-09-02
+
+*Read against `8907a56` during the missions/ normalisation (lot 3). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** Triaged E (alive) 2026-08-25 with two Gherkin scenarios already passing (branch protection + CI on main exist: PRs #130–#198 all merged via PR). Remaining: org settings (2FA, secret scanning, Dependabot, base permission) — Oracle-only actions (org admin). 0/9 boxes ticked despite the triage's own finding.
+- **Recommendation:** Keep todo; tick the two scenarios the triage verified (form, from its own record) and mark the rest as Oracle-executed. DBT-007 (Dependabot untriaged) is its live symptom.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; retired identifiers repointed: C-005→CAN-005; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.

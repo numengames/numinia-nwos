@@ -13,11 +13,11 @@ started: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-18T14:47:39Z"
 created_source: "git:b91848e"
 created_confidence: exact
-updated: "2026-08-18T14:47:39Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -39,23 +39,16 @@ depends_on: []
 > **Pragmatic:** The document acquires an owner, a version and a way to travel.
 > **Audience:** Oracle · Exegetes
 
----
-
-**Area:** Documentation
 **Guild:** Exegetes
 **Type:** hybrid
 **Priority:** high
 **Effort:** M
-
----
 
 ## Story
 
 As the Oracle, I want the engineering standards to be a signed document with a
 defined propagation mechanism, so that what three repositories already enforce
 has the authority they are giving it.
-
----
 
 ## Context (2026-08-18)
 
@@ -83,8 +76,6 @@ production.
 document: the change belongs upstream via ADR + PR. Refuse the local edit."*
 Today nothing enforces that either — a downstream edit would simply happen.
 
----
-
 ## Scope
 
 - **The signature** (Oracle): review the practice table and either sign it as
@@ -106,8 +97,6 @@ Today nothing enforces that either — a downstream edit would simply happen.
 
 **Out of scope:** editing the practices themselves. That is the signature's
 outcome, not this mission's work.
-
----
 
 ## Acceptance criteria
 
@@ -143,8 +132,6 @@ Feature: the rule that governs has an owner and a route
 - [ ] `CLAUDE.md` in the three consumer repos points at the signed version,
       not at "a draft"
 
----
-
 ## Epistemic value
 
 Whether a standard needs authority to be obeyed, or whether being useful was
@@ -156,17 +143,24 @@ is data about how this organization actually works.
 The next practice change has a route: ADR upstream, propagation downstream,
 guard in CI. Today it has a fork relationship and good intentions.
 
----
-
 ## Execution log
 
 - 2026-08-18 — Opened from the standards review requested by the Oracle. The
   upstream/downstream comparison was run today: identical, no mechanism.
-
----
 
 ## Execution Reality
 
 *(Fill when closing)*
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
+
+## Status check — 2026-09-02
+
+*Read against `8907a56` during the missions/ normalisation (lot 3). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** STD-005 is now v1.0.0 status: active (updated 2026-08-22) — criterion 1 (signed at a real version) is met by the document's own header. Remaining: propagation ADR, drift check (shared with MIS-068/096), consumer CLAUDE.md pointers.
+- **Recommendation:** Close as done for its title ('sign the standards') with a note that 'define the sync' moved to MIS-096 — or keep todo re-titled to the sync only. I recommend close + move: one mission per question.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.

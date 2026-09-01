@@ -12,11 +12,11 @@ assigned_to: null
 completed: null
 
 type: mission
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-08-17T18:59:03Z"
 created_source: "git:b484b68"
 created_confidence: exact
-updated: "2026-08-27T22:05:37Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "oracle"
 owner: "oracle"
 tags: [web, platform, codex, lap, character-sheet, design, lore]
@@ -43,17 +43,13 @@ license: "CC0-1.0"
 **Payload:** `Numinia_Manual_del_juego_de_rol_v0_6_0.md` — replaces ALL current codex content.
 **Design mandate from the Oracle:** «Clavar este diseño es muy importante.» Layout quality is a first-class acceptance criterion, not polish.
 
----
-
 ## 0. Before anything else — MANDATORY
 
 1. **Audit current state first.** Read the current branch state of every repo you touch before assuming anything. This brief was written on 2026-08-17; sessions evolve fast. List contradictions you find and STOP if any is structural.
 2. Read `2026_08_15-Numen_Design_System-v4.2.0.md`: §19 (agent contract) + §19.3 (tokens) + §13.1 (starter kit — **copy, never rewrite from memory**). Then read §7 of THIS brief: the book plane is an Oracle-validated extension that consciously overrides specific Khepri rules.
-3. Read licensing doctrine (Canon C-005, current version) before touching any file header.
+3. Read licensing doctrine (Canon CAN-005, current version) before touching any file header.
 4. Check `DECISIONS.md` / `LEGAL_DEBT.md` for entries newer than this brief.
 5. Audit `packages/domain` before creating character-sheet types — sheet types may already exist among the 27 domain files. Adjust, don't duplicate.
-
----
 
 ## 1. What this is
 
@@ -65,13 +61,11 @@ license: "CC0-1.0"
 
 Peirce mapping: manual text + printable sheet = **Narrative Projection** (lore, reserved). Reader + sheet logic = **Operating System** (code). Domain types = **Functional Model**. Separate repos, separate licenses, zero mixing.
 
----
-
 ## 2. Decisions — all Oracle-signed 2026-08-17
 
 | # | Decision |
 |---|----------|
-| D1 | `numinia-lore` PUBLIC. License applied properly: text under the reserved-lore identifier C-005 prescribes (verify exact `LicenseRef-…`), SPDX header per file, REUSE 3.3, `reuse lint` in CI. The legal page states the content license to readers. |
+| D1 | `numinia-lore` PUBLIC. License applied properly: text under the reserved-lore identifier CAN-005 prescribes (verify exact `LicenseRef-…`), SPDX header per file, REUSE 3.3, `reuse lint` in CI. The legal page states the content license to readers. |
 | D2 | Gate = SIWE-only, **soft**. With D6 (free downloads) the Umbral is an identity funnel, not a wall — the Oracle consciously accepts the gate is bypassable. Implement behind a pluggable `AuthProvider`; ship with SIWE. No Web2, no user database. |
 | D3 | Bookmark: localStorage. Schema `{version, chapterSlug, blockId, updatedAt}`. Wallet-scoped variant must be additive later, not breaking. |
 | D4+D16 | Book plane [EXTENSIÓN — Oracle-validated, see §7]. Serif body (Alegreya), Diurno by default, paper texture allowed, engraving ornament. |
@@ -89,8 +83,6 @@ Peirce mapping: manual text + printable sheet = **Narrative Projection** (lore, 
 
 Open non-blocking: Alicia's surname in the acknowledgments (Oracle will supply; do not publish print/EPUB editions without asking once).
 
----
-
 ## 3. Design thesis — read this twice
 
 **The matter of heavy paper, the ergonomics of an e-reader.** Halfway between a Kindle and a high-grammage RPG tome.
@@ -106,8 +98,6 @@ From the RPG book, the **matter**: Arena paper with subtle grain, ink that reads
 **Palette (Diurno):** paper `#F9EBDC`/`#FDF6EE`, ink `#14110F`, structure/emphasis Ámbar tostado `#7A5100` with Ámbar `#EFA517` for solar moments, interactive Turquesa profunda `#016E7D`, tertiary Ceniza. Nocturno mode: the v1 mockup palette. Max 3 brand colors per composition; Coral/Grana never coexist.
 
 **Motion (catalog only, `prefers-reduced-motion` always):** corner frames **draw themselves** on chapter open — THE one orchestrated moment per view. Typing (tecleo) reserved for DJ asides and support notes. Lunar loading for any async state. Gears rotate a quarter-turn when set. Reading progress = lunar phase, growth-only (§10.1-06). Nothing else.
-
----
 
 ## 4. Layout — closed component inventory
 
@@ -128,8 +118,6 @@ No prose may exist outside an assigned component. The agent MUST NOT invent a ne
 
 **Page architecture:** reading column ≤68–72ch centered; real margin column at ≥1200px (glyphs, margin notes, short asides); everything collapses inline on mobile. Print: Diurno, running headers, page numbers, compact paper rhythm (Khepri invoice lesson: `s500/s300–s400`, not screen rhythm).
 
----
-
 ## 5. Content pipeline (`numinia-lore`)
 
 - Split the monolith: `00-introduccion.md` … `07-construyendo-la-aventura.md`, `90-el-espejo-roto.md`, `95-hoja-de-personaje.md` (NEW, see §6-A), `98-glosario.md` (NEW), `99-agradecimientos.md` (NEW), `_portada.md`, `_legal.md`.
@@ -140,8 +128,6 @@ No prose may exist outside an assigned component. The agent MUST NOT invent a ne
 - **Acknowledgments** (canonical, Oracle-provided): Paul Viejo · Daniel Alonso · Alicia [surname pending] · María García · Daniel Garrido · Carlo Udina · Clio Beruete — «Y a nuestras familias, por aguantarnos.»
 - **Exports**: same canonical MD → site (Astro) · PDF (print stylesheet, Diurno) · **EPUB** (Pandoc; cover, embedded Alegreya per OFL, reserved-rights metadata, per-chapter nav). EPUB build in CI.
 
----
-
 ## 6. The character sheet — two artifacts, one source of truth
 
 **A. As document** (`numinia-lore/95-hoja-de-personaje.md`): structured MD transcription of `Hoja_de_PJ_v0_6_0.jpg`. Sections: Jugador · Datos identificativos (Nombre, Especie, Posición / Gremio, Rama, Casa / Facción, Distrito / Umbral, Desequilibrio, Aliento del Velo, Estado, Puntos de Prestigio) · Características físicas (Fuerza, Movimiento, Tamaño, Constitución) y psíquicas (Inteligencia, Sabiduría, Percepción, Carisma) · Competencias (**dynamic list — the printed JPG shows one character's enabled competences, NOT a fixed universal list**) · Aptitudes Especiales ×2 · Reliquias y Objetos · Tesoros. Downloadable and printable from the Codex. Reserved license.
@@ -151,8 +137,6 @@ No prose may exist outside an assigned component. The agent MUST NOT invent a ne
 - Rules from the manual annex + Cap. 3 (agent extracts exact point-buy): Prestigio blank until first Semillas del Conocimiento; Desequilibrio derived from Posición; enabled competences = ONLY those of the character's Gremio+Facción+Especie, others disabled; enabled-but-unpointed registered at 0; two Aptitudes Especiales with points; Reliquias/Armas carry parameters.
 - **Sovereignty (D11) + its copy (Oracle-required):** character lives in localStorage + export/import `.md`/`.json`. Communicate it explicitly, Nivel II register, on first visit and beside export/import: e.g. «Tu personaje es tuyo: vive en este dispositivo y en los ficheros que te lleves. Nadie en Numinia guarda copia.» Empty/loading/error states designed; data loss warnings before destructive actions (Grana button + confirmation, per Khepri).
 - Domain types: audit `packages/domain` first; adjust existing character-sheet types to the v0.6.0 sheet (Oracle: «que Claude Code lo ajuste»).
-
----
 
 ## 7. Khepri extension — Oracle-validated, register in the design system changelog
 
@@ -166,8 +150,6 @@ The Oracle has signed the **book plane** [EXTENSIÓN → CANON pending changelog
 
 The design system «no está escrito en piedra» (Oracle, 2026-08-17) — but the change must be WRITTEN: add the changelog row to Khepri when this ships. The agent prepares the changelog text; the Oracle commits it.
 
----
-
 ## 8. Code standards & quality
 
 TS strict, zero `any`, zero `console.log`, components ≤200 lines, Zod on env + external data, loading/error/empty everywhere, semantic HTML, WCAG AA, measure ≤90ch hard rule.
@@ -177,8 +159,6 @@ License per trichotomy, file by file: shows → edge → MIT; decides (gate, she
 **Tests first.** Vitest: pipeline (verbatim diff, front-matter, glossary integrity, access flags), sheet rules engine (competence enabling matrix, Prestigio gating, point-buy bounds). Playwright: nav, bookmark persistence across sessions, mode toggle persistence, text-size control, gate behavior, sheet create→export→import roundtrip, mobile viewports, `prefers-reduced-motion`, print stylesheet smoke.
 
 CI: type-check → lint → reuse lint → test → build (site + PDF + EPUB).
-
----
 
 ## 9. Execution phases
 
@@ -190,8 +170,6 @@ CI: type-check → lint → reuse lint → test → build (site + PDF + EPUB).
 **F — Art integration** (replace placeholders when the Oracle delivers final art).
 
 Each phase: report findings from the §0 audit, what was built, open questions, self-score 1–10 with caveats. Surface anything irreversible (publishing, licensing, repo visibility, logo canonization) BEFORE doing it — Oracle acts.
-
----
 
 ## 10. Acceptance criteria (Gherkin, key scenarios)
 
@@ -245,10 +223,6 @@ Feature: The Umbral is a funnel, not a wall
       and crossing with SIWE reveals in-reader access
 ```
 
-
-
----
-
 # Appendix — Kickoff (agent instructions)
 
 # Kickoff — Codex Reader + LAP
@@ -272,9 +246,6 @@ You are the implementation agent for the Numinia Codex Reader and the LAP (Lecto
 - All code, comments and commits in English. Report per phase with a 1–10 self-score and caveats.
 
 Begin with the audit.
-
-
----
 
 # Execution log — 2026-08-18 (agent report)
 
@@ -336,8 +307,6 @@ annex page ×5 locales + .md + print + inside both editions — and REUSE
 closing D1's last clause). Root-caused and fixed a three-red CI streak:
 hermetic fixture slugs, debugged inside the CI image via podman.
 
----
-
 ## Board triage — 2026-08-25
 
 Returned from `in-progress` to `backlog` by the Oracle, in the triage of the 111
@@ -349,3 +318,14 @@ what changed is the claim that it was underway.
   in question (`D-026`, `D-027`). That is context; the evidence for this move is
   the absence of its own commit, not who it was assigned to.
 - **Signed by:** Oracle, 2026-08-25.
+
+## Status check — 2026-09-02
+
+*Read against `8907a56` during the missions/ normalisation (lot 3). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** 24.7 KB Oracle-signed brief v0.2.0 (15 decisions D1–D15), the largest todo in the corpus; 15 citations (10 files). Target is numinia.com/lap (numinia-web). Depends on the lore reading (MIS-043) and design system 5.1.0 (MIS-094, done). No commit of its own since 2026-08-17.
+- **Recommendation:** Keep todo — this is a signed, executable brief; do not touch its decisions. Its executor is numinia-web's agent, so record assigned_to as that repo when work starts. The brief should also live in numinia-web (it is that repo's work order); this copy is the archive record.
+
+## Version history
+
+- v0.3.0 (2026-09-02) — import-era `---` rules removed; retired identifiers repointed: C-005→CAN-005; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.

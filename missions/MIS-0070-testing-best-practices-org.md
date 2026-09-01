@@ -13,11 +13,11 @@ started: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-17T18:33:20Z"
 created_source: "git:a359761"
 created_confidence: exact
-updated: "2026-08-18T14:57:18Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -39,10 +39,6 @@ divergence_log: null
 > **Pragmatic:** A broken PR can no longer reach main unnoticed; every
 > repo knows its own bar.
 > **Audience:** Agents · Oracles
-
----
-
-**Area:** Infrastructure · **Guild:** Sentinels · **Priority:** high · **Effort:** L
 
 ## Context
 
@@ -104,7 +100,7 @@ than silently rewriting them.
   makes it a gate: branch protection — **MIS-100**.
 - **Org review — two of three repos done.** MIS-091 produced the gap table for
   `numengames-web` and `nwos-deploy` and closed both 🔴 findings it inherited:
-  `nwos-deploy` now has a LICENSE (C-005 regime declared) and the hardcoded
+  `nwos-deploy` now has a LICENSE (CAN-005 regime declared) and the hardcoded
   Anthropic model reads `claude-sonnet-5`. Finding 🔴 3 — which repo feeds
   `nwos-web.pablofm.workers.dev` — is **MIS-104**.
 - **Scope, honestly stated:** this mission's org review covers three
@@ -112,8 +108,6 @@ than silently rewriting them.
   **MIS-103**. This mission owns *what the checks are*; MIS-103 owns *who has
   to pass them*.
 - The canonical repo failing its own checklist is **MIS-101**.
-
----
 
 ## Epistemic value
 
@@ -161,3 +155,14 @@ by a stricter parser stumbling over it months later.
 - **Key learning:**
 - **Closing date:**
 - **Executing agent:**
+
+## Status check — 2026-09-02
+
+*Read against `8907a56` during the missions/ normalisation (lot 3). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** Oracle delivered STD-005 (engineering standards) 2026-08-17 → it is now v1.0.0 active (MIS-105's object). This repo has two test suites and a 10-step CI (guards + build), which CLAUDE.md still denies ('No tests or lint yet (MIS-070)'). Org review blocked on 'GitHub recovery' — incident over. Depended on by MIS-103.
+- **Recommendation:** Keep todo, re-scope: criterion 1 (baseline in this repo) is done by reality — fix the CLAUDE.md line; what remains is the org roll-out, which is MIS-103's inventory + MIS-101's compliance. Consider closing this as the umbrella and letting 101/103 carry the work.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; retired identifiers repointed: C-005→CAN-005; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.

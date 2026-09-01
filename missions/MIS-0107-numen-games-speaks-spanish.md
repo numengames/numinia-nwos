@@ -13,11 +13,11 @@ started: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-18T14:47:39Z"
 created_source: "git:b91848e"
 created_confidence: exact
-updated: "2026-08-18T14:47:39Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -40,23 +40,16 @@ depends_on: ["MIS-091"]
 > an English body.
 > **Audience:** Oracle · Alchemists
 
----
-
-**Area:** Content
 **Guild:** Alchemists
 **Type:** hybrid (code by agent, copy by a person)
 **Priority:** high
 **Effort:** M
-
----
 
 ## Story
 
 As a Spanish-speaking visitor to numen.games, I want the page I asked for in
 Spanish to be in Spanish, so that the site does not switch language halfway
 down.
-
----
 
 ## Context (2026-08-18)
 
@@ -82,8 +75,6 @@ Note this is also an accessibility and SEO defect, not only a content one: the
 page declares `lang="es"` while serving English text, which misleads screen
 readers and search engines alike.
 
----
-
 ## Scope
 
 - Move the hardcoded copy of the nine components into `src/i18n/translations`,
@@ -101,8 +92,6 @@ readers and search engines alike.
 **Out of scope:** new languages (§3 of STANDARDS lists future ones), and the
 sixteen inert layout strings MIS-091 removed — that is a design decision
 tracked in the repo's `TODO.md`.
-
----
 
 ## Acceptance criteria
 
@@ -137,8 +126,6 @@ Feature: the Spanish route is Spanish
 - [ ] Both routes reviewed, desktop and mobile
 - [ ] Guard in place so the bug cannot return unnoticed
 
----
-
 ## Epistemic value
 
 The site has been half-translated in production and nobody reported it. That
@@ -150,18 +137,25 @@ knowing before the next bilingual surface ships.
 The Spanish market gets a Spanish page. Search engines get a page whose
 declared language is true.
 
----
-
 ## Execution log
 
 - 2026-08-18 — Opened from the standards review requested by the Oracle. The
   finding comes from MIS-091: the type-checker surfaced it, no visual review
   ever had.
 
----
-
 ## Execution Reality
 
 *(Fill when closing)*
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
+
+## Status check — 2026-09-02
+
+*Read against `8907a56` during the missions/ normalisation (lot 3). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** numen.games (numengames-web repo). TODO(MIS-091) markers: 0 in this repo (they live in numengames-web). Cited once.
+- **Recommendation:** Keep todo as a tracking card; the work is numengames-web's. If the Oracle prefers one board per repo, this is the first to move out.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.

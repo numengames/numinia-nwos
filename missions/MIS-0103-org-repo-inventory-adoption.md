@@ -13,11 +13,11 @@ started: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-18T14:47:39Z"
 created_source: "git:b91848e"
 created_confidence: exact
-updated: "2026-08-18T14:47:39Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -40,23 +40,16 @@ depends_on: ["MIS-070"]
 > **Pragmatic:** Every later standards mission gets a denominator.
 > **Audience:** Oracle · Sentinels
 
----
-
-**Area:** Operations
 **Guild:** Sentinels
 **Type:** hybrid
 **Priority:** medium
 **Effort:** L
-
----
 
 ## Story
 
 As the Oracle, I want to know which repositories exist, what each one is for
 and where each stands against the standards, so that "the org complies" stops
 being a claim about four repositories out of twenty-one.
-
----
 
 ## Context (2026-08-18)
 
@@ -85,8 +78,6 @@ The audit's own honesty section applies here too: it verified what it cloned
 and nothing else. This mission inherits that rule — a repository that is not
 inspected is listed as not inspected.
 
----
-
 ## Scope
 
 - **Enumerate** every repository in `numengames` and `numen-games-nwos-orgs`
@@ -105,8 +96,6 @@ inspected is listed as not inspected.
 
 **Out of scope:** fixing the gaps found. Each significant one becomes its own
 mission; this one finds them.
-
----
 
 ## Acceptance criteria
 
@@ -138,8 +127,6 @@ Feature: the ecosystem is known, not assumed
 - [ ] The file lives in this repo and is regenerable by a committed script
 - [ ] Anything that needs its own work becomes a mission, listed here
 
----
-
 ## Epistemic value
 
 The distance between the ecosystem we describe in documents and the one that
@@ -150,18 +137,25 @@ exists in the account. Four repositories have been standing in for twenty-one.
 The first time anyone can answer "does the org comply?" with a number instead
 of an anecdote.
 
----
-
 ## Execution log
 
 - 2026-08-18 — Opened from the standards review requested by the Oracle,
   after finding that all reasoning so far rests on the four repositories of
   the 2026-08-17 audit.
 
----
-
 ## Execution Reality
 
 *(Fill when closing)*
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
+
+## Status check — 2026-09-02
+
+*Read against `8907a56` during the missions/ normalisation (lot 3). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** 0/6; depends on MIS-070. RPT-002 (Ursa web access) and the 2026-08-18 standards review already enumerate part of the org. MIS-046 (three READMEs) is its subset.
+- **Recommendation:** Keep todo; absorb MIS-046's three repos into its inventory list. The listing from the API is one script; the classification is the Oracle's. Good first candidate for the next execution session.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.

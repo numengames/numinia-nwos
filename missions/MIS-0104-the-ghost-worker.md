@@ -13,11 +13,11 @@ started: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-18T14:47:39Z"
 created_source: "git:b91848e"
 created_confidence: exact
-updated: "2026-08-18T14:47:39Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -40,22 +40,15 @@ depends_on: []
 > Both are better than not knowing.
 > **Audience:** Oracle · Sentinels
 
----
-
-**Area:** Infrastructure
 **Guild:** Sentinels
 **Type:** biological (requires Cloudflare and GitHub admin access)
 **Priority:** high
 **Effort:** S
 
----
-
 ## Story
 
 As the Oracle, I want to know what deploys `nwos-web.pablofm.workers.dev`,
 so that no production surface of Numen Games is an orphan.
-
----
 
 ## Context (2026-08-18)
 
@@ -86,8 +79,6 @@ forgotten Worker with live credentials is an attack surface nobody is
 watching, and SEC-06 (one token per purpose, minimum scope, expiry set) cannot
 be honoured for secrets nobody has enumerated.
 
----
-
 ## Scope
 
 - Identify, from the Cloudflare dashboard, the Worker's deployment source: a
@@ -103,8 +94,6 @@ be honoured for secrets nobody has enumerated.
 
 **Out of scope:** any change to `nwos.numen.games`, which is documented and
 working.
-
----
 
 ## Acceptance criteria
 
@@ -136,8 +125,6 @@ Feature: no orphan production surface
 - [ ] The `wrangler.toml` comment that raised the question updated to point at
       the answer
 
----
-
 ## Epistemic value
 
 How far the deployed reality has drifted from the documented one — measured on
@@ -148,17 +135,24 @@ the piece most likely to have drifted furthest.
 Either one less unknown surface holding live credentials, or one more
 documented one. The current state is the only unacceptable option.
 
----
-
 ## Execution log
 
 - 2026-08-18 — Opened from the standards review requested by the Oracle;
   finding 🔴 3 of the 2026-08-17 stack audit, verified still open.
-
----
 
 ## Execution Reality
 
 *(Fill when closing)*
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
+
+## Status check — 2026-09-02
+
+*Read against `8907a56` during the missions/ normalisation (lot 3). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** 0/6. nwos-web.pablofm.workers.dev — a live host nobody documents; the retire branch needs credential rotation (Oracle). Cited once (MIS-070).
+- **Recommendation:** Keep todo; security-relevant and small. Step 1 (identify the deployment source) is digital and can be done now; the decision is the Oracle's.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.

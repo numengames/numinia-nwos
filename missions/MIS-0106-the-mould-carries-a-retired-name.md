@@ -13,11 +13,11 @@ started: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-18T14:47:39Z"
 created_source: "git:b91848e"
 created_confidence: exact
-updated: "2026-08-18T14:47:39Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -41,23 +41,16 @@ depends_on: ["MIS-105", "MIS-094"]
 > inheriting a name that no longer exists.
 > **Audience:** Oracle · Exegetes
 
----
-
-**Area:** Documentation
 **Guild:** Exegetes
 **Type:** digital
 **Priority:** medium
 **Effort:** S
-
----
 
 ## Story
 
 As an organization generating its workspace from the mould, I want the design
 system template to name things as they are called today, so that my first
 inherited document does not teach me a retired vocabulary.
-
----
 
 ## Context (2026-08-18)
 
@@ -79,7 +72,7 @@ What the retirement has not reached:
 
 Only the first row is work. The last one is a question for the Oracle, and it
 is the same one §0.4 left open: if the system no longer carries the name, does
-the beetle keep it as a level-II character — and does C-005 §7 keep reserving
+the beetle keep it as a level-II character — and does CAN-005 §7 keep reserving
 it as a mark? A retired codename that is still a reserved trademark is a
 coherent position, but it has to be a decided one.
 
@@ -89,8 +82,6 @@ MIS-094 pushed a version, an errata set and a regenerated kit through the
 downstream chain in a single day; the mould, upstream of all of it, did not
 move.
 
----
-
 ## Scope
 
 - Update `DESIGN_SYSTEM_TEMPLATE.md` upstream, all five occurrences: the
@@ -98,7 +89,7 @@ move.
   It stays illustrative and never normative — only the name changes, per §0.4's
   own rule. While there, check the template against 5.1.0: it was written
   against an older reading of the system.
-- Put the trademark question to the Oracle: does C-005 §7 keep reserving
+- Put the trademark question to the Oracle: does CAN-005 §7 keep reserving
   "Khepri" now that no system carries the name?
 - Sweep both repositories for the codename in prose and mark each occurrence:
   **retire** (system name), **keep** (brand mark, asset filename), or
@@ -109,8 +100,6 @@ move.
 **Out of scope:** renaming asset files and the beetle sprite — §0.4 forbids it
 for now, and `[ORACLE — pending]` still hangs over whether the beetle keeps its
 mythological name as a level-II character.
-
----
 
 ## Acceptance criteria
 
@@ -142,8 +131,6 @@ Feature: the seed travels without a proper name
 - [ ] The `[ORACLE — pending]` question on the beetle's name recorded as still
       open, or answered
 
----
-
 ## Epistemic value
 
 A renaming is the cheapest possible change to propagate — no behaviour, no
@@ -153,17 +140,24 @@ API, one word. If this one did not travel through the fork, nothing will.
 
 The mould stops teaching a dead name to every organization it generates.
 
----
-
 ## Execution log
 
 - 2026-08-18 — Opened from the standards review requested by the Oracle, after
   comparing the mould against Design System v5.0.0 §0.4.
-
----
 
 ## Execution Reality
 
 *(Fill when closing)*
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
+
+## Status check — 2026-09-02
+
+*Read against `8907a56` during the missions/ normalisation (lot 3). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** 'Khepri' occurrences in this repo's web/src: 0. The remaining work is in nwos-workspace-template (another org's repo) and a trademark question for the Oracle. Cited by nobody.
+- **Recommendation:** Freeze — blocked on an external repository and an Oracle ruling (CAN-005 §7 on the name). Nothing executable here; MIS-108 is the same repo's sibling.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; retired identifiers repointed: C-005→CAN-005; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.

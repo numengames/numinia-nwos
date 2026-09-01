@@ -10,13 +10,14 @@ territory: "Platform"
 type_execution: "digital"
 assigned_to: null
 completed: null
+freeze_reason: "parked by Oracle order 2026-08-16; the numinia.store renewal date is the trigger"
 
 type: mission
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-08-17T18:59:03Z"
 created_source: "git:b484b68"
 created_confidence: exact
-updated: "2026-08-17T18:59:03Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [web, seo, infra]
@@ -31,8 +32,6 @@ license: "CC0-1.0"
 
 (Redirect the legacy domain, transfer its search equity, retire the Vercel deployment, and fix the SIWE domain mismatch.)
 
----
-
 > **Agent type:** 🔀 Hybrid
 >
 > **Priority:** 🟠 High
@@ -44,8 +43,6 @@ license: "CC0-1.0"
 > **Assigned to:** unassigned (parked by Oracle order, 2026-08-16)
 >
 > **Guild / House:** Procurators / Heralds (the city's outward voice)
-
----
 
 ## 📝 Subtitle (Brief Context)
 
@@ -135,3 +132,7 @@ Feature: numinia.store SEO migration
 - [ ] docs/status.md NEXT #1 — key-rotation audit (shares the legacy-Vercel decommission)
 - [ ] apps/store/src/lib/auth/server.ts:79 — hardcoded SIWE domain
 - [ ] https://support.google.com/webmasters/answer/9370220 — Change of Address tool
+
+## Version history
+
+- v1.0.1 (2026-09-02) — Form: import-era `---` rules removed. missions/ normalisation, lot 3.

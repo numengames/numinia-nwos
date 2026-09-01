@@ -12,11 +12,11 @@ assigned_to: "numinia-web"
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-08-18T08:42:18Z"
 created_source: "git:931299c"
 created_confidence: exact
-updated: "2026-08-27T22:05:37Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -38,23 +38,16 @@ depends_on: []
 > acceptance.
 > **Audience:** numinia-web agent · Oracle
 
----
-
-**Area:** Platform / numinia-web
 **Guild:** Procurators
 **Type:** digital
 **Priority:** high
 **Effort:** M
-
----
 
 ## Story
 
 As an Oracle, I want numinia.com to publish the real legal documents and the
 entry flow to require accepting them before login, so that no session exists
 without an accepted legal framework.
-
----
 
 ## Verified premises (audit 2026-08-18, numinia-nwos agent)
 
@@ -95,8 +88,6 @@ www.numen.games). Both are recorded in
 session (the lawyer's / Oracle's). The texts are copied **verbatim**: no
 content correction, not even the flagged typos.
 
----
-
 ## Acceptance criteria
 
 - [x] Verbatim copies of the two masters in `apps/store/src/content/legal/`
@@ -119,8 +110,6 @@ content correction, not even the flagged typos.
 - [x] On close: Execution Reality filled here, and the Oracle notified that
       CON-004/005 gain a "also published on numinia.com" note.
 
----
-
 ## Epistemic value
 
 First time reserved content (all-rights-reserved regime) derived from the
@@ -132,8 +121,6 @@ regime (C-005 §5) via REUSE annotation.
 The legal corpus stops being a placeholder in production and the entry gate
 becomes conditional on its acceptance — a prerequisite for any real citizen
 onboarding.
-
----
 
 ## Execution log
 
@@ -194,8 +181,6 @@ Playwright tests (the 2 local failures are the known `/descargas/` unbaked
 gap, which CI does bake), `reuse lint` conformant with REUSE 3.3, WCAG A/AA
 with no violations on `/legal/terms/` and `/es/legal/privacy/`.
 
----
-
 ## Execution Reality
 
 *(Fill when closing the mission — the real plans vs the ideal plans)*
@@ -221,3 +206,7 @@ with no violations on `/legal/terms/` and `/es/legal/privacy/`.
 - **Executing agent:** claude-opus-5 (numinia-web session)
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
+
+## Version history
+
+- v1.0.1 (2026-09-02) — Form: inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed. missions/ normalisation, lot 3.

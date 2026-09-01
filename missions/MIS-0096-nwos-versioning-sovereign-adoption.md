@@ -8,15 +8,15 @@ effort: "L"
 guild: "Procurators"
 territory: "TBA"
 type_execution: "digital"
-assigned_to: "numinia-nwos"
+assigned_to: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-18T14:59:25Z"
 created_source: "git:e175657"
 created_confidence: exact
-updated: "2026-08-27T22:05:37Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -40,12 +40,7 @@ depends_on: ["MIS-068"]
 > new, and decide whether to upgrade — without anyone pushing anything.
 > **Audience:** Oracle · Agents of every NWOS repo
 
----
-
-**Area:** NWOS core / governance · **Guild:** Procurators
 **Type:** digital · **Priority:** high · **Effort:** L
-
----
 
 ## Story
 
@@ -53,8 +48,6 @@ As an organization that has created its NWOS repository, I want to know
 which version of the original NWOS I am on and what the next one brings, so
 I decide whether to update — without any law entering my repo by
 inheritance.
-
----
 
 ## The error that originates it (verified 2026-08-18)
 
@@ -110,8 +103,6 @@ been applied to the standards themselves.
       version) and CON-003's provenance.
 - [ ] `GOVERNANCE.md` G-12 referenced from the mould's CLAUDE.md.
 
----
-
 ## Epistemic value
 
 It separates two things the system conflated: **where a document comes
@@ -124,13 +115,9 @@ An organization can adopt NWOS without fear of its repo changing through
 someone else's decisions, and we can publish improvements without
 negotiating with each one.
 
----
-
 ## Execution log
 
 *(Fill when completing the mission)*
-
----
 
 ## Execution Reality
 
@@ -143,3 +130,14 @@ negotiating with each one.
 - **Executing agent:** (name / agent-id)
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
+
+## Status check — 2026-09-02
+
+*Read against `8907a56` during the missions/ normalisation (lot 3). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** Reformulation target of MIS-068 (G-12). 0/7. No NWOS core manifest, no nwos-source.json anywhere (grep: 0). 8 citations (5 files). Depends on MIS-068.
+- **Recommendation:** Keep todo as the parent of the propagation question; absorb MIS-068's two open criteria (see MIS-068). This is the mission the sovereignty principle needs; it should be the one that survives.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.

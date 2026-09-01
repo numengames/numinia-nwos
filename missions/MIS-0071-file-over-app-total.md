@@ -8,16 +8,16 @@ effort: "XL"
 guild: "Exegetes"
 territory: "CAO"
 type_execution: "digital"
-assigned_to: "claude-fable-5"
+assigned_to: null
 started: "2026-08-17"
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-17T18:33:20Z"
 created_source: "git:a359761"
 created_confidence: exact
-updated: "2026-08-25T11:00:28Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -43,17 +43,13 @@ divergence_log: null
 > read, diff, and download.
 > **Audience:** Agents · Oracles
 
----
-
-**Area:** CAO / Archive · **Guild:** Exegetes · **Priority:** high · **Effort:** XL
-
 ## Context — the Oracle's inventory question, answered (2026-08-17)
 
 "¿Está en .md?" — the honest table today:
 
 | Piece | In .md today? | Where it actually lives |
 |---|---|---|
-| Protocols, mission lifecycle | ✅ | `protocols/` (P-003 v3 etc.) |
+| Protocols, mission lifecycle | ✅ | `protocols/` (PRO-003 v3 etc.) |
 | Missions | ✅ | `missions/` (flat, MIS-066) |
 | Decisions (records) | ✅ | `decisions/` — but the web copy is a separate hardcoded `decisiones.ts` |
 | Daily reports | ✅ | `reports/daily/` — but `/reportes` pages carry extra inline content |
@@ -168,3 +164,14 @@ next cold agent reads everything the visitor sees.
 - **Key learning:**
 - **Closing date:**
 - **Executing agent:**
+
+## Status check — 2026-09-02
+
+*Read against `8907a56` during the missions/ normalisation (lot 3). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** Phases 1–3 logged done 2026-08-17; phase 1's target (reports/audits/, /audits) was superseded 2026-09-01 by ADR-005 v1.2.0 (reports/ flat, /reports) — its first criterion now describes a layout that no longer exists. Assigned 'claude-fable-5' (a model, not an agent id). Phases 4–5 (regime per piece; FT-05 re-run) not logged. in-progress since 2026-08-17 with no commit of its own since.
+- **Recommendation:** Keep in-progress only if someone re-runs the FT-05 list; otherwise close as done at phase 3 with the remaining two phases moved to MIS-135's register. Repoint criterion 1 to /reports (form). assigned_to → null or a real agent id.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; retired identifiers repointed: P-003→PRO-003; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.

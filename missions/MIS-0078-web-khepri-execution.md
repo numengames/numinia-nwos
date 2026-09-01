@@ -12,11 +12,11 @@ assigned_to: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-08-17T18:59:03Z"
 created_source: "git:b484b68"
 created_confidence: exact
-updated: "2026-08-27T22:05:37Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [web, platform, design, khepri]
@@ -121,8 +121,6 @@ Delivered in `numinia-web` v0.47.0 (`f10d9d0` + release).
 - **Closing date:** 2026-08-18
 - **Executing agent:** claude-opus-5 (numinia-web session)
 
----
-
 ## Phase A — Preparation (before touching any page)
 
 1. **Token bridge**: reconcile `packages/ui/src/tokens.css` with
@@ -172,3 +170,7 @@ Scenario: Motion stays within the catalog
 
 The numen.games rebuild (separate repo/prompt), 3D/metaverse materials
 (§13.7), pixel-register art production (§13.9), invoice/document templates.
+
+## Version history
+
+- v1.0.1 (2026-09-02) — Form: import-era `---` rules removed. missions/ normalisation, lot 3.

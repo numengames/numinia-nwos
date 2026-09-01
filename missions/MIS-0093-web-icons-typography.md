@@ -13,11 +13,11 @@ started: "2026-08-18"
 completed: "2026-08-18"
 
 type: mission
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-08-18T13:20:30Z"
 created_source: "git:9091f7f"
 created_confidence: inferred
-updated: "2026-08-27T22:05:37Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -36,13 +36,6 @@ depends_on: ["MIS-092"]
 > **Pragmatic:** A single icon origin, one component, zero hand-drawn
 > glyphs.
 > **Audience:** Oracle · numinia-nwos agent
-
----
-
-**Area:** Viewer / numinia.org · **Guild:** Alchemists · **Type:** digital
-**Priority:** medium · **Effort:** S
-
----
 
 ## Story
 
@@ -133,3 +126,7 @@ fixed layers and the noise move to their own composited layer
 stops when the tab is hidden. Lesson: inline per instance is comfortable
 until there are 280 instances — the sprite is the right pattern for a
 69-glyph subset.
+
+## Version history
+
+- v1.0.1 (2026-09-02) — Form: inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed. missions/ normalisation, lot 3.

@@ -13,11 +13,11 @@ started: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-17T14:13:30Z"
 created_source: "git:db13bca"
 created_confidence: exact
-updated: "2026-08-17T14:13:30Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -41,15 +41,10 @@ divergence_log: null
 > **Pragmatic:** A GitHub outage stops being an operational outage.
 > **Audience:** Agents · Oracles
 
----
-
-**Area:** Infrastructure
 **Guild:** Sentinels
 **Type:** digital
 **Priority:** medium
 **Effort:** M
-
----
 
 ## Context
 
@@ -89,7 +84,7 @@ NWOS's continuity depends on us, not on a vendor.
       verdict: can it replace or only complement GitHub for our
       workflow (PR-equivalent patches, multi-Oracle access, agent
       access)?
-- [ ] **C-005 gate before adoption:** Radicle's own licensing resolved
+- [ ] **CAN-005 gate before adoption:** Radicle's own licensing resolved
       from its source (never from memory) and checked against the
       consume lists; publishing the repo to the Radicle network is a
       *distribution surface* — verify it grants nothing beyond what
@@ -125,3 +120,14 @@ work continues against the mirror, deploys run from the runbook.
 - **Key learning:**
 - **Closing date:**
 - **Executing agent:**
+
+## Status check — 2026-09-02
+
+*Read against `8907a56` during the missions/ normalisation (lot 3). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** Requested mid-incident 2026-08-17. 0/5. No mirror exists (git remote -v: origin only). Cited once.
+- **Recommendation:** Keep todo; Layer 1 (a second remote, any vendor) is an afternoon and closes the actual risk. Split Layer 2 (Radicle evaluation) out or drop it — it is research the Oracle did not ask for since.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; retired identifiers repointed: C-005→CAN-005; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.

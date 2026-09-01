@@ -13,11 +13,11 @@ started: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-18T14:47:39Z"
 created_source: "git:b91848e"
 created_confidence: exact
-updated: "2026-08-18T14:47:39Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -40,23 +40,16 @@ depends_on: []
 > check can run everywhere without a footnote.
 > **Audience:** Oracle · Alchemists
 
----
-
-**Area:** Documentation
 **Guild:** Alchemists
 **Type:** digital
 **Priority:** high
 **Effort:** M
-
----
 
 ## Story
 
 As an agent arriving at any repository in the ecosystem, I want the canonical
 repository to be the best example of its own rules, so that "look at how
 numinia-nwos does it" is advice and not a trap.
-
----
 
 ## Context (2026-08-18)
 
@@ -84,8 +77,6 @@ variables. DEV-01 asks for an exhaustive example file, and "there are none" is
 an answer that has to be written down, not assumed — otherwise the next
 contributor cannot tell "no variables" from "nobody documented them".
 
----
-
 ## Scope
 
 - The five missing files, written for this repo — not copied from the other
@@ -102,10 +93,8 @@ contributor cannot tell "no variables" from "nobody documented them".
   were real product bugs. Expect a similar harvest.
 
 **Out of scope:** the design of the checks themselves (MIS-070 owns the
-baseline), anything under C-005, and the token layer of `web/` — that is
+baseline), anything under CAN-005, and the token layer of `web/` — that is
 MIS-102, which moves this site off its hand-written palette.
-
----
 
 ## Acceptance criteria
 
@@ -138,8 +127,6 @@ Feature: the canonical repo passes its own checklist
 - [ ] `CLAUDE.md` no longer says "no tests or lint yet"
 - [ ] The presence job of the shared workflow passes here unmodified
 
----
-
 ## Epistemic value
 
 Whether the standard was written from this repo's practice or against it. The
@@ -150,17 +137,24 @@ five missing files answer that question by themselves.
 A new repository can be told "do what the canonical one does" without a list
 of exceptions attached.
 
----
-
 ## Execution log
 
 - 2026-08-18 — Opened from the standards review requested by the Oracle. The
   gap table above was produced by direct inspection, not from memory.
-
----
 
 ## Execution Reality
 
 *(Fill when closing)*
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
+
+## Status check — 2026-09-02
+
+*Read against `8907a56` during the missions/ normalisation (lot 3). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** ci.yml now runs 10 steps (6 guards, build, orphan and URL ratchets) — criterion 2's spirit is met though type-check/lint/test for web/ are not wired; CODE_OF_CONDUCT.md, TODO.md, .editorconfig, .env.example absent; CLAUDE.md still says 'No tests or lint yet'. Cited once.
+- **Recommendation:** Keep todo; half done by reality. Re-scope to the three concrete gaps (web/ type-check+lint in CI; the four files; the CLAUDE.md sentence). Small mission, one PR.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; retired identifiers repointed: C-005→CAN-005; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.

@@ -12,11 +12,11 @@ assigned_to: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-17T18:59:03Z"
 created_source: "git:b484b68"
 created_confidence: exact
-updated: "2026-08-25T20:05:59Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [web, platform, auth, siwe]
@@ -128,8 +128,6 @@ Scenario: The Web3 boundary is one constant
 
 Session Zero verification, purchases, EIP-1271, on-chain state, deploy.
 
----
-
 ## Board triage — 2026-08-25
 
 Returned from `in-progress` to `backlog` by the Oracle, in the triage of the 111
@@ -141,3 +139,14 @@ what changed is the claim that it was underway.
   in question (`D-026`, `D-027`). That is context; the evidence for this move is
   the absence of its own commit, not who it was assigned to.
 - **Signed by:** Oracle, 2026-08-25.
+
+## Status check — 2026-09-02
+
+*Read against `8907a56` during the missions/ normalisation (lot 3). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** Migrated from numinia-web (MISSION-002) 2026-08-17; its own header says Steps 0–3 done 2026-08-15 and the surface shipped in numinia-web's MISSION-010. Triaged D 2026-08-25 ('brief declares no acceptance criteria' — it does, in Gherkin, but for numinia-web's code). paths: none in this repo.
+- **Recommendation:** Freeze — wrong shelf: the remaining work (Session Zero ranks) is numinia-web code, governed by that repo's missions. Keep the file as the migrated record; nothing here is executable from numinia-nwos.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.

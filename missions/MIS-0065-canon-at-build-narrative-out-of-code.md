@@ -12,11 +12,11 @@ started: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-17T07:06:13Z"
 created_source: "git:1d8ac2b"
 created_confidence: inferred
-updated: "2026-08-25T20:05:59Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -33,22 +33,17 @@ divergence_log: null
 > **Resumen:** One refactor closes two debts: the viewer stops hydrating
 > mission data client-side against the GitHub API, and the culture-branch
 > narrative stops shipping under the `web/**` MIT annotation.
-> **Epistemic:** How File over App and C-005 §5 (one file, one regime)
+> **Epistemic:** How File over App and CAN-005 §5 (one file, one regime)
 > converge on the same architecture.
 > **Pragmatic:** Routes read canon from the repo at build; narrative
 > content carries its own regime; the board works without JS and is
 > visible to crawlers.
 > **Audience:** Agents · Oracles
 
----
-
-**Area:** Viewer / Licensing
 **Guild:** Sentinels
 **Type:** digital
 **Priority:** medium
 **Effort:** L
-
----
 
 ## Context
 
@@ -75,7 +70,7 @@ audit. Two previously separate pending items are one mission:
 
    Exposure is bounded — everything above was published CC0 through
    commit `0157be9` (LD-001 grandfather) — but the regime must be right
-   going forward. C-005 §5: when two regimes share a file, the content
+   going forward. CAN-005 §5: when two regimes share a file, the content
    moves out; SPDX snippets are the patch, not the solution.
 
 ## Story
@@ -99,7 +94,7 @@ is exactly as fresh as the deploy.
 - [ ] The `lore:`, `descripcion:` and `governance:` narrative in
       `archive/[fondo].astro` moves to its own content file annotated
       `LicenseRef-Numen-AllRightsReserved` (or CC-BY-4.0 where it is
-      descriptive documentation — classify per C-005 §2, Oráculo signs
+      descriptive documentation — classify per CAN-005 §2, Oráculo signs
       the split).
 - [ ] `REUSE.toml` annotations updated so no culture-branch content is
       matched by `web/** → MIT`; coverage check still reports zero
@@ -123,7 +118,7 @@ the licensing canon acting as forcing function for the viewer design.
 ## Pragmatic value
 
 Board and details work without JS, are crawlable, and never rate-limit.
-The licence regime of every piece of prose matches C-005 with no
+The licence regime of every piece of prose matches CAN-005 with no
 snippet exceptions. One refactor, two debts closed.
 
 ## Execution log
@@ -142,8 +137,6 @@ snippet exceptions. One refactor, two debts closed.
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
 
----
-
 ## Board triage — 2026-08-25
 
 Returned from `in-review` to `backlog` by the Oracle, in the triage of the 111
@@ -155,3 +148,14 @@ what changed is the claim that it was underway.
   in question (`D-026`, `D-027`). That is context; the evidence for this move is
   the absence of its own commit, not who it was assigned to.
 - **Signed by:** Oracle, 2026-08-25.
+
+## Status check — 2026-09-02
+
+*Read against `8907a56` during the missions/ normalisation (lot 3). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** Phases 1–2 of its parent MIS-071 report it executed on 2026-08-17 ('Phase 3 was executed as MIS-065 … closed in-review'), then the 2026-08-25 triage returned it to todo (category D, stale, unassigned). Its first criterion moved to MIS-066 (done); /misiones, /decisiones, /planos are now 28 redirects onto collection-built pages; missions-index.json no longer exists; REUSE.toml has been re-cut three times since (ADR-026/035/036). Execution Reality block still blank.
+- **Recommendation:** Close as done — achieved by MIS-066/071 and the REUSE rulings that followed; fill Execution Reality from MIS-071's log (which already names what happened) and cite it. The one criterion nobody verified — 'no culture-branch content under web/** → MIT' — is a REUSE audit item, not a reason to keep a mission open; note it in MIS-135.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; retired identifiers repointed: C-005→CAN-005; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.

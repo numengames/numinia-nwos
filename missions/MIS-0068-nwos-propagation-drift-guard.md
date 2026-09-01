@@ -13,11 +13,11 @@ started: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-17T13:59:23Z"
 created_source: "git:069b83a"
 created_confidence: exact
-updated: "2026-08-27T22:05:37Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -31,7 +31,7 @@ divergence_log: null
 # MIS-068 — NWOS propagation: consumer repos never drift from the source of truth
 
 > **Summary:** `numengames/numinia-nwos` is THE source of truth; every
-> numengames repo that uses NWOS drinks from it by copying (the C-005 §9
+> numengames repo that uses NWOS drinks from it by copying (the CAN-005 §9
 > fragment, protocols, standards). Copies drift. This mission designs
 > and ships the mechanism that detects — and where possible prevents —
 > that drift.
@@ -40,15 +40,10 @@ divergence_log: null
 > **Pragmatic:** Adding a third consumer repo stops being a silent risk.
 > **Audience:** Agents · Oracles
 
----
-
-**Area:** CAO / Tooling
 **Guild:** Sentinels
 **Type:** digital
 **Priority:** medium
 **Effort:** M
-
----
 
 ## Context
 
@@ -73,7 +68,7 @@ multiplies silently-stale surfaces.
 
 ## Acceptance criteria
 
-- [ ] Inventory: which artifacts propagate (C-005 §9 fragment,
+- [ ] Inventory: which artifacts propagate (CAN-005 §9 fragment,
       protocols, STANDARDS sections, templates?) and to which
       numengames repos, listed from reality — not from memory.
 - [ ] Decision (Oracle signs): propagation model per artifact — literal
@@ -81,7 +76,7 @@ multiplies silently-stale surfaces.
       checksummed snapshot), or direct read at build.
 - [ ] A reusable guard exists that any consumer repo can run in CI:
       given artifact + canonical source, fail on divergence with a
-      diff. Shipped as `scripts/` here (MIT, per C-005 the border
+      diff. Shipped as `scripts/` here (MIT, per CAN-005 the border
       regime).
 - [ ] numinia-nwos itself runs it for its own internal copies (CLAUDE.md
       fragment vs canon §9 — today verified only by hand).
@@ -104,10 +99,8 @@ Two things happened on the same day, in opposite directions.
   so.** This is the cleanest possible demonstration of this mission's premise,
   produced by accident: a copy made with good reasons, wrong within hours.
 - The inventory criterion should therefore include: the §19.5 fragment (two
-  copies), the C-005 §9 block in `CLAUDE.md` (three copies), and the design
+  copies), the CAN-005 §9 block in `CLAUDE.md` (three copies), and the design
   tokens hand-written in three repos (**MIS-102**).
-
----
 
 ## Epistemic value
 
@@ -134,8 +127,6 @@ of a prayer.
 - **Closing date:**
 - **Executing agent:**
 
----
-
 ## Execution log
 
 - 2026-08-18 — **First case executed: the Design System** (commissioned by
@@ -158,8 +149,6 @@ guarantee is not the absence of drift, but **conscious drift**: detect,
 report and leave a record — never break someone else's build for not being
 current. The full reformulation goes in MIS-096.
 
----
-
 ## Board triage — 2026-08-25
 
 Returned from `in-progress` to `backlog` by the Oracle, in the triage of the 111
@@ -171,3 +160,14 @@ what changed is the claim that it was underway.
   in question (`D-026`, `D-027`). That is context; the evidence for this move is
   the absence of its own commit, not who it was assigned to.
 - **Signed by:** Oracle, 2026-08-25.
+
+## Status check — 2026-09-02
+
+*Read against `8907a56` during the missions/ normalisation (lot 3). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** Premise corrected by the Oracle 2026-08-18 (CON-006/G-12: sovereignty means conscious drift, not no drift) with the reformulation delegated to MIS-096. First case (Design System kit + manifest + design:check) executed 2026-08-18. Triaged D on 2026-08-25. 17 citations (11 files) — a hub.
+- **Recommendation:** Keep todo but re-title to what G-12 left of it ('propagation guard reports drift; it never breaks a consumer build') and make MIS-096 its parent — or fold the remaining two criteria (inventory of propagating artefacts; generic guard) into MIS-096 and close this one as superseded. I recommend the fold: two live briefs for one guard is how the drift happens.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; retired identifiers repointed: C-005→CAN-005; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.

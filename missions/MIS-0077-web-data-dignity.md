@@ -12,11 +12,11 @@ assigned_to: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-17T18:59:03Z"
 created_source: "git:b484b68"
 created_confidence: exact
-updated: "2026-08-17T18:59:03Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [web, platform, narrative]
@@ -106,3 +106,14 @@ Scenario: The narrative page grounds the claim
 Data-dignity payments/pricing (Lanier's MID concept as mechanism), any
 tokenomics, consent-banner legal work (D12), translating the deep essay beyond
 ES+EN (ADR-001).
+
+## Status check — 2026-09-02
+
+*Read against `8907a56` during the missions/ normalisation (lot 3). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** Migrated from numinia-web (MISSION-005) 2026-08-17. Cited by nobody. Deliverables are numinia.com copy and wiring; needs 'the Oracle's literary voice'.
+- **Recommendation:** Freeze — same as MIS-074: a numinia-web mission parked here. Unfreeze when the Oracle writes the copy; nothing an agent of this repo can start.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.

@@ -12,11 +12,11 @@ started: "2026-08-17"
 completed: "2026-08-17"
 
 type: mission
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-08-17T11:55:34Z"
 created_source: "git:ced9a3d"
 created_confidence: inferred
-updated: "2026-08-17T13:13:35Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -40,15 +40,10 @@ divergence_log: null
 > place; every reference to an old ID keeps resolving.
 > **Audience:** Agents · Oracles
 
----
-
-**Area:** CAO / Archive
 **Guild:** Sentinels
 **Type:** digital
 **Priority:** high
 **Effort:** XL
-
----
 
 ## Oracle decisions (2026-08-17)
 
@@ -368,3 +363,7 @@ agents (the audit's readers) stop deriving four contradictory answers to
   build from the folder cannot drift from itself.
 - **Closing date:** 2026-08-17 (Oracle approved via merge of PR #5, 2eef3cc)
 - **Executing agent:** claude-fable-5 (session agent), Oracle: Pablo
+
+## Version history
+
+- v1.0.1 (2026-09-02) — Form: inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed. missions/ normalisation, lot 3.

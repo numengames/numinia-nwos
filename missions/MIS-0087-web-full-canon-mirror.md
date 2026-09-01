@@ -12,11 +12,11 @@ assigned_to: "numinia-nwos"
 completed: "2026-08-18"
 
 type: mission
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-08-18T09:11:14Z"
 created_source: "git:90269f6"
 created_confidence: exact
-updated: "2026-08-27T22:05:37Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -35,23 +35,16 @@ depends_on: []
 > with visible frontmatter and download of the canonical .md.
 > **Audience:** numinia-nwos agent · Oracle · Biological agents
 
----
-
-**Area:** Viewer / numinia.org
 **Guild:** Exegetes
 **Type:** digital
 **Priority:** medium
 **Effort:** L
-
----
 
 ## Story
 
 As a biological agent of the system, I want to navigate ALL the repo's .md
 documents on numinia.org with their frontmatter visible, to make informed
 decisions without depending on GitHub or the filesystem.
-
----
 
 ## Verified premises (2026-08-18)
 
@@ -80,8 +73,6 @@ decisions without depending on GitHub or the filesystem.
 - Exclusions: none silent. If something is excluded (e.g. TEMPLATE.md), the
   exclusion list is explicit on the index page.
 
----
-
 ## Acceptance criteria
 
 - [ ] Every .md in the repo outside `web/` has a rendered page on
@@ -94,8 +85,6 @@ decisions without depending on GitHub or the filesystem.
       display-only without asserting an open license (C-005 §5).
 - [ ] License guard and build green; deploy verified live.
 
----
-
 ## Epistemic value
 
 The corpus stops having dark zones: we will know which documents exist, in
@@ -105,8 +94,6 @@ what state, and who owns them, from any browser.
 
 Biological agents decide with the canon in front of them; digital ones link
 canonical URLs instead of filesystem paths.
-
----
 
 ## Execution log
 
@@ -119,8 +106,6 @@ canonical URLs instead of filesystem paths.
   211 documents grouped by directory, explicit exclusions at the foot).
   "Corpus" entry in the navigation (Sistema).
 - 2026-08-18 — Deployed and verified live.
-
----
 
 ## Execution Reality
 
@@ -139,3 +124,7 @@ canonical URLs instead of filesystem paths.
 - **Executing agent:** claude-fable-5 (numinia-nwos)
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
+
+## Version history
+
+- v1.1.1 (2026-09-02) — Form: inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed. missions/ normalisation, lot 3.

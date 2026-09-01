@@ -12,11 +12,11 @@ assigned_to: "numinia-nwos"
 completed: "2026-08-18"
 
 type: mission
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-08-18T09:11:14Z"
 created_source: "git:90269f6"
 created_confidence: exact
-updated: "2026-08-27T22:05:37Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -35,23 +35,16 @@ depends_on: ["MIS-087"]
 > print, signature) without losing format or provenance.
 > **Audience:** numinia-nwos agent · Oracle
 
----
-
-**Area:** Viewer / numinia.org
 **Guild:** Alchemists
 **Type:** digital
 **Priority:** medium
 **Effort:** M
-
----
 
 ## Story
 
 As a canon reader, I want to download any .md document as a PDF with the
 design system's formatting, to carry it, print it or share it outside the
 web while keeping its identity and provenance.
-
----
 
 ## Verified premises (2026-08-18)
 
@@ -88,8 +81,6 @@ web while keeping its identity and provenance.
 - The system's typography (Geist / Geist Mono) embedded.
 - Key frontmatter visible as a metadata block, not as raw YAML.
 
----
-
 ## Acceptance criteria
 
 - [ ] The design system's print-variant decision recorded (with the Oracle)
@@ -104,8 +95,6 @@ web while keeping its identity and provenance.
       one with tables render correctly.
 - [ ] License guard and build green; deploy verified.
 
----
-
 ## Epistemic value
 
 We learn to produce portable artifacts from a static site with no runtime —
@@ -115,8 +104,6 @@ a reusable pattern for sheets, reports and seals.
 
 The canon travels: PDFs with identity to print, attach or sign, without
 depending on how each person's browser renders.
-
----
 
 ## Execution log
 
@@ -138,8 +125,6 @@ depending on how each person's browser renders.
   engineering-standards (tables) — correct rendering.
 - 2026-08-18 — Deployed and verified live.
 
----
-
 ## Execution Reality
 
 - **Technology/approach used:** the planned option (a) — build-time
@@ -159,3 +144,7 @@ depending on how each person's browser renders.
 - **Executing agent:** claude-fable-5 (numinia-nwos)
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
+
+## Version history
+
+- v1.1.1 (2026-09-02) — Form: inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed. missions/ normalisation, lot 3.

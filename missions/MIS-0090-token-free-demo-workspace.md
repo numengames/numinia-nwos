@@ -12,11 +12,11 @@ assigned_to: null
 completed: "2026-08-18"
 
 type: mission
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-08-18T12:23:36Z"
 created_source: "git:9fb1f3f"
 created_confidence: exact
-updated: "2026-08-27T22:05:37Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -38,15 +38,10 @@ depends_on: []
 > anyone can open.
 > **Audience:** Oracle · nwos-deploy agents
 
----
-
-**Area:** NWOS deploy / nwos.numen.games
 **Guild:** Alchemists
 **Type:** digital
 **Priority:** medium
 **Effort:** M
-
----
 
 ## Origin
 
@@ -134,5 +129,6 @@ substitute if the public read-only mode gets complicated.
 - v1.1.0 (2026-08-18) — Executed and closed the same day: the
   `faro-austral` demo generated, frozen and linked; two flow fixes landed
   in nwos-deploy along the way.
+- v1.1.1 (2026-09-02) — Form: inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed. missions/ normalisation, lot 3.
 
 *Claude (Fable 5) + Pablo — 2026-08-18*

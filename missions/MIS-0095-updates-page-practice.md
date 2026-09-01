@@ -8,15 +8,15 @@ effort: "M"
 guild: "Procurators"
 territory: "TBA"
 type_execution: "digital"
-assigned_to: "numinia-nwos"
+assigned_to: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-18T14:46:58Z"
 created_source: "git:64704cf"
 created_confidence: exact
-updated: "2026-08-27T22:05:37Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -39,20 +39,13 @@ depends_on: []
 > heading without opening git.
 > **Audience:** Oracle · Each web's agents
 
----
-
-**Area:** Standards + all the webs · **Guild:** Procurators
 **Type:** digital · **Priority:** medium · **Effort:** M
-
----
 
 ## Story
 
 As an Oracle, I want every web to publish its version history in human
 language, so I can review how each thing evolves without reading commits or
 asking an agent.
-
----
 
 ## Verified premises (2026-08-18)
 
@@ -126,8 +119,6 @@ mould's next version**, not as a descending mandate. Proposed text:
 3. **PM-06's level** (SHOULD vs MUST) per surface — the proposal already
    distinguishes it; confirm.
 
----
-
 ## Acceptance criteria
 
 - [ ] ADR drafted and PR opened upstream with PM-06 **as a proposal for the
@@ -141,8 +132,6 @@ mould's next version**, not as a descending mandate. Proposed text:
       in their parcels, pointing at this practice.
 - [ ] The practice referenced in the local `STANDARDS.md` as adopted.
 
----
-
 ## Epistemic value
 
 It distinguishes two artifacts that get confused: the CHANGELOG (for code
@@ -153,13 +142,9 @@ readers) and the Updates (for product users). The same truth, two tongues.
 One place per web to see what was delivered and when — without opening git,
 without asking, and comparable across products.
 
----
-
 ## Execution log
 
 *(Fill when completing the mission)*
-
----
 
 ## Execution Reality
 
@@ -172,3 +157,14 @@ without asking, and comparable across products.
 - **Executing agent:** (name / agent-id)
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
+
+## Status check — 2026-09-02
+
+*Read against `8907a56` during the missions/ normalisation (lot 3). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** numinia.org/updates does not exist (0 pages, 0 URLs in baseline); CHANGELOG.md exists and is maintained; the ADR upstream (PM-06) not drafted. Design correction by the Oracle 2026-08-18 (G-12: proposal, not mandate). 5 citations.
+- **Recommendation:** Keep todo; well-defined and cheap on this repo (a /updates page from CHANGELOG.md is the MIS-066 pattern). The 'missions for the other webs' criterion is out of this repo's hands — drop it or mark it Oracle-owned.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.

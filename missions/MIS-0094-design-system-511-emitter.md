@@ -13,11 +13,11 @@ started: "2026-08-18"
 completed: "2026-08-18"
 
 type: mission
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-08-18T13:41:01Z"
 created_source: "git:46d157c"
 created_confidence: exact
-updated: "2026-08-27T22:05:37Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 requested_by: "numinia-web (ADR-022), via Oracle"
@@ -36,8 +36,6 @@ depends_on: ["MIS-068", "MIS-092", "MIS-093"]
 > **Epistemic:** What the emitter owes when the consumer stops copying.
 > **Pragmatic:** numinia-web can re-pin to 5.1.0 with a verifiable digest.
 > **Audience:** Oracle · numinia-web · numinia-nwos agent
-
----
 
 ## Delivered (against the commission, point by point)
 
@@ -104,3 +102,7 @@ depends_on: ["MIS-068", "MIS-092", "MIS-093"]
   without trusting anyone.
 - **Closing date:** 2026-08-18
 - **Executing agent:** claude-fable-5 (numinia-nwos)
+
+## Version history
+
+- v1.0.1 (2026-09-02) — Form: import-era `---` rules removed. missions/ normalisation, lot 3.

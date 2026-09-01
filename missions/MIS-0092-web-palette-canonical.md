@@ -13,11 +13,11 @@ started: "2026-08-18"
 completed: "2026-08-18"
 
 type: mission
-version: "1.2.0"
+version: "1.2.1"
 created: "2026-08-18T12:25:24Z"
 created_source: "git:cef232e"
 created_confidence: inferred
-updated: "2026-08-27T22:05:37Z"
+updated: "2026-09-02T01:51:14+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -39,23 +39,16 @@ depends_on: []
 > template's Velo theme (§2.8.2) gains its first real implementation.
 > **Audience:** Oracle · numinia-nwos agent
 
----
-
-**Area:** Viewer / numinia.org
 **Guild:** Alchemists
 **Type:** digital
 **Priority:** medium
 **Effort:** L
-
----
 
 ## Story
 
 As an Oracle, I want numinia.org to speak the Design System v5.0.0's
 canonical palette, so the house's archive is not the first drift a visitor
 sees.
-
----
 
 ## Context (2026-08-18)
 
@@ -99,8 +92,6 @@ sees.
       in the PDFs (no before/after captures were taken — the git diff is
       the record; accepted residue).
 
----
-
 ## Epistemic value
 
 Separating identity from drift: what made the viewer unique and what was
@@ -110,8 +101,6 @@ just default Tailwind.
 
 The house's archive wears the house's system; every new piece inherits
 canonicals without translation.
-
----
 
 ## Execution log
 
@@ -142,8 +131,6 @@ canonicals without translation.
 - 2026-08-18 — `web/DESIGN.md` marked superseded; final consolidation
   pending the Oracle's conservation list.
 
----
-
 ## Execution Reality
 
 - **Technology/approach used:** two layers — first the `global.css` tokens
@@ -172,3 +159,7 @@ family→token map (teal/cyan→teal, blue/sky/indigo→blue, red/rose→red,
 orange/amber→yellow, green/emerald→green, purple/violet→purple;
 text-teal-*→text-accent). Verification: zero default-palette classes in
 `web/src`.
+
+## Version history
+
+- v1.2.1 (2026-09-02) — Form: inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed. missions/ normalisation, lot 3.
