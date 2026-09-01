@@ -86,7 +86,7 @@ node scripts/census-frontmatter-history.mjs
 #    → same verdict, exit 0, and prints the commit range it covered
 
 # 3. The current tree is still clean (census must not have damaged anything):
-node scripts/check-frontmatter-delimiter.mjs   # → OK, 268 .md files
+node scripts/check-frontmatter-delimiter.mjs   # → OK, every fence closes on its own line
 ```
 
 - [ ] No merge to `main` is required for this verdict — but if damage IS found,
