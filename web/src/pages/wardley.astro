@@ -25,6 +25,10 @@ const PALETTE: Record<string, { color: string; bg: string; border: string }> = {
   foundation: { color: "#8a7d72", bg: "bg-[#8a7d72]/10", border: "border-[#8a7d72]/30" },
   differentiator: { color: "#a98be0", bg: "bg-[#a98be0]/10", border: "border-[#a98be0]/30" },
   frontier: { color: "#a6dad5", bg: "bg-[#a6dad5]/10", border: "border-[#a6dad5]/30" },
+  // "structure" has no story-layer section of its own, but two components
+  // (Protocols, Operational Reports) declare it in the report. Without this
+  // entry they fall through to the fallback and silently lose their amber.
+  structure: { color: "#efa517", bg: "bg-[#efa517]/10", border: "border-[#efa517]/30" },
 };
 
 const LAYER_ID: Record<string, string> = {
