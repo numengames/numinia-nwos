@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: "2026-08-27"
 
 type: mission
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-08-27T11:53:30Z"
 created_source: "git:8e90b81"
 created_confidence: exact
-updated: "2026-08-27T22:18:05Z"
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [translation, i18n, decision-006, archive]
@@ -36,8 +36,6 @@ requires_oracle_approval: true
 > **Pragmatic:** a cold agent reading any folder in this repo meets English,
 > with no mental translation step before it can act.
 > **Audience:** Agents · Oracles
-
----
 
 ## Origin
 
@@ -204,3 +202,7 @@ All nine rows translated and merged. Real PR list, in order:
 
 Structure verified programmatically per row (heading + table-row counts
 identical); license guard and web build (637 pages) green on every PR.
+
+## Version history
+
+- v1.0.1 (2026-09-02) — Form: import-era `---` rules removed. missions/ normalisation, lot 4.

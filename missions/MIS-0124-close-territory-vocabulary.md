@@ -12,11 +12,11 @@ assigned_to: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-30T11:45:00Z"
 created_source: "git:b09311c"
 created_confidence: exact
-updated: "2026-08-30T11:45:00Z"
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [governance, frontmatter, vocabulary, territory]
@@ -82,7 +82,7 @@ measurement to the decision, and the migration after it.**
 - [ ] Zero `TBA` remain in `territory` — each one resolved to a real value
 - [ ] `STD-001` §7 amended with the decided vocabulary, dated and versioned
 - [ ] The `territory` value check is live in `lint-frontmatter.mjs` and fails
-      in both directions (`P-013`)
+      in both directions (`PRO-013`)
 - [ ] `field-decisions.mjs` reports `territory` as `ruled` from the standard,
       not from a hand-wired `VOCAB` block
 
@@ -101,3 +101,14 @@ declared list does. A guard that fails correct documents teaches people to
 ignore guards.
 
 **Decide first, enforce second.**
+
+## Status check — 2026-09-02
+
+*Read against `203267c` during the missions/ normalisation (lot 4). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** 38 missions and 78 documents corpus-wide still carry territory: TBA (the field every TBA waits on, as its title says). Its executor is the Oracle (a vocabulary decision). 0/5.
+- **Recommendation:** Keep todo; the single highest-leverage open decision for the header burndown — one ruling resolves 78 fields. Escalate at the next triage.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — retired identifiers repointed: P-013→PRO-013; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.

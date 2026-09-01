@@ -13,11 +13,11 @@ started: "2026-08-25"
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-25T19:49:11Z"
 created_source: "git:25b3922"
 created_confidence: exact
-updated: "2026-08-26T06:53:13Z"
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [web, missions, design, design-system]
@@ -33,8 +33,6 @@ paths: [web/src/pages/missions.astro, web/src/pages/missions/, web/public/diseno
 > **Pragmatic:** a reader can tell what is being worked on now, and how recently,
 > without opening anything.
 > **Audience:** Agents · Oracles
-
----
 
 > **Split into three missions — 2026-08-25, by the Oracle. Recorded, not
 > edited in silence.**
@@ -59,8 +57,6 @@ paths: [web/src/pages/missions.astro, web/src/pages/missions/, web/public/diseno
 >
 > **This document stays as the parent.** Each of the three carries its own
 > criteria and its own `Closure`; this one is closed when the three are.
-
----
 
 ## Scope
 
@@ -164,8 +160,6 @@ before implementation. This mission does not begin in `missions.astro`.
 
 No mission document is edited. No frontmatter is normalised. No status renamed.
 
----
-
 ## Acceptance criteria
 
 *(Base commit `31fcd63`. Falsifiable where the thing is measurable; where it is
@@ -203,8 +197,6 @@ visual judgement it is written as judgement — see below.)*
 - [ ] The `Closure` section of a closed mission reads as the conclusion of the
       document rather than as another paragraph. Same nature: judged, not
       measured.
-
----
 
 ## Two findings, recorded not fixed here
 
@@ -257,8 +249,6 @@ that takes. Per-mission figures on the cards are untouched: what was retired is
 the **aggregate**, which is the part that reads as a measurement of the whole
 archive.
 
----
-
 ## Closure
 
 *(Partial — this mission is not finished. The header retirement landed on
@@ -279,3 +269,14 @@ archive.
 - **Evidence:** to be completed when the redesign closes.
 
 - **Closed:** not yet.
+
+## Status check — 2026-09-02
+
+*Read against `203267c` during the missions/ normalisation (lot 4). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** Parent of MIS-132/133 (both done 2026-08-25, ex-115a/b). 115c ('header counts what is actionable') never became a file. Its own criteria: group order ✓ (MissionsView COLUMN_ORDER), dates on cards ✓ (MIS-132), card hierarchy ✓ (MIS-133), header Critical count and Closure legibility unverified. in-progress since 2026-08-25, no commit since 08-26.
+- **Recommendation:** Close as done at the two shipped phases, or open a new mission for 115c and close this — do not leave a parent in-progress for a phase no file describes. I recommend close + a one-line note that 115c was not opened.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.

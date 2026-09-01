@@ -1,9 +1,6 @@
 {
  "_comment": "Filename violations frozen at adoption (STD-001 §9, D-001 item 3). The lint fails only on NEW ones. Shrinks as MIS-125 Stage C renames land; never grows.",
- "generated": "2026-09-01T23:22:01.116Z",
- "count": 2,
- "entries": [
-  "N-04 missions/ANNEX-mission-selection-draft.md :: filename does not match MIS-NNNN-<slug>.md for missions/ (STD-001 §9, ADR-005 v1.1.0)",
-  "N-04 standards/STANDARDS.md :: filename does not match STD-NNN-<slug>.md for standards/ (STD-001 §9, ADR-005 v1.1.0)"
- ]
+ "generated": "2026-09-01T23:55:38.347Z",
+ "count": 0,
+ "entries": []
 }

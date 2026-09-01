@@ -14,11 +14,11 @@ completed: null
 
 # REGISTRO
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-30T09:00:00Z"
 created_source: "git:765ee27"
 created_confidence: exact
-updated: "2026-08-30T10:36:00Z"
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [standards, frontmatter, guard, vocabulary, adr-028, tba]
@@ -116,11 +116,10 @@ likely error is the vocabulary**. Held for the Oracle: either the four
 in-service values join `STD-001` §7, or the 16 documents are migrated. This
 mission does not decide it.
 
-
 ## Acceptance
 
 - [ ] `guild`, `territory`, `type_execution` rejected on invalid values, both
-      directions tested per `P-013` §1
+      directions tested per `PRO-013` §1
 - [ ] `visibility` vocabulary declared in `STD-001` §7 and checked
 - [ ] `TBA` counted per field in the summary line, never fatal
 - [ ] A `TBA` without a named resolving mission is a violation
@@ -170,3 +169,13 @@ the Mission Board is where Numinia's history lives sent this work to
 guards would have caught it — no check reads the web layer. That gap is still
 open.
 
+## Status check — 2026-09-02
+
+*Read against `203267c` during the missions/ normalisation (lot 4). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** Its first criterion is done by reality: H-33…H-36 vocabulary checks are live in lint-frontmatter.mjs (VOCAB_CHECK) and H-32 checks TBA ownership. Remaining: visibility vocabulary in STD-001 §7, TBA counter in the summary line, baseline re-bank. Depends on ADR-027 (resolves).
+- **Recommendation:** Keep todo, re-scope to the three remaining criteria; tick the first two from the guard's own source (form). Small.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — retired identifiers repointed: P-013→PRO-013; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.

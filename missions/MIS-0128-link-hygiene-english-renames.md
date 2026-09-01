@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: "2026-08-30"
 
 type: mission
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-08-30T20:43:02+02:00"
 created_source: "git:a3fa9b9"
 created_confidence: exact
-updated: "2026-08-30T23:40:00+02:00"
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [web, url-lifecycle, seo, D-028]
@@ -37,8 +37,6 @@ paths: [web/src/pages/decisions/, web/src/pages/blueprints/, web/src/pages/archi
 > blueprints works again; shared links render a real card; a lost reader
 > lands on navigation instead of Cloudflare's bare 404.
 > **Audience:** Agents · Oracles
-
----
 
 ## Scope
 
@@ -74,8 +72,6 @@ corpus copies that commit verified.
 its own mission if the Oracle wants it), D-035 (the 320 PDF links),
 D-032 orphan pages, the `/nwos` links inside orphan pages, and the
 `web/README.md` drift (D-015 territory).
-
----
 
 ## Acceptance criteria
 
@@ -125,8 +121,6 @@ D-032 orphan pages, the `/nwos` links inside orphan pages, and the
       `<a href>`), 1 is `/nwos` inside D-032 orphan pages — explicitly
       out of scope (line 73 of this brief). Zero net-new dead links.
 
----
-
 ## Closure
 
 - **What was done:** all four defects from the 2026-08-30 audit fixed —
@@ -154,3 +148,7 @@ D-032 orphan pages, the `/nwos` links inside orphan pages, and the
 - **Closed:** 2026-08-30 (PR #149, merged) · **by:** ursa (agent), on
   Oracle instruction to verify against a real build before treating any
   claim as settled.
+
+## Version history
+
+- v1.1.1 (2026-09-02) — Form: import-era `---` rules removed. missions/ normalisation, lot 4.

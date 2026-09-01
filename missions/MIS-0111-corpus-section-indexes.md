@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: "2026-08-25"
 
 type: mission
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-08-25T19:34:05Z"
 created_source: "git:31fcd63"
 created_confidence: exact
-updated: "2026-08-26T05:29:38Z"
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [web, corpus, sections, navigation]
@@ -32,8 +32,6 @@ paths: [web/src/pages/corpus/, web/src/content.config.ts, web/src/data/navigatio
 > **Pragmatic:** a reader can see what a section contains without knowing a
 > filename in advance.
 > **Audience:** Agents · Oracles
-
----
 
 ## Scope
 
@@ -101,8 +99,6 @@ Deleting the ten orphan `.astro` pages retired from the nav by `MIS-110`
 no user. **This mission rebuilds the nav anyway**, so the type contract is
 settled here, with the design in front of us, rather than as loose tidying.
 
----
-
 ## Acceptance criteria
 
 *(Each states what it returns today at base commit `385c29d`, so it is false
@@ -129,8 +125,6 @@ before the work starts. Final states, not deltas.)*
       resolves. **Today: 643.** Adding indexes must not remove pages.
 - [ ] `node scripts/check-references.mjs` reports no new broken references
       against baseline 17. **Today: 13+4, baseline 17.**
-
----
 
 ## Closure
 
@@ -223,3 +217,7 @@ have happened had `decisions` and `blueprints` been listed under `/corpus/`.
 Twelve links drawn at random from all six indexes, every one a 200.
 
 - **Closed:** 2026-08-25 · **by:** ursa
+
+## Version history
+
+- v1.0.1 (2026-09-02) — Form: import-era `---` rules removed. missions/ normalisation, lot 4.

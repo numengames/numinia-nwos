@@ -4,7 +4,7 @@ uid: ""
 title: "Draft — how the next mission is chosen"
 status: draft
 
-type: documentation
+type: meta
 version: "0.1.0"
 created: "2026-08-25T20:05:59Z"
 created_source: "git:5abd27f"

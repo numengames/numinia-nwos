@@ -13,11 +13,11 @@ assigned_to: "ursa"
 completed: "2026-08-25"
 
 type: mission
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-08-26T06:28:16Z"
 created_source: "git:e0444ba"
 created_confidence: exact
-updated: "2026-09-02T01:14:58+02:00"
+updated: "2026-09-02T01:55:26+02:00"
 owner: "oracle"
 license: "CC0-1.0"
 former_id_note: "Renumbered 2026-09-02 (missions/ normalisation): the letter suffix of MIS-115b was never a registered id shape (ADR-004 §1, ADR-005 v1.1.0). It takes the next free number; parent_mission still points at MIS-115. Content unchanged."
@@ -36,8 +36,6 @@ parent_mission: "MIS-115"
 Second of the three `MIS-115` was split into. **The visual judgement is the
 Oracle's, made by looking at it** — this document records the measurable half
 and the proposal that was signed before any code was written.
-
----
 
 ## Scope
 
@@ -96,8 +94,6 @@ Worth recording: the card previously carried `transition-all duration-150`.
 
 > **Scope and Acceptance criteria are written now and are not edited later.**
 
----
-
 ## Acceptance criteria
 
 *(Each states what it returns TODAY, at base `9769676`.)*
@@ -113,8 +109,6 @@ Worth recording: the card previously carried `transition-all duration-150`.
       count. **Today: 101 of 101 (`MIS-115a`); this must not regress.**
 - [ ] Every card's transition uses the catalogue duration and no other.
       **Today: `duration-150`, which the catalogue does not contain.**
-
----
 
 ## Closure
 
@@ -204,3 +198,7 @@ the rule it exposed is now item 3 of the unfreezing list in `TEMPLATE-CHANGES`:
 from documents is exactly as honest as the documents.
 
 - **Closed:** 2026-08-25 · **by:** ursa
+
+## Version history
+
+- v1.1.1 (2026-09-02) — Form: import-era `---` rules removed. missions/ normalisation, lot 4.

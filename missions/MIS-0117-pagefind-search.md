@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: "2026-08-28"
 
 type: mission
-version: "1.3.0"
+version: "1.3.1"
 created: "2026-08-27T22:45:29Z"
 created_source: "git:9f8627a"
 created_confidence: exact
-updated: "2026-08-28T10:07:45Z"
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [web, alchemists]
@@ -37,8 +37,6 @@ paths: [web/astro.config.mjs, web/package.json, web/src/components/, web/src/pag
 
 `scope: numinia-nwos @ 40d0eb0 · public surface`
 
----
-
 ## Scope
 
 The public viewer only (`web/`). Adds a search index generated at build time
@@ -50,8 +48,6 @@ and a search UI on the served site. Touches `web/astro.config.mjs`,
 sitemap already applies), and any server-side or third-party search service.
 Rejected by principle, not by cost: SaaS search (Algolia et al.) contradicts
 the sovereignty stance; a search server contradicts the static deploy.
-
----
 
 ## Research (2026-08-28, base 40d0eb0)
 
@@ -86,8 +82,6 @@ by design).
 before deploy (MIS-088), but the exclusion must be verified in the acceptance
 criteria, not assumed.
 
----
-
 ## Design System compliance (v5.1.0) — added 2026-08-28
 
 *Amendment note (S-001 §2.1.2): added after the Oracle asked whether the
@@ -113,8 +107,6 @@ this mission because numinia.org is a **Velo-register surface** (§2.7, §2.8):
 - **Pre-delivery:** the §19.4 checklist runs before the implementation PR
   opens, and the mission's Closure records it.
 
----
-
 ## Acceptance criteria
 
 ```
@@ -126,8 +118,6 @@ this mission because numinia.org is a **Velo-register surface** (§2.7, §2.8):
 ```
 
 Every criterion is FALSE at base commit 40d0eb0 (no search exists).
-
----
 
 ## Closure
 
@@ -172,3 +162,7 @@ mission teaches: **"removed later" is not "absent when measured".**
 **One dependency choice to record:** `pagefind` pins the Rust binary as a
 devDependency so Workers Builds (`npm ci`) gets a deterministic version —
 nothing global, nothing manual.
+
+## Version history
+
+- v1.3.1 (2026-09-02) — Form: import-era `---` rules removed. missions/ normalisation, lot 4.

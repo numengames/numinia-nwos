@@ -12,11 +12,11 @@ assigned_to: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-25T19:34:05Z"
 created_source: "git:31fcd63"
 created_confidence: exact
-updated: "2026-08-25T19:49:11Z"
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [web, home, readme, single-source]
@@ -33,8 +33,6 @@ paths: [web/src/pages/index.astro, README.md, web/src/content.config.ts]
 > repository it describes.
 > **Audience:** Agents · Oracles
 
----
-
 ## Scope
 
 `web/src/pages/index.astro` (290 lines, **21 hand-written text elements**,
@@ -50,7 +48,7 @@ README.md:16   "The reference instance of the Narrative Work OS —
 home <h1>      "Narrative Work OS"
 ```
 
-Not a contradiction yet — but nothing keeps them together, and `D-033` is a
+Not a contradiction yet — but nothing keeps them together, and `DBT-006` is a
 registry of exactly this shape: two documents asserting the same thing with no
 mechanism binding them.
 
@@ -72,8 +70,6 @@ change. Editing prose and changing the mechanism in one commit makes both
 unreviewable.
 
 Section indexes — that is `MIS-111`.
-
----
 
 ## Acceptance criteria
 
@@ -99,8 +95,6 @@ before the work starts. Final states, not deltas.)*
 - [ ] `node scripts/check-references.mjs` reports no new broken references
       against baseline 17. **Today: 13+4, baseline 17.**
 
----
-
 ## Closure
 
 *(Fill when the mission closes. Not before, and not with intentions.
@@ -110,3 +104,14 @@ Add here — never edit `Scope` or the criteria to match what happened.)*
 - **What diverged, and why:**
 - **Evidence:**
 - **Closed:** YYYY-MM-DD · **by:**
+
+## Status check — 2026-09-02
+
+*Read against `203267c` during the missions/ normalisation (lot 4). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** 0/6; web/src/pages/index.astro cites README 0 times (criterion 2 false). Independent, well-specified, cheap. Cited by 2.
+- **Recommendation:** Keep todo; executable in one PR by any agent. Note its page-count criterion (643) is stale — the site builds 292 pages since reports/ normalisation; re-measure at execution.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — import-era `---` rules removed; retired identifiers repointed: D-033→DBT-006; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.

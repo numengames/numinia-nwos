@@ -1,7 +1,7 @@
 {
   "_comment": "Known-broken references frozen at adoption time. The lint fails only on NEW breakage. This list should shrink over time and never grow. Regenerate only when fixing entries.",
-  "generated": "2026-09-01T23:22:01.303Z",
-  "count": 671,
+  "generated": "2026-09-01T23:55:45.014Z",
+  "count": 669,
   "entries": [
     "FILE AGENTS.md -> MEMORY.md",
     "FILE CHANGELOG.md -> APPROVAL-REQUEST-template.md",
@@ -74,7 +74,6 @@
     "FILE missions/MIS-0056-repo-english-translation.md -> STATUS.md",
     "FILE missions/MIS-0057-deep-system-qa.md -> BP-cao.md",
     "FILE missions/MIS-0058-approval-brief-protocol.md -> APPROVAL-REQUEST-template.md",
-    "FILE missions/MIS-0058-approval-brief-protocol.md -> protocols/P-008-approval-brief-v1.md",
     "FILE missions/MIS-0063-nwos-iteration1-deploy-form.md -> nwos-phase2-guide.md",
     "FILE missions/MIS-0064-update-p001-agent-briefing.md -> P-001-agent-briefing.md",
     "FILE missions/MIS-0064-update-p001-agent-briefing.md -> P-001-briefing-agente-v1.md",
@@ -655,7 +654,6 @@
     "ID   standards/STD-004-header-standard.md -> D-017",
     "ID   standards/STD-004-header-standard.md -> D-021",
     "ID   standards/STD-004-header-standard.md -> D-025",
-    "LINK missions/MIS-0058-approval-brief-protocol.md -> ../protocols/P-008-approval-brief-v1.md",
     "LINK missions/MIS-0072-web-monorepo-foundations.md -> ../docs/LEY.md",
     "LINK missions/MIS-0073-web-cc0-archive.md -> ../docs/LEY.md",
     "LINK missions/MIS-0074-web-progressive-identity.md -> ../docs/LEY.md",

@@ -14,11 +14,11 @@ completed: "2026-08-29"
 
 # REGISTRO
 type: mission
-version: "4.0.0"
+version: "4.0.1"
 created: "2026-08-28T11:06:19Z"
 created_source: "git:61353f6"
 created_confidence: exact
-updated: "2026-08-30T23:30:00+02:00"
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [web, alchemists, i18n]
@@ -37,8 +37,6 @@ paths: [web/src/pages/, web/astro.config.mjs, web/src/data/navigation.ts, web/sr
 > **Pragmatic:** the es-ES reader Numen actually has (the Oracle) uses the
 > site in his language; the mechanism generalizes to any future locale.
 > **Audience:** Agents · Oracles
-
----
 
 ## Scope
 
@@ -319,3 +317,7 @@ completes the work.
   · **by:** ursa (agent), on Oracle instruction — the phase history had
   drifted out of this brief and was reconstructed from git log, not from
   memory, per instruction not to guess at lost specifics.
+
+## Version history
+
+- v4.0.1 (2026-09-02) — Form: import-era `---` rules removed. missions/ normalisation, lot 4.

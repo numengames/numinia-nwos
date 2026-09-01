@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: "2026-08-25"
 
 type: mission
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-08-25T19:34:05Z"
 created_source: "git:31fcd63"
 created_confidence: exact
-updated: "2026-08-25T20:50:28Z"
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [web, visibility, debt, governance, D-033]
@@ -32,8 +32,6 @@ paths: [web/src/content.config.ts, web/src/pages/corpus/, debt/]
 > **Pragmatic:** `debt/` returns to the corpus and `D-028`, `D-032`, `D-034`
 > publish, while `D-033` does not.
 > **Audience:** Agents · Oracles
-
----
 
 ## Scope
 
@@ -86,8 +84,6 @@ during the wiring.
 `D-033` stays unpublished. That is the constraint this mission is built around,
 not a decision it revisits.
 
----
-
 ## Acceptance criteria
 
 *(Each states what it returns today at base commit `385c29d`, so it is false
@@ -121,8 +117,6 @@ before the work starts. Final states, not deltas.)*
       pre-existing route 404s. **Today: 643.**
 - [ ] `node scripts/check-references.mjs` reports no new broken references
       against baseline 17. **Today: 13+4, baseline 17.**
-
----
 
 ## Closure
 
@@ -250,3 +244,7 @@ A filter that only hides is a folder exclusion with extra steps. This one lets
 through what is marked, stops what is not, and the boundary is written down.
 
 - **Closed:** 2026-08-25 · **by:** ursa
+
+## Version history
+
+- v1.0.1 (2026-09-02) — Form: import-era `---` rules removed. missions/ normalisation, lot 4.

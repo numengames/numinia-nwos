@@ -14,11 +14,11 @@ completed: null
 
 # REGISTRO
 type: mission
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-08-28T10:22:50Z"
 created_source: "git:1fae837"
 created_confidence: exact
-updated: "2026-08-28T12:38:31Z"
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [web, alchemists, accessibility]
@@ -37,8 +37,6 @@ paths: [web/src/components/SpeechPlayer.astro, web/src/components/DocToolbar.ast
 > **Pragmatic:** any document in the archive can be listened to, on any
 > page that carries the toolbar, with no server, no build step, no vendor.
 > **Audience:** Agents · Oracles
-
----
 
 ## Scope
 
@@ -74,8 +72,6 @@ That is the price of sovereignty in v1, it is documented here rather than
 discovered later, and v2 (pre-generated, consistent voice for canon)
 exists to pay it down.
 
----
-
 ## Acceptance criteria
 
 > Every criterion is FALSE at base commit `ba4b688`.
@@ -102,8 +98,6 @@ exists to pay it down.
 ✓  cd web && npm run build exits 0 with the same page count as base
                                                         (today: n/a)
 ```
-
----
 
 ## Design bindings (Sistema de Diseño v5.1.0)
 
@@ -132,8 +126,6 @@ The document language comes from frontmatter (`idioma_canonico` / `lang`)
 when declared, else the site default (`en`) — a Spanish document read by an
 English voice is unusable, and the corpus still carries Spanish documents
 mid-migration (ADR-023 (formerly ADR-024)).
-
----
 
 ## QA log (Oracle, 2026-08-28)
 
@@ -167,8 +159,6 @@ place — the reading continues where it was, never restarting. Position
 survives leaving the page (session-scoped); it does not survive the
 browser session.
 
----
-
 ## Closure
 
 - **What was done:** The "Listen" control on every corpus page: Web Speech
@@ -195,3 +185,7 @@ browser session.
   confirmed pause, stop, and rate 2026-08-28. Future work (forward/rewind
   controls; reload returns to the top) is on the kanban, not in scope.
 - **Closed:** 2026-08-28 · **by:** the Oracle (manual QA on live), fixes by Ursa
+
+## Version history
+
+- v1.0.1 (2026-09-02) — Form: import-era `---` rules removed. missions/ normalisation, lot 4.

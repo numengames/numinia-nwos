@@ -13,11 +13,11 @@ started: "2026-09-01T17:03:10Z"
 completed: null
 
 type: mission
-version: "1.2.0"
+version: "1.3.0"
 created: "2026-09-01T17:03:10Z"
 created_source: "git:969597e"
 created_confidence: exact
-updated: "2026-09-01T17:32:43Z"
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [archive, links, readme, adr-005, url-lifecycle]
@@ -37,8 +37,6 @@ in_review_at: "2026-09-01T17:32:43Z"
 > **Pragmatic:** four line edits, one existing metric proves the fix.
 > **Audience:** Agents · Oracles
 
----
-
 ## Context
 
 `check-references.mjs` reports **23 broken markdown links** in the tracked
@@ -49,7 +47,7 @@ opens every session:
 |---|---|---|---|
 | 33 | `protocols/P-001-agent-briefing` | `protocols/PRO-001-agent-session.md` | ADR-005 rename, 2026-08-31 |
 | 96 | `protocols/P-003-ciclo-mision-v1` | `protocols/PRO-003-mission-cycle.md` | ADR-005 rename, 2026-08-31 |
-| 134 | `debt/D-011-thresholds-unenforced` | `debt/DBT-002-root-of-trust-unestablished.md` | Debt-register refactor (`DBT-002 <- D-011`), MIS-121 |
+| 134 | `debt/D-011-thresholds-unenforced` | `debt/DBT-002-root-of-trust-unestablished.md` | Debt-register refactor (`DBT-002 <- DBT-002`), MIS-121 |
 | 147 | the retired English-as-canon-language decision | `decisions/ADR-023-canon-vocabulary.md` | Decisions consolidation: superseded, then absorbed into ADR-023, MIS-127 |
 
 The guard is a ratchet — it fails only on *new* breakage, so these four sit in
@@ -58,13 +56,13 @@ the tolerated baseline. This mission spends four of the 23.
 ## Scope
 
 - `README.md` — exactly the four links in the table above. Nothing else.
-- The prose that names them (`P-001`, `P-003`, `D-011`, and the retired
+- The prose that names them (`PRO-001`, `PRO-003`, `DBT-002`, and the retired
   English-language decision) is updated to the current identifier in the same
   lines where a rename happened.
 
 **Out of scope:** the other 19 broken links (separate audit, MIS-089 F-series);
 any prose rewrite of README; the identifiers in `missions/` history — those are
-archaeology and stay as written; MIS-058's `P-008` reference (same ADR-005
+archaeology and stay as written; MIS-058's `PRO-008` reference (same ADR-005
 rename class, separate file, deliberately not included).
 
 ## Acceptance criteria
@@ -109,3 +107,14 @@ node scripts/check-references.mjs   # "broken markdown links : 19"
   and `lint-naming.mjs` → no new violations. All verified at commit
   `4595773`+fix, before this file was marked in-review.
 - **Closed:** not yet — awaiting Oracle review.
+
+## Status check — 2026-09-02
+
+*Read against `203267c` during the missions/ normalisation (lot 4). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** in-review since 2026-09-01T17:32; PR #188 merged 2026-09-01T17:37. README's protocol/standard links all resolve today (checked file by file). Both criteria true.
+- **Recommendation:** Close as done — the review happened (the PR merged); set completed: 2026-09-01 and tick the two criteria. Nothing else pending.
+
+## Version history
+
+- v1.3.0 (2026-09-02) — import-era `---` rules removed; retired identifiers repointed: D-011→DBT-002, P-001→PRO-001, P-003→PRO-003, P-008→PRO-008; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.

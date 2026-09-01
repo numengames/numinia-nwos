@@ -12,11 +12,11 @@ assigned_to: null
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-25T19:34:05Z"
 created_source: "git:31fcd63"
 created_confidence: exact
-updated: "2026-08-25T19:49:11Z"
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [web, readme, index, generated]
@@ -32,8 +32,6 @@ paths: [README.md, scripts/, web/src/content.config.ts]
 > hand-kept list and becomes generated from the sections themselves.
 > **Pragmatic:** the repo's front door stops going stale when a folder changes.
 > **Audience:** Agents · Oracles
-
----
 
 ## Scope
 
@@ -78,15 +76,11 @@ The `[MANUAL]`/`[CI]` question — whether the generator runs in CI or is a
 command someone runs — is decided when the criteria are written, because it
 depends on whether a stale index should fail a build.
 
----
-
 ## Acceptance criteria
 
 *(Deliberately empty. Written when `MIS-111` closes and its findings are known.
 See the note in Scope: criteria invented before the dependency resolves are not
 falsifiable, they are guesses.)*
-
----
 
 ## Closure
 
@@ -97,3 +91,14 @@ Add here — never edit `Scope` or the criteria to match what happened.)*
 - **What diverged, and why:**
 - **Evidence:**
 - **Closed:** YYYY-MM-DD · **by:**
+
+## Status check — 2026-09-02
+
+*Read against `203267c` during the missions/ normalisation (lot 4). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** Depends on MIS-111 (done). README §'Where things live' is still hand-maintained. No acceptance criteria block — the brief ends at Summary/Scope.
+- **Recommendation:** Keep todo; write the acceptance criteria before assigning (the brief is a paragraph). Pairs with MIS-112: one 'README is the source' mission would cover both.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.

@@ -13,11 +13,11 @@ assigned_to: null
 completed: null
 
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-25T18:05:01Z"
 created_source: "git:c2ee691"
 created_confidence: exact
-updated: "2026-09-02T01:14:58+02:00"
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [missions, guards, proposal, D-017]
@@ -34,8 +34,6 @@ former_id_note: "Registered 2026-09-02 as a mission (missions/ normalisation): i
 > **Pragmatic:** the numbers below say it must be tolerant, not strict.
 
 `ROOT = numengames/numinia-nwos · main` · `HEAD = f7a65f5` · 2026-08-25
-
----
 
 ## What it would check
 
@@ -148,3 +146,14 @@ measurement found. It does not raise the quality of the other 27.
 
 No file was written. This document is the proposal; the Oracle decides whether
 it exists, and in which of the two shapes.
+
+## Status check — 2026-09-02
+
+*Read against `203267c` during the missions/ normalisation (lot 4). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** Was PROPOSAL-closure-guard (2026-08-25): a guard failing done missions without a Closure section, measured then as 'must be tolerant'. Today: 30 of 52 done missions carry no filled Closure (this normalisation's census). D-017/D-025 it cites were absorbed into DBT-010/ADR-030.
+- **Recommendation:** Keep todo; the proposal's own numbers now argue for it as a ratchet (baseline the 30, fail on new). Cheap, one script in the lint-frontmatter pattern; MIS-121's instrument.
+
+## Version history
+
+- v1.2.0 (2026-09-02) — import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.

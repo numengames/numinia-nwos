@@ -12,11 +12,11 @@ assigned_to: null
 completed: "2026-08-30T11:20:00Z"
 
 type: mission
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-08-30T11:20:00Z"
 created_source: "git:b09311c"
 created_confidence: exact
-updated: "2026-08-30T11:20:00Z"
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [governance, frontmatter, tooling, self-application]
@@ -136,8 +136,10 @@ So this reduces the failure. It does not eliminate it. Closing it properly
 means the standards themselves becoming machine-readable — which is a larger
 mission than this one, and not one I should open without the Oracle.
 
----
-
 *Verified at `b09311c`, 2026-08-30. `node scripts/field-decisions.mjs --write`
 reports 131 fields, 70 ruled, 5 ring-table gaps; four guards green; baseline
 unchanged at 543.*
+
+## Version history
+
+- v1.0.1 (2026-09-02) — Form: import-era `---` rules removed. missions/ normalisation, lot 4.

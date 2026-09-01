@@ -9,14 +9,15 @@ guild: "Exegetes"
 territory: "Archive"
 type_execution: digital
 assigned_to: null
+started: "2026-08-31"
 completed: null
 
 type: mission
-version: "1.4.0"
+version: "1.5.0"
 created: "2026-08-30T11:50:00Z"
 created_source: "git:b09311c"
 created_confidence: exact
-updated: "2026-08-31T18:10:00+02:00"
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [governance, identifiers, prefixes, adr-005]
@@ -90,17 +91,17 @@ For every series that carries identifiers:
 - [ ] Every `id` in the corpus matches its series' registered prefix, or its
       exception is declared and dated
 - [ ] The check is live in `lint-frontmatter.mjs` and fails in both directions
-      (`P-013`)
+      (`PRO-013`)
 - [ ] `H-01` prefix findings reach zero, and the count is measured against the
       filesystem, not the baseline file alone
 
 ## Dependencies
 
 - **Not blocked.** Independent of the header burndown.
-- **Overlaps `D-008` — verified, not assumed.** `D-008` is titled *"Four series
+- **Overlaps `DBT-001` — verified, not assumed.** `DBT-001` is titled *"Four series
   carry a registration scheme the corpus does not yet apply"* and names the same
   four unregistered series this mission measured independently. **This mission
-  is the execution of `D-008`, not a second opinion on it.** Read `D-008` first;
+  is the execution of `DBT-001`, not a second opinion on it.** Read `DBT-001` first;
   if it already answers question 1, this mission inherits the answer rather than
   re-deciding it.
 
@@ -120,7 +121,7 @@ not "never rename"; it is "never break a reference that exists".
 
 Design closed in a prior chat session (plan at
 `.hermes/plans/2026-08-31_090215-MIS-125-prefix-standardization.md`,
-repo-local, scratch — deleted at mission close per `P-010`). Execution
+repo-local, scratch — deleted at mission close per `PRO-010`). Execution
 started this session, staged A → B → C → D per that plan.
 
 **Base commit:** `26fea478d33018002e699cb59cdb4d7e0aa67d6d` (`origin/main`,
@@ -173,7 +174,7 @@ decided unilaterally:
    prefix — silently reversed `ADR-005`'s own ratified Decision 2
    (`agents/` takes `AG-NNN`). Flagged, not written over. Oracle ruled:
    formalize the reversal as an explicit `ADR-005` v1.1.0 amendment
-   (not just extend the new table), plus a reasoned `D-008` closure —
+   (not just extend the new table), plus a reasoned `DBT-001` closure —
    rather than silently reinstating or silently dropping it. Folder count
    corrected 8→7 (plan was stale; verified via `git ls-files`/`find`).
 2. **`registration: exempt` scope.** 50 files carry the exemption; 24 are
@@ -182,11 +183,11 @@ decided unilaterally:
    as a side effect (including its `pending-genre-ruling` blocker for
    `operations/security-policy.md` + `credential-map.md`, both `OPS-NNN`).
    One document, `APPROVAL-REQUEST-template.md`, was first marked `[x]`
-   in error (it is apparatus of `P-008`, not orphaned) — caught and
+   in error (it is apparatus of `PRO-008`, not orphaned) — caught and
    corrected same session, `D-024` → v1.2.0.
 
-**Documents changed:** `ADR-004` v1.1.0, `ADR-005` v1.1.0, `P-010` v0.4.0,
-`D-008` v2.0.0 (rewritten, measured against the new register via
+**Documents changed:** `ADR-004` v1.1.0, `ADR-005` v1.1.0, `PRO-010` v0.4.0,
+`DBT-001` v2.0.0 (rewritten, measured against the new register via
 `git ls-files`, not the plan's stale census), `D-024` v1.2.0 (closed).
 
 **A verification gap found and closed before it could reach Stage C:**
@@ -206,7 +207,7 @@ closed`) — build failed on `H-04`. Corrected to `status: closed`;
 
 PR: https://github.com/numengames/numinia-nwos/pull/155 — merged
 (squash, by María, `e8571cb`). A same-day commit
-(`missions`/`D-008` cross-referencing) was pushed after the squash and
+(`missions`/`DBT-001` cross-referencing) was pushed after the squash and
 orphaned on the closed branch; rescued via cherry-pick into PR #156
 (https://github.com/numengames/numinia-nwos/pull/156, merged). Stage A
 closed end-to-end on `main` at `307c7bc`.
@@ -219,15 +220,15 @@ reach — will break silently when Stage C renames that file.
 ## Stage B — rename tool (PR #157, PR #161, 2026-08-31)
 
 **Pre-work (PR #157):** re-measured the register against `main` post-Stage-A
-before writing any tool. Found a real contradiction in `D-008` v2.0.0:
+before writing any tool. Found a real contradiction in `DBT-001` v2.0.0:
 `standards/` coverage claimed `0/8`, but only 7 files actually qualify —
 `standards/STANDARDS.md` (`type: meta`, tombstone/redirector) was being
 counted like a numbered standard instead of excluded like
 `README.md`/`INDEX.md`. Oracle ruled: permanent apparatus, no `STD-NNN`
-("vamos con la A"). `count-evidence.py` fixed, `D-008` corrected to v2.1.0
+("vamos con la A"). `count-evidence.py` fixed, `DBT-001` corrected to v2.1.0
 (`standards/` `0/8→0/7`). A concurrent session closed `debt/D-001` in
 parallel during the same window (legitimate, documented in this file's
-own ledger below) — `D-008`'s `debt/` count corrected `0/37→0/36` in the
+own ledger below) — `DBT-001`'s `debt/` count corrected `0/37→0/36` in the
 same v2.1.0 pass. PR: https://github.com/numengames/numinia-nwos/pull/157
 (merged).
 
@@ -260,9 +261,9 @@ Dry-run tested against 6 series (`infra` 0-file edge case, `guilds`,
    directly contradicting this session's own `D-024` v1.2.0 correction.
    Fixed — any `registration: exempt` file is excluded by default;
    `--include-exempt` is a per-run operator assertion, required after
-   verifying `D-008`'s enumerated list actually covers the `--dir` in
+   verifying `DBT-001`'s enumerated list actually covers the `--dir` in
    question.
-5. Surfaced, not fixed by the tool: 2 more files carry the exact `P-010`
+5. Surfaced, not fixed by the tool: 2 more files carry the exact `PRO-010`
    §3.2 frozen-artifact filename shape (dated-title-versioned) but
    are **missing** the `registration_exemption: frozen-artifact` field
    (`protocols/2026_04_14-Read_Me_How_to_Archive-v0.2.0.md`,
@@ -276,23 +277,23 @@ Dry-run tested against 6 series (`infra` 0-file edge case, `guilds`,
    re-verified all 6 dry-run series produce identical plans afterward.
 
 Also caught in the same window: `debt/D-002` was extinguished by another
-session in PR #160, landing *after* this PR's own `D-008` v2.1.0 commit
-— `D-008` corrected again to v2.2.0 (`debt/` `0/36→0/35`, total
+session in PR #160, landing *after* this PR's own `DBT-001` v2.1.0 commit
+— `DBT-001` corrected again to v2.2.0 (`debt/` `0/36→0/35`, total
 renameable `275→274`), same pattern as the `D-001` correction, not an
 error in the prior version.
 
 PR: https://github.com/numengames/numinia-nwos/pull/157 (merged) and
 https://github.com/numengames/numinia-nwos/pull/161 (merged, `534e25e`).
 
-**Blocker resolved — ruling made 2026-08-31, in `P-010` §3.2.2:**
-`P-010` §3.2 defines `registration_exemption: frozen-artifact` files as
+**Blocker resolved — ruling made 2026-08-31, in `PRO-010` §3.2.2:**
+`PRO-010` §3.2 defines `registration_exemption: frozen-artifact` files as
 permanent dated snapshots that never evolve ("a photograph, not a living
-document"). `D-008`'s own "24 exempt enter the scheme" ruling included 5
+document"). `DBT-001`'s own "24 exempt enter the scheme" ruling included 5
 such files (3 by explicit field, 2 more by filename shape only — see bug
 5 above) and assigned them `STD-NNN`/`CAN-NNN`/`PRO-NNN` destinations,
-directly contradicting `P-010` §3.2 on its face.
+directly contradicting `PRO-010` §3.2 on its face.
 
-**Ruled: `P-010` §3.2 prevails. `D-008` is corrected; the 5 keep their
+**Ruled: `PRO-010` §3.2 prevails. `DBT-001` is corrected; the 5 keep their
 dated names permanently.** Four grounds, each measured against the repo at
 `caf2621` rather than argued from principle:
 
@@ -301,7 +302,7 @@ dated names permanently.** Four grounds, each measured against the repo at
    Astro loader derives from the filename when the frontmatter declares
    none. `npm run build` publishes **all five** at filename-derived
    addresses, e.g. `/corpus/standards/2026_08_18-sistema_de_diseno-v510`.
-   Renaming publishes five dead URLs. `D-028` exists because nothing
+   Renaming publishes five dead URLs. `DBT-004` exists because nothing
    manages that lifecycle. **This ground alone is sufficient.**
 2. **This mission's own licence to rename does not cover them.** §"The
    prior constraint" above authorises renaming *because the 13 descriptive
@@ -315,28 +316,28 @@ dated names permanently.** Four grounds, each measured against the repo at
    `sha256`, verified by that repo's own `scripts/check-design-source.mjs`.
    `STD-001` §5.0.1 makes such a rename **structurally incomplete**.
    *Qualified 2026-08-31:* that pin currently names `…-v5.0.0.md`, so it is
-   already stale (`D-040`) and a rename would not break it today. The
+   already stale (`DBT-011`) and a rename would not break it today. The
    ground rests on the mechanism, not on this pin.
 4. **Two are `threshold: sealed`** (`STD-001` §2.1 — both `canon/` documents;
    the other three declare no threshold) — changing them takes an Oracle
    signature and an ADR, which a bulk prefix pass is not.
 
-**Correction, 2026-08-31 (same day, see `P-010` §3.2.3):** as first
+**Correction, 2026-08-31 (same day, see `PRO-010` §3.2.3):** as first
 published this list said "59 citations across 27 files" (actual: **71
 across 24**), and cited `check-design-source.mjs` as if it ran in this
 repo (it lives in `numinia-web`). Ground order changed accordingly: the
 URL ground is now first because it is the one verified against built
 output. The ruling is unchanged.
 
-**Documents changed:** `P-010` v0.5.0 (§3.2.1 + §3.2.2 — the rule now says
-what it means and how to detect it), `D-008` v3.0.0 (ruling reversed,
+**Documents changed:** `PRO-010` v0.5.0 (§3.2.1 + §3.2.2 — the rule now says
+what it means and how to detect it), `DBT-001` v3.0.0 (ruling reversed,
 denominators corrected), `D-024` v1.3.0 (two v1.1.0 claims withdrawn),
 `scripts/count-evidence.py`, `scripts/rename-series.mjs` (header + operator
 message; the detection logic was already correct).
 
 **Two defects found while ruling, neither part of the question asked:**
 
-- **`D-008`'s headline total had been wrong since v2.0.0.** The series
+- **`DBT-001`'s headline total had been wrong since v2.0.0.** The series
   table summed to **254**, while the text claimed **274** — it was adding
   the 20-file `decisions/` row that the same sentence declares excluded.
   Two later "corrections" (275→274, 274→…) adjusted the wrong number
@@ -344,12 +345,12 @@ message; the detection logic was already correct).
   `count-evidence.py` instead of maintained by hand: **248** after this
   ruling. Nobody caught this in three revisions because the number looked
   plausible and no one added the column.
-- **`count-evidence.py` and `P-010` disagreed about what a frozen artefact
+- **`count-evidence.py` and `PRO-010` disagreed about what a frozen artefact
   is.** The script keyed on the `registration_exemption` field; the
   protocol describes a filename convention. The two files carrying the
   shape without the field were counted as non-compliance — the counter was
   manufacturing the very debt this ruling removes. Both now key on the
-  filename shape, and `P-010` §3.2.1 states which is normative.
+  filename shape, and `PRO-010` §3.2.1 states which is normative.
 - Also excluded from the denominator: `APPROVAL-REQUEST-template.md`,
   ruled apparatus by `D-024` v1.2.0 on 2026-08-31, which no counter had
   ever excluded.
@@ -359,7 +360,7 @@ message; the detection logic was already correct).
 
 ## Stage C — series renames (2026-08-31, in progress)
 
-Order per `D-008`'s risk ranking, lowest first. One commit per series, all
+Order per `DBT-001`'s risk ranking, lowest first. One commit per series, all
 guards green before the next.
 
 ### `guilds/` → `GLD-NNN` (8 files, done)
@@ -413,8 +414,8 @@ files the rename never touched — all citing `agents/guilds/…`, a directory
 deleted in `b7a2e39`. They were already broken at `caf2621` and the guard
 reported them clean, because *some* file named `charter.md` existed. The
 rename removed the accident that hid them. Baselined, not rewritten (two
-`status: closed` blueprints and a `P-008` template describing the architecture
-that deletion removed). `D-039` again, one layer down. Filed as `D-047`.
+`status: closed` blueprints and a `PRO-008` template describing the architecture
+that deletion removed). `DBT-010` again, one layer down. Filed as `D-047`.
 
 ### Interlude — debt reduction before the next series (PR #164, 2026-08-31)
 
@@ -451,7 +452,7 @@ What changed is that a green run no longer implies more than it proved.
 
 `D-048` closed on both conditions: the tool refuses dated evidence and closed
 records (60 refusals in a throwaway-clone test), and the interim rule is now
-permanent policy in **`P-010` §3.4 — a citation may be rewritten, a mention may
+permanent policy in **`PRO-010` §3.4 — a citation may be rewritten, a mention may
 not**. Rule 3 of that section (read the full staged diff) remains mandatory for
 the ten series still unrenamed.
 
@@ -469,10 +470,10 @@ v5.0.0.
 **2. A dead debt entry was cited as live authority.** `D-017` was extinguished
 2026-08-30 by `ADR-030`, and was cited here to justify not wiring a CI step —
 while its own resolution record reads *"workflow scope granted"*. The correct
-authority is **`P-013`**, whose step 3 (pasting the YAML) is the Oracle's and
+authority is **`PRO-013`**, whose step 3 (pasting the YAML) is the Oracle's and
 cannot be delegated. The conclusion was right; the ground under it was not.
 
-Both were found by reading, not by any guard — which is `D-050`.
+Both were found by reading, not by any guard — which is `DBT-010`.
 
 ### `D-050` — why none of it was caught (new, high)
 
@@ -489,11 +490,11 @@ string the guard never recognises as a reference at all.
 files from the unmatched set into the matched one, so those citations become
 reportable **all at once**. The reference guard will appear to break. It will
 not be breaking — it will be seeing, for the first time, what was already
-there. Anyone reading that run without `D-050` will blame the rename.
+there. Anyone reading that run without `DBT-010` will blame the rename.
 
 ### Stage C — what remains
 
-Ten series, `248` renameable files. `standards/` is next per `D-008`'s risk
+Ten series, `248` renameable files. `standards/` is next per `DBT-001`'s risk
 order, and is **held** on two counts, both the Oracle's to release:
 
 1. **The slug defect** (Stage B bug 3, still open): the dry run keeps the dead
@@ -505,7 +506,7 @@ order, and is **held** on two counts, both the Oracle's to release:
 
    *Written in prose rather than as identifiers on purpose: the target names
    do not exist yet, and spelling them out would make this mission cite files
-   that are not there — a mention, not a citation (`P-010` §3.4). `D-050`
+   that are not there — a mention, not a citation (`PRO-010` §3.4). `DBT-010`
    is the reason that distinction now matters.*
 2. **`ADR-030` housekeeping**: six entries carry `status: closed` and are still
    in the tree (`D-014`, `D-024`, `D-025`, `D-047`, `D-048`, `D-049`). Rule 1
@@ -515,6 +516,17 @@ order, and is **held** on two counts, both the Oracle's to release:
    instruction. Deleting six documents is not something an agent does because a
    rule appears to permit it.
 
-`P-013` handoff is open: steps 1, 2 and 4 are done (the suite is tested in both
+`PRO-013` handoff is open: steps 1, 2 and 4 are done (the suite is tested in both
 directions, the YAML block is in PR #164's body, and the merged run is green).
 Step 3 — pasting it into `.github/workflows/ci.yml` — is the Oracle's.
+
+## Status check — 2026-09-02
+
+*Read against `203267c` during the missions/ normalisation (lot 4). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** Acceptance 1/4: register complete ✓; 'every id matches its prefix' — H-01 findings are now 0 (count-evidence 10/11 series at 100 %, missions 131/132); the check is live in lint-frontmatter (H-01) — criteria 2–4 are met by the corpus today, criterion 4 by this normalisation (missions/ was the last series at 0 %). Stage C 'what remains' names standards/ (done 08-31) and ADR-030 housekeeping (done #180). No started date; 58 citations (11 files) — the most-cited live mission.
+- **Recommendation:** Close as done: every acceptance criterion is measurable today and passes (H-01 = 0; count-evidence ≥ 99 % every series). Tick criteria 2–4 with the figures; fill Closure from its own Stage A/B/C sections. Oracle signs.
+
+## Version history
+
+- v1.5.0 (2026-09-02) — retired identifiers repointed: D-008→DBT-001, D-028→DBT-004, D-039→DBT-010, D-040→DBT-011, D-050→DBT-010, P-008→PRO-008, P-010→PRO-010, P-013→PRO-013; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.

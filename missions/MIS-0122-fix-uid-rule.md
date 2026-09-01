@@ -14,11 +14,11 @@ completed: "2026-08-30T10:36:00Z"
 
 # REGISTRO
 type: mission
-version: "2.0.0"
+version: "2.0.1"
 created: "2026-08-30T05:05:00Z"
 created_source: "git:fd4d045"
 created_confidence: exact
-updated: "2026-08-30T10:36:00Z"
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [standards, frontmatter, uid, s-001, guard]
@@ -69,15 +69,11 @@ paths: [scripts/lint-frontmatter.mjs, standards/S-001-glossary.md, standards/S-0
 > `ADR-027 (formerly ADR-028)` and `ADR-027` do **not** fix it — neither touches a check. This
 > mission is still the fix.
 
----
-
 ## Base commit
 
 **`baf188b`** — where `node scripts/lint-frontmatter.mjs --report` returns
 **64** `H-09` findings on `uid` and **34** `H-20`, and where emptying any
 written `uid` fails the ratchet.
-
----
 
 ## Scope
 
@@ -94,8 +90,6 @@ identifier is generated here.
 
 > **Scope and Acceptance criteria are written now and are not edited
 > afterwards.** What happens goes in `Closure`.
-
----
 
 ## The contradiction, stated exactly
 
@@ -120,8 +114,6 @@ node scripts/lint-frontmatter.mjs
 ```
 
 The corpus is not what is broken here.
-
----
 
 ## Acceptance criteria
 
@@ -213,8 +205,6 @@ wrong**, and it argues for editing 65 documents that were already correct.
 Both were caught by cross-checking one instrument against another — the
 guard's 34 against the filesystem's — rather than by trusting either alone.
 
----
-
 ## Why this is separate from MIS-121
 
 Ruled 2026-08-30: **no document should carry a `uid` value; where one exists
@@ -231,8 +221,6 @@ stopped being counted.
 The ordering is mechanical, not editorial. Until `H-09` is fixed, emptying a
 `uid` **fails CI**.
 
----
-
 ## Note on this mission's own status
 
 Filed `status: todo`, which `S-001` §9 declares and the guard accepts.
@@ -245,8 +233,6 @@ A new mission today is **conforming or visible, not both**: filing it
 down. This is `D-009` seen from the other end, and it is recorded here
 because writing this file discovered it.
 
----
-
 ## Closure
 
 *(Fill when the mission closes. Not before, and not with intentions.)*
@@ -255,3 +241,7 @@ because writing this file discovered it.
 - **What diverged, and why:**
 - **Evidence:**
 - **Closed:** YYYY-MM-DD · **by:**
+
+## Version history
+
+- v2.0.1 (2026-09-02) — Form: import-era `---` rules removed. missions/ normalisation, lot 4.

@@ -13,11 +13,11 @@ assigned_to: "ursa"
 completed: "2026-08-25"
 
 type: mission
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-08-26T05:29:38Z"
 created_source: "git:9769676"
 created_confidence: exact
-updated: "2026-09-02T01:14:58+02:00"
+updated: "2026-09-02T01:55:26+02:00"
 owner: "oracle"
 license: "CC0-1.0"
 former_id_note: "Renumbered 2026-09-02 (missions/ normalisation): the letter suffix of MIS-115a was never a registered id shape (ADR-004 §1, ADR-005 v1.1.0). It takes the next free number; parent_mission still points at MIS-115. Content unchanged."
@@ -38,8 +38,6 @@ parent_mission: "MIS-115"
 **First of the three MIS-115 was split into** (Oracle, 2026-08-25). This one
 carries **zero visual judgement**: every criterion below runs against `dist/`.
 That is why it lands first — it can be proved without anyone looking at it.
-
----
 
 ## Scope
 
@@ -79,8 +77,6 @@ about what to pick up. Sorted by priority it is the queue it claims to be.
 
 > **Scope and Acceptance criteria are written now and are not edited later.**
 
----
-
 ## Acceptance criteria
 
 *(Each states what it returns TODAY, at base `6ff1ff9`.)*
@@ -94,8 +90,6 @@ about what to pick up. Sorted by priority it is the queue it claims to be.
       the sequence is arbitrary with respect to priority.**
 - [ ] The first card of `In Progress` and of `Done` carries the most recent date
       in its group. **Today: unverifiable — no dates rendered.**
-
----
 
 ## Closure
 
@@ -135,3 +129,7 @@ about what to pick up. Sorted by priority it is the queue it claims to be.
   Production verification pending merge.
 
 - **Closed:** 2026-08-25 · **by:** ursa
+
+## Version history
+
+- v1.1.1 (2026-09-02) — Form: import-era `---` rules removed. missions/ normalisation, lot 4.

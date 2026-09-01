@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-09-01T17:34:00Z"
 created_source: "git:f8fa6e1"
 created_confidence: exact
-updated: "2026-09-01T17:34:00Z"
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [debt, guards, frontmatter, DBT-010, MIS-125, history, archive]
@@ -38,8 +38,6 @@ paths: [scripts/check-frontmatter-delimiter.mjs, debt/DBT-010-guard-blindness.md
 > if nonzero — the archive learns exactly which commits carry damage before any
 > standard parser meets them.
 > **Audience:** Agents · Oracles
-
----
 
 ## Context
 
@@ -99,3 +97,14 @@ node scripts/check-frontmatter-delimiter.mjs   # → OK, every fence closes on i
 ## Closure
 
 *(Fill when the mission closes.)*
+
+## Status check — 2026-09-02
+
+*Read against `203267c` during the missions/ normalisation (lot 4). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** Registered planned (#189); the Oracle instructed to leave it until the refactor is done. Read-only census over main history. Assigned ursa.
+- **Recommendation:** Keep todo; execute after this normalisation merges (that is the instruction). Should be the next mission Ursa runs — small, read-only, closes DBT-010 item 3.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.

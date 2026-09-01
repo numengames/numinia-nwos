@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: "2026-08-25"
 
 type: mission
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-08-25T18:54:47Z"
 created_source: "git:716f20c"
 created_confidence: exact
-updated: "2026-08-25T19:49:11Z"
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [web, nav, archive]
@@ -33,8 +33,6 @@ paths: [web/src/data/navigation.ts]
 > removing an entry is separable from removing a page.
 > **Pragmatic:** a smaller nav, and a reversible commit that touches one file.
 > **Audience:** Agents · Oracles
-
----
 
 ## Scope
 
@@ -71,8 +69,6 @@ classification in hand.
 Also out of scope: `D-032`'s question of whether that prose should move into
 the corpus, and any change to `content.config.ts`.
 
----
-
 ## Acceptance criteria
 
 *(Each states what it returns today at base commit `4a87219`, so it is visibly
@@ -98,8 +94,6 @@ entries would rot as soon as the nav changes again.)*
       **Today: empty, and it stays empty.**
 - [ ] `npm run build` exits 0 and `node scripts/check-references.mjs` reports
       no new broken references against the baseline of 17. **Today: 13+4, baseline 17.**
-
----
 
 ## Closure
 
@@ -169,3 +163,7 @@ from a list and deleting a page look identical to a visitor reading the nav, and
 only the second is destructive. The 13/13 is what proves this was the first.
 
 - **Closed:** 2026-08-25 · **by:** ursa
+
+## Version history
+
+- v1.0.1 (2026-09-02) — Form: import-era `---` rules removed. missions/ normalisation, lot 4.

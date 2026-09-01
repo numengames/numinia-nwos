@@ -14,11 +14,11 @@ completed: "2026-08-28"
 
 # REGISTRO
 type: mission
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-08-28T09:33:53Z"
 created_source: "git:f86569b"
 created_confidence: exact
-updated: "2026-08-28T10:07:45Z"
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [governance, procurators, agents]
@@ -39,8 +39,6 @@ paths: [agents/, REUSE.toml, decisions/, debt/, AGENTS.md]
 > **Pragmatic:** an operator reads one folder and knows which agent takes a
 > given task, under what approval policy, from which sources.
 > **Audience:** Agents · Oracles
-
----
 
 ## Scope
 
@@ -105,8 +103,6 @@ structure, and the live inbound links repaired.
   audits, `CHANGELOG.md`, `S-001` examples): evidence is not repaired,
   it is history.
 
----
-
 ## Acceptance criteria
 
 > Every criterion is FALSE at base commit `9f8627a`.
@@ -152,8 +148,6 @@ structure, and the live inbound links repaired.
 - [x] False at the base commit
 - [x] Phrased as a final state
 
----
-
 ## Measured findings at opening
 
 Against `origin/main @ 9f8627a`:
@@ -176,8 +170,6 @@ Against `origin/main @ 9f8627a`:
    (`GOVERNED = ["debt/"]`): whatever lands is published. Confirmed intended.
 6. **The archive's `Ursa/SOUL.md` is Spanish** (143 lines); every other zip
    file is English.
-
----
 
 ## Closure
 
@@ -203,3 +195,6 @@ Against `origin/main @ 9f8627a`:
   agents/INDEX.md archaeology.
 - **Closed:** 2026-08-28 · **by:** ursa
 
+## Version history
+
+- v1.1.1 (2026-09-02) — Form: import-era `---` rules removed. missions/ normalisation, lot 4.

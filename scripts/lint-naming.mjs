@@ -145,6 +145,12 @@ for (const rel of files) {
 
   const text = readFileSync(path.join(ROOT, rel), 'utf8');
   const fm = parseFM(text) || {};
+  // D-014 (count-evidence.py applies the same rule): `type: meta` IS the
+  // apparatus declaration. A document that says so is scaffolding around a
+  // series, not a member of it, and no series filename shape applies. Until
+  // 2026-09-02 this guard only knew apparatus by basename, so a declared
+  // annex (missions/ANNEX-…) failed N-04 while count-evidence excluded it.
+  if (fm.type === 'meta') continue;
   const exemption = fm.registration === 'exempt' ? fm.registration_exemption : null;
 
   /* N-02: version/date in a LIVING document's filename.

@@ -10,15 +10,16 @@ guild: "Alchemists"
 territory: "Archive"
 type_execution: digital
 assigned_to: "ursa"
+started: "2026-08-30"
 completed: null
 
 # REGISTRO
 type: mission
-version: "1.2.0"
+version: "1.3.0"
 created: "2026-08-30T04:43:00Z"
 created_source: "git:fd4d045"
 created_confidence: exact
-updated: "2026-08-30T16:34:15Z"
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [archive, frontmatter, s-004, migration, debt]
@@ -46,8 +47,6 @@ paths: [scripts/lint-frontmatter.mjs, scripts/frontmatter-baseline.json, standar
 > fail in its first week.
 > **Audience:** Agents · Oracles
 
----
-
 ## Base commit
 
 **`bc76270`** — before any of this work started. Every criterion below is
@@ -57,8 +56,6 @@ evidence, not silently dropped.
 
 At `bc76270`: guard written but **not wired**, baseline **844**.
 
----
-
 ## Scope
 
 The frontmatter of every tracked `.md` file that `scripts/lint-frontmatter.mjs`
@@ -66,7 +63,7 @@ inspects, and the standards, decisions and web schema that a header migration
 forces to move with it.
 
 **In scope:** the sixteen check classes `H-00`…`H-31`; the baseline file; the
-debt entries that already register individual classes (`D-002`, `D-008`,
+debt entries that already register individual classes (`D-002`, `DBT-001`,
 `D-009`, `D-010`, `D-012`); the Astro content schema where a field rename
 would otherwise break the board.
 
@@ -80,8 +77,6 @@ a judgement about meaning, the mission stops and asks the Oracle.
 
 > **Scope and Acceptance criteria are written now and are not edited
 > afterwards.** What happens goes in `Closure`.
-
----
 
 ## Acceptance criteria
 
@@ -186,7 +181,7 @@ rename's clothes, and the numbers below say how many decisions each is.
 - [x] **`H-30` unregistered fields — 111 across 62 distinct field names.**
       *Done (#141, #143) except 22 findings in the two fragile documents —
       the Spanish-era keys (`iconografia`, `presupuesto_lectura`…) that were
-      predicted to "belong with `C-005`". Web layer checked BEFORE each
+      predicted to "belong with `CAN-005`". Web layer checked BEFORE each
       retirement; `fondos`/`graph`/`lore` registered because the site reads
       them.*
       Not a class: a queue of 62 decisions. Only `visibility_reason` ×11,
@@ -195,7 +190,7 @@ rename's clothes, and the numbers below say how many decisions each is.
       judgement about whether the document needed it — `register` or `remove`
       is a call per field, and roughly a dozen are Spanish-era leftovers
       (`iconografia`, `presupuesto_lectura`, `edicion_razonada`) that belong
-      with `C-005`, not here. **Sequence this last, or split it out.**
+      with `CAN-005`, not here. **Sequence this last, or split it out.**
 - [x] **`H-04` status vocabularies — 118, in four independent groups.**
       *Done (#140, #143) except 2 findings in the fragile pair (the two
       documents missing `status` entirely). `draft → todo` ruled by the
@@ -259,8 +254,9 @@ rename's clothes, and the numbers below say how many decisions each is.
 | `0499b8c` (#139) | `area → territory` (66 mapped, 76 took `TBA` per ADR-027); guild/type_execution/visibility vocabularies enforced; ring-table transcription errors; single-cycle statuses; `AG-`/singular ids resolved with `registration: exempt` | **304** |
 | `9d3afaa` (#140) | status lifecycles (60 out-of-cycle values); 42 non-series documents exempted instead of renumbered | **207** |
 | `86431b3` (#141) | orphan fields: `adr_id` retired (verified duplicate ×8), `decision`/`threshold`/`visibility_reason`/`semaforo` registered — `semaforo` is painted by the site, checked value-by-value | **168** |
-| `eb674f3` (#142) | 6 impostor types resolved from the corpus's own vocabulary; truly-empty fields dropped; **`check-frontmatter-yaml.mjs` born** (D-039 §2: no instrument checked that headers parse — the web build was the only witness) | **150** |
+| `eb674f3` (#142) | 6 impostor types resolved from the corpus's own vocabulary; truly-empty fields dropped; **`check-frontmatter-yaml.mjs` born** (DBT-010 §2: no instrument checked that headers parse — the web build was the only witness) | **150** |
 | `a086d56` (#143) | final sweep: `DEC-001..006 → type: adr` ids intact (Oracle ruling, 154 refs preserved); 5 missions `draft → todo` ("draft = backlog"); 12 headerless docs given headers from git history; ~35 fields registered after checking the web layer FIRST; 3 lint false positives fixed at the source | **44** |
+| `aebcf54`…`203267c` (#198) | missions/ normalisation: `uid`, `created_source`, `owner` on every mission; `mission_id` retired; MIS-0NNN filenames | **21** (unchanged — the 21 survivors are outside missions/) |
 
 **844 → 44 (95%). 328 of 330 documents clean (99%).** The 44 survivors all
 live in two documents — `canon/CAN-005-licensing.md` and
@@ -280,7 +276,7 @@ not this mission's.
 
 **Standing guards this mission leaves behind:** ratcheted header lint
 (baseline only goes down), delimiter guard, YAML-parse guard, license
-guard — all in CI, all tested in both directions (P-013).
+guard — all in CI, all tested in both directions (PRO-013).
 
 ### Judgement classes — no script decides these
 
@@ -337,8 +333,6 @@ Every criterion above is falsifiable by:
 node scripts/lint-frontmatter.mjs --report | grep -c '^H-NN '
 ```
 
----
-
 ## Sizing — 798 decisions, 45 substitutions
 
 Every number below was read from `lint-frontmatter.mjs --report` at
@@ -375,8 +369,6 @@ substantial work that is both unblocked and decided. After them the mission
 runs out of things it can do without the Oracle. Blocker 4 (`territory`)
 gates the single largest class.
 
----
-
 ## Coupling map — what breaks if a header moves alone
 
 Measured at `baf188b`, not assumed. **Two of the sixteen classes touch code
@@ -400,8 +392,6 @@ folder: `missions/` 124, `debt/` 38, `reports/` 25, `agents/` 25,
 This is not a corner of the repository. It is the repository's filing system,
 and that is the argument for doing it by class rather than by folder: a class
 is one rule applied 158 times and verified once.
-
----
 
 ## Blockers, and how they were ruled
 
@@ -468,7 +458,7 @@ hides its decisions makes the next reader guess.
    to declare what it cannot see.
 2. **The debt series runs an undeclared status vocabulary.** 35 `open` +
    2 `resolved` against `type: documentation`, whose lifecycle is
-   `[draft active closed]`. Adjacent to `D-008` and `D-012`.
+   `[draft active closed]`. Adjacent to `DBT-001` and `D-012`.
    **Ruled: fix the entries, not the standard — `debt/` adopts the declared
    lifecycle.** `open → active`, `resolved → closed`. The vocabulary the
    series was already using informally becomes the one the standard names.
@@ -512,8 +502,6 @@ hides its decisions makes the next reader guess.
    practice, does practice change to match the declaration, or does the
    compound case become two fields as §7 suggests?* Not answered here.
 
----
-
 ## Closure
 
 *(Fill when the mission closes. Not before, and not with intentions.)*
@@ -522,3 +510,14 @@ hides its decisions makes the next reader guess.
 - **What diverged, and why:**
 - **Evidence:**
 - **Closed:** YYYY-MM-DD · **by:**
+
+## Status check — 2026-09-02
+
+*Read against `203267c` during the missions/ normalisation (lot 4). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** Header baseline 844 → 44 (2026-08-30) → 21 today (frontmatter-baseline count). The 21 survivors: 12 H-30 + 4 H-31 + the Spanish-era pair (CAN-005, Sistema de Diseño). Closure block blank. in-progress, no started date.
+- **Recommendation:** Keep in-progress; it is the live burndown and its Progress table is exact. Set started: 2026-08-30 (its own first commit) and add today's row (21). Closes when MIS-124 rules territory and the two Spanish headers are translated.
+
+## Version history
+
+- v1.3.0 (2026-09-02) — import-era `---` rules removed; retired identifiers repointed: C-005→CAN-005, D-008→DBT-001, D-039→DBT-010, P-013→PRO-013; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.
