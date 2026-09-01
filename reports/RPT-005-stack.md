@@ -1,0 +1,437 @@
+---
+id: "RPT-005"
+uid: ""
+former_id: "AUD-2026-08-17-stack"
+former_id_note: "Renumbered 2026-09-01 by ADR-005 v1.2.0 (reports/ normalisation): AUD- retired, one RPT-NNN counter by created ascending, folder flattened from reports/audits/. Content unchanged."
+title: "Stack audit — Numen Games / NWOS repos"
+type: report
+subtype: audit
+status: closed
+version: "1.2.0"
+created: "2026-08-17T15:30:02Z"
+created_source: "git:47b853b"
+created_confidence: inferred
+updated: "2026-09-02T00:20:00+02:00"
+author: "claude (at Pablo's request)"
+tags: [audit, numengames, nwos, stack, github, astro, licensing, ci-cd]
+license: "CC-BY-4.0"
+provenance: "ai-assisted"
+language: "en"
+editorial_note: |
+  v1.1.0 — Archival review (claude-fable-5, 2026-08-17), corrections
+  verified against this repo and the official Anthropic model catalog:
+  (1) "14 misiones" → 69 (post-MIS-066 count);
+  (2) LD-001 detection/resolution attributed to the Oráculo + session
+  agent, not to Nimrod (inactive);
+  (3) numengames.com does not redirect — it 404s;
+  (4) the hardcoded model claude-sonnet-4-20250514 is deprecated with
+  announced retirement 2026-06-15 — a date ALREADY PAST — replacement
+  claude-sonnet-5; the current-models list was corrected;
+  (5) "cerró ayer (17 ago)" → today, same date as the document;
+  (6) references to "Tessera" and "tu Manifiesto" point to documents
+  OUTSIDE this repo (Pablo's personal doc system) — kept as-is.
+  v1.2.0 — Translated to English under MIS-116 (ADR-023 (formerly ADR-024)), closing the
+  iteration this note left pending. Language only; facts and findings
+  are as of 2026-08-17 and were not re-verified.
+---
+
+# 🔍 Stack audit — Numen Games / NWOS repos
+
+> **Nature:** Technical diagnostic document. Reasoned judgment on
+> verified evidence, not an absolute verdict — every finding carries its
+> source so it can be audited and debated.
+> **Method:** direct cloning and reading of each repo's code (not
+> third-party descriptions, not training memory). Where I could not
+> verify something, I say so.
+> **Archival note:** the references to «Tessera» and «tu Manifiesto»
+> point to documents in Pablo's personal system, outside this repo.
+
+---
+
+## Version control
+
+| Version | Date | Changes |
+|---------|------|---------|
+| v1.0.0 | 2026-08-17 | Initial audit of the 5 requested repos. |
+| v1.1.0 | 2026-08-17 | Archived in numinia-nwos with verified corrections (see `editorial_note`). |
+| v1.2.0 | 2026-08-27 | Translated to English under MIS-116 (ADR-023). Language only. |
+
+---
+
+## 0. Executive summary
+
+You asked for 5 repos; **4 exist and were audited with real code, 1 does
+not exist** at that path (see § 1). Most important finding: **there is
+not a single CI/CD pipeline** (GitHub Actions) in any of the 4 repos —
+deployments depend on platform auto-integrations (Cloudflare Workers
+Builds, Vercel), which works but is not the same as having mandatory
+tests before merging. Second relevant finding: **there are three
+near-twin Astro codebases** spread across 3 different repos, with names
+that collide (`nwos-web` is at once a package name, a repo name, and a
+Cloudflare Worker name, each referring to slightly different things).
+Third: the NWOS governance system itself already detected and corrected
+a real license leak (CC0 over reserved content) — a good sign that the
+system works, a bad sign that it has already been needed. *(Archival
+correction: LD-001's detection and resolution were signed by the Oracle
+with the session agent, not Nimrod — who is inactive. See § 4.)*
+
+| Repo | Exists | Stack | CI/CD | License | State |
+|---|---|---|---|---|---|
+| `numengames-web` | ✅ | Astro 7 + Svelte 5 + Cloudflare Workers | ❌ none | GPL-3.0 | Active, good health |
+| `numinia-web` | ❌ **does not exist at that path** | — | — | — | See § 1 |
+| `nwos-workspace-template` (org `numen-games-nwos-orgs`) | ✅ | No code — pure Markdown template | ❌ (n/a) | MIT (mould) / reserved (artifact) | Recently audited (C-005) |
+| `nwos-deploy` | ✅ | Astro 5 + React 19 + Vercel + Anthropic SDK + Octokit | ❌ none | **No LICENSE** ⚠️ | Active, hygiene debt |
+| `numinia-nwos` | ✅ | NWOS governance repo + Astro subapp (`web/`) on Cloudflare | ❌ none | Multi-regime via `REUSE.toml` | Active, recent legal incident resolved |
+
+---
+
+## 1. The repo that does not exist: `numengames/numinia-web`
+
+Verified by direct cloning (`git clone` → authentication failure,
+typical of a nonexistent repo) and by `web_fetch` to
+`github.com/numengames/numinia-web` → **404**. I also confirmed it does
+not appear in the full listing of the `numengames` organization on
+GitHub (21 repos).
+
+**What does exist and is probably what you meant:**
+- **`numengames/nwos-web`** — a real, active Astro repo, updated August
+  14. I did not clone it (it was not on your list), but it appears in
+  the org's listing.
+- A **Cloudflare Worker** named `nwos-web` (domain
+  `nwos-web.pablofm.workers.dev`) which, per a comment left by the team
+  itself in `numinia-nwos/web/wrangler.toml`, **might be the only real
+  host of the NWOS product** (`/velo`, `/api/registro`) — that is, the
+  genuinely important thing might be living on a Worker whose source
+  repo is not entirely clear even to the internal team itself. I quote
+  the comment verbatim because it is an operational clue, not
+  narrative:
+
+  > *"deliberately not reusing the existing `numinia-web` worker
+  > (nwos-web.pablofm.workers.dev), which may still be the only host of
+  > the NWOS product (/velo, /api/registro)"*
+
+**Recommendation:** before going further, it is worth confirming
+yourself (with admin access to Cloudflare + GitHub) which repo feeds
+that Worker in production. I have no way to verify it from here without
+credentials — I flag it as an open question, not as a fact.
+
+---
+
+## 2. Stack inventory per repo (verified detail)
+
+### 2.1 — `numengames/numengames-web`
+Numen Games' public site (numen.games).
+
+- **Framework:** Astro 7.2 + Svelte 5.56 islands, some React (Title.tsx)
+  and one loose `.jsx` component (Game.jsx) — **three UI frameworks at
+  once** on a single site (Astro+Svelte+React). It works because Astro
+  allows mixed islands, but it is extra weight and cognitive complexity
+  for no apparent reason.
+- **Styles:** Tailwind 3.4.
+- **Runtime/deploy:** Cloudflare Workers (`wrangler.jsonc`), serving
+  `numen.games` and `www.numen.games` as custom domains.
+  `run_worker_first: true` + its own `worker/index.js` — it is not just
+  "static assets", there is server logic.
+- **Package manager:** pnpm 9.12 (pinned by hash in `packageManager`, a
+  good reproducibility practice).
+- **Testing:** Vitest configured, one real test file
+  (`i18n/index.test.ts`). The only repo of the 4 with any testing.
+- **i18n:** its own system (`src/i18n/`), site under `[locale]/...`.
+- **Analytics/consent:** Google Analytics + `vanilla-cookieconsent`
+  + `astro-cookieconsent` — GDPR-compliant with a banner, correct for a
+  Spanish/EU company.
+- **AI:** there is an `AIAgent.svelte` component and
+  `PUBLIC_AI_API_URL` / `PUBLIC_AI_ASSISTANT_ID` variables in
+  `.env.example` — the site already integrates a conversational
+  assistant pointing at its own external API.
+- **License:** GPL-3.0 (strong copyleft) — strong copyleft on a
+  commercial landing is a valid philosophical decision but unusual in
+  the sector. *(Archival note: C-005 allows own copyleft declared per
+  directory; third-party copyleft is what requires a separate repo.)*
+- **Recent hygiene:** the latest commit literally says *"fix security
+  vulnerabilities and clean up project"* (Aug 17) — a sign that there is
+  a review process, though there is no way to know which
+  vulnerabilities they were without the PR's full diff.
+- **No CI/CD:** no workflow in `.github/`. Deployment depends on
+  Cloudflare Workers Builds being hooked to pushes to `main` (probable,
+  given the `wrangler.jsonc`, but not verifiable from the code alone).
+
+### 2.2 — `numen-games-nwos-orgs/nwos-workspace-template`
+The "mould" cloned to create each new client's NWOS workspace.
+
+- **It is not a code app** — it is a pure Markdown template: `canon/`,
+  `missions/`, `decisions/`, `protocols/`, `operations/`,
+  `agents/_template/`, plus a single static "under construction"
+  `web/index.html`.
+- **Deliberate, well-documented dual license:** the mould itself is MIT;
+  `LICENSE.client` is an "all rights reserved" license template renamed
+  to `LICENSE` in the generated workspace, in the client's name. The
+  logic of which files stay and which are discarded at generation lives
+  in `REUSE.toml`, with a comment saying it was **verified line by line
+  against the complete inventory on August 17** — this is the
+  correction of the license incident described in § 4.
+- **Latest commit** (Aug 17): *"Merge audit/c005-licensing: C-005
+  remediation of the mould (Oracle-approved)"* — that is, this repo was
+  touched today specifically to fix a licensing problem. See § 4.
+
+### 2.3 — `numengames/nwos-deploy`
+Internal tool that generates new NWOS workspaces from the mould.
+
+- **Real internal name:** the `package.json` says `"name": "nwos-web"`,
+  **not** `nwos-deploy` — the GitHub repo name and the package name do
+  not match. It adds confusion to the naming problem of § 1.
+- **Framework:** Astro 5.18 + React 19 islands, shadcn/ui, Tailwind 3,
+  Framer Motion.
+- **Deploy:** **Vercel** adapter (`@astrojs/vercel`), serving
+  `nwos.numen.games` — unlike the org's other Astro repos, which go to
+  Cloudflare Workers. It is the only one of the 4 using Vercel; a
+  platform inconsistency within the same organization (the operational
+  cost of maintaining two hosting providers for sibling projects).
+- **Real backend/SSR:** it has genuine server routes
+  (`export const prerender = false`) that call the **Anthropic SDK**
+  (`@anthropic-ai/sdk`, model `claude-sonnet-4-20250514` hardcoded —
+  ⚠️ see note below) with the `web_search` tool, and **Octokit** to
+  create private GitHub repos from the template and commit the
+  generated canon documents. That is: this repo holds an Anthropic API
+  key and a GitHub token with write permissions in the `/api/registro`
+  flow.
+- **Secret handling:** correct — `.env` in `.gitignore`,
+  `.env.example` with no real values, variables read server-side via
+  `import.meta.env`, never exposed to the client. No negative findings
+  here.
+- **⚠️ Hardcoded deprecated Anthropic model — possibly already
+  retired:** *(corrected in v1.1.0 against the official catalog)*
+  `claude-sonnet-4-20250514` (Claude Sonnet 4) is **deprecated with
+  retirement announced for June 15, 2026 — a date already past**. The
+  direct replacement is `claude-sonnet-5`. If the retirement was
+  executed, the endpoint returns 404 and **`/api/registro` is broken in
+  production right now with no visible alarm** — verifying with a test
+  call is urgent, not optional. (Today's current family: Claude Fable
+  5, Opus 5, Opus 4.8/4.7/4.6, Sonnet 5, Sonnet 4.6, Haiku 4.5.)
+- **⚠️ No LICENSE file.** It is the only one of the 4 repos with no
+  declared license of any kind. Given that the rest of the Numen
+  ecosystem (including the very template this repo deploys) is
+  rigorous about REUSE.toml and explicit license regimes, this is a
+  gap, not a decision — probably an oversight rather than a conscious
+  "all rights reserved" choice.
+- **No tests, no lint, no CI** — declared explicitly in its own
+  `CLAUDE.md`: *"No tests, lint, or CI."*
+- **Self-documented technical debt:** `api/populate.ts` is described in
+  `CLAUDE.md` as *"a leftover duplicate of logic inlined in
+  registro.ts"* — known dead code, uncleaned.
+
+### 2.4 — `numengames/numinia-nwos`
+Numinia's real NWOS workspace (operational instance, not template) —
+the largest and most interesting of the 5, and it also contains a code
+subapp.
+
+- **Main body:** NWOS governance documentation like the template
+  (§ 2.2) but full of real content: **69 missions** *(corrected in
+  v1.1.0 — the original figure said 14; after the MIS-066 unification
+  the flat `missions/` folder contains 69 mission files)*, 5 agents
+  with their own personality (Adonaz, Nimrod, Senet, Ursa,
+  Procurador-01), decisions (ADR/DEC), daily reports from April until
+  today.
+- **`web/` subapp:** a **third** copy of the Astro 5 + React 19 +
+  shadcn/ui + Tailwind stack, with its own configuration
+  (`site: "https://numinia.org"`, deployed to Cloudflare Workers via
+  `wrangler.toml`, **without** the Anthropic SDK or Octokit — it is a
+  read-only public viewer of the missions/decisions/blueprints, without
+  the private generation routes that `nwos-deploy` does have).
+- **See § 3** for the analysis of why this is three-way duplication and
+  what to do about it.
+- **License governance, the most mature of the 4 repos with code:**
+  `REUSE.toml` distributes regimes per folder (`canon/`, `guilds/`,
+  `agents/` → reserved; `decisions/`, `missions/`, `blueprints/` →
+  CC-BY-4.0), with its own script
+  (`scripts/check-license-frontmatter.mjs`) that **fails the build** if
+  a document's `license:` frontmatter does not match what `REUSE.toml`
+  declares.
+- **Real legal incident, already resolved:** see § 4.
+- **It already has its own CI/CD mission and it was closed today as
+  obsolete** — see § 5, relevant to your question.
+
+---
+
+## 3. Architectural redundancy: three near-twin Astros
+
+There are **three repos** serving variants of the same Astro 5 + React
+19 + Tailwind + shadcn/ui stack, with identically named components
+(`FeatureCard.astro`, `Navigation.astro`, `Footer.astro`, etc.) and
+very similar page structure (`missions`, `decisions`, `blueprints`,
+`reports`, `archive`...):
+
+| | `nwos-deploy` | `numinia-nwos/web` | `numengames/nwos-web` (not audited, off your list) |
+|---|---|---|---|
+| Domain | `nwos.numen.games` | `numinia.org` | probably the public NWOS product |
+| Hosting | Vercel | Cloudflare Workers | ? |
+| Private SSR backend (Anthropic + GitHub) | ✅ yes | ❌ no | ? |
+| Purpose | Internal workspace-generation tool | Read-only public viewer of one specific workspace | ? |
+
+**Why it matters:** every time a shared component changes (for example
+`Navigation.astro` or the `DESIGN.md` design system), someone has to
+remember to touch it in two or three places by hand. There is already
+evidence of drift: I compared `nwos-deploy`'s `astro.config.mjs`
+against `numinia-nwos/web`'s and they differ in adapter (Vercel vs
+none/static), domain, and redirects — that is, they have already
+forked; they are not synchronized copies.
+
+**I am not saying this is "wrong"** — separating the public viewer (no
+secrets, no API keys) from the private generation tool (with Anthropic
++ GitHub token) is a reasonable security decision. What is an available
+improvement: extract the shared UI components (`FeatureCard`,
+`Navigation`, `Footer`, `DESIGN.md`, Tailwind tokens) into an internal
+npm package or a monorepo with workspaces (pnpm workspaces /
+Turborepo), so the design system updates in one place and propagates,
+instead of being maintained by hand in 2-3 repos that no longer match.
+*(Archival note: this is the inter-repo variant of the problem that
+MIS-068 — propagation without drift — already has commissioned for the
+NWOS artifacts.)*
+
+---
+
+## 4. License incident (LD-001) — resolved, worth knowing about
+
+Documented by the system itself in `numinia-nwos/LEGAL_DEBT.md`, signed
+by the Oracle (Pablo) on August 16. *(Archival correction: detection
+and remediation were executed by the Oracle and the Claude session
+agent — not Nimrod, who is inactive; the original version of this audit
+attributed it to Nimrod.)*
+
+The `numinia-nwos` repo was originally published with a root CC0-1.0
+`LICENSE` inherited from another decision (DEC-002, "build in public
+under CC0" for the 3D asset catalog). That CC0 was dragged
+unintentionally over content that should have been reserved: Numinia's
+complete role-playing manual, the rank compendium, the agents'
+"personas" (SOUL.md) for Adonaz/Nimrod/Senet/Ursa, and the brand
+guides. **The entire history up to commit `0157be9` was offered under
+CC0 irrevocably** — a CC0 waiver cannot be withdrawn once published, so
+anyone can legally use that historical content. The trademark (Numinia,
+Numen Games, Khepri) was not affected, because trademark is a separate
+regime from copyright.
+
+**Resolution applied:** from that commit onward, `REUSE.toml`
+distributes licenses per folder with precision, and the frontmatter
+verification script fails the build if anything is declared wrong. It
+is a correct, well-documented solution — the document itself says
+explicitly that it does **not** attempt to revoke what was already
+published (that would be impossible), only to close the leak going
+forward.
+
+**Why I flag it:** it is a real case study of what happens when a
+default license is inherited without auditing the content it covers.
+
+---
+
+## 5. CI/CD — you already asked yourself, and the answer is in the repo itself
+
+`numinia-nwos/missions/MIS-012-numengames-cicd.md` is a mission that
+asked for exactly this — GitHub Actions with a mandatory build before
+merge and automatic deploy — and **it was closed today (Aug 17) as
+cancelled, obsolete**, with this verbatim justification from the system
+itself:
+
+> *"Target site no longer exists; deploy pipelines are now per-repo
+> Workers Builds."*
+
+This confirms what I saw in the code: `numengames.com` as a standalone
+site no longer exists (it returns 404 — the corporate site lives at
+`numen.games`) *(archival correction: it does not redirect, it simply
+404s)*, and the deployment pattern chosen for the whole org is
+**Cloudflare Workers Builds** (Cloudflare's native GitHub integration,
+no own YAML) instead of classic GitHub Actions. It is a valid choice —
+less infrastructure code to maintain — but it has a cost that is not
+mitigated in any repo: **nothing blocks a merge to `main` if the build
+fails or there is a type error**. Workers Builds builds *after*
+merging, not before. If you care that a broken PR never reaches
+`main`, that remains a real hole in all 4 repos. *(Additional archival
+note: this very day another edge of the same cost was verified — a
+GitHub incident degraded webhooks and Workers Builds stopped deploying
+with no signal at all; see MIS-069, continuity plan B.)*
+
+---
+
+## 6. Prioritized findings
+
+### 🔴 Important
+1. **`nwos-deploy` without LICENSE** — decide the regime (probably an
+   explicit "all rights reserved", given that it handles business
+   logic and credentials) and declare it, so as not to depend on the
+   implicit legal default.
+2. **Hardcoded deprecated Anthropic model — announced retirement
+   already past** in `nwos-deploy/src/pages/api/registro.ts`
+   (`claude-sonnet-4-20250514`, replacement `claude-sonnet-5`) —
+   verify TODAY that the endpoint still responds; if the retirement
+   was executed, `/velo` is broken in production with no visible
+   alarm.
+3. **Confirm which repo actually feeds the Worker
+   `nwos-web.pablofm.workers.dev`** — not even the internal team seems
+   100% sure (comment in the code itself, § 1).
+
+### 🟠 To watch
+4. **Three Astro codebases with duplicated, already-divergent
+   components** (§ 3) — not urgent to fix, but every month that passes
+   without unifying the shared design system makes it more expensive.
+   Natural candidate for a monorepo with pnpm workspaces.
+5. **No repo blocks broken merges** — Workers Builds deploys, it does
+   not audit before merging. If one day a PR with a build error
+   reaches `main`, it will deploy anyway.
+6. **Package-manager inconsistency:** pnpm in `numengames-web`, npm in
+   `nwos-deploy` and `numinia-nwos/web`. Not serious, but mixing
+   lockfiles adds friction if code is ever shared between repos.
+7. **Hosting-platform inconsistency:** Cloudflare Workers in 3 places,
+   Vercel in 1 (`nwos-deploy`). Maintaining two providers for sibling
+   projects doubles the operational surface (accounts, billing,
+   limits, DNS) with no evident benefit — unless there is a concrete
+   reason (e.g. `nwos-deploy` needs something Workers does not offer
+   well, like long server-side functions).
+
+### 🟢 Positive, for the record
+8. The governance system (Oracle + session agent) **already detected
+   and corrected** the CC0 license incident (§ 4) with a real,
+   documented audit process, with bounded temporal scope and a script
+   that fails the build on future drift.
+9. `numengames-web` migrated from a client-only SPA (April audit,
+   score 4.5/10, no SEO, no SSR) to Astro with real SSR/SSG — most of
+   that April audit's critical problems (`C-001` to `C-004`) appear
+   resolved today, though I did not re-run Lighthouse/PageSpeed to
+   confirm it with numbers (see § 7).
+10. Correct secret handling in `nwos-deploy` (`.env` ignored, never
+    exposed to the client).
+11. `numengames-web` is the only one of the 4 with real testing
+    configured (Vitest) and with `packageManager` pinned by hash for
+    reproducibility.
+
+---
+
+## 7. Limits of this audit (epistemic honesty)
+
+So you know exactly what I verified and what I did not:
+
+- **I did verify:** complete file structure, `package.json` and
+  declared dependencies, build/deploy configuration, `.env` and secret
+  handling, presence/absence of CI, declared licenses, recent commit
+  history (only the latest commit — shallow clone `--depth 1`),
+  content of governance documents and missions.
+- **I did not verify (no way to do it from here):** real
+  vulnerabilities in dependencies (I ran neither `npm audit` nor
+  `pnpm audit`), real performance metrics (Lighthouse/PageSpeed), the
+  real production deployment state of each domain, nor which repo
+  exactly feeds the `nwos-web` Worker mentioned in § 1 — that requires
+  Cloudflare or GitHub dashboard access I do not have.
+- **Repos with trimmed history:** all clones were `--depth 1` (only
+  the most recent commit), so the "last activity" dates I cite are
+  from the last visible commit, not an analysis of commit frequency
+  over time.
+
+Possible future work: (a) run `npm audit`/`pnpm audit` on the real
+lockfiles to look for known CVEs, (b) clone `numengames/nwos-web` (the
+repo that does exist with that name) to complete the picture of § 3,
+or (c) look at each repo's full commit history instead of only the
+latest commit.
+
+---
+
+*Document generated at Pablo's request as input for better decisions
+about the Numen Games / NWOS stack. Method: direct code reading, not
+inference. Version every change (SemVer).*

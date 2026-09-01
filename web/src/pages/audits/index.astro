@@ -1,20 +1,23 @@
 ---
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
-// Audit reports, rendered from the repo's reports/audits/ folder (MIS-066
-// pattern: the folder is the source of truth).
+// Audit reports, rendered from the repo's reports/ folder (MIS-066 pattern:
+// the folder is the source of truth). Since ADR-005 v1.2.0 the collection
+// holds every report subtype; this page is the `subtype: audit` view.
 import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
 import { getCollection } from "astro:content";
 
-const audits = (await getCollection("audits")).sort((a, b) =>
+const audits = (await getCollection("audits"))
+  .filter((a) => (a.data as Record<string, unknown>).subtype === "audit")
+  .sort((a, b) =>
   String(b.data.created).localeCompare(String(a.data.created))
 );
 ---
 
 <Layout
   title="Audits — Numen Games CAO"
-  description="Audit reports of the NWOS system, rendered from the repo's reports/audits/ folder."
+  description="Audit reports of the NWOS system, rendered from the repo's reports/ folder."
   canonicalPath="/audits"
   activeNav="audits"
 >

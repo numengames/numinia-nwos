@@ -80,7 +80,7 @@ This is not a theoretical question. It is the real test of whether the NWOS is a
 
 ### ⬆️ COMMIT — "What did I learn today?"
 
-- **What it does:** git add memory/YYYY-MM-DD.md reports/daily/RPT-YYYY-MM-DD.md && git push. Knowledge is permanent.
+- **What it does:** git add memory/YYYY-MM-DD.md reports/RPT-YYYY-MM-DD.md && git push. Knowledge is permanent.
 - **❌ Without the repo:** When the session ends, the learning dies.
 - **✅ With the repo:** The next Nimrod starts smarter than the previous one.
 

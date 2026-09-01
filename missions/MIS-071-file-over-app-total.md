@@ -136,7 +136,7 @@ next cold agent reads everything the visitor sees.
 
 - 2026-08-17 — Phase 1 DONE (audits/auditoria merge): all 16
   divergences, root cause, score history, checklist and next steps
-  extracted verbatim to reports/audits/AUD-2026-04-07-system-audit.md
+  extracted verbatim to reports/RPT-007-system-audit.md
   (supersedes the thinner blueprints/AUDIT-2026-04-07 record, which
   stays as history); auditoria.astro deleted; /auditoria redirects to
   /audits; nav duplicate removed. One page, one folder — as ordered.
@@ -149,7 +149,7 @@ next cold agent reads everything the visitor sees.
   layers + principles from index), `SYS-002-agent-cycle.md`,
   `BLU-007-dual-nomenclature.md`, `BP-cao-overview.md` (page-only dashboard
   snapshot; roster divergence vs BP-cao.md flagged in its
-  extraction_note, not silently reconciled); `RPT-2026-04-07-wardley-map.md`
+  extraction_note, not silently reconciled); `RPT-003-wardley-map.md`
   reconciled to v0.2.0 (union of file + page, contradictions kept and
   marked "según /wardley"). All Spanish/English prose verbatim; source
   pages untouched. Build green (143 pages, licence guard passing); the

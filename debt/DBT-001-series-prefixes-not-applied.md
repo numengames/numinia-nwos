@@ -4,9 +4,9 @@ uid:
 title: "Twelve series carry a registration scheme most of the corpus does not yet apply"
 type: documentation
 status: active
-version: "4.1.0"
+version: "4.2.0"
 created: "2026-08-24T19:40:00Z"
-updated: "2026-09-01T23:30:00+02:00"
+updated: "2026-09-02T00:50:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -40,7 +40,7 @@ before `MIS-125`'s Stage C renames):
 | `missions/` | `MIS-NNNN` | **0/131** |
 | `protocols/` | `PRO-NNN` | **0/13** |
 | `decisions/` | `ADR/DEC-NNN` | 20/20 — already compliant, no action |
-| `reports/` | `RPT-NNN` · `RPT-YYYY-MM-DD` (`subtype: daily` only, `ADR-005` v1.2.0) | **10/25** — 8 dailies + `RPT-001`/`RPT-002`; 11 `AUD-`, 3 unprefixed root files, 1 evidence `.md` still in the denominator until the folder is flattened |
+| `reports/` | `RPT-NNN` · `RPT-YYYY-MM-DD` (`subtype: daily` only, `ADR-005` v1.2.0) | **24/24** — closed 2026-09-01 (`reports/2-flatten-and-renumber`): was 10/25 after v1.2.0 re-measured the dailies as compliant, 0/10 + 0/12 before it |
 | `blueprints/` | `BLU-NNN` | **0/16** |
 | `canon/` | `CAN-NNN` | **0/8** |
 | `standards/` | `STD-NNN` | **0/5** |
@@ -212,9 +212,10 @@ Order — `MIS-125` Stage C, cheapest/lowest-risk first, one commit per series,
 3. `canon/` — 8 files (2 frozen artefacts excluded)
 4. `operations/` — 10 files
 5. `blueprints/` — 16 files
-6. `reports/` — one flat series since `ADR-005` v1.2.0: 8 dailies keep
-   `RPT-YYYY-MM-DD` (already compliant, no rename); 11 `AUD-` + 3 root files
-   take `RPT-NNN` (prefix change, `subtype` set from the closed vocabulary)
+6. `reports/` — **done 2026-09-01.** One flat series (`ADR-005` v1.2.0): 8 dailies
+   kept `RPT-YYYY-MM-DD`; 11 `AUD-` + 3 root files took `RPT-003`…`RPT-016`
+   by `created`; annex → `reports/evidence/RPT-011/`; `reports/audits/` and
+   `reports/daily/` removed. 24/24.
 7. *(merged into 6 — `reports/audits/` no longer exists as a folder)*
 8. `protocols/` — 13 files (1 frozen artefact + `APPROVAL-REQUEST-template.md` excluded)
 9. `debt/` — 35 files (including this document, renamed last within its own series; was 37, `D-001` and `D-002` extinguished 2026-08-31, see `MIS-127`)
@@ -239,6 +240,10 @@ renumbered**, only re-prefixed (`ADR-004` §rule 4).
 
 ## Version history
 
+- v4.2.0 (2026-09-02) — `reports/` closed at 24/24 (`ADR-005` v1.2.0 executed:
+  fourteen renames, two folders removed, one annex relocated). Row and
+  execution-order item 6 updated; the 10/25 figure of v4.1.0 stays in the
+  row as the intermediate state.
 - v4.1.0 (2026-09-01) — `ADR-005` v1.2.0. The two `reports/` rows become
   one: the series is flat, dailies keep `RPT-YYYY-MM-DD` as a legal shape
   (so they leave the debt without a rename), and the rest take `RPT-NNN`.

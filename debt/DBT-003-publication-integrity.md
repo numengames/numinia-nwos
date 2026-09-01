@@ -4,11 +4,11 @@ uid:
 title: "Publication integrity: what the corpus holds and the site does not serve"
 type: documentation
 status: active
-version: "2.0.0"
+version: "2.0.1"
 created: "2026-08-25T12:50:08Z"
 created_source: "git:edf8021"
 created_confidence: exact
-updated: "2026-08-31T23:20:00+02:00"
+updated: "2026-09-01T23:50:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -168,7 +168,7 @@ They are.
 
 ### Measured
 
-`reports/audits/evidence/index-coverage.py`, `HEAD 60e2379`:
+`scripts/experiments/index-coverage.py` (at `reports/audits/evidence/index-coverage.py` when run), `HEAD 60e2379`:
 
 | Series | Files | **Missing** | Index |
 |---|---:|---:|---|

@@ -90,7 +90,7 @@ SPDX-License-Identifier = "CC0-1.0"
 # crossing from the CC0-1.0 regime into reports/'s CC-BY-4.0. C-005 holds a
 # published CC0 waiver irrevocable, so the file keeps CC0 on its new shelf.
 [[annotations]]
-path = "reports/RPT-2026-04-07-wardley-map.md"
+path = "reports/RPT-003-wardley-map.md"
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC0-1.0"
 

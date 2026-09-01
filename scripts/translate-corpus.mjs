@@ -47,8 +47,10 @@ const INCLUDE = ["missions/**/*.md", "protocols/**/*.md", "operations/**/*.md",
 // reinstated here. Legal surfaces are excluded by BOTH directory and name:
 // privacy policies and terms are contracts, not prose, and a machine
 // translation served as the Spanish site is a liability, not a courtesy.
+// reports/evidence/: annexes are captured artefacts, never translated
+// (ADR-005 v1.2.0 rule 5; was reports/audits/evidence/ until 2026-09-01).
 const EXCLUDE_DIRS = ["canon/", "decisions/", "seminal/", "operations/legal/",
-  "reports/audits/evidence/"];
+  "reports/evidence/"];
 const EXCLUDE_PATTERNS = [/licens/i, /legal/i, /privacy/i, /terms/i,
   /c-005/i, /LEGAL_DEBT/];
 const isExcluded = (file) =>
