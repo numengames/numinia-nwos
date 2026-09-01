@@ -1,5 +1,5 @@
 ---
-id: "O-002"
+id: "OPS-002"
 uid: ""
 title: "Pending contradictions — register"
 type: documentation
@@ -44,7 +44,7 @@ entry moves to the "Resolved" section with the decision and its date.
 ### CON-004 — Legal texts published with open review flags
 
 - **Detected:** 2026-08-18 (publication of the legal texts on numinia.org)
-- **Source A:** `operations/legal/O-003-privacy-policy-numengames.md`
+- **Source A:** `operations/legal/OPS-003-privacy-policy-numengames.md`
   — frontmatter: FLAG-2..6 open, "must be resolved before external
   use"; the T&C ask to "verify against the original before external
   use". Oracle's note (FLAG-1 record): these texts were not published

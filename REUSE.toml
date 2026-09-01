@@ -129,15 +129,26 @@ SPDX-License-Identifier = "LicenseRef-Numen-AllRightsReserved"
 # Enforceable legal texts of the company are not documentation: C-005 is
 # silent on their regime, so they stay in the birth regime (§1, reserved).
 # This annotation comes after the docs block so it wins over operations/**.
+#
+# MIS-127 (2026-09-01): operations/ was flattened to a single level, so the
+# regime can no longer ride on the path. These are now per-FILE annotations,
+# the mechanism STD-003 already uses (see above) — the regime is pinned to
+# the documents themselves, which is what DBT-005 shows the folder was
+# silently standing in for. Same three files, same licence, no widening:
+# every one of them also declares LicenseRef-Numen-AllRightsReserved in its
+# own frontmatter, and check-license-frontmatter.mjs compares the two.
 [[annotations]]
-path = "operations/legal/**"
+path = [
+  "operations/OPS-003-privacy-policy-numengames.md",
+  "operations/OPS-004-terms-and-conditions-numengames.md",
+]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "LicenseRef-Numen-AllRightsReserved"
 
 # Commercial strategy is born closed (C-005 §1) — MIS-071 phase 2,
-# Oracle-delegated regime decision 2026-08-17.
+# Oracle-delegated regime decision 2026-08-17. Per-file since the flatten.
 [[annotations]]
-path = "operations/strategy/**"
+path = "operations/OPS-007-sales.md"
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "LicenseRef-Numen-AllRightsReserved"
 

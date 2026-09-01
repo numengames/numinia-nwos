@@ -103,7 +103,7 @@ to be wrong.
 
 ```
  20  standards/STD-001-glossary.md
- 11  operations/legal/O-004-terms-and-conditions-numengames.md
+ 11  operations/legal/OPS-004-terms-and-conditions-numengames.md
   6  protocols/P-011-security-audit.md
   5  blueprints/BLU-008 (deleted 2026-08-31)
   5  reports/RPT-2026-04-07-wardley-map.md
@@ -166,7 +166,7 @@ re-checking one that does.
 ## What would close it
 
 **1 · A verification pass over the 132**, in severity order: security and legal
-first (`P-011`, `O-004`, `security-policy`), then standards, then the rest.
+first (`P-011`, `OPS-004`, `security-policy`), then standards, then the rest.
 Each one gets a verdict: holds / fails / not testable.
 
 **2 · Assertions carry their mechanism.** The same discipline `[CI]`/`[MANUAL]`

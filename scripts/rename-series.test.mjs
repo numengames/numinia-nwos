@@ -32,8 +32,32 @@ const rewriteBase = (s, oldBase, newBase) =>
   s.replace(new RegExp(`([/\`(\\[<'"]|^|:\\s*)${reEsc(oldBase)}(?![A-Za-z0-9_-])`, 'gm'),
     (_m, pre) => pre + newBase);
 
+const rewriteSlug = (s, oldBase, newBase) => {
+  const oldSlug = oldBase.replace(/\.md$/, '').toLowerCase();
+  const newSlug = newBase.replace(/\.md$/, '').toLowerCase();
+  if (oldSlug === newSlug) return s;
+  return s.replace(new RegExp(`([/\`(\\[<'"]|^|:\\s*)${reEsc(oldSlug)}(?![A-Za-z0-9_-])`, 'gm'),
+    (_m, pre) => pre + newSlug);
+};
+
 const cases = [
   // --- the ones that actually broke -------------------------------------
+  // --- the slug form: the hand-written map in [slug].astro (MIS-127) ----
+  ['slug: hand-written slug map value is rewritten',
+    () => rewriteSlug('  privacidad: "ops-003-privacy-policy-numengames",',
+      'OPS-003-privacy-policy-numengames.md', 'OPS-003-privacy-policy-numengames.md'),
+    '  privacidad: "ops-003-privacy-policy-numengames",'],
+
+  ['slug: url path form is rewritten',
+    () => rewriteSlug('(/corpus/operations/ops-001-continuity)',
+      'OPS-001-continuity.md', 'OPS-001-continuity.md'),
+    '(/corpus/operations/ops-001-continuity)'],
+
+  ['slug: a longer id sharing the prefix is not touched',
+    () => rewriteSlug('see /corpus/operations/o-001-continuity-notes here',
+      'OPS-001-continuity.md', 'OPS-001-continuity.md'),
+    'see /corpus/operations/o-001-continuity-notes here'],
+
   ['id: MIS-001 is not STD-001',
     () => rewriteId('MIS-001 depends on STD-001', 'STD-001', 'STD-001'),
     'MIS-001 depends on STD-001'],

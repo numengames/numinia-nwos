@@ -162,6 +162,29 @@ The closing condition is unchanged: the Oracle rules on the mechanism.
 
 ---
 
+## Event note, 2026-09-01 — `operations/` no longer derives its regime from the path
+
+`MIS-127` flattened `operations/` to a single level: `legal/` and `strategy/`
+were retired because the Oracle ruled that territory is a frontmatter tag, not
+a folder. Those two folders were the largest live instance of the mechanism
+this debt describes — the regime was riding on the path.
+
+The three affected documents (`OPS-003`, `OPS-004`, `OPS-007`) now carry
+**per-file annotations** in `REUSE.toml`, the same mechanism `STD-003` already
+used. Same licence, same three files, no widening:
+`check-license-frontmatter` verifies the annotation against each document's
+own `license:` field and passes.
+
+**This does not close this debt.** The question it asks — *should* the regime
+derive from the path anywhere in NWOS — is still open and still the Oracle's.
+What changed is that one instance stopped depending on the answer. The
+remaining path-derived annotations in `REUSE.toml` (`canon/**`, `agents/**`,
+`docs/**` and the rest) are untouched.
+
+Recorded by `ursa`, not ruled.
+
+---
+
 ## Renumbering note, 2026-08-31
 
 This document was `D-030`. The `D-` series

@@ -1,5 +1,5 @@
 ---
-id: "O-007"
+id: "OPS-007"
 uid: ""
 title: "Sales — commercial strategy"
 type: documentation

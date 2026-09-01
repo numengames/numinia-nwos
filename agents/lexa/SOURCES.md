@@ -35,7 +35,7 @@ TRADEMARKS.md — what CC0 never granted
 
 ## Legal record
 
-operations/legal/** — reserved; read under authorization
+operations/OPS-003-*.md, operations/OPS-004-*.md — reserved; read under authorization
 
 ## Decisions with legal weight
 

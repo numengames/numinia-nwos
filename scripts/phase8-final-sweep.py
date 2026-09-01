@@ -58,7 +58,7 @@ ningun otro fichero importa: componente muerto, el campo no se lee.
    - credential-map y security-policy (protocol en operations/): mismos
      terminos. operations/ ES el sitio de la operativa; el tipo protocol
      es correcto semanticamente. Excepcion registrada.
-   - O-003/O-004 (legal en operations/legal/): la serie legal vive en
+   - OPS-003/OPS-004 (legal en operations/legal/): la serie legal vive en
      canon/ segun TYPE_SERIES, pero estos son operativa legal de
      numengames, no canon. Excepcion registrada.
 

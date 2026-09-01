@@ -58,7 +58,7 @@ same-method start-to-finish. Anyone auditing against the original
 | — | [#150](https://github.com/numengames/numinia-nwos/pull/150) (merged) | *Not a reduction PR* — MIS-120 closure documentation | 0 files | +1,167 (MIS-120's own closure, not this line) |
 | — | [#151](https://github.com/numengames/numinia-nwos/pull/151) (merged) | *Not a reduction PR* — MIS-128 closure documentation | 0 files | +788 (MIS-128's own closure, not this line) |
 | — | [#152](https://github.com/numengames/numinia-nwos/pull/152) (merged) | *Not a reduction PR* — this mission's own ledger correction (re-measurement note + #148 backfill) | 0 files | not separately measured (self-referential, see note above) |
-| 5 | #153 (pending) | ADR-030 (formerly ADR-032): `blueprints/` joins the operational series (extends ADR-030/P-010 §5); six April blueprints extinguished (BP-repo, BP-web, BP-misiones, BP-datos, BP-infraestructura — foundation decisions DEC-001/002/003/005 all superseded; BP-cao-overview — losing side of O-002 CON-001, now resolved); `BP-financiero` kept active per prior Oracle ruling, one dead cross-reference removed | −6 files, +1 file (ADR-030) = **−5 net** | **−1,561** (−3,698 removed + 2,015 new ADR + 128 net edits to P-010/O-002/BP-financiero) |
+| 5 | #153 (pending) | ADR-030 (formerly ADR-032): `blueprints/` joins the operational series (extends ADR-030/P-010 §5); six April blueprints extinguished (BP-repo, BP-web, BP-misiones, BP-datos, BP-infraestructura — foundation decisions DEC-001/002/003/005 all superseded; BP-cao-overview — losing side of OPS-002 CON-001, now resolved); `BP-financiero` kept active per prior Oracle ruling, one dead cross-reference removed | −6 files, +1 file (ADR-030) = **−5 net** | **−1,561** (−3,698 removed + 2,015 new ADR + 128 net edits to P-010/OPS-002/BP-financiero) |
 | — | [#155](https://github.com/numengames/numinia-nwos/pull/155) (merged, squash `e8571cb`) | *Not a reduction PR* — MIS-125 Stage A: ADR-004/ADR-005 v1.1.0 (13-series register, `agents/` reversal formalized), P-010 v0.4.0, D-008 v2.0.0 (re-measured), D-024 closed (v1.2.0), `check-references.mjs` extended to the new register + bare-filename citations. Detail in `MIS-125` itself, not duplicated here. | 0 files (frontmatter/content edits only) | not measured — not a reduction PR |
 | — | [#156](https://github.com/numengames/numinia-nwos/pull/156) (merged) | *Not a reduction PR* — MIS-125 Stage A mission-log rescue (a commit pushed after #155's squash-merge, orphaned on the closed branch, cherry-picked here) | 0 files (content edits only) | not measured — not a reduction PR |
 | — | [#157](https://github.com/numengames/numinia-nwos/pull/157) (merged) | *Not a reduction PR* — MIS-125 Stage B pre-work: D-008 v2.1.0 (`standards/STANDARDS.md` excluded as apparatus, `debt/D-001` extinguishment recount) | 0 files (content edits only) | not measured — not a reduction PR |
@@ -69,8 +69,10 @@ same-method start-to-finish. Anyone auditing against the original
 
 | 7 | [#190](https://github.com/numengames/numinia-nwos/pull/190) (pending) | **`canon/` consolidated 12 → 7, one series, one regime.** `C-` renamed to `CAN-` (eight `N-04` violations closed); the two dated documents ruled NOT frozen artifacts and entered the series as `CAN-006`/`CAN-007`; `C-007` merged verbatim into `CAN-003`; `C-006 Session Zero` moved to `numinia-lore` (`ADR-035` — game design, not governing canon); the three apparatus files (index, readme and the lore sheet) retired, the index's historical record inherited by `ADR-036` §6 and the lore lines folded into `SYS-003`'s frontmatter (the `canonLore` collection is gone). `REUSE.toml` corrected to `CC0-1.0`: the documents were first published under the CC0 root licence in April 2026, four months before the reserved regime, and a CC0 grant is irrevocable — same fault `ADR-026` fixed for `agents/**`. ⚠️ `ADR-004` rule 4 suspended by Oracle ruling (`CAN-006`/`007` reuse burned numbers) until `uid` is populated | −4 files | **−9,043** in `canon/` (−9,835 retired, +792 the merge), +4,391 `ADR-036`, +427 across citations, guards and web = **−4,225 net** |
 
-**Reduction-line total (PRs #145–148, #153, #190, and this one): −33,531 tokens,
-−20 files net**, against
+| 8 | [#192](https://github.com/numengames/numinia-nwos/pull/192) (pending) | **`operations/` flattened, renamed to `OPS-`, 10 → 9.** The two subfolders retired: `legal/` and `strategy/` were never organisation, they were **licence regime** carried by path (`DBT-005`). The regime is now pinned per-file in `REUSE.toml` — the mechanism `STD-003` already used — so the three reserved documents keep `LicenseRef-Numen-AllRightsReserved` with no widening, verified by `check-license-frontmatter`. `O-` renamed to `OPS-` (`ADR-005` v1.1.0), closing **62 baselined `N-04` violations** and emptying `operations/` from the naming baseline. `security-policy.md` + `credential-map.md` merged into `OPS-009`: one subject split in two, each pointing at the other, both carrying `registration: exempt` for `pending-genre-ruling` (`D-024`) — the merged document enters the series as the `type: protocol` both already declared. 13 redirects; 10 citations in closed records baselined, not rewritten (`PRO-010` §3.4). | −1 file | **−85 net** — the merge preserved both documents' content verbatim, so the saving is the removed apparatus (one header, two cross-references), not prose. **This entry is not a reduction and should not be read as one:** its value is structural (one level, one series, one regime per file), and the ledger records it at its true weight rather than inflating it |
+
+**Reduction-line total (PRs #145–148, #153, #190, #192): −33,616 tokens,
+−21 files net**, against
 the 575,958-token re-measured baseline. The four non-reduction closures
 (#149–152, +3,285 tokens combined, #152 not separately measured) are unrelated mission
 paperwork that happened to land in the same window — real, necessary, and outside this
@@ -115,8 +117,7 @@ above: those counted a repository that still held the `decisions/`,
 - **`operations/` — surveyed 2026-09-01 (ursa); `uid` added, nothing else
   executed.** 10 files, 21,739 tokens, two subfolders (`legal/`,
   `strategy/`). The Oracle's instruction is that territory becomes a
-  **frontmatter tag, not a folder**.
-  **Done in this PR:** `uid: ""` added to all 10 headers, declared and empty
+  **frontmatter tag, not a folder**. `uid: ""` added to all 10 headers, declared and empty
   per `STD-001` §6.2 / `H-20`, positioned after `id` as everywhere else.
   `operations/` was the only governed series at 0 % coverage while `canon/`,
   `decisions/`, `protocols/`, `standards/`, `debt/` and `system/` were at
@@ -161,18 +162,18 @@ above: those counted a repository that still held the `decisions/`,
      `--apply` on this series:** the tool locates citations with
      `git grep -Fl`, which is case-sensitive, but
      `web/src/pages/legal/[slug].astro` and `[slug].md.ts` cite the two legal
-     basenames in **lowercase** (`o-003-privacy-policy-numengames`) as hand-
+     basenames in **lowercase** (`ops-003-privacy-policy-numengames`) as hand-
      written slug values. The tool would not see them, would not rewrite
      them, and `getEntry` would throw at build — taking `/legal/terminos` and
      `/legal/privacidad`, the two public legal pages, down with it. `guilds/`
      did not surface this because no `.astro` hand-maps guild filenames.
      Filed here rather than acted on, because the tool is `MIS-125`'s.
-  5. **`O-001-continuity.md` is not an operational document.** It is a dated
+  5. **`OPS-001-continuity.md` is not an operational document.** It is a dated
      audit report of a resilience test on the Nimrod agent ("If Nimrod
      disappears tomorrow", before/after scores). Genre question, so per
      `STD-001` §3 it needs a ruling, not a move inside a refactor — the same
      bar already applied to `security-policy.md` and `credential-map.md`.
-  6. **`O-008-session-state.md` contradicts its own usage rule.** It declares
+  6. **`OPS-008-session-state.md` contradicts its own usage rule.** It declares
      "rewritten at the close of every session"; its content is the state of
      the 2026-08-18 session and its last real commit is 2026-08-30. A file
      that promises to be current and is not is worse than no file.
@@ -181,7 +182,7 @@ above: those counted a repository that still held the `decisions/`,
      repo) versus external disclosure policy (how to report a
      vulnerability). Not duplicates; the collision is in the name only.
   8. **`simulations.astro` and `solutions.astro` (736 lines) re-type the
-     content of `O-005`/`O-006` with zero collection reads.** Verified
+     content of `OPS-005`/`OPS-006` with zero collection reads.** Verified
      2026-09-01: the numbers still agree (29/31/23/17, n=100). Latent
      divergence, not yet actual — recorded now so the claim stays honest.
 - **New, opened by #153:** freeze the April commercial missions that

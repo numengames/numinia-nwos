@@ -213,9 +213,19 @@ const plan = [...withNumber, ...assigned].sort((a, b) => a.num - b.num).map((c) 
 });
 
 /* ---- 2. corpus-wide citation search (id + bare basename, any file type) ---- */
+// Case-insensitivity is not cosmetic here. A document's citations appear in
+// TWO cases: the archive filename (`OPS-003-privacy-policy-numengames.md`) and
+// the URL/slug form the web layer derives from it, lowercased
+// (`ops-003-privacy-policy-numengames`). `web/src/pages/legal/[slug].astro`
+// holds a hand-written slug map in the lowercase form; a case-SENSITIVE
+// search does not see it, so the rename would leave a dangling getEntry()
+// and take /legal/terminos and /legal/privacidad down at build time.
+// Found by dry-running this tool over operations/ before applying it
+// (MIS-127, 2026-09-01) — guilds/ never exposed it because no .astro maps
+// guild filenames by hand.
 function grepCorpusCount(needle) {
   try {
-    const out = execFileSync('git', ['-C', ROOT, 'grep', '-Fl', needle], { encoding: 'utf8' });
+    const out = execFileSync('git', ['-C', ROOT, 'grep', '-Fli', needle], { encoding: 'utf8' });
     return out.split('\n').filter(Boolean).filter((f) => !f.startsWith('web/dist/'));
   } catch (e) {
     return []; // git grep exits 1 on no matches
@@ -375,6 +385,17 @@ for (const p of plan) {
   const rewriteBase = (s, oldBase, newBase) =>
     s.replace(new RegExp(`([/\`(\\[<'"]|^|:\\s*)${reEsc(oldBase)}(?![A-Za-z0-9_-])`, 'gm'),
       (_m, pre) => pre + newBase);
+  // The slug form: basename minus .md, lowercased — what the web layer uses
+  // for URLs and what a hand-written slug map contains. Rewritten under the
+  // same uniqueness guard as the basename, and only in that lowercase shape,
+  // so prose that happens to mention the id in another case is untouched.
+  const rewriteSlug = (s, oldBase, newBase) => {
+    const oldSlug = oldBase.replace(/\.md$/, '').toLowerCase();
+    const newSlug = newBase.replace(/\.md$/, '').toLowerCase();
+    if (oldSlug === newSlug) return s;
+    return s.replace(new RegExp(`([/\`(\\[<'"]|^|:\\s*)${reEsc(oldSlug)}(?![A-Za-z0-9_-])`, 'gm'),
+      (_m, pre) => pre + newSlug);
+  };
 
   for (const f of safeHits) {
     const abs = path.join(ROOT, f);
@@ -383,6 +404,7 @@ for (const p of plan) {
     content = rewriteId(content, p.oldId, p.newId);
     content = rewriteRel(content, p.oldRel, p.newRel);
     if (baseUnique) content = rewriteBase(content, p.oldBase, p.newBase);
+    if (baseUnique) content = rewriteSlug(content, p.oldBase, p.newBase);
     if (content !== before) writeFileSync(abs, content);
   }
 

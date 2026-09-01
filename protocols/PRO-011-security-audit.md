@@ -262,7 +262,7 @@ enter this repository at all.
 | **Internal** | Census with secret names, IDs, last-use dates, addresses | Private repository or encrypted store. **Never** in a public one |
 | **Hot** | Everything in §8 | Outside git. Out-of-band channel |
 
-`operations/security-policy.md` already states the rule this table implements:
+`operations/OPS-009-secrets-handling.md` already states the rule this table implements:
 credentials, server IPs and personal data never enter this repository.
 
 **If the scope has no destination for the internal tier, that is the audit's
@@ -308,7 +308,7 @@ report) nor with `CON-XXX` (contradictions). This is what lets the next run be a
 diff instead of a snapshot.
 
 A finding that reveals the documentation contradicting reality gets **both**: an
-`FND-` in the report and a `CON-` in `operations/O-002-contradictions.md`, cross
+`FND-` in the report and a `CON-` in `operations/OPS-002-contradictions.md`, cross
 referenced. The finding closes when reality is fixed; the contradiction closes
 when the document is.
 
@@ -317,7 +317,7 @@ when the document is.
 ## 13. Close
 
 - [ ] Every credential found has a record, or is marked for purge. Nothing
-      without an owner. `operations/credential-map.md` updated — structure only,
+      without an owner. `operations/OPS-009-secrets-handling.md` §4 updated — structure only,
       never values.
 - [ ] Every finding of the previous run has a verdict: resolved, persists,
       returned, or reclassified. A finding without a verdict is still open.

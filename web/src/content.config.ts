@@ -89,12 +89,15 @@ const system = defineCollection({
     .passthrough(),
 });
 
-// Legal artifacts — operations/legal/ is the master copy (per the FLAG-1
-// record): the published pages derive from it at build time. Reserved-
+// Legal artifacts — the master copies live in operations/ (per the FLAG-1
+// record): the published pages derive from them at build time. Reserved-
 // rights content, read here only for display (C-005 §5). Publication with
 // open review flags is an Oracle-ordered exception — see CON-004/CON-005.
+// MIS-127 (2026-09-01): operations/ was flattened to one level, so this
+// collection selects the two legal documents by filename instead of by
+// folder. Their reserved regime is now pinned per-file in REUSE.toml.
 const legal = defineCollection({
-  loader: glob({ pattern: "*.md", base: "../operations/legal" }),
+  loader: glob({ pattern: "OPS-00{3,4}-*.md", base: "../operations" }),
   schema: z
     .object({
       id: z.string(),
