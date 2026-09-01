@@ -152,6 +152,21 @@ above: those counted a repository that still held the `decisions/`,
      reinstated it. The live register is the amendment. 165 citations of
      `O-00N` exist outside `operations/`, concentrated in `PRO-001` (13),
      `AUD-2026-08-26` (11) and `PRO-003` (10).
+     **The rename belongs to `MIS-125` Stage C, not here** — that mission owns
+     the tool, the risk order and the per-series commits. Dry run recorded
+     2026-09-01 (`node scripts/rename-series.mjs --dir operations --to OPS
+     --from O`, nothing written): 8 files planned, `credential-map.md` and
+     `security-policy.md` correctly skipped as `registration: exempt`.
+     **A defect was found in that dry run and must be fixed before any
+     `--apply` on this series:** the tool locates citations with
+     `git grep -Fl`, which is case-sensitive, but
+     `web/src/pages/legal/[slug].astro` and `[slug].md.ts` cite the two legal
+     basenames in **lowercase** (`o-003-privacy-policy-numengames`) as hand-
+     written slug values. The tool would not see them, would not rewrite
+     them, and `getEntry` would throw at build — taking `/legal/terminos` and
+     `/legal/privacidad`, the two public legal pages, down with it. `guilds/`
+     did not surface this because no `.astro` hand-maps guild filenames.
+     Filed here rather than acted on, because the tool is `MIS-125`'s.
   5. **`O-001-continuity.md` is not an operational document.** It is a dated
      audit report of a resilience test on the Nimrod agent ("If Nimrod
      disappears tomorrow", before/after scores). Genre question, so per
