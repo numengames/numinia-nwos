@@ -16,8 +16,8 @@
 
 import { getEntry } from "astro:content";
 
-/** The report, as the reports collection ("audits" in content.config.ts —
- *  one collection for every RPT-* since ADR-005 v1.2.0) addresses it. */
+/** The report, as the reports collection (one collection for every RPT-*
+ *  since ADR-005 v1.2.0) addresses it. */
 const ENTRY_ID = "rpt-003-wardley-map";
 
 export interface WardleyComponent {
@@ -135,7 +135,7 @@ const LAYER_ID: Record<string, string> = {
 };
 
 export async function getWardley(): Promise<WardleyDoc> {
-  const entry = await getEntry("audits", ENTRY_ID);
+  const entry = await getEntry("reports", ENTRY_ID);
   if (!entry) {
     throw new Error(
       `wardley.ts: ${ENTRY_ID} not found in the reports collection. ` +

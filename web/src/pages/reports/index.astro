@@ -1,0 +1,95 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+// /reports — every report, from the repo's reports/ folder (MIS-066 pattern:
+// the folder is the source of truth). One page, one collection, grouped by
+// `subtype` (ADR-005 v1.2.0: daily · audit · analysis · proposal).
+//
+// Until 2026-09-01 this address served 41.7 KB of Spanish copies of five
+// dailies hand-written into .astro files (MIS-065's "hardcoded today" debt,
+// PRO-010 §2) while /audits rendered the audits from a collection and
+// /corpus/reports mirrored the rest: three heads for one folder. This is the
+// one that remains. /audits and /audits/<id> redirect here.
+import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+import { getCollection } from "astro:content";
+
+type Row = { id: string; docId: string; title: string; created: string; status: string; author?: string; tags: string[]; subtype: string };
+
+const SUBTYPES: { key: string; label: string; blurb: string }[] = [
+  { key: "audit",    label: "Audits",    blurb: "Verified diagnoses of the system against a norm." },
+  { key: "analysis", label: "Analyses",  blurb: "Dated observations of the system or the market — a map, not a verdict." },
+  { key: "proposal", label: "Proposals", blurb: "Text proposed for another genre, with the measurements behind it." },
+  { key: "daily",    label: "Dailies",   blurb: "What an agent did that day, filed that day. The date is the identifier." },
+];
+
+const rows: Row[] = (await getCollection("reports")).map((e) => {
+  const f = e.data as Record<string, unknown>;
+  return {
+    id: e.id,
+    docId: String(f.id ?? e.id),
+    title: String(f.title ?? e.id),
+    created: String(f.created ?? "").slice(0, 10),
+    status: String(f.status ?? ""),
+    author: typeof f.author === "string" ? f.author : undefined,
+    tags: Array.isArray(f.tags) ? (f.tags as unknown[]).map(String) : [],
+    subtype: typeof f.subtype === "string" ? f.subtype : "other",
+  };
+});
+
+// Newest first within each group. A subtype nobody declared still renders,
+// under its own key, rather than vanishing: an index that omits reachable
+// documents is the same lie as one that lists none (lib/corpus.ts).
+const groups = SUBTYPES.map((s) => ({ ...s, rows: rows.filter((r) => r.subtype === s.key) }));
+const known = new Set(SUBTYPES.map((s) => s.key));
+const other = rows.filter((r) => !known.has(r.subtype));
+if (other.length) groups.push({ key: "other", label: "Unclassified", blurb: "subtype missing or outside the registered vocabulary (STD-004 H-18).", rows: other });
+for (const g of groups) g.rows.sort((a, b) => b.created.localeCompare(a.created));
+---
+
+<Layout
+  title="Reports — Numen Games CAO"
+  description="Every report of the NWOS system — audits, analyses, proposals and dailies — rendered from the repo's reports/ folder."
+  canonicalPath="/reports"
+  activeNav="reports"
+>
+  <PageHero
+    label="CAO · NWOS"
+    title="Reports"
+    description={`${rows.length} documents, straight from the canonical repo. Built in public; third-party data and credentials are redacted at the source.`}
+  />
+
+  <section class="pb-24">
+    <div class="mx-auto max-w-[800px] px-6 space-y-12">
+      {groups.filter((g) => g.rows.length > 0).map((g) => (
+        <div>
+          <div class="mb-4 flex items-center gap-3">
+            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">{g.label} · {g.rows.length}</span>
+            <span class="h-px flex-1 bg-border"></span>
+          </div>
+          <p class="mb-4 text-sm text-muted-foreground">{g.blurb}</p>
+          <div class="space-y-4">
+            {g.rows.map((r) => (
+              <a href={"/reports/" + r.id} class="block rounded-xl border border-border bg-card p-6 hover:bg-card-hover transition-colors">
+                <div class="flex flex-wrap items-center gap-3 mb-2">
+                  <span class="font-mono text-[0.65rem] text-accent">{r.docId}</span>
+                  <span class="font-mono text-[0.6rem] text-dim">{r.created}</span>
+                  <span class="font-mono text-[0.6rem] uppercase tracking-widest text-dim">{r.status}</span>
+                  {r.author && <span class="font-mono text-[0.6rem] text-dim">by {r.author}</span>}
+                </div>
+                <p class="text-base font-medium text-foreground leading-snug">{r.title}</p>
+                {r.tags.length > 0 && (
+                  <div class="mt-3 flex flex-wrap gap-2">
+                    {r.tags.slice(0, 6).map((t) => (
+                      <span class="font-mono text-[0.55rem] text-dim border border-border/50 rounded-full px-2 py-0.5">{t}</span>
+                    ))}
+                  </div>
+                )}
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

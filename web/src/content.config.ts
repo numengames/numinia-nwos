@@ -27,11 +27,9 @@ const missions = defineCollection({
 // Reports are read from the repo's reports/ folder at build time — same
 // source-of-truth pattern as missions. Since 2026-09-01 (ADR-005 v1.2.0) the
 // folder is flat and one collection holds every subtype: audit, analysis,
-// proposal (RPT-NNN) and daily (RPT-YYYY-MM-DD). /audits renders the audit
-// subset; the corpus mirror below excludes RPT-* so ownership stays single.
-// The collection keeps the name "audits" until the /reports route exists
-// (plan step 2c/3): renaming it now would touch every consumer twice.
-const audits = defineCollection({
+// proposal (RPT-NNN) and daily (RPT-YYYY-MM-DD). /reports renders them all;
+// the corpus mirror below excludes RPT-* so ownership stays single.
+const reports = defineCollection({
   loader: glob({ pattern: "RPT-*.md", base: "../reports" }),
   schema: z
     .object({
@@ -169,4 +167,4 @@ const corpus = defineCollection({
   schema: z.object({}).passthrough(),
 });
 
-export const collections = { missions, audits, decisions, blueprints, system, legal, corpus };
+export const collections = { missions, reports, decisions, blueprints, system, legal, corpus };
