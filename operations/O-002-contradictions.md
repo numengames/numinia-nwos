@@ -1,5 +1,6 @@
 ---
 id: "O-002"
+uid: ""
 title: "Pending contradictions — register"
 type: documentation
 status: active

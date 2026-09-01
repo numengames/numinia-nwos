@@ -1,5 +1,6 @@
 ---
 id: "O-007"
+uid: ""
 title: "Sales — commercial strategy"
 type: documentation
 status: active

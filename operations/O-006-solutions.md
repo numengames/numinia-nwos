@@ -1,5 +1,6 @@
 ---
 id: "O-006"
+uid: ""
 title: "Solutions"
 type: documentation
 status: active
