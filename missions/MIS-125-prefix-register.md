@@ -74,14 +74,14 @@ For every series that carries identifiers:
    the numbered one
 3. **What happens to a document whose prefix does not match its folder** —
    move it, retire it, or register the prefix
-4. **Whether the register belongs in `ADR-005` as an amendment or in `S-004`
-   as a table** — `S-004` is where the ring tables already live
+4. **Whether the register belongs in `ADR-005` as an amendment or in `STD-004`
+   as a table** — `STD-004` is where the ring tables already live
 
 ## Acceptance criteria
 
 - [x] Every series carrying identifiers appears in the register — twelve, not
       eight. **Done**: `ADR-005` v1.1.0 (Oracle, 2026-08-31) registers twelve,
-      and `S-001` §4.1 was corrected to match on the same day — it had been
+      and `STD-001` §4.1 was corrected to match on the same day — it had been
       carrying the superseded eight.
 - [ ] Every `id` in the corpus matches its series' registered prefix, or its
       exception is declared and dated
@@ -102,7 +102,7 @@ For every series that carries identifiers:
 
 ## The prior constraint
 
-`S-001`: *"never renumber — an identifier is a promise about the past."*
+`STD-001`: *"never renumber — an identifier is a promise about the past."*
 
 That promise is real but narrower than it sounds. Measured: the 13 descriptive
 ids (`charter-*`, `roster-*`, `*-index`) have **zero incoming citations in the
@@ -196,7 +196,7 @@ verified with a positive test (renaming `credential-map.md` correctly
 triggers 12 new failures).
 
 **CI catch, fixed same day:** `debt/D-024`'s `status: resolved` is not a
-valid value in `S-004`'s `documentation` lifecycle (`draft → active →
+valid value in `STD-004`'s `documentation` lifecycle (`draft → active →
 closed`) — build failed on `H-04`. Corrected to `status: closed`;
 `(RESOLVED)` stays in the title as a human-readable note.
 
@@ -209,7 +209,7 @@ closed end-to-end on `main` at `307c7bc`.
 
 Two follow-up debts noted, not yet filed: `D-017` (cited by `D-024`, does
 not exist in `debt/`); `.github/workflows/scorecard.yml` cites
-`engineering-standards.md` by bare name in a comment, outside any guard's
+`STD-005-engineering-standards.md` by bare name in a comment, outside any guard's
 reach — will break silently when Stage C renames that file.
 
 ## Stage B — rename tool (PR #157, PR #161, 2026-08-31)
@@ -246,7 +246,7 @@ Dry-run tested against 6 series (`infra` 0-file edge case, `guilds`,
    `standards/` series number, contradicting the ruling made minutes
    earlier in the same session.
    Fixed — excluded by name.
-3. Slug bug: `engineering-standards.md` was mistaken for
+3. Slug bug: `STD-005-engineering-standards.md` was mistaken for
    `PREFIX-name` and mangled, colliding with `STANDARDS.md`'s slug. Fixed —
    only strip a leading prefix when the file had a recognized *old series
    number*, never guessed off an unnumbered basename.
@@ -309,11 +309,11 @@ dated names permanently.** Four grounds, each measured against the repo at
 3. **An out-of-repo consumer keys on the path.**
    `numinia-web/design-source.json` pins the Design System by `path` +
    `sha256`, verified by that repo's own `scripts/check-design-source.mjs`.
-   `S-001` §5.0.1 makes such a rename **structurally incomplete**.
+   `STD-001` §5.0.1 makes such a rename **structurally incomplete**.
    *Qualified 2026-08-31:* that pin currently names `…-v5.0.0.md`, so it is
    already stale (`D-040`) and a rename would not break it today. The
    ground rests on the mechanism, not on this pin.
-4. **Two are `threshold: sealed`** (`S-001` §2.1 — both `canon/` documents;
+4. **Two are `threshold: sealed`** (`STD-001` §2.1 — both `canon/` documents;
    the other three declare no threshold) — changing them takes an Oracle
    signature and an ADR, which a bulk prefix pass is not.
 
@@ -389,7 +389,7 @@ for four other things, all of which it hit on this 8-file run:
 | `scripts/phase5-status-and-registration.py` | rewrote an id inside a code comment | the id was a **counter-example** — "`charter-alchemists` has no series" became "`GLD-001` has no series", inverting the comment's meaning |
 
 All four reverted; the rename stands. The distinction the tool cannot make is
-**citation vs. mention** — `S-001` §9.1's own rule, which the corpus states and
+**citation vs. mention** — `STD-001` §9.1's own rule, which the corpus states and
 the tool does not implement. Filed as `D-048`.
 
 `system/SYS-003-archive-fondos.md` was rewritten and **kept**: it is a live
@@ -399,7 +399,7 @@ manifest of paths the web build reads, so a stale path there is a real defect.
 `registration: exempt` with `registration_reason: "singular document, not a
 numbered series"`. After the rename they *are* a numbered series, but the
 exemption survived: `count-evidence.py` reported `guilds 8/8 100.0%` over 8
-files each declaring itself outside the scheme. `S-001` §5.0 requires an
+files each declaring itself outside the scheme. `STD-001` §5.0 requires an
 exemption to state something true. Retired from all 8 (v1.1.0 → v1.2.0), and
 `rename-series.mjs` now retires a falsified exemption as part of the rename.
 
@@ -435,7 +435,7 @@ the parent closed the children. This is worth stating plainly because it
 explains why the debt felt like it was multiplying: three entries were being
 tracked where one gap existed.
 
-The mechanism is `S-001` §10.4: eight guards print what they did **not** check,
+The mechanism is `STD-001` §10.4: eight guards print what they did **not** check,
 on success as well as failure, from `scripts/blind-spots.json` via
 `scripts/lib/blindness.mjs`. Verified by `scripts/test/blindness.test.mjs`,
 which builds a file that *should* trip each guard and asserts it stays green —
@@ -453,13 +453,13 @@ the ten series still unrenamed.
 
 ### Two corrections by the Oracle, same session
 
-**1. `S-001` §4.1 was out of date — ten of eleven rows.** It prescribed
+**1. `STD-001` §4.1 was out of date — ten of eleven rows.** It prescribed
 `MIS-NNN`, `P-NNN`, `S-NNN`, `D-NNN`, `C-NNN`, `O-NNN`, `BP-slug`,
 `RPT-YYYY-MM-DD`, `AUD-YYYY-MM-DD` and `AG-NNN`, all superseded by `ADR-005`
 v1.1.0 — the amendment this mission itself obtained — and `guilds/` and
 `infra/` were missing entirely. **For a day this mission was renaming the corpus
 against its own glossary**, which 104 files cite. Rewritten from `ADR-005`
-v1.1.0 with coverage measured by `count-evidence.py`, not copied. `S-001` →
+v1.1.0 with coverage measured by `count-evidence.py`, not copied. `STD-001` →
 v5.0.0.
 
 **2. A dead debt entry was cited as live authority.** `D-017` was extinguished

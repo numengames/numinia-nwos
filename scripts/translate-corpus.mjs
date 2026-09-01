@@ -130,7 +130,7 @@ async function translate(body, file) {
 }
 
 // Fidelity gate: a translation that loses structure is REJECTED and the
-// English original is served instead (S-001: better honest than broken).
+// English original is served instead (STD-001: better honest than broken).
 function fidelityOk(src, out) {
   const count = (re, s) => (s.match(re) ?? []).length;
   const ids = (s) => new Set(s.match(/\b(?:MIS|ADR|DEC|C|S|P|D)-\d{3}\b/g) ?? []);

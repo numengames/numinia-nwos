@@ -6,7 +6,7 @@
 Answers, with reproducible numbers:
   1. How many .md documents have frontmatter, and how many do not.
   2. Every field in use: count, distinct values, series (top dirs) using it.
-  3. The `type` vocabulary as used vs as declared in S-001.
+  3. The `type` vocabulary as used vs as declared in STD-001.
   4. Data hygiene: dates without time, empty values, v-prefixed versions,
      template placeholders.
 

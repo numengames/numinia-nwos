@@ -8,6 +8,7 @@ import Icon from "@/components/Icon.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
 import { getCollection, render } from "astro:content";
 import { getPublicCorpus } from "@/lib/corpus";
+import { repoFileUrl } from "@/lib/build-info";
 
 export async function getStaticPaths() {
   const entries = await getPublicCorpus();
@@ -30,6 +31,7 @@ const f = {
 const rel = (entry.filePath as string).replace(/\\/g, "/");
 const mdFilename = rel.split("/").pop()!;
 const mdUrl = `/corpus/${entry.id}.md`;
+const repoUrl = repoFileUrl(rel);
 // Group from filePath, not id: the loader maps INDEX.md to the bare
 // directory id, which would mislabel section indexes as root files.
 const m = rel.match(
@@ -59,7 +61,7 @@ const updated = fmtDate(f.updated) ?? fmtDate(f.created);
   <section class="pb-20 pt-16">
     <div class="mx-auto max-w-[800px] px-6">
 
-      <a href="/corpus" class="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-8">
+      <a href="/corpus" class="inline-flex min-h-[44px] items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-6">
         <Icon name="caret-left" size={12} />
         Corpus
       </a>
@@ -75,7 +77,7 @@ const updated = fmtDate(f.updated) ?? fmtDate(f.created);
 
       <h1 class="font-display text-3xl sm:text-4xl text-foreground mb-8">{title}</h1>
 
-      <DocToolbar mdUrl={mdUrl} filename={mdFilename} pdfUrl={"/pdf" + mdUrl.replace(/\.md$/, ".pdf")} lang={docLang} />
+      <DocToolbar mdUrl={mdUrl} filename={mdFilename} lang={docLang} repoUrl={repoUrl} />
       <article class="mission-md rounded-xl border border-border bg-card p-6 sm:p-8">
         <Content />
       </article>

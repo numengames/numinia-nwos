@@ -15,7 +15,7 @@ tags: [canon, vocabulary, language, english, terminology]
 absorbs: ["ADR-024"]
 superseded_by: null
 license: "CC-BY-4.0"
-related: ["ADR-001", "S-001", "C-001", "MIS-127"]
+related: ["ADR-001", "STD-001", "C-001", "MIS-127"]
 ---
 
 # The canon's vocabulary
@@ -28,7 +28,7 @@ related: ["ADR-001", "S-001", "C-001", "MIS-127"]
 **Four terms, two pairs.** The canon names its objects with four terms
 organised as two oppositions. Each pair is a distinction the system must be
 able to make; a fifth term would name something the system does not decide.
-Definitions live in `S-001` — the glossary is the normative surface, not
+Definitions live in `STD-001` — the glossary is the normative surface, not
 this record.
 
 **English is the canon language.** New and rewritten documents are written

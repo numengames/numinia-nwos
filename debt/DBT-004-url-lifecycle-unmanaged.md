@@ -103,7 +103,7 @@ The first pass counted redirects by file size (`-size -2k`) and also got 114.
 Same number, different claim: size is a proxy that a verbose redirect or a
 minimal legitimate page would break. The `http-equiv="refresh"` marker counts
 the thing itself. Recorded because a figure that happens to be right is not
-evidence — `S-001` §10.2.
+evidence — `STD-001` §10.2.
 
 **This does not open a new entry.** It is the same debt, better measured, and
 the movement from 9 to 114 is part of what has to be known about it.
@@ -153,7 +153,7 @@ old and new paths, and `content.config.ts` says which folders are published.
 
 **2 · Retirement must be declarable.** Not every old URL deserves to live
 forever; what must not happen is a URL disappearing **without anyone deciding
-it should**. Same principle as `registration: exempt` (`S-001` §5.0) and the
+it should**. Same principle as `registration: exempt` (`STD-001` §5.0) and the
 declared exclusions in `D-023`: a gap and a decision must not look alike.
 
 **3 · A 404 page that says something.** There is no `404.astro`. A reader

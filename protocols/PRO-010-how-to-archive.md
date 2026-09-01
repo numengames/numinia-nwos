@@ -122,7 +122,7 @@ standards/2026_04_14-Analogous_Terminology_Numina-v0.2.0.md  field ABSENT
 The two without it are not oversights: both are `status: closed` and carry
 `registration_reason: "not part of a numbered series"` — the same ruling in
 older words, written before the `frozen-artifact` value existed
-(`S-001` §5.0, 2026-08-25). A guard keyed on the field would have counted
+(`STD-001` §5.0, 2026-08-25). A guard keyed on the field would have counted
 those two as violations and renamed them. **Any check implementing this
 section matches the filename shape** — `scripts/count-evidence.py` and
 `scripts/rename-series.mjs` both do.
@@ -134,7 +134,7 @@ exception" swept in these five and assigned them `STD-NNN`/`CAN-NNN`/
 `PRO-NNN`. That contradicted this section head-on. **This section wins, on
 four grounds, all measured against the repo rather than argued:**
 
-1. **The rename is structurally incomplete** — `S-001` §5.0.1: *a rename
+1. **The rename is structurally incomplete** — `STD-001` §5.0.1: *a rename
    whose consumers cannot all be updated is not done.*
    `2026_08_18-Sistema_de_Diseno-v5.1.0.md` is consumed by **`numinia-web`,
    a different repository**, via `design-source.json` (`path` + `sha256`,
@@ -142,7 +142,7 @@ four grounds, all measured against the repo rather than argued:**
    `npm run design:check`), and by the published kit at
    `web/public/diseno/kit/manifest.json`. That consumer is outside this
    repo's reach — exactly the profile that reverted the
-   `engineering-standards.md` rename in `D-024`.
+   `STD-005-engineering-standards.md` rename in `D-024`.
    **Correction, 2026-08-31 (see §3.2.3):** that pin currently names
    `…-v5.0.0.md`, not `v5.1.0` — it is already stale, per `D-040`. This
    ground therefore rests on the *mechanism* (an out-of-repo pin keyed by
@@ -163,7 +163,7 @@ four grounds, all measured against the repo rather than argued:**
    rename; it is never break a reference that exists." **None of these
    five is at zero.** The premise that authorised the renames is false for
    this set.
-4. **Two of them are `threshold: sealed`** (`S-001` §2.1 — both `canon/`
+4. **Two of them are `threshold: sealed`** (`STD-001` §2.1 — both `canon/`
    documents; the other three declare no threshold). Changing a sealed
    document takes the Oracle's signature and an ADR. A bulk prefix pass is
    neither.
@@ -238,7 +238,7 @@ turned into nonsense.
    counterexample, because that distinction lives in the sentence.
 
 Rule 3 is the expensive one and it is not optional. A rename run whose diff was
-not read is not verified, however green the guards are (`S-001` §10.4).
+not read is not verified, however green the guards are (`STD-001` §10.4).
 
 ## 4. Documentary semantic versioning
 
@@ -274,7 +274,7 @@ deletion must pass them.
    machine-checkable** and is not claimed to be — `scripts/check-deletable.mjs`
    prints the prompt and leaves the judgment where §3.4 put it, in the
    sentence.
-4. **Not sealed.** `threshold: sealed` (`S-001` §2.1) requires the
+4. **Not sealed.** `threshold: sealed` (`STD-001` §2.1) requires the
    Oracle's signature and an ADR whatever the other three say.
 
 Passing 1–4, **a deletion needs no ADR.** The guards are the authority.
@@ -389,7 +389,7 @@ agents.
   `registration_exemption` field (§3.2.1 — measured: 2 of the 5 artefacts
   carry the shape without the field). Grounds in §3.2.2, each verified
   against the repo: a cross-repo consumer outside this repo's reach
-  (`S-001` §5.0.1), public URLs derived from filenames (`D-028`), 59
+  (`STD-001` §5.0.1), public URLs derived from filenames (`D-028`), 59
   incoming citations that falsify `MIS-125`'s own zero-citation premise for
   this set, and two `threshold: sealed` documents. The H1 also dropped a
   stale "(v0.3.0)" it had carried since v0.4.0 — form, not substance.

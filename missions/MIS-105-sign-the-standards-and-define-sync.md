@@ -28,7 +28,7 @@ completed: null
 ---
 # MIS-105 — Sign the standards and define the sync
 
-> **Summary:** `engineering-standards.md` is `v0.1.0 (draft — pending Oracle
+> **Summary:** `STD-005-engineering-standards.md` is `v0.1.0 (draft — pending Oracle
 > review)`, its canonical copy lives upstream in the mould, and its sync
 > mechanism is declared an open decision. Three repositories already obey it.
 > **Epistemic:** What it costs to enforce a rule nobody has signed.
@@ -65,7 +65,7 @@ The document says of itself:
   mechanism is an open Oracle decision — not defined here.**"*
 
 Verified today: the upstream copy (`nwos-workspace-template/ENGINEERING_STANDARDS.md`)
-and the downstream one (`numinia-nwos/standards/engineering-standards.md`) are
+and the downstream one (`numinia-nwos/standards/STD-005-engineering-standards.md`) are
 **byte-identical**. There is no drift — and no mechanism preventing it either.
 They agree because they were written days apart, which is the same reason the
 three design-token copies agree (MIS-094).

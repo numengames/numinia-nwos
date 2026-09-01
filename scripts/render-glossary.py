@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-render-glossary.py — produce the HTML view from standards/S-001-glossary.md.
+render-glossary.py — produce the HTML view from standards/STD-001-glossary.md.
 
 The Oracle's question, 2026-08-24:
 
-    «The document says it is a generated view of standards/S-001-glossary.md.
+    «The document says it is a generated view of standards/STD-001-glossary.md.
      Does the generator exist? Because if the HTML is written by hand and the
      .md is a declaration, it is the same violation as v1 with better wording.»
 
@@ -28,7 +28,7 @@ wins; this is a convenience, not a second source of truth.
 import argparse, hashlib, html, os, re, subprocess, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DEFAULT_SOURCE = os.path.join(ROOT, 'standards', 'S-001-glossary.md')
+DEFAULT_SOURCE = os.path.join(ROOT, 'standards', 'STD-001-glossary.md')
 
 # Design System v5.1.0 §19.3 — canonical tokens. Values are not invented here;
 # they are copied from standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md.
@@ -348,7 +348,7 @@ def main():
         description='Render a repository .md into an HTML view. '
                     'The .md is the source; this output is never committed.')
     ap.add_argument('source', nargs='?', default=DEFAULT_SOURCE,
-                    help='path to the .md (default: standards/S-001-glossary.md)')
+                    help='path to the .md (default: standards/STD-001-glossary.md)')
     ap.add_argument('-o', '--output',
                     help='output path (default: build/<name>.html)')
     ap.add_argument('--check', action='store_true',

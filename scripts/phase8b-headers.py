@@ -46,7 +46,7 @@ DOCS = [
      "Epistemic-relations-v1-deleted-2026-04-15.md", "closed", "CC-BY-4.0"),
     ("reports/audits/evidence/canon-2026-04-15/README.md", "closed", "CC-BY-4.0"),
     ("standards/2026_04_14-Analogous_Terminology_Numina-v0.2.0.md", "closed", "CC-BY-4.0"),
-    ("standards/engineering-standards.md", "active", "CC-BY-4.0"),
+    ("standards/STD-005-engineering-standards.md", "active", "CC-BY-4.0"),
 ]
 
 AUTORES = {"Pablo": "pablo-fm", "pablofm": "pablo-fm", "Pablo FM": "pablo-fm"}

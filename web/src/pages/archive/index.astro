@@ -88,7 +88,7 @@ const fondos = [
     funcion: "Coordinar sin colisionar. Asegurar sin bloquear.",
     accent: "border-border bg-card",
     accentText: "text-foreground",
-    items: ["governance.md", "security.md", "credential-map.md"],
+    items: ["STD-002-governance.md", "security.md", "credential-map.md"],
   },
 ];
 
@@ -491,33 +491,23 @@ const graphEdges = _graph.edges as [string, string][];
         </div>
       </div>
 
-      <!-- Descargas -->
-      <div class="mb-4 mt-16 flex items-center gap-3">
-        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Documentos — descarga directa</span>
-        <span class="h-px flex-1 bg-border"></span>
-      </div>
+      {/*
+        Removed 2026-08-31 (MIS-127): the "Documentos — descarga directa"
+        block offered three archive-summa-*.md downloads. PR #170 deleted
+        those blueprints as closed April drafts — their surviving content
+        "became P-001..P-013, S-001 and the canon" — and this page kept
+        linking them, so all three downloads 404'd.
 
-      <div class="grid gap-3 sm:grid-cols-3 mb-12">
-        {[
-          // MIS-128 — these three linked /archive/archive-summa-*.md, the
-          // public/ copies retired in d039463. b40fbe6 repointed the
-          // blueprint's downloads at the corpus copies but missed this page;
-          // same target paths, verified against dist.
-          { file: "archive-summa-arquitectura-v0.1.0.md", href: "/corpus/blueprints/archive-summa-arquitectura-v010.md", titulo: "Arquitectura v0.1.0", desc: "Estructura completa, governance, permisos, jerarquía de delegación Alpha→v1.0.0" },
-          { file: "archive-summa-fundacional-v0.1.0.md", href: "/corpus/blueprints/archive-summa-fundacional-v010.md", titulo: "Documento Fundacional", desc: "100 simulaciones, 12 principios operativos, protocolo de arranque canónico" },
-          { file: "archive-summa-prompt-v0.1.0.md", href: "/corpus/blueprints/archive-summa-prompt-v010.md", titulo: "Prompt para IAs", desc: "Prompt completo para estudiar la arquitectura con cualquier IA. Incluye contexto técnico y preguntas." },
-        ].map((d) => (
-          <a href={d.href} download={d.file}
-            class="rounded-xl border border-accent/20 bg-accent/5 p-5 hover:bg-accent/10 transition-colors block group">
-            <div class="flex items-start justify-between mb-2">
-              <span class="inline-flex items-center gap-1.5 font-mono text-[0.6rem] text-accent uppercase tracking-wider"><Icon name="file-text" size={11} /> .md</span>
-              <span class="font-mono text-[0.55rem] text-dim group-hover:text-accent transition-colors">↓ descargar</span>
-            </div>
-            <p class="text-sm font-medium text-foreground mb-1">{d.titulo}</p>
-            <p class="text-xs text-muted-foreground leading-relaxed">{d.desc}</p>
-          </a>
-        ))}
-      </div>
+        Not repointed, because there is no 1:1 successor: the content was
+        dissolved into the protocol and standard series, not moved. A
+        download button is a promise of a file; the honest version of that
+        promise here is no button.
+
+        Note for whoever adds downloads back: no guard would have caught
+        this. check-url-lifecycle watches the addresses this site PUBLISHES,
+        not the ones it LINKS TO, and check-references only reads .md. An
+        href in .astro pointing at a deleted file is nobody's job yet.
+      */}
 
     </div>
   </section>

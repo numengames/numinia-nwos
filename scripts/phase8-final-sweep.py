@@ -36,7 +36,7 @@ ningun otro fichero importa: componente muerto, el campo no se lee.
      agents/:     previous_name previous_name_note translation_note
    Nota: casi todos son notas de procedencia/traduccion (patron ya
    registrado: extraction_note, translation seguia sin registro), o
-   metadatos de serie que S-004 §6 preve registrar por directorio.
+   metadatos de serie que STD-004 §6 preve registrar por directorio.
    RETIRAR: nada en esta tanda. Lo unico que parecia retirable
    (sub_missions vacio, series_change vacio...) son H-09, no H-30.
 
@@ -63,7 +63,7 @@ ningun otro fichero importa: componente muerto, el campo no se lee.
      numengames, no canon. Excepcion registrada.
 
 6 · H-01/H-18 (3): ANNEX-, PROPOSAL-, PROP- — documentos auxiliares de
-   sus series. registration: exempt (S-004 §5.0), como los singulares.
+   sus series. registration: exempt (STD-004 §5.0), como los singulares.
    El subtype proposal de PROP-C005 se registra para reports.
 
 7 · H-06/H-07 (9+ H-31):

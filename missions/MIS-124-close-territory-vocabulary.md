@@ -34,7 +34,7 @@ header burndown names this document as its owner.
 
 ## The measured problem
 
-The declared vocabulary (`S-001` L964) has eight values:
+The declared vocabulary (`STD-001` L964) has eight values:
 
 > `CAO` · `Product` · `Platform` · `Infrastructure` · `Content` · `Sales` ·
 > `Funding` · `Archive`
@@ -73,10 +73,10 @@ measurement to the decision, and the migration after it.**
 
 ## Acceptance criteria
 
-- [ ] Every value carried by `territory` is either declared in `S-001` §7 or
+- [ ] Every value carried by `territory` is either declared in `STD-001` §7 or
       migrated to one that is — measured, not asserted
 - [ ] Zero `TBA` remain in `territory` — each one resolved to a real value
-- [ ] `S-001` §7 amended with the decided vocabulary, dated and versioned
+- [ ] `STD-001` §7 amended with the decided vocabulary, dated and versioned
 - [ ] The `territory` value check is live in `lint-frontmatter.mjs` and fails
       in both directions (`P-013`)
 - [ ] `field-decisions.mjs` reports `territory` as `ruled` from the standard,

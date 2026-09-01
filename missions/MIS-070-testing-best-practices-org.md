@@ -125,7 +125,7 @@ by a stricter parser stumbling over it months later.
 
 ## Execution log
 
-- 2026-08-17 — The Oracle delivered `standards/engineering-standards.md`
+- 2026-08-17 — The Oracle delivered `standards/STD-005-engineering-standards.md`
   v0.1.0 (canonical upstream: `numen-games-nwos-orgs/
   nwos-workspace-template`; this repo holds a downstream copy — do not
   edit locally, §7.1). It IS the plan this mission was chartered to

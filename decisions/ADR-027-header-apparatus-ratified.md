@@ -1,7 +1,7 @@
 ---
 id: "ADR-027"
 uid:
-title: "The header apparatus is ratified: S-001, S-004, and declared absence"
+title: "The header apparatus is ratified: STD-001, STD-004, and declared absence"
 type: adr
 status: active
 version: "2.0.0"
@@ -15,7 +15,7 @@ tags: [frontmatter, standards, s-001, s-004, absence, ratification]
 absorbs: ["ADR-028", "ADR-029"]
 superseded_by: null
 license: "CC-BY-4.0"
-related: ["S-001", "S-004", "ADR-004", "D-021", "MIS-127"]
+related: ["STD-001", "STD-004", "ADR-004", "D-021", "MIS-127"]
 ---
 
 # The header apparatus is ratified
@@ -26,7 +26,7 @@ related: ["S-001", "S-004", "ADR-004", "D-021", "MIS-127"]
 
 ## Decision
 
-**S-001 is ratified.** The glossary and frontmatter standard is normative.
+**STD-001 is ratified.** The glossary and frontmatter standard is normative.
 Fields, types and thresholds are defined there, not restated here.
 
 **Absence is declared, never implied.** A field that does not apply is
@@ -45,7 +45,7 @@ across 48 hours as one apparatus.
 
 ## Consequences
 
-- `type: meta` for indexes and apparatus (`S-001` §3). `decisions/INDEX.md`
+- `type: meta` for indexes and apparatus (`STD-001` §3). `decisions/INDEX.md`
   declared `type: adr` and `canon/INDEX.md` `type: seminal` — both wrong,
   tracked as **D-021**.
 - New guards require a signed rule first; the reverse order is the defect
@@ -56,4 +56,4 @@ across 48 hours as one apparatus.
 
 - v2.0.0 (2026-08-31) — MIS-127: absorbs ADR-028 (absence is declared) and
   ADR-029 (sign what machines enforce). One ratification, three acts.
-- v1.0.0 (2026-08-30) — S-001 ratified.
+- v1.0.0 (2026-08-30) — STD-001 ratified.

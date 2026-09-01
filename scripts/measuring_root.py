@@ -2,7 +2,7 @@
 """
 measuring_root.py — la cabecera de procedencia que todo medidor debe imprimir.
 
-Regla del Oráculo (2026-08-24, S-001 §10.1):
+Regla del Oráculo (2026-08-24, STD-001 §10.1):
 
     Todo script de medición declara en su salida contra qué ROOT y qué HEAD
     midió. Sin esa línea, su resultado no es evidencia. Y un resultado de
@@ -79,7 +79,7 @@ def sospechoso_si_cero(valor, etiqueta='resultado'):
 
 
 def cifra(n, unidad, total=None):
-    """Formatea una cuenta CON su unidad. S-001 §10.2.
+    """Formatea una cuenta CON su unidad. STD-001 §10.2.
 
     Regla del Oráculo (2026-08-25): «el problema no es contar mal, es que
     ninguna salida declara QUÉ cuenta. "0/17" y "0/5" no son dos cifras del
@@ -99,7 +99,7 @@ def cifra(n, unidad, total=None):
     """
     if not unidad or not str(unidad).strip():
         raise ValueError(
-            f'cifra({n!r}) sin unidad. S-001 §10.2: toda cuenta declara qué '
+            f'cifra({n!r}) sin unidad. STD-001 §10.2: toda cuenta declara qué '
             f'cuenta. Un número desnudo no es una medida.')
     cuerpo = f'{n:,}' if total is None else f'{n:,}/{total:,}'
     return f'{cuerpo} {unidad}'

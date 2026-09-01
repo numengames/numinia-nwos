@@ -13,7 +13,7 @@ author: "ursa"
 owner: "oracle"
 guild: "Sentinels"
 territory: "Archive"
-tags: [debt, compliance, verification, guards, S-001, D-011, D-025, D-032]
+tags: [debt, compliance, verification, guards, STD-001, D-011, D-025, D-032]
 license: "CC-BY-4.0"
 visibility: "restricted-oracle"
 visibility_reason: >
@@ -30,9 +30,9 @@ absorbs: ["D-033"]
 
 > **Summary:** **145 compliance assertions** across 282 documents. **132 (91%)
 > are falsifiable by command and nobody falsifies them — and 61 of those are
-> not pending at all: they are refuted by `S-001` §2.0 and still written in the
+> not pending at all: they are refuted by `STD-001` §2.0 and still written in the
 > present tense.** One assertion was tested, by accident, and it was false.
-> **Epistemic:** `S-001` §2.1.1 says the reality is the record and the document
+> **Epistemic:** `STD-001` §2.1.1 says the reality is the record and the document
 > is the claim. These are claims about the system's own state that the system
 > never reads back.
 > **Pragmatic:** a control declared satisfied and not satisfied produces no
@@ -76,7 +76,7 @@ claiming enforcement reads exactly like a rule that has it.
 
 ```
 132  verifiable, not verified
- 61  of those, CONTRADICTED by S-001 §2.0 — not pending: refuted
+ 61  of those, CONTRADICTED by STD-001 §2.0 — not pending: refuted
  71  genuinely pending verification
 ```
 
@@ -102,7 +102,7 @@ to be wrong.
 ### Where the unverified assertions live
 
 ```
- 20  standards/S-001-glossary.md
+ 20  standards/STD-001-glossary.md
  11  operations/legal/O-004-terms-and-conditions-numengames.md
   6  protocols/P-011-security-audit.md
   5  blueprints/BLU-008 (deleted 2026-08-31)
@@ -119,21 +119,21 @@ to be wrong.
   3  no exceptions         2  enforced via         2  requires Oracle approval
 ```
 
-**`immutable` and `append-only` account for 61 of the 132.** `S-001` §2.0
+**`immutable` and `append-only` account for 61 of the 132.** `STD-001` §2.0
 already established that the archive *"claimed an immutability it never had and
 never enforced"* — 9 of 33 `done` missions were edited after closing. So a large
 share of these are not merely unverified: they are **known false and still
 written in the present tense**, scattered across documents that §2.0 never
 reached.
 
-The 20 in `S-001` itself are mostly the document describing the thresholds it
+The 20 in `STD-001` itself are mostly the document describing the thresholds it
 proposes. That is the least alarming subset and still counts: **the standard
 that says nothing is immutable contains the most unverified assertions of
 immutability**, because it quotes what it is retiring.
 
 ## The class of failure
 
-`S-001` §10.0 applied to a control instead of a measurement:
+`STD-001` §10.0 applied to a control instead of a measurement:
 
 | | omission (§10.0.1) | unverified control (this entry) |
 |---|---|---|
@@ -188,7 +188,7 @@ single inconsistency in the corpus.
 Marked RESOLVED when:
 
 - [ ] The **71 pending** have verdicts, recorded, not silently edited
-- [ ] The **61 refuted** are reconciled with `S-001` §2.0 — own mission
+- [ ] The **61 refuted** are reconciled with `STD-001` §2.0 — own mission
 - [ ] Assertions of enforcement name their mechanism or are downgraded
 - [ ] A guard fails a PR introducing an unbacked compliance claim
 

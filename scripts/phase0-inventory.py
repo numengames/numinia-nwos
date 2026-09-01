@@ -27,7 +27,7 @@ REF = None
 if '--at' in sys.argv:
     REF = sys.argv[sys.argv.index('--at') + 1]
 
-# S-001 §3 — mapa canónico type → serie. Los no estrictos van aparte.
+# STD-001 §3 — mapa canónico type → serie. Los no estrictos van aparte.
 MAPA = {
     'seminal': 'canon', 'protocol': 'protocols', 'mission': 'missions',
     'adr': 'decisions', 'blueprint': 'blueprints', 'report': 'reports',
@@ -36,7 +36,7 @@ MAPA = {
 NO_ESTRICTOS = {'documentation', 'meta'}
 APPARATUS = {'INDEX.md', 'README.md', 'TEMPLATE.md', 'CHANGELOG.md'}
 
-# S-001 §4.1 — esquema de matrícula por serie
+# STD-001 §4.1 — esquema de matrícula por serie
 ESQUEMA = {
     'missions': r'^MIS-\d{3}-', 'protocols': r'^P-\d{3}-',
     'decisions': r'^(ADR|DEC)-\d{3}-', 'reports/daily': r'^RPT-\d{4}-\d{2}-\d{2}',
@@ -125,7 +125,7 @@ def main():
             d['op'] = 'stay (no type — cannot classify)'
             continue
         if ty in NO_ESTRICTOS:
-            d['op'] = 'stay (type not strict, S-001 §3)'
+            d['op'] = 'stay (type not strict, STD-001 §3)'
             continue
 
         esperada = MAPA.get(ty)
@@ -160,7 +160,7 @@ def main():
         P(f"  {n:>4}  {op}")
 
     P(f"\n\n── CONFLICTOS: type vs carpeta ──")
-    P(f"  S-001 §3: se mueve el fichero, NUNCA se reescribe el type.")
+    P(f"  STD-001 §3: se mueve el fichero, NUNCA se reescribe el type.")
     P(f"  §3 (v2.3.0): verificar primero que el type describe el documento.\n")
     conf = sorted([d for d in docs if d['conflicto']], key=lambda x: -x['refs'])
     if conf:
