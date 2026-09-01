@@ -1,5 +1,6 @@
 ---
 id: "O-008"
+uid: ""
 title: "Session state — where to pick up"
 type: documentation
 status: active

@@ -112,9 +112,23 @@ above: those counted a repository that still held the `decisions/`,
   conflict over 5 frozen-artifact/legacy-dated files — Oracle ruling
   pending. Detail in `MIS-125` itself, not duplicated here.
 - protocols/ ↔ standards/ merge assessment.
-- **`operations/` — surveyed 2026-09-01 (ursa), nothing executed.** 10 files,
-  21,739 tokens, two subfolders (`legal/`, `strategy/`). The Oracle's
-  instruction is that territory becomes a **frontmatter tag, not a folder**.
+- **`operations/` — surveyed 2026-09-01 (ursa); `uid` added, nothing else
+  executed.** 10 files, 21,739 tokens, two subfolders (`legal/`,
+  `strategy/`). The Oracle's instruction is that territory becomes a
+  **frontmatter tag, not a folder**.
+  **Done in this PR:** `uid: ""` added to all 10 headers, declared and empty
+  per `STD-001` §6.2 / `H-20`, positioned after `id` as everywhere else.
+  `operations/` was the only governed series at 0 % coverage while `canon/`,
+  `decisions/`, `protocols/`, `standards/`, `debt/` and `system/` were at
+  100 %. Ring audit run at the same time: **Ring 1 is complete in all 10**
+  (id, title, type, status, version, created, updated, license), Ring 3
+  carries no unregistered field, and the four `type`↔series mismatches
+  (`credential-map`, `security-policy`, both `legal/` texts) are recorded in
+  the linter's `SETTLED_ELSEWHERE` with a written reason rather than parked
+  in a baseline. `provenance` is absent in 8 of 10 and was **deliberately
+  not filled**: `H-12` only validates the value when present, the field
+  exists in just 3 of 267 documents repo-wide, and inventing authorship to
+  satisfy a field nobody enforces is the failure mode `D-021` exists for.
   Survey findings, in descending order of how much surprise they carry:
   1. **`territory` is absent from all 10 files.** The field is registered in
      `STD-001` (it replaced `area`) and is in use in 351 documents elsewhere,

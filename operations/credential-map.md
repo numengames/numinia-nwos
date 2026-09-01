@@ -1,5 +1,6 @@
 ---
 id: "ops-credential-map"
+uid: ""
 registration: exempt
 registration_exemption: "pending-genre-ruling"
 registration_reason: >
