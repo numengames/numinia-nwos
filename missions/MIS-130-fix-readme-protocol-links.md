@@ -9,13 +9,15 @@ guild: "Alchemists"
 territory: "Archive"
 type_execution: digital
 assigned_to: "ursa"
-started: "2026-09-01T00:00:00Z"
+started: "2026-09-01T17:03:10Z"
 completed: null
 
 type: mission
 version: "1.1.0"
-created: "2026-09-01T00:00:00Z"
-updated: "2026-09-01T00:00:00Z"
+created: "2026-09-01T17:03:10Z"
+created_source: "git:969597e"
+created_confidence: exact
+updated: "2026-09-01T17:03:10Z"
 author: "ursa"
 owner: "oracle"
 tags: [archive, links, readme, adr-005, url-lifecycle]
