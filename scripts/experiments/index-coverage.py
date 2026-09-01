@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: MIT
 """¿Cada fichero de una serie aparece en su INDEX?
 
 READ-ONLY. Compara los .md de cada carpeta con lo que su INDEX.md menciona.

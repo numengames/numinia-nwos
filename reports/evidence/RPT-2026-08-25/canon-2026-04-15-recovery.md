@@ -6,14 +6,20 @@ version: "1.0.0"
 created: "2026-08-25T13:30:33+02:00"
 created_source: "git:56f2b53"
 created_confidence: exact
-updated: "2026-08-25T13:30:33+02:00"
+updated: "2026-09-01T23:50:00+02:00"
 author: "pablofm"
 owner: "oracle"
-tags: [reports]
+tags: [reports, evidence, canon, ADR-023]
 license: "CC-BY-4.0"
 registration: exempt
 registration_reason: "not part of a numbered series; header added from git history, nothing invented"
 ---
+
+> **2026-09-01 — reshelved (ADR-005 v1.2.0).** The recovered text this note
+> describes now lives at `history/2026_04_07-Epistemic_Relations-v1.0.0.md`
+> as a frozen artefact (ADR-035 §2). This note stays what it says it is —
+> evidence, not canon — filed as an annex of the daily that produced it,
+> `RPT-2026-08-25`. The paths quoted below are as they were on 2026-08-25.
 
 # Recovered: the canon version deleted on 2026-04-15
 

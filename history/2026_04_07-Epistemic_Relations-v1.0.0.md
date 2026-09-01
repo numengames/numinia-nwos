@@ -1,19 +1,33 @@
 ---
-title: "Epistemic Relations between Numen Games and Numinia"
+uid: ""
+title: "Epistemic Relations between Numen Games and Numinia — v1, deleted 2026-04-15 (recovered record)"
 type: documentation
+subtype: reference
 status: closed
 version: "1.0.0"
-created: "2026-08-25T13:30:33+02:00"
-created_source: "git:56f2b53"
+created: "2026-04-07T12:34:04Z"
+created_source: "git:f765b99"
 created_confidence: exact
-updated: "2026-08-25T13:30:33+02:00"
-author: "pablofm"
+updated: "2026-09-01T23:50:00+02:00"
+author: "Centinela-01"
 owner: "oracle"
-tags: [reports]
-license: "CC-BY-4.0"
+tags: [history, canon, epistemic-relations, superseded, ADR-023]
+territory: "Archive"
+license: "CC0-1.0"
 registration: exempt
-registration_reason: "not part of a numbered series; header added from git history, nothing invented"
+registration_exemption: frozen-artifact
+registration_reason: "superseded canon text — the version of CAN-006 that was deleted and replaced 63 seconds later on 2026-04-15 with no ADR; a photograph, not a living document (PRO-010 §3.2, ADR-035 §2)"
+former_id: "reports/audits/evidence/canon-2026-04-15/Epistemic-relations-v1-deleted-2026-04-15.md"
+former_id_note: "Recovered from b202964^ on 2026-08-25 (#31, ADR-023) into reports/audits/evidence/. Reshelved 2026-09-01 (ADR-005 v1.2.0, ADR-035 §2): a superseded record is history/, not audit evidence. The forensic note on the deletion is reports/evidence/RPT-2026-08-25/canon-2026-04-15-recovery.md. Text unchanged."
 ---
+
+> **Recovered record — not the live canon.** The live text is `CAN-006`
+> (v0.2.0 lineage, uploaded 2026-04-15 16:25). This is the version deleted
+> at 16:24 the same day. Timeline, diff against v2 and why it matters:
+> `reports/evidence/RPT-2026-08-25/canon-2026-04-15-recovery.md`.
+> Licence: the text was published under `canon/`'s CC0 waiver before it was
+> deleted (`CAN-005` §1, `ADR-036`); the waiver is irrevocable and travels
+> with it (`REUSE.toml`, `history/**`).
 
 # Epistemic Relations between Numen Games and Numinia
 

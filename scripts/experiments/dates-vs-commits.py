@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: MIT
 """
 dates-vs-commits.py — evidencia de D-021.
 
@@ -8,14 +10,14 @@ S-001 §6.2 exige created_source y created_confidence para que una fecha se
 pueda rastrear hasta git en vez de afirmarse. D-012 registra 121 documentos
 con `T00:00:00Z`. Este script mide la versión de hoy del mismo defecto.
 
-    python3 reports/audits/evidence/dates-vs-commits.py
-    python3 reports/audits/evidence/dates-vs-commits.py --desde <ref>
+    python3 scripts/experiments/dates-vs-commits.py
+    python3 scripts/experiments/dates-vs-commits.py --desde <ref>
 
 Por defecto mide desde el tag pre-restructure-2026-08-24.
 """
 import os, re, subprocess
 import sys
-R = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+R = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # scripts/experiments/x.py -> repo root
 sys.path.insert(0, os.path.join(R, 'scripts'))
 from measuring_root import cabecera, sospechoso_si_cero
 DESDE = sys.argv[sys.argv.index('--desde')+1] if '--desde' in sys.argv else 'pre-restructure-2026-08-24'

@@ -1,7 +1,7 @@
 {
  "_comment": "Filename violations frozen at adoption (STD-001 §9, D-001 item 3). The lint fails only on NEW ones. Shrinks as MIS-125 Stage C renames land; never grows.",
- "generated": "2026-09-01T20:51:33.854Z",
- "count": 150,
+ "generated": "2026-09-01T21:06:59.770Z",
+ "count": 149,
  "entries": [
   "N-02 missions/MIS-004-monetization-model-v1.md :: filename carries a version suffix — version: lives in frontmatter, not the name (STD-001 §9)",
   "N-02 missions/MIS-010-public-roadmap-v1.md :: filename carries a version suffix — version: lives in frontmatter, not the name (STD-001 §9)",
@@ -151,7 +151,6 @@
   "N-04 reports/audits/AUD-2026-08-26-licensing-c005.md :: filename does not match RPT-NNN-<slug>.md (or RPT-YYYY-MM-DD.md for subtype: daily) for reports/ (STD-001 §9, ADR-005 v1.2.0)",
   "N-04 reports/audits/AUD-2026-08-26-process.md :: filename does not match RPT-NNN-<slug>.md (or RPT-YYYY-MM-DD.md for subtype: daily) for reports/ (STD-001 §9, ADR-005 v1.2.0)",
   "N-04 reports/audits/AUD-2026-08-26-provenance.md :: filename does not match RPT-NNN-<slug>.md (or RPT-YYYY-MM-DD.md for subtype: daily) for reports/ (STD-001 §9, ADR-005 v1.2.0)",
-  "N-04 reports/audits/evidence/canon-2026-04-15/Epistemic-relations-v1-deleted-2026-04-15.md :: filename does not match RPT-NNN-<slug>.md (or RPT-YYYY-MM-DD.md for subtype: daily) for reports/ (STD-001 §9, ADR-005 v1.2.0)",
   "N-04 standards/STANDARDS.md :: filename does not match STD-NNN-<slug>.md for standards/ (STD-001 §9, ADR-005 v1.1.0)"
  ]
 }

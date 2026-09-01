@@ -126,6 +126,12 @@ const corpus = defineCollection({
       "standards/**/*.md",
       "reports/**/*.md",
       "!reports/audits/**",
+      // reports/evidence/<RPT-id>/ (ADR-005 v1.2.0 rule 5): annexes of a
+      // report — captured artefacts, moved as an opaque block. The report
+      // that owns them is the published document; the annex is reachable on
+      // GitHub. Before 2026-09-01 the only annex sat under reports/audits/,
+      // excluded above, so this keeps the public surface where it was.
+      "!reports/evidence/**",
       "decisions/**/*.md",
       "!decisions/DEC-*.md",
       "!decisions/ADR-*.md",

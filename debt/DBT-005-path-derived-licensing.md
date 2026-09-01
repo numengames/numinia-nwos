@@ -4,11 +4,11 @@ uid:
 title: "Should the licence regime derive from the path? — open question"
 type: documentation
 status: active
-version: "2.0.0"
+version: "2.0.1"
 created: "2026-08-25T14:38:34Z"
 created_source: "git:1cd313d"
 created_confidence: exact
-updated: "2026-08-31T23:20:00+02:00"
+updated: "2026-09-01T23:50:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -19,7 +19,7 @@ visibility: "public"
 severity: medium
 opened_by: "Oracle, 2026-08-25"
 question_status: "open — no proposal by instruction"
-evidence_script: "reports/audits/evidence/regime-crossings.py"
+evidence_script: "scripts/experiments/regime-crossings.py"
 evidence_head: "0a912c0"
 absorbs: ["D-030"]
 ---
@@ -101,7 +101,7 @@ The Oracle stopped the merge and ruled:
 
 ## Measured: this had not happened before
 
-`reports/audits/evidence/regime-crossings.py` resolves every path against
+`scripts/experiments/regime-crossings.py` (moved there 2026-09-01; was `reports/audits/evidence/`) resolves every path against
 `REUSE.toml` — last matching rule wins, as REUSE does — and compares source and
 destination for every rename in the repository's history.
 
@@ -158,7 +158,7 @@ The closing condition is unchanged: the Oracle rules on the mechanism.
 
 `D-029` (a decision travelling hidden inside another) · `ADR-023` ·
 `LEGAL_DEBT.md` · `C-005` (licence canon) · `REUSE.toml` ·
-`reports/audits/evidence/regime-crossings.py`
+`scripts/experiments/regime-crossings.py`
 
 ---
 

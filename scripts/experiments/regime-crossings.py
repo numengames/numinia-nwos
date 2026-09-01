@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: MIT
 """¿Algún movimiento cambió el régimen de licencia sin declararlo?
 
 Lee REUSE.toml, resuelve el régimen de cada ruta (última anotación gana),

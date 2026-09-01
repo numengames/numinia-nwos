@@ -249,9 +249,16 @@ export default defineConfig({
 		"/planos/mission-system": "/corpus/history/2026_04_07-mission_system_v2-v100",
 		// MIS-127 step 1 (ADR-033): two closed daily reports deleted after passing
 		// P-010 §5's four consumer tests — zero inbound citations, no living
-		// reader. Their addresses answer at the reports index instead.
-		"/corpus/reports/daily/rpt-2026-04-07-tarde": "/corpus/reports",
-		"/corpus/reports/daily/rpt-2026-08-17": "/corpus/reports",
+		// reader. Their addresses answered at /corpus/reports — the page Astro
+		// derived from reports/INDEX.md — until 2026-09-01 (ADR-005 v1.2.0),
+		// when that index was deleted: it listed 6 of 8 dailies, prescribed a
+		// filename shape no file used, and carried a 90-day retention rule
+		// ADR-030 had replaced. reports/ was never a corpus section (see
+		// src/lib/corpus.ts, "NOT sections"); /reports is the address that
+		// serves the family. One hop each, no chain.
+		"/corpus/reports/daily/rpt-2026-04-07-tarde": "/reports",
+		"/corpus/reports/daily/rpt-2026-08-17": "/reports",
+		"/corpus/reports": "/reports",
 	},
 	// MIS-088's /print/* intermediates are gone (2026-08-31). They existed
 	// only as Chromium print targets for a PDF step the build never ran, so
