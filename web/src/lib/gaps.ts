@@ -60,8 +60,8 @@ export interface GapsDocument {
   mdUrl: string;
 }
 
-// The reports collection ("audits" in content.config.ts — one collection for
-// every RPT-* since ADR-005 v1.2.0). Was the corpus mirror until 2026-09-01.
+// The reports collection — one collection for every RPT-* since ADR-005
+// v1.2.0. Was the corpus mirror until 2026-09-01.
 const ENTRY_ID = "rpt-008-gaps-capability-map";
 
 /**
@@ -124,7 +124,7 @@ function scores(block: string): { impact: number; urgency: number } {
  * That is deliberate: this page has no content of its own to fall back on.
  */
 export async function getGaps(): Promise<GapsDocument> {
-  const entry = await getEntry("audits", ENTRY_ID);
+  const entry = await getEntry("reports", ENTRY_ID);
   if (!entry) {
     throw new Error(
       `gaps.ts: ${ENTRY_ID} not found in the reports collection. ` +

@@ -4,11 +4,11 @@ uid: ""
 title: "How to Archive — the NWOS archival protocol"
 type: protocol
 status: draft
-version: "0.8.0"
+version: "0.8.1"
 created: "2026-08-18T10:51:09Z"
 created_source: "git:9f25053"
 created_confidence: exact
-updated: "2026-09-01T23:30:00+02:00"
+updated: "2026-09-02T01:00:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [protocols, archive, taxonomy, naming, iso-15489]
@@ -68,7 +68,7 @@ inherited and what is discarded, in §7.
 | System manual | `system/` | `SYS-XXX` | `/corpus/system` ✓ |
 | Superseded record | `history/` | none — frozen-artifact name (§3.2) | `/corpus/history` ✓ |
 | Protocol | `protocols/` | `P-XXX` | `/protocolos` (pending) |
-| Report | `reports/` (flat) | `RPT-NNN` · `RPT-YYYY-MM-DD` for `subtype: daily` only (`ADR-005` v1.2.0) | `/audits` ✓ · `/reports` (hardcoded today — MIS-065) |
+| Report | `reports/` (flat) | `RPT-NNN` · `RPT-YYYY-MM-DD` for `subtype: daily` only (`ADR-005` v1.2.0) | `/reports` ✓ (one head since 2026-09-01; `/audits`, `/reportes`, `/corpus/reports` redirect) |
 | Agent | `agents/<name>/` | agent name | `/agentes` (pending) |
 | Guild | `guilds/` | guild name | `/guilds` (pending) |
 | Operation | `operations/` | by subfolder | `/operaciones` (pending) |
@@ -372,6 +372,9 @@ agents.
 
 ## Change history
 
+- v0.8.1 (2026-09-02) — §2 web column for `reports/`: the "hardcoded today —
+  MIS-065" debt is paid; `/reports` renders from the collection and is the
+  only head (`web/reports-single-source`).
 - v0.8.0 (2026-09-01) — `ADR-005` v1.2.0, `reports/` normalisation. §2: the
   two `reports/` rows (`RPT-YYYY-MM-DD` daily, `AUD-YYYY-MM-DD-<slug>` audit)
   collapse into one — `RPT-NNN`, date form for dailies only — matching the

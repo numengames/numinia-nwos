@@ -7,7 +7,7 @@ import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const entries = await getCollection("audits");
+  const entries = await getCollection("reports");
   return entries.map((entry) => ({
     params: { id: entry.id },
     props: { filePath: entry.filePath as string },

@@ -4,8 +4,8 @@
 // Report detail rendered at build from reports/ (MIS-066 pattern). One
 // route for every subtype — daily, audit, analysis, proposal — since the
 // folder is flat and the subtype lives in frontmatter (ADR-005 v1.2.0).
-// /audits/[id] renders the same audits at their historic address until the
-// web collapses to one head (plan step 3).
+// /audits/<id> (the historic address of the audits) redirects here since
+// 2026-09-01: one folder, one collection, one head.
 import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
@@ -13,7 +13,7 @@ import { repoFileUrl } from "@/lib/build-info";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-  const reports = await getCollection("audits");
+  const reports = await getCollection("reports");
   return reports.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
 }
 
