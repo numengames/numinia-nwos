@@ -1,14 +1,14 @@
 {
-  "_comment": "Prose living only in .astro/.tsx components (MIS-071 acceptance criterion, DBT-003 deferred category). This number is a DEBT, not a target: MIS-071 drives it to zero. It may only go down. History: 82665 at adoption (c5bf8ef); 84172 after #182 added SpeechPlayer/DocToolbar copy — the guard failed rather than absorb it; 72856 after #184 wired /gaps to its report. Re-freeze with --update only after a PR that removes prose; --update refuses to raise this number.",
-  "generated": "2026-09-01T04:03:23.173Z",
-  "orphan_chars": 72856,
+  "_comment": "Prose living only in .astro/.tsx components (MIS-071 acceptance criterion, DBT-003 deferred category). This number is a DEBT, not a target: MIS-071 drives it to zero. It may only go down. History: 82665 at adoption (c5bf8ef); 84172 after #182 added SpeechPlayer/DocToolbar copy — the guard failed rather than absorb it; 72856 after #184 wired /gaps to its report; 69737 after #186 wired /wardley. Re-freeze with --update only after a PR that removes prose; --update refuses to raise this number and overwrites this comment, so restore it by hand.",
+  "generated": "2026-09-01T04:17:57.453Z",
+  "orphan_chars": 69737,
   "orphan_files": 33,
   "entries": [
     "10107 web/src/views/AgentView.astro",
     "9247 web/src/pages/solutions.astro",
-    "6822 web/src/pages/wardley.astro",
     "5507 web/src/views/HomeView.astro",
     "4330 web/src/views/ContinuityView.astro",
+    "3703 web/src/pages/wardley.astro",
     "3642 web/src/pages/language.astro",
     "3384 web/src/pages/sales.astro",
     "3334 web/src/pages/simulations.astro",
