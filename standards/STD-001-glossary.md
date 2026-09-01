@@ -4,9 +4,9 @@ id: "STD-001"
 uid: ""
 type: documentation
 status: active
-version: "5.1.0"
+version: "5.1.1"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-09-01T23:30:00+02:00"
+updated: "2026-09-02T02:10:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -548,17 +548,17 @@ nothing that can change, is never reused, is never renumbered (ADR-004).
 Blocker 2 of the Oracle. Four series had no scheme; this document could not be
 filed for lack of its own.
 
-| Prefix | Series | Coverage today (2026-08-31) |
+| Prefix | Series | Coverage today (2026-09-02, `7f51235`) |
 |---|---|--:|
-| `MIS-NNNN` | `missions/` | 0/131 · 0 % |
-| `ADR-NNN` · `DEC-NNN` | `decisions/` | **20/20 · 100 %** |
-| `PRO-NNN` | `protocols/` | 0/13 · 0 % |
-| `RPT-NNN` (subtype `audit` · `analysis` · `proposal`) · `RPT-YYYY-MM-DD` (subtype `daily` only) | `reports/` (flat, `ADR-005` v1.2.0) | 10/25 · 40 % |
-| `BLU-NNN` | `blueprints/` | 0/16 · 0 % |
-| `CAN-NNN` | `canon/` | 0/8 · 0 % |
-| `STD-NNN` | `standards/` | 0/5 · 0 % |
-| `OPS-NNN` | `operations/` | 0/10 · 0 % |
-| `DBT-NNN` | `debt/` | 0/38 · 0 % |
+| `MIS-NNNN` | `missions/` | 3/134 · 2 % |
+| `ADR-NNN` · `DEC-NNN` | `decisions/` | **9/9 · 100 %** |
+| `PRO-NNN` | `protocols/` | **7/7 · 100 %** |
+| `RPT-NNN` (subtype `audit` · `analysis` · `proposal`) · `RPT-YYYY-MM-DD` (subtype `daily` only) | `reports/` (flat, `ADR-005` v1.2.0) | **24/24 · 100 %** |
+| `BLU-NNN` | `blueprints/` | **3/3 · 100 %** |
+| `CAN-NNN` | `canon/` | **7/7 · 100 %** |
+| `STD-NNN` | `standards/` | **5/5 · 100 %** |
+| `OPS-NNN` | `operations/` | **9/9 · 100 %** |
+| `DBT-NNN` | `debt/` | **12/12 · 100 %** |
 | `GLD-NNN` | `guilds/` | **8/8 · 100 %** |
 | `INF-NNN` | `infra/` | 0/0 · — |
 
@@ -566,9 +566,11 @@ Coverage measured by `scripts/count-evidence.py`, which excludes apparatus by
 rule (`type: meta`, `D-014`) and frozen artefacts by the `MIS-125` ruling
 (`P-010` §3.2). It is not copied from an earlier version of this table.
 
-**This document is `STD-001`**, registered under the superseded `S-NNN` scheme.
-Under `ADR-005` v1.1.0 it becomes a `STD-NNN` document; the rename is `MIS-125`
-Stage C, not this section. **Nothing is renumbered** — see §5. `AG-NNN` was
+**This document is `STD-001`** — `S-001` until `MIS-125` Stage C registered
+the shelf into `STD-NNN` (#181, 2026-08-31). From #181 to v5.1.1 this
+paragraph read "is `STD-001`, registered under the superseded `S-NNN`
+scheme" and announced the rename as still pending — written in the same
+commit that performed it. **Nothing is renumbered** — see §5. `AG-NNN` was
 withdrawn with the `agents/` reversal and no longer exists as a scheme.
 
 > **Superseded 2026-08-31.** This table previously prescribed `MIS-NNN`,
@@ -1449,6 +1451,15 @@ gets filled differently by each person who meets it — which is how
 
 ## Version history
 
+- **v5.1.1** (2026-09-02) — §4.1 coverage column re-measured at `7f51235` by
+  `count-evidence.py` after `MIS-125` Stage C (#181–#192) and `MIS-127` rows
+  7–9 (#190–#195) landed: ten of eleven series at 100 %, `missions/` at 3/134,
+  `reports/` at 24/24. The 2026-08-31 figures (seven rows stale, one of them
+  `20/20` for a shelf that had become 9 files) stayed in the table for two days
+  after they stopped being true. §4.1's self-description ("registered under
+  the superseded `S-NNN` scheme … the rename is Stage C, not this section")
+  was written by #181, the commit that did the rename; corrected in place with
+  the history kept. No rule changes.
 - **v5.1.0** (2026-09-01) — `ADR-005` v1.2.0, `reports/` normalisation. §4.1:
   the two `reports/` rows merge into one (the series is one folder, flat);
   coverage re-measured by `count-evidence.py` at 10/25 — the eight dailies
