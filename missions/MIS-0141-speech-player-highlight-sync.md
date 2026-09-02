@@ -1,6 +1,6 @@
 ---
 # CORE — the ten fields the build verifies (web/src/content.config.ts).
-id: "MIS-139"
+id: "MIS-141"
 uid: ""
 title: "Highlight the sentence SpeechPlayer is currently reading"
 status: todo
@@ -27,7 +27,7 @@ license: "CC0-1.0"
 paths: [web/src/components/SpeechPlayer.astro]
 depends_on: ["MIS-119"]
 ---
-# MIS-139 — Highlight the sentence SpeechPlayer is currently reading
+# MIS-141 — Highlight the sentence SpeechPlayer is currently reading
 
 > **Summary:** while `SpeechPlayer` (MIS-119) speaks a document, visually
 > mark the sentence being spoken right now, and keep it in view as playback

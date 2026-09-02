@@ -29,7 +29,7 @@ paths:
   - standards/STD-005-engineering-standards.md
   - decisions/ADR-037-accessibility-gate-single-home.md
   - debt/DBT-013-design-system-filename-not-frozen.md
-depends_on: ["MIS-139"]
+depends_on: ["MIS-141"]
 ---
 # MIS-140 — One normative home for the accessibility gate
 
@@ -51,7 +51,7 @@ depends_on: ["MIS-139"]
 ## Context
 
 Triggered by the Oracle's question, during the `numinia.org` SpeechPlayer
-accessibility follow-up (after `MIS-139`): *"¿está en algún protocolo, en
+accessibility follow-up (after `MIS-141`): *"¿está en algún protocolo, en
 alguna decisión o en algún estándar? ¿dónde hablamos de esto?"* — followed
 by *"se me antoja que está un poco dispersada esa información"*.
 
@@ -105,7 +105,7 @@ to be resolved in the Oracle's own dedicated pass. **Not executed here.**
 **Out of scope:** renaming the Design System document (`DBT-013`);
 amending or reversing `PRO-010 §3.2.2` / `MIS-125`; closing the corpus
 tab-order coverage gap itself (`ARC-10`'s check column states it, closing
-it is future audit work, tracked loosely against `MIS-139`); any change to
+it is future audit work, tracked loosely against `MIS-141`); any change to
 `STD-005`'s own `Status: Proposal` vs. `status: active` frontmatter
 mismatch, noticed in passing and not part of this mission.
 

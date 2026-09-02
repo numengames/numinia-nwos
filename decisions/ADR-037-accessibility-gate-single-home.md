@@ -15,7 +15,7 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [accessibility, a11y, wcag, standards, std-005, arc-10, dispersion]
 license: "CC-BY-4.0"
-related: ["STD-001", "STD-005", "MIS-140", "MIS-139", "MIS-127", "MIS-125", "DBT-013"]
+related: ["STD-001", "STD-005", "MIS-140", "MIS-141", "MIS-127", "MIS-125", "DBT-013"]
 superseded_by: null
 ---
 
@@ -95,7 +95,7 @@ not lost. **Not executed here.**
   `numinia-nwos`'s `/corpus/**` document routes) is now written where the
   rule lives, not buried in a code comment — closing the gap the Oracle's
   question surfaced two turns ago.
-- `MIS-139` (SpeechPlayer highlight-sync, `mission/MIS-0139-...`) and any
+- `MIS-141` (SpeechPlayer highlight-sync, `mission/MIS-0141-speech-player-highlight-sync`) and any
   future tab-order audit of the corpus toolbar now have a rule ID to cite
   in their acceptance criteria instead of prose.
 - `DBT-013` keeps the naming defect visible without forcing a rename this
@@ -108,5 +108,5 @@ not lost. **Not executed here.**
 - `PRO-010 §3.2.2` / `MIS-125` is not amended or reversed.
 - The corpus toolbar's own tab-order coverage gap (only the platform home
   nav is tested, not `/corpus/**` documents with `SpeechPlayer`) is
-  described in `ARC-10`'s check column but not closed — that is `MIS-139`
+  described in `ARC-10`'s check column but not closed — that is `MIS-141`
   and future audit work, not this ADR.
