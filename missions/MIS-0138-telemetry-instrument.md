@@ -2,7 +2,7 @@
 id: "MIS-138"
 uid: ""
 title: "Build the telemetry instrument so every live figure in the corpus is measured, not typed"
-status: in-progress
+status: "in-review"
 priority: high
 effort: L
 guild: "Alchemists"
@@ -15,7 +15,7 @@ completed: null
 type: mission
 version: "1.1.1"
 created: "2026-09-02T12:07:58Z"
-updated: "2026-09-02T17:48:00+02:00"
+updated: "2026-09-02T17:57:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [telemetry, measurement, evidence, tokens, entropy, contradictions, STD-001, DBT-006, MIS-127, archive]
@@ -196,10 +196,10 @@ Numbered; the mission runs on the recommendation until ruled otherwise.
 *(Fill when the mission closes. Not before, and not with intentions.
 Add here — never edit `Scope` or the criteria to match what happened.)*
 
-- **What was done:**
-- **What diverged, and why:**
-- **Evidence:**
-- **Closed:** YYYY-MM-DD · **by:** agent-id
+- **What was done:** one instrument, `scripts/telemetry.mjs` v0.5.0, bare `node`, writes `telemetry/` (87 figures, 9 families @ `924ca38`: corpus · series · missions · tokens · headers · provenance · contradictions · figures · legacy). Seven PRs, #208–#214: rules as data, the instrument and dataset, `legacy` and the retirement of `count-evidence.py` (dict-equal at `6a97fbf`, golden kept), cl100k by rank file and own encoder (equal to `tiktoken` over every document), `headers`/`provenance` (five censuses retired), `contradictions` (3 extractor classes + verified register) and `figures` (`live`, `stale_citations`), then §10.5 proposed in STD-001 v5.3.0 and `telemetry/README.md`.
+- **What diverged, and why:** (1) `corpus_hash` is over the index, not HEAD's tree — a dataset over HEAD could never describe the commit it ships in; reversible, one function. (2) `measuring_root.py` stays: a formatter imported by two MIS-127 scripts, not a measurer; `resolve-citations.py` stays: a check, not a count; `complexity-census`, `index-coverage`, `public-surface-census`, `mis127-token-delta` stay as MIS-127's ledger — so 6 of the "12 measurers" were retired, and the criterion's count was wrong on what a measurer is. (3) `contradictions.classes.pages_built` and `series_registered` are not built (no extractor); the module says so. (4) Criterion 12's "no active document cites one by path" is not literally met: DBT-001 L34 and STD-001 L697/L1388/L1606 name `count-evidence.py` as the source of a **dated** reading (`against HEAD caf2621`, `7d17b5a`) — the exact form §10.5 keeps for records; rewriting them would erase evidence. Left, stated. (5) Criterion 9 was violated three times by my own ship steps (#211–#213 deleted `telemetry/` before measuring, truncating `history.jsonl`); found at closure by `git log -p`, repaired from git (every committed line restored, 5 lines) and a test now fails on any missing line. The three removals stay visible in git history, as they should.
+- **Evidence:** acceptance run at `924ca38` (`.hermes` scratch `140-acceptance.sh`, output read): C1 rc=0, fields head/corpus_hash/measured_at/root_dirty · C2 golden dict-equal test green, `count-evidence.py` absent · C3 two runs identical minus `measured_at` · C4 two `corpus_hash` fixtures green · C5 `--check` rc=0 on a fresh dataset, `ci.yml` mentions telemetry 0 times · C6 `tokens` = `tiktoken` over every tracked .md (test green after regenerating the dataset; the first read failed on 3 docs because the tree had moved under a stale `docs.json` — the detector working) · C7 `figures.live` carries its predicate, `stale_citations` present · C8 register 5 open / 0 resolved / 0 moved; `pages_built` not built · C9 5 lines, 5 distinct hashes, 3 removals in git history (repaired, see above) · C10 `latest.md` `type: meta`, `--render --check` rc=0 fresh · C11 guards 8/8, test files 4/4 (17+11+9+8), `reuse lint` 0 new failures · C12 see diverged (4). CI: 6/6 on every PR, read from `gh pr checks`.
+- **Closed:** 2026-09-02 · **by:** ursa — pending the Oracle's signature on §10.5 and his word on wiring `--check` into CI.
 
 ## Epistemic value
 
@@ -209,8 +209,7 @@ Validated by: `figures.live` per document across the next ten corpus PRs — if 
 Hypothesis 2: the archive's *surprise* — documents that disagree with the corpus — is dominated by a handful of claim classes, not spread evenly.
 Validated by: `contradictions.classes` at the first run — if ≤ 5 classes account for the open contradictions, the burndown can be ordered by class rather than by document.
 
-## Execution log
-
+- 2026-09-02 — **Step 7 (closure) shipped**: §10.5 proposed in STD-001 v5.3.0, `telemetry/README.md`, `history.jsonl` repaired from git (truncated by my own ship steps in #211–#213; test added). Acceptance read at `924ca38` — see Closure. CI wiring left to the Oracle's word.
 - 2026-09-02 — **Step 6 shipped**: `contradictions` (3 extractor classes + verified register, 5 open) and `figures` (`live` = 661, `stale_citations`), 87 figures, v0.5.0 @ `0d0d5e7`. MIS-135 rows already executed in #200/#208 are not in the register; its disposition column holds them. Pending: §10.5 for the Oracle, README, CI.
 - 2026-09-02 — **Step 5 shipped**: families `headers` + `provenance`; five censuses retired (four not reproducible as they stood — hard-coded root, /tmp input — ported by rule, stated in each definition). 72 figures, v0.4.0 @ `51a3d8b`. Pending: `figures` + `contradictions` (D4), §10.5, README.
 - 2026-09-02 — **Step 4 shipped**: family `tokens` (D1.3 as decided: rank file by sha256, own encoder in `scripts/lib/cl100k.mjs`, no package; criterion 6 met over every document by test). `tokens.total` = 601857 @ `19c5b96` — the brief's 595,479 @ `cb29f58` is a different tree, not a different method. Instrument v0.3.0, 56 figures. Pending: `headers`/`provenance`, `figures`, `contradictions`, §10.5.

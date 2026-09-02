@@ -72,6 +72,17 @@ check('contradictions: claims.json states follow the tree (open → resolved / m
   } finally { rmSync(c, { recursive: true, force: true }); }
 });
 
+// Criterion 9: the ledger only grows. Every line ever committed in history.jsonl is still in it,
+// in order — a ship step that deletes telemetry/ before measuring would truncate it (it did, #211–#213).
+check('history.jsonl: no line ever committed has been removed', () => {
+  const past = execFileSync('git', ['-C', ROOT, 'log', '--reverse', '--format=%h', '--', 'telemetry/history.jsonl'], { encoding: 'utf8' }).trim().split('\n').filter(Boolean);
+  if (!past.length) return 'skipped: no committed history';
+  const now = readFileSync(path.join(ROOT, 'telemetry/history.jsonl'), 'utf8').split('\n').filter(Boolean).map((l) => JSON.parse(l).corpus_hash);
+  const missing = new Set();
+  for (const c of past) for (const l of execFileSync('git', ['-C', ROOT, 'show', `${c}:telemetry/history.jsonl`], { encoding: 'utf8' }).split('\n').filter(Boolean)) { const h = JSON.parse(l).corpus_hash; if (!now.includes(h)) missing.add(h.slice(0, 12)); }
+  return missing.size === 0 || `removed: ${[...missing].join(', ')}`;
+});
+
 // Criterion 2, frozen: count-evidence.py --json captured at the HEAD it was retired from, on that
 // tree minus telemetry/ (the script counted the dataset's own rendered page; the instrument never does).
 // The legacy family must still produce that dict when run on that same tree. Checked here by

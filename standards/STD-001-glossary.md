@@ -4,9 +4,9 @@ id: "STD-001"
 uid: ""
 type: documentation
 status: active
-version: "5.2.0"
+version: "5.3.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-09-02T17:04:00+02:00"
+updated: "2026-09-02T17:55:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -1421,6 +1421,36 @@ this standard was written against; the live coverage figures are §4.1**:
 
 ---
 
+### 10.5 A corpus figure is produced once and cited everywhere else `[MANUAL]` — PROPOSED
+
+**Status: proposed by `MIS-138` on 2026-09-02, form A (citation) chosen by the Oracle on the brief ("A go"); the wording below awaits the Oracle's signature. Until signed, `figures.live` is a reading, not a violation.**
+
+**Rule.** The only document that *states* corpus figures is `telemetry/latest.md`,
+rendered from `telemetry/latest.json` by `scripts/telemetry.mjs`. Any other
+document that shows a corpus figure *cites* it: the figure carries the key it
+came from and the `HEAD` it was measured at — inline
+(`` `missions.done_without_closure = <value> @ <head>` ``) or once for the block
+that contains it (a heading or lead sentence naming the `HEAD`). A figure with
+neither key nor `HEAD` is a claim without evidence.
+
+**What it changes for a mission.** Context cites `key = value @ head`; acceptance
+criteria name a key and a target, never a current value; closures cite the
+`history.jsonl` line. Records (`done`, `frozen`, reports) keep their figures with
+their date — the rule is not retroactive.
+
+**Instrument.** `figures.live` counts lines that state a corpus-shaped figure with
+no `@ head` beside them (661 @ `924ca38`, a detector with its predicate in the
+definition); `figures.stale_citations` lists citations whose value has since
+moved. Neither is wired to CI; the ratchet is a later decision.
+
+**Why this form and not the ban** (`MIS-138` D5): a reader who wants the number
+that motivates a mission should not have to open a second file; closures and
+version histories would need an exemption on day one; and "a figure about the
+corpus" is not machine-decidable, while `@ <head>` has a shape a detector can
+find and a staleness a ratchet can measure.
+
+---
+
 ## 11. Open — the Oracle disposes
 
 **The five undefined fields now have entries.** They were promised in v2.0 and
@@ -1456,6 +1486,7 @@ gets filled differently by each person who meets it — which is how
 
 ## Version history
 
+- **v5.3.0** (2026-09-02) — §10.5 added as PROPOSED (`MIS-138` closure, decision 2 = citation form); awaits the Oracle's signature. Instrument readings at `924ca38` cited in the section.
 - **v5.2.0** (2026-09-02) — `evidence_script` → `scripts/telemetry.mjs` (`MIS-138` step 3: `count-evidence.py` retired after dict-equality at `6a97fbf`, golden kept in `scripts/test/fixtures/`). §0, §4.1, §8 table re-pointed; no figure re-typed — the dated census (§10, `7d17b5a`) and `evidence_head` stay as they were, they name the script that measured them.
 - **v5.1.3** (2026-09-02) — the 2026-08-24 census table (`7d17b5a`) labelled as dated; §4.1 is the live figure. `MIS-135` row 17, #200.
 - **v5.1.2** (2026-09-02) — §4.1 `missions/` 3/134 → 132/132 (missions/ normalisation, PR #198: every file renamed to `MIS-0NNN-<slug>.md`; `MIS-115a`/`MIS-115b` and the closure-guard proposal registered as `MIS-132`…`MIS-134`; `MIS-135` opened; `TEMPLATE*`/`ANNEX` counted as apparatus, hence the smaller denominator). Figure from `count-evidence.py` on the merge of #198 with `6cc7b40`. The 2026-09-02 v5.1.1 line above is #196's and stands.
