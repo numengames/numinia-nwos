@@ -22,7 +22,7 @@ import { execFileSync } from 'node:child_process';
 import { ROOT, NESTED, parseFM, loadRules, seriesDirs, prefixToDir, isApparatus, isTemplate } from '../lib/frontmatter.mjs';
 
 const results = [];
-const check = (name, fn) => { try { const r = fn(); results.push({ name, ok: r !== false, note: typeof r === 'string' ? r : '' }); } catch (e) { results.push({ name, ok: false, note: e.message }); } };
+const check = (name, fn) => { try { const r = fn(); results.push({ name, ok: r !== false && typeof r !== 'string', note: typeof r === 'string' ? r : '' }); } catch (e) { results.push({ name, ok: false, note: e.message }); } };
 const rules = loadRules();
 
 check('rules.json: every series carries prefix[] and digits', () =>

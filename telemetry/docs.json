@@ -1,0 +1,2702 @@
+[
+ {
+  "path": ".github/ISSUE_TEMPLATE/task.md",
+  "dir": ".github",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 472,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": ".github/PULL_REQUEST_TEMPLATE.md",
+  "dir": ".github",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 707,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "AGENTS.md",
+  "dir": "",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 7405,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "CHANGELOG.md",
+  "dir": "",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 14041,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "CLAUDE.md",
+  "dir": "",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 8003,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "CONTRIBUTING.md",
+  "dir": "",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 1324,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "README.md",
+  "dir": "",
+  "series": null,
+  "type": "documentation",
+  "status": "active",
+  "chars": 5842,
+  "apparatus": true,
+  "frozen": false
+ },
+ {
+  "path": "SECURITY.md",
+  "dir": "",
+  "series": null,
+  "type": "documentation",
+  "status": "active",
+  "chars": 1131,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "TRADEMARKS.md",
+  "dir": "",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 698,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "agents/INDEX.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "meta",
+  "status": "active",
+  "chars": 4274,
+  "apparatus": true,
+  "frozen": false
+ },
+ {
+  "path": "agents/_template/OPERATOR.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 1020,
+  "apparatus": true,
+  "frozen": false
+ },
+ {
+  "path": "agents/_template/SOUL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 1253,
+  "apparatus": true,
+  "frozen": false
+ },
+ {
+  "path": "agents/_template/SOURCES.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 744,
+  "apparatus": true,
+  "frozen": false
+ },
+ {
+  "path": "agents/antunj/OPERATOR.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 1509,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "agents/antunj/SOUL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 7756,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "agents/antunj/SOURCES.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 1164,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "agents/byblos/OPERATOR.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 1602,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "agents/byblos/SOUL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 8198,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "agents/byblos/SOURCES.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 1285,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "agents/doulos/OPERATOR.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 1392,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "agents/doulos/SOUL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 3838,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "agents/doulos/SOURCES.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 1043,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "agents/lexa/OPERATOR.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 1551,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "agents/lexa/SOUL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 9878,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "agents/lexa/SOURCES.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 1324,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "agents/procyon/OPERATOR.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 1461,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "agents/procyon/SOUL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 8486,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "agents/procyon/SOURCES.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 1150,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "agents/senet/OPERATOR.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 1432,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "agents/senet/SOUL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 7370,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "agents/senet/SOURCES.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 1197,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "agents/ursa/OPERATOR.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 1397,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "agents/ursa/SOUL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 4394,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "agents/ursa/SOURCES.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 1191,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "blueprints/BLU-002-business-metrics.md",
+  "dir": "blueprints",
+  "series": "blueprints",
+  "type": "blueprint",
+  "status": "draft",
+  "chars": 5852,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "blueprints/BLU-007-dual-nomenclature.md",
+  "dir": "blueprints",
+  "series": "blueprints",
+  "type": "blueprint",
+  "status": "active",
+  "chars": 8560,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "blueprints/BLU-008-nwos-system.md",
+  "dir": "blueprints",
+  "series": "blueprints",
+  "type": "blueprint",
+  "status": "active",
+  "chars": 8561,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "canon/CAN-001-welcome-to-numinia.md",
+  "dir": "canon",
+  "series": "canon",
+  "type": "seminal",
+  "status": "active",
+  "chars": 31668,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "canon/CAN-002-brand-and-culture.md",
+  "dir": "canon",
+  "series": "canon",
+  "type": "seminal",
+  "status": "active",
+  "chars": 53892,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "canon/CAN-003-attributes-and-ranks.md",
+  "dir": "canon",
+  "series": "canon",
+  "type": "seminal",
+  "status": "active",
+  "chars": 10596,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "canon/CAN-004-role-structure.md",
+  "dir": "canon",
+  "series": "canon",
+  "type": "seminal",
+  "status": "active",
+  "chars": 33580,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "canon/CAN-005-licensing.md",
+  "dir": "canon",
+  "series": "canon",
+  "type": "seminal",
+  "status": "active",
+  "chars": 26586,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "canon/CAN-006-epistemic-relations.md",
+  "dir": "canon",
+  "series": "canon",
+  "type": "seminal",
+  "status": "active",
+  "chars": 16445,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "canon/CAN-007-pragmatic-numen-system.md",
+  "dir": "canon",
+  "series": "canon",
+  "type": "seminal",
+  "status": "active",
+  "chars": 12159,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "debt/DBT-001-series-prefixes-not-applied.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 17211,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "debt/DBT-002-root-of-trust-unestablished.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 19881,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "debt/DBT-003-publication-integrity.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 26528,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "debt/DBT-004-url-lifecycle-unmanaged.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 9883,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "debt/DBT-005-path-derived-licensing.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 7590,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "debt/DBT-006-unverified-compliance-assertions.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 8694,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "debt/DBT-007-dependabot-advisories-untriaged.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 4711,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "debt/DBT-008-missions-without-author.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 4996,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "debt/DBT-009-c005-files-agents-as-lore.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 5192,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "debt/DBT-010-guard-blindness.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 9893,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "debt/DBT-011-cross-repo-consumers-broken.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 8518,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "debt/DBT-012-c005-legal-compliance-ledger.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 10316,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "decisions/ADR-001-the-archive.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "active",
+  "chars": 2256,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "decisions/ADR-004-identifier-convention.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "active",
+  "chars": 9789,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "decisions/ADR-005-prefix-ruling.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "active",
+  "chars": 15583,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "decisions/ADR-023-canon-vocabulary.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "active",
+  "chars": 1932,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "decisions/ADR-026-agent-licensing-and-debt-register.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "active",
+  "chars": 1898,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "decisions/ADR-027-header-apparatus-ratified.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "active",
+  "chars": 1965,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "decisions/ADR-030-lifecycle-and-deletion.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "active",
+  "chars": 3397,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "decisions/ADR-035-a-folder-is-a-genre.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "active",
+  "chars": 9221,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "decisions/ADR-036-canon-consolidation.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "active",
+  "chars": 14864,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "guilds/alquimistas/GLD-001-charter.md",
+  "dir": "guilds",
+  "series": "guilds",
+  "type": "charter",
+  "status": "active",
+  "chars": 1442,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "guilds/alquimistas/GLD-005-roster.md",
+  "dir": "guilds",
+  "series": "guilds",
+  "type": "charter",
+  "status": "active",
+  "chars": 877,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "guilds/centinelas/GLD-004-charter.md",
+  "dir": "guilds",
+  "series": "guilds",
+  "type": "charter",
+  "status": "active",
+  "chars": 1540,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "guilds/centinelas/GLD-006-roster.md",
+  "dir": "guilds",
+  "series": "guilds",
+  "type": "charter",
+  "status": "active",
+  "chars": 953,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "guilds/exegetas/GLD-002-charter.md",
+  "dir": "guilds",
+  "series": "guilds",
+  "type": "charter",
+  "status": "active",
+  "chars": 1508,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "guilds/exegetas/GLD-007-roster.md",
+  "dir": "guilds",
+  "series": "guilds",
+  "type": "charter",
+  "status": "active",
+  "chars": 1200,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "guilds/procuradores/GLD-003-charter.md",
+  "dir": "guilds",
+  "series": "guilds",
+  "type": "charter",
+  "status": "active",
+  "chars": 1357,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "guilds/procuradores/GLD-008-roster.md",
+  "dir": "guilds",
+  "series": "guilds",
+  "type": "charter",
+  "status": "active",
+  "chars": 1005,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "history/2026_04_07-Epistemic_Relations-v1.0.0.md",
+  "dir": "history",
+  "series": null,
+  "type": "documentation",
+  "status": "closed",
+  "chars": 15031,
+  "apparatus": false,
+  "frozen": true
+ },
+ {
+  "path": "history/2026_04_07-Mission_System_v2-v1.0.0.md",
+  "dir": "history",
+  "series": null,
+  "type": "documentation",
+  "status": "closed",
+  "chars": 14690,
+  "apparatus": false,
+  "frozen": true
+ },
+ {
+  "path": "infra/github/README.md",
+  "dir": "infra",
+  "series": "infra",
+  "type": "documentation",
+  "status": "active",
+  "chars": 5857,
+  "apparatus": true,
+  "frozen": false
+ },
+ {
+  "path": "missions/ANNEX-mission-selection-draft.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "meta",
+  "status": "draft",
+  "chars": 3982,
+  "apparatus": true,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0001-numinia-mvp-definition.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 2271,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0002-user-map-who-pays.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 2597,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0003-numinia-navigable-prototype.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 1941,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0004-monetization-model.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 2437,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0005-numinia-landing-page.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 2036,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0006-session-experience-architecture.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 2018,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0007-calcom-onboarding-integration.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 2533,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0008-north-star-metrics.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 2137,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0009-closed-pilot-5-users.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 2450,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0010-public-roadmap.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 1887,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0011-technical-audit-numengames.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 1741,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0012-numengames-cicd.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 2000,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0013-monitoring-alerts-system.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 1916,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0014-umami-numengames.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 1910,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0015-document-tech-stack.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 2347,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0016-nginx-ssl-services.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 2300,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0017-b2b-prospecting-pipeline.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 2577,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0018-commercial-value-proposition.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 2188,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0019-outreach-20-prospects.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 2348,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0020-demo-pitch-deck.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 1898,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0021-pricing-packages.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 2099,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0022-indie-dao-alliances.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 2112,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0023-initial-case-study.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 2294,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0024-post-call-follow-up-system.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 2207,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0025-30day-content-strategy.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 1942,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0026-twitter-activation.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 2142,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0027-numengames-web-improvement.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 2624,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0028-newsletter-mailing-list.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 2233,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0029-discord-telegram-community.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 2422,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0030-behind-numen-thread.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 2310,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0031-arbitrum-grant-review.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 2660,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0032-ethereum-foundation-esp.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 2048,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0033-sponsors-web3-gaming.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 2362,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0034-investor-deck.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 2311,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0035-grants-funding-crm.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 1930,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0036-q2-funding-strategy-memo.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 1854,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0037-create-archive-summa-repo.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 2919,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0038-design-briefing-protocol.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 1949,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0039-agent-log-system.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 2164,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0040-cao-kpi-dashboard.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 2446,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0041-agent-onboarding-protocol.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 2092,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0042-readme-numinia-agents.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 1611,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0043-rpg-manual-reading.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 2798,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0044-gaps-capability-map.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 2309,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0045-document-cao-architecture.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 2116,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0046-numengames-repo-readmes.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 2498,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0047-weekly-report.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 1940,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0048-agent-cost-tracking.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 2573,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0049-dora-metrics.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 2170,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0050-backlog-review-ritual.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 2462,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0051-gmail-calendar-drive-gog.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 2570,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0052-pc-onpremises-ubuntu.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 3690,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0053-khepri-operational-email.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 2624,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0054-multi-oracle-telegram-access.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 4037,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0055-dual-nomenclature-system.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 8780,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0056-repo-english-translation.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 5376,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0057-deep-system-qa.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 4554,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0058-approval-brief-protocol.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 4793,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0059-context-load-protocol.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 2035,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0060-agent-canon-repo-sync.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 9482,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0061-nwos-web-system.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 7065,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0062-mission-system.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 8341,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0063-nwos-iteration1-deploy-form.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 2781,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0064-update-p001-agent-briefing.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 2066,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0065-canon-at-build-narrative-out-of-code.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 8494,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0066-unify-mission-system.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 20348,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0067-inspections-system-iso-15489.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 4742,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0068-nwos-propagation-drift-guard.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 8147,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0069-github-independent-continuity.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 5356,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0070-testing-best-practices-org.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 7979,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0071-file-over-app-total.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-progress",
+  "chars": 8754,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0072-web-monorepo-foundations.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 7325,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0073-web-cc0-archive.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 3884,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0074-web-progressive-identity.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 7675,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0075-web-parity-public-surface.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 7157,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0076-web-three-pillars.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 3624,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0077-web-data-dignity.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 5816,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0078-web-khepri-execution.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 8838,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0079-web-city-chronicle.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 2471,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0080-web-lap-platform.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 3228,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0081-web-codex-stats.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 4262,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0082-web-settings-session.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 3687,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0083-web-oracle-zone.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 3379,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0084-store-seo-migration.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 7518,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0085-web-codex-reader-lap.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 25271,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0086-store-legal-corpus-login.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 10114,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0087-web-full-canon-mirror.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 5438,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0088-web-pdf-canon-docs.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 6587,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0089-information-architecture.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 9471,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0090-token-free-demo-workspace.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 5594,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0091-standards-numen-games-web.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 21075,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0092-web-palette-canonical.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 7409,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0093-web-icons-typography.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 6128,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0094-design-system-511-emitter.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 4758,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0095-updates-page-practice.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 7709,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0096-nwos-versioning-sovereign-adoption.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 6751,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0100-branch-protection-org-settings.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 8626,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0101-the-mould-complies-with-itself.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 6585,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0102-consumers-pin-the-emitted-kit.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 8282,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0103-org-repo-inventory-adoption.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 6201,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0104-the-ghost-worker.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 5899,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0105-sign-the-standards-and-define-sync.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 7796,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0106-the-mould-carries-a-retired-name.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 7277,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0107-numen-games-speaks-spanish.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 5798,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0108-offer-the-mould-its-provenance.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "frozen",
+  "chars": 6202,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0109-make-canon-filable.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 7071,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0110-retire-sistema-nav-entries.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 7108,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0111-corpus-section-indexes.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 9951,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0112-home-from-readme.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4600,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0113-readme-generated-index.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3887,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0114-visibility-filter.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 10627,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0115-mission-board-redesign.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 13093,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0116-translate-remaining-spanish-docs.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 10688,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0117-pagefind-search.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 8011,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0118-agent-roster-replacement.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 8991,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0119-listen-to-the-archive.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 11325,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0120-multilanguage-es.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 17994,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0121-header-baseline-burndown.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-progress",
+  "chars": 30653,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0122-fix-uid-rule.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 11029,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0123-make-adr-028-real.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 8259,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0124-close-territory-vocabulary.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4298,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0125-prefix-register.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 34620,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0126-field-decision-index.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 5907,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0127-entropy-reduction.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-progress",
+  "chars": 25772,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0128-link-hygiene-english-renames.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 7599,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0129-blueprints-to-their-shelves.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 11609,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0130-fix-readme-protocol-links.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 5748,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0131-frontmatter-history-census.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4705,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0132-board-group-order.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 5291,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0133-card-hierarchy.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 8883,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0134-closure-guard.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 6670,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0135-normalisation-residue-register.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-progress",
+  "chars": 14818,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0136-correct-deuda404-comment.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-progress",
+  "chars": 3424,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0137-pin-reuse-version.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-progress",
+  "chars": 3276,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0138-telemetry-instrument.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-progress",
+  "chars": 25154,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/MIS-0139-repoint-legacy-manual-refs.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-progress",
+  "chars": 4122,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "missions/TEMPLATE-CHANGES.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "documentation",
+  "status": "active",
+  "chars": 15695,
+  "apparatus": true,
+  "frozen": false
+ },
+ {
+  "path": "missions/TEMPLATE-EXAMPLE.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "done",
+  "chars": 4103,
+  "apparatus": true,
+  "frozen": false
+ },
+ {
+  "path": "missions/TEMPLATE.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 5208,
+  "apparatus": true,
+  "frozen": false
+ },
+ {
+  "path": "operations/OPS-001-continuity.md",
+  "dir": "operations",
+  "series": "operations",
+  "type": "documentation",
+  "status": "active",
+  "chars": 6500,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "operations/OPS-002-contradictions.md",
+  "dir": "operations",
+  "series": "operations",
+  "type": "documentation",
+  "status": "active",
+  "chars": 7771,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "operations/OPS-003-privacy-policy-numengames.md",
+  "dir": "operations",
+  "series": "operations",
+  "type": "legal",
+  "status": "active",
+  "chars": 12402,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "operations/OPS-004-terms-and-conditions-numengames.md",
+  "dir": "operations",
+  "series": "operations",
+  "type": "legal",
+  "status": "active",
+  "chars": 22077,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "operations/OPS-005-simulations.md",
+  "dir": "operations",
+  "series": "operations",
+  "type": "documentation",
+  "status": "active",
+  "chars": 8416,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "operations/OPS-006-solutions.md",
+  "dir": "operations",
+  "series": "operations",
+  "type": "documentation",
+  "status": "active",
+  "chars": 14250,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "operations/OPS-007-sales.md",
+  "dir": "operations",
+  "series": "operations",
+  "type": "documentation",
+  "status": "active",
+  "chars": 8647,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "operations/OPS-008-session-state.md",
+  "dir": "operations",
+  "series": "operations",
+  "type": "documentation",
+  "status": "active",
+  "chars": 4594,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "operations/OPS-009-secrets-handling.md",
+  "dir": "operations",
+  "series": "operations",
+  "type": "protocol",
+  "status": "active",
+  "chars": 6282,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "protocols/PRO-001-agent-session.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "active",
+  "chars": 9160,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "protocols/PRO-003-mission-cycle.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "active",
+  "chars": 10817,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "protocols/PRO-005-escalation.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "active",
+  "chars": 2690,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "protocols/PRO-008-decision.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "active",
+  "chars": 13789,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "protocols/PRO-010-how-to-archive.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "draft",
+  "chars": 22254,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "protocols/PRO-011-security-audit.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "draft",
+  "chars": 16482,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "protocols/PRO-013-handing-a-guard-to-ci.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "active",
+  "chars": 5596,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-001-debt-register-refactor.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "closed",
+  "chars": 20829,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-002-ursa-web-access.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "active",
+  "chars": 15585,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-003-wardley-map.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "closed",
+  "chars": 18877,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-004-cold-agent.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "closed",
+  "chars": 18760,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-005-stack.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "closed",
+  "chars": 22341,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-006-navigability.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "draft",
+  "chars": 7889,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-007-system-audit.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "closed",
+  "chars": 9718,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-008-gaps-capability-map.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "closed",
+  "chars": 18152,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-009-canon-edit.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "closed",
+  "chars": 7479,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-010-phase0-inventory.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "closed",
+  "chars": 13287,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-011-licensing-c005.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "closed",
+  "chars": 41854,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-012-c005-52-third-party-declaration.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "draft",
+  "chars": 11667,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-013-process.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "closed",
+  "chars": 7322,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-014-provenance.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "closed",
+  "chars": 17100,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-015-complexity.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "closed",
+  "chars": 8127,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-016-governance.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "closed",
+  "chars": 9136,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-2026-04-02.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "closed",
+  "chars": 2228,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-2026-04-03.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "closed",
+  "chars": 2450,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-2026-04-04.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "closed",
+  "chars": 2453,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-2026-04-05.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "closed",
+  "chars": 2754,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-2026-04-06.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "closed",
+  "chars": 3156,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-2026-04-07.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "closed",
+  "chars": 3548,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-2026-08-24.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "closed",
+  "chars": 16452,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/RPT-2026-08-25.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "closed",
+  "chars": 16146,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "reports/evidence/README.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "documentation",
+  "status": "active",
+  "chars": 4032,
+  "apparatus": true,
+  "frozen": false
+ },
+ {
+  "path": "reports/evidence/RPT-011/README.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "documentation",
+  "status": "closed",
+  "chars": 2972,
+  "apparatus": true,
+  "frozen": false
+ },
+ {
+  "path": "reports/evidence/RPT-2026-08-25/canon-2026-04-15-recovery.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "documentation",
+  "status": "closed",
+  "chars": 3925,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "standards/2026_04_14-Analogous_Terminology_Numina-v0.2.0.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "closed",
+  "chars": 9405,
+  "apparatus": false,
+  "frozen": true
+ },
+ {
+  "path": "standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": null,
+  "status": null,
+  "chars": 158014,
+  "apparatus": false,
+  "frozen": true
+ },
+ {
+  "path": "standards/STANDARDS.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "meta",
+  "status": "closed",
+  "chars": 3620,
+  "apparatus": true,
+  "frozen": false
+ },
+ {
+  "path": "standards/STD-001-glossary.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "active",
+  "chars": 77005,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "standards/STD-002-governance.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "active",
+  "chars": 10525,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "standards/STD-003-platform-role-system.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "active",
+  "chars": 9355,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "standards/STD-004-header-standard.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "active",
+  "chars": 16765,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "standards/STD-005-engineering-standards.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "active",
+  "chars": 19202,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "system/SYS-001-cao-architecture.md",
+  "dir": "system",
+  "series": "system",
+  "type": "documentation",
+  "status": "active",
+  "chars": 10867,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "system/SYS-002-agent-cycle.md",
+  "dir": "system",
+  "series": "system",
+  "type": "documentation",
+  "status": "active",
+  "chars": 13308,
+  "apparatus": false,
+  "frozen": false
+ },
+ {
+  "path": "system/SYS-003-archive-fondos.md",
+  "dir": "system",
+  "series": "system",
+  "type": "documentation",
+  "status": "active",
+  "chars": 13110,
+  "apparatus": false,
+  "frozen": false
+ }
+]
