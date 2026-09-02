@@ -47,7 +47,7 @@ opens every session:
 |---|---|---|---|
 | 33 | `protocols/P-001-agent-briefing` | `protocols/PRO-001-agent-session.md` | ADR-005 rename, 2026-08-31 |
 | 96 | `protocols/P-003-ciclo-mision-v1` | `protocols/PRO-003-mission-cycle.md` | ADR-005 rename, 2026-08-31 |
-| 134 | `debt/D-011-thresholds-unenforced` | `debt/DBT-002-root-of-trust-unestablished.md` | Debt-register refactor (`DBT-002 <- DBT-002`), MIS-121 |
+| 134 | `debt/D-011-thresholds-unenforced` | `debt/DBT-002-root-of-trust-unestablished.md` | Debt-register refactor (`DBT-002 <- D-011`), MIS-121 |
 | 147 | the retired English-as-canon-language decision | `decisions/ADR-023-canon-vocabulary.md` | Decisions consolidation: superseded, then absorbed into ADR-023, MIS-127 |
 
 The guard is a ratchet — it fails only on *new* breakage, so these four sit in
@@ -56,13 +56,13 @@ the tolerated baseline. This mission spends four of the 23.
 ## Scope
 
 - `README.md` — exactly the four links in the table above. Nothing else.
-- The prose that names them (`PRO-001`, `PRO-003`, `DBT-002`, and the retired
+- The prose that names them (`P-001`, `P-003`, `D-011`, and the retired
   English-language decision) is updated to the current identifier in the same
   lines where a rename happened.
 
 **Out of scope:** the other 19 broken links (separate audit, MIS-089 F-series);
 any prose rewrite of README; the identifiers in `missions/` history — those are
-archaeology and stay as written; MIS-058's `PRO-008` reference (same ADR-005
+archaeology and stay as written; MIS-058's `P-008` reference (same ADR-005
 rename class, separate file, deliberately not included).
 
 ## Acceptance criteria
@@ -117,4 +117,4 @@ node scripts/check-references.mjs   # "broken markdown links : 19"
 
 ## Version history
 
-- v1.3.0 (2026-09-02) — import-era `---` rules removed; retired identifiers repointed: D-011→DBT-002, P-001→PRO-001, P-003→PRO-003, P-008→PRO-008; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.
+- v1.3.0 (2026-09-02) — import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.

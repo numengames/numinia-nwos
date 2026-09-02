@@ -63,7 +63,7 @@ inspects, and the standards, decisions and web schema that a header migration
 forces to move with it.
 
 **In scope:** the sixteen check classes `H-00`…`H-31`; the baseline file; the
-debt entries that already register individual classes (`D-002`, `DBT-001`,
+debt entries that already register individual classes (`D-002`, `D-008`,
 `D-009`, `D-010`, `D-012`); the Astro content schema where a field rename
 would otherwise break the board.
 
@@ -254,7 +254,7 @@ rename's clothes, and the numbers below say how many decisions each is.
 | `0499b8c` (#139) | `area → territory` (66 mapped, 76 took `TBA` per ADR-027); guild/type_execution/visibility vocabularies enforced; ring-table transcription errors; single-cycle statuses; `AG-`/singular ids resolved with `registration: exempt` | **304** |
 | `9d3afaa` (#140) | status lifecycles (60 out-of-cycle values); 42 non-series documents exempted instead of renumbered | **207** |
 | `86431b3` (#141) | orphan fields: `adr_id` retired (verified duplicate ×8), `decision`/`threshold`/`visibility_reason`/`semaforo` registered — `semaforo` is painted by the site, checked value-by-value | **168** |
-| `eb674f3` (#142) | 6 impostor types resolved from the corpus's own vocabulary; truly-empty fields dropped; **`check-frontmatter-yaml.mjs` born** (DBT-010 §2: no instrument checked that headers parse — the web build was the only witness) | **150** |
+| `eb674f3` (#142) | 6 impostor types resolved from the corpus's own vocabulary; truly-empty fields dropped; **`check-frontmatter-yaml.mjs` born** (D-039 §2: no instrument checked that headers parse — the web build was the only witness) | **150** |
 | `a086d56` (#143) | final sweep: `DEC-001..006 → type: adr` ids intact (Oracle ruling, 154 refs preserved); 5 missions `draft → todo` ("draft = backlog"); 12 headerless docs given headers from git history; ~35 fields registered after checking the web layer FIRST; 3 lint false positives fixed at the source | **44** |
 | `aebcf54`…`203267c` (#198) | missions/ normalisation: `uid`, `created_source`, `owner` on every mission; `mission_id` retired; MIS-0NNN filenames | **21** (unchanged — the 21 survivors are outside missions/) |
 
@@ -458,7 +458,7 @@ hides its decisions makes the next reader guess.
    to declare what it cannot see.
 2. **The debt series runs an undeclared status vocabulary.** 35 `open` +
    2 `resolved` against `type: documentation`, whose lifecycle is
-   `[draft active closed]`. Adjacent to `DBT-001` and `D-012`.
+   `[draft active closed]`. Adjacent to `D-008` and `D-012`.
    **Ruled: fix the entries, not the standard — `debt/` adopts the declared
    lifecycle.** `open → active`, `resolved → closed`. The vocabulary the
    series was already using informally becomes the one the standard names.
@@ -520,4 +520,4 @@ hides its decisions makes the next reader guess.
 
 ## Version history
 
-- v1.3.0 (2026-09-02) — import-era `---` rules removed; retired identifiers repointed: C-005→CAN-005, D-008→DBT-001, D-039→DBT-010, P-013→PRO-013; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.
+- v1.3.0 (2026-09-02) — import-era `---` rules removed; retired identifiers repointed: C-005→CAN-005, P-013→PRO-013; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.

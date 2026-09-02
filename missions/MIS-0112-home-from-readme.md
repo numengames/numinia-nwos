@@ -48,7 +48,7 @@ README.md:16   "The reference instance of the Narrative Work OS —
 home <h1>      "Narrative Work OS"
 ```
 
-Not a contradiction yet — but nothing keeps them together, and `DBT-006` is a
+Not a contradiction yet — but nothing keeps them together, and `D-033` is a
 registry of exactly this shape: two documents asserting the same thing with no
 mechanism binding them.
 
@@ -114,4 +114,4 @@ Add here — never edit `Scope` or the criteria to match what happened.)*
 
 ## Version history
 
-- v1.1.0 (2026-09-02) — import-era `---` rules removed; retired identifiers repointed: D-033→DBT-006; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.
+- v1.1.0 (2026-09-02) — import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.
