@@ -19,7 +19,7 @@ updated: "2026-09-02T10:28:09Z"
 author: "ursa"
 owner: "oracle"
 tags: [debt, url-lifecycle, dbt-004, comment, web]
-license: "CC-BY-4.0"
+license: "CC0-1.0"
 ---
 
 # MIS-136 — Correct the DEUDA-404 comment in web/astro.config.mjs
