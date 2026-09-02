@@ -4,11 +4,11 @@ uid: ""
 title: "How to Archive — the NWOS archival protocol"
 type: protocol
 status: draft
-version: "0.8.2"
+version: "0.8.3"
 created: "2026-08-18T10:51:09Z"
 created_source: "git:9f25053"
 created_confidence: exact
-updated: "2026-09-02T01:00:00+02:00"
+updated: "2026-09-02T17:04:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [protocols, archive, taxonomy, naming, iso-15489]
@@ -127,8 +127,8 @@ The two without it are not oversights: both are `status: closed` and carry
 older words, written before the `frozen-artifact` value existed
 (`STD-001` §5.0, 2026-08-25). A guard keyed on the field would have counted
 those two as violations and renamed them. **Any check implementing this
-section matches the filename shape** — `scripts/count-evidence.py` and
-`scripts/rename-series.mjs` both do.
+section matches the filename shape** — `scripts/telemetry.mjs` (`series.registration`,
+`FROZEN_ARTIFACT_RE` in `scripts/lib/corpus.mjs`) and `scripts/rename-series.mjs` both do.
 
 #### 3.2.2 Ruling — `MIS-125`, 2026-08-31: this section prevails over `D-008`
 
@@ -372,6 +372,7 @@ agents.
 
 ## Change history
 
+- v0.8.3 (2026-09-02) — §3.2.1 names the live implementers of the filename-shape rule (`scripts/telemetry.mjs`; `count-evidence.py` retired, `MIS-138`). Rule unchanged.
 - v0.8.2 (2026-09-02) — §3 example filename follows the missions/ rename (`MIS-0089-…`); the rule itself is unchanged.
 - v0.8.1 (2026-09-02) — §2 web column for `reports/`: the "hardcoded today —
   MIS-065" debt is paid; `/reports` renders from the collection and is the

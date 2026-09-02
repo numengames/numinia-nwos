@@ -12,6 +12,7 @@
 //   node scripts/telemetry.mjs --check    # exit 1 if telemetry/latest.json is not HEAD's corpus (stale/altered)
 //   node scripts/telemetry.mjs --print    # measure, print latest.json to stdout, write nothing
 //   node scripts/telemetry.mjs --key a.b  # print one figure with its predicate
+//   node scripts/telemetry.mjs --legacy-json  # the count-evidence.py --json dict (family legacy + head), for the transition
 //
 // Read-only over the corpus; writes only under telemetry/. Deterministic:
 // same tree → same latest.json byte for byte (measured_at aside).
@@ -22,9 +23,14 @@ import { loadDocs, headInfo } from './lib/corpus.mjs';
 import * as corpus from './lib/families/corpus.mjs';
 import * as series from './lib/families/series.mjs';
 import * as missions from './lib/families/missions.mjs';
+import * as legacy from './lib/families/legacy.mjs';
+import { declareBlindSpots } from './lib/blindness.mjs';
 
-const VERSION = '0.1.0';
-const FAMILIES = { corpus, series, missions };
+const VERSION = '0.2.0';
+// Declared on every exit, like the guards (D-025). Silenced for --print/--legacy-json/--key: their stdout is
+// parsed by tests and pipes, and blindness prints to stderr only after the JSON — still, one channel per run.
+if (!process.argv.some((a) => ['--print', '--legacy-json', '--key'].includes(a))) declareBlindSpots('telemetry');
+const FAMILIES = { corpus, series, missions, legacy };
 const OUT = path.join(ROOT, 'telemetry');
 const args = process.argv.slice(2);
 const flag = (f) => args.includes(f);
@@ -102,6 +108,10 @@ if (keyArg && flag('--key')) {
   console.log(JSON.stringify({ key: keyArg, ...f, head: latest.head }, null, 2)); process.exit(0);
 }
 if (flag('--print')) { console.log(JSON.stringify(latest, null, 2)); process.exit(0); }
+if (flag('--legacy-json')) {
+  const only = Object.fromEntries(Object.entries(latest.figures).filter(([k]) => k.startsWith('legacy.')).map(([k, f]) => [k.slice(7), f]));
+  console.log(JSON.stringify({ ...legacy.legacyDict(only), head: latest.head.replace('+index', '') }, null, 2)); process.exit(0);
+}
 if (flag('--check')) {
   const p = path.join(OUT, 'latest.json');
   if (!existsSync(p)) { console.error('telemetry --check: telemetry/latest.json missing — run the instrument'); process.exit(1); }

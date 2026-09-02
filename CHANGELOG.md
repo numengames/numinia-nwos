@@ -14,6 +14,11 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-02 (MIS-138 step 3: family `legacy`, `count-evidence.py` retired)
+- scripts/telemetry.mjs v0.2.0: family `legacy` — the 20 keys of `count-evidence.py --json`, same names, same values, each with its predicate written out (including the reproduced defects: `uid_colisiones` counts shared placeholders, `misiones_por_status` counts TEMPLATE/ANNEX/INDEX). `--legacy-json` prints the old dict. 50 figures in the dataset. Declares its blind spots on exit, as the guards do.
+- scripts/count-evidence.py removed (criterion 2): dict-equal to `--legacy-json` at `6a97fbf`, golden kept as `scripts/test/fixtures/count-evidence-6a97fbf.json` and re-run against that tree by `telemetry.test.mjs`. `measuring_root.py` stays (formatter; MIS-127's scripts import it).
+- Live citers re-pointed, text only, no figure re-typed: STD-001 v5.2.0 (`evidence_script`, §0, §4.1, §8), DBT-001 v4.3.1, PRO-010 v0.8.3, scripts/blind-spots.json (`count-evidence` → `telemetry`). Records — done missions, reports, ADR-005 L44, this file — keep their citations.
+
 ### Added — 2026-09-02 (MIS-138 step 2: the instrument, first three families)
 - scripts/telemetry.mjs (new, v0.1.0): measures the corpus and writes `telemetry/latest.json` (every figure with value · unit · definition, plus `head`, `corpus_hash`, `root_dirty`), `telemetry/docs.json` (one row per document), `telemetry/latest.md` (rendered view — the only document that states figures, D5) and appends `telemetry/history.jsonl` on committed trees. `--check` exits 1 when the dataset is stale (other `corpus_hash`) or altered (same corpus, other values); `--key family.key` prints one figure with its predicate. Not wired to CI.
 - scripts/lib/corpus.mjs + scripts/lib/families/{corpus,series,missions}.mjs: 30 figures, families `corpus` · `series` · `missions`. `series.registration` reproduces `count-evidence.py matricula` per series (registered/total/apparatus) — checked by test while both exist (criterion 2); `count-evidence.py` is not retired yet.

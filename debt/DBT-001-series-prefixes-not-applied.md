@@ -4,9 +4,9 @@ uid:
 title: "Twelve series carry a registration scheme most of the corpus does not yet apply"
 type: documentation
 status: active
-version: "4.3.0"
+version: "4.3.1"
 created: "2026-08-24T19:40:00Z"
-updated: "2026-09-02T10:30:00+02:00"
+updated: "2026-09-02T17:04:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -63,7 +63,8 @@ stated a total that its own table did not support. The rows above summed to
 added into a total the same sentence declares it excluded from. The figure
 was then carried forward through two "corrections" (275→274) without either
 one re-summing the column. Corrected here, and the total is now computed by
-`count-evidence.py` rather than maintained by hand:
+the instrument (`scripts/telemetry.mjs`, `series.registration`; `count-evidence.py`
+until 2026-09-02) rather than maintained by hand:
 
 ```
 254  sum of the table rows as written in v2.2.0
@@ -240,6 +241,7 @@ renumbered**, only re-prefixed (`ADR-004` §rule 4).
 
 ## Version history
 
+- v4.3.1 (2026-09-02) — the sentence naming who computes the total today points at `scripts/telemetry.mjs` (`MIS-138` step 3; `count-evidence.py` retired). Every dated measurement above keeps the script and HEAD that produced it.
 - v4.3.0 (2026-09-02) — `missions/` closed at 132/132 (#198, four lots). Ten of the eleven eligible series are now at 100 %; `infra/` has 0 eligible files. The closing condition (100 % of the eligible series *or* recorded exception) is therefore met the moment the Oracle records `infra/` as reserved-empty — that ruling, not this PR, closes the entry (ADR-030: debt extinguishes on close, by its owner). `MIS-135` row 7, #200.
 - v4.2.0 (2026-09-02) — `reports/` closed at 24/24 (`ADR-005` v1.2.0 executed:
   fourteen renames, two folders removed, one annex relocated). Row and

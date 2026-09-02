@@ -1,0 +1,164 @@
+{
+  "docs_total": 272,
+  "docs_con_frontmatter": 264,
+  "docs_sin_frontmatter": 8,
+  "referencias_textuales_total": 2931,
+  "referencias_top": [
+    [
+      "ADR-005",
+      167
+    ],
+    [
+      "C-005",
+      156
+    ],
+    [
+      "AUD-2026",
+      85
+    ],
+    [
+      "ADR-030",
+      84
+    ],
+    [
+      "ADR-004",
+      77
+    ],
+    [
+      "P-003",
+      70
+    ]
+  ],
+  "matricula": {
+    "missions": {
+      "esquema": "MIS-NNNN",
+      "con": 136,
+      "total": 136,
+      "aparato": 4,
+      "pct": 100.0
+    },
+    "protocols": {
+      "esquema": "PRO-NNN",
+      "con": 7,
+      "total": 7,
+      "aparato": 0,
+      "pct": 100.0
+    },
+    "decisions": {
+      "esquema": "ADR/DEC-NNN",
+      "con": 9,
+      "total": 9,
+      "aparato": 0,
+      "pct": 100.0
+    },
+    "reports": {
+      "esquema": "RPT-NNN · RPT-YYYY-MM-DD (daily)",
+      "con": 24,
+      "total": 24,
+      "aparato": 0,
+      "pct": 100.0
+    },
+    "blueprints": {
+      "esquema": "BLU-NNN",
+      "con": 3,
+      "total": 3,
+      "aparato": 0,
+      "pct": 100.0
+    },
+    "canon": {
+      "esquema": "CAN-NNN",
+      "con": 7,
+      "total": 7,
+      "aparato": 0,
+      "pct": 100.0
+    },
+    "standards": {
+      "esquema": "STD-NNN",
+      "con": 5,
+      "total": 5,
+      "aparato": 1,
+      "pct": 100.0
+    },
+    "operations": {
+      "esquema": "OPS-NNN",
+      "con": 9,
+      "total": 9,
+      "aparato": 0,
+      "pct": 100.0
+    },
+    "debt": {
+      "esquema": "DBT-NNN",
+      "con": 12,
+      "total": 12,
+      "aparato": 0,
+      "pct": 100.0
+    },
+    "guilds": {
+      "esquema": "GLD-NNN",
+      "con": 8,
+      "total": 8,
+      "aparato": 0,
+      "pct": 100.0
+    },
+    "infra": {
+      "esquema": "INF-NNN",
+      "con": 0,
+      "total": 0,
+      "aparato": 1,
+      "pct": null
+    }
+  },
+  "excluidos": {
+    "aparato": [
+      "missions/ANNEX-mission-selection-draft.md",
+      "missions/TEMPLATE-CHANGES.md",
+      "missions/TEMPLATE-EXAMPLE.md",
+      "missions/TEMPLATE.md",
+      "standards/STANDARDS.md",
+      "infra/github/README.md"
+    ],
+    "congelados": [
+      "standards/2026_04_14-Analogous_Terminology_Numina-v0.2.0.md",
+      "standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md"
+    ]
+  },
+  "agents_sin_prefijo_por_diseno": 7,
+  "uid_presentes": 34,
+  "uid_fabricados": 0,
+  "uid_colisiones": 32,
+  "docs_con_relacion_declarada": 3,
+  "misiones_por_status": {
+    "done": 63,
+    "frozen": 38,
+    "todo": 29,
+    "in-progress": 8,
+    "draft": 1,
+    "active": 1
+  },
+  "guild_valores": {
+    "Alchemists": 84,
+    "Sentinels": 40,
+    "Exegetes": 29,
+    "Procurators": 27
+  },
+  "type_execution_valores": {
+    "digital": 92,
+    "hybrid": 19,
+    "biological": 8
+  },
+  "area_valores_distintos": 0,
+  "created_T000000Z": 4,
+  "created_total": 262,
+  "ci_workflow_existe": true,
+  "ci_guards": [
+    "scripts/check-license-frontmatter.mjs",
+    "scripts/check-frontmatter-yaml.mjs",
+    "scripts/check-references.mjs",
+    "scripts/check-frontmatter-delimiter.mjs",
+    "scripts/lint-frontmatter.mjs",
+    "scripts/lint-naming.mjs",
+    "scripts/check-orphan-content.mjs",
+    "scripts/check-url-lifecycle.mjs"
+  ],
+  "head": "6a97fbf"
+}
