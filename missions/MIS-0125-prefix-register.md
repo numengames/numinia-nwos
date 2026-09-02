@@ -13,11 +13,11 @@ started: "2026-08-31"
 completed: null
 
 type: mission
-version: "1.5.0"
+version: "1.5.1"
 created: "2026-08-30T11:50:00Z"
 created_source: "git:b09311c"
 created_confidence: exact
-updated: "2026-09-02T01:55:26+02:00"
+updated: "2026-09-02T08:34:08+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [governance, identifiers, prefixes, adr-005]
@@ -520,13 +520,67 @@ order, and is **held** on two counts, both the Oracle's to release:
 directions, the YAML block is in PR #164's body, and the merged run is green).
 Step 3 — pasting it into `.github/workflows/ci.yml` — is the Oracle's.
 
+### Stage C — status at 2026-09-02 (`7f51235`)
+
+The section above was written on 2026-08-31 with one series done and ten
+held. Two days later the register looks like this, measured by
+`count-evidence.py` (the same instrument `STD-001` §4.1 cites):
+
+| Series | Scheme | Landed in | Coverage |
+|---|---|---|--:|
+| `guilds/` | `GLD-NNN` | #163 (this mission) | 8/8 |
+| `blueprints/` | `BLU-NNN` | #171 (`MIS-127`) | 3/3 |
+| `protocols/` | `PRO-NNN` | #172 (`MIS-127`) | 7/7 |
+| `decisions/` | `ADR-NNN` · `DEC-NNN` | #177 (`MIS-127`) | 9/9 |
+| `debt/` | `DBT-NNN` | #180 (`MIS-127`) | 12/12 |
+| `standards/` | `STD-NNN` | #181 (this mission) | 5/5 |
+| `canon/` | `CAN-NNN` | #190 (`MIS-127`, `ADR-036`) | 7/7 |
+| `operations/` | `OPS-NNN` | #192 (`MIS-127`) | 9/9 |
+| `reports/` | `RPT-NNN` · `RPT-YYYY-MM-DD` | #193 · #194 · #195 (`MIS-127`, `ADR-005` v1.2.0) | 24/24 |
+| `infra/` | `INF-NNN` | — | 0/0 |
+| `missions/` | `MIS-NNNN` | **not started** | **3/134** |
+
+Nine of the ten series "held" on 2026-08-31 landed through `MIS-127`, whose
+consolidations renamed each shelf as they reduced it — the register and the
+entropy work turned out to be the same commits. This mission's own Stage C
+therefore has **one series left**, the largest: `missions/`, 131 files to
+move from `MIS-NNN` to the four-digit padding `ADR-005` v1.1.0 rules
+(`MIS-0129`–`MIS-0131` are the only three born under it). Volume and
+citation density (`ADR-004`: `MIS-056` alone cited 85 times) are why
+`D-008` ranked it last; nothing else holds it.
+
+**The two holds above, as they stand:**
+
+1. *Slug defect* — resolved in #181. The basenames carry the new prefix
+   once (`STD-001-glossary.md`, not the doubled form the dry run had
+   produced); the rule and its regression cases are in
+   `rename-series.test.mjs` (26 cases at `7f51235`, after #194 added the
+   reserved-number and dated-legacy-id rules).
+2. *`ADR-030` housekeeping* — resolved in #180: the six `status: closed`
+   entries are no longer in the tree; `debt/` went 39 → 12.
+
+**`P-013` step 3 is still open.** `.github/workflows/ci.yml` runs
+`lint-frontmatter`, `lint-naming`, `check-references` and the URL ratchet
+(#159, #167) but not `scripts/test/blindness.test.mjs`; the YAML block is in
+#164's body. Same reason as before: the agent's token has no `workflow`
+scope, and a workflow edit is the Oracle's push.
+
+**Acceptance criteria, re-read against the measurement:** criterion 4
+(`H-01` at zero) holds — `lint-frontmatter --report` shows no `H-01` at
+`7f51235` and the baseline carries none — but it is weaker than it reads:
+`H-01` checks the prefix, not the padding, so `MIS-004` passes it while
+failing the register. The padding is `lint-naming`'s to see; its baseline
+holds the 131. Criterion 2 is therefore **not** met until `missions/`
+moves, and this mission stays `in-progress` for that one series.
+
 ## Status check — 2026-09-02
 
 *Read against `203267c` during the missions/ normalisation (lot 4). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
 
-- **Evidence:** Acceptance 1/4: register complete ✓; 'every id matches its prefix' — H-01 findings are now 0 (count-evidence 10/11 series at 100 %, missions 131/132); the check is live in lint-frontmatter (H-01) — criteria 2–4 are met by the corpus today, criterion 4 by this normalisation (missions/ was the last series at 0 %). Stage C 'what remains' names standards/ (done 08-31) and ADR-030 housekeeping (done #180). No started date; 58 citations (11 files) — the most-cited live mission.
+- **Evidence:** Acceptance 1/4: register complete ✓; 'every id matches its prefix' — H-01 findings are now 0 (count-evidence 10/11 series at 100 %, missions 131/132); the check is live in lint-frontmatter (H-01) — criteria 2–4 are met by the corpus today, criterion 4 by this normalisation (missions/ was the last series at 0 %). Stage C 'what remains' names standards/ (done 08-31) and ADR-030 housekeeping (done #180). No started date; 58 citations (11 files) — the most-cited live mission. *Merge note (2026-09-02, `6cc7b40`):* main's *Stage C — status at 2026-09-02 (`7f51235`)* above (#196) held this mission for one series, `missions/` (3/134, "not started"); #198 is that move — `count-evidence.py` at the merge: 132/132.
 - **Recommendation:** Close as done: every acceptance criterion is measurable today and passes (H-01 = 0; count-evidence ≥ 99 % every series). Tick criteria 2–4 with the figures; fill Closure from its own Stage A/B/C sections. Oracle signs.
 
 ## Version history
 
 - v1.5.0 (2026-09-02) — retired identifiers repointed: P-008→PRO-008, P-010→PRO-010, P-013→PRO-013; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.
+- v1.5.1 (2026-09-02) — merged with main (#196): §Stage C status at `7f51235` kept above §Status check; one merge note in the evidence line. No other change.

@@ -189,7 +189,13 @@ const PREFIX = {
   // renamed the files (MIS-127) — exactly the drift described above.
   // reports: AUD- retired by ADR-005 v1.2.0 (2026-09-01); RPT only, with the
   // date form for dailies checked by lint-naming N-04, not here.
-  standards: 'STD', canon: 'CAN', agents: 'AG', reports: 'RPT',
+  // agents: [] — no prefix is legal. AG-NNN was withdrawn by ADR-005 v1.1.0
+  // (Oracle, 2026-08-31): agents are identified by folder name and every
+  // part carries registration: exempt, which H-01 honours before reaching
+  // this map. The 'AG' entry that sat here until 2026-09-02 was therefore
+  // never evaluated — and had it been, it would have ACCEPTED the withdrawn
+  // scheme. An empty list means: a series id in agents/ is always wrong.
+  standards: 'STD', canon: 'CAN', agents: [], reports: 'RPT',
   system: 'SYS',  // ADR-035: reference manuals of how the system works today
 };
 
