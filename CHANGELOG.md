@@ -14,6 +14,10 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-02 (MIS-138 step 6: families `contradictions` and `figures` — D4, D5)
+- scripts/lib/families/claims.mjs. `contradictions` layer 1, extractor classes: status vocabulary vs rules.json, `[CI]` rows of STD-001 vs `run: node` steps of ci.yml (6 scripts run that no row claims @ `0d0d5e7`), id digit width per series (MIS, RPT cited with both widths). Layer 2, the verified register `telemetry/claims.json`: MIS-135's deferred rows with a locating quote; every run checks each quote → open · resolved · moved (5 open @ `0d0d5e7`). Not built, said so: `pages_built`, `series_registered`.
+- `figures`: `live` = lines outside telemetry/ stating a corpus-shaped figure with no `@ head` beside it (661 @ `0d0d5e7` — a detector, not a verdict), `cited` and `stale_citations` for the §10.5 form `key = value @ head`. 87 figures in 9 families; instrument v0.5.0. The instrument never edits a document.
+
 ### Changed — 2026-09-02 (MIS-138 step 5: families `headers` and `provenance`, five censuses retired)
 - scripts/lib/families/provenance.mjs: `headers` (docs with/without frontmatter, field_usage, uid_present/collisions, created_T000000Z, hygiene) and `provenance` (authorship by nature of `author:`, created vs first-add commit over the whole corpus with renames followed, REUSE regime crossings over every rename in history, P-003 anchor rule on missions). One `git log` walk per run. 72 figures in 7 families; instrument v0.4.0.
 - Retired, their predicate now in the dataset with its definition: scripts/experiments/{frontmatter-census, provenance-census, dates-vs-commits, regime-crossings, protocol-anchor}.py. Two were not reproducible as they stood (hard-coded `/repos/numinia-nwos` root; protocol-anchor read its input from /tmp) — the dataset states what was ported and what was not. Kept: complexity-census, index-coverage, public-surface-census, mis127-token-delta (MIS-127's ledger, not measurement of this kind), resolve-citations (a guard-shaped check, not a count).

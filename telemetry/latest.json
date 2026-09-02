@@ -1,9 +1,9 @@
 {
-  "instrument": "scripts/telemetry.mjs v0.4.0",
-  "head": "51a3d8b+index",
-  "corpus_hash": "63967b73a54da287da024c63de3775e4f8efd7446a749b8e2a698e4882447f8c",
+  "instrument": "scripts/telemetry.mjs v0.5.0",
+  "head": "0d0d5e7+index",
+  "corpus_hash": "9e6e731cdca1c718410707171abe83fcc5aaa956b7e8601b985edb9c3fd64432",
   "root_dirty": 0,
-  "measured_at": "2026-09-02T15:31:27Z",
+  "measured_at": "2026-09-02T15:48:22Z",
   "families": [
     "corpus",
     "series",
@@ -11,11 +11,13 @@
     "tokens",
     "headers",
     "provenance",
+    "contradictions",
+    "figures",
     "legacy"
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 601,
+      "value": 602,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -31,7 +33,7 @@
         ".js": 1,
         ".json": 21,
         ".md": 272,
-        ".mjs": 37,
+        ".mjs": 38,
         ".png": 36,
         ".py": 23,
         ".sh": 7,
@@ -110,13 +112,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 63,
+      "value": 64,
       "unit": "files",
       "definition": "files under `scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 33,
+        "node": 34,
         "python": 23,
         "shell": 7
       },
@@ -354,13 +356,13 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 602678,
+      "value": 603060,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "missions": 236192,
+        "missions": 236299,
         "reports": 86903,
         "standards": 85071,
         "canon": 40873,
@@ -369,7 +371,7 @@
         "protocols": 21576,
         "decisions": 17355,
         "agents": 16628,
-        "": 11088,
+        "": 11363,
         "system": 9980,
         "history": 7274,
         "blueprints": 5703,
@@ -385,17 +387,17 @@
         "active": 212294,
         "done": 119512,
         "closed": 85474,
-        "(none)": 55214,
+        "(none)": 55489,
         "todo": 43585,
+        "in-progress": 34046,
         "frozen": 34004,
-        "in-progress": 33939,
         "draft": 18656
       },
       "unit": "tokens",
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 39.19,
+      "value": 39.18,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -697,6 +699,190 @@
       "unit": "missions",
       "definition": "P-003 rule as protocol-anchor.py applies it: status ∈ {done,frozen,cancelled,backlog} is Oracle-set → anchored if owner=oracle, anchored-weak if another owner, anchored-no-owner if none; other states not-oracle-state. The CYCLE_* timestamp evidence it also used lived in /tmp and is not reproducible"
     },
+    "contradictions.status_vocabulary_used": {
+      "value": {
+        "active": 91,
+        "draft": 6,
+        "closed": 27,
+        "frozen": 38,
+        "todo": 29,
+        "done": 63,
+        "in-progress": 8
+      },
+      "unit": "documents",
+      "definition": "frontmatter status values in the corpus with counts"
+    },
+    "contradictions.status_vocabulary_undeclared": {
+      "value": {},
+      "unit": "documents",
+      "definition": "status values in use that scripts/lib/rules.json does not declare (mission ∪ adr ∪ _default), with the docs carrying them — a contradiction between a document and the vocabulary"
+    },
+    "contradictions.ci_markers_std001": {
+      "value": 7,
+      "unit": "rows",
+      "definition": "table rows of STD-001 carrying `[CI]`"
+    },
+    "contradictions.ci_marked_scripts_not_in_ci": {
+      "value": [],
+      "unit": "scripts",
+      "definition": "scripts a `[CI]` row names that ci.yml runs in no `run: node` step — a norm claiming a machine check that does not happen"
+    },
+    "contradictions.ci_scripts_not_marked": {
+      "value": [
+        "scripts/check-frontmatter-yaml.mjs",
+        "scripts/check-frontmatter-delimiter.mjs",
+        "scripts/lint-frontmatter.mjs",
+        "scripts/lint-naming.mjs",
+        "scripts/check-orphan-content.mjs",
+        "scripts/check-url-lifecycle.mjs"
+      ],
+      "unit": "scripts",
+      "definition": "scripts ci.yml runs that no `[CI]` row of STD-001 names — a check the norm does not claim"
+    },
+    "contradictions.id_form_per_series": {
+      "value": {
+        "STD": {
+          "3": 425
+        },
+        "MIS": {
+          "3": 1450,
+          "4": 23
+        },
+        "CAN": {
+          "3": 130
+        },
+        "ADR": {
+          "3": 686
+        },
+        "OPS": {
+          "3": 40
+        },
+        "RPT": {
+          "3": 72,
+          "4": 52
+        },
+        "DBT": {
+          "3": 115
+        },
+        "PRO": {
+          "3": 259
+        },
+        "DEC": {
+          "3": 53
+        },
+        "SYS": {
+          "3": 52
+        },
+        "BLU": {
+          "3": 62
+        },
+        "GLD": {
+          "3": 23
+        }
+      },
+      "unit": "citations",
+      "definition": "per series prefix, citations by digit width (3 vs 4) across the corpus; S1 fixes 4 for MIS files, 3 in `id:`"
+    },
+    "contradictions.id_form_mixed": {
+      "value": [
+        "MIS",
+        "RPT"
+      ],
+      "unit": "prefixes",
+      "definition": "prefixes cited with more than one digit width — the class is contradictory for these"
+    },
+    "contradictions.claims_open": {
+      "value": 5,
+      "unit": "claims",
+      "definition": "claims.json entries whose exact quote is still at its path"
+    },
+    "contradictions.claims_resolved": {
+      "value": 0,
+      "unit": "claims",
+      "definition": "entries whose quote is no longer in any tracked .md"
+    },
+    "contradictions.claims_moved": {
+      "value": 0,
+      "unit": "claims",
+      "definition": "entries whose quote left its path and is found in another tracked .md — meaningful only for quotes unique to one file; a short quote (`status: draft`) can only be open or resolved at its own path"
+    },
+    "contradictions.claims": {
+      "value": [
+        {
+          "id": "MIS-135#3",
+          "severity": "A",
+          "state": "open",
+          "where": "protocols/PRO-010-how-to-archive.md#L6",
+          "claim": "The protocol that governs how every series is named, renamed and closed — cited by ADR-005, STD-001 and the missions — is itself draft. Deferred: the Oracle signs."
+        },
+        {
+          "id": "MIS-135#10",
+          "severity": "B",
+          "state": "open",
+          "where": "standards/STD-004-header-standard.md#L193",
+          "claim": "STD-004 §7 still lists fields the corpus no longer carries as registered. Deferred → STD-004 v1.5.0."
+        },
+        {
+          "id": "MIS-135#15",
+          "severity": "B",
+          "state": "open",
+          "where": "REUSE.toml#L227",
+          "claim": "web/** → MIT while MIS-065's criterion that no culture-branch content is matched by it is unverified. Deferred → DBT-005."
+        },
+        {
+          "id": "MIS-135#19",
+          "severity": "A",
+          "state": "open",
+          "where": "web/astro.config.mjs#L143",
+          "claim": "Parameterised redirect that check-url-lifecycle matches literally — neither verified nor expanded. Deferred: design choice."
+        },
+        {
+          "id": "MIS-135#20",
+          "severity": "B",
+          "state": "open",
+          "where": "missions/MIS-0134-closure-guard.md#L5",
+          "claim": "done missions without a filled ## Closure — the guard is a proposal, not a guard; the count is missions.done_without_closure in this dataset. Deferred → MIS-134."
+        }
+      ],
+      "unit": "claims",
+      "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
+    },
+    "figures.live": {
+      "value": 661,
+      "unit": "lines",
+      "definition": "lines in non-apparatus docs outside telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
+    },
+    "figures.live_by_doc": {
+      "value": {
+        "standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md": 41,
+        "standards/STD-001-glossary.md": 39,
+        "missions/MIS-0127-entropy-reduction.md": 36,
+        "debt/DBT-001-series-prefixes-not-applied.md": 27,
+        "missions/MIS-0125-prefix-register.md": 26,
+        "reports/RPT-011-licensing-c005.md": 25,
+        "operations/OPS-005-simulations.md": 19,
+        "reports/RPT-008-gaps-capability-map.md": 19,
+        "missions/MIS-0121-header-baseline-burndown.md": 18,
+        "missions/MIS-0116-translate-remaining-spanish-docs.md": 15,
+        "reports/RPT-007-system-audit.md": 14,
+        "reports/RPT-010-phase0-inventory.md": 13,
+        "reports/RPT-001-debt-register-refactor.md": 12,
+        "reports/RPT-004-cold-agent.md": 11,
+        "operations/OPS-007-sales.md": 10
+      },
+      "unit": "lines",
+      "definition": "the fifteen docs with most such lines"
+    },
+    "figures.cited": {
+      "value": 0,
+      "unit": "citations",
+      "definition": "citations in the §10.5 form `key = value @ head` across the corpus"
+    },
+    "figures.stale_citations": {
+      "value": [],
+      "unit": "citations",
+      "definition": "cited `key = value @ head` whose value in latest.json at this HEAD differs from the cited value: [where, key, cited, current]. A stale citation is not an error — the head beside it says when it was true"
+    },
     "legacy.docs_total": {
       "value": 272,
       "unit": "documents",
@@ -713,7 +899,7 @@
       "definition": "docs_total − docs_con_frontmatter"
     },
     "legacy.referencias_textuales_total": {
-      "value": 2945,
+      "value": 2948,
       "unit": "mentions",
       "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
     },

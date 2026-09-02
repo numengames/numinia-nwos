@@ -27,14 +27,15 @@ import * as missions from './lib/families/missions.mjs';
 import * as legacy from './lib/families/legacy.mjs';
 import * as tokens from './lib/families/tokens.mjs';
 import { headers, provenance } from './lib/families/provenance.mjs';
+import { contradictions, figures as figuresFam } from './lib/families/claims.mjs';
 import { RANK_URL, RANK_SHA256, RANK_PATH } from './lib/cl100k.mjs';
 import { declareBlindSpots } from './lib/blindness.mjs';
 
-const VERSION = '0.4.0';
+const VERSION = '0.5.0';
 // Declared on every exit, like the guards (D-025). Silenced for --print/--legacy-json/--key: their stdout is
 // parsed by tests and pipes, and blindness prints to stderr only after the JSON — still, one channel per run.
 if (!process.argv.some((a) => ['--print', '--legacy-json', '--key', '--fetch-tokenizer'].includes(a))) declareBlindSpots('telemetry');
-const FAMILIES = { corpus, series, missions, tokens, headers, provenance, legacy };
+const FAMILIES = { corpus, series, missions, tokens, headers, provenance, contradictions, figures: figuresFam, legacy };
 const OUT = path.join(ROOT, 'telemetry');
 const args = process.argv.slice(2);
 const flag = (f) => args.includes(f);
@@ -52,7 +53,7 @@ if (flag('--fetch-tokenizer')) {
 export function measureAll() {
   const rules = loadRules();
   const docs = loadDocs(rules);
-  const ctx = { docs, rules };
+  const ctx = { docs, rules, latest: existsSync(path.join(OUT, 'latest.json')) ? JSON.parse(readFileSync(path.join(OUT, 'latest.json'), 'utf8')) : null };
   const figures = {};
   for (const [fam, mod] of Object.entries(FAMILIES))
     for (const [k, fig] of Object.entries(mod.measure(ctx))) figures[`${fam}.${k}`] = fig;
