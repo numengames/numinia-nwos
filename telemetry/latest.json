@@ -1,17 +1,18 @@
 {
-  "instrument": "scripts/telemetry.mjs v0.1.0",
-  "head": "c38a881+index",
-  "corpus_hash": "8c3d7965454a5f589d6b58b72cf6beff8de8b4d955bbdd0f4d69683b0ff75775",
+  "instrument": "scripts/telemetry.mjs v0.2.0",
+  "head": "6a97fbf+index",
+  "corpus_hash": "8464c53e312904687f54a4f1c6cf16b9d036b5c321985cf7807f4c2d4ffdf888",
   "root_dirty": 0,
-  "measured_at": "2026-09-02T14:44:10Z",
+  "measured_at": "2026-09-02T15:09:29Z",
   "families": [
     "corpus",
     "series",
-    "missions"
+    "missions",
+    "legacy"
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 602,
+      "value": 603,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -25,11 +26,11 @@
         ".ico": 1,
         ".jpg": 1,
         ".js": 1,
-        ".json": 20,
+        ".json": 21,
         ".md": 272,
-        ".mjs": 33,
+        ".mjs": 34,
         ".png": 36,
-        ".py": 29,
+        ".py": 28,
         ".sh": 7,
         ".spdx": 1,
         ".svg": 69,
@@ -112,8 +113,8 @@
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 29,
-        "python": 29,
+        "node": 30,
+        "python": 28,
         "shell": 7
       },
       "unit": "files",
@@ -343,6 +344,247 @@
       "value": 22,
       "unit": "missions",
       "definition": "`started` written in `Z`"
+    },
+    "legacy.docs_total": {
+      "value": 272,
+      "unit": "documents",
+      "definition": "every tracked path ending in .md (git ls-files '*.md'), web/ included, telemetry/ excluded"
+    },
+    "legacy.docs_con_frontmatter": {
+      "value": 264,
+      "unit": "documents",
+      "definition": "docs_total whose text starts with a `---` block closed by a second `---` line"
+    },
+    "legacy.docs_sin_frontmatter": {
+      "value": 8,
+      "unit": "documents",
+      "definition": "docs_total − docs_con_frontmatter"
+    },
+    "legacy.referencias_textuales_total": {
+      "value": 2940,
+      "unit": "mentions",
+      "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
+    },
+    "legacy.referencias_top": {
+      "value": [
+        [
+          "ADR-005",
+          169
+        ],
+        [
+          "C-005",
+          156
+        ],
+        [
+          "AUD-2026",
+          85
+        ],
+        [
+          "ADR-030",
+          84
+        ],
+        [
+          "ADR-004",
+          77
+        ],
+        [
+          "P-003",
+          70
+        ]
+      ],
+      "unit": "mentions",
+      "definition": "the six most-mentioned identifiers as [id, count]; ties keep first-seen order (Python Counter.most_common)"
+    },
+    "legacy.matricula": {
+      "value": {
+        "missions": {
+          "esquema": "MIS-NNNN",
+          "con": 136,
+          "total": 136,
+          "aparato": 4,
+          "pct": 100
+        },
+        "protocols": {
+          "esquema": "PRO-NNN",
+          "con": 7,
+          "total": 7,
+          "aparato": 0,
+          "pct": 100
+        },
+        "decisions": {
+          "esquema": "ADR/DEC-NNN",
+          "con": 9,
+          "total": 9,
+          "aparato": 0,
+          "pct": 100
+        },
+        "reports": {
+          "esquema": "RPT-NNN · RPT-YYYY-MM-DD (daily)",
+          "con": 24,
+          "total": 24,
+          "aparato": 0,
+          "pct": 100
+        },
+        "blueprints": {
+          "esquema": "BLU-NNN",
+          "con": 3,
+          "total": 3,
+          "aparato": 0,
+          "pct": 100
+        },
+        "canon": {
+          "esquema": "CAN-NNN",
+          "con": 7,
+          "total": 7,
+          "aparato": 0,
+          "pct": 100
+        },
+        "standards": {
+          "esquema": "STD-NNN",
+          "con": 5,
+          "total": 5,
+          "aparato": 1,
+          "pct": 100
+        },
+        "operations": {
+          "esquema": "OPS-NNN",
+          "con": 9,
+          "total": 9,
+          "aparato": 0,
+          "pct": 100
+        },
+        "debt": {
+          "esquema": "DBT-NNN",
+          "con": 12,
+          "total": 12,
+          "aparato": 0,
+          "pct": 100
+        },
+        "guilds": {
+          "esquema": "GLD-NNN",
+          "con": 8,
+          "total": 8,
+          "aparato": 0,
+          "pct": 100
+        },
+        "infra": {
+          "esquema": "INF-NNN",
+          "con": 0,
+          "total": 0,
+          "aparato": 1,
+          "pct": null
+        }
+      },
+      "unit": "documents",
+      "definition": "per series dir (count-evidence order, 11 dirs — `system` absent, as in the script): con = filenames matching the scheme; total = docs in the dir minus _template/, reports/evidence/, apparatus (canonical name or type: meta, per the guards) and frozen artefacts (dated filename); pct = 100·con/total rounded to 0.1"
+    },
+    "legacy.excluidos": {
+      "value": {
+        "aparato": [
+          "missions/ANNEX-mission-selection-draft.md",
+          "missions/TEMPLATE-CHANGES.md",
+          "missions/TEMPLATE-EXAMPLE.md",
+          "missions/TEMPLATE.md",
+          "standards/STANDARDS.md",
+          "infra/github/README.md"
+        ],
+        "congelados": [
+          "standards/2026_04_14-Analogous_Terminology_Numina-v0.2.0.md",
+          "standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md"
+        ]
+      },
+      "unit": "paths",
+      "definition": "the apparatus and frozen paths removed from the matricula denominators, in scan order"
+    },
+    "legacy.agents_sin_prefijo_por_diseno": {
+      "value": 7,
+      "unit": "directories",
+      "definition": "subdirectories of agents/ other than _template (ADR-005 v1.1.0: agents are named, not numbered)"
+    },
+    "legacy.uid_presentes": {
+      "value": 34,
+      "unit": "documents",
+      "definition": "docs with a non-empty `uid:` line in the frontmatter"
+    },
+    "legacy.uid_fabricados": {
+      "value": 0,
+      "unit": "documents",
+      "definition": "uid values ending in eight or more zeros plus an optional counter (the hand-made v7 pattern)"
+    },
+    "legacy.uid_colisiones": {
+      "value": 32,
+      "unit": "collisions",
+      "definition": "Σ(count − 1) over uid values held by more than one doc. Known defect reproduced: values are compared as typed, so a shared placeholder counts as collisions (MIS-122)"
+    },
+    "legacy.docs_con_relacion_declarada": {
+      "value": 3,
+      "unit": "documents",
+      "definition": "docs with at least one of supersedes / superseded_by / derived_from / replaces holding a non-null value (E6)"
+    },
+    "legacy.misiones_por_status": {
+      "value": {
+        "done": 63,
+        "frozen": 38,
+        "todo": 29,
+        "in-progress": 8,
+        "draft": 1,
+        "active": 1
+      },
+      "unit": "documents",
+      "definition": "every .md under missions/ (TEMPLATE, ANNEX, INDEX included — the \"three predicates\" of the brief) by raw `status:` value, most common first"
+    },
+    "legacy.guild_valores": {
+      "value": {
+        "Alchemists": 84,
+        "Sentinels": 40,
+        "Exegetes": 29,
+        "Procurators": 27
+      },
+      "unit": "documents",
+      "definition": "distinct raw `guild:` values with counts, most common first"
+    },
+    "legacy.type_execution_valores": {
+      "value": {
+        "digital": 92,
+        "hybrid": 19,
+        "biological": 8
+      },
+      "unit": "documents",
+      "definition": "distinct raw `type_execution:` values with counts"
+    },
+    "legacy.area_valores_distintos": {
+      "value": 0,
+      "unit": "values",
+      "definition": "number of distinct non-empty `area:` values"
+    },
+    "legacy.created_T000000Z": {
+      "value": 4,
+      "unit": "documents",
+      "definition": "`created:` lines whose value carries the midnight-UTC placeholder time"
+    },
+    "legacy.created_total": {
+      "value": 262,
+      "unit": "documents",
+      "definition": "docs with a `created:` line"
+    },
+    "legacy.ci_workflow_existe": {
+      "value": true,
+      "unit": "boolean",
+      "definition": ".github/workflows/ci.yml is present"
+    },
+    "legacy.ci_guards": {
+      "value": [
+        "scripts/check-license-frontmatter.mjs",
+        "scripts/check-frontmatter-yaml.mjs",
+        "scripts/check-references.mjs",
+        "scripts/check-frontmatter-delimiter.mjs",
+        "scripts/lint-frontmatter.mjs",
+        "scripts/lint-naming.mjs",
+        "scripts/check-orphan-content.mjs",
+        "scripts/check-url-lifecycle.mjs"
+      ],
+      "unit": "paths",
+      "definition": "the `run: node scripts/…` steps of ci.yml, in file order"
     }
   }
 }

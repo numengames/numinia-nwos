@@ -4,9 +4,9 @@ id: "STD-001"
 uid: ""
 type: documentation
 status: active
-version: "5.1.3"
+version: "5.2.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-09-02T10:30:00+02:00"
+updated: "2026-09-02T17:04:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -14,7 +14,7 @@ territory: "Archive"
 tags: [glossary, vocabulary, frontmatter, archive, standards]
 license: "CC0-1.0"
 ratified_by: "ADR-027"
-evidence_script: "scripts/count-evidence.py"
+evidence_script: "scripts/telemetry.mjs"
 evidence_head: "7d17b5a"
 ---
 # STD-001 — Glossary: the archive's own vocabulary
@@ -48,13 +48,16 @@ Astro, at `/corpus/standards/s-001-glossary`.
 > §9 (Naming) entirely. **The same violation as v1, with better wording.** The
 > Oracle asked for the generator; this is it.
 
-**Every number here is produced by `scripts/count-evidence.py`** and stamped with
-the HEAD it was measured against (`evidence_head` in the frontmatter). A figure
-that cannot be reproduced is not evidence. To re-measure:
+**Every number here is produced by `scripts/telemetry.mjs`** (`MIS-138`; until
+2026-09-02, `count-evidence.py`, whose 21 keys the instrument reproduces under
+the `legacy` family) and stamped with the HEAD it was measured against
+(`evidence_head` in the frontmatter). A figure that cannot be reproduced is not
+evidence. To re-measure:
 
 ```bash
-python3 scripts/count-evidence.py          # human-readable
-python3 scripts/count-evidence.py --json   # machine-readable
+node scripts/telemetry.mjs                 # write telemetry/ (latest.json · latest.md · docs.json)
+node scripts/telemetry.mjs --key series.registration   # one figure with its predicate
+node scripts/telemetry.mjs --legacy-json   # the former count-evidence.py --json dict
 python3 scripts/render-glossary.py         # regenerate the view
 python3 scripts/render-glossary.py --check # fail if the view is stale
 ```
@@ -562,9 +565,10 @@ filed for lack of its own.
 | `GLD-NNN` | `guilds/` | **8/8 · 100 %** |
 | `INF-NNN` | `infra/` | 0/0 · — |
 
-Coverage measured by `scripts/count-evidence.py`, which excludes apparatus by
-rule (`type: meta`, `D-014`) and frozen artefacts by the `MIS-125` ruling
-(`P-010` §3.2). It is not copied from an earlier version of this table.
+Coverage measured by `scripts/telemetry.mjs` (`series.registration`; before
+2026-09-02, `count-evidence.py`), which excludes apparatus by rule
+(`type: meta`, `D-014`, `scripts/lib/rules.json`) and frozen artefacts by the
+`MIS-125` ruling (`P-010` §3.2). It is not copied from an earlier version of this table.
 
 **This document is `STD-001`** — `S-001` until `MIS-125` Stage C registered
 the shelf into `STD-NNN` (#181, 2026-08-31). From #181 to v5.1.1 this
@@ -1221,7 +1225,7 @@ not include it.
 | `check-frontmatter-yaml` | frontmatter parses as YAML | whether the parsed **values** are right | `lint-frontmatter`, partially |
 | `check-frontmatter-delimiter` | the closing `---` sits on its own line | files with no frontmatter at all — skipped silently | `lint-frontmatter` |
 | `check-orphan-content` | `public/` content reaching `dist/` unrendered | whether the **rendered page** is correct | nothing |
-| `count-evidence` | registration coverage per series | whether a registered document is any *good* | nothing |
+| `telemetry` (`series.registration`) | registration coverage per series | whether a registered document is any *good* | nothing |
 
 Three properties make this more than a list:
 
@@ -1452,6 +1456,7 @@ gets filled differently by each person who meets it — which is how
 
 ## Version history
 
+- **v5.2.0** (2026-09-02) — `evidence_script` → `scripts/telemetry.mjs` (`MIS-138` step 3: `count-evidence.py` retired after dict-equality at `6a97fbf`, golden kept in `scripts/test/fixtures/`). §0, §4.1, §8 table re-pointed; no figure re-typed — the dated census (§10, `7d17b5a`) and `evidence_head` stay as they were, they name the script that measured them.
 - **v5.1.3** (2026-09-02) — the 2026-08-24 census table (`7d17b5a`) labelled as dated; §4.1 is the live figure. `MIS-135` row 17, #200.
 - **v5.1.2** (2026-09-02) — §4.1 `missions/` 3/134 → 132/132 (missions/ normalisation, PR #198: every file renamed to `MIS-0NNN-<slug>.md`; `MIS-115a`/`MIS-115b` and the closure-guard proposal registered as `MIS-132`…`MIS-134`; `MIS-135` opened; `TEMPLATE*`/`ANNEX` counted as apparatus, hence the smaller denominator). Figure from `count-evidence.py` on the merge of #198 with `6cc7b40`. The 2026-09-02 v5.1.1 line above is #196's and stands.
 - **v5.1.1** (2026-09-02) — §4.1 coverage column re-measured at `7f51235` by

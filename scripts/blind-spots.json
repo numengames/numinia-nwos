@@ -168,17 +168,6 @@
         }
       ]
     },
-    "count-evidence": {
-      "script": "scripts/count-evidence.py",
-      "sees": "registration coverage per series",
-      "blind_to": [
-        {
-          "spot": "whether a registered document is any GOOD — it counts conforming filenames, which is a measure of naming, not of content",
-          "covered_by": null,
-          "debt": null
-        }
-      ]
-    },
     "check-prose-in-code": {
       "script": "scripts/check-prose-in-code.mjs",
       "sees": "characters of prose (string literals and text nodes over 60 chars) living in .astro/.tsx files under web/src that read no .md at build time — the MIS-071 acceptance criterion, measured",
@@ -201,6 +190,22 @@
         {
           "spot": "whether an extracted .md is actually reachable on the site. It measures what left the code, not what arrived in the archive",
           "covered_by": "check-orphan-content",
+          "debt": null
+        }
+      ]
+    },
+    "telemetry": {
+      "script": "scripts/telemetry.mjs",
+      "sees": "the corpus, counted: files, series registration, mission states, the former count-evidence keys — every figure with unit, definition, HEAD and corpus_hash (MIS-138)",
+      "blind_to": [
+        {
+          "spot": "whether a registered document is any GOOD — it counts conforming filenames, which is a measure of naming, not of content",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "whether a figure that a document CITES matches the dataset — the instrument writes telemetry/, it does not read the citers (figures family, MIS-138 D3, not built)",
+          "covered_by": null,
           "debt": null
         }
       ]

@@ -12,7 +12,7 @@
 //
 // Run: node scripts/test/telemetry.test.mjs
 import { execFileSync, spawnSync } from 'node:child_process';
-import { existsSync, mkdtempSync, writeFileSync, readFileSync, rmSync, cpSync } from 'node:fs';
+import { existsSync, mkdtempSync, writeFileSync, readFileSync, readdirSync, rmSync, cpSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { ROOT } from '../lib/frontmatter.mjs';
@@ -28,7 +28,7 @@ check('deterministic: two runs agree on every value', () => {
   const diff = Object.keys(t1.figures).filter((k) => JSON.stringify(t1.figures[k].value) !== JSON.stringify(t2.figures[k].value));
   return diff.length === 0 || `differ: ${diff.join(', ')}`;
 });
-check('keys are namespaced family.key and unique per family', () => Object.keys(t1.figures).every((k) => /^[a-z]+\.[a-z_]+$/.test(k)));
+check('keys are namespaced family.key and unique per family', () => Object.keys(t1.figures).every((k) => /^[a-z]+\.[A-Za-z0-9_]+$/.test(k)));
 
 const ce = path.join(ROOT, 'scripts/count-evidence.py');
 if (existsSync(ce)) {
@@ -37,6 +37,37 @@ if (existsSync(ce)) {
     const mine = t1.figures['series.registration'].value;
     const bad = Object.entries(j.matricula).filter(([d, r]) => !mine[d] || mine[d].registered !== r.con || mine[d].total !== r.total || mine[d].apparatus !== r.aparato).map(([d]) => d);
     return bad.length === 0 || `differ on: ${bad.join(', ')}`;
+  });
+}
+
+// Criterion 2, frozen: count-evidence.py --json captured at the HEAD it was retired from, on that
+// tree minus telemetry/ (the script counted the dataset's own rendered page; the instrument never does).
+// The legacy family must still produce that dict when run on that same tree. Checked here by
+// re-running the instrument in a scratch clone checked out at the fixture's HEAD when the
+// commit is reachable; skipped (named) when it is not (shallow CI clone).
+const fixturesDir = path.join(ROOT, 'scripts/test/fixtures');
+const golden = existsSync(fixturesDir) ? readdirSync(fixturesDir).filter((f) => /^count-evidence-[0-9a-f]{7}\.json$/.test(f)) : [];
+for (const f of golden) {
+  const sha = f.slice('count-evidence-'.length, -'.json'.length);
+  check(`legacy: --legacy-json at ${sha} reproduces the golden count-evidence.py dict (${f})`, () => {
+    const reachable = spawnSync('git', ['-C', ROOT, 'cat-file', '-e', `${sha}^{commit}`]).status === 0;
+    if (!reachable) return `skipped: ${sha} not in this clone`;
+    const clone = mkdtempSync(path.join(tmpdir(), 'telemetry-golden-'));
+    try {
+      execFileSync('git', ['-C', ROOT, 'worktree', 'add', '--detach', '-q', clone, sha], { stdio: 'ignore' });
+      // the golden was captured on that tree minus telemetry/ (the instrument's predicate); same here
+      spawnSync('git', ['-C', clone, 'rm', '-r', '-q', '--cached', 'telemetry'], { stdio: 'ignore' });
+      rmSync(path.join(clone, 'telemetry'), { recursive: true, force: true });
+      rmSync(path.join(clone, 'scripts'), { recursive: true, force: true });
+      cpSync(path.join(ROOT, 'scripts'), path.join(clone, 'scripts'), { recursive: true });
+      const got = JSON.parse(execFileSync('node', [path.join(clone, 'scripts/telemetry.mjs'), '--legacy-json'], { cwd: clone, encoding: 'utf8' }));
+      const want = JSON.parse(readFileSync(path.join(fixturesDir, f), 'utf8'));
+      const bad = Object.keys(want).filter((k) => JSON.stringify(want[k]) !== JSON.stringify(got[k]));
+      return bad.length === 0 || `differ on: ${bad.join(', ')}`;
+    } finally {
+      spawnSync('git', ['-C', ROOT, 'worktree', 'remove', '--force', clone]);
+      rmSync(clone, { recursive: true, force: true });
+    }
   });
 }
 

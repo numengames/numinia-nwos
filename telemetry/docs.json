@@ -35,7 +35,7 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 14041,
+  "chars": 15095,
   "apparatus": false,
   "frozen": false
  },
@@ -445,7 +445,7 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 17211,
+  "chars": 17523,
   "apparatus": false,
   "frozen": false
  },
@@ -2115,7 +2115,7 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 25154,
+  "chars": 25925,
   "apparatus": false,
   "frozen": false
  },
@@ -2295,7 +2295,7 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 22254,
+  "chars": 22493,
   "apparatus": false,
   "frozen": false
  },
@@ -2625,7 +2625,7 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 77005,
+  "chars": 77732,
   "apparatus": false,
   "frozen": false
  },
