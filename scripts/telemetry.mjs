@@ -53,6 +53,9 @@ function values(latest) {
   return Object.fromEntries(Object.entries(latest.figures).map(([k, f]) => [k, f.value]));
 }
 
+/** One table cell: backslashes first, then pipes, then newlines — nothing a definition contains can break the row. */
+const cell = (s) => String(s).replace(/\\/g, '\\\\').replace(/\|/g, '\\|').replace(/\r?\n/g, ' ');
+
 function render(latest) {
   const scalar = (v) => (typeof v === 'object' && v !== null ? null : v);
   const lines = [
@@ -70,7 +73,7 @@ function render(latest) {
     lines.push(`## ${fam}`, '', '| key | value | unit | definition |', '|---|---|---|---|');
     for (const [k, f] of Object.entries(latest.figures).filter(([k]) => k.startsWith(fam + '.'))) {
       const s = scalar(f.value);
-      lines.push(`| \`${k}\` | ${s === null ? '(table below)' : s} | ${f.unit} | ${f.definition.replace(/\|/g, '\\|')} |`);
+      lines.push(`| \`${k}\` | ${s === null ? '(table below)' : s} | ${cell(f.unit)} | ${cell(f.definition)} |`);
     }
     lines.push('');
     for (const [k, f] of Object.entries(latest.figures).filter(([k]) => k.startsWith(fam + '.'))) {
@@ -80,10 +83,10 @@ function render(latest) {
       if (typeof first === 'object' && first !== null) {
         const cols = Object.keys(first);
         lines.push(`| | ${cols.join(' | ')} |`, `|---|${cols.map(() => '---').join('|')}|`);
-        for (const [row, obj] of Object.entries(v)) lines.push(`| ${row} | ${cols.map((c) => obj[c] ?? '').join(' | ')} |`);
+        for (const [row, obj] of Object.entries(v)) lines.push(`| ${cell(row)} | ${cols.map((c) => cell(obj[c] ?? '')).join(' | ')} |`);
       } else {
         lines.push('| | ' + f.unit + ' |', '|---|---|');
-        for (const [row, n] of Object.entries(v)) lines.push(`| ${row} | ${n} |`);
+        for (const [row, n] of Object.entries(v)) lines.push(`| ${cell(row)} | ${n} |`);
       }
       lines.push('');
     }
