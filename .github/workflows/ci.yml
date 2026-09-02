@@ -5,44 +5,68 @@
 # build; it has no type-check/lint/test stages yet (MIS-070 tracks
 # adding them). AGT-04: this workflow is the agents' feedback loop.
 # SEC-07: actions pinned by commit SHA. SEC-08: read-only token.
+#
+# Order matters: everything up to `install` is bare node over the tree
+# (no npm, no web/); `orphan-content` and `url-lifecycle` need web/dist,
+# so they run after `build`.
 name: ci
-
 on:
   push:
     branches: [main]
   pull_request:
-
 permissions: read-all
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # Checkout of the PR head; pinned by SHA (SEC-07).
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      # Node 22 with the npm cache keyed on web/package-lock.json.
       - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: web/package-lock.json
+      # 1. Every document carries a `license:` in its frontmatter that agrees with REUSE.toml (C-005 §5).
       - name: licence-frontmatter guard (C-005 §5)
         run: node scripts/check-license-frontmatter.mjs
+      # 2. Every frontmatter block is valid YAML — a header that does not parse is invisible to every other guard (D-001).
       - name: frontmatter-yaml guard (D-001 — headers must actually parse)
         run: node scripts/check-frontmatter-yaml.mjs
+      # 3. Cross-references resolve: markdown links and bare IDs point at documents that exist; ratchet against scripts/references-baseline.json, so only NEW breakage fails (ADR-004).
       - name: reference lint (ADR-004 — plain-text IDs are invisible to link checkers)
         run: node scripts/check-references.mjs
+      # 4. The closing `---` of the frontmatter sits on its own line — damage a tolerant parser silently swallows (D-039).
       - name: frontmatter-delimiter guard (D-039 — a tolerant reader cannot see this damage)
         run: node scripts/check-frontmatter-delimiter.mjs
+      # 5. Header rules H-00…H-31 of STD-004: required fields per series, status vocabulary, dates, uid shape; classifiers read from scripts/lib/rules.json.
       - name: header lint (S-004 — the header in three rings, checks H-00…H-31)
         run: node scripts/lint-frontmatter.mjs
+      # 6. Filename rules N-01…N-05 of STD-001 §9: prefix + number width + slug per series, and the file's id matches its name (D-001 item 3).
       - name: naming lint (S-001 §9, D-001 item 3 — filename scheme, N-01…N-05)
         run: node scripts/lint-naming.mjs
+      # ── MIS-138 telemetry: telemetry/ must be the dataset HEAD produces. Bare node; runs before `npm ci`. ──
+      # Fix a red step by running `node scripts/telemetry.mjs` on the branch and committing telemetry/ — never by editing latest.json.
+      # 7. Downloads the cl100k_base rank file (~1.6 MB, gitignored) and verifies its sha256 against scripts/lib/cl100k.mjs; without it tokens.* are null and step 8 fails as ALTERED. Needs egress to openaipublic.blob.core.windows.net.
+      - name: telemetry — cl100k rank file (MIS-138 D1.3)
+        run: node scripts/telemetry.mjs --fetch-tokenizer
+      # 8. Re-measures the tree in memory and compares with telemetry/latest.json: STALE = produced from another corpus_hash (documents changed, instrument not re-run); ALTERED = same corpus, a figure differs (hand edit or family code changed). Writes nothing.
+      - name: telemetry — dataset matches HEAD (MIS-138 criterion 5)
+        run: node scripts/telemetry.mjs --check
+      # 9. The instrument's own 11 checks on throwaway clones: corpus_hash moves only when a document moves; `legacy` equals the golden of the retired count-evidence.py; every committed line of history.jsonl is still there; cl100k == tiktoken (named skip here: no python with tiktoken on the runner).
+      - name: telemetry — instrument self-tests (MIS-138 criteria 2, 4, 6, 9)
+        run: node scripts/test/telemetry.test.mjs
+      # Dependencies of the Astro site, from the lockfile (not a check).
       - name: install
         run: npm ci
         working-directory: web
+      # Builds web/dist; a page that fails to render fails here (not a check, but the two below need its output).
       - name: build
         run: npm run build
         working-directory: web
+      # 10. No content file is served straight from web/dist without having passed through the renderer (D-032). Needs web/dist.
       - name: orphan-content guard (D-032 — needs web/dist, so it runs after build)
         run: node scripts/check-orphan-content.mjs
+      # 11. Every public URL that existed in a previous build still resolves or is redirected — no address dies unredirected (D-028, ADR-033, PRO-010 §5). Needs web/dist.
       - name: URL lifecycle ratchet (D-028, ADR-033 — no public address dies unredirected)
         run: node scripts/check-url-lifecycle.mjs
