@@ -13,11 +13,11 @@ assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-09-02T02:10:00+02:00"
 created_source: declared
 created_confidence: exact
-updated: "2026-09-02T10:30:00+02:00"
+updated: "2026-09-02T12:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 requested_by: "oracle"
@@ -67,7 +67,7 @@ Severity: **A** — a norm and a guard, or two norms, contradict each other; **B
 | 17 | B | `standards/STD-001-glossary.md` L1390 | *"Missions with MIS-NNN 105/105"* in a 2026-08 census table — a second, older count that now contradicts §4.1's row two screens up. | `grep -n 'MIS-NNN' standards/STD-001-glossary.md` | **execute** — done, #200: census table labelled as dated (STD-001 v5.1.3). |
 | 18 | C | `agents/INDEX.md` | Lists Nimrod, Adonaz→Byblos, `procurador-01` as retired 2026-08-28. 8 todo missions were still assigned to them until #198. No guard relates `assigned_to` to the roster (see 5). | `grep -n retired agents/INDEX.md` | **defer** — covered by 5. |
 | 19 | A | `web/astro.config.mjs` L143 `"/misiones/[id]": "/missions/[id]"` | Parameterised redirect: `check-url-lifecycle` declares it *"matched literally … neither verified nor expanded"* (its own blind-spot list). The 130 `/misiones/mis-NNN` URLs in `url-baseline.json` are therefore covered by an unverified rule; #198 had to add explicit rules for `mis-115a/b`. | `scripts/check-url-lifecycle.mjs` blind spots; `grep -c '/misiones/mis-' scripts/url-baseline.json` | **defer** → design choice (expand `[id]` rules in the guard vs. 134 explicit redirects); the Oracle picks. Fact for the choice: `web/dist/misiones/mis-NNN/` pages are materialised today, so the alias works; the guard simply cannot see it. |
-| 20 | B | `missions/` — 30 of 52 `done` missions | No filled `## Closure` (What was done / diverged / evidence / closed-by). `MIS-134` (ex-PROPOSAL) is the guard for this; the 30 are its baseline. Not touched in #198: substance of closed records (PRO-010 §3.4 rule 2). | `.hermes` census in PR #198 description | **defer** → MIS-134 (the ratchet). Measured 2026-09-02 on #199: 43 of 62 `done` missions have no filled Closure (What was done / evidence). The register's "30 of 52" was a narrower count; MIS-134 fixes the definition before it baselines. |
+| 20 | B | `missions/` — 30 of 52 `done` missions | No filled `## Closure` (What was done / diverged / evidence / closed-by). `MIS-134` (ex-PROPOSAL) is the guard for this; the 30 are its baseline. Not touched in #198: substance of closed records (PRO-010 §3.4 rule 2). | `.hermes` census in PR #198 description | **defer** → MIS-134 (the ratchet). Measured 2026-09-02 on main (`68bd5f1`), definition = `done` mission with no `## Closure` section: **34 of 62** (31 of 52 before #199; the ten closed there carry a Closure). *Amended 2026-09-02, v1.1.1: v1.1.0 printed "43 of 62" — a figure from a script with a different, unrecorded definition; not reproducible, withdrawn.* MIS-134 fixes the definition before it baselines. |
 
 ## What this mission is not
 
@@ -101,3 +101,4 @@ Severity: **A** — a norm and a guard, or two norms, contradict each other; **B
 
 - v1.0.0 (2026-09-02) — Opened at the end of the missions/ normalisation (PR #198, lots 1–4), by the Oracle's instruction of 2026-09-01. Twenty rows, measured against `7f51235` + `#198`.
 - v1.1.0 (2026-09-02) — every row carries a disposition; seven executed in #200, one rejected as a wrong finding (14), the rest deferred to named work. `status: in-progress`.
+- v1.1.1 (2026-09-02) — row 20 figure corrected: "43 of 62" withdrawn (unreproducible), replaced by the measured 34 of 62 with its definition stated. Author's error, #202.
