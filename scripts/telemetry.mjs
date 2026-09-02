@@ -26,14 +26,15 @@ import * as series from './lib/families/series.mjs';
 import * as missions from './lib/families/missions.mjs';
 import * as legacy from './lib/families/legacy.mjs';
 import * as tokens from './lib/families/tokens.mjs';
+import { headers, provenance } from './lib/families/provenance.mjs';
 import { RANK_URL, RANK_SHA256, RANK_PATH } from './lib/cl100k.mjs';
 import { declareBlindSpots } from './lib/blindness.mjs';
 
-const VERSION = '0.3.0';
+const VERSION = '0.4.0';
 // Declared on every exit, like the guards (D-025). Silenced for --print/--legacy-json/--key: their stdout is
 // parsed by tests and pipes, and blindness prints to stderr only after the JSON — still, one channel per run.
 if (!process.argv.some((a) => ['--print', '--legacy-json', '--key', '--fetch-tokenizer'].includes(a))) declareBlindSpots('telemetry');
-const FAMILIES = { corpus, series, missions, tokens, legacy };
+const FAMILIES = { corpus, series, missions, tokens, headers, provenance, legacy };
 const OUT = path.join(ROOT, 'telemetry');
 const args = process.argv.slice(2);
 const flag = (f) => args.includes(f);
@@ -96,6 +97,9 @@ function render(latest) {
     lines.push('');
     for (const [k, f] of Object.entries(latest.figures).filter(([k]) => k.startsWith(fam + '.'))) {
       if (scalar(f.value) !== null) continue;
+      // Lists of paths (evidence rows) stay in latest.json: the page states figures, and
+      // historical paths would read as broken links to check-references.
+      if (Array.isArray(f.value)) { lines.push(`### \`${k}\``, '', `${f.value.length} rows (${f.unit}) — in \`latest.json\`.`, ''); continue; }
       lines.push(`### \`${k}\``, '');
       const v = f.value; const first = Object.values(v)[0];
       if (typeof first === 'object' && first !== null) {
