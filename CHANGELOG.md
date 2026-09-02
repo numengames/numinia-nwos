@@ -14,6 +14,11 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-02 (MIS-138 step 1: shared classifiers — `scripts/lib/rules.json`)
+- scripts/lib/rules.json (new): the series register (ADR-005 v1.2.0), retired prefixes, apparatus list (DBT-001 ruling 2026-08-31), type/status/subtype vocabularies (STD-004 §4–5) and governed dirs (§8) as one data file. scripts/lib/frontmatter.mjs (new): the one `parseFM` (lint-frontmatter's, NESTED contract kept), `loadRules`, `prefixToDir`, `isApparatus`, `isTemplate`.
+- scripts/lint-naming.mjs, lint-frontmatter.mjs, check-references.mjs: read the register and vocabularies from rules.json instead of three private copies (D1.1 of MIS-138). Verdicts identical before and after on `--report` output; the five baselines unchanged byte for byte; 147 lines removed, 50 added.
+- scripts/test/rules.test.mjs (new, 17 checks): the data is well-formed, every target series exists in the tree, each guard imports the lib and keeps no private map, `parseFM` keeps the NESTED contract, `isApparatus`/`isTemplate` agree with the lists they replaced.
+
 ### Changed — 2026-09-02 (MIS-138 v1.1.0: iteration 1 with the Oracle, `in-progress`)
 - missions/MIS-0138 → v1.1.0, `status: in-progress`: Design section (D1–D6) — one instrument in Node beside the guards, 12 measurers absorbed and retired, guards not; families `corpus` · `tokens` · `contradictions` · `provenance`; `corpus_hash` as the authority for a committed `telemetry/` dataset; the v1.0.0 render markers inside other documents dropped for one rendered dataset document; STD-001 §10.5 re-drafted as the citation form (pure ban costed as the alternative); criteria in key + target form; adds/removes and surprise accounted in tokens. No instrument code.
 - guards: references-baseline 669 → 670 (+1, deliberate: the brief names the planned rendered dataset document, which does not exist yet; the entry is removed by the PR that creates it).

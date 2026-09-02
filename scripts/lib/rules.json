@@ -1,0 +1,50 @@
+{
+  "_comment": "MIS-138 D1.1 — the classifiers the guards and the telemetry instrument share. Data, not code: any language reads this file. Each block names the ruling it transcribes; change the ruling, change the block, every consumer follows. Before 2026-09-02 three private copies of `series` and three of `apparatus` lived in count-evidence.py, lint-naming.mjs and lint-frontmatter.mjs and drifted (CHANGELOG 2026-09-02, naming-baseline 2 → 0).",
+  "series": {
+    "_comment": "ADR-005 v1.2.0 register, by top-level directory. `prefix` may list alternatives. `dailyDate`: RPT-YYYY-MM-DD is legal for `subtype: daily` only (ADR-004 rule 3). history/ and agents/ deliberately absent (ADR-035 §2; ADR-005 v1.1.0 reversal). `naming`: false = no filename scheme is enforced (agents/ is folder-named but its frontmatter id is still checked: none legal).",
+    "missions":   { "prefix": ["MIS"],        "digits": 4 },
+    "decisions":  { "prefix": ["ADR", "DEC"], "digits": 3 },
+    "protocols":  { "prefix": ["PRO"],        "digits": 3 },
+    "debt":       { "prefix": ["DBT"],        "digits": 3 },
+    "standards":  { "prefix": ["STD"],        "digits": 3 },
+    "canon":      { "prefix": ["CAN"],        "digits": 3 },
+    "operations": { "prefix": ["OPS"],        "digits": 3 },
+    "reports":    { "prefix": ["RPT"],        "digits": 3, "dailyDate": true },
+    "blueprints": { "prefix": ["BLU"],        "digits": 3 },
+    "guilds":     { "prefix": ["GLD"],        "digits": 3 },
+    "infra":      { "prefix": ["INF"],        "digits": 3 },
+    "system":     { "prefix": ["SYS"],        "digits": 3 },
+    "agents":     { "prefix": [],             "digits": 0, "naming": false }
+  },
+  "retiredPrefixes": {
+    "_comment": "Prefixes that no longer name a series but still appear in prose and must resolve for reference checking (check-references ID_RE). D- closed 2026-08-31 (RPT-001 §12).",
+    "D": "debt"
+  },
+  "apparatus": {
+    "_comment": "D-014: scaffolding around a series, not a member of it. A document is apparatus if `type: meta`, or its basename is listed here, or its path matches a pattern. lint-naming, lint-frontmatter (IS_TEMPLATE) and count-evidence each held a partial copy of this list.",
+    "basenames": ["README.md", "INDEX.md", "TEMPLATE.md", "TEMPLATE-EXAMPLE.md", "TEMPLATE-CHANGES.md", "STANDARDS.md", "APPROVAL-REQUEST-template.md"],
+    "pathPatterns": ["/_template/", "^agents/_template/", "^missions/TEMPLATE-"],
+    "templatePatterns": ["^agents/_template/", "^missions/TEMPLATE(\\.md$|-)"]
+  },
+  "types": {
+    "_comment": "STD-004 §4 H-03 closed type vocabulary; H-17 type ↔ series, strict except `lax`.",
+    "all": ["mission", "adr", "protocol", "blueprint", "report", "seminal", "legal", "charter", "documentation", "meta", "agent"],
+    "series": { "mission": "missions", "adr": "decisions", "protocol": "protocols", "blueprint": "blueprints", "report": "reports", "seminal": "canon", "legal": "canon", "charter": "guilds", "agent": "agents" },
+    "lax": ["documentation", "meta"]
+  },
+  "status": {
+    "_comment": "STD-004 §5 lifecycles by type.",
+    "mission": ["todo", "in-progress", "in-review", "done", "frozen"],
+    "adr": ["draft", "active", "superseded"],
+    "_default": ["draft", "active", "closed"]
+  },
+  "subtypes": {
+    "_comment": "STD-004 §4 H-18; `report` closed since ADR-005 v1.2.0.",
+    "report": ["audit", "daily", "analysis", "proposal"],
+    "documentation": ["standard", "guide", "reference"]
+  },
+  "governed": {
+    "_comment": "STD-004 §8: the top-level directories whose tracked .md files lint-frontmatter governs. Everything else (web/, scripts/, root, .github/) is out of its scope.",
+    "dirs": ["missions", "decisions", "protocols", "debt", "standards", "canon", "reports", "agents", "blueprints", "guilds", "operations", "infra", "system", "history"]
+  }
+}

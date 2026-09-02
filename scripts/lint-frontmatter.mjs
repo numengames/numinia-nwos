@@ -41,7 +41,14 @@ import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { declareBlindSpots } from './lib/blindness.mjs';
+import { parseFM, NESTED, loadRules, isTemplate } from './lib/frontmatter.mjs';
 declareBlindSpots('lint-frontmatter');
+
+/* MIS-138 D1.1 (2026-09-02): the closed vocabularies below are read from
+   scripts/lib/rules.json, shared with lint-naming, check-references and the
+   telemetry instrument. The ring registry (RING1–3) stays here: it is this
+   guard's own subject, consumed by nothing else yet. */
+const RULES = loadRules();
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const BASELINE = path.join(ROOT, 'scripts', 'frontmatter-baseline.json');
@@ -138,31 +145,16 @@ const RING3_ALL = ['tags', 'visibility', 'guild', 'territory', 'registration',
   'registration_reason', 'registration_exemption', 'evidence_script',
   'evidence_head', 'related', 'uid'];
 
-/** STD-004 §4: closed type vocabulary (STD-001 §7 + agent, pending its ADR). */
-const TYPES = ['mission', 'adr', 'protocol', 'blueprint', 'report', 'seminal',
-  'legal', 'charter', 'documentation', 'meta', 'agent'];
+/** STD-004 §4 H-03 / H-17: type vocabulary and type ↔ series — rules.json `types`. */
+const TYPES = RULES.types.all;
+const TYPE_SERIES = RULES.types.series;
+const LAX_TYPES = RULES.types.lax;
 
-/** STD-004 §4 H-17 / STD-001 §3: type ↔ series, strict except documentation/meta. */
-const TYPE_SERIES = {
-  mission: 'missions', adr: 'decisions', protocol: 'protocols',
-  blueprint: 'blueprints', report: 'reports', seminal: 'canon',
-  legal: 'canon', charter: 'guilds', agent: 'agents',
-};
-const LAX_TYPES = ['documentation', 'meta'];
+/** STD-004 §5: status lifecycles by type — rules.json `status`. */
+const STATUS = RULES.status;
 
-/** STD-004 §5: status lifecycles by type. */
-const STATUS = {
-  mission: ['todo', 'in-progress', 'in-review', 'done', 'frozen'],
-  adr: ['draft', 'active', 'superseded'],
-  _default: ['draft', 'active', 'closed'],
-};
-
-/** STD-004 §4 H-18: registered subtypes per type. `report` is a closed
- *  vocabulary since ADR-005 v1.2.0 (2026-09-01): daily · audit · analysis ·
- *  proposal. `analysis` = dated observation that measures nothing against a
- *  norm (Wardley map, gaps map) — before it existed those two carried
- *  `subtype: audit` and `type: documentation`, one false, one out of genre. */
-const SUBTYPES = { report: ['audit', 'daily', 'analysis', 'proposal'], documentation: ['standard', 'guide', 'reference'] };
+/** STD-004 §4 H-18: registered subtypes per type — rules.json `subtypes`. */
+const SUBTYPES = RULES.subtypes;
 
 /** STD-004 §6 H-31: retired fields, each the object of a registered migration. */
 const RETIRED = {
@@ -173,31 +165,12 @@ const RETIRED = {
   licencia: 'C-005: Spanish-era key', revision: 'C-005: Spanish-era key',
 };
 
-/** ADR-005 / ADR-004: series prefix per top-level dir.
- *
- * `debt: 'DBT'` — ADR-005 v1.1.0 registered the debt series as DBT-NNN. This
- * table still said 'D' (the on-disk prefix at the time) until the renumbering
- * of 2026-08-31 (RPT-001 §12) closed the D- series. Same class of staleness
- * as check-references.mjs's ID_RE: a guard carrying its own private copy of a
- * ruling, drifting from the ruling.
- */
-const PREFIX = {
-  missions: 'MIS', decisions: ['ADR', 'DEC'], protocols: 'PRO', debt: 'DBT',
-  // standards: STD since ADR-005 v1.1.0 (2026-08-31). The v1.0.0 ruling this
-  // map was written against said the bare S- prefix stayed; v1.1.0 supersedes
-  // it and registers the shelf as STD-NNN. Updated in the same pass that
-  // renamed the files (MIS-127) — exactly the drift described above.
-  // reports: AUD- retired by ADR-005 v1.2.0 (2026-09-01); RPT only, with the
-  // date form for dailies checked by lint-naming N-04, not here.
-  // agents: [] — no prefix is legal. AG-NNN was withdrawn by ADR-005 v1.1.0
-  // (Oracle, 2026-08-31): agents are identified by folder name and every
-  // part carries registration: exempt, which H-01 honours before reaching
-  // this map. The 'AG' entry that sat here until 2026-09-02 was therefore
-  // never evaluated — and had it been, it would have ACCEPTED the withdrawn
-  // scheme. An empty list means: a series id in agents/ is always wrong.
-  standards: 'STD', canon: 'CAN', agents: [], reports: 'RPT',
-  system: 'SYS',  // ADR-035: reference manuals of how the system works today
-};
+/** ADR-005 v1.2.0: legal id prefixes per top-level dir — rules.json `series`.
+ *  agents: [] — no prefix is legal (ADR-005 v1.1.0 reversal); a series id in
+ *  agents/ is always wrong. Directories absent from the register (history/)
+ *  are not prefix-checked here. */
+const PREFIX = Object.fromEntries(Object.entries(RULES.series)
+  .filter(([k]) => !k.startsWith('_')).map(([k, v]) => [k, v.prefix]));
 
 /**
  * STD-001 §6.3 / §7: closed vocabularies the linter never checked.
@@ -228,9 +201,7 @@ const VOCAB_CHECK = { guild: 'H-33', type_execution: 'H-34', visibility: 'H-35',
   priority: 'H-37', effort: 'H-38' };
 
 /* The corpus tree this standard governs (STD-004 §8): tracked .md outside web/. */
-const GOVERNED = new Set(Object.keys(RING3));
-GOVERNED.add('blueprints').add('guilds').add('operations').add('infra');
-GOVERNED.add('system').add('history');  // ADR-035, the two shelves MIS-129 opened
+const GOVERNED = new Set(RULES.governed.dirs);  // STD-004 §8 — rules.json `governed`
 
 const ISO_TIME = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?(\.\d+)?(Z|[+-]\d{2}:?\d{2})$/;
 const SEMVER = /^\d+\.\d+\.\d+$/;
@@ -250,36 +221,12 @@ const SEMVER = /^\d+\.\d+\.\d+$/;
  * reports it as unowned and the ratchet fails.
  */
 const DEFERRED = 'TBA';
-/* Sentinel for a key whose value is a nested YAML block (list/map children).
-   Never a real value: only used so '' keeps meaning "written empty". */
-const NESTED = '\u0000nested\u0000';
+/* NESTED: scripts/lib/frontmatter.mjs. */
 const DEFERRAL_OWNER = {
   territory: 'MIS-124',
 };
 
-/* ---------------- frontmatter parse (same contract as the census) ---------------- */
-
-function parseFM(text) {
-  const m = text.match(/^---\s*\n([\s\S]*?)\n---(\n|$)/);
-  if (!m) return null;
-  const fields = {};
-  const lines = m[1].split('\n');
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    if (!line || line.startsWith('#') || /^[\s\t-]/.test(line)) continue;
-    const kv = line.match(/^([A-Za-z_][A-Za-z0-9_.-]*):\s*(.*)$/);
-    if (!kv) continue;
-    let v = kv[2].trim().replace(/^["']|["']$/g, '');
-    // A bare `key:` followed by an indented line is a YAML mapping/list
-    // parent, not an empty value. Flattening it to '' made H-09 punish
-    // `fondos:`/`changelog:` for having children — the exact false
-    // positive that nearly deleted 90 lines in the final sweep.
-    if (v === '' && i + 1 < lines.length && /^[ \t]/.test(lines[i + 1]))
-      v = NESTED;
-    fields[kv[1]] = v;
-  }
-  return fields;
-}
+/* ---------------- frontmatter parse: scripts/lib/frontmatter.mjs (shared) ---------------- */
 
 /* ---------------- the checks ---------------- */
 
@@ -376,8 +323,7 @@ for (const rel of files) {
      Templates are exempt: their placeholder dates ({YYYY-MM-DD}, YYYY-MM-DD)
      ARE the template's content — the instruction to the future writer.
      Same reasoning as A TEMPLATE.md's inline vocabulary comments. */
-  const IS_TEMPLATE = rel.startsWith('agents/_template/')
-    || /^missions\/TEMPLATE(\.md$|-)/.test(rel);
+  const IS_TEMPLATE = isTemplate(rel);  // rules.json `apparatus.templatePatterns`
   if (fm.created && !IS_TEMPLATE) {
     if (!ISO_TIME.test(fm.created))
       F('H-06', rel, `created "${fm.created}" lacks a real time (ISO 8601 with time)`);

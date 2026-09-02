@@ -35,6 +35,7 @@
  */
 import { execFileSync } from 'node:child_process';
 import { declareBlindSpots } from './lib/blindness.mjs';
+import { loadRules, prefixToDir, stripFM } from './lib/frontmatter.mjs';
 declareBlindSpots('check-references');
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
@@ -52,20 +53,11 @@ const WRITE = args.includes('--write-baseline');
  * this script shipped with (MIS/ADR/DEC/P/RPT only) — that map went blind
  * to every rename this same mission performs, which would have made this
  * guard's "exit 0" a false green light. */
-const SERIES = {
-  MIS: 'missions',
-  ADR: 'decisions',
-  DEC: 'decisions',
-  PRO: 'protocols',
-  RPT: 'reports',
-  DBT: 'debt',
-  STD: 'standards',
-  CAN: 'canon',
-  OPS: 'operations',
-  BLU: 'blueprints',
-  GLD: 'guilds',
-  INF: 'infra',
-};
+/* Series register: scripts/lib/rules.json since MIS-138 (2026-09-02) — one
+   map shared with lint-naming, lint-frontmatter and the telemetry instrument.
+   `prefixToDir` includes the retired D- prefix (rules.json `retiredPrefixes`),
+   which this guard must keep resolving — see the ID_RE note below. */
+const PREFIX_DIR = prefixToDir(loadRules());
 
 const files = execFileSync('git', ['-C', ROOT, 'ls-files', '*.md'], { encoding: 'utf8' })
   .split('\n')
@@ -198,7 +190,7 @@ const isPrinciple = (prefix, num) => prefix === 'P' && /^\d{1,2}$/.test(num);
 // `SYS` arrived independently on main (ADR-035 / MIS-129, the system/ shelf).
 // Both prefixes are kept: the two changes are additive, not competing — each
 // side taught this guard to see a series it was blind to.
-const ID_RE = /\b(MIS|ADR|DEC|RPT|PRO|DBT|D|STD|CAN|OPS|BLU|GLD|INF|SYS)-(\d{1,4}|\d{4}-\d{2}-\d{2})\b/g;
+const ID_RE = new RegExp(`\\b(${Object.keys(PREFIX_DIR).join('|')})-(\\d{1,4}|\\d{4}-\\d{2}-\\d{2})\\b`, 'g');
 const LINK_RE = /\[[^\]]*\]\(([^)\s#]+\.md)(?:#[^)]*)?\)/g;
 // Kind 3: a bare filename mentioned in prose, outside markdown link syntax
 // — "see credential-map.md", "documented in APPROVAL-REQUEST-template.md".
@@ -210,7 +202,7 @@ const BARE_FILENAME_RE = /(?:^|[\s(`"'])((?:[\w-]+\/)*[\w][\w.-]*\.md)\b/g;
 for (const rel of files) {
   const abs = path.join(ROOT, rel);
   const text = readFileSync(abs, 'utf8');
-  const body = text.replace(/^---\s*\n[\s\S]*?\n---/, '');
+  const body = stripFM(text);
   const ownBase = path.basename(rel);
 
   // --- markdown links --- (track their ranges so kind-3 doesn't recount them)
