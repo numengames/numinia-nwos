@@ -15,7 +15,7 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [accessibility, a11y, wcag, standards, std-005, arc-10, dispersion]
 license: "CC-BY-4.0"
-related: ["STD-001", "STD-005", "MIS-139", "MIS-127", "MIS-125", "DBT-013"]
+related: ["STD-001", "STD-005", "MIS-140", "MIS-139", "MIS-127", "MIS-125", "DBT-013"]
 superseded_by: null
 ---
 

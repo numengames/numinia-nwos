@@ -18,7 +18,7 @@ license: "CC-BY-4.0"
 visibility: "public"
 severity: medium
 opened_by: "Oracle, 2026-09-02, via Ursa"
-related: ["ADR-037", "PRO-010", "MIS-125", "STD-001"]
+related: ["ADR-037", "MIS-140", "PRO-010", "MIS-125", "STD-001"]
 ---
 
 # DBT-013 — Design System filename is dated but the document is not frozen
