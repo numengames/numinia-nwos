@@ -1,0 +1,80 @@
+/**
+ * scripts/lib/corpus.mjs — one read of the tracked corpus, shared by the
+ * telemetry families. MIS-138 D1: every family measures the same list of
+ * files, read once, classified by rules.json.
+ *
+ * `HEAD` semantics: files come from `git ls-files` (the index), text from the
+ * working tree. `corpusHash` is over `git ls-tree -r HEAD` excluding
+ * `telemetry/` — so a dirty tree is reported (`root_dirty`), never hidden.
+ */
+import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
+import path from 'node:path';
+import { ROOT, parseFM, loadRules, isApparatus, seriesDirs } from './frontmatter.mjs';
+
+const git = (...args) => execFileSync('git', ['-C', ROOT, ...args], { encoding: 'utf8' }).trimEnd();
+
+export const FROZEN_ARTIFACT_RE = /^\d{4}_\d{2}_\d{2}-.+-v\d+\.\d+\.\d+\.md$/;
+
+/** All tracked paths at HEAD's index, `telemetry/` excluded: the dataset does not measure itself (same exclusion as corpusHash). */
+export function trackedFiles() {
+  return git('ls-files').split('\n').filter((f) => f && !f.startsWith('telemetry/'));
+}
+
+/**
+ * SHA-256 over the INDEX (`git ls-files -s`: mode, blob, stage, path), telemetry/
+ * excluded. The index, not HEAD's tree, so that a dataset can describe the very
+ * commit it is committed in: stage everything, measure, add telemetry/, commit —
+ * the hash names the resulting tree. `--check` in CI (index == HEAD) agrees.
+ */
+export function corpusHash() {
+  const lines = git('ls-files', '-s').split('\n').filter((l) => l && !/\ttelemetry\//.test(l));
+  return createHash('sha256').update(lines.join('\n')).digest('hex');
+}
+
+export function headInfo() {
+  // dirty = unstaged modifications + untracked files outside telemetry/: what the index does not describe.
+  const unstaged = git('diff', '--name-only', '--', '.', ':!telemetry').split('\n').filter(Boolean);
+  const untracked = git('ls-files', '--others', '--exclude-standard', '--', '.', ':!telemetry').split('\n').filter(Boolean);
+  const staged = git('diff', '--cached', '--name-only', '--', '.', ':!telemetry').split('\n').filter(Boolean);
+  const short = git('rev-parse', '--short=7', 'HEAD');
+  return {
+    head: staged.length ? `${short}+index` : short, // "+index": measured on staged changes not yet in HEAD
+    head_full: git('rev-parse', 'HEAD'), root_dirty: unstaged.length + untracked.length, corpus_hash: corpusHash(),
+  };
+}
+
+/**
+ * One row per tracked .md outside web/: path, dir, base, fm, body, chars,
+ * plus the classifications every family needs.
+ */
+export function loadDocs(rules = loadRules()) {
+  const series = new Set(seriesDirs(rules));
+  return trackedFiles().filter((f) => f.endsWith('.md') && !f.startsWith('web/')).map((rel) => {
+    const text = readFileSync(path.join(ROOT, rel), 'utf8');
+    const fm = parseFM(text);
+    const parts = rel.split('/');
+    const top = parts.length > 1 ? parts[0] : '';
+    const base = parts[parts.length - 1];
+    return {
+      path: rel, dir: top, base, fm, has_fm: fm !== null, chars: text.length, text,
+      type: fm?.type ?? null, status: fm?.status ?? null,
+      series: series.has(top) ? top : null,
+      apparatus: isApparatus(rel, fm ?? {}, rules),
+      frozen: FROZEN_ARTIFACT_RE.test(base),
+      evidence_annex: rel.startsWith('reports/evidence/'),
+      template_dir: rel.includes('/_template/'),
+    };
+  });
+}
+
+/** Sorted object from a Map/obj of counts — stable JSON. */
+export function sortedCounts(obj) {
+  return Object.fromEntries(Object.entries(obj).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)));
+}
+export function tally(items, keyFn) {
+  const out = {};
+  for (const it of items) { const k = keyFn(it) ?? '(none)'; out[k] = (out[k] || 0) + 1; }
+  return sortedCounts(out);
+}

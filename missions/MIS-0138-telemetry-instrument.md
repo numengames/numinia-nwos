@@ -15,7 +15,7 @@ completed: null
 type: mission
 version: "1.1.1"
 created: "2026-09-02T12:07:58Z"
-updated: "2026-09-02T14:21:48Z"
+updated: "2026-09-02T14:36:50Z"
 author: "ursa"
 owner: "oracle"
 tags: [telemetry, measurement, evidence, tokens, entropy, contradictions, STD-001, DBT-006, MIS-127, archive]
@@ -211,6 +211,7 @@ Validated by: `contradictions.classes` at the first run — if ≤ 5 classes acc
 
 ## Execution log
 
+- 2026-09-02 — **Step 2 shipped**: `scripts/telemetry.mjs` v0.1.0 with families `corpus` · `series` · `missions` (30 figures), `telemetry/` dataset committed, `--check` and `--key`. `series.registration` equals `count-evidence.py matricula` on every series (test). Pending: `legacy` (retire the 12 measurers), `tokens`, `figures`, `contradictions`, STD-001 §10.5.
 - 2026-09-02 — **Step 1 shipped**: `scripts/lib/rules.json` + `frontmatter.mjs`; lint-naming, lint-frontmatter and check-references rewired to them. Verdicts identical on `--report` output before/after, five baselines byte-identical, `rules.test.mjs` 17/17. No instrument code yet: this is the data the instrument and the guards will share (D1.1).
 - 2026-09-02 — **Rulings**: decision 2 → citation form; decision 5 re-cut for reversibility; 7 deferred. Instrument order: `rules.json` → schema + fixture → `corpus`/`series`/`missions` → `legacy` (retire `count-evidence`) → `tokens` → `figures`/`contradictions`.
 - 2026-09-02 — **Iteration 1 with the Oracle** (design review before any instrument code). Re-cut: Node beside the guards; the 12 measurers absorbed, the guards not; families `corpus` · `tokens` · `contradictions` · `provenance` added; v1.0.0's render markers inside other documents dropped for a single `telemetry/latest.md`; `corpus_hash` as the authority for a committed dataset; §10.5 re-drafted as the citation form with the pure ban as the costed alternative; entropy and surprise accounted (D6). Decisions 1 and 3 resolved by the Oracle, 4 adopted, 5–7 opened. `status: in-progress` set by the executor (`PRO-003` §2). No code yet.

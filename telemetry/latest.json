@@ -1,0 +1,348 @@
+{
+  "instrument": "scripts/telemetry.mjs v0.1.0",
+  "head": "9ee64f7+index",
+  "corpus_hash": "1f9e3babb99b400b27ec1f6679d9a968b67ebf2a9c5dc57cce1efeb92a96c4d5",
+  "root_dirty": 0,
+  "measured_at": "2026-09-02T14:39:32Z",
+  "families": [
+    "corpus",
+    "series",
+    "missions"
+  ],
+  "figures": {
+    "corpus.files_total": {
+      "value": 602,
+      "unit": "files",
+      "definition": "`git ls-files` at HEAD, every path"
+    },
+    "corpus.files_by_ext": {
+      "value": {
+        "(none)": 2,
+        ".astro": 46,
+        ".css": 2,
+        ".gitignore": 2,
+        ".html": 2,
+        ".ico": 1,
+        ".jpg": 1,
+        ".js": 1,
+        ".json": 20,
+        ".md": 272,
+        ".mjs": 33,
+        ".png": 36,
+        ".py": 29,
+        ".sh": 7,
+        ".spdx": 1,
+        ".svg": 69,
+        ".toml": 4,
+        ".ts": 16,
+        ".tsx": 2,
+        ".txt": 22,
+        ".webp": 1,
+        ".woff2": 7,
+        ".yaml": 24,
+        ".yml": 2
+      },
+      "unit": "files",
+      "definition": "tracked files by lowercase extension; `(none)` when no extension"
+    },
+    "corpus.md_total": {
+      "value": 272,
+      "unit": "files",
+      "definition": "tracked `.md` anywhere, including `web/`"
+    },
+    "corpus.docs_total": {
+      "value": 270,
+      "unit": "documents",
+      "definition": "tracked `.md` outside `web/` — the corpus every other family measures"
+    },
+    "corpus.docs_by_dir": {
+      "value": {
+        "(root)": 7,
+        ".github": 2,
+        "agents": 25,
+        "blueprints": 3,
+        "canon": 7,
+        "debt": 12,
+        "decisions": 9,
+        "guilds": 8,
+        "history": 2,
+        "infra": 1,
+        "missions": 140,
+        "operations": 9,
+        "protocols": 7,
+        "reports": 27,
+        "standards": 8,
+        "system": 3
+      },
+      "unit": "documents",
+      "definition": "corpus documents by top-level directory; root files under `(root)`"
+    },
+    "corpus.docs_by_type": {
+      "value": {
+        "(none)": 8,
+        "adr": 9,
+        "agent": 24,
+        "blueprint": 3,
+        "charter": 8,
+        "documentation": 36,
+        "legal": 2,
+        "meta": 3,
+        "mission": 138,
+        "protocol": 8,
+        "report": 24,
+        "seminal": 7
+      },
+      "unit": "documents",
+      "definition": "corpus documents by frontmatter `type`; `(none)` when absent"
+    },
+    "corpus.docs_without_frontmatter": {
+      "value": 6,
+      "unit": "documents",
+      "definition": "corpus documents with no `---` block at the top"
+    },
+    "corpus.apparatus": {
+      "value": 13,
+      "unit": "documents",
+      "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
+    },
+    "corpus.scripts_total": {
+      "value": 65,
+      "unit": "files",
+      "definition": "files under `scripts/` with a code extension (.py .mjs .js .sh .ts)"
+    },
+    "corpus.scripts_by_language": {
+      "value": {
+        "node": 29,
+        "python": 29,
+        "shell": 7
+      },
+      "unit": "files",
+      "definition": "those scripts by language, from the extension"
+    },
+    "corpus.scripts_in_ci": {
+      "value": 8,
+      "unit": "files",
+      "definition": "scripts named in `.github/workflows/ci.yml` as `scripts/<name>`"
+    },
+    "series.registration": {
+      "value": {
+        "blueprints": {
+          "registered": 3,
+          "total": 3,
+          "apparatus": 0,
+          "frozen": 0,
+          "pct": 100
+        },
+        "canon": {
+          "registered": 7,
+          "total": 7,
+          "apparatus": 0,
+          "frozen": 0,
+          "pct": 100
+        },
+        "debt": {
+          "registered": 12,
+          "total": 12,
+          "apparatus": 0,
+          "frozen": 0,
+          "pct": 100
+        },
+        "decisions": {
+          "registered": 9,
+          "total": 9,
+          "apparatus": 0,
+          "frozen": 0,
+          "pct": 100
+        },
+        "guilds": {
+          "registered": 8,
+          "total": 8,
+          "apparatus": 0,
+          "frozen": 0,
+          "pct": 100
+        },
+        "infra": {
+          "registered": 0,
+          "total": 0,
+          "apparatus": 1,
+          "frozen": 0,
+          "pct": null
+        },
+        "missions": {
+          "registered": 136,
+          "total": 136,
+          "apparatus": 4,
+          "frozen": 0,
+          "pct": 100
+        },
+        "operations": {
+          "registered": 9,
+          "total": 9,
+          "apparatus": 0,
+          "frozen": 0,
+          "pct": 100
+        },
+        "protocols": {
+          "registered": 7,
+          "total": 7,
+          "apparatus": 0,
+          "frozen": 0,
+          "pct": 100
+        },
+        "reports": {
+          "registered": 24,
+          "total": 24,
+          "apparatus": 0,
+          "frozen": 0,
+          "pct": 100
+        },
+        "standards": {
+          "registered": 5,
+          "total": 5,
+          "apparatus": 1,
+          "frozen": 2,
+          "pct": 100
+        },
+        "system": {
+          "registered": 3,
+          "total": 3,
+          "apparatus": 0,
+          "frozen": 0,
+          "pct": 100
+        }
+      },
+      "unit": "documents",
+      "definition": "per series with a naming scheme (rules.json): documents whose filename matches `<PREFIX>-<NNN>-` (or the daily `RPT-<date>` form in reports/) over documents in the series — excluding `_template/`, `reports/evidence/`, apparatus and frozen artefacts (by filename shape). Same predicate as `count-evidence.py matricula`."
+    },
+    "series.registered_total": {
+      "value": 223,
+      "unit": "documents",
+      "definition": "sum of `registration[*].registered`"
+    },
+    "series.registrable_total": {
+      "value": 223,
+      "unit": "documents",
+      "definition": "sum of `registration[*].total`"
+    },
+    "series.agents_folder_named": {
+      "value": 7,
+      "unit": "directories",
+      "definition": "directories under `agents/` other than `_template` — identified by folder name, no prefix by design (ADR-005 v1.1.0)"
+    },
+    "missions.total": {
+      "value": 136,
+      "unit": "missions",
+      "definition": "files `missions/MIS-NNNN-*.md` with a frontmatter block"
+    },
+    "missions.by_status": {
+      "value": {
+        "done": 62,
+        "frozen": 38,
+        "in-progress": 8,
+        "todo": 28
+      },
+      "unit": "missions",
+      "definition": "by frontmatter `status`"
+    },
+    "missions.by_guild": {
+      "value": {
+        "Alchemists": 57,
+        "Exegetes": 23,
+        "Procurators": 18,
+        "Sentinels": 38
+      },
+      "unit": "missions",
+      "definition": "by frontmatter `guild`; `(none)` when absent or null-like"
+    },
+    "missions.by_territory": {
+      "value": {
+        "(none)": 38,
+        "Archive": 19,
+        "CAO": 18,
+        "Content": 7,
+        "Funding": 6,
+        "Infrastructure": 12,
+        "Platform": 15,
+        "Product": 13,
+        "Sales": 8
+      },
+      "unit": "missions",
+      "definition": "by frontmatter `territory`; `TBA` folds into `(none)`, reported separately as `territory_tba`"
+    },
+    "missions.by_priority": {
+      "value": {
+        "critical": 27,
+        "high": 70,
+        "low": 4,
+        "medium": 35
+      },
+      "unit": "missions",
+      "definition": "by frontmatter `priority`"
+    },
+    "missions.by_effort": {
+      "value": {
+        "L": 23,
+        "M": 51,
+        "S": 41,
+        "XL": 10,
+        "XS": 11
+      },
+      "unit": "missions",
+      "definition": "by frontmatter `effort`"
+    },
+    "missions.by_assignee": {
+      "value": {
+        "(none)": 92,
+        "claude-fable-5": 1,
+        "nimrod": 14,
+        "numengames-web + nwos-deploy": 1,
+        "numinia-nwos": 5,
+        "numinia-web": 1,
+        "procurador-01": 1,
+        "ursa": 21
+      },
+      "unit": "missions",
+      "definition": "by frontmatter `assigned_to`; `(none)` = unassigned"
+    },
+    "missions.territory_tba": {
+      "value": 38,
+      "unit": "missions",
+      "definition": "`territory: TBA` (ADR-028 deferral, owner MIS-124)"
+    },
+    "missions.unassigned": {
+      "value": 92,
+      "unit": "missions",
+      "definition": "`assigned_to` absent or null-like"
+    },
+    "missions.in_progress_unassigned": {
+      "value": 2,
+      "unit": "missions",
+      "definition": "`status: in-progress` with no `assigned_to`"
+    },
+    "missions.done_without_closure": {
+      "value": 34,
+      "unit": "missions",
+      "definition": "`status: done` with no `## Closure` heading (MIS-134 strict form)"
+    },
+    "missions.done_without_closure_tolerant": {
+      "value": 11,
+      "unit": "missions",
+      "definition": "`status: done` with none of the five closure headings MIS-134 tolerates"
+    },
+    "missions.without_author": {
+      "value": 33,
+      "unit": "missions",
+      "definition": "frontmatter `author` absent or null-like"
+    },
+    "missions.started_with_offset": {
+      "value": 1,
+      "unit": "missions",
+      "definition": "`started` written with a UTC offset instead of `Z`"
+    },
+    "missions.started_zulu": {
+      "value": 22,
+      "unit": "missions",
+      "definition": "`started` written in `Z`"
+    }
+  }
+}
