@@ -1,5 +1,5 @@
 ---
-id: "MIS-131"
+id: "MIS-136"
 uid:
 title: "Correct the DEUDA-404 comment in web/astro.config.mjs — close DBT-004 condition 4"
 status: in-progress
@@ -22,7 +22,7 @@ tags: [debt, url-lifecycle, dbt-004, comment, web]
 license: "CC-BY-4.0"
 ---
 
-# MIS-131 — Correct the DEUDA-404 comment in web/astro.config.mjs
+# MIS-136 — Correct the DEUDA-404 comment in web/astro.config.mjs
 
 > **Summary:** `web/astro.config.mjs:22` carries a comment that misreads the
 > DEUDA-404 case: it says a 890 KB page "died in April and nobody noticed".
