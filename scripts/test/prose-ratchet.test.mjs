@@ -48,6 +48,27 @@ function runGuard(args = []) {
 
 console.log('prose ratchet — the guard is tested, not trusted\n');
 
+/* The committed baseline is part of the fixture, and it may not equal the
+   tree: stale-HIGH after prose is removed without a re-freeze (it happened
+   in #195 — a scratch file then no longer grows the tree past the frozen
+   number, the growth cases pass for the wrong reason, and `--update` writes
+   the smaller figure to disk), or stale-LOW after growth nobody froze (then
+   "an unchanged tree passes" is false of the tree, not of the guard). This
+   suite tests the guard, not the tree — so it pins the fixture: measure
+   once, write that number as the baseline, run every case against it, and
+   put the committed bytes back at the end. `--update` cannot do the pinning
+   (it refuses to turn backwards, by design); the file is written directly. */
+const COMMITTED_BASELINE = readFileSync(BASELINE, 'utf8');
+const restoreBaseline = () => writeFileSync(BASELINE, COMMITTED_BASELINE);
+process.on('exit', restoreBaseline);
+{
+  const { out } = runGuard();
+  const m = out.match(/orphan\)\s*:\s*(\d+)/);
+  if (!m) throw new Error('fixture: could not measure the tree to pin the baseline');
+  const pinned = { ...JSON.parse(COMMITTED_BASELINE), orphan_chars: Number(m[1]) };
+  writeFileSync(BASELINE, JSON.stringify(pinned, null, 2) + '\n');
+}
+
 check('the baseline file exists and parses', () => {
   const b = JSON.parse(readFileSync(BASELINE, 'utf8'));
   assert(typeof b.orphan_chars === 'number', 'orphan_chars must be a number');
@@ -143,10 +164,17 @@ check('--update refuses to re-freeze growth', () => {
 });
 
 check('the tree is left exactly as it was found', () => {
+  restoreBaseline();
   const dirty = execSync('git status --porcelain web/src', { cwd: ROOT })
     .toString()
     .trim();
   assert(dirty === '', `tests must not leave changes behind:\n${dirty}`);
+  // The baseline is compared to the bytes read at start, not to git: the
+  // suite must hand back what it was given, whatever git thinks of it.
+  assert(
+    readFileSync(BASELINE, 'utf8') === COMMITTED_BASELINE,
+    'the baseline must be byte-identical to what the suite found'
+  );
 });
 
 console.log('');
