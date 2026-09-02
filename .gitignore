@@ -17,3 +17,6 @@ __pycache__/
 web/.translation-cache/
 .venv-audit/
 .hermes/
+
+# MIS-138: cl100k rank file, fetched by `node scripts/telemetry.mjs --fetch-tokenizer`, pinned by sha256 in scripts/lib/cl100k.mjs
+scripts/lib/tokenizer/
