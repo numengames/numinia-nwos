@@ -95,6 +95,19 @@ const t = useT();
           title="Licensing is per file, declared in REUSE.toml"
         >Open by licence, per file</a>
         {" · "}
+        <!--
+          Telemetry sits on the build line, not in the Navigation column, and
+          the placement is the argument: /telemetry is not a section of the
+          corpus, it is a measurement of it. It belongs beside the version and
+          the commit — the other two facts about the artefact you are reading,
+          rather than about what the artefact says. (MIS-141)
+        -->
+        <a
+          href="/telemetry"
+          class="transition-colors hover:text-accent"
+          title="Figures measured from this corpus, each with the predicate it is true of"
+        >{t("footer.telemetry")}</a>
+        {" · "}
         {VERSION}
         {" · "}
         {COMMIT_URL ? (

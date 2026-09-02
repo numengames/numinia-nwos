@@ -2343,6 +2343,17 @@
   "tokens": 1222
  },
  {
+  "path": "missions/MIS-0141-telemetry-view.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-review",
+  "chars": 9897,
+  "apparatus": false,
+  "frozen": false,
+  "tokens": 2585
+ },
+ {
   "path": "missions/TEMPLATE-CHANGES.md",
   "dir": "missions",
   "series": "missions",
