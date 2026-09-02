@@ -2,7 +2,7 @@
 id: "MIS-108"
 uid: ""
 title: "Offer the mould its own provenance: the template still calls itself the source"
-status: todo
+status: frozen
 priority: "high"
 effort: "S"
 guild: "Exegetes"
@@ -11,13 +11,14 @@ type_execution: "digital"
 assigned_to: null
 started: null
 completed: null
+freeze_reason: "blocked with MIS-106 — same external repository, same ruling"
 
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-22T18:44:28Z"
 created_source: "git:830e969"
 created_confidence: exact
-updated: "2026-09-02T01:51:14+02:00"
+updated: "2026-09-02T10:01:10+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -144,3 +145,5 @@ law lives in someone else's repository.
 ## Version history
 
 - v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.
+
+- v1.2.0 (2026-09-02) — status todo → frozen (blocked with MIS-106). Proposed in #199 on the 2026-09-02 status check; the Oracle signs by merging (PRO-003 §2).

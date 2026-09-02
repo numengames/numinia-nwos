@@ -2,21 +2,21 @@
 id: "MIS-065"
 uid: ""
 title: "Canon at build time — narrative out of the code regime"
-status: todo
+status: done
 priority: "medium"
 effort: "L"
 guild: "Sentinels"
 territory: "TBA"
 assigned_to: null
 started: null
-completed: null
+completed: "2026-09-02"
 
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-17T07:06:13Z"
 created_source: "git:1d8ac2b"
 created_confidence: inferred
-updated: "2026-09-02T01:51:14+02:00"
+updated: "2026-09-02T10:01:10+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -123,19 +123,16 @@ snippet exceptions. One refactor, two debts closed.
 
 ## Execution log
 
-*(Fill when completing the mission)*
+- 2026-08-17 — executed as MIS-071 phase 3 (`/decisiones`, `/planos` from root); see MIS-071 §Execution log.
+- 2026-08-25 — returned to `todo` by the board triage (category D: no commit of its own — they were MIS-071's).
+- 2026-09-02 — closed on the status check; the REUSE criterion goes to MIS-135 row 15.
 
 ## Execution Reality
 
-*(Fill when closing the mission — the real plans vs the ideal plans)*
-
-- **Technology/approach used:**
-- **Why it diverged:**
-- **Key learning:**
-- **Closing date:**
-- **Executing agent:**
-
-> *"The ideal plans show the intention. The real plans show the knowledge."*
+- **What was done:** `/decisiones` and `/planos` read from root `decisions/` and `blueprints/` since 2026-08-17 (MIS-071 phase 3); `/misiones`, `/decisiones`, `/planos` are redirects onto collection-built pages; the hardcoded TS modules and `missions-index.json` are gone.
+- **What diverged, and why:** criterion 1 (the board at build) moved to MIS-066 on 2026-08-17. The 2026-08-25 triage sent this file back to `todo` because no commit carried its id — the work was in MIS-071's commits, so the record said "not started" about a thing that had shipped. The REUSE criterion ("no culture-branch content matched by `web/** → MIT`") was never verified by anyone: not done, registered as MIS-135 row 15.
+- **Evidence:** `web/astro.config.mjs` redirects `/misiones/[id]`, `/decisiones/[id]`, `/planos/[id]`; `web/src/data/missions-index.json` absent from the tree; MIS-071 §Execution log, 2026-08-17.
+- **Closed:** 2026-09-02 · **by:** ursa
 
 ## Board triage — 2026-08-25
 
@@ -159,3 +156,5 @@ what changed is the claim that it was underway.
 ## Version history
 
 - v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; retired identifiers repointed: C-005→CAN-005; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.
+
+- v1.2.0 (2026-09-02) — status todo → done (executed 2026-08-17 as MIS-071 phase 3; criterion 1 moved to MIS-066; the unverified REUSE criterion is MIS-135 row 15). Proposed in #199 on the 2026-09-02 status check; the Oracle signs by merging (PRO-003 §2).

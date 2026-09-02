@@ -2,7 +2,7 @@
 id: "MIS-067"
 uid: ""
 title: "Inspections System — document type, directory and first ISO 15489 inspection"
-status: todo
+status: frozen
 priority: "high"
 effort: "M"
 guild: "Sentinels"
@@ -10,13 +10,14 @@ territory: "CAO"
 type_execution: "digital"
 assigned_to: null
 completed: null
+freeze_reason: cancelled
 
 type: mission
-version: "1.2.0"
+version: "1.3.0"
 created: "2026-04-07T13:42:00Z"
 created_source: "git:749f75c"
 created_confidence: inferred
-updated: "2026-09-02T01:51:14+02:00"
+updated: "2026-09-02T10:01:10+02:00"
 author: "pablo-fm"
 owner: "oracle"
 requested_by: "oracle"
@@ -91,3 +92,5 @@ When Numen Games has clients, inspections are the proof that the NWOS operates t
 ## Version history
 
 - v1.2.0 (2026-09-02) — context card completed from the brief's own Story/Epistemic/Pragmatic text; inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; retired identifiers repointed: P-006→PRO-001 (formerly P-006); §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.
+
+- v1.3.0 (2026-09-02) — status todo → frozen (the document type it proposed is served by `reports/` subtype `audit` (RPT-007…RPT-016, ADR-005 v1.2.0); ISO 15489 alignment, if wanted, is a new report brief). Proposed in #199 on the 2026-09-02 status check; the Oracle signs by merging (PRO-003 §2).

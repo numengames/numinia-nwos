@@ -12,11 +12,11 @@ assigned_to: null
 completed: null
 
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-18T14:59:25Z"
 created_source: "git:e175657"
 created_confidence: exact
-updated: "2026-09-02T01:51:14+02:00"
+updated: "2026-09-02T10:01:10+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -96,9 +96,15 @@ been applied to the standards themselves.
       least one real consumer repo as proof.
 - [ ] Core changelog in adoption language: what changes, what binds
       (within that version) and what can be ignored.
-- [ ] MIS-068 reformulated in light of G-12: the guard **reports** drift,
-      it does not forbid it; the premise «consumer repos never drift» is
-      withdrawn.
+- [ ] MIS-068 folded here (2026-09-02, frozen `cancelled`): its two surviving
+      criteria are the next two. The premise «consumer repos never drift» is
+      withdrawn (G-12): the guard **reports** drift, it never forbids it.
+- [ ] Inventory: which artifacts propagate (CAN-005 §9 fragment, the four
+      protocols, STD-005), from the tree, with the consumer copies located —
+      the measurement MIS-060 §Full diagnosis made by hand on 2026-04-07.
+- [ ] A reusable guard exists that any consumer repo can run in CI and that
+      numinia-nwos runs on its own internal copies; it reports, it does not
+      fail the consumer's build.
 - [ ] Upstream ADR correcting §7.1 (authority by fork → adoption by
       version) and CON-003's provenance.
 - [ ] `GOVERNANCE.md` G-12 referenced from the mould's CLAUDE.md.
@@ -141,3 +147,5 @@ negotiating with each one.
 ## Version history
 
 - v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.
+
+- v1.2.0 (2026-09-02) — MIS-068 folded in: criterion 5 rewritten, two criteria added (inventory; reporting guard). Proposed in #199; the Oracle signs by merging.

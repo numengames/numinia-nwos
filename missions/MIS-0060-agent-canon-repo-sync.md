@@ -2,21 +2,21 @@
 id: "MIS-060"
 uid: ""
 title: "Agent Synchronization with the Canonical Repo"
-status: todo
+status: done
 priority: "high"
 effort: "M"
 guild: "Sentinels"
 territory: "CAO"
 type_execution: "digital"
 assigned_to: null
-completed: null
+completed: "2026-09-02"
 
 type: mission
-version: "1.3.0"
+version: "1.4.0"
 created: "2026-04-07T17:45:51Z"
 created_source: "git:01f7878"
 created_confidence: inferred
-updated: "2026-09-02T01:48:11+02:00"
+updated: "2026-09-02T10:01:10+02:00"
 author: "nimrod"
 owner: "oracle"
 requested_by: "oracle"
@@ -167,12 +167,20 @@ Eliminates the possibility of ID collisions. Establishes the architectural found
 
 > *"Push requires opening doors. Pull only needs a path that already exists. Always prefer pull in hardened architectures."*
 
+## Closure
+
+- **What was done:** E1 (Christian's workspace audit) and E2 — the rule "Before assigning any ID: list `missions/`… against what is COMMITTED after a `git pull`" is PRO-003 §2 and §3 today, three occurrences.
+- **What diverged, and why:** E3–E5 (AGENTS.md validation rules, server symlink + cron, the sync ADR) targeted Nimrod's OpenClaw server, retired 2026-08-28 — cancelled with it, not done. The propagation problem this file measured (§Full diagnosis) outlived the server: it is the origin of MIS-068, folded on 2026-09-02 into MIS-096.
+- **Evidence:** `grep -n 'Before assigning' protocols/PRO-003-mission-cycle.md` → 3 lines; MIS-096 v1.2.0 names this file as the origin of its guard criterion.
+- **Closed:** 2026-09-02 · **by:** ursa
+
 ## Version history
 
 - v1.0.0 (2026-04-07) — Initial creation.
 - v1.1.0 (2026-04-07) — Extended with full architecture analysis.
 - v1.2.0 (2026-04-07) — Translated to English (MIS-056).
 - v1.3.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; retired identifiers repointed: P-003→PRO-003; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 2.
+- v1.4.0 (2026-09-02) — status todo → done (E1 and E2 achieved; E3–E5 cancelled with the retired server; the diagnosis lives on in MIS-096). Proposed in #199 on the 2026-09-02 status check; the Oracle signs by merging (PRO-003 §2).
 
 *Nimrod 🗡️ — 2026-04-07*
 
