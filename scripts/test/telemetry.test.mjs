@@ -18,7 +18,8 @@ import path from 'node:path';
 import { ROOT } from '../lib/frontmatter.mjs';
 
 const results = [];
-const check = (name, fn) => { try { const r = fn(); results.push({ name, ok: r !== false && typeof r !== 'string', note: typeof r === 'string' ? r : '' }); } catch (e) { results.push({ name, ok: false, note: e.message.split('\n')[0] }); } };
+// a check returns true, false, or a string; a string starting `skipped:` is a named skip (counted, never a failure)
+const check = (name, fn) => { try { const r = fn(); const skip = typeof r === 'string' && r.startsWith('skipped:'); results.push({ name, ok: skip || (r !== false && typeof r !== 'string'), skip, note: typeof r === 'string' ? r : '' }); } catch (e) { results.push({ name, ok: false, note: e.message.split('\n')[0] }); } };
 const run = (cwd) => JSON.parse(execFileSync('node', [path.join(cwd, 'scripts/telemetry.mjs'), '--print'], { cwd, encoding: 'utf8' }));
 
 const t1 = run(ROOT); const t2 = run(ROOT);
@@ -165,6 +166,7 @@ function scratchClone() {
 }
 
 const failed = results.filter((r) => !r.ok);
-for (const r of results) console.log(`${r.ok ? '✓' : '✖'} ${r.name}${r.note ? ` — ${r.note}` : ''}`);
-console.log(`\n${results.length - failed.length} passed, ${failed.length} failed`);
+for (const r of results) console.log(`${r.skip ? '○' : r.ok ? '✓' : '✖'} ${r.name}${r.note ? ` — ${r.note}` : ''}`);
+const skipped = results.filter((r) => r.skip).length;
+console.log(`\n${results.length - failed.length - skipped} passed, ${failed.length} failed, ${skipped} skipped`);
 process.exit(failed.length ? 1 : 0);

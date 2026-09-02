@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "924ca38+index",
-  "corpus_hash": "d0e6692e8e88a005f361f2c3fa965995ae2a0e838d6b97284b22c366d03a0635",
+  "head": "240e05d",
+  "corpus_hash": "cc1e6f4a006bc8dddaae5c9a574bea2bee47f2f29ed0ec190912f0e6a6cf470b",
   "root_dirty": 0,
-  "measured_at": "2026-09-02T15:58:01Z",
+  "measured_at": "2026-09-02T21:23:29Z",
   "families": [
     "corpus",
     "series",
@@ -126,7 +126,7 @@
       "definition": "those scripts by language, from the extension"
     },
     "corpus.scripts_in_ci": {
-      "value": 8,
+      "value": 12,
       "unit": "files",
       "definition": "scripts named in `.github/workflows/ci.yml` as `scripts/<name>`"
     },
@@ -736,6 +736,9 @@
         "scripts/check-frontmatter-delimiter.mjs",
         "scripts/lint-frontmatter.mjs",
         "scripts/lint-naming.mjs",
+        "scripts/telemetry.mjs",
+        "scripts/telemetry.mjs",
+        "scripts/test/telemetry.test.mjs",
         "scripts/check-orphan-content.mjs",
         "scripts/check-url-lifecycle.mjs"
       ],
@@ -1122,6 +1125,9 @@
         "scripts/check-frontmatter-delimiter.mjs",
         "scripts/lint-frontmatter.mjs",
         "scripts/lint-naming.mjs",
+        "scripts/telemetry.mjs",
+        "scripts/telemetry.mjs",
+        "scripts/test/telemetry.test.mjs",
         "scripts/check-orphan-content.mjs",
         "scripts/check-url-lifecycle.mjs"
       ],
