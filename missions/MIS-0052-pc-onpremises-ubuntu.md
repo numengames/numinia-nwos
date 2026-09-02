@@ -2,7 +2,7 @@
 id: "MIS-052"
 uid: ""
 title: "On-premises infrastructure — Dedicated PC"
-status: todo
+status: frozen
 priority: "high"
 effort: "L"
 guild: "Sentinels"
@@ -11,13 +11,14 @@ type_execution: "digital"
 assigned_to: null
 started: null
 completed: null
+freeze_reason: "waiting on hardware delivery — the PC in transit; unfreeze when it exists"
 
 type: mission
-version: "1.2.0"
+version: "1.3.0"
 created: "2026-04-07T05:49:03Z"
 created_source: "git:e56f6e8"
 created_confidence: inferred
-updated: "2026-09-02T01:48:11+02:00"
+updated: "2026-09-02T10:01:10+02:00"
 author: "pablo-fm"
 owner: "oracle"
 requested_by: "oracle"
@@ -69,6 +70,7 @@ PC in transit. When it arrives: install Ubuntu → CUDA → Ollama → connect t
 - v1.0.0 (2026-04-05) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
 - v1.2.0 (2026-09-02) — context card completed from the brief's own Story/Epistemic/Pragmatic text; inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 2.
+- v1.3.0 (2026-09-02) — status todo → frozen (a todo that cannot start is frozen by STD-001 §7's own definition — waiting on hardware delivery). Proposed in #199 on the 2026-09-02 status check; the Oracle signs by merging (PRO-003 §2).
 
 ## Board triage — 2026-08-25
 

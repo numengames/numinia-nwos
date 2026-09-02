@@ -2,7 +2,7 @@
 id: "MIS-034"
 uid: ""
 title: "Angel investor deck v1.0"
-status: todo
+status: frozen
 priority: "high"
 effort: "L"
 guild: "Procurators"
@@ -10,13 +10,14 @@ territory: "Funding"
 type_execution: "hybrid"
 assigned_to: null
 completed: null
+freeze_reason: "no funding round open; same ruling as MIS-020"
 
 type: mission
-version: "1.2.0"
+version: "1.3.0"
 created: "2026-04-07T05:58:49Z"
 created_source: "git:428349f"
 created_confidence: inferred
-updated: "2026-09-02T01:48:11+02:00"
+updated: "2026-09-02T10:01:10+02:00"
 owner: "oracle"
 license: "CC0-1.0"
 ---
@@ -56,3 +57,5 @@ A tool to open investment conversations at any time.
 ## Version history
 
 - v1.2.0 (2026-09-02) — context card completed from the brief's own Story/Epistemic/Pragmatic text; inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 2.
+
+- v1.3.0 (2026-09-02) — status todo → frozen (no funding round open — same ruling as MIS-020). Proposed in #199 on the 2026-09-02 status check; the Oracle signs by merging (PRO-003 §2).

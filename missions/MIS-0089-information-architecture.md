@@ -2,21 +2,21 @@
 id: "MIS-089"
 uid: ""
 title: "Information architecture: the archive gets ordered and the web mirrors it by sections"
-status: todo
+status: done
 priority: "high"
 effort: "XL"
 guild: "Exegetes"
 territory: "Archive"
 type_execution: "digital"
 assigned_to: null
-completed: null
+completed: "2026-09-02"
 
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-18T10:51:09Z"
 created_source: "git:9f25053"
 created_confidence: exact
-updated: "2026-09-02T01:51:14+02:00"
+updated: "2026-09-02T10:01:10+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -123,19 +123,23 @@ which one is the source.
 
 ## Execution log
 
-*(Fill when completing the mission — per phase, with the Oracle's signature on each)*
+- D1 — resolved 2026-08-25, disposition reversed (the `.md` was not canonical).
+- D2 — `reports/` flat series: MIS-071, ADR-005 v1.2.0 (not `reports/audits/`).
+- D3 — `history/`: ADR-035, MIS-129.
+- D4 — `/reports` built from `reports/`: #195 (2026-09-01).
+- D5 — series prefixes: MIS-125, MIS-127.
+- D6 — INDEX.md files retired: #177, #194.
+- D7 — the v0.2.0 archive protocol left `protocols/`.
+- D8 — frontmatter on every file: MIS-121, MIS-127.
+- F0 — PRO-010 still `draft` v0.8.2: not done → MIS-135 row 3. F4 — `system/SYS-001..003` (MIS-129).
+- 2026-09-02 — closed on the status check.
 
 ## Execution Reality
 
-*(Fill when closing the mission — the real plans vs the ideal plans)*
-
-- **Technology/approach used:** (vs what was planned)
-- **Why it diverged:** (what challenge modified the path)
-- **Key learning:** (the knowledge that lives in that gap)
-- **Closing date:** YYYY-MM-DD
-- **Executing agent:** (name / agent-id)
-
-> *"The ideal plans show the intention. The real plans show the knowledge."*
+- **What was done:** the D1–D8 register, each line by a later mission (§Execution log has the trace); F2 (web sections per family) and F3 (names + frontmatter guard) landed with them; F4's "canonical document of the stack" is `system/SYS-001..003`.
+- **What diverged, and why:** this file executed nothing itself — it was the map the following three weeks followed, and two dispositions were wrong on contact (D1 reversed; D2's `reports/audits/` shelf replaced by one flat series). F0, the gate "PRO-010 signed", never happened: PRO-010 is `status: draft` v0.8.2 today while every rename cites it. Not done here; MIS-135 row 3.
+- **Evidence:** §Status check (per-line trace against `8907a56`); `grep -m1 '^status' protocols/PRO-010-how-to-archive.md` → `draft`.
+- **Closed:** 2026-09-02 · **by:** ursa
 
 ## Status check — 2026-09-02
 
@@ -147,3 +151,5 @@ which one is the source.
 ## Version history
 
 - v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; retired identifiers repointed: P-010→PRO-010; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.
+
+- v1.2.0 (2026-09-02) — status todo → done (every D1–D8 line executed by later missions; F0 (PRO-010 signature) is MIS-135 row 3). Proposed in #199 on the 2026-09-02 status check; the Oracle signs by merging (PRO-003 §2).

@@ -2,7 +2,7 @@
 id: "MIS-130"
 uid: ""
 title: "Fix the four dead links in README.md — the entry point resolves"
-status: in-review
+status: done
 priority: low
 effort: XS
 guild: "Alchemists"
@@ -10,14 +10,14 @@ territory: "Archive"
 type_execution: digital
 assigned_to: "ursa"
 started: "2026-09-01T17:03:10Z"
-completed: null
+completed: "2026-09-01"
 
 type: mission
-version: "1.3.0"
+version: "1.4.0"
 created: "2026-09-01T17:03:10Z"
 created_source: "git:969597e"
 created_confidence: exact
-updated: "2026-09-02T01:55:26+02:00"
+updated: "2026-09-02T10:01:10+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [archive, links, readme, adr-005, url-lifecycle]
@@ -83,9 +83,9 @@ node scripts/check-references.mjs --report   # no README.md entries under "broke
 node scripts/check-references.mjs   # "broken markdown links : 19"
 ```
 
-- [ ] No public address changes: these are in-repo markdown links, not web
+- [x] No public address changes: these are in-repo markdown links, not web
       routes — `check-url-lifecycle.mjs` unaffected.
-- [ ] `node scripts/lint-frontmatter.mjs` and `lint-naming.mjs` still exit 0.
+- [x] `node scripts/lint-frontmatter.mjs` and `lint-naming.mjs` still exit 0.
 
 ## Closure
 
@@ -106,7 +106,7 @@ node scripts/check-references.mjs   # "broken markdown links : 19"
   and shows the four as previously-broken-now-resolve; `lint-frontmatter.mjs`
   and `lint-naming.mjs` → no new violations. All verified at commit
   `4595773`+fix, before this file was marked in-review.
-- **Closed:** not yet — awaiting Oracle review.
+- **Closed:** 2026-09-01 · **by:** ursa — the review was PR #188's merge (2026-09-01T17:37Z); the state was set on 2026-09-02 (branch `missions/2-rulings`), one day after the fact.
 
 ## Status check — 2026-09-02
 
@@ -118,3 +118,5 @@ node scripts/check-references.mjs   # "broken markdown links : 19"
 ## Version history
 
 - v1.3.0 (2026-09-02) — import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.
+
+- v1.4.0 (2026-09-02) — status in-review → done (the review was PR #188's merge (2026-09-01T17:37Z); both criteria hold). Proposed in #199 on the 2026-09-02 status check; the Oracle signs by merging (PRO-003 §2).

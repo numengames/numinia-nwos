@@ -2,7 +2,7 @@
 id: "MIS-004"
 uid: ""
 title: "Define monetization model v1"
-status: todo
+status: frozen
 priority: "critical"
 effort: "S"
 guild: "Procurators"
@@ -10,13 +10,14 @@ territory: "Product"
 assigned_to: null
 started: null
 completed: null
+freeze_reason: cancelled
 
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-04-07T19:43:00Z"
 created_source: "git:749f75c"
 created_confidence: inferred
-updated: "2026-09-02T01:48:11+02:00"
+updated: "2026-09-02T10:01:10+02:00"
 author: "pablo-fm"
 owner: "oracle"
 requested_by: "oracle"
@@ -60,3 +61,5 @@ We can charge. Without a model, there is no revenue.
 ## Version history
 
 - v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 2.
+
+- v1.2.0 (2026-09-02) — status todo → frozen (superseded by MIS-021 — one mission for pricing, not two; the "talk money from day one" intent survives in its criteria). Proposed in #199 on the 2026-09-02 status check; the Oracle signs by merging (PRO-003 §2).

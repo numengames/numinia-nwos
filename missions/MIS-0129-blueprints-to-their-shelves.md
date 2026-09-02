@@ -2,7 +2,7 @@
 id: "MIS-129"
 uid: ""
 title: "Send each blueprint to the shelf its content belongs on, and open the two shelves that were missing"
-status: in-progress
+status: done
 priority: high
 effort: M
 guild: "Alchemists"
@@ -10,14 +10,14 @@ territory: "Archive"
 type_execution: digital
 assigned_to: "ursa"
 started: "2026-08-31"
-completed: null
+completed: "2026-09-02"
 
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-31T22:10:00+02:00"
 created_source: "git:44d5e96"
 created_confidence: exact
-updated: "2026-09-02T01:55:26+02:00"
+updated: "2026-09-02T10:01:10+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [archive, taxonomy, blueprints, url-lifecycle, ADR-005, S-005]
@@ -185,7 +185,10 @@ The fault is left standing and named — see the debt below.
 
 ## Closure
 
-*(Filled when the mission closes.)*
+- **What was done:** five blueprints moved to the shelf their content belongs on — one to `reports/` (RPT-003), one to `history/`, three to `system/` (SYS-001…003) — each carrying `former_id`; `system/` and `history/` registered in ADR-005; every retired public address 301s in `web/astro.config.mjs`; BLU-008 sent (#178) and brought back (#179) when its destination was ruled out of scope. §Written resolution is the per-file record.
+- **What diverged, and why:** BLU-008's round trip — the audit that opened this mission had it leaving; the ruling after #178 reversed that, and the reversal is the more valuable record. `history/` files keep the frozen-artifact filename with no number (ADR-035 §2), so criterion 1 is met by the register, not by a prefix. SYS-001's content is known stale — §Debt opened by this mission.
+- **Evidence:** §Written resolution; `check-url-lifecycle.mjs` 0 dead at #178/#179; `git log --follow` on each moved file; ADR-005 §register.
+- **Closed:** 2026-09-02 · **by:** ursa
 
 ## Status check — 2026-09-02
 
@@ -197,3 +200,5 @@ The fault is left standing and named — see the debt below.
 ## Version history
 
 - v1.1.0 (2026-09-02) — import-era `---` rules removed; retired identifiers repointed: S-005→STD-005; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.
+
+- v1.2.0 (2026-09-02) — status in-progress → done (all four criteria hold on main; the Written resolution is the closure). Proposed in #199 on the 2026-09-02 status check; the Oracle signs by merging (PRO-003 §2).

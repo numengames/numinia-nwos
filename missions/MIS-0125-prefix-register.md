@@ -2,7 +2,7 @@
 id: "MIS-125"
 uid: ""
 title: "The prefix register — four series carry identifiers no rule knows about"
-status: in-progress
+status: done
 priority: medium
 effort: M
 guild: "Exegetes"
@@ -10,14 +10,14 @@ territory: "Archive"
 type_execution: digital
 assigned_to: null
 started: "2026-08-31"
-completed: null
+completed: "2026-09-02"
 
 type: mission
-version: "1.5.1"
+version: "1.6.0"
 created: "2026-08-30T11:50:00Z"
 created_source: "git:b09311c"
 created_confidence: exact
-updated: "2026-09-02T08:34:08+02:00"
+updated: "2026-09-02T10:01:10+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [governance, identifiers, prefixes, adr-005]
@@ -88,12 +88,12 @@ For every series that carries identifiers:
       eight. **Done**: `ADR-005` v1.1.0 (Oracle, 2026-08-31) registers twelve,
       and `STD-001` §4.1 was corrected to match on the same day — it had been
       carrying the superseded eight.
-- [ ] Every `id` in the corpus matches its series' registered prefix, or its
-      exception is declared and dated
-- [ ] The check is live in `lint-frontmatter.mjs` and fails in both directions
-      (`PRO-013`)
-- [ ] `H-01` prefix findings reach zero, and the count is measured against the
-      filesystem, not the baseline file alone
+- [x] Every `id` in the corpus matches its series' registered prefix, or its
+      exception is declared and dated. **Done** (2026-09-02, #198): `count-evidence.py` at `136d98f` — `missions/` 132/132, ten series at 100 %, `infra/` 0/0; `agents/` exempt (ADR-005 v1.1.0), `history/` unnumbered by rule (ADR-035 §2).
+- [x] The check is live in `lint-frontmatter.mjs` and fails in both directions
+      (`PRO-013`). **Done**, as two guards: `H-01` (id prefix ↔ folder) and `lint-naming` N-04 (filename padding) — see Closure.
+- [x] `H-01` prefix findings reach zero, and the count is measured against the
+      filesystem, not the baseline file alone. **Done**: `lint-frontmatter --report` → 0 `H-01` at `136d98f`; `count-evidence.py` reads the tree, not the baseline.
 
 ## Dependencies
 
@@ -580,7 +580,16 @@ moves, and this mission stays `in-progress` for that one series.
 - **Evidence:** Acceptance 1/4: register complete ✓; 'every id matches its prefix' — H-01 findings are now 0 (count-evidence 10/11 series at 100 %, missions 131/132); the check is live in lint-frontmatter (H-01) — criteria 2–4 are met by the corpus today, criterion 4 by this normalisation (missions/ was the last series at 0 %). Stage C 'what remains' names standards/ (done 08-31) and ADR-030 housekeeping (done #180). No started date; 58 citations (11 files) — the most-cited live mission. *Merge note (2026-09-02, `6cc7b40`):* main's *Stage C — status at 2026-09-02 (`7f51235`)* above (#196) held this mission for one series, `missions/` (3/134, "not started"); #198 is that move — `count-evidence.py` at the merge: 132/132.
 - **Recommendation:** Close as done: every acceptance criterion is measurable today and passes (H-01 = 0; count-evidence ≥ 99 % every series). Tick criteria 2–4 with the figures; fill Closure from its own Stage A/B/C sections. Oracle signs.
 
+## Closure
+
+- **What was done:** Stage A — ADR-005 v1.1.0 registers twelve series and STD-001 §4.1 was corrected the same day; Stage B — `scripts/rename-series.mjs` with its regression cases (26 at `7f51235`); Stage C — every eligible series re-prefixed, one PR per series (#170…#195), `missions/` last (#198).
+- **What diverged, and why:** `agents/` exempted rather than renamed (ADR-005 v1.1.0 reversal: folder-named identity); `reports/` took two forms — `RPT-NNN` and `RPT-YYYY-MM-DD` for dailies (ADR-005 v1.2.0); `history/` deliberately unnumbered (ADR-035 §2). Criterion 3's "both directions" is two guards, not one: `H-01` checks the prefix against the folder, `lint-naming` N-04 checks the padding — `MIS-004` passed the first and failed the second, which is why this mission stayed open for `missions/` alone. PRO-013 step 3 (the blindness test in CI) is a workflow edit the agent's token cannot push — still open, and not this mission's.
+- **Evidence:** `python3 scripts/count-evidence.py` at `136d98f`: `missions` 132/132, ten series at 100 %, `infra/` 0/0; `node scripts/lint-frontmatter.mjs --report` → 0 `H-01`; DBT-001 §Closing condition (its "or recorded exception" clause covers `agents/` and `history/`).
+- **Closed:** 2026-09-02 · **by:** ursa
+
 ## Version history
 
 - v1.5.0 (2026-09-02) — retired identifiers repointed: P-008→PRO-008, P-010→PRO-010, P-013→PRO-013; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.
 - v1.5.1 (2026-09-02) — merged with main (#196): §Stage C status at `7f51235` kept above §Status check; one merge note in the evidence line. No other change.
+
+- v1.6.0 (2026-09-02) — status in-progress → done (every acceptance criterion measurable and passing: count-evidence 132/132 missions, ten series at 100 %, H-01 = 0). Proposed in #199 on the 2026-09-02 status check; the Oracle signs by merging (PRO-003 §2).

@@ -2,7 +2,7 @@
 id: "MIS-068"
 uid: ""
 title: "NWOS propagation: consumer repos never drift from the source of truth"
-status: todo
+status: frozen
 priority: "medium"
 effort: "M"
 guild: "Sentinels"
@@ -11,13 +11,14 @@ type_execution: "digital"
 assigned_to: null
 started: null
 completed: null
+freeze_reason: "folded into MIS-096 on 2026-09-02: its two surviving criteria (inventory of propagating artefacts; reporting guard) moved there; this file stays as the diagnosis record"
 
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-17T13:59:23Z"
 created_source: "git:069b83a"
 created_confidence: exact
-updated: "2026-09-02T01:51:14+02:00"
+updated: "2026-09-02T10:01:10+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -171,3 +172,5 @@ what changed is the claim that it was underway.
 ## Version history
 
 - v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; retired identifiers repointed: C-005→CAN-005; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.
+
+- v1.2.0 (2026-09-02) — status todo → frozen (folded into MIS-096 — two live briefs for one guard is how the drift happens). Proposed in #199 on the 2026-09-02 status check; the Oracle signs by merging (PRO-003 §2).
