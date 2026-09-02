@@ -4,9 +4,9 @@ id: "STD-001"
 uid: ""
 type: documentation
 status: active
-version: "5.1.1"
+version: "5.1.2"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-09-02T02:10:00+02:00"
+updated: "2026-09-02T08:34:08+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -550,7 +550,7 @@ filed for lack of its own.
 
 | Prefix | Series | Coverage today (2026-09-02, `7f51235`) |
 |---|---|--:|
-| `MIS-NNNN` | `missions/` | 3/134 · 2 % |
+| `MIS-NNNN` | `missions/` | **132/132 · 100 %** |
 | `ADR-NNN` · `DEC-NNN` | `decisions/` | **9/9 · 100 %** |
 | `PRO-NNN` | `protocols/` | **7/7 · 100 %** |
 | `RPT-NNN` (subtype `audit` · `analysis` · `proposal`) · `RPT-YYYY-MM-DD` (subtype `daily` only) | `reports/` (flat, `ADR-005` v1.2.0) | **24/24 · 100 %** |
@@ -1451,6 +1451,7 @@ gets filled differently by each person who meets it — which is how
 
 ## Version history
 
+- **v5.1.2** (2026-09-02) — §4.1 `missions/` 3/134 → 132/132 (missions/ normalisation, PR #198: every file renamed to `MIS-0NNN-<slug>.md`; `MIS-115a`/`MIS-115b` and the closure-guard proposal registered as `MIS-132`…`MIS-134`; `MIS-135` opened; `TEMPLATE*`/`ANNEX` counted as apparatus, hence the smaller denominator). Figure from `count-evidence.py` on the merge of #198 with `6cc7b40`. The 2026-09-02 v5.1.1 line above is #196's and stands.
 - **v5.1.1** (2026-09-02) — §4.1 coverage column re-measured at `7f51235` by
   `count-evidence.py` after `MIS-125` Stage C (#181–#192) and `MIS-127` rows
   7–9 (#190–#195) landed: ten of eleven series at 100 %, `missions/` at 3/134,

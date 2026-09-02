@@ -1,5 +1,6 @@
 ---
 id: "MIS-129"
+uid: ""
 title: "Send each blueprint to the shelf its content belongs on, and open the two shelves that were missing"
 status: in-progress
 priority: high
@@ -8,16 +9,20 @@ guild: "Alchemists"
 territory: "Archive"
 type_execution: digital
 assigned_to: "ursa"
+started: "2026-08-31"
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-31T22:10:00+02:00"
-updated: "2026-08-31T22:10:00+02:00"
+created_source: "git:44d5e96"
+created_confidence: exact
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [archive, taxonomy, blueprints, url-lifecycle, ADR-005, S-005]
-license: "CC-BY-4.0"
+license: "CC0-1.0"
+
 context: "2026-08-31"
 paths: [blueprints/, system/, history/, reports/, web/src/pages/archive/, web/astro.config.mjs, scripts/]
 ---
@@ -35,8 +40,6 @@ paths: [blueprints/, system/, history/, reports/, web/src/pages/archive/, web/as
 > you are about to read.
 > **Audience:** Agents · Oracles
 
----
-
 ## Context — the audit that opened this
 
 Read against the archive's own definition, the eight documents in
@@ -53,7 +56,7 @@ Read against the archive's own definition, the eight documents in
 | `BLU-007` Dual nomenclature | A design in progress, mission MIS-055 open | **Blueprint** |
 | `BLU-008` NWOS system description | Product landing copy, 75% identical to `nwos-deploy`'s home | Product copy |
 
-Two of eight are blueprints. `S-005` §2 maps a genre to a folder, and
+Two of eight are blueprints. `STD-005` §2 maps a genre to a folder, and
 two of these genres — the system manual and the superseded record — have
 no folder in that map. They ended up in `blueprints/` because it was the
 only shelf that did not obviously reject them.
@@ -63,18 +66,16 @@ foundation is dead is extinguished. That rule does not reach these six.
 None of them is dead — they are alive and shelved wrong, which is a
 taxonomy fault, not a lifecycle one.
 
----
-
 ## Scope
 
 - Two new top-level folders: `system/` (prefix `SYS`) and `history/`
-  (no series — frozen records keep the dated-artefact name, `S-005` §3.2).
+  (no series — frozen records keep the dated-artefact name, `STD-005` §3.2).
 - The eight `BLU-*` documents in `blueprints/`, and only those.
 - Every consumer of the moved files: the Astro collections, the two
   `/archive` pages that read `SYS-003`'s frontmatter, the redirect table,
   and the URL baseline.
 - The registers that must know the new series exist: `ADR-005` (prefix
-  register), `S-005` §2 (taxonomy table), and a new ADR recording the
+  register), `STD-005` §2 (taxonomy table), and a new ADR recording the
   ruling itself.
 
 ### Out of scope
@@ -88,8 +89,6 @@ taxonomy fault, not a lifecycle one.
   `BLU-008` stays where it is; deciding which of the three copies
   is the master is a separate, still-open question.
 - `blueprints/INDEX.md`, already flagged as stale by `ADR-032` (now in `ADR-030`).
-
----
 
 ## Acceptance criteria
 
@@ -111,15 +110,13 @@ Every criterion below is false at `ca62d86`.
 ```
 
 - [ ] `system/` and `history/` exist, are registered in `ADR-005`, and are
-      mapped in `S-005` §2
+      mapped in `STD-005` §2
 - [ ] No public address that resolved at `ca62d86` returns 404 after this
       mission — each is redirected to where its content went
 - [ ] `BLU-008` stays in `blueprints/` and its two public addresses stay
       alive — out of scope, declared as debt below rather than moved
 - [ ] The `git mv` history of every moved file is preserved (moves, not
       delete-and-create)
-
----
 
 ## Written resolution — where each moved document went
 
@@ -189,3 +186,14 @@ The fault is left standing and named — see the debt below.
 ## Closure
 
 *(Filled when the mission closes.)*
+
+## Status check — 2026-09-02
+
+*Read against `203267c` during the missions/ normalisation (lot 4). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** All four acceptance criteria hold on main: system/ and history/ exist and are in ADR-005's register; 0 URLs died (check-url-lifecycle at #178/#179); BLU-008 restored in blueprints/ with both addresses; git --follow shows the moves. Closure block blank. in-progress since 2026-08-31, no started date.
+- **Recommendation:** Close as done — every criterion verifiable and true; fill Closure from its 'Written resolution' section (which already is the closure). Oracle signs.
+
+## Version history
+
+- v1.1.0 (2026-09-02) — import-era `---` rules removed; retired identifiers repointed: S-005→STD-005; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.

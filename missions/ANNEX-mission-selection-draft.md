@@ -1,8 +1,10 @@
 ---
 id: "ANNEX-mission-selection"
+uid: ""
 title: "Draft — how the next mission is chosen"
-type: documentation
 status: draft
+
+type: meta
 version: "0.1.0"
 created: "2026-08-25T20:05:59Z"
 created_source: "git:5abd27f"
@@ -11,7 +13,8 @@ updated: "2026-08-25T20:05:59Z"
 author: "ursa"
 owner: "oracle"
 tags: [missions, policy, draft, board]
-license: "CC-BY-4.0"
+license: "CC0-1.0"
+
 registration: exempt
 registration_reason: "annex to the mission series, not a numbered mission"
 ---

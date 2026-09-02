@@ -4,11 +4,11 @@ uid: ""
 title: "Mission Protocol — briefing, cycle, coordination"
 type: protocol
 status: active
-version: "4.0.0"
+version: "4.1.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-08-31T18:00:00+02:00"
+updated: "2026-09-02T01:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [protocol, missions, cycle, briefing, coordination]
@@ -48,7 +48,7 @@ reactivated after freeze.
 Before reading the briefing, the mission must exist in the repo.
 
 ```
-IF missions/MIS-NNN-*.md does not exist:
+IF missions/MIS-NNNN-*.md does not exist:
   CREATE it following the frontmatter schema (STD-004)
   SET status: backlog
   COMMIT to repo
@@ -96,7 +96,7 @@ If any answer is unclear: **ask the Oracle before proceeding** (PRO-005 if score
 For missions of effort M or above, or when working with the Oracle in a live session:
 
 ```
-"Starting MIS-NNN — [title]. Estimated: [effort]. First action: [specific action]."
+"Starting MIS-NNNN — [title]. Estimated: [effort]. First action: [specific action]."
 ```
 
 For effort XS/S or background work: silent start is acceptable.
@@ -153,8 +153,14 @@ backlog — when unfrozen
 
 ### Mission IDs
 
-**Format:** `MIS-NNN` — 3 digits, zero-padded. Max 999.
-**Sub-missions:** `MIS-NNN.N` — parent ID + dot + child index (1-9).
+**Format:** `MIS-NNNN` — 4 digits, zero-padded, in the filename
+(`missions/MIS-0NNN-<slug>.md`); the `id:` field keeps the number as
+registered (`MIS-NNN` for the first 999 — the 4-digit padding is the
+filename's, per ADR-005 v1.1.0 and the MIS-0129 precedent). Max 9999.
+**Sub-missions:** a sub-mission is a mission — it takes the next free number
+and declares `parent_mission`. The dot form (`MIS-NNN.N`) and the letter form
+(`MIS-115a`) are retired: neither was a registered id shape (ADR-004 §1) and
+both were invisible to the reference guard.
 
 **Before assigning any ID:** list `missions/` to verify the next available
 number, against what is COMMITTED after a `git pull`, not the working tree.
@@ -238,7 +244,7 @@ between agents.
 1. **Only one executor per active mission.** If collaboration is needed, declare
    it explicitly in the frontmatter: `executor: nimrod, adonaz`
 2. **Divide into sub-missions** — each agent has its own mission
-3. **Use dependencies** — `depends_on: [MIS-NNN]` to establish order
+3. **Use dependencies** — `depends_on: [MIS-NNNN]` to establish order
 
 ### When another agent needs something from me
 
@@ -267,4 +273,5 @@ MIS-092/MIS-093.)
 - v1.1.0 (2026-04-07) — Added ID verification rule. Translated to English (MIS-056).
 - v2.0.0 (2026-04-07) — Full rewrite for Mission System v2: new states, folders, IDs, sub-missions, review cycle. (MIS-062)
 - v3.0.0 (2026-08-17) — Flat missions/ folder: status lives only in frontmatter, no status directories, no index file. States renamed todo→backlog, freeze→frozen; draft added. (MIS-066)
+- v4.1.0 (2026-09-02) — §2 Mission IDs: 4-digit filename per ADR-005 v1.1.0 (the section still prescribed `MIS-NNN`, max 999, a day after the ruling); sub-missions take a number of their own and `parent_mission`, the dot and letter forms retire (MIS-115a/b became MIS-132/133). missions/ normalisation.
 - v4.0.0 (2026-08-31) — **Merged.** Absorbs `P-009` (mission briefing) as §1 — it declared itself a dependency of this protocol — and `P-004` (inter-agent communication) as §4. Renamed `P-003` → `PRO-003` per ADR-005. References to a coordination agent that was never activated removed; the Oracle assigns. `P-009`'s queue/active folder instructions dropped: those folders no longer exist since v3.0.0. MIS-127.

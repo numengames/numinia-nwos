@@ -1,6 +1,6 @@
 ---
 id: "MIS-130"
-uid:
+uid: ""
 title: "Fix the four dead links in README.md — the entry point resolves"
 status: in-review
 priority: low
@@ -10,19 +10,20 @@ territory: "Archive"
 type_execution: digital
 assigned_to: "ursa"
 started: "2026-09-01T17:03:10Z"
-in_review_at: "2026-09-01T17:32:43Z"
 completed: null
 
 type: mission
-version: "1.2.0"
+version: "1.3.0"
 created: "2026-09-01T17:03:10Z"
 created_source: "git:969597e"
 created_confidence: exact
-updated: "2026-09-01T17:32:43Z"
+updated: "2026-09-02T01:55:26+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [archive, links, readme, adr-005, url-lifecycle]
-license: "CC-BY-4.0"
+license: "CC0-1.0"
+
+in_review_at: "2026-09-01T17:32:43Z"
 ---
 
 # MIS-130 — Fix the four dead links in README.md
@@ -35,8 +36,6 @@ license: "CC-BY-4.0"
 > there first. A broken first step is uncertainty every reader pays.
 > **Pragmatic:** four line edits, one existing metric proves the fix.
 > **Audience:** Agents · Oracles
-
----
 
 ## Context
 
@@ -108,3 +107,14 @@ node scripts/check-references.mjs   # "broken markdown links : 19"
   and `lint-naming.mjs` → no new violations. All verified at commit
   `4595773`+fix, before this file was marked in-review.
 - **Closed:** not yet — awaiting Oracle review.
+
+## Status check — 2026-09-02
+
+*Read against `203267c` during the missions/ normalisation (lot 4). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
+
+- **Evidence:** in-review since 2026-09-01T17:32; PR #188 merged 2026-09-01T17:37. README's protocol/standard links all resolve today (checked file by file). Both criteria true.
+- **Recommendation:** Close as done — the review happened (the PR merged); set completed: 2026-09-01 and tick the two criteria. Nothing else pending.
+
+## Version history
+
+- v1.3.0 (2026-09-02) — import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.

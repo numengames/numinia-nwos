@@ -268,6 +268,18 @@ export default defineConfig({
 		"/corpus/reports/daily/rpt-2026-04-07-tarde": "/reports",
 		"/corpus/reports/daily/rpt-2026-08-17": "/reports",
 		"/corpus/reports": "/reports",
+		// missions/ normalisation (2026-09-02): 134 files renamed to MIS-0NNN-<slug>.
+		// No redirect needed — /missions/<id> is built from the frontmatter id,
+		// which did not change (ADR-004 §1). Only MIS-115a/MIS-115b, which never
+		// had a legal id, took new numbers; their old addresses land on the new.
+		"/missions/mis-115a": "/missions/mis-132",
+		"/missions/mis-115b": "/missions/mis-133",
+		// The Spanish alias of the two: /misiones/[id] materialises one page per
+		// mission id, so the retired ids also die there. Straight to the new
+		// English page, not through /misiones/[id] — one hop.
+		"/misiones/mis-115a": "/missions/mis-132",
+		"/misiones/mis-115b": "/missions/mis-133",
+		"/corpus/missions/proposal-closure-guard": "/missions/mis-134",
 		// reports/ normalisation, 2026-09-01 (ADR-005 v1.2.0). AUD- is retired:
 		// the eleven audits took RPT-NNN numbers by created date and the folder
 		// flattened. Same document, new address — one hop each. /audits itself

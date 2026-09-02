@@ -26,7 +26,7 @@ const PRIORITY_DOT: Record<string, string> = {
 };
 const TYPE_ICON: Record<string, string> = { biological: "dna", digital: "robot", hybrid: "git-branch" };
 
-// MIS-115b — priority as TEXT, in level 3. The left border carries the same
+// MIS-133 (was MIS-115b) — priority as TEXT, in level 3. The left border carries the same
 // datum as colour, and never alone: WCAG AA is a project standard, and a
 // greyscale print loses colour entirely. Colour reinforces, text states.
 const PRIORITY_TEXT: Record<string, string> = {
@@ -85,7 +85,7 @@ const missions = entries
       guild: (f.guild as string) || "—",
       assignedTo: f.assigned_to && f.assigned_to !== "null" ? (f.assigned_to as string) : null,
       type,
-      // MIS-115a — the dates the board sorts by, and shows. Trimmed to a day:
+      // MIS-132 (was MIS-115a) — the dates the board sorts by, and shows. Trimmed to a day:
       // frontmatter carries both "2026-08-25" and "2026-04-07T19:43:00Z".
       updated: typeof f.updated === "string" ? f.updated.slice(0, 10) : null,
       completed: typeof f.completed === "string" ? f.completed.slice(0, 10) : null,
@@ -94,7 +94,7 @@ const missions = entries
     };
   });
 
-// MIS-115a — group order by operability, and the sort inside each group.
+// MIS-132 (was MIS-115a) — group order by operability, and the sort inside each group.
 //
 // WAS: columns ran backlog → in-progress → in-review → done, and every group
 // sorted by `a.id.localeCompare(b.id)` — creation order wearing a numeric
@@ -292,7 +292,7 @@ const stats = [
                     data-guild={m.guild}
                     data-searchable={[m.id, m.title, m.assignedTo || "", m.guild].join(" ").toLowerCase()}
                   >
-                    {/* MIS-115b — three levels, and nothing below the scale.
+                    {/* MIS-133 (was MIS-115b) — three levels, and nothing below the scale.
                         The card used 0.5/0.55/0.6rem (8/9/10px): three sizes
                         the Design System v5.1.0 §4.3 does not define, its
                         smallest being `etiqueta` at 0.75rem/12px. Everything
@@ -366,7 +366,7 @@ const stats = [
               <div class="rounded-lg border border-dim/20 bg-dim/5 p-3.5 mission-card"
                 data-status={m.status} data-priority={m.priority} data-effort={m.effort} data-guild={m.guild}
                 data-searchable={[m.id, m.title, m.assignedTo || "", m.guild].join(" ").toLowerCase()}>
-                {/* MIS-115b — same three levels as the column cards. Frozen
+                {/* MIS-133 (was MIS-115b) — same three levels as the column cards. Frozen
                     renders in its own block, and applying the hierarchy only
                     to the columns would leave two card designs on one page. */}
                 <p class="text-[1rem] font-semibold text-foreground/60 leading-snug tracking-[-0.01em] mb-2">{m.title}</p>

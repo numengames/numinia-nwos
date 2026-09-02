@@ -1,5 +1,6 @@
 ---
 id: "MIS-EXAMPLE"
+uid: ""
 title: "Example — a real small mission written with this template"
 status: done
 priority: medium
@@ -13,11 +14,14 @@ completed: "2026-08-25"
 type: mission
 version: "1.1.0"
 created: "2026-08-25"
+created_source: "git:c2ee691"
+created_confidence: exact
 updated: "2026-08-25"
 author: "ursa"
 owner: "oracle"
 tags: [web, archive, example]
-license: "CC-BY-4.0"
+license: "CC0-1.0"
+
 context: "2026-08-25"
 paths: [web/dist/print/, web/package.json, web/astro.config.mjs]
 ---

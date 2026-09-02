@@ -58,13 +58,19 @@ const RING2 = ['author', 'owner', 'provenance', 'created_source', 'created_confi
 /** STD-004 §6: the per-series extension registry. A field in no ring is H-30. */
 const RING3 = {
   'missions': ['priority', 'effort', 'assigned_to', 'started',
-    'completed', 'mission_id', 'type_execution', 'freeze_reason', 'in_review_at',
+    // mission_id retired 2026-09-02 (missions/ normalisation): it duplicated
+    // `id` in 58/58 files (TEMPLATE-CHANGES) and now appears in none.
+    'completed', 'type_execution', 'freeze_reason', 'in_review_at',
     'depends_on', 'parent_mission', 'sub_missions', 'blocked_by',
     'requires_oracle_approval', 'human_approval_score', 'paths', 'context',
     'divergence_log',
     // registered 2026-08-30 (final sweep): provenance notes and series
     // metadata that were always written, never registered (STD-004 §6)
-    'phase', 'updated_note', 'executor', 'blocks', 'mission_mode'],
+    'phase', 'updated_note', 'executor', 'blocks', 'mission_mode',
+    // MIS-132/133/134 (2026-09-02): a letter-suffixed sub-mission or an
+    // unregistered proposal that entered the series keeps its old identifier
+    // resolving (ADR-004 rule 4), same as reports/ and blueprints/.
+    'former_id', 'former_id_note'],
   'reports': ['severity', 'period', 'subtype', 'model', 'agent', 'week', 'scope',
     // ADR-035: a document reshelved into reports/ from another series carries
     // where it came from (ADR-004 rule 4 never frees the old identifier) and,

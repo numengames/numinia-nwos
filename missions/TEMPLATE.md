@@ -3,6 +3,7 @@
 # If one is missing or changes type, `npm run build` fails. It is the only
 # part of this document that anything checks; everything else is convention.
 id: "MIS-000"
+uid: ""
 title: "One line, in the imperative: what this mission does"
 status: todo
 # ^ todo|in-progress|in-review|done|frozen  (STD-001 §7, ratified ADR-027)
@@ -22,11 +23,13 @@ completed: null          # YYYY-MM-DD when status becomes done
 type: mission
 version: "1.0.0"
 created: "YYYY-MM-DD"
+created_source: "git:84a9f71"
+created_confidence: inferred
 updated: "YYYY-MM-DD"
 author: "agent-id"
 owner: "oracle"
 tags: [area, guild]
-license: "CC-BY-4.0"
+license: "CC0-1.0"
 
 # OPCIONALES — se ponen cuando aportan, se omiten sin culpa.
 # depends_on: []                  # other MIS ids that must land first

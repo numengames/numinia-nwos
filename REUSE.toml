@@ -48,17 +48,32 @@ SPDX-License-Identifier = "CC0-1.0"
 # carve out, and two of its three paths were retired in the same change.
 # CAN-005 follows the folder like every other canon document.
 
-# --- Documentation, ADRs, specs, missions, reports → CC-BY-4.0 -----------
+# --- Documentation, ADRs, reports → CC-BY-4.0 ----------------------------
 [[annotations]]
 path = [
   "decisions/**", "operations/**", "reports/**",
-  "missions/**", "debt/**",
+  "debt/**",
   "README.md", "CHANGELOG.md", "CONTRIBUTING.md",
   "CLAUDE.md", "TRADEMARKS.md", "LEGAL_DEBT.md",
   "GAPS.md", "DEUDA-404.md", "SECURITY.md",
 ]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC-BY-4.0"
+
+# --- Missions → CC0-1.0 (Oráculo instruction, 2026-09-01: "todas las
+# misiones son CC0") ------------------------------------------------------
+# missions/ carried CC-BY-4.0 only because 0157be9 swept it into the
+# documentation block above; it was never a decision about this folder. A
+# mission is an operating record — what was asked, what was done — and
+# attribution on a work order buys nothing, the same reasoning that took
+# protocols/ and standards/ to CC0. The 65 missions in the tree at 0157be9
+# were published under the root CC0-1.0 LICENSE anyway (irrevocable, C-005).
+# Every file declares CC0-1.0 in its own frontmatter; check-license-
+# frontmatter.mjs compares the two. After the docs block so it wins.
+[[annotations]]
+path = ["missions/**"]
+SPDX-FileCopyrightText = "2026 Numen Games S.L."
+SPDX-License-Identifier = "CC0-1.0"
 
 # --- Blueprints and protocols → CC0-1.0 (MIS-127, Oráculo decision) ------
 # Blueprints are public domain. The CC-BY-4.0 label they carried was applied
