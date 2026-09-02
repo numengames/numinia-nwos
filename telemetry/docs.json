@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 15910,
+  "chars": 17280,
   "apparatus": false,
   "frozen": false,
-  "tokens": 4734
+  "tokens": 5084
  },
  {
   "path": "CLAUDE.md",
@@ -2326,10 +2326,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 26329,
+  "chars": 26625,
   "apparatus": false,
   "frozen": false,
-  "tokens": 7391
+  "tokens": 7489
  },
  {
   "path": "missions/MIS-0139-repoint-legacy-manual-refs.md",

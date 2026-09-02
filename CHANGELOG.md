@@ -14,6 +14,11 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-02 (MIS-138 step 5: families `headers` and `provenance`, five censuses retired)
+- scripts/lib/families/provenance.mjs: `headers` (docs with/without frontmatter, field_usage, uid_present/collisions, created_T000000Z, hygiene) and `provenance` (authorship by nature of `author:`, created vs first-add commit over the whole corpus with renames followed, REUSE regime crossings over every rename in history, P-003 anchor rule on missions). One `git log` walk per run. 72 figures in 7 families; instrument v0.4.0.
+- Retired, their predicate now in the dataset with its definition: scripts/experiments/{frontmatter-census, provenance-census, dates-vs-commits, regime-crossings, protocol-anchor}.py. Two were not reproducible as they stood (hard-coded `/repos/numinia-nwos` root; protocol-anchor read its input from /tmp) — the dataset states what was ported and what was not. Kept: complexity-census, index-coverage, public-surface-census, mis127-token-delta (MIS-127's ledger, not measurement of this kind), resolve-citations (a guard-shaped check, not a count).
+- Where the old and new predicates differ they differ on purpose and the definition says so: `headers.docs_with_frontmatter` uses the shared reader (264) where frontmatter-census used a raw regex (262); `provenance.authorship` classifies the whole corpus, not the RPT-011 SBOM grant list.
+
 ### Added — 2026-09-02 (MIS-138 step 4: family `tokens`, no tokenizer dependency)
 - scripts/lib/cl100k.mjs: cl100k_base encoder over the rank file, ≈60 lines, no package. Rank file pinned by sha256 (the one tiktoken pins), fetched by `node scripts/telemetry.mjs --fetch-tokenizer` into `scripts/lib/tokenizer/` (gitignored). Equal to `tiktoken.encode_ordinary` over every tracked .md (criterion 6, by test — tiktoken venv present; named skip otherwise).
 - scripts/lib/families/tokens.mjs: `tokens.total` = 601857 @ `19c5b96` (whole file, frontmatter included, tracked .md outside web/), `by_dir`, `by_status`, `missions_share_pct` (39.21 %), `largest`; per-document `tokens` column in `telemetry/docs.json`. Rank file absent → every key `null` with the reason, exit 0. 56 figures in 5 families; instrument v0.3.0.
