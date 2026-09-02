@@ -40,6 +40,7 @@ import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { declareBlindSpots } from './lib/blindness.mjs';
+import { parseFM, loadRules, isApparatus } from './lib/frontmatter.mjs';
 declareBlindSpots('lint-naming');
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -48,45 +49,19 @@ const args = process.argv.slice(2);
 const REPORT = args.includes('--report');
 const WRITE = args.includes('--write-baseline');
 
-/** ADR-005 v1.1.0 — the 13-series register, current as of MIS-125.
- *  NOT the stale 8-series map in lint-frontmatter.mjs's PREFIX constant —
- *  that one still reads `debt: 'D'`, `standards: 'S'`, `protocols: 'P'`,
- *  none of which match the current register. This guard uses the same
- *  SERIES map check-references.mjs already carries, verified live. */
-const SERIES = {
-  missions:        { prefix: 'MIS', digits: 4 },
-  decisions:       { prefix: '(?:ADR|DEC)', digits: 3 },
-  protocols:       { prefix: 'PRO', digits: 3 },
-  debt:            { prefix: 'DBT', digits: 3 },
-  standards:       { prefix: 'STD', digits: 3 },
-  canon:           { prefix: 'CAN', digits: 3 },
-  operations:      { prefix: 'OPS', digits: 3 },
-  // ADR-005 v1.2.0 (2026-09-01): reports/ is flat and carries two legal
-  // shapes — RPT-NNN for everything, RPT-YYYY-MM-DD for `subtype: daily`
-  // ONLY (ADR-004 rule 3: a daily IS its date). The date form is checked
-  // against the frontmatter, not just the filename: a dated name on a
-  // non-daily is the N-04 violation ADR-005 v1.1.0 always meant it to be.
-  reports:         { prefix: 'RPT', digits: 3, dailyDate: true },
-  blueprints:      { prefix: 'BLU', digits: 3 },
-  guilds:          { prefix: 'GLD', digits: 3 },
-  infra:           { prefix: 'INF', digits: 3 },
-  system:          { prefix: 'SYS', digits: 3 },
-  // history/ deliberately absent — ADR-035 §2: superseded records keep the
-  // frozen-artifact filename shape (S-005 §3.2), which N-02/N-03 already
-  // enforce. A number would assert they are living documents.
-  // agents/ deliberately absent — ADR-005 v1.1.0 reversal, folder-named.
-};
+/** ADR-005 v1.2.0 register — read from scripts/lib/rules.json since MIS-138
+ *  (2026-09-02). Three private copies of this map (here, check-references,
+ *  lint-frontmatter's PREFIX) drifted from each other before that; now one
+ *  file, shared with the telemetry instrument. history/ and agents/ carry
+ *  no filename scheme (ADR-035 §2; ADR-005 v1.1.0 reversal). */
+const RULES = loadRules();
+const SERIES = Object.fromEntries(Object.entries(RULES.series)
+  .filter(([k, v]) => !k.startsWith('_') && v.naming !== false)
+  .map(([k, v]) => [k, { prefix: v.prefix.length > 1 ? `(?:${v.prefix.join('|')})` : v.prefix[0], digits: v.digits, dailyDate: !!v.dailyDate }]));
 
-/* Apparatus: excluded from series naming by the same convention D-008 and
-   lint-frontmatter.mjs already use — not a document of the series, the
-   scaffolding around it. */
-const APPARATUS_BASENAMES = new Set(['README.md', 'INDEX.md', 'TEMPLATE.md']);
-// missions/TEMPLATE-*.md: the template's worked example and its change record —
-// lint-frontmatter.mjs already reads them as templates (IS_TEMPLATE). Same rule
-// here since 2026-09-02 (missions/ normalisation); before that the two guards
-// disagreed about the same three files.
-const isApparatusPath = (rel) => /\/_template\//.test(rel) || rel.startsWith('agents/_template/')
-  || /^missions\/TEMPLATE-/.test(rel);
+/* Apparatus (D-014): scaffolding around a series, not a member of it. The
+   list lives in rules.json (`apparatus`) since MIS-138 — the same list
+   count-evidence and lint-frontmatter's IS_TEMPLATE used to hold privately. */
 
 const ROOT_UPPERCASE_RE = /^[A-Z][A-Z_]*\.md$/;
 const KEBAB_SLUG_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
@@ -97,16 +72,7 @@ const FROZEN_ARTIFACT_RE = /^\d{4}_\d{2}_\d{2}-[A-Za-z0-9_]+-v\d+\.\d+\.\d+\.md$
    the date is the whole identity. */
 const DAILY_REPORT_RE = /^RPT-\d{4}-\d{2}-\d{2}\.md$/;
 
-function parseFM(text) {
-  const m = text.match(/^---\s*\n([\s\S]*?)\n---(\n|$)/);
-  if (!m) return null;
-  const fields = {};
-  for (const line of m[1].split('\n')) {
-    const kv = line.match(/^([A-Za-z_][A-Za-z0-9_.-]*):\s*(.*)$/);
-    if (kv) fields[kv[1]] = kv[2].trim().replace(/^["']|["']$/g, '');
-  }
-  return fields;
-}
+/* parseFM: scripts/lib/frontmatter.mjs (shared with every guard and the instrument). */
 
 const findings = []; // { check, file, detail }
 const F = (check, file, detail) => findings.push({ check, file, detail });
@@ -141,16 +107,15 @@ for (const rel of files) {
 
   if (top === 'agents') continue; // ADR-005 v1.1.0: no naming scheme applies
 
-  if (APPARATUS_BASENAMES.has(base) || isApparatusPath(rel)) continue;
-
   const text = readFileSync(path.join(ROOT, rel), 'utf8');
   const fm = parseFM(text) || {};
+  if (isApparatus(rel, null)) continue;
   // D-014 (count-evidence.py applies the same rule): `type: meta` IS the
   // apparatus declaration. A document that says so is scaffolding around a
   // series, not a member of it, and no series filename shape applies. Until
   // 2026-09-02 this guard only knew apparatus by basename, so a declared
   // annex (missions/ANNEX-…) failed N-04 while count-evidence excluded it.
-  if (fm.type === 'meta') continue;
+  if (isApparatus(rel, fm)) continue;
   const exemption = fm.registration === 'exempt' ? fm.registration_exemption : null;
 
   /* N-02: version/date in a LIVING document's filename.
