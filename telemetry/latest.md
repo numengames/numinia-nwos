@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-02T15:58:01Z"
+updated: "2026-09-02T16:37:38Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `924ca38+index`  · corpus_hash: `d0e6692e8e88a005…`  · measured_at: 2026-09-02T15:58:01Z  · root_dirty: 0
+- head: `36e454a`  · corpus_hash: `a8d418a956c53818…`  · measured_at: 2026-09-02T16:37:38Z  · root_dirty: 0
 
 ## corpus
 
@@ -36,7 +36,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `corpus.apparatus` | 13 | documents | corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path) |
 | `corpus.scripts_total` | 64 | files | files under `scripts/` with a code extension (.py .mjs .js .sh .ts) |
 | `corpus.scripts_by_language` | (table below) | files | those scripts by language, from the extension |
-| `corpus.scripts_in_ci` | 8 | files | scripts named in `.github/workflows/ci.yml` as `scripts/<name>` |
+| `corpus.scripts_in_ci` | 12 | files | scripts named in `.github/workflows/ci.yml` as `scripts/<name>` |
 
 ### `corpus.files_by_ext`
 
@@ -501,7 +501,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 ### `contradictions.ci_scripts_not_marked`
 
-6 rows (scripts) — in `latest.json`.
+9 rows (scripts) — in `latest.json`.
 
 ### `contradictions.id_form_per_series`
 
@@ -644,5 +644,5 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 ### `legacy.ci_guards`
 
-8 rows (paths) — in `latest.json`.
+11 rows (paths) — in `latest.json`.
 
