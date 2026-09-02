@@ -57,7 +57,7 @@ const ciclo_continuidad = [
     icono: "lightning",
     color: "#8fc46b",
     pregunta: "¿Qué debo hacer?",
-    respuesta: "Lee missions/active/, blueprints/, decisions/. Sabe qué está pendiente, qué se decidió y por qué.",
+    respuesta: "Lee missions/ (el estado vive en el frontmatter, no en carpetas), blueprints/, decisions/. Sabe qué está pendiente, qué se decidió y por qué.",
     sin_repo: "Pregunta al humano todo desde cero. Sin contexto.",
     con_repo: "Continúa donde el anterior Nimrod lo dejó. Sin preguntas innecesarias.",
   },
@@ -75,7 +75,7 @@ const ciclo_continuidad = [
 const que_contiene = [
   { carpeta: "agents/", icono: "robot", desc: "Identidad completa de cada agente: SOUL, OPERATOR, STATUS, MEMORY.", critico: true },
   { carpeta: "canon/", icono: "scroll", desc: "Los 9 documentos fundacionales de Numinia. Inmutables. La Constitución.", critico: true },
-  { carpeta: "missions/", icono: "lightning", desc: "54 misiones con historia, criterios, valor epistémico y Ejecución Real.", critico: true },
+  { carpeta: "missions/", icono: "lightning", desc: "Cada misión con historia, criterios, valor epistémico y cierre documentado (54 en la fecha de este relato, 2026-04; hoy más de 130).", critico: true },
   { carpeta: "decisions/", icono: "circle", desc: "Cada decisión con su contexto, alternativas rechazadas y por qué.", critico: true },
   { carpeta: "blueprints/", icono: "ruler", desc: "Estado actual y objetivo de cada subsistema. Gaps y dependencias.", critico: false },
   { carpeta: "reports/", icono: "clipboard-text", desc: "Historial diario de operaciones. Qué pasó, cuánto costó, qué se aprendió.", critico: false },
@@ -270,7 +270,7 @@ const que_contiene = [
           {[
             { text: "Nimrod existe en el repo con identidad completa", ok: true },
             { text: "9 documentos seminales en el canon del repo", ok: true },
-            { text: "54 misiones con detalle completo", ok: true },
+            { text: "54 misiones con detalle completo (cifra de 2026-04; la serie sigue creciendo)", ok: true },
             { text: "5 decisiones con contexto y alternativas", ok: true },
             { text: "6 días de reportes históricos", ok: true },
             { text: "4 agentes con SOUL.md en el repo", ok: true },

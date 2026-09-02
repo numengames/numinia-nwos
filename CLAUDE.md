@@ -18,7 +18,7 @@ This is the Numinia NWOS workspace: canon, lore, guilds, missions, protocols and
 - `npm run build` — production build to `web/dist/`
 - `npm run build:pdf` — after build: prints every `/print/*` page to `web/dist/pdf/*.pdf` with Chromium and removes `dist/print/` (MIS-088). Deploy flow is build → build:pdf → `npx wrangler deploy`; CI runs build only.
 
-No tests or lint yet (MIS-070). CI (`.github/workflows/ci.yml`) runs the licence-frontmatter guard (`node scripts/check-license-frontmatter.mjs`) and the web build on every push/PR; OpenSSF Scorecard runs weekly. Node ≥ 22.12 required.
+CI (`.github/workflows/ci.yml`) runs ten steps on every push/PR: six guards (licence-frontmatter, frontmatter-yaml, references, frontmatter-delimiter, header lint H-00…H-38, naming lint N-01…N-05), the web build, then the orphan-content and URL-lifecycle ratchets. Tests: `node scripts/lint-naming.test.mjs`, `node scripts/rename-series.test.mjs`, `node scripts/test/*.test.mjs` (not yet in CI — MIS-101). OpenSSF Scorecard runs weekly. Node ≥ 22.12 required.
 
 ## Stack & architecture (`web/`)
 

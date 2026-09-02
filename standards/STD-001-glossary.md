@@ -4,9 +4,9 @@ id: "STD-001"
 uid: ""
 type: documentation
 status: active
-version: "5.1.2"
+version: "5.1.3"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-09-02T08:34:08+02:00"
+updated: "2026-09-02T10:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -1381,8 +1381,9 @@ evidence for it is absent.
 
 ---
 
-Every figure in this document comes from `scripts/count-evidence.py`, measured
-against HEAD `7d17b5a`:
+Every figure in the table below comes from `scripts/count-evidence.py`, measured
+against HEAD `7d17b5a` (2026-08-24) — **a dated census, kept as the baseline
+this standard was written against; the live coverage figures are §4.1**:
 
 | Figure | Value |
 |---|--:|
@@ -1451,6 +1452,7 @@ gets filled differently by each person who meets it — which is how
 
 ## Version history
 
+- **v5.1.3** (2026-09-02) — the 2026-08-24 census table (`7d17b5a`) labelled as dated; §4.1 is the live figure. `MIS-135` row 17, #200.
 - **v5.1.2** (2026-09-02) — §4.1 `missions/` 3/134 → 132/132 (missions/ normalisation, PR #198: every file renamed to `MIS-0NNN-<slug>.md`; `MIS-115a`/`MIS-115b` and the closure-guard proposal registered as `MIS-132`…`MIS-134`; `MIS-135` opened; `TEMPLATE*`/`ANNEX` counted as apparatus, hence the smaller denominator). Figure from `count-evidence.py` on the merge of #198 with `6cc7b40`. The 2026-09-02 v5.1.1 line above is #196's and stands.
 - **v5.1.1** (2026-09-02) — §4.1 coverage column re-measured at `7f51235` by
   `count-evidence.py` after `MIS-125` Stage C (#181–#192) and `MIS-127` rows
