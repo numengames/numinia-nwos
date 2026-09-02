@@ -12,7 +12,7 @@
 //
 // Run: node scripts/test/telemetry.test.mjs
 import { execFileSync, spawnSync } from 'node:child_process';
-import { existsSync, mkdtempSync, writeFileSync, readFileSync, readdirSync, rmSync, cpSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, writeFileSync, readFileSync, readdirSync, rmSync, cpSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { ROOT } from '../lib/frontmatter.mjs';
@@ -50,6 +50,26 @@ check('tokens: cl100k.mjs equals tiktoken over every tracked .md (criterion 6)',
   const script = "import json,sys,tiktoken\ne=tiktoken.get_encoding('cl100k_base')\nrows=json.load(sys.stdin)\nbad=[r['path'] for r in rows if len(e.encode_ordinary(open(r['path'],encoding='utf-8').read()))!=r['tokens']]\nprint(json.dumps(bad))";
   const bad = JSON.parse(execFileSync(py, ['-c', script], { cwd: ROOT, input: JSON.stringify(rows), encoding: 'utf8', env: { ...process.env, TIKTOKEN_CACHE_DIR: '/tmp/tk' } }));
   return bad.length === 0 || `differ on ${bad.length}: ${bad.slice(0, 3).join(', ')}`;
+});
+
+// D4 layer 2: the register is verified against the tree every run — open → resolved when the quote
+// leaves its file, moved when it turns up in another tracked .md. The instrument never edits.
+check('contradictions: claims.json states follow the tree (open → resolved / moved)', () => {
+  const c = scratchClone();
+  try {
+    const reg = JSON.parse(readFileSync(path.join(c, 'telemetry/claims.json'), 'utf8'));
+    // a claim whose quote occurs in exactly one tracked .md — the only kind whose state can move
+    const first = reg.claims.find((x) => x.path.endsWith('.md') && execFileSync('git', ['-C', c, 'grep', '-l', '-F', x.quote, '--', '*.md'], { encoding: 'utf8' }).trim().split('\n').length === 1);
+    if (!first) return 'skipped: no .md claim in register';
+    const f = path.join(c, first.path); const t = readFileSync(f, 'utf8');
+    writeFileSync(f, t.split(first.quote).join('QUOTE-GONE'));
+    writeFileSync(path.join(c, 'debt/moved-fixture.md'), `---\nid: DBT-999\ntitle: fixture\nstatus: active\n---\n${first.quote}\n`);
+    execFileSync('git', ['-C', c, 'add', '-A'], { stdio: 'ignore' });
+    const moved = run(c).figures['contradictions.claims'].value.find((r) => r.id === first.id);
+    rmSync(path.join(c, 'debt/moved-fixture.md')); execFileSync('git', ['-C', c, 'add', '-A'], { stdio: 'ignore' });
+    const resolved = run(c).figures['contradictions.claims'].value.find((r) => r.id === first.id);
+    return (moved.state === 'moved' && moved.where === 'debt/moved-fixture.md' && resolved.state === 'resolved') || `got ${moved.state}/${moved.where} then ${resolved.state}`;
+  } finally { rmSync(c, { recursive: true, force: true }); }
 });
 
 // Criterion 2, frozen: count-evidence.py --json captured at the HEAD it was retired from, on that
@@ -125,6 +145,8 @@ function scratchClone() {
   // Fresh repo, never the worktree's .git pointer: a fixture `git add` must touch only the clone.
   const dir = mkdtempSync(path.join(tmpdir(), 'telemetry-'));
   cpSync(ROOT, dir, { recursive: true, filter: (src) => !/[\\/](\.git|node_modules|dist|\.astro|\.hermes|telemetry)([\\/]|$)/.test(src) });
+  // telemetry/ is output and stays out — except claims.json, which is input (the register)
+  if (existsSync(path.join(ROOT, 'telemetry/claims.json'))) { mkdirSync(path.join(dir, 'telemetry'), { recursive: true }); cpSync(path.join(ROOT, 'telemetry/claims.json'), path.join(dir, 'telemetry/claims.json')); }
   execFileSync('git', ['-C', dir, 'init', '--quiet'], { stdio: 'ignore' });
   execFileSync('git', ['-C', dir, 'add', '-A'], { stdio: 'ignore' });
   execFileSync('git', ['-C', dir, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-q', '-m', 'base'], { stdio: 'ignore' });
