@@ -14,6 +14,10 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-02 (MIS-138 v1.1.0: iteration 1 with the Oracle, `in-progress`)
+- missions/MIS-0138 → v1.1.0, `status: in-progress`: Design section (D1–D6) — one instrument in Node beside the guards, 12 measurers absorbed and retired, guards not; families `corpus` · `tokens` · `contradictions` · `provenance`; `corpus_hash` as the authority for a committed `telemetry/` dataset; the v1.0.0 render markers inside other documents dropped for one rendered dataset document; STD-001 §10.5 re-drafted as the citation form (pure ban costed as the alternative); criteria in key + target form; adds/removes and surprise accounted in tokens. No instrument code.
+- guards: references-baseline 669 → 670 (+1, deliberate: the brief names the planned rendered dataset document, which does not exist yet; the entry is removed by the PR that creates it).
+
 ### Added — 2026-09-02 (MIS-138: telemetry instrument — brief)
 - missions/MIS-0138 opened (`todo`, Alchemists, effort L): one program measures the corpus and writes one dataset with each figure's unit, definition and `HEAD`; `count-evidence.py` and the one-shot censuses fold into it; two documents rendered from it (STD-001 §4.1, DBT-001 coverage). Every figure in the brief was measured at `e4b94e7` by script — 152 hand-typed live figures in 28 documents; "pages built" carries 6 different values across 6 documents. Four decisions for the Oracle. No instrument code in this PR.
 
