@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "0d0d5e7+index",
-  "corpus_hash": "9e6e731cdca1c718410707171abe83fcc5aaa956b7e8601b985edb9c3fd64432",
+  "head": "924ca38+index",
+  "corpus_hash": "d0e6692e8e88a005f361f2c3fa965995ae2a0e838d6b97284b22c366d03a0635",
   "root_dirty": 0,
-  "measured_at": "2026-09-02T15:48:22Z",
+  "measured_at": "2026-09-02T15:58:01Z",
   "families": [
     "corpus",
     "series",
@@ -244,7 +244,8 @@
       "value": {
         "done": 62,
         "frozen": 38,
-        "in-progress": 8,
+        "in-progress": 7,
+        "in-review": 1,
         "todo": 28
       },
       "unit": "missions",
@@ -356,22 +357,22 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 603060,
+      "value": 604731,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "missions": 236299,
+        "missions": 237249,
         "reports": 86903,
-        "standards": 85071,
+        "standards": 85582,
         "canon": 40873,
         "debt": 37619,
         "operations": 21667,
         "protocols": 21576,
         "decisions": 17355,
         "agents": 16628,
-        "": 11363,
+        "": 11573,
         "system": 9980,
         "history": 7274,
         "blueprints": 5703,
@@ -384,20 +385,21 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 212294,
+        "active": 212805,
         "done": 119512,
         "closed": 85474,
-        "(none)": 55489,
+        "(none)": 55699,
         "todo": 43585,
-        "in-progress": 34046,
         "frozen": 34004,
-        "draft": 18656
+        "in-progress": 26450,
+        "draft": 18656,
+        "in-review": 8546
       },
       "unit": "tokens",
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 39.18,
+      "value": 39.23,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -409,7 +411,7 @@
         ],
         [
           "standards/STD-001-glossary.md",
-          21516
+          22027
         ],
         [
           "reports/RPT-011-licensing-c005.md",
@@ -707,7 +709,8 @@
         "frozen": 38,
         "todo": 29,
         "done": 63,
-        "in-progress": 8
+        "in-progress": 7,
+        "in-review": 1
       },
       "unit": "documents",
       "definition": "frontmatter status values in the corpus with counts"
@@ -742,10 +745,10 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 425
+          "3": 429
         },
         "MIS": {
-          "3": 1450,
+          "3": 1456,
           "4": 23
         },
         "CAN": {
@@ -762,7 +765,7 @@
           "4": 52
         },
         "DBT": {
-          "3": 115
+          "3": 116
         },
         "PRO": {
           "3": 259
@@ -848,7 +851,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 661,
+      "value": 662,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
@@ -868,7 +871,7 @@
         "reports/RPT-010-phase0-inventory.md": 13,
         "reports/RPT-001-debt-register-refactor.md": 12,
         "reports/RPT-004-cold-agent.md": 11,
-        "operations/OPS-007-sales.md": 10
+        "missions/MIS-0138-telemetry-instrument.md": 10
       },
       "unit": "lines",
       "definition": "the fifteen docs with most such lines"
@@ -899,7 +902,7 @@
       "definition": "docs_total − docs_con_frontmatter"
     },
     "legacy.referencias_textuales_total": {
-      "value": 2948,
+      "value": 2954,
       "unit": "mentions",
       "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
     },
@@ -1064,8 +1067,9 @@
         "done": 63,
         "frozen": 38,
         "todo": 29,
-        "in-progress": 8,
+        "in-progress": 7,
         "draft": 1,
+        "in-review": 1,
         "active": 1
       },
       "unit": "documents",

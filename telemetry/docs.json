@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 18189,
+  "chars": 18991,
   "apparatus": false,
   "frozen": false,
-  "tokens": 5359
+  "tokens": 5569
  },
  {
   "path": "CLAUDE.md",
@@ -2325,11 +2325,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-progress",
-  "chars": 26954,
+  "status": "in-review",
+  "chars": 30213,
   "apparatus": false,
   "frozen": false,
-  "tokens": 7596
+  "tokens": 8546
  },
  {
   "path": "missions/MIS-0139-repoint-legacy-manual-refs.md",
@@ -2887,10 +2887,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 77732,
+  "chars": 79683,
   "apparatus": false,
   "frozen": false,
-  "tokens": 21516
+  "tokens": 22027
  },
  {
   "path": "standards/STD-002-governance.md",

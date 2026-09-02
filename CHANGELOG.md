@@ -14,6 +14,12 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-02 (MIS-138 step 7: closure — §10.5 proposed, README, ledger repaired)
+- standards/STD-001-glossary.md v5.3.0: §10.5 *A corpus figure is produced once and cited everywhere else* added as PROPOSED (decision 2 = citation form); awaits the Oracle's signature.
+- telemetry/README.md: what each file is, who writes it, how to run and read the instrument.
+- telemetry/history.jsonl repaired from git: the ship steps of #211–#213 deleted `telemetry/` before measuring and truncated the ledger to one line each time (criterion 9 violated three times, unnoticed). Every line ever committed restored in order (5 @ `924ca38`); a test now fails if any committed line is missing.
+- Acceptance run at `924ca38`: 87 figures, 9 families; see the mission's closure for the per-criterion reading.
+
 ### Added — 2026-09-02 (MIS-138 step 6: families `contradictions` and `figures` — D4, D5)
 - scripts/lib/families/claims.mjs. `contradictions` layer 1, extractor classes: status vocabulary vs rules.json, `[CI]` rows of STD-001 vs `run: node` steps of ci.yml (6 scripts run that no row claims @ `0d0d5e7`), id digit width per series (MIS, RPT cited with both widths). Layer 2, the verified register `telemetry/claims.json`: MIS-135's deferred rows with a locating quote; every run checks each quote → open · resolved · moved (5 open @ `0d0d5e7`). Not built, said so: `pages_built`, `series_registered`.
 - `figures`: `live` = lines outside telemetry/ stating a corpus-shaped figure with no `@ head` beside it (661 @ `0d0d5e7` — a detector, not a verdict), `cited` and `stale_citations` for the §10.5 form `key = value @ head`. 87 figures in 9 families; instrument v0.5.0. The instrument never edits a document.
