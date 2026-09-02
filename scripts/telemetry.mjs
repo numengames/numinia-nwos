@@ -12,6 +12,7 @@
 //   node scripts/telemetry.mjs --check    # exit 1 if telemetry/latest.json is not HEAD's corpus (stale/altered)
 //   node scripts/telemetry.mjs --print    # measure, print latest.json to stdout, write nothing
 //   node scripts/telemetry.mjs --key a.b  # print one figure with its predicate
+//   node scripts/telemetry.mjs --fetch-tokenizer  # download cl100k_base.tiktoken into scripts/lib/tokenizer/, verify sha256 (gitignored, ≈1.6 MB)
 //   node scripts/telemetry.mjs --legacy-json  # the count-evidence.py --json dict (family legacy + head), for the transition
 //
 // Read-only over the corpus; writes only under telemetry/. Deterministic:
@@ -24,17 +25,28 @@ import * as corpus from './lib/families/corpus.mjs';
 import * as series from './lib/families/series.mjs';
 import * as missions from './lib/families/missions.mjs';
 import * as legacy from './lib/families/legacy.mjs';
+import * as tokens from './lib/families/tokens.mjs';
+import { RANK_URL, RANK_SHA256, RANK_PATH } from './lib/cl100k.mjs';
 import { declareBlindSpots } from './lib/blindness.mjs';
 
-const VERSION = '0.2.0';
+const VERSION = '0.3.0';
 // Declared on every exit, like the guards (D-025). Silenced for --print/--legacy-json/--key: their stdout is
 // parsed by tests and pipes, and blindness prints to stderr only after the JSON — still, one channel per run.
-if (!process.argv.some((a) => ['--print', '--legacy-json', '--key'].includes(a))) declareBlindSpots('telemetry');
-const FAMILIES = { corpus, series, missions, legacy };
+if (!process.argv.some((a) => ['--print', '--legacy-json', '--key', '--fetch-tokenizer'].includes(a))) declareBlindSpots('telemetry');
+const FAMILIES = { corpus, series, missions, tokens, legacy };
 const OUT = path.join(ROOT, 'telemetry');
 const args = process.argv.slice(2);
 const flag = (f) => args.includes(f);
 const keyArg = args[args.indexOf('--key') + 1];
+
+if (flag('--fetch-tokenizer')) {
+  const { createHash } = await import('node:crypto');
+  const buf = Buffer.from(await (await fetch(RANK_URL)).arrayBuffer());
+  const sha = createHash('sha256').update(buf).digest('hex');
+  if (sha !== RANK_SHA256) { console.error(`fetched sha256 ${sha} ≠ pinned ${RANK_SHA256}; not written`); process.exit(1); }
+  mkdirSync(path.dirname(RANK_PATH), { recursive: true }); writeFileSync(RANK_PATH, buf);
+  console.log(`cl100k_base.tiktoken ${buf.length} bytes, sha256 verified → ${path.relative(ROOT, RANK_PATH)}`); process.exit(0);
+}
 
 export function measureAll() {
   const rules = loadRules();
@@ -51,7 +63,7 @@ export function measureAll() {
     families: Object.keys(FAMILIES),
     figures,
   };
-  const rows = docs.map((d) => ({ path: d.path, dir: d.dir, series: d.series, type: d.type, status: d.status, chars: d.chars, apparatus: d.apparatus, frozen: d.frozen }));
+  const rows = docs.map((d) => ({ path: d.path, dir: d.dir, series: d.series, type: d.type, status: d.status, chars: d.chars, apparatus: d.apparatus, frozen: d.frozen, tokens: d.tokens ?? null }));
   return { latest, docs: rows };
 }
 

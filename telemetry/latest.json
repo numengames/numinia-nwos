@@ -1,18 +1,19 @@
 {
-  "instrument": "scripts/telemetry.mjs v0.2.0",
-  "head": "6a97fbf+index",
-  "corpus_hash": "8464c53e312904687f54a4f1c6cf16b9d036b5c321985cf7807f4c2d4ffdf888",
+  "instrument": "scripts/telemetry.mjs v0.3.0",
+  "head": "19c5b96+index",
+  "corpus_hash": "8343da640ae46957ae41241ff1319108c1780d6ac001267e0f4fbefad5df5531",
   "root_dirty": 0,
-  "measured_at": "2026-09-02T15:09:29Z",
+  "measured_at": "2026-09-02T15:22:24Z",
   "families": [
     "corpus",
     "series",
     "missions",
+    "tokens",
     "legacy"
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 603,
+      "value": 605,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -28,7 +29,7 @@
         ".js": 1,
         ".json": 21,
         ".md": 272,
-        ".mjs": 34,
+        ".mjs": 36,
         ".png": 36,
         ".py": 28,
         ".sh": 7,
@@ -107,13 +108,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 65,
+      "value": 67,
       "unit": "files",
       "definition": "files under `scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 30,
+        "node": 32,
         "python": 28,
         "shell": 7
       },
@@ -345,6 +346,83 @@
       "unit": "missions",
       "definition": "`started` written in `Z`"
     },
+    "tokens.tokenizer": {
+      "value": "cl100k_base sha256:223921b76ee9",
+      "unit": "identity",
+      "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
+    },
+    "tokens.total": {
+      "value": 602230,
+      "unit": "tokens",
+      "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
+    },
+    "tokens.by_dir": {
+      "value": {
+        "missions": 236094,
+        "reports": 86903,
+        "standards": 85071,
+        "canon": 40873,
+        "debt": 37619,
+        "operations": 21667,
+        "protocols": 21576,
+        "decisions": 17355,
+        "agents": 16628,
+        "": 10738,
+        "system": 9980,
+        "history": 7274,
+        "blueprints": 5703,
+        "guilds": 2920,
+        "infra": 1511,
+        ".github": 318
+      },
+      "unit": "tokens",
+      "definition": "tokens per top-level dir, largest first"
+    },
+    "tokens.by_status": {
+      "value": {
+        "active": 212294,
+        "done": 119512,
+        "closed": 85474,
+        "(none)": 54864,
+        "todo": 43585,
+        "frozen": 34004,
+        "in-progress": 33841,
+        "draft": 18656
+      },
+      "unit": "tokens",
+      "definition": "tokens per frontmatter status ((none) = no status), largest first"
+    },
+    "tokens.missions_share_pct": {
+      "value": 39.2,
+      "unit": "percent",
+      "definition": "100·tokens(missions/)/total, rounded to 0.01"
+    },
+    "tokens.largest": {
+      "value": [
+        [
+          "standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md",
+          45633
+        ],
+        [
+          "standards/STD-001-glossary.md",
+          21516
+        ],
+        [
+          "reports/RPT-011-licensing-c005.md",
+          12537
+        ],
+        [
+          "canon/CAN-002-brand-and-culture.md",
+          11817
+        ],
+        [
+          "missions/MIS-0125-prefix-register.md",
+          10084
+        ]
+      ],
+      "unit": "tokens",
+      "definition": "the five largest documents as [path, tokens]"
+    },
     "legacy.docs_total": {
       "value": 272,
       "unit": "documents",
@@ -361,7 +439,7 @@
       "definition": "docs_total − docs_con_frontmatter"
     },
     "legacy.referencias_textuales_total": {
-      "value": 2940,
+      "value": 2941,
       "unit": "mentions",
       "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
     },

@@ -15,7 +15,7 @@ completed: null
 type: mission
 version: "1.1.1"
 created: "2026-09-02T12:07:58Z"
-updated: "2026-09-02T17:04:00+02:00"
+updated: "2026-09-02T17:22:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [telemetry, measurement, evidence, tokens, entropy, contradictions, STD-001, DBT-006, MIS-127, archive]
@@ -211,6 +211,7 @@ Validated by: `contradictions.classes` at the first run — if ≤ 5 classes acc
 
 ## Execution log
 
+- 2026-09-02 — **Step 4 shipped**: family `tokens` (D1.3 as decided: rank file by sha256, own encoder in `scripts/lib/cl100k.mjs`, no package; criterion 6 met over every document by test). `tokens.total` = 601857 @ `19c5b96` — the brief's 595,479 @ `cb29f58` is a different tree, not a different method. Instrument v0.3.0, 56 figures. Pending: `headers`/`provenance`, `figures`, `contradictions`, §10.5.
 - 2026-09-02 — **Step 3 shipped**: family `legacy` (the 20 figure keys of `count-evidence.py --json`, 21 with `head`, same names, same values — golden `scripts/test/fixtures/count-evidence-6a97fbf.json`, reproduced by test on that tree); `--legacy-json`; `count-evidence.py` deleted (criterion 2); `measuring_root.py` stays — it is a formatter, not a measurer, and `phase0-inventory.py` + `experiments/dates-vs-commits.py` (MIS-127's lot) import it. Live citers re-pointed, text only: `STD-001` v5.2.0 (`evidence_script`), `DBT-001` v4.3.1, `PRO-010` v0.8.3, `blind-spots.json`. `ADR-005` L44 and the done missions keep their citations (records). Instrument v0.2.0. Pending: `tokens`, `headers`/`provenance` (the 10 experiments), `figures`, `contradictions`, §10.5.
 - 2026-09-02 — **Step 2 shipped**: `scripts/telemetry.mjs` v0.1.0 with families `corpus` · `series` · `missions` (30 figures), `telemetry/` dataset committed, `--check` and `--key`. `series.registration` equals `count-evidence.py matricula` on every series (test). Pending: `legacy` (retire the 12 measurers), `tokens`, `figures`, `contradictions`, STD-001 §10.5.
 - 2026-09-02 — **Step 1 shipped**: `scripts/lib/rules.json` + `frontmatter.mjs`; lint-naming, lint-frontmatter and check-references rewired to them. Verdicts identical on `--report` output before/after, five baselines byte-identical, `rules.test.mjs` 17/17. No instrument code yet: this is the data the instrument and the guards will share (D1.1).

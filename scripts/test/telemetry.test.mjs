@@ -40,6 +40,18 @@ if (existsSync(ce)) {
   });
 }
 
+// Criterion 6: my encoder == tiktoken.encode_ordinary over EVERY document, not one. Needs a python
+// with tiktoken (TIKTOKEN_PY, default /tmp/tiktoken-venv/bin/python3) and the rank file; named skip otherwise.
+check('tokens: cl100k.mjs equals tiktoken over every tracked .md (criterion 6)', () => {
+  const py = process.env.TIKTOKEN_PY ?? '/tmp/tiktoken-venv/bin/python3';
+  if (!existsSync(py)) return `skipped: no ${py}`;
+  if (t1.figures['tokens.total'].value === null) return `skipped: ${t1.figures['tokens.total'].definition}`;
+  const rows = JSON.parse(readFileSync(path.join(ROOT, 'telemetry/docs.json'), 'utf8'));
+  const script = "import json,sys,tiktoken\ne=tiktoken.get_encoding('cl100k_base')\nrows=json.load(sys.stdin)\nbad=[r['path'] for r in rows if len(e.encode_ordinary(open(r['path'],encoding='utf-8').read()))!=r['tokens']]\nprint(json.dumps(bad))";
+  const bad = JSON.parse(execFileSync(py, ['-c', script], { cwd: ROOT, input: JSON.stringify(rows), encoding: 'utf8', env: { ...process.env, TIKTOKEN_CACHE_DIR: '/tmp/tk' } }));
+  return bad.length === 0 || `differ on ${bad.length}: ${bad.slice(0, 3).join(', ')}`;
+});
+
 // Criterion 2, frozen: count-evidence.py --json captured at the HEAD it was retired from, on that
 // tree minus telemetry/ (the script counted the dataset's own rendered page; the instrument never does).
 // The legacy family must still produce that dict when run on that same tree. Checked here by
