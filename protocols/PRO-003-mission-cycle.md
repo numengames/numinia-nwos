@@ -4,11 +4,11 @@ uid: ""
 title: "Mission Protocol — briefing, cycle, coordination"
 type: protocol
 status: active
-version: "4.1.0"
+version: "4.2.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-02T01:30:00+02:00"
+updated: "2026-09-02T10:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [protocol, missions, cycle, briefing, coordination]
@@ -50,11 +50,11 @@ Before reading the briefing, the mission must exist in the repo.
 ```
 IF missions/MIS-NNNN-*.md does not exist:
   CREATE it following the frontmatter schema (STD-004)
-  SET status: backlog
+  SET status: todo
   COMMIT to repo
   THEN proceed to Step 2
 
-IF it exists with status: backlog:
+IF it exists with status: todo:
   SET status: in-progress, set started timestamp
   COMMIT to repo
   THEN proceed to Step 2
@@ -133,23 +133,26 @@ and no index file; the board at numinia.org/missions is built from the folder on
 every deploy.
 
 ```
-draft → backlog → in-progress → in-review → done | cancelled
-                       ↑______________|  (Oracle requests changes)
+todo → in-progress → in-review → done
+              ↑___________|  (Oracle requests changes)
 
 frozen ←— from any non-terminal state (Oracle decision)
   ↓
-backlog — when unfrozen
+todo — when unfrozen
 ```
 
-| State | Who sets it |
-|-------|-------------|
-| `draft` | Author (brief not yet approved) |
-| `backlog` | Oracle |
-| `in-progress` | Executor agent |
-| `in-review` | Executor agent |
-| `done` | Oracle |
-| `frozen` | Oracle |
-| `cancelled` | Oracle |
+| State | Who sets it | Stamp |
+|-------|-------------|-------|
+| `todo` | Oracle (accepted, not started) | — |
+| `in-progress` | Executor agent | `started` |
+| `in-review` | Executor agent | `in_review_at` |
+| `done` | Oracle | `completed` |
+| `frozen` | Oracle | `freeze_reason` |
+
+Five values, the closed vocabulary of `STD-001` §7 (2026-08-30). `draft`,
+`backlog` and `cancelled` were withdrawn there: a brief not yet accepted is
+not on the board, and a cancelled mission is `frozen` with
+`freeze_reason: cancelled` — never deleted (SIM-2.7), the file is the record.
 
 ### Mission IDs
 
@@ -175,7 +178,7 @@ If you cannot verify: do not assign.
 1. Use TEMPLATE.md — PRs rejected without correct format
 2. Fill all required frontmatter fields including `uid` (UUID v7)
 3. **Before assigning an ID: verify the repo first**
-4. Set `status: backlog` (or `draft` if the brief is not yet approved)
+4. Set `status: todo` (a brief the Oracle has not accepted stays out of `missions/`)
 5. Create as `missions/{mission-id}-{english-slug}.md`
 6. Commit and open PR to main
 
@@ -214,16 +217,16 @@ If you cannot verify: do not assign.
 1. Set `status: frozen`
 2. Fill `freeze_reason` in frontmatter
 3. Mission stays visible in the board's Frozen section
-4. To unfreeze: set `status: backlog`, clear `freeze_reason`
+4. To unfreeze: set `status: todo`, clear `freeze_reason`
 
 ### Critical rules
 
 - A mission with `status: done` is immutable once merged — never edit
   (Oracle-authorised exceptions must be recorded, cf. the MIS-066 language sweep)
 - Only the executor edits a mission in progress (SIM-2.13)
-- A cancelled mission keeps its file with `status: cancelled` — NEVER deleted (SIM-2.7)
+- A cancelled mission keeps its file as `status: frozen` + `freeze_reason: cancelled` — NEVER deleted (SIM-2.7)
 - **Never assign a mission ID without verifying the repo first**
-- A parent mission cannot be Done if any sub-mission is not Done or Cancelled
+- A parent mission cannot be Done if any sub-mission is not Done or frozen-cancelled
 
 ---
 
@@ -275,3 +278,4 @@ MIS-092/MIS-093.)
 - v3.0.0 (2026-08-17) — Flat missions/ folder: status lives only in frontmatter, no status directories, no index file. States renamed todo→backlog, freeze→frozen; draft added. (MIS-066)
 - v4.1.0 (2026-09-02) — §2 Mission IDs: 4-digit filename per ADR-005 v1.1.0 (the section still prescribed `MIS-NNN`, max 999, a day after the ruling); sub-missions take a number of their own and `parent_mission`, the dot and letter forms retire (MIS-115a/b became MIS-132/133). missions/ normalisation.
 - v4.0.0 (2026-08-31) — **Merged.** Absorbs `P-009` (mission briefing) as §1 — it declared itself a dependency of this protocol — and `P-004` (inter-agent communication) as §4. Renamed `P-003` → `PRO-003` per ADR-005. References to a coordination agent that was never activated removed; the Oracle assigns. `P-009`'s queue/active folder instructions dropped: those folders no longer exist since v3.0.0. MIS-127.
+- v4.2.0 (2026-09-02) — §2 states aligned with `STD-001` §7: `draft`, `backlog`, `cancelled` withdrawn from the diagram, the who-sets table and the four steps that still set them (`todo` everywhere; cancelled = `frozen` + `freeze_reason: cancelled`). The table gains the stamp column. `MIS-135` row 1, #200.
