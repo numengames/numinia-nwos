@@ -1,7 +1,7 @@
 {
   "_comment": "Known-broken references frozen at adoption time. The lint fails only on NEW breakage. This list should shrink over time and never grow. Regenerate only when fixing entries.",
-  "generated": "2026-09-02T00:00:21.333Z",
-  "count": 669,
+  "generated": "2026-09-02T13:18:22.426Z",
+  "count": 670,
   "entries": [
     "FILE AGENTS.md -> MEMORY.md",
     "FILE CHANGELOG.md -> APPROVAL-REQUEST-template.md",
@@ -271,6 +271,7 @@
     "FILE missions/MIS-0125-prefix-register.md -> protocols/2026_04_14-Read_Me_How_to_Archive-v0.2.0.md",
     "FILE missions/MIS-0127-entropy-reduction.md -> credential-map.md",
     "FILE missions/MIS-0127-entropy-reduction.md -> security-policy.md",
+    "FILE missions/MIS-0138-telemetry-instrument.md -> telemetry/latest.md",
     "FILE missions/TEMPLATE-CHANGES.md -> Definition_of_Done_v0.2.0.md",
     "FILE missions/TEMPLATE-CHANGES.md -> Mission_Template_v0_2_0.md",
     "FILE operations/OPS-001-continuity.md -> MEMORY.md",
