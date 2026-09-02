@@ -2,21 +2,21 @@
 id: "MIS-062"
 uid: ""
 title: "Mission System v2 — States, Sub-missions, IDs, Kanban"
-status: todo
+status: done
 priority: "high"
 effort: "XL"
 guild: "Sentinels"
 territory: "CAO"
 assigned_to: null
 started: "2026-04-07T19:43:00Z"
-completed: null
+completed: "2026-09-02"
 
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-04-07T19:43:00Z"
 created_source: "git:749f75c"
 created_confidence: inferred
-updated: "2026-09-02T01:48:11+02:00"
+updated: "2026-09-02T10:01:10+02:00"
 author: "pablo-fm"
 owner: "oracle"
 requested_by: "oracle"
@@ -110,10 +110,18 @@ A Kanban board backed by a real repo is the difference between a system that exi
 - Enables parallel work on complex missions (sub-missions)
 - Frozen missions are visible instead of lost
 
+## Closure
+
+- **What was done:** the v2 state machine designed here shipped through MIS-066 (done 2026-08-17): states in frontmatter, the `uid` field, the recovered missions in `missions/`, the Kanban at numinia.org/missions, PRO-003 v3.0.0.
+- **What diverged, and why:** MIS-066 rejected the v2 folder structure (`queue/ active/ review/ done/ freeze/`) for a flat `missions/` with `status:` as the only state surface (PRO-003 v3.0.0: "no status directories"); the board lives at numinia.org, not pablofm.com; the 3-digit filename became 4-digit (ADR-005 v1.1.0, #198). The five sub-missions never became files — the `sub_missions:` block stays as the record of that design (MIS-135 row 10).
+- **Evidence:** PRO-003 §2 ("flat `missions/` folder (MIS-066)"); MIS-066 `status: done`; the 2026-08-25 audit table in §Board triage (3/4, the fourth replaced by numinia.org/missions).
+- **Closed:** 2026-09-02 · **by:** ursa
+
 ## Version history
 
 - v1.0.0 (2026-04-07) — Initial creation. (MIS-057 → MIS-062)
 - v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; retired identifiers repointed: P-003→PRO-003; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 2.
+- v1.2.0 (2026-09-02) — status todo → done (achieved through MIS-066 (done 2026-08-17); the file stays as the v2 design record). Proposed in #199 on the 2026-09-02 status check; the Oracle signs by merging (PRO-003 §2).
 
 *Nimrod 🗡️ — 2026-04-07*
 

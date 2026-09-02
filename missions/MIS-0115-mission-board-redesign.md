@@ -2,7 +2,7 @@
 id: "MIS-115"
 uid: ""
 title: "Redesign the Mission Board so its order and cards say what is actionable"
-status: in-progress
+status: done
 priority: medium
 effort: L
 guild: "Alchemists"
@@ -10,14 +10,14 @@ territory: "TBA"
 type_execution: digital
 assigned_to: "ursa"
 started: "2026-08-25"
-completed: null
+completed: "2026-09-02"
 
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-25T19:49:11Z"
 created_source: "git:25b3922"
 created_confidence: exact
-updated: "2026-09-02T01:55:26+02:00"
+updated: "2026-09-02T10:01:10+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [web, missions, design, design-system]
@@ -251,24 +251,10 @@ archive.
 
 ## Closure
 
-*(Partial — this mission is not finished. The header retirement landed on
-2026-08-25; the redesign itself has not started.)*
-
-- **What was done so far:** `Human est.` and `Compute est.` removed from the
-  header (`missions.astro`), with the reason written in the code rather than in
-  a commit message nobody re-reads. Stat grid narrowed from six columns to four
-  so the row has no holes.
-
-- **What diverged, and why:** the mock costs were logged here as an *open
-  question for the Oracle*, expecting an answer during the redesign. The answer
-  came immediately and the retirement was carried out ahead of the rest of the
-  mission. **A finding that is filed as a question and answered as an
-  instruction does not wait for its mission's turn** — the false total was
-  being served while the document discussed it.
-
-- **Evidence:** to be completed when the redesign closes.
-
-- **Closed:** not yet.
+- **What was done:** the header's mock costs retired 2026-08-25 (`Human est.` / `Compute est.` out, six columns → four); group order and a date on every card (MIS-132, done 2026-08-25); card hierarchy (MIS-133, done 2026-08-25). Column order verified against `dist/` in MIS-132's closure.
+- **What diverged, and why:** the third phase, 115c ("the header counts what is actionable"), never became a file, and the two criteria it would have carried — Critical count in the header, Closure legibility — were not verified. Not done; whoever wants them opens a mission with today's board as premise. This parent sat `in-progress` for a week for a phase no file described — the reason the status check exists.
+- **Evidence:** MIS-132 §Closure; MIS-133 §Closure; §Two findings (Oracle decisions 2026-08-25).
+- **Closed:** 2026-09-02 · **by:** ursa
 
 ## Status check — 2026-09-02
 
@@ -280,3 +266,5 @@ archive.
 ## Version history
 
 - v1.1.0 (2026-09-02) — import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.
+
+- v1.2.0 (2026-09-02) — status in-progress → done (both shipped phases done as MIS-132/133 (2026-08-25); 115c was never opened). Proposed in #199 on the 2026-09-02 status check; the Oracle signs by merging (PRO-003 §2).

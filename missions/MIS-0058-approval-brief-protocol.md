@@ -2,20 +2,20 @@
 id: "MIS-058"
 uid: ""
 title: "Approval Brief Protocol: Structured communication for human-machine approvals"
-status: todo
+status: done
 priority: high
 effort: S
 guild: "Sentinels"
 territory: "TBA"
 assigned_to: null
-completed: null
+completed: "2026-09-02"
 
 type: mission
-version: "1.3.0"
+version: "1.4.0"
 created: "2026-04-07T14:00:00Z"
 created_source: "git:749f75c"
 created_confidence: inferred
-updated: "2026-09-02T01:48:11+02:00"
+updated: "2026-09-02T10:01:10+02:00"
 owner: "oracle"
 license: "CC0-1.0"
 ---
@@ -55,11 +55,19 @@ When implementing this mission, a local protocol (C1–C5) was first created wit
 
 → [PRO-008-decision.md](../protocols/PRO-008-decision.md)
 
+## Closure
+
+- **What was done:** PRO-008 written and adopted (`protocols/PRO-008-decision.md`, v2.0.0 after it absorbed the approval template): the 1–10 scale, the mandatory `mission` field, the two approval types and the responsibility principle are in it; OPERATOR.md's git-pull startup step landed. Six of eight criteria, ticked in this file at the time.
+- **What diverged, and why:** the two open criteria — Oracle QA of the first ten approvals, verification at the Dark Council that every agent applies it — are observation rituals, not deliverables, and the population they named (nimrod, the Dark Council) was retired 2026-08-28. Closed without them: they are not done, and nothing above pretends they are.
+- **Evidence:** `protocols/PRO-008-decision.md` header (`status: active`, v2.0.0); §Board triage 2026-08-25 (category D, 6/8); §Status check.
+- **Closed:** 2026-09-02 · **by:** ursa
+
 ## Version history
 
 - v1.0.0 (2026-04-07) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
 - v1.3.0 (2026-09-02) — import-era `---` rules removed; retired identifiers repointed: P-008→PRO-008, P-008 path→PRO-008 path; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 2.
+- v1.4.0 (2026-09-02) — status todo → done (PRO-008 is the standing protocol; the two open criteria were observation rituals for a retired agent population). Proposed in #199 on the 2026-09-02 status check; the Oracle signs by merging (PRO-003 §2).
 
 *Nimrod 🗡️ / Numen Games — 2026-04-07*
 

@@ -4,9 +4,9 @@ uid:
 title: "Twelve series carry a registration scheme most of the corpus does not yet apply"
 type: documentation
 status: active
-version: "4.2.0"
+version: "4.3.0"
 created: "2026-08-24T19:40:00Z"
-updated: "2026-09-02T00:50:00+02:00"
+updated: "2026-09-02T10:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -37,7 +37,7 @@ before `MIS-125`'s Stage C renames):
 
 | Series | Scheme | Coverage |
 |---|---|--:|
-| `missions/` | `MIS-NNNN` | **0/131** |
+| `missions/` | `MIS-NNNN` | **132/132** — closed 2026-09-02 (`missions/1-normalise`, #198): was 0/131 |
 | `protocols/` | `PRO-NNN` | **0/13** |
 | `decisions/` | `ADR/DEC-NNN` | 20/20 — already compliant, no action |
 | `reports/` | `RPT-NNN` · `RPT-YYYY-MM-DD` (`subtype: daily` only, `ADR-005` v1.2.0) | **24/24** — closed 2026-09-01 (`reports/2-flatten-and-renumber`): was 10/25 after v1.2.0 re-measured the dailies as compliant, 0/10 + 0/12 before it |
@@ -219,7 +219,7 @@ Order — `MIS-125` Stage C, cheapest/lowest-risk first, one commit per series,
 7. *(merged into 6 — `reports/audits/` no longer exists as a folder)*
 8. `protocols/` — 13 files (1 frozen artefact + `APPROVAL-REQUEST-template.md` excluded)
 9. `debt/` — 35 files (including this document, renamed last within its own series; was 37, `D-001` and `D-002` extinguished 2026-08-31, see `MIS-127`)
-10. `missions/` — 131 files, highest volume and citation density, last
+10. `missions/` — 132 files (was 131; `MIS-132`…`MIS-135` entered, `TEMPLATE*`/`ANNEX` counted as apparatus), highest volume and citation density, last — **done 2026-09-02, #198**
 11. `infra/` — 0 eligible files today; no action, prefix reserved
 
 `agents/` is not in this list — exempt, see `ADR-005` v1.1.0.
@@ -240,6 +240,7 @@ renumbered**, only re-prefixed (`ADR-004` §rule 4).
 
 ## Version history
 
+- v4.3.0 (2026-09-02) — `missions/` closed at 132/132 (#198, four lots). Ten of the eleven eligible series are now at 100 %; `infra/` has 0 eligible files. The closing condition (100 % of the eligible series *or* recorded exception) is therefore met the moment the Oracle records `infra/` as reserved-empty — that ruling, not this PR, closes the entry (ADR-030: debt extinguishes on close, by its owner). `MIS-135` row 7, #200.
 - v4.2.0 (2026-09-02) — `reports/` closed at 24/24 (`ADR-005` v1.2.0 executed:
   fourteen renames, two folders removed, one annex relocated). Row and
   execution-order item 6 updated; the 10/25 figure of v4.1.0 stays in the

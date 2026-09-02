@@ -2,7 +2,7 @@
 id: "MIS-106"
 uid: ""
 title: "The mould carries a retired name: the template still calls the system Khepri"
-status: todo
+status: frozen
 priority: "medium"
 effort: "S"
 guild: "Exegetes"
@@ -11,13 +11,14 @@ type_execution: "digital"
 assigned_to: null
 started: null
 completed: null
+freeze_reason: "blocked on an external repository and an Oracle ruling (CAN-005 §7 on the name)"
 
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-18T14:47:39Z"
 created_source: "git:b91848e"
 created_confidence: exact
-updated: "2026-09-02T01:51:14+02:00"
+updated: "2026-09-02T10:01:10+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -161,3 +162,5 @@ The mould stops teaching a dead name to every organization it generates.
 ## Version history
 
 - v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; retired identifiers repointed: C-005→CAN-005; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.
+
+- v1.2.0 (2026-09-02) — status todo → frozen (blocked on an external repository and an Oracle ruling). Proposed in #199 on the 2026-09-02 status check; the Oracle signs by merging (PRO-003 §2).

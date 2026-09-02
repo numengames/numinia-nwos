@@ -35,7 +35,6 @@ license: "CC0-1.0"
 # depends_on: []                  # other MIS ids that must land first
 # requires_oracle_approval: false # true when the mission leaves the system
 # parent_mission: "MIS-000"       # when this is a phase of a larger mission
-# blocked_reason: null            # why it is stopped, in one sentence
 # context: "YYYY-MM-DD"           # when the premise was last checked
 # paths: []                       # repo paths the executor should start from,
 #                                 # e.g. [web/src/pages/, missions/]. Saves

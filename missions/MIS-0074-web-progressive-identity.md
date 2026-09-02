@@ -2,7 +2,7 @@
 id: "MIS-074"
 uid: ""
 title: "Progressive identity (Web2→Web3) for numinia.com"
-status: todo
+status: frozen
 priority: "critical"
 effort: "L"
 guild: "Alchemists"
@@ -10,13 +10,14 @@ territory: "Platform"
 type_execution: "digital"
 assigned_to: null
 completed: null
+freeze_reason: "numinia-web work (Session Zero ranks) parked on the wrong shelf; nothing executable from numinia-nwos"
 
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-17T18:59:03Z"
 created_source: "git:b484b68"
 created_confidence: exact
-updated: "2026-09-02T01:51:14+02:00"
+updated: "2026-09-02T10:01:10+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [web, platform, auth, siwe]
@@ -150,3 +151,5 @@ what changed is the claim that it was underway.
 ## Version history
 
 - v1.1.0 (2026-09-02) — import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.
+
+- v1.2.0 (2026-09-02) — status todo → frozen (wrong shelf — the remaining work is numinia-web code). Proposed in #199 on the 2026-09-02 status check; the Oracle signs by merging (PRO-003 §2).

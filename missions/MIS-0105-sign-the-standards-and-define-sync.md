@@ -2,7 +2,7 @@
 id: "MIS-105"
 uid: ""
 title: "Sign the standards and define the sync: a draft is governing three repositories"
-status: todo
+status: done
 priority: "high"
 effort: "M"
 guild: "Exegetes"
@@ -10,14 +10,14 @@ territory: "TBA"
 type_execution: "hybrid"
 assigned_to: null
 started: null
-completed: null
+completed: "2026-09-02"
 
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-18T14:47:39Z"
 created_source: "git:b91848e"
 created_confidence: exact
-updated: "2026-09-02T01:51:14+02:00"
+updated: "2026-09-02T10:01:10+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -147,12 +147,15 @@ guard in CI. Today it has a fork relationship and good intentions.
 
 - 2026-08-18 — Opened from the standards review requested by the Oracle. The
   upstream/downstream comparison was run today: identical, no mechanism.
+- 2026-08-22 — STD-005 v1.0.0, `status: active` (criterion 1).
+- 2026-09-02 — closed at the title; criteria 2–5 (the sync) → MIS-096, with the guard folded there from MIS-068.
 
 ## Execution Reality
 
-*(Fill when closing)*
-
-> *"The ideal plans show the intention. The real plans show the knowledge."*
+- **What was done:** STD-005 signed — `status: active`, v1.0.0, 2026-08-22. That is criterion 1 and the title.
+- **What diverged, and why:** criteria 2–5 (propagation ADR, drift check in CI, §5 versioning visible where changes are made, consumer `CLAUDE.md` pointing at the signed version) are one question — how the standard reaches consumers — and that question is MIS-096's (semver core, manifest, pinning, adoption changelog) with the guard folded there from MIS-068 on 2026-09-02. Closed at the title; the sync moved, it was not done.
+- **Evidence:** `standards/STD-005-engineering-standards.md` header; MIS-096 v1.2.0.
+- **Closed:** 2026-09-02 · **by:** ursa
 
 ## Status check — 2026-09-02
 
@@ -164,3 +167,5 @@ guard in CI. Today it has a fork relationship and good intentions.
 ## Version history
 
 - v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.
+
+- v1.2.0 (2026-09-02) — status todo → done (STD-005 signed at v1.0.0 active (2026-08-22); the sync criteria 2–5 are MIS-096's question). Proposed in #199 on the 2026-09-02 status check; the Oracle signs by merging (PRO-003 §2).

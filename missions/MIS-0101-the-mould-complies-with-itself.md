@@ -13,11 +13,11 @@ started: null
 completed: null
 
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-18T14:47:39Z"
 created_source: "git:b91848e"
 created_confidence: exact
-updated: "2026-09-02T01:51:14+02:00"
+updated: "2026-09-02T10:30:00+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -124,7 +124,7 @@ Feature: the canonical repo passes its own checklist
 - [ ] `ci.yml` runs `type-check → lint → test → build` for `web/`
 - [ ] Every error the new checks surface is fixed, or recorded in `TODO.md`
       with what would close it — never silenced
-- [ ] `CLAUDE.md` no longer says "no tests or lint yet"
+- [x] `CLAUDE.md` no longer says "no tests or lint yet" — rewritten 2026-09-02 from `ci.yml` (`MIS-135` row 4, #200)
 - [ ] The presence job of the shared workflow passes here unmodified
 
 ## Epistemic value
@@ -141,6 +141,7 @@ of exceptions attached.
 
 - 2026-08-18 — Opened from the standards review requested by the Oracle. The
   gap table above was produced by direct inspection, not from memory.
+- 2026-09-02 — Criterion 4 met from outside: `CLAUDE.md` L21 rewritten to describe the ten-step CI and the three test files (`MIS-135` row 4, #200). The other three criteria stay open.
 
 ## Execution Reality
 
@@ -158,3 +159,4 @@ of exceptions attached.
 ## Version history
 
 - v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; retired identifiers repointed: C-005→CAN-005; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.
+- v1.2.0 (2026-09-02) — criterion 4 ticked (`CLAUDE.md` sentence rewritten, `MIS-135` row 4, #200).
