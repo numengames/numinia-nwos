@@ -3,7 +3,7 @@ id: "STANDARDS"
 uid: ""
 title: "Standards — Narrative Work OS (superseded)"
 type: meta
-status: closed
+status: superseded
 version: "2.0.0"
 created: "2026-04-07T12:56:00Z"
 updated: "2026-08-30T17:51:00Z"

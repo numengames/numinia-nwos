@@ -306,13 +306,23 @@ for (const rel of files) {
   if (fm.type && !TYPES.includes(fm.type))
     F('H-03', rel, `type "${fm.type}" not in the closed vocabulary (STD-004 §4)`);
 
-  /* H-19: status case; H-04: lifecycle */
+  /* H-19: status case; H-04: lifecycle.
+     Series beats type (2026-09-03): a normative series declares its own
+     lifecycle in rules.json `status._bySeries`, because `closed` cannot serve
+     as an off switch there — it already means "published, still standing" in
+     reports/. Everything else keeps the type lifecycle. */
   if (fm.status) {
     if (fm.status !== fm.status.toLowerCase())
       F('H-19', rel, `status "${fm.status}" must be lowercase`);
-    const life = STATUS[fm.type] || STATUS._default;
+    /* A dated filename is a frozen artifact — a photograph, not a living rule
+       (STD-001). It keeps the type lifecycle even inside a normative series:
+       `closed` there means "published, still standing", which is what a
+       photograph is. Only living documents get the series off switch. */
+    const isFrozenArtifact = /^\d{4}_\d{2}_\d{2}-/.test(rel.split('/').pop());
+    const seriesLife = isFrozenArtifact ? null : STATUS._bySeries?.[top];
+    const life = seriesLife || STATUS[fm.type] || STATUS._default;
     if (!life.includes(fm.status.toLowerCase()))
-      F('H-04', rel, `status "${fm.status}" not in the ${fm.type || 'default'} lifecycle [${life.join(' ')}]`);
+      F('H-04', rel, `status "${fm.status}" not in the ${seriesLife ? `${top}/ series` : (fm.type || 'default')} lifecycle [${life.join(' ')}]`);
   }
 
   /* H-05: semver, no v prefix */

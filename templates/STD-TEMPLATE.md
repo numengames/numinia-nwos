@@ -6,7 +6,7 @@ uid:
 title: "The rule, stated — not the topic"
 type: documentation
 subtype: standard
-status: draft          # draft|active|closed   (a standard opens at draft)
+status: draft          # draft|active|superseded|withdrawn   (a standard opens at draft)
 version: "0.1.0"       # every artifact starts at 0.1.0; only the Oracle promotes to 1.0.0
 created: "YYYY-MM-DDTHH:MM:SSZ"
 updated: "YYYY-MM-DDTHH:MM:SSZ"

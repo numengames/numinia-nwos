@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "b31cd85",
-  "corpus_hash": "9c6df163fe4d690cfa2a4350fb83d8183c079ea595ab35f86157859e82736dd0",
+  "head": "939d24d+index",
+  "corpus_hash": "6ecbe91850791ea73c26bd7b2b0efdc408ab0171c92e7e802603a7b41551d50a",
   "root_dirty": 0,
-  "measured_at": "2026-09-03T10:39:58Z",
+  "measured_at": "2026-09-03T16:00:51Z",
   "families": [
     "corpus",
     "series",
@@ -358,14 +358,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 619483,
+      "value": 619489,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "missions": 247908,
-        "standards": 87964,
+        "standards": 87965,
         "reports": 86903,
         "canon": 40873,
         "debt": 37619,
@@ -379,7 +379,7 @@
         "blueprints": 5703,
         "guilds": 2920,
         "infra": 1511,
-        "templates": 1169,
+        "templates": 1174,
         ".github": 318
       },
       "unit": "tokens",
@@ -389,15 +389,15 @@
       "value": {
         "active": 212645,
         "done": 121708,
-        "closed": 85474,
+        "closed": 84369,
         "(none)": 55699,
         "todo": 45722,
         "frozen": 34004,
         "in-progress": 30191,
         "draft": 20556,
         "in-review": 11131,
-        "superseded": 1184,
-        "draft          # draft|active|closed   (a standard opens at draft)": 1169
+        "superseded": 2290,
+        "draft          # draft|active|superseded|withdrawn   (a standard opens at draft)": 1174
       },
       "unit": "tokens",
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
@@ -709,21 +709,21 @@
       "value": {
         "active": 90,
         "draft": 7,
-        "superseded": 1,
-        "closed": 27,
+        "superseded": 2,
+        "closed": 26,
         "frozen": 38,
         "todo": 30,
         "done": 64,
         "in-progress": 9,
         "in-review": 2,
-        "draft          # draft|active|closed   (a standard opens at draft)": 1
+        "draft          # draft|active|superseded|withdrawn   (a standard opens at draft)": 1
       },
       "unit": "documents",
       "definition": "frontmatter status values in the corpus with counts"
     },
     "contradictions.status_vocabulary_undeclared": {
       "value": {
-        "draft          # draft|active|closed   (a standard opens at draft)": [
+        "draft          # draft|active|superseded|withdrawn   (a standard opens at draft)": [
           "templates/STD-TEMPLATE.md"
         ]
       },
