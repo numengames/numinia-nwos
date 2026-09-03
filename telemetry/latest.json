@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "57dc2e3",
-  "corpus_hash": "e68f524b6e338ace6349ec90165d183f9aac966b9d4f5b6f75630debb324e45b",
+  "head": "5972f80",
+  "corpus_hash": "ab32ee155c1155e366f5b5adbdbca6f6df91ac0f6c1b1f50a68393d257528720",
   "root_dirty": 0,
-  "measured_at": "2026-09-03T16:33:03Z",
+  "measured_at": "2026-09-03T16:47:22Z",
   "families": [
     "corpus",
     "series",
@@ -358,14 +358,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 621706,
+      "value": 621872,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "missions": 247908,
-        "standards": 89788,
+        "standards": 89954,
         "reports": 86903,
         "canon": 40873,
         "debt": 37619,
@@ -387,14 +387,14 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 213040,
+        "active": 208103,
         "done": 121708,
         "closed": 84369,
         "(none)": 56093,
         "todo": 45722,
         "frozen": 34004,
         "in-progress": 30191,
-        "draft": 21984,
+        "draft": 27087,
         "in-review": 11131,
         "superseded": 2290,
         "draft          # draft|active|superseded|withdrawn   (a standard opens at draft)": 1174
@@ -403,7 +403,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 39.88,
+      "value": 39.86,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -415,7 +415,7 @@
         ],
         [
           "standards/STD-001-glossary.md",
-          22027
+          22052
         ],
         [
           "reports/RPT-011-licensing-c005.md",
@@ -701,8 +701,8 @@
     },
     "contradictions.status_vocabulary_used": {
       "value": {
-        "active": 90,
-        "draft": 8,
+        "active": 89,
+        "draft": 9,
         "superseded": 2,
         "closed": 26,
         "frozen": 38,
@@ -755,7 +755,7 @@
           "3": 464
         },
         "MIS": {
-          "3": 1497,
+          "3": 1496,
           "4": 27
         },
         "CAN": {
@@ -858,14 +858,14 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 665,
+      "value": 666,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
     "figures.live_by_doc": {
       "value": {
         "standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md": 41,
-        "standards/STD-001-glossary.md": 39,
+        "standards/STD-001-glossary.md": 40,
         "missions/MIS-0127-entropy-reduction.md": 36,
         "debt/DBT-001-series-prefixes-not-applied.md": 27,
         "missions/MIS-0125-prefix-register.md": 26,
@@ -909,7 +909,7 @@
       "definition": "docs_total − docs_con_frontmatter"
     },
     "legacy.referencias_textuales_total": {
-      "value": 3030,
+      "value": 3029,
       "unit": "mentions",
       "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
     },

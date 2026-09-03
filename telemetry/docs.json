@@ -2942,10 +2942,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 79683,
+  "chars": 79980,
   "apparatus": false,
   "frozen": false,
-  "tokens": 22027
+  "tokens": 22052
  },
  {
   "path": "standards/STD-002-governance.md",
@@ -2953,10 +2953,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 10525,
+  "chars": 10717,
   "apparatus": false,
   "frozen": false,
-  "tokens": 2786
+  "tokens": 2818
  },
  {
   "path": "standards/STD-003-platform-role-system.md",
@@ -2985,11 +2985,11 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "active",
-  "chars": 19202,
+  "status": "draft",
+  "chars": 19715,
   "apparatus": false,
   "frozen": false,
-  "tokens": 4994
+  "tokens": 5103
  },
  {
   "path": "standards/STD-006-archive-substance.md",
