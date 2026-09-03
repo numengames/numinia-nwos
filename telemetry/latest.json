@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "1ece556",
-  "corpus_hash": "a8178cb7dabb863144f89f1b156afc6fcf61603f88611fd16222ce8a18bf3506",
+  "head": "4577603",
+  "corpus_hash": "02a4850e3c0d8c52f1da95c305bf7c71285da0aba45ff05379a9720e1ffc9d3f",
   "root_dirty": 0,
-  "measured_at": "2026-09-03T09:49:08Z",
+  "measured_at": "2026-09-03T09:59:26Z",
   "families": [
     "corpus",
     "series",
@@ -243,11 +243,11 @@
     },
     "missions.by_status": {
       "value": {
-        "done": 62,
+        "done": 63,
         "frozen": 38,
         "in-progress": 9,
         "in-review": 2,
-        "todo": 29
+        "todo": 28
       },
       "unit": "missions",
       "definition": "by frontmatter `status`"
@@ -358,13 +358,13 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 616984,
+      "value": 617346,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "missions": 245409,
+        "missions": 245771,
         "standards": 87964,
         "reports": 86903,
         "canon": 40873,
@@ -388,10 +388,10 @@
     "tokens.by_status": {
       "value": {
         "active": 212645,
-        "done": 119512,
+        "done": 121708,
         "closed": 85474,
         "(none)": 55699,
-        "todo": 45419,
+        "todo": 43585,
         "frozen": 34004,
         "in-progress": 30191,
         "draft": 20556,
@@ -403,7 +403,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 39.78,
+      "value": 39.81,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -591,7 +591,7 @@
         "dates_without_time": 4,
         "empty_values": 231,
         "v_prefixed_versions": 0,
-        "placeholders": 32
+        "placeholders": 31
       },
       "unit": "values",
       "definition": "frontmatter-census.py §4: created/updated without time; empty values; version with v prefix; values matching TODO|TBD|FIXME|{{|<…>|xxx"
@@ -699,8 +699,8 @@
     },
     "provenance.protocol_anchor": {
       "value": {
-        "anchored": 100,
-        "not-oracle-state": 40
+        "anchored": 101,
+        "not-oracle-state": 39
       },
       "unit": "missions",
       "definition": "P-003 rule as protocol-anchor.py applies it: status ∈ {done,frozen,cancelled,backlog} is Oracle-set → anchored if owner=oracle, anchored-weak if another owner, anchored-no-owner if none; other states not-oracle-state. The CYCLE_* timestamp evidence it also used lived in /tmp and is not reproducible"
@@ -712,8 +712,8 @@
         "superseded": 1,
         "closed": 27,
         "frozen": 38,
-        "todo": 30,
-        "done": 63,
+        "todo": 29,
+        "done": 64,
         "in-progress": 9,
         "in-review": 2,
         "draft          # draft|active|closed   (a standard opens at draft)": 1
@@ -761,7 +761,7 @@
           "3": 445
         },
         "MIS": {
-          "3": 1487,
+          "3": 1489,
           "4": 23
         },
         "CAN": {
@@ -915,7 +915,7 @@
       "definition": "docs_total − docs_con_frontmatter"
     },
     "legacy.referencias_textuales_total": {
-      "value": 3015,
+      "value": 3017,
       "unit": "mentions",
       "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
     },
@@ -1077,9 +1077,9 @@
     },
     "legacy.misiones_por_status": {
       "value": {
-        "done": 63,
+        "done": 64,
         "frozen": 38,
-        "todo": 30,
+        "todo": 29,
         "in-progress": 9,
         "in-review": 2,
         "draft": 1,
