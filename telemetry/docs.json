@@ -2398,6 +2398,17 @@
   "tokens": 2137
  },
  {
+  "path": "missions/MIS-0146-normative-refoundation.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-progress",
+  "chars": 7099,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1839
+ },
+ {
   "path": "missions/TEMPLATE-CHANGES.md",
   "dir": "missions",
   "series": "missions",
