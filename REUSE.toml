@@ -200,6 +200,17 @@ SPDX-FileCopyrightText = [
 ]
 SPDX-License-Identifier = "OFL-1.1"
 
+# --- Templates → CC0-1.0 (MIS-142) ---------------------------------------
+# templates/ is apparatus: scaffolding a document is copied from, never a
+# member of any series and never published. A template carries no reserved
+# content by construction — it is the empty shape of one — and the series it
+# scaffolds are CC0 themselves (missions/, standards/, protocols/). A shape
+# behind a licence would oblige attribution on every document copied from it.
+[[annotations]]
+path = ["templates/**"]
+SPDX-FileCopyrightText = "2026 Numen Games S.L."
+SPDX-License-Identifier = "CC0-1.0"
+
 # --- Repo metadata → CC0-1.0 ---------------------------------------------
 # (.github workflow/template files carry their own SPDX headers;
 # CODEOWNERS cannot, so it is declared here.)

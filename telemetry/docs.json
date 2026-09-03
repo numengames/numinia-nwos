@@ -620,11 +620,11 @@
   "dir": "decisions",
   "series": "decisions",
   "type": "adr",
-  "status": "active",
-  "chars": 2256,
+  "status": "superseded",
+  "chars": 4442,
   "apparatus": false,
   "frozen": false,
-  "tokens": 642
+  "tokens": 1184
  },
  {
   "path": "decisions/ADR-004-identifier-convention.md",
@@ -2354,6 +2354,17 @@
   "tokens": 2585
  },
  {
+  "path": "missions/MIS-0142-decisions-to-standards.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-progress",
+  "chars": 7707,
+  "apparatus": false,
+  "frozen": false,
+  "tokens": 2126
+ },
+ {
   "path": "missions/TEMPLATE-CHANGES.md",
   "dir": "missions",
   "series": "missions",
@@ -2931,10 +2942,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 16765,
+  "chars": 18695,
   "apparatus": false,
   "frozen": false,
-  "tokens": 4803
+  "tokens": 5285
  },
  {
   "path": "standards/STD-005-engineering-standards.md",
@@ -2946,6 +2957,17 @@
   "apparatus": false,
   "frozen": false,
   "tokens": 4994
+ },
+ {
+  "path": "standards/STD-006-archive-substance.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 7868,
+  "apparatus": false,
+  "frozen": false,
+  "tokens": 1900
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
@@ -2979,5 +3001,16 @@
   "apparatus": false,
   "frozen": false,
   "tokens": 3600
+ },
+ {
+  "path": "templates/STD-TEMPLATE.md",
+  "dir": "templates",
+  "series": null,
+  "type": "documentation",
+  "status": "draft          # draft|active|closed   (a standard opens at draft)",
+  "chars": 4569,
+  "apparatus": true,
+  "frozen": false,
+  "tokens": 1169
  }
 ]
