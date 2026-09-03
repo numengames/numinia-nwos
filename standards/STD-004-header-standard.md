@@ -5,11 +5,11 @@ title: "The header in three rings: identity, provenance, extension"
 type: documentation
 subtype: standard
 status: active
-version: "1.4.1"
+version: "1.5.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-09-02T01:30:00+02:00"
+updated: "2026-09-03T06:27:46Z"
 ratified_by: "ADR-027 (formerly ADR-029)"
 author: "ursa"
 owner: "oracle"
@@ -344,3 +344,45 @@ mandatory in operational documents; Audience optional. Templates, indexes and
 very short documents may carry only Epistemic + Pragmatic. New documents
 include the card from creation; existing ones are updated when touched, never
 by mass retrofit.
+
+## 10. The standards template (2026-09-03, MIS-142)
+
+**`[MANUAL]`** — no `H-NN` check. Whether §2 of a standard states one thing,
+and whether its conformance section is honest, is prose judgment. A
+presence-only check would certify a copied skeleton, which is the failure
+mode this section exists to prevent.
+
+A new `STD-` document **MUST** be started from `templates/STD-TEMPLATE.md`
+and **MUST** carry its five required sections: *Purpose and scope*, *The
+norm*, *Conformance*, *What this standard does NOT do*, *Version history*.
+
+The one that is not negotiable is **Conformance**. A standard states how an
+object fails it — mechanically where a guard exists, `[MANUAL]` with a
+written criterion where none does. A rule with no way to fail is an opinion
+in a normative font.
+
+Two conventions the template carries, stated here because they bind whether
+or not the template is used:
+
+- **RFC 2119 language.** MUST / MUST NOT for requirements, SHOULD / SHOULD
+  NOT for recommendations that may be departed from in writing. "Should" as
+  a synonym for "must" makes both unenforceable.
+- **No prose cross-references.** A standard MUST NOT point into the live
+  body of another document — no "see §4 of X". Documents are rewritten
+  underneath their citations. State the rule in your own words and own it;
+  structural relations go in frontmatter (`supersedes`, `ratified_by`,
+  `absorbs`), where a guard verifies them.
+
+This section does not retrofit the five existing standards: they predate the
+template and share no section structure. They conform when they are next
+opened for substantive change, not by sweep.
+
+---
+
+## Version history
+
+*(This section starts at v1.5.0: the document reached v1.4.1 without one.
+Earlier versions are recoverable from git history, not from this page.)*
+
+- v1.5.0 (2026-09-03) — §10: the standards template, its five required
+  sections, RFC 2119, and the prose cross-reference prohibition (MIS-142).
