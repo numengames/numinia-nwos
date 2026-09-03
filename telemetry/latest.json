@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "72cebfe",
-  "corpus_hash": "0e33613f1b3acda834e48eef09e37bb699ee72bfd26f53d4bc40d44def3864fe",
+  "head": "57dc2e3",
+  "corpus_hash": "e68f524b6e338ace6349ec90165d183f9aac966b9d4f5b6f75630debb324e45b",
   "root_dirty": 0,
-  "measured_at": "2026-09-03T16:23:01Z",
+  "measured_at": "2026-09-03T16:33:03Z",
   "families": [
     "corpus",
     "series",
@@ -358,14 +358,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 621035,
+      "value": 621706,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "missions": 247908,
-        "standards": 89511,
+        "standards": 89788,
         "reports": 86903,
         "canon": 40873,
         "debt": 37619,
@@ -373,7 +373,7 @@
         "protocols": 21576,
         "decisions": 17897,
         "agents": 16628,
-        "": 11573,
+        "": 11967,
         "system": 9980,
         "history": 7274,
         "blueprints": 5703,
@@ -387,10 +387,10 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 212763,
+        "active": 213040,
         "done": 121708,
         "closed": 84369,
-        "(none)": 55699,
+        "(none)": 56093,
         "todo": 45722,
         "frozen": 34004,
         "in-progress": 30191,
@@ -403,7 +403,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 39.92,
+      "value": 39.88,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -645,7 +645,7 @@
       "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged"
     },
     "provenance.regime_crossings": {
-      "value": 7,
+      "value": 6,
       "unit": "renames",
       "definition": "renames in history (git -M) whose source and target resolve to different REUSE.toml licences (last matching annotation wins); regime-crossings.py"
     },
@@ -655,12 +655,6 @@
           "blueprints/BLU-001-wardley-map.md",
           "reports/RPT-2026-04-07-wardley-map.md",
           "CC0-1.0→CC-BY-4.0",
-          "2026-08-31"
-        ],
-        [
-          "standards/S-003-platform-role-system.md",
-          "standards/STD-003-platform-role-system.md",
-          "CC0-1.0→LicenseRef-Numen-AllRightsReserved",
           "2026-08-31"
         ],
         [
@@ -758,10 +752,10 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 459
+          "3": 464
         },
         "MIS": {
-          "3": 1496,
+          "3": 1497,
           "4": 27
         },
         "CAN": {
@@ -842,7 +836,7 @@
           "id": "MIS-135#15",
           "severity": "B",
           "state": "open",
-          "where": "REUSE.toml#L238",
+          "where": "REUSE.toml#L233",
           "claim": "web/** → MIT while MIS-065's criterion that no culture-branch content is matched by it is unverified. Deferred → DBT-005."
         },
         {
@@ -915,7 +909,7 @@
       "definition": "docs_total − docs_con_frontmatter"
     },
     "legacy.referencias_textuales_total": {
-      "value": 3029,
+      "value": 3030,
       "unit": "mentions",
       "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
     },

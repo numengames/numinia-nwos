@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 18991,
+  "chars": 20601,
   "apparatus": false,
   "frozen": false,
-  "tokens": 5569
+  "tokens": 5963
  },
  {
   "path": "CLAUDE.md",
@@ -2964,10 +2964,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 9355,
+  "chars": 10387,
   "apparatus": false,
   "frozen": false,
-  "tokens": 2375
+  "tokens": 2652
  },
  {
   "path": "standards/STD-004-header-standard.md",
