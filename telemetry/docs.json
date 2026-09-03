@@ -2403,10 +2403,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 6939,
+  "chars": 7099,
   "apparatus": false,
   "archived": false,
-  "tokens": 1807
+  "tokens": 1839
  },
  {
   "path": "missions/TEMPLATE-CHANGES.md",
