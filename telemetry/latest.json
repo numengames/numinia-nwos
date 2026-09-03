@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "171d838",
-  "corpus_hash": "62730cd8ecd3d9237e24d93f502fbaecd69598d1340b3328578fb87168abe3aa",
+  "head": "b38b5f2",
+  "corpus_hash": "b212452ecfa8451340104a6e16dbbf46eaa4a290430138078f4331d71180b54e",
   "root_dirty": 0,
-  "measured_at": "2026-09-03T22:00:33Z",
+  "measured_at": "2026-09-03T22:11:59Z",
   "families": [
     "corpus",
     "series",
@@ -358,21 +358,21 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 618872,
+      "value": 615682,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "missions": 249702,
-        "standards": 89521,
+        "standards": 89104,
         "reports": 86903,
         "canon": 42805,
         "debt": 37559,
         "operations": 21655,
         "decisions": 17897,
         "agents": 16628,
-        "protocols": 15355,
+        "protocols": 12582,
         "": 11967,
         "system": 9980,
         "history": 7274,
@@ -387,10 +387,10 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 205841,
+        "active": 203421,
         "done": 121708,
         "closed": 82510,
-        "draft": 72047,
+        "draft": 71277,
         "todo": 45722,
         "frozen": 34004,
         "in-progress": 32006,
@@ -403,7 +403,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 40.35,
+      "value": 40.56,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -736,20 +736,20 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 458
+          "3": 445
         },
         "MIS": {
-          "3": 1464,
-          "4": 26
+          "3": 1446,
+          "4": 25
         },
         "CAN": {
           "3": 134
         },
         "ADR": {
-          "3": 681
+          "3": 670
         },
         "OPS": {
-          "3": 40
+          "3": 37
         },
         "RPT": {
           "3": 72,
@@ -759,10 +759,10 @@
           "3": 123
         },
         "PRO": {
-          "3": 271
+          "3": 258
         },
         "DEC": {
-          "3": 55
+          "3": 54
         },
         "SYS": {
           "3": 52
@@ -842,7 +842,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 660,
+      "value": 656,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
@@ -893,7 +893,7 @@
       "definition": "docs_total − docs_con_frontmatter"
     },
     "legacy.referencias_textuales_total": {
-      "value": 2946,
+      "value": 2903,
       "unit": "mentions",
       "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
     },
@@ -901,11 +901,11 @@
       "value": [
         [
           "ADR-005",
-          163
+          159
         ],
         [
           "C-005",
-          152
+          151
         ],
         [
           "AUD-2026",
@@ -913,15 +913,15 @@
         ],
         [
           "ADR-004",
-          78
+          77
         ],
         [
           "ADR-030",
-          75
+          71
         ],
         [
           "P-003",
-          70
+          69
         ]
       ],
       "unit": "mentions",

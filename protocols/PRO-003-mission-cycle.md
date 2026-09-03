@@ -4,11 +4,11 @@ uid: ""
 title: "Mission Protocol — briefing, cycle, coordination"
 type: protocol
 status: active
-version: "4.2.0"
+version: "4.3.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-02T10:30:00+02:00"
+updated: "2026-09-04T00:35:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [protocol, missions, cycle, briefing, coordination]
@@ -22,115 +22,53 @@ license: "CC0-1.0"
 > closed — the full lifecycle in one document.
 > **Epistemic:** A mission not understood is a mission not executed. Briefing is
 > not overhead, it is the first act of execution.
-> **Pragmatic:** §1 before touching anything, §2–§3 while working, §4 when more
-> than one agent is involved.
+> **Pragmatic:** Briefing before touching anything, states and cycle while
+> working, coordination when more than one agent is involved.
 > **Audience:** Agents
 
 ---
 
 ## 1 · Briefing — before any execution
 
-> **Mission first. Execution after.**
->
-> No agent executes any work without first completing this briefing.
-> This rule has no exceptions.
+> **Mission first. Execution after.** No agent executes any work without
+> completing this briefing. This rule has no exceptions, and it applies to
+> quick tasks too — quick tasks are where most of the errors happen.
 
-Established lesson (2026-04-07): an agent executed MIS-063 without registering it
-as a mission first. The work was correct but the system record was created
-retroactively. This section prevents that from happening again.
+Apply it when a mission is assigned or self-identified, when one arrives by
+chat, file or verbal instruction, and when a frozen mission is reactivated.
 
-**When to apply:** a new mission is assigned (by Oracle or self-identified); a
-mission arrives via chat, file, or verbal instruction; an existing mission is
-reactivated after freeze.
+**Register it first.** If the mission file does not exist, create it with a
+conformant header, `status: todo`, and commit it. If it exists as `todo`, set
+`status: in-progress` with its `started` timestamp, and commit. **Nothing else
+begins until that commit exists** — otherwise the record is written
+retroactively, which is fiction.
 
-### Step 1 — Register the mission
+**Read the whole file**, not the title: the deliverable, the priority, the
+effort, the acceptance criteria, the dependencies, and who it is assigned to,
+which must be the agent reading it or nobody.
 
-Before reading the briefing, the mission must exist in the repo.
+**Check what blocks it.** A mission that depends on another needs that one's
+status; one that needs an external key, access or decision flags it before
+starting, not after; one that conflicts with an active mission is escalated. A
+blocked mission is set `frozen` with its `freeze_reason` written down and the
+Oracle notified.
 
-```
-IF missions/MIS-NNNN-*.md does not exist:
-  CREATE it following the frontmatter schema (STD-004)
-  SET status: todo
-  COMMIT to repo
-  THEN proceed to Step 2
+**Answer three questions before the first action:** what exactly is the
+deliverable, what does done look like, and what is the first concrete action —
+a tool call or a file write, never "research". If any answer is unclear, ask
+the Oracle before proceeding.
 
-IF it exists with status: todo:
-  SET status: in-progress, set started timestamp
-  COMMIT to repo
-  THEN proceed to Step 2
-```
-
-**Never start Step 2 before Step 1 is committed.**
-
-### Step 2 — Read the mission document
-
-Read the full mission file. Identify:
-
-| Field | What to extract |
-|-------|----------------|
-| `title` | What is this mission? |
-| `priority` | How urgent? |
-| `effort` | How much work? |
-| `acceptance criteria` | What does done look like? |
-| `blocked_by` | Any external dependencies? |
-| `assigned_to` | Who executes? (must be me or unassigned) |
-
-### Step 3 — Identify dependencies and blockers
-
-- Does this mission depend on another mission? → Read that mission's status
-- Does it require external input (API key, access, decision)? → Flag before starting
-- Does it conflict with another active mission? → Escalate via PRO-005
-
-If blocked: set `status: frozen`, document `freeze_reason`, notify Oracle via PRO-005.
-
-### Step 4 — Confirm understanding (internal)
-
-1. **What is the deliverable?** (Specific artifact — file, code, document, decision)
-2. **What does done look like?** (All acceptance criteria checked)
-3. **What is the first concrete action?** (Not "research" — an actual tool call or file write)
-
-If any answer is unclear: **ask the Oracle before proceeding** (PRO-005 if score ≥ 5).
-
-### Step 5 — Signal start (optional but recommended)
-
-For missions of effort M or above, or when working with the Oracle in a live session:
-
-```
-"Starting MIS-NNNN — [title]. Estimated: [effort]. First action: [specific action]."
-```
-
-For effort XS/S or background work: silent start is acceptable.
-
-### Briefing checklist
-
-```
-□ Mission registered in repo
-□ Status updated to in-progress
-□ Acceptance criteria read and understood
-□ Dependencies checked
-□ Blockers identified (or confirmed none)
-□ Deliverable clear
-□ First action identified
-□ Start signaled (if effort M+)
-```
-
-### Anti-patterns
-
-| Anti-pattern | Consequence | Correct behavior |
-|-------------|-------------|-----------------|
-| Execute first, register later | System record is retroactive fiction | Always register before executing |
-| Assume scope from title only | Misaligned deliverable | Read full mission file |
-| Start without checking blockers | Wasted effort on blocked work | Check Step 3 |
-| Skip for "quick" tasks | Quick tasks are 80% of where errors happen | All tasks follow §1 |
+For missions of effort M or larger, or when working with the Oracle live,
+announce the start with the mission, the estimate and the first action. Smaller
+or background work may start silently.
 
 ---
 
 ## 2 · States and identity
 
-All missions live in the flat `missions/` folder (MIS-066). **The `status:`
-frontmatter field is the only state surface** — there are no status directories
-and no index file; the board at numinia.org/missions is built from the folder on
-every deploy.
+All missions live in the flat `missions/` folder. **The `status` field is the
+only state surface** — there are no status directories and no index file; the
+public board is built from the folder on every deploy.
 
 ```
 todo → in-progress → in-review → done
@@ -142,140 +80,101 @@ todo — when unfrozen
 ```
 
 | State | Who sets it | Stamp |
-|-------|-------------|-------|
-| `todo` | Oracle (accepted, not started) | — |
-| `in-progress` | Executor agent | `started` |
-| `in-review` | Executor agent | `in_review_at` |
+|---|---|---|
+| `todo` | Oracle — accepted, not started | — |
+| `in-progress` | executor agent | `started` |
+| `in-review` | executor agent | `in_review_at` |
 | `done` | Oracle | `completed` |
 | `frozen` | Oracle | `freeze_reason` |
 
-Five values, the closed vocabulary of `STD-001` §7 (2026-08-30). `draft`,
-`backlog` and `cancelled` were withdrawn there: a brief not yet accepted is
-not on the board, and a cancelled mission is `frozen` with
-`freeze_reason: cancelled` — never deleted (SIM-2.7), the file is the record.
+Five values, and the vocabulary is closed. A brief the Oracle has not accepted
+is not on the board, and a cancelled mission is `frozen` with
+`freeze_reason: cancelled` — never deleted. The file is the record.
 
-### Mission IDs
-
-**Format:** `MIS-NNNN` — 4 digits, zero-padded, in the filename
-(`missions/MIS-0NNN-<slug>.md`); the `id:` field keeps the number as
-registered (`MIS-NNN` for the first 999 — the 4-digit padding is the
-filename's, per ADR-005 v1.1.0 and the MIS-0129 precedent). Max 9999.
-**Sub-missions:** a sub-mission is a mission — it takes the next free number
-and declares `parent_mission`. The dot form (`MIS-NNN.N`) and the letter form
-(`MIS-115a`) are retired: neither was a registered id shape (ADR-004 §1) and
+**Mission identifiers** are `MIS-NNNN`, four digits, zero-padded in the
+filename; the `id` field keeps the number as it was registered. A sub-mission
+is a mission: it takes the next free number and declares its parent. The dot
+and letter forms are retired — neither was a registered identifier shape and
 both were invisible to the reference guard.
 
-**Before assigning any ID:** list `missions/` to verify the next available
-number, against what is COMMITTED after a `git pull`, not the working tree.
-If you cannot verify: do not assign.
+**Before assigning any identifier**, list the folder and verify the next free
+number against what is committed after a pull, not against the working tree. If
+you cannot verify it, do not assign it.
 
 ---
 
 ## 3 · The cycle
 
-### Creating a mission (Oracle)
+**Creating** (Oracle): start from the template, fill every required header
+field, verify the next identifier against the repository, set `status: todo`,
+name the file `MIS-NNNN-<english-slug>.md`, and open a pull request.
 
-1. Use TEMPLATE.md — PRs rejected without correct format
-2. Fill all required frontmatter fields including `uid` (UUID v7)
-3. **Before assigning an ID: verify the repo first**
-4. Set `status: todo` (a brief the Oracle has not accepted stays out of `missions/`)
-5. Create as `missions/{mission-id}-{english-slug}.md`
-6. Commit and open PR to main
+**Activating** (Oracle): `status: in-progress`, one `assigned_to` and only one,
+and the `started` stamp.
 
-### Activating a mission (Oracle)
+**Executing** (agent): complete the briefing, read the mission whole, check it
+does not contradict the canon and escalate if it does, execute, and record
+progress in the mission file. A change of plan is written into the mission's
+version history.
 
-1. Set `status: in-progress`
-2. Set `assigned_to: {agent-id}` — only ONE executor
-3. Set `started: {YYYY-MM-DDTHH:MM:SSZ}`
-4. Commit and merge
+**Requesting review** (agent): verify every acceptance criterion, fill the real
+execution section, set `status: in-review` with its stamp, file an approval
+request scored to the mission, and notify the Oracle.
 
-### Executing a mission (Executor agent)
+**Completing** (Oracle): review, then either `status: done` with its `completed`
+stamp — after which the file is immutable — or back to `in-progress` with the
+changes requested.
 
-1. Complete §1 briefing
-2. Read the mission completely
-3. Verify there are no contradictions with canon/ (if there are, escalate via PRO-005)
-4. Execute
-5. Document progress in the mission file
-6. If the plan changes, document in the mission's version history
+**Freezing** (Oracle): `status: frozen` with `freeze_reason` filled. The mission
+stays visible on the board. Unfreezing sets it back to `todo` and clears the
+reason.
 
-### Requesting review (Executor agent)
+### The rules that do not bend
 
-1. Verify ALL acceptance criteria are met
-2. Fill Real execution section
-3. Set `status: in-review`, set `in_review_at`
-4. File a PRO-008 approval request (score appropriate to mission)
-5. Commit and notify Oracle
-
-### Completing a mission (Oracle)
-
-1. Oracle reviews the mission (`status: in-review`)
-2. If approved: set `status: done`, set `completed` — the file is immutable from this point
-3. If changes requested: set `status: in-progress`
-
-### Freezing a mission (Oracle)
-
-1. Set `status: frozen`
-2. Fill `freeze_reason` in frontmatter
-3. Mission stays visible in the board's Frozen section
-4. To unfreeze: set `status: todo`, clear `freeze_reason`
-
-### Critical rules
-
-- A mission with `status: done` is immutable once merged — never edit
-  (Oracle-authorised exceptions must be recorded, cf. the MIS-066 language sweep)
-- Only the executor edits a mission in progress (SIM-2.13)
-- A cancelled mission keeps its file as `status: frozen` + `freeze_reason: cancelled` — NEVER deleted (SIM-2.7)
-- **Never assign a mission ID without verifying the repo first**
-- A parent mission cannot be Done if any sub-mission is not Done or frozen-cancelled
+- A `done` mission is immutable once merged. An Oracle-authorised exception is
+  recorded as one.
+- Only the executor edits a mission in progress.
+- A cancelled mission keeps its file, `frozen` with the reason. Never deleted.
+- Never assign an identifier without verifying the repository first.
+- A parent mission cannot be done while a sub-mission is neither done nor
+  frozen-cancelled.
 
 ---
 
 ## 4 · Coordination between agents
 
-**Reads are safe. Writes require coordination.** Concurrency breaks on writes,
-not reads (SIM-1.8).
+**Reads are safe. Writes require coordination.** Concurrency breaks on writes.
 
-Agents communicate through the repository. There are no real-time channels
-between agents.
+Agents communicate through the repository: commits and pull requests first,
+annotations in shared mission files second, the Oracle when it needs escalating.
+There are no real-time channels between agents.
 
-- **Primary channel:** git commits and PRs
-- **Secondary channel:** annotations in shared mission files
-- **Escalation channel:** Oracle (PRO-005)
+**One executor per active mission.** Collaboration is declared explicitly in the
+header. Work that genuinely splits becomes sub-missions, one per agent, ordered
+with `depends_on`.
 
-### When two agents work on related things
+An agent that needs something from another updates its own `STATUS.md` and
+records the blocker in its mission. **Agents do not assign each other work — the
+Oracle assigns.**
 
-1. **Only one executor per active mission.** If collaboration is needed, declare
-   it explicitly in the frontmatter: `executor: nimrod, adonaz`
-2. **Divide into sub-missions** — each agent has its own mission
-3. **Use dependencies** — `depends_on: [MIS-NNNN]` to establish order
+The repository is the source of truth in any conflict. Ambiguity is escalated,
+not resolved unilaterally, and another agent's work is never overwritten without
+explicit coordination.
 
-### When another agent needs something from me
-
-1. Update my STATUS.md with current state
-2. Document blockers in my active missions
-3. Agents do not directly assign each other tasks — the Oracle assigns
-
-### Conflict resolution
-
-1. The repository (`git pull`) is the source of truth — always
-2. If there is ambiguity: do not act, escalate (PRO-005)
-3. Never overwrite another agent's work without explicit coordination
-
-### ID collision
-
-If two agents claim the same ID, whoever committed first keeps it; the second
-renumbers theirs and fixes their references. (Rule born from the double
-collision MIS-090/MIS-091 on 2026-08-18, resolved by renumbering to
-MIS-092/MIS-093.)
+**Identifier collision:** whoever committed first keeps the number; the second
+renumbers and fixes their own references.
 
 ---
 
 ## Version history
 
-- v1.0.0 (2026-04-06) — Initial creation.
-- v1.1.0 (2026-04-07) — Added ID verification rule. Translated to English (MIS-056).
-- v2.0.0 (2026-04-07) — Full rewrite for Mission System v2: new states, folders, IDs, sub-missions, review cycle. (MIS-062)
-- v3.0.0 (2026-08-17) — Flat missions/ folder: status lives only in frontmatter, no status directories, no index file. States renamed todo→backlog, freeze→frozen; draft added. (MIS-066)
-- v4.1.0 (2026-09-02) — §2 Mission IDs: 4-digit filename per ADR-005 v1.1.0 (the section still prescribed `MIS-NNN`, max 999, a day after the ruling); sub-missions take a number of their own and `parent_mission`, the dot and letter forms retire (MIS-115a/b became MIS-132/133). missions/ normalisation.
-- v4.0.0 (2026-08-31) — **Merged.** Absorbs `P-009` (mission briefing) as §1 — it declared itself a dependency of this protocol — and `P-004` (inter-agent communication) as §4. Renamed `P-003` → `PRO-003` per ADR-005. References to a coordination agent that was never activated removed; the Oracle assigns. `P-009`'s queue/active folder instructions dropped: those folders no longer exist since v3.0.0. MIS-127.
-- v4.2.0 (2026-09-02) — §2 states aligned with `STD-001` §7: `draft`, `backlog`, `cancelled` withdrawn from the diagram, the who-sets table and the four steps that still set them (`todo` everywhere; cancelled = `frozen` + `freeze_reason: cancelled`). The table gains the stamp column. `MIS-135` row 1, #200.
+- v4.3.0 (2026-09-04) — Same rules, a third fewer words. Removed: the 2026-04-07
+  incident narrative that justified the briefing rule, the eight-line briefing
+  checklist that repeated the steps above it, the anti-pattern table that
+  restated four rules as their own violations, the field-extraction table, and
+  the collision anecdote. The numbered step lists of the cycle are prose.
+- v4.2.0 (2026-09-02) — states aligned with the glossary's closed vocabulary.
+- v4.1.0 (2026-09-02) — four-digit filenames, sub-missions take their own
+  number.
+- v4.0.0 (2026-08-31) — merged `P-009` and `P-004` in as sections. MIS-127.
+- v3.0.0 and earlier — see git history.
