@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "628e0ad+index",
-  "corpus_hash": "6072ab1b48e0a1d85267a91e68ce2cce23318fcd08dd4263a141ebf1d8da7437",
-  "root_dirty": 18,
-  "measured_at": "2026-09-03T17:29:42Z",
+  "head": "9951860",
+  "corpus_hash": "b5b47bb608e006c4c61cffd6a3cb7e5c5315556f9e175c5135eb841d0fb95261",
+  "root_dirty": 0,
+  "measured_at": "2026-09-03T17:32:39Z",
   "families": [
     "corpus",
     "series",
@@ -593,7 +593,7 @@
       "definition": "nature of author: per doc, `author:` normalised → human (Oracle aliases) · ai-persona (agents whose SOUL.md declares a model, list of 2026-08-26) · ai-model (name matches claude|gpt|opus|sonnet|fable|gemini|llm) · other · no-author · no-frontmatter"
     },
     "provenance.dates_vs_commits_compared": {
-      "value": 264,
+      "value": 265,
       "unit": "documents",
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
@@ -827,7 +827,7 @@
           "id": "MIS-135#19",
           "severity": "A",
           "state": "open",
-          "where": "web/astro.config.mjs#L143",
+          "where": "web/astro.config.mjs#L157",
           "claim": "Parameterised redirect that check-url-lifecycle matches literally — neither verified nor expanded. Deferred: design choice."
         },
         {
