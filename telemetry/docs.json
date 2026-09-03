@@ -2579,10 +2579,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 13789,
+  "chars": 6982,
   "apparatus": false,
   "archived": false,
-  "tokens": 3583
+  "tokens": 1662
  },
  {
   "path": "protocols/PRO-010-how-to-archive.md",
@@ -2612,10 +2612,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 5596,
+  "chars": 5437,
   "apparatus": false,
   "archived": false,
-  "tokens": 1554
+  "tokens": 1365
  },
  {
   "path": "reports/RPT-001-debt-register-refactor.md",
@@ -2964,10 +2964,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 19169,
+  "chars": 12462,
   "apparatus": false,
   "archived": false,
-  "tokens": 5403
+  "tokens": 3278
  },
  {
   "path": "standards/STD-005-engineering-standards.md",
