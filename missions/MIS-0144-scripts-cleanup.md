@@ -3,14 +3,14 @@
 id: "MIS-144"
 uid: ""
 title: "Retire dead migration scripts and superseded one-shot fixes from scripts/"
-status: todo
+status: done
 priority: medium
 effort: M
 guild: "Alchemists"
 territory: "Archive"
 type_execution: digital
 assigned_to: null
-completed: null
+completed: "2026-09-03"
 
 # REGISTRO
 type: mission
@@ -18,7 +18,7 @@ version: "1.0.0"
 created: "2026-09-03T09:45:29Z"
 created_source: "git:7f621ab"
 created_confidence: exact
-updated: "2026-09-03T09:45:29Z"
+updated: "2026-09-03T09:53:38Z"
 author: "ursa"
 owner: "oracle"
 tags: [scripts, entropy, cleanup, MIS-127, MIS-138]
@@ -128,10 +128,10 @@ on this repo.
 ✗  the 6 Phase B files exist in scripts/ or scripts/experiments/     (today: yes)
 ```
 
-- [ ] Verifiable by someone who did not do the work
-- [ ] With the command that verifies it, when there is one
-- [ ] False at the base commit — say what it returns today
-- [ ] Phrased as a final state, not as a delta
+- [x] Verifiable by someone who did not do the work
+- [x] With the command that verifies it, when there is one
+- [x] False at the base commit — say what it returns today
+- [x] Phrased as a final state, not as a delta
 
 Per-phase gate: `node scripts/check-references.mjs` and
 `node scripts/lint-naming.mjs` report no new violations after each phase's
@@ -142,9 +142,23 @@ missions/reports) are historical record, not links to fix.
 
 ## Closure
 
-*(Fill when the mission closes.)*
-
-- **What was done:**
-- **What diverged, and why:**
-- **Evidence:**
-- **Closed:** · **by:**
+- **What was done:** Phase A (`7c010cf`) removed 15 completed migration
+  scripts + 5 `.txt` sidecars. Phase B (`1ece556`) removed 6 already-
+  executed one-shot fixes. Merged to `main` as `144ba1a` (PR #220).
+- **What diverged, and why:** `ci.yml` grew from 6 steps to 11 (`MIS-138`'s
+  telemetry guard landed on `main` — `db37686`, `b9ed412` — while this
+  branch was open) between the audit at `7f621ab` and the PR. `telemetry
+  --check` correctly failed CI: the corpus_hash on record no longer
+  matched HEAD after the deletions. Fixed by re-running
+  `node scripts/telemetry.mjs` (`1f86ea9`), not by touching the check.
+  Also: `MIS-143` was claimed by another mission
+  (`mis-143-ursa-git-cold-start-bootstrap`) while this one was in flight;
+  renumbered to MIS-144 and the branch/mission file renamed to match
+  before opening the PR.
+- **Evidence:** all four acceptance criteria false at `7f621ab`, true at
+  merge — `find scripts -maxdepth 1 -name 'phase*.py'` → 0,
+  `-name 'phase*.txt'` → 0, none of the 15 Phase A or 6 Phase B files
+  exist in `scripts/` or `scripts/experiments/`. All 6 non-telemetry
+  guards + `npm run build` + CI (`build`, CodeQL, 3× `Analyze`) green on
+  the merge commit.
+- **Closed:** 2026-09-03 · **by:** ursa
