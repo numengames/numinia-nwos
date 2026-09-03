@@ -124,8 +124,10 @@ of `MAY` may bind nothing. Each document is read before it is classified.
 
 ### The work
 
-1. **Write `STD-010`** — the core rules, one line each, each one checkable.
-   Extracted from the normative layer, not invented.
+1. **Write the core-rules standard** — one line per rule, each one checkable.
+   Extracted from the normative layer, not invented. It takes the next free
+   number in the series when it is written; naming it here would be a
+   reference to a document that does not exist.
 2. **Resolve contradictions as they surface**, one per pull request, stating
    which rule wins and why. Two are already resolved and in production
    (`closed`, and filename-as-state).
@@ -156,7 +158,8 @@ breakage is caused by our own text.
 
 ## Acceptance criteria
 
-1. `STD-010` exists, every line of it convertible into a pass/fail check.
+1. The core-rules standard exists, every line of it convertible into a
+   pass/fail check.
 2. Every superseded document carries `status: superseded` and a named heir,
    and remains readable.
 3. No contradiction is closed without a written ruling saying which side won.
