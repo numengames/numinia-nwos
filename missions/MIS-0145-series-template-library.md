@@ -2,7 +2,7 @@
 id: "MIS-145"
 uid: ""
 title: "Series template library: every registered series gets a copy-from template in templates/"
-status: todo
+status: in-progress
 priority: medium
 effort: M
 guild: "Alchemists"
