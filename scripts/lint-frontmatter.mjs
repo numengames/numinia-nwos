@@ -314,12 +314,18 @@ for (const rel of files) {
   if (fm.status) {
     if (fm.status !== fm.status.toLowerCase())
       F('H-19', rel, `status "${fm.status}" must be lowercase`);
-    /* A dated filename is a frozen artifact — a photograph, not a living rule
-       (STD-001). It keeps the type lifecycle even inside a normative series:
-       `closed` there means "published, still standing", which is what a
-       photograph is. Only living documents get the series off switch. */
-    const isFrozenArtifact = /^\d{4}_\d{2}_\d{2}-/.test(rel.split('/').pop());
-    const seriesLife = isFrozenArtifact ? null : STATUS._bySeries?.[top];
+    /* The filename is not a state (2026-09-03, Oracle ruling). An earlier
+       version of this guard read a dated filename as "frozen artifact" and
+       withheld the series off switch from it. That inverted the rule it
+       claimed to enforce: STD-001 defines `frozen` as a mission state —
+       "deliberately paused; returns to any state" — and a state is declared
+       in a field, never deduced from what a file is called. ISO stage codes,
+       the IETF `Category:` header and the W3C status section all put the
+       state in the document, not in its name: RFC 2026 is still called
+       rfc2026.txt whether it binds or is Historic. A document in a normative
+       series gets that series' lifecycle because of where it lives and what
+       it does, not because of how it was named. */
+    const seriesLife = STATUS._bySeries?.[top];
     const life = seriesLife || STATUS[fm.type] || STATUS._default;
     if (!life.includes(fm.status.toLowerCase()))
       F('H-04', rel, `status "${fm.status}" not in the ${seriesLife ? `${top}/ series` : (fm.type || 'default')} lifecycle [${life.join(' ')}]`);

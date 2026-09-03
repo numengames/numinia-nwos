@@ -118,7 +118,7 @@ re-measuring, and saying so is cheaper than being wrong.
 
 ## Design system conformance
 
-Checked against `standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md`, measured
+Checked against `standards/STD-008-design-system.md`, measured
 on the built HTML rather than asserted:
 
 - **Colour** — no hex in either source file; every colour is a token

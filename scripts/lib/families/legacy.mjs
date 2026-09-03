@@ -18,7 +18,7 @@ import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { ROOT, loadRules } from '../frontmatter.mjs';
-import { FROZEN_ARTIFACT_RE } from '../corpus.mjs';
+import { DATED_ARTIFACT_RE } from '../corpus.mjs';
 
 const git = (...a) => execFileSync('git', ['-C', ROOT, ...a], { encoding: 'utf8' }).trimEnd();
 const APPARATUS_NAMES = new Set(['INDEX.md', 'README.md', 'TEMPLATE.md', 'STANDARDS.md', 'APPROVAL-REQUEST-template.md', 'TEMPLATE-EXAMPLE.md', 'TEMPLATE-CHANGES.md']);
@@ -82,14 +82,20 @@ export function measure({ rules = loadRules() } = {}) {
       if (!d.path.startsWith(dir + '/') || d.path.includes('/_template/')) continue;
       if (d.path.startsWith('reports/evidence/')) continue;
       if (isApparatus(d)) { excl.aparato.push(d.path); apparatus++; continue; }
-      if (FROZEN_ARTIFACT_RE.test(d.base)) { excl.congelados.push(d.path); continue; }
+      /* This family REPLAYS a retired Python tool (count-evidence.py) and must
+         reproduce its dict byte for byte — the golden fixtures in
+         scripts/test/fixtures/ pin it. That tool excluded dated filenames, so
+         this emulator still does. It is a historical reproduction, not the
+         corpus doctrine: live guards read state from frontmatter only
+         (P-010 §3.2.1, reversed 2026-09-03). Do not "fix" this to match. */
+      if (DATED_ARTIFACT_RE.test(d.base)) { excl.congelados.push(d.path); continue; }
       sel.push(d);
     }
     const ok = sel.filter((d) => pat.test(d.base)).length;
     matricula[dir] = { esquema, con: ok, total: sel.length, aparato: apparatus, pct: sel.length ? Math.round((1000 * ok) / sel.length) / 10 : null };
   }
-  put('matricula', matricula, 'per series dir (count-evidence order, 11 dirs — `system` absent, as in the script): con = filenames matching the scheme; total = docs in the dir minus _template/, reports/evidence/, apparatus (canonical name or type: meta, per the guards) and frozen artefacts (dated filename); pct = 100·con/total rounded to 0.1', 'documents');
-  put('excluidos', excl, 'the apparatus and frozen paths removed from the matricula denominators, in scan order', 'paths');
+  put('matricula', matricula, 'per series dir (count-evidence order, 11 dirs — `system` absent, as in the script): con = filenames matching the scheme; total = docs in the dir minus _template/, reports/evidence/, apparatus (canonical name or type: meta) and dated filenames, as the replayed tool did; pct = 100·con/total rounded to 0.1', 'documents');
+  put('excluidos', excl, 'the apparatus and dated-name paths removed from the matricula denominators, in scan order', 'paths');
   const agentsDir = path.join(ROOT, 'agents');
   const agentDirs = existsSync(agentsDir) ? readdirSync(agentsDir).filter((n) => n !== '_template' && statSync(path.join(agentsDir, n)).isDirectory()) : [];
   put('agents_sin_prefijo_por_diseno', agentDirs.length, 'subdirectories of agents/ other than _template (ADR-005 v1.1.0: agents are named, not numbered)', 'directories');

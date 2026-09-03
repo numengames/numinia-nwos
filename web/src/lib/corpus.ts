@@ -213,16 +213,21 @@ const READING_ORDER: Record<string, string[]> = {
   ],
 
   // Language first, because nothing below can be read without it. Then power:
-  // who may change what. Then form, then craft, then the superseded document
-  // kept for the record.
+  // who may change what. Then form, then craft, then what the craft produces,
+  // then the superseded document kept for the record.
+  //
+  // The analogous-terminology table used to sit second, teaching the in-world
+  // vocabulary. It was merged into CAN-004 on 2026-09-03: it translated names,
+  // it never bound anything, and the canon already held the structure it named.
   standards: [
     "/corpus/standards/std-001-glossary",
-    "/corpus/standards/2026_04_14-analogous_terminology_numina-v020",
     "/corpus/standards/std-002-governance",
     "/corpus/standards/std-004-header-standard",
     "/corpus/standards/std-003-platform-role-system",
     "/corpus/standards/std-005-engineering-standards",
-    "/corpus/standards/2026_08_18-sistema_de_diseno-v510",
+    "/corpus/standards/std-006-archive-substance",
+    "/corpus/standards/std-007-plain-writing",
+    "/corpus/standards/std-008-design-system",
     "/corpus/standards/standards",
   ],
 

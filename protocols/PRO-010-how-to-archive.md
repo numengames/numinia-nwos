@@ -97,18 +97,52 @@ Historical documents archived as an artefact — that do not evolve —
 keep the inherited convention `YYYY_MM_DD-Title_With_Underscores-vX.Y.Z.md`.
 It is the visible mark of "this is a photograph, not a living document."
 
-**A frozen artefact does not enter a registration series** (`MIS-125` ruling,
-2026-08-31, below). The dated filename *is* its identifier. Giving it a
-series number would assert that a photograph is a living document, which is
-the one thing this section exists to deny.
+**A document archived as an artefact does not enter a registration series**
+when it is genuinely archived — but *"archived"* is what `status` says, not
+what the filename looks like. See the reversal in the next section: two
+documents that held this exemption on the strength of their filenames alone
+turned out to be a living standard and a piece of canon vocabulary.
 
-#### 3.2.1 The criterion is the filename shape, not the frontmatter field `[MANUAL]`
+#### 3.2.1 The criterion is the frontmatter field, not the filename shape `[MANUAL]`
 
-A document is a frozen artefact when its **filename** matches the dated
-artefact shape of §3.2 above —
-`YYYY_MM_DD-Title_With_Underscores-vX.Y.Z.md`. The frontmatter field
-`registration_exemption: frozen-artifact` *records* that fact; it does not
-constitute it.
+**Reversed on 2026-09-03 (Oracle ruling).** This section used to say the
+opposite: that a document was a frozen artefact when its *filename* matched
+the dated shape, and that the frontmatter field only recorded that fact
+rather than constituting it. That is struck out. **A filename is not a
+state.**
+
+The reversal has three grounds, and the first is enough on its own:
+
+1. **It contradicted the glossary.** `STD-001` defines `frozen` as a mission
+   state — *deliberately paused; returns to any state* — and 38 of 38 frozen
+   missions carry `freeze_reason`, at 100% compliance. The filename
+   convention used the same word for the opposite idea: permanently fixed,
+   never returning. One token, two opposite meanings, which is the exact
+   defect the corpus keeps paying for.
+2. **No standards body works this way.** ISO carries the stage in a code
+   (`90.93` confirmed, `95.99` withdrawn), the IETF in a `Category:` header,
+   the W3C in a status section. `RFC 2026` is called `rfc2026.txt` whether it
+   binds or is Historic. The name is the identifier; the state is a field.
+3. **The original reasoning shows the shortcut.** The argument recorded below
+   was that three artefacts carried the field and two did not, so a
+   field-keyed guard would have flagged those two. That is an argument for
+   filling in two frontmatters, not for moving the criterion into the
+   filename and calling it doctrine.
+
+**The rule now.** A document's lifecycle state is whatever its `status` field
+says, read against the lifecycle of its series. The dated filename shape of
+§3.2 survives as a legacy naming pattern — `lint-naming` still recognises it
+— but it implies nothing about registration or state. Documents that are
+genuinely archived say so in `status`.
+
+The two documents that held the exemption in `standards/` were registered
+instead: the design system as `STD-008`, which carries 46 normative verbs and
+was being cited as binding while filed as a photograph; and the analogous
+terminology table, which had no normative verbs at all and was merged into
+`CAN-004`, where the vocabulary it translates already lives.
+
+The original measurement is kept below as the record of what was argued.
+
 
 This distinction is not pedantry — it is measured. Of the five frozen
 artefacts in the corpus at `caf2621`, **three carry the field and two do
@@ -117,9 +151,9 @@ not**:
 ```
 canon/2026_04_15-Epistemic_Relations_…-v0.2.0.md      field present
 canon/CAN-007-pragmatic-numen-system.md      field present
-standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md       field present
+standards/STD-008-design-system.md       field present
 protocols/2026_04_14-Read_Me_How_to_Archive-v0.2.0.md  field ABSENT
-standards/2026_04_14-Analogous_Terminology_Numina-v0.2.0.md  field ABSENT
+canon/CAN-004-role-structure.md  field ABSENT
 ```
 
 The two without it are not oversights: both are `status: closed` and carry
@@ -139,7 +173,7 @@ four grounds, all measured against the repo rather than argued:**
 
 1. **The rename is structurally incomplete** — `STD-001` §5.0.1: *a rename
    whose consumers cannot all be updated is not done.*
-   `2026_08_18-Sistema_de_Diseno-v5.1.0.md` is consumed by **`numinia-web`,
+   `standards/STD-008-design-system.md` is consumed by **`numinia-web`,
    a different repository**, via `design-source.json` (`path` + `sha256`,
    verified there by its own `scripts/check-design-source.mjs` on
    `npm run design:check`), and by the published kit at

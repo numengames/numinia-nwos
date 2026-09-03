@@ -31,7 +31,7 @@ absorbs: ["D-040", "D-041"]
 v5.0.0 is retired from the repository.
 
 **Retired:** `standards/2026_08_18-Sistema_de_Diseno-v5.0.0.md`
-**Current:** `standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md` (declares `supersedes:`)
+**Current:** `standards/STD-008-design-system.md` (declares `supersedes:`)
 **Date:** 2026-08-24 · **Commit:** see PR "chore: retire Design System v5.0.0"
 
 ### What breaks
@@ -64,7 +64,7 @@ v5.1.0 is already published and returns **HTTP 200** at
 ### Pending repair — exact order
 
 1. **`numinia-web`** — update `design-source.json`:
-   - `path` → `standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md`
+   - `path` → `standards/STD-008-design-system.md`
    - `published` → `…/2026_08_18-sistema_de_diseno-v510.md`
    - `version` → `5.1.0`
    - `sha256` → recalculate against the published file

@@ -15,7 +15,15 @@ import { ROOT, parseFM, loadRules, isApparatus, seriesDirs } from './frontmatter
 
 const git = (...args) => execFileSync('git', ['-C', ROOT, ...args], { encoding: 'utf8' }).trimEnd();
 
-export const FROZEN_ARTIFACT_RE = /^\d{4}_\d{2}_\d{2}-.+-v\d+\.\d+\.\d+\.md$/;
+/* Retired 2026-09-03 (Oracle ruling): a filename is not a state. This pattern
+   used to mark a document "frozen" because its name began with a date, which
+   contradicted STD-001 — where `frozen` is a mission state meaning
+   "deliberately paused, returns to any state", not "permanently fixed".
+   State is read from the `status` field, like everywhere else in the corpus
+   and like ISO stage codes, IETF `Category:` and W3C status sections. The
+   naming shape itself still exists and is checked by lint-naming; it just
+   no longer implies anything about lifecycle. */
+export const DATED_ARTIFACT_RE = /^\d{4}_\d{2}_\d{2}-.+-v\d+\.\d+\.\d+\.md$/;
 
 /** All tracked paths at HEAD's index, `telemetry/` excluded: the dataset does not measure itself (same exclusion as corpusHash). */
 export function trackedFiles() {
@@ -62,7 +70,9 @@ export function loadDocs(rules = loadRules()) {
       type: fm?.type ?? null, status: fm?.status ?? null,
       series: series.has(top) ? top : null,
       apparatus: isApparatus(rel, fm ?? {}, rules),
-      frozen: FROZEN_ARTIFACT_RE.test(base),
+      /* `archived` replaced `frozen` on 2026-09-03: read from the declared
+         exemption, never from the filename. A name is not a state. */
+      archived: fm?.registration === 'exempt' && !!fm?.registration_exemption,
       evidence_annex: rel.startsWith('reports/evidence/'),
       template_dir: rel.includes('/_template/'),
     };

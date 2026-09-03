@@ -65,7 +65,7 @@ export function measureAll() {
     families: Object.keys(FAMILIES),
     figures,
   };
-  const rows = docs.map((d) => ({ path: d.path, dir: d.dir, series: d.series, type: d.type, status: d.status, chars: d.chars, apparatus: d.apparatus, frozen: d.frozen, tokens: d.tokens ?? null }));
+  const rows = docs.map((d) => ({ path: d.path, dir: d.dir, series: d.series, type: d.type, status: d.status, chars: d.chars, apparatus: d.apparatus, archived: d.archived, tokens: d.tokens ?? null }));
   return { latest, docs: rows };
 }
 

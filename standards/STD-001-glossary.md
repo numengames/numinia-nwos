@@ -731,13 +731,23 @@ thing to a reader*:
 manners.
 
 The reason must name what makes registration wrong — not that it is
-inconvenient. Three legitimate shapes, all present in the corpus today:
+inconvenient. Two legitimate shapes, both present in the corpus today:
 
 | Shape | Example |
 |---|---|
-| **Frozen artifact** — a dated filename is a photograph, not a living document (`P-010` §3.2) | `2026_04_14-Analogous_Terminology_Numina-v0.2.0.md` |
 | **Apparatus of a registered document** — belongs to its parent, not to the series | `protocols/APPROVAL-REQUEST-template.md`, used by `P-008` |
 | **Consumers cannot all be updated** — see below | `standards/STD-005-engineering-standards.md` |
+
+**A third shape was struck out on 2026-09-03 (Oracle ruling): "frozen
+artifact — a dated filename".** A filename is not a state. It was never a
+state anywhere else either: ISO puts the stage in a code, the IETF in a
+`Category:` header, the W3C in a status section, and `RFC 2026` keeps the
+name `rfc2026.txt` whether it binds or is Historic. The shape also
+contradicted this document, which defines `frozen` as a *mission* state —
+deliberately paused, returning to any state — while the filename convention
+used the same word for the opposite thing: permanently fixed. One token, two
+opposite meanings, which is the defect this glossary exists to prevent. The
+documents that held the exemption were registered instead.
 
 Counters read `registration: exempt` as **out of the denominator**, not as a
 miss. A series at `8/8 · 2 exempt` is fully registered; `8/10` is not, and the
@@ -1086,12 +1096,11 @@ governance.
 
 **Never** a version or a date in the filename of a living document: git carries
 the history, `version:` carries the version. Dated names
-(`YYYY_MM_DD-Title-vX.Y.Z.md`) are reserved for **frozen artifacts** (P-010
-§3.2).
+(`YYYY_MM_DD-Title-vX.Y.Z.md`) are a legacy shape and reserve nothing: as of
+2026-09-03 they carry no meaning about a document's state.
 
 Violations today: `Definition_of_Done_v0.2.0.md`, `Mission_Template_v0_2_0.md`,
-`2026_04_14-Analogous_Terminology_Numina-v0.2.0.md`, and the canon files with
-spaces in their names.
+and the canon files with spaces in their names.
 
 ### 9.1 Citing an identifier vs mentioning one as data `[MANUAL]`
 
