@@ -2546,10 +2546,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 9160,
+  "chars": 6034,
   "apparatus": false,
   "archived": false,
-  "tokens": 2430
+  "tokens": 1519
  },
  {
   "path": "protocols/PRO-003-mission-cycle.md",
@@ -2557,10 +2557,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 10817,
+  "chars": 7303,
   "apparatus": false,
   "archived": false,
-  "tokens": 2868
+  "tokens": 1776
  },
  {
   "path": "protocols/PRO-005-escalation.md",
@@ -2601,10 +2601,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 16482,
+  "chars": 14230,
   "apparatus": false,
   "archived": false,
-  "tokens": 4024
+  "tokens": 3254
  },
  {
   "path": "protocols/PRO-013-handing-a-guard-to-ci.md",
@@ -2942,10 +2942,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 10717,
+  "chars": 9471,
   "apparatus": false,
   "archived": false,
-  "tokens": 2818
+  "tokens": 2401
  },
  {
   "path": "standards/STD-003-platform-role-system.md",
