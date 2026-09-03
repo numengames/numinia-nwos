@@ -3,12 +3,12 @@ title: "Engineering Standards"
 id: "STD-005"
 uid: ""
 type: documentation
-status: active
-version: "1.0.0"
+status: draft
+version: "0.1.0"
 created: "2026-08-17T21:55:38+02:00"
 created_source: "git:e3123fc"
 created_confidence: exact
-updated: "2026-08-22T20:44:28+02:00"
+updated: "2026-09-03T11:20:00Z"
 author: "pablofm"
 owner: "oracle"
 tags: [standards]
@@ -22,9 +22,17 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Engineering Standards
 
-**Version:** 0.1.0 (draft — pending Oracle review)
-**Status:** Proposal
-**Date:** 2026-08-17
+> **NOT RATIFIED — read before citing this document as a requirement.**
+> `status: draft` in the frontmatter now matches what this page has said
+> since 2026-08-17: it is a proposal, not a signed standard.
+>
+> Five documents already treat it as binding regardless — `CLAUDE.md`, which
+> states that agents MUST follow its application protocol, `AGENTS.md`, the
+> pull request template, and both agent source lists. That is now on record.
+> Whether each of those citations should be softened, or this document
+> ratified so they become true, is the Oracle's decision: a draft cannot
+> resolve its own citations.
+
 **Origin:** `numengames/numinia-nwos`. Numinia is NWOS's first client: practices are proven here, in production, on real work — before they are proposed to anyone else.
 **This copy:** the operative standard of this repository. Edited here, by ADR + PR in `decisions/`. It is not downstream of anything.
 **Promotion:** what survives here is promoted to `numen-games-nwos-orgs/nwos-workspace-template` as a *starting proposal*. Whoever adopts it owns it — divergence there is adoption, not drift (G-12).

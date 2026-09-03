@@ -74,13 +74,15 @@ two must be read together:
 An earlier version stated that `canon/` could be modified by "Nobody" and that
 CODEOWNERS enforced it technically. Both were false: 14 of 14 canon documents
 carry more than one commit, and `.github/CODEOWNERS` says in its own header
-that enforcement *"needs branch protection… tracked in MIS-070"*, which does
-not exist yet.
+that enforcement *"needs branch protection"*.
 
-The distance between what this table declares and what the repository can
-enforce is registered as [`debt/D-011`](../debt/D-011-thresholds-unenforced.md).
-Until it closes, every row above is a convention held by people, not a
-mechanism.
+That gap has since closed on the mechanical side. The `protect-main` ruleset
+is active on the default branch with pull requests, required status checks,
+linear history, and no force-push or deletion — with **zero bypass actors**,
+checked against the repository's ruleset API on 2026-09-03. What the table
+above still cannot enforce is *who* approves: the rows name authorities the
+platform does not distinguish. Those rows are a convention held by people.
+The branch is not.
 
 ---
 

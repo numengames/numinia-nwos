@@ -1455,19 +1455,22 @@ find and a staleness a ratchet can measure.
 
 **The five undefined fields now have entries.** They were promised in v2.0 and
 written on 2026-08-25; until then this section pointed at nothing, which is the
-defect `D-018` exists to catch.
+defect `D-018` exists to catch. Four are now retired rather than resolved —
+the corpus's debt-register refactor found the fields themselves gone from
+the tree, so their debt entries were extinguished, not paid.
 
 1. **`human_approval_score`** (16 documents) — says `# 1-10` but not *what* it
    measures. → `D-003` (extinguished 2026-08-30, ADR-030: defined as the
    approval gate in `standards/STD-002-governance.md`)
-2. **`semaforo`** (7) — verde/amarillo/rojo, in Spanish. What triggers each
-   colour, and who sets it. → [`D-004`](../debt/D-004-semaforo-undefined.md)
-3. **`confidence_before` / `after`** (2) — scale, and who fills them.
-   → [`D-005`](../debt/D-005-confidence-scale-undefined.md)
-4. **`cost_estimate`** (2) — currency, compute, human time.
-   → [`D-006`](../debt/D-006-cost-estimate-no-unit.md)
-5. **`week`** (7) — `W14`, `W15`. ISO week, of which year.
-   → [`D-007`](../debt/D-007-week-no-year.md)
+2. **`semaforo`** — verde/amarillo/rojo, in Spanish. Retired: the field
+   appears in 0 tracked documents. Its debt entry is extinguished, not
+   resolved — there was nothing left to fix.
+3. **`confidence_before` / `after`** — same: 0 documents carry them as real
+   fields. The only occurrence left is inside a fenced example in a frozen
+   `history/` snapshot, which is a picture of a template, not a use.
+4. **`cost_estimate`** — survives only in frozen April dailies under
+   `reports/`; the entry is extinguished, the frozen dailies are untouched.
+5. **`week`** — same as `cost_estimate`: frozen-only, extinguished.
 6. **Canon registration** (§4.3) — register `C-NNN`, or withdraw the rule.
 7. **`guilds/` as a series** — charters to `standards/`, rosters as generated
    apparatus.
