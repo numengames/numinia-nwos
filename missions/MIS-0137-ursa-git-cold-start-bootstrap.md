@@ -3,11 +3,11 @@
 id: "MIS-137"
 uid: ""
 title: "Ursa's canonical definition carries the full cold-start context — one instruction, no repeated prompts"
-status: draft
-# ^ draft — brief not yet approved (PRO-003 §2). Note: lint-frontmatter
-#   accepts only todo|in-progress|in-review|done|frozen for missions; the
-#   draft state is PRO-003's, set by the author, and will be recorded as a
-#   known baseline deviation until the Oracle rules.
+status: todo
+# ^ todo — the board's state for a mission awaiting assignment. (The Oracle
+#   asked for "backlog"; STD-001 §7 retired that value on 2026-08-30 — the
+#   surviving equivalent is `todo`, per MIS-135 row 1. Decided by the Oracle
+#   2026-09-02.)
 priority: high
 effort: L
 guild: "Sentinels"
@@ -23,7 +23,7 @@ version: "2.0.0"
 created: "2026-09-02T09:40:00Z"
 created_source: "git:68bd5f1"
 created_confidence: exact
-updated: "2026-09-02T14:10:00Z"
+updated: "2026-09-02T14:45:00Z"
 author: "ursa"
 owner: "oracle"
 tags: [ursa, bootstrap, context, hermes, onboarding, continuity, cold-start]
@@ -429,3 +429,9 @@ Add here — never edit `Scope` or the criteria to match what happened.)*
   acceptance test uses the real first instruction and fails on any listed
   follow-up prompt; measurement protocol expanded. Still `draft`; no
   execution, no canonical changes.
+- 2026-09-02 — **Moved to `todo`** (the board's backlog equivalent) by the
+  Oracle (PRO-003 §2). The Oracle asked for `backlog`; STD-001 §7 retired
+  that value on 2026-08-30, so the surviving equivalent `todo` was applied,
+  recorded here, and the PRO-003/STD-001 conflict re-registered in this
+  mission's context (MIS-135 row 1). Branch rebased onto `main` `b9ed412`.
+  Still not assigned, not executed.
