@@ -35,6 +35,20 @@ export default defineConfig({
 		"/corpus/standards/s-003-platform-role-system": "/corpus/standards/std-003-platform-role-system",
 		"/corpus/standards/s-004-header-standard": "/corpus/standards/std-004-header-standard",
 		"/corpus/standards/engineering-standards": "/corpus/standards/std-005-engineering-standards",
+		// Two exemptions revoked, 2026-09-03 (Oracle ruling, P-010 §3.2.1 reversed).
+		// Both documents were filed under dated filenames that exempted them from
+		// registration — a name was being read as a state. Registering them moved
+		// both addresses:
+		//   · the design system carries 46 normative verbs and was cited as
+		//     binding while filed as a photograph; it became STD-008 and is
+		//     the same document at a new address.
+		//   · the analogous-terminology table has no normative verbs at all. It
+		//     translated in-world names to operational ones, which is canon
+		//     vocabulary, so it was MERGED into CAN-004 — where the role
+		//     structure it names already lived. The target holds its content;
+		//     it is not a section index.
+		"/corpus/standards/2026_08_18-sistema_de_diseno-v510": "/corpus/standards/std-008-design-system",
+		"/corpus/standards/2026_04_14-analogous_terminology_numina-v020": "/corpus/canon/can-004-role-structure",
 		// Debt renumbering, 2026-08-31 (RPT-001 §12). The D- series was closed
 		// and renumbered to DBT-NNN; 30 published addresses died. Merged entries
 		// point at the document that now CONTAINS their reasoning, not at a

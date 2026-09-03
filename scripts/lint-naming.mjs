@@ -119,20 +119,23 @@ for (const rel of files) {
   const exemption = fm.registration === 'exempt' ? fm.registration_exemption : null;
 
   /* N-02: version/date in a LIVING document's filename.
-     Frozen artifacts (P-010 §3.2) are the one legitimate use of the dated
-     shape — checked for the RIGHT shape below, not flagged here. */
-  const looksFrozen = DATED_PREFIX_RE.test(base) || exemption === 'frozen-artifact';
-  if (!looksFrozen && VERSION_SUFFIX_RE.test(base))
+     Until 2026-09-03 a dated prefix exempted itself: `looksFrozen` was true
+     merely because the name carried a date, so the guard read the filename as
+     proof of its own legitimacy and skipped every check below. A name cannot
+     license itself. The exemption is now what the frontmatter declares, and
+     the legacy dated shape is tolerated only where it is still on disk. */
+  /* Any declared exemption counts, whatever word it uses. Two documents in
+     history/ still say `frozen-artifact`; they are `status: closed` and are
+     not rewritten to chase new vocabulary. What matters is that the exemption
+     is declared in the frontmatter, not inferred from the name. */
+  const declaredArchive = typeof exemption === 'string' && exemption.length > 0;
+  const legacyDated = DATED_PREFIX_RE.test(base);
+  if (!declaredArchive && !legacyDated && VERSION_SUFFIX_RE.test(base))
     F('N-02', rel, `filename carries a version suffix — version: lives in frontmatter, not the name (STD-001 §9)`);
-  if (!looksFrozen && DATED_PREFIX_RE.test(base))
-    F('N-02', rel, `filename carries a date prefix without being a declared frozen artifact (STD-001 §9, P-010 §3.2)`);
+  if (!declaredArchive && legacyDated)
+    F('N-02', rel, `filename carries a date prefix; dated names are a legacy shape and say nothing about state (STD-001 §9, P-010 §3.2.1)`);
 
-  /* Frozen artifacts: verify they actually carry the reserved shape
-     (YYYY_MM_DD-Title_With_Underscores-vX.Y.Z.md), not just some date. */
-  if (exemption === 'frozen-artifact' && !FROZEN_ARTIFACT_RE.test(base))
-    F('N-03', rel, `declared registration_exemption: frozen-artifact but filename does not match YYYY_MM_DD-Title_With_Underscores-vX.Y.Z.md (P-010 §3.2)`);
-
-  if (looksFrozen) continue; // frozen artifacts are not held to the series scheme below
+  if (legacyDated || declaredArchive) continue; // legacy names are not held to the series scheme below
 
   /* N-04: series prefix + id shape + kebab-case slug. */
   const scheme = SERIES[top];

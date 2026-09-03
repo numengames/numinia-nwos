@@ -19,15 +19,15 @@ export function registrationBySeries(docs, rules) {
     if (sch.naming === false) continue;
     const pat = new RegExp(`^(?:${sch.prefix.join('|')})-\\d{${sch.digits}}-`);
     const daily = sch.dailyDate ? /^RPT-\d{4}-\d{2}-\d{2}\.md$/ : null;
-    let apparatus = 0, frozen = 0; const sel = [];
+    let apparatus = 0, archived = 0; const sel = [];
     for (const d of docs) {
       if (d.dir !== dir || d.template_dir || d.evidence_annex) continue;
       if (d.apparatus) { apparatus++; continue; }
-      if (d.frozen) { frozen++; continue; }
+      if (d.archived) { archived++; continue; }
       sel.push(d);
     }
     const registered = sel.filter((d) => pat.test(d.base) || (daily && daily.test(d.base))).length;
-    out[dir] = { registered, total: sel.length, apparatus, frozen, pct: sel.length ? Math.round((1000 * registered) / sel.length) / 10 : null };
+    out[dir] = { registered, total: sel.length, apparatus, archived, pct: sel.length ? Math.round((1000 * registered) / sel.length) / 10 : null };
   }
   return sortedCounts(out);
 }

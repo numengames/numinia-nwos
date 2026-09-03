@@ -200,7 +200,7 @@ rename's clothes, and the numbers below say how many decisions each is.
       `resolved` in `debt/` (check **B**), 19 `published` in reports, and a
       tail: `designed` ×3, `provisional`, `done`, plus **2 documents missing
       `status` entirely** (`canon/CAN-005-licensing.md`,
-      `standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md`) that the same check
+      `standards/STD-008-design-system.md`) that the same check
       code reports. Each group is a different lifecycle question. Only
       `debt/` is settled (ruled 2026-08-30).
       **Coupled to the web:** `MissionsView.astro` keys its columns off
@@ -260,7 +260,7 @@ rename's clothes, and the numbers below say how many decisions each is.
 
 **844 → 44 (95%). 328 of 330 documents clean (99%).** The 44 survivors all
 live in two documents — `canon/CAN-005-licensing.md` and
-`standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md`, the Spanish-era fragile
+`standards/STD-008-design-system.md`, the Spanish-era fragile
 pair — set aside for a short one-by-one session: translate ~20 header keys
 with the document in front, bodies untouched.
 
