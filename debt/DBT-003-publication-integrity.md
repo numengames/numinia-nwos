@@ -491,7 +491,7 @@ than overwritten: a measurement without its commit is not a measurement
 
 **The defect is that the count is not zero.** Any specific value is a snapshot,
 and an acceptance criterion that hard-codes one has a shelf life — see the
-worked example in `missions/TEMPLATE-EXAMPLE.md`, whose `Closure` is exactly
+worked example in `templates/MIS-TEMPLATE-EXAMPLE`, whose `Closure` is exactly
 this mistake.
 
 Verified live, not only in `dist/`:
