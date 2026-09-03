@@ -1,6 +1,6 @@
 ---
 # CORE — the ten fields the build verifies (web/src/content.config.ts).
-id: "MIS-145"
+id: "MIS-146"
 uid: ""
 title: "Triage the ten Dependabot advisories on main and close DBT-007"
 status: todo
@@ -21,7 +21,7 @@ version: "1.0.0"
 created: "2026-09-02T15:10:00Z"
 created_source: "git:db37686"
 created_confidence: exact
-updated: "2026-09-02T15:10:00Z"
+updated: "2026-09-03T11:16:00Z"
 author: "ursa"
 owner: "oracle"
 tags: [debt, security, dependencies, dependabot, triage, DBT-007]
@@ -39,7 +39,7 @@ paths:
   - .github/workflows/ci.yml
 context: "2026-09-02"
 ---
-# MIS-145 — Triage the ten Dependabot advisories on main and close DBT-007
+# MIS-146 — Triage the ten Dependabot advisories on main and close DBT-007
 
 > **Summary:** GitHub reports **10 vulnerabilities on the default branch —
 > 3 high, 4 moderate, 3 low** — a number that exists only in the `git push`
@@ -172,3 +172,12 @@ Add here — never edit `Scope` or the criteria to match what happened.)*
   Status `todo`; not assigned, not executed. Next free mission number
   verified against the remote (MIS-144 claimed by
   `mission/MIS-0144-scripts-cleanup`).
+- 2026-09-03 — **Renumbered MIS-145 → MIS-146** (ID collision, PRO-003
+  §4). `mission/MIS-0145-series-template-library` claimed the same ID; by
+  the letter of the rule (first committer keeps the ID) MIS-145 was ours
+  (09:53Z vs 10:39Z), but the Oracle decided we renumber to end the
+  collision — MIS-146 verified free against `origin/main` and all remote
+  branches. Branch renamed to
+  `missions/mis-146-dependabot-advisories-triage`, rebased onto `main`
+  `3ada698`. Content and `todo` state carried over; the old remote branch
+  is deleted. Still not assigned, not executed.
