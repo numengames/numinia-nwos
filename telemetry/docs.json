@@ -2387,6 +2387,17 @@
   "tokens": 2196
  },
  {
+  "path": "missions/MIS-0145-series-template-library.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 8238,
+  "apparatus": false,
+  "frozen": false,
+  "tokens": 2137
+ },
+ {
   "path": "missions/TEMPLATE-CHANGES.md",
   "dir": "missions",
   "series": "missions",
