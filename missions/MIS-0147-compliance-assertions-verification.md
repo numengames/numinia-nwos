@@ -109,8 +109,7 @@ actually enforced, in `numinia-nwos` only:
 
 - **No new enforcement machinery.** Building a guard that *automatically*
   fails future unverified assertions is a separate decision (CI-side
-  automation is Oracle territory, per the governance model established under
-  `D-017` and its successors) — this mission verifies and corrects the
+  automation is Oracle territory, per the CI-side governance model) — this mission verifies and corrects the
   corpus; it may propose the guard design but must not wire it.
 - **No `canon/**` changes without formal consensus** (AGENTS.md, Canonical
   Changes). If an assertion lives in canon, the mission flags it to the
@@ -127,7 +126,7 @@ What someone would reasonably expect to be included and is not:
   truth about what is enforced*; changing what is enforced is a governance
   decision for the Oracle.
 - **Automated CI gating of assertion verification** (CI-side automation is
-  Oracle territory, see `D-017` in the debt register).
+  Oracle territory).
 - **Other repos' compliance claims.**
 
 ---
@@ -184,5 +183,4 @@ Add here — never edit `Scope` or the criteria to match what happened.)*
   request, converting `DBT-006` into a mission. Branch
   `missions/mis-147-compliance-assertions-verification` from `main`
   `3ada698`. Status `todo`; not assigned, not executed. MIS-147 verified
-  free against the remote (`MIS-146` is the Dependabot triage mission, also
-  in flight).
+  free against the remote (the Dependabot triage mission is also in flight).
