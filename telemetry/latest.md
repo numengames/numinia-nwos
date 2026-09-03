@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-03T16:23:01Z"
+updated: "2026-09-03T16:33:03Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `72cebfe`  · corpus_hash: `0e33613f1b3acda8…`  · measured_at: 2026-09-03T16:23:01Z  · root_dirty: 0
+- head: `57dc2e3`  · corpus_hash: `e68f524b6e338ace…`  · measured_at: 2026-09-03T16:33:03Z  · root_dirty: 0
 
 ## corpus
 
@@ -230,10 +230,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 621035 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 621706 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
-| `tokens.missions_share_pct` | 39.92 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.missions_share_pct` | 39.88 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
 | `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
@@ -241,7 +241,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | tokens |
 |---|---|
 | missions | 247908 |
-| standards | 89511 |
+| standards | 89788 |
 | reports | 86903 |
 | canon | 40873 |
 | debt | 37619 |
@@ -249,7 +249,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | protocols | 21576 |
 | decisions | 17897 |
 | agents | 16628 |
-|  | 11573 |
+|  | 11967 |
 | system | 9980 |
 | history | 7274 |
 | blueprints | 5703 |
@@ -262,10 +262,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| active | 212763 |
+| active | 213040 |
 | done | 121708 |
 | closed | 84369 |
-| (none) | 55699 |
+| (none) | 56093 |
 | todo | 45722 |
 | frozen | 34004 |
 | in-progress | 30191 |
@@ -435,7 +435,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `provenance.created_ahead_of_commit` | 3 | documents | created day later than the day the file was first added to git (dates-vs-commits.py "DISCREPA", over the whole corpus, not the post-tag set) |
 | `provenance.created_ahead_list` | (table below) | documents | [path, created, first-add] for created_ahead_of_commit |
 | `provenance.created_behind_commit` | 41 | documents | created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged |
-| `provenance.regime_crossings` | 7 | renames | renames in history (git -M) whose source and target resolve to different REUSE.toml licences (last matching annotation wins); regime-crossings.py |
+| `provenance.regime_crossings` | 6 | renames | renames in history (git -M) whose source and target resolve to different REUSE.toml licences (last matching annotation wins); regime-crossings.py |
 | `provenance.regime_crossings_list` | (table below) | renames | [from, to, regime change, date] |
 | `provenance.protocol_anchor` | (table below) | missions | P-003 rule as protocol-anchor.py applies it: status ∈ {done,frozen,cancelled,backlog} is Oracle-set → anchored if owner=oracle, anchored-weak if another owner, anchored-no-owner if none; other states not-oracle-state. The CYCLE_* timestamp evidence it also used lived in /tmp and is not reproducible |
 
@@ -456,7 +456,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 ### `provenance.regime_crossings_list`
 
-7 rows (renames) — in `latest.json`.
+6 rows (renames) — in `latest.json`.
 
 ### `provenance.protocol_anchor`
 
@@ -514,8 +514,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | 3 |
 |---|---|
-| STD | 459 |
-| MIS | 1496 |
+| STD | 464 |
+| MIS | 1497 |
 | CAN | 130 |
 | ADR | 714 |
 | OPS | 40 |
@@ -575,7 +575,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `legacy.docs_total` | 280 | documents | every tracked path ending in .md (git ls-files '*.md'), web/ included, telemetry/ excluded |
 | `legacy.docs_con_frontmatter` | 272 | documents | docs_total whose text starts with a `---` block closed by a second `---` line |
 | `legacy.docs_sin_frontmatter` | 8 | documents | docs_total − docs_con_frontmatter |
-| `legacy.referencias_textuales_total` | 3029 | mentions | occurrences of `(MIS\|ADR\|DEC\|RPT\|AUD\|P\|C\|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included) |
+| `legacy.referencias_textuales_total` | 3030 | mentions | occurrences of `(MIS\|ADR\|DEC\|RPT\|AUD\|P\|C\|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included) |
 | `legacy.referencias_top` | (table below) | mentions | the six most-mentioned identifiers as [id, count]; ties keep first-seen order (Python Counter.most_common) |
 | `legacy.matricula` | (table below) | documents | per series dir (count-evidence order, 11 dirs — `system` absent, as in the script): con = filenames matching the scheme; total = docs in the dir minus _template/, reports/evidence/, apparatus (canonical name or type: meta, per the guards) and frozen artefacts (dated filename); pct = 100·con/total rounded to 0.1 |
 | `legacy.excluidos` | (table below) | paths | the apparatus and frozen paths removed from the matricula denominators, in scan order |
