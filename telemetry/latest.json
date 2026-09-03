@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "00be30e",
-  "corpus_hash": "23de0ef4a6a1655aef47a8f1eef8821bfe8ea1399ef6bee8c69f3f1d50088bb3",
+  "head": "171d838",
+  "corpus_hash": "62730cd8ecd3d9237e24d93f502fbaecd69598d1340b3328578fb87168abe3aa",
   "root_dirty": 0,
-  "measured_at": "2026-09-03T21:10:41Z",
+  "measured_at": "2026-09-03T22:00:33Z",
   "families": [
     "corpus",
     "series",
@@ -358,21 +358,21 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 623107,
+      "value": 618872,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "missions": 249702,
-        "standards": 91646,
+        "standards": 89521,
         "reports": 86903,
         "canon": 42805,
         "debt": 37559,
         "operations": 21655,
         "decisions": 17897,
-        "protocols": 17465,
         "agents": 16628,
+        "protocols": 15355,
         "": 11967,
         "system": 9980,
         "history": 7274,
@@ -387,7 +387,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 210076,
+        "active": 205841,
         "done": 121708,
         "closed": 82510,
         "draft": 72047,
@@ -403,7 +403,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 40.07,
+      "value": 40.35,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -736,17 +736,17 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 481
+          "3": 458
         },
         "MIS": {
-          "3": 1474,
+          "3": 1464,
           "4": 26
         },
         "CAN": {
           "3": 134
         },
         "ADR": {
-          "3": 695
+          "3": 681
         },
         "OPS": {
           "3": 40
@@ -759,7 +759,7 @@
           "3": 123
         },
         "PRO": {
-          "3": 272
+          "3": 271
         },
         "DEC": {
           "3": 55
@@ -813,8 +813,8 @@
           "id": "MIS-135#10",
           "severity": "B",
           "state": "open",
-          "where": "standards/STD-004-header-standard.md#L193",
-          "claim": "STD-004 §7 still lists fields the corpus no longer carries as registered. Deferred → STD-004 v1.5.0."
+          "where": "standards/STD-004-header-standard.md#L121",
+          "claim": "STD-004's Ring 3 registry still lists fields the corpus no longer carries as registered. Deferred → STD-004 v1.5.0. Anchor re-pointed 2026-09-03: the original quote lived in an amendment note removed when STD-004 was slimmed to v2.0.0; the registry row it denounces is unchanged, so the claim stays open."
         },
         {
           "id": "MIS-135#15",
@@ -842,7 +842,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 665,
+      "value": 660,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
@@ -893,7 +893,7 @@
       "definition": "docs_total − docs_con_frontmatter"
     },
     "legacy.referencias_textuales_total": {
-      "value": 2977,
+      "value": 2946,
       "unit": "mentions",
       "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
     },
@@ -901,11 +901,11 @@
       "value": [
         [
           "ADR-005",
-          168
+          163
         ],
         [
           "C-005",
-          155
+          152
         ],
         [
           "AUD-2026",
@@ -913,7 +913,7 @@
         ],
         [
           "ADR-004",
-          79
+          78
         ],
         [
           "ADR-030",
@@ -921,7 +921,7 @@
         ],
         [
           "P-003",
-          71
+          70
         ]
       ],
       "unit": "mentions",
