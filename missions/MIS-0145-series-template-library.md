@@ -14,7 +14,8 @@ completed: null
 type: mission
 version: "1.0.0"
 created: "2026-09-03T10:22:10Z"
-created_confidence: inferred
+created_source: "git:7ca43b3"
+created_confidence: exact
 updated: "2026-09-03T10:22:10Z"
 author: "ursa"
 owner: "oracle"

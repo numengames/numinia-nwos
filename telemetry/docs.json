@@ -2392,10 +2392,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 8211,
+  "chars": 8238,
   "apparatus": false,
   "frozen": false,
-  "tokens": 2125
+  "tokens": 2137
  },
  {
   "path": "missions/TEMPLATE-CHANGES.md",

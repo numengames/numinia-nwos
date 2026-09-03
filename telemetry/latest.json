@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "3ada698+index",
+  "head": "7ca43b3",
   "corpus_hash": "205b936a795f4ee2431f0abefa303f5cc9e4ecc8c75ee8246db3184c2aca979f",
-  "root_dirty": 0,
-  "measured_at": "2026-09-03T10:38:56Z",
+  "root_dirty": 1,
+  "measured_at": "2026-09-03T10:39:37Z",
   "families": [
     "corpus",
     "series",
@@ -358,13 +358,13 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 619471,
+      "value": 619483,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "missions": 247896,
+        "missions": 247908,
         "standards": 87964,
         "reports": 86903,
         "canon": 40873,
@@ -391,7 +391,7 @@
         "done": 121708,
         "closed": 85474,
         "(none)": 55699,
-        "todo": 45710,
+        "todo": 45722,
         "frozen": 34004,
         "in-progress": 30191,
         "draft": 20556,
@@ -457,7 +457,7 @@
         "author": 236,
         "uid": 232,
         "tags": 231,
-        "created_source": 227,
+        "created_source": 228,
         "created_confidence": 225,
         "territory": 195,
         "guild": 185,
@@ -609,7 +609,7 @@
       "definition": "nature of author: per doc, `author:` normalised → human (Oracle aliases) · ai-persona (agents whose SOUL.md declares a model, list of 2026-08-26) · ai-model (name matches claude|gpt|opus|sonnet|fable|gemini|llm) · other · no-author · no-frontmatter"
     },
     "provenance.dates_vs_commits_compared": {
-      "value": 263,
+      "value": 264,
       "unit": "documents",
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
