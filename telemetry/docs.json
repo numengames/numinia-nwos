@@ -2975,10 +2975,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 18695,
+  "chars": 19169,
   "apparatus": false,
   "frozen": false,
-  "tokens": 5285
+  "tokens": 5403
  },
  {
   "path": "standards/STD-005-engineering-standards.md",
@@ -3001,6 +3001,17 @@
   "apparatus": false,
   "frozen": false,
   "tokens": 1900
+ },
+ {
+  "path": "standards/STD-007-plain-writing.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 5558,
+  "apparatus": false,
+  "frozen": false,
+  "tokens": 1428
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
