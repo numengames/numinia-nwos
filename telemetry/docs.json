@@ -2376,6 +2376,17 @@
   "tokens": 2126
  },
  {
+  "path": "missions/MIS-0144-scripts-cleanup.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 6369,
+  "apparatus": false,
+  "frozen": false,
+  "tokens": 1834
+ },
+ {
   "path": "missions/TEMPLATE-CHANGES.md",
   "dir": "missions",
   "series": "missions",
