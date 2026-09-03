@@ -123,23 +123,18 @@ path = ["standards/**"]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC0-1.0"
 
-# The rank system is Numinia's, not a platform convention: NOMAD, CITIZEN,
-# PILGRIM, VERNACULAR, ARCHON and ORACLE are the domain model's own names, and
-# promotion is tied to Session Zero, guilds and factions — reserved canon. It
-# left canon/ on a genre ruling (ADR-023) and keeps its birth regime: CC-BY is
-# irrevocable and would let anyone adapt Numinia's ranks. Oracle, 2026-08-25.
-#
-# NOTE, 2026-08-31 (MIS-127): this reservation may already be moot. The file
-# was born 2026-04-07 as canon/Platform Role System.md and was in the tree at
-# 0157be9 under the root CC0 LICENSE — by the same test applied above, a CC0
-# copy is already published and cannot be withdrawn. Left reserved pending the
-# Oracle's call: flagged rather than changed, because narrowing a licence is
-# his decision and widening one is irreversible.
-# After standards/** so it wins.
-[[annotations]]
-path = "standards/STD-003-platform-role-system.md"
-SPDX-FileCopyrightText = "2026 Numen Games S.L."
-SPDX-License-Identifier = "LicenseRef-Numen-AllRightsReserved"
+# RESOLVED, 2026-09-03 (Oracle ruling, standards/ refactor). The reservation
+# below (2026-08-25) held that rank names and promotion mechanics were
+# Numinia trade secrets. The Oracle now holds that premise false, and the
+# 2026-08-31 note had already flagged this exception as probably moot. Git
+# history confirms it: the file was born 2026-04-07 carrying no `license:`
+# field of its own, in a public repository whose root LICENSE has been
+# CC0-1.0 since the initial commit 9f51ad1 (2026-04-06). For four and a half
+# months the only licence statement covering it was CC0, and a published CC0
+# waiver cannot be withdrawn. The exception is removed; standards/** CC0-1.0
+# applies to STD-003 without exclusion. Full history in the dated
+# licence-amendment note at the top of STD-003's body, in its `series_change`
+# field (the August ruling, preserved unmodified), and in git history here.
 
 # Enforceable legal texts of the company are not documentation: C-005 is
 # silent on their regime, so they stay in the birth regime (§1, reserved).

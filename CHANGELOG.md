@@ -14,6 +14,12 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-03 (STD refactor, licensing: STD-003 reservation reversed)
+- standards/STD-003-platform-role-system.md: `license` LicenseRef-Numen-AllRightsReserved → CC0-1.0. Oracle ruling, 2026-09-03: the 2026-08-25 reservation (rank names and promotion mechanics as Numinia trade secret) rests on a premise the Oracle now holds false. Recorded as a dated licence-amendment note at the top of the document body, alongside the original `series_change` field it reverses — preserved unmodified, as the record of the ruling it supersedes.
+- Verified against git history rather than assumed: the file was born 2026-04-07 under its old canon name, carried no `license:` field until 2026-08-25, and the repository's root `LICENSE` has been CC0-1.0 since the initial commit `9f51ad1` (2026-04-06). For four and a half months in a public repository the only licence statement covering it was CC0. The reservation was therefore unenforceable when written; this entry records a release that had already happened rather than performing a new one. The waiver remains irrevocable and is accepted as such.
+- REUSE.toml: removed the `standards/STD-003-platform-role-system.md` exclusion annotation. `standards/**` CC0-1.0 now applies without exception. The 2026-08-31 MIS-127 note had already flagged this exception as probably moot; that open question is now closed rather than left flagged.
+- Scope note: licensing only. The broader standards refactor (STD-005's draft/MUST contradiction, STD-002's dead debt links, the amendment-in-place practice in decisions/) remains open and is being carried in separate PRs.
+
 ### Changed — 2026-09-02 (MIS-138 step 7: closure — §10.5 proposed, README, ledger repaired)
 - standards/STD-001-glossary.md v5.3.0: §10.5 *A corpus figure is produced once and cited everywhere else* added as PROPOSED (decision 2 = citation form); awaits the Oracle's signature.
 - telemetry/README.md: what each file is, who writes it, how to run and read the instrument.

@@ -9,13 +9,13 @@ version: "1.0.0"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-08-25T00:00:00Z"
+updated: "2026-09-03T10:18:32Z"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Alchemists"
 territory: "Archive"
 tags: [standards, ranks, permissions, digital-goods, ADR-023]
-license: "LicenseRef-Numen-AllRightsReserved"
+license: "CC0-1.0"
 threshold: governed
 series_change:
   from: "canon/Platform Role System.md"
@@ -50,6 +50,25 @@ series_change:
 ---
 
 # Rank and Permission System — Numinia Digital Goods
+
+> **Licence amendment, 2026-09-03 (Oracle ruling).** This document is
+> `CC0-1.0`. The 2026-08-25 ruling recorded in the `series_change` field
+> above reserved it, on the premise that rank names and promotion mechanics
+> were trade secrets. The Oracle now holds that premise false.
+>
+> The reservation was also unenforceable by the time it was written. This
+> file was born 2026-04-07 under its old canon name, in a public repository
+> whose root `LICENSE` has been CC0-1.0 since the initial commit of
+> 2026-04-06 — one day earlier. It carried no `license:` field of its own
+> until 2026-08-25, so for four and a half months the only licence statement
+> covering it was CC0, and a published CC0 waiver cannot be taken back. This
+> amendment records a release that had already happened; it does not perform
+> a new one.
+>
+> The waiver is irrevocable and is accepted as such — a deliberate release,
+> not a default. The August ruling is preserved above unmodified: it is the
+> record of what this repository decided then, not a statement of today's
+> regime.
 
 > **Summary:** NWOS system document — Platform Role System.
 > **Epistemic:** What you learn by reading this document.
