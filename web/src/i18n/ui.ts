@@ -23,6 +23,7 @@ const en = {
   "footer.navigation": "Navigation",
   "footer.legal": "Legal",
   "footer.social": "Social",
+  "footer.telemetry": "Telemetry",
 
   // — site search (SiteSearch.astro) —
   "search.label": "Search",
