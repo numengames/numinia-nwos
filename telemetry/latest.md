@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-03T21:50:28Z"
+updated: "2026-09-03T21:55:27Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `2afa4b1`  · corpus_hash: `62730cd8ecd3d923…`  · measured_at: 2026-09-03T21:50:28Z  · root_dirty: 0
+- head: `434f9d7`  · corpus_hash: `62730cd8ecd3d923…`  · measured_at: 2026-09-03T21:55:27Z  · root_dirty: 0
 
 ## corpus
 
@@ -460,8 +460,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `contradictions.ci_scripts_not_marked` | (table below) | scripts | scripts ci.yml runs that no `[CI]` row of STD-001 names — a check the norm does not claim |
 | `contradictions.id_form_per_series` | (table below) | citations | per series prefix, citations by digit width (3 vs 4) across the corpus; S1 fixes 4 for MIS files, 3 in `id:` |
 | `contradictions.id_form_mixed` | (table below) | prefixes | prefixes cited with more than one digit width — the class is contradictory for these |
-| `contradictions.claims_open` | 4 | claims | claims.json entries whose exact quote is still at its path |
-| `contradictions.claims_resolved` | 1 | claims | entries whose quote is no longer in any tracked .md |
+| `contradictions.claims_open` | 5 | claims | claims.json entries whose exact quote is still at its path |
+| `contradictions.claims_resolved` | 0 | claims | entries whose quote is no longer in any tracked .md |
 | `contradictions.claims_moved` | 0 | claims | entries whose quote left its path and is found in another tracked .md — meaningful only for quotes unique to one file; a short quote (`status: draft`) can only be open or resolved at its own path |
 | `contradictions.claims` | (table below) | claims | the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim |
 

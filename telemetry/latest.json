@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "2afa4b1",
+  "head": "434f9d7",
   "corpus_hash": "62730cd8ecd3d9237e24d93f502fbaecd69598d1340b3328578fb87168abe3aa",
   "root_dirty": 0,
-  "measured_at": "2026-09-03T21:50:28Z",
+  "measured_at": "2026-09-03T21:55:27Z",
   "families": [
     "corpus",
     "series",
@@ -786,12 +786,12 @@
       "definition": "prefixes cited with more than one digit width — the class is contradictory for these"
     },
     "contradictions.claims_open": {
-      "value": 4,
+      "value": 5,
       "unit": "claims",
       "definition": "claims.json entries whose exact quote is still at its path"
     },
     "contradictions.claims_resolved": {
-      "value": 1,
+      "value": 0,
       "unit": "claims",
       "definition": "entries whose quote is no longer in any tracked .md"
     },
@@ -812,9 +812,9 @@
         {
           "id": "MIS-135#10",
           "severity": "B",
-          "state": "resolved",
-          "where": "standards/STD-004-header-standard.md",
-          "claim": "STD-004 §7 still lists fields the corpus no longer carries as registered. Deferred → STD-004 v1.5.0."
+          "state": "open",
+          "where": "standards/STD-004-header-standard.md#L121",
+          "claim": "STD-004's Ring 3 registry still lists fields the corpus no longer carries as registered. Deferred → STD-004 v1.5.0. Anchor re-pointed 2026-09-03: the original quote lived in an amendment note removed when STD-004 was slimmed to v2.0.0; the registry row it denounces is unchanged, so the claim stays open."
         },
         {
           "id": "MIS-135#15",
