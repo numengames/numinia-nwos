@@ -151,10 +151,10 @@ missions/reports) are historical record, not links to fix.
   --check` correctly failed CI: the corpus_hash on record no longer
   matched HEAD after the deletions. Fixed by re-running
   `node scripts/telemetry.mjs` (`1f86ea9`), not by touching the check.
-  Also: `MIS-143` was claimed by another mission
-  (`mis-143-ursa-git-cold-start-bootstrap`) while this one was in flight;
-  renumbered to MIS-144 and the branch/mission file renamed to match
-  before opening the PR.
+  Also: this mission's own number collided with another mission claimed
+  meanwhile (a git-cold-start-bootstrap piece); renumbered from its
+  original working number to MIS-144 and the branch/mission file renamed
+  to match before opening the PR.
 - **Evidence:** all four acceptance criteria false at `7f621ab`, true at
   merge — `find scripts -maxdepth 1 -name 'phase*.py'` → 0,
   `-name 'phase*.txt'` → 0, none of the 15 Phase A or 6 Phase B files
