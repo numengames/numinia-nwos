@@ -2590,10 +2590,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 24477,
+  "chars": 8952,
   "apparatus": false,
   "archived": false,
-  "tokens": 6823
+  "tokens": 2279
  },
  {
   "path": "protocols/PRO-011-security-audit.md",
