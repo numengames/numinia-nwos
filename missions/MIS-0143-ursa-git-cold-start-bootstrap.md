@@ -1,6 +1,6 @@
 ---
 # CORE — the ten fields the build verifies (web/src/content.config.ts).
-id: "MIS-137"
+id: "MIS-143"
 uid: ""
 title: "Ursa's canonical definition carries the full cold-start context — one instruction, no repeated prompts"
 status: todo
@@ -48,7 +48,7 @@ paths:
   - missions/MIS-0135-normalisation-residue-register.md
 context: "2026-09-02"
 ---
-# MIS-137 — Ursa's canonical definition carries the full cold-start context
+# MIS-143 — Ursa's canonical definition carries the full cold-start context
 
 > **Summary:** a fresh Ursa session today needs a long manual prompt
 > sequence (fetch repos → analyse gaps → adopt `agents/ursa` → re-evaluate →
@@ -416,7 +416,7 @@ Add here — never edit `Scope` or the criteria to match what happened.)*
 
 *(one line per significant step: date · step · evidence)*
 
-- 2026-09-02 — Draft v1 registered (MIS-137) by Ursa, at the Oracle's
+- 2026-09-02 — Draft v1 registered (MIS-143) by Ursa, at the Oracle's
   request. Base commit `68bd5f1`. Status `draft` per PRO-003 §2. Known
   deviation: lint-frontmatter does not accept `draft` for missions (STD-001
   §7 set); recorded rather than silently normalised.
@@ -429,6 +429,13 @@ Add here — never edit `Scope` or the criteria to match what happened.)*
   acceptance test uses the real first instruction and fails on any listed
   follow-up prompt; measurement protocol expanded. Still `draft`; no
   execution, no canonical changes.
+- 2026-09-02 — **Renumbered MIS-137 → MIS-143** (PRO-003 §4, ID
+  collision). `MIS-137` was already assigned in `origin/main`
+  (`missions/MIS-0137-pin-reuse-version.md`, merged after this draft was
+  created); the surviving equivalent `todo` state and all content were
+  carried over. Next free number that did not collide with an existing
+  branch claim: MIS-143 (MIS-140 was claimed by
+  `mission/MIS-0140-publish-coverage-guard`).
 - 2026-09-02 — **Moved to `todo`** (the board's backlog equivalent) by the
   Oracle (PRO-003 §2). The Oracle asked for `backlog`; STD-001 §7 retired
   that value on 2026-08-30, so the surviving equivalent `todo` was applied,
