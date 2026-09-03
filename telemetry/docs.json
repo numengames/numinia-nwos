@@ -2930,11 +2930,11 @@
   "dir": "standards",
   "series": "standards",
   "type": "meta",
-  "status": "closed",
-  "chars": 3620,
+  "status": "superseded",
+  "chars": 3624,
   "apparatus": true,
   "frozen": false,
-  "tokens": 1105
+  "tokens": 1106
  },
  {
   "path": "standards/STD-001-glossary.md",
@@ -3040,10 +3040,10 @@
   "dir": "templates",
   "series": null,
   "type": "documentation",
-  "status": "draft          # draft|active|closed   (a standard opens at draft)",
-  "chars": 4569,
+  "status": "draft          # draft|active|superseded|withdrawn   (a standard opens at draft)",
+  "chars": 4583,
   "apparatus": true,
   "frozen": false,
-  "tokens": 1169
+  "tokens": 1174
  }
 ]

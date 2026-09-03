@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-03T10:39:58Z"
+updated: "2026-09-03T16:00:51Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `b31cd85`  · corpus_hash: `9c6df163fe4d690c…`  · measured_at: 2026-09-03T10:39:58Z  · root_dirty: 0
+- head: `939d24d+index`  · corpus_hash: `6ecbe91850791ea7…`  · measured_at: 2026-09-03T16:00:51Z  · root_dirty: 0
 
 ## corpus
 
@@ -230,7 +230,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 619483 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 619489 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
 | `tokens.missions_share_pct` | 40.02 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
@@ -241,7 +241,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | tokens |
 |---|---|
 | missions | 247908 |
-| standards | 87964 |
+| standards | 87965 |
 | reports | 86903 |
 | canon | 40873 |
 | debt | 37619 |
@@ -255,7 +255,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | blueprints | 5703 |
 | guilds | 2920 |
 | infra | 1511 |
-| templates | 1169 |
+| templates | 1174 |
 | .github | 318 |
 
 ### `tokens.by_status`
@@ -264,15 +264,15 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 |---|---|
 | active | 212645 |
 | done | 121708 |
-| closed | 85474 |
+| closed | 84369 |
 | (none) | 55699 |
 | todo | 45722 |
 | frozen | 34004 |
 | in-progress | 30191 |
 | draft | 20556 |
 | in-review | 11131 |
-| superseded | 1184 |
-| draft          # draft\|active\|closed   (a standard opens at draft) | 1169 |
+| superseded | 2290 |
+| draft          # draft\|active\|superseded\|withdrawn   (a standard opens at draft) | 1174 |
 
 ### `tokens.largest`
 
@@ -487,20 +487,20 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 |---|---|
 | active | 90 |
 | draft | 7 |
-| superseded | 1 |
-| closed | 27 |
+| superseded | 2 |
+| closed | 26 |
 | frozen | 38 |
 | todo | 30 |
 | done | 64 |
 | in-progress | 9 |
 | in-review | 2 |
-| draft          # draft\|active\|closed   (a standard opens at draft) | 1 |
+| draft          # draft\|active\|superseded\|withdrawn   (a standard opens at draft) | 1 |
 
 ### `contradictions.status_vocabulary_undeclared`
 
 | | 0 |
 |---|---|
-| draft          # draft\|active\|closed   (a standard opens at draft) | templates/STD-TEMPLATE.md |
+| draft          # draft\|active\|superseded\|withdrawn   (a standard opens at draft) | templates/STD-TEMPLATE.md |
 
 ### `contradictions.ci_marked_scripts_not_in_ci`
 
