@@ -5,11 +5,11 @@ title: "The header in three rings: identity, provenance, extension"
 type: documentation
 subtype: standard
 status: active
-version: "1.5.0"
+version: "1.6.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-09-03T06:27:46Z"
+updated: "2026-09-03T11:05:00Z"
 ratified_by: "ADR-027 (formerly ADR-029)"
 author: "ursa"
 owner: "oracle"
@@ -367,11 +367,11 @@ or not the template is used:
 - **RFC 2119 language.** MUST / MUST NOT for requirements, SHOULD / SHOULD
   NOT for recommendations that may be departed from in writing. "Should" as
   a synonym for "must" makes both unenforceable.
-- **No prose cross-references.** A standard MUST NOT point into the live
-  body of another document — no "see §4 of X". Documents are rewritten
-  underneath their citations. State the rule in your own words and own it;
-  structural relations go in frontmatter (`supersedes`, `ratified_by`,
-  `absorbs`), where a guard verifies them.
+- **Prose cross-references.** Governed by the plain-writing standard: body
+  prose names other documents by their plain subject, never a bare ID;
+  every identifier a document depends on is listed once in a `## References`
+  section at the end; a pointer into another document's section numbers
+  (`§4` of another document) is never used, in prose or in that table.
 
 This section does not retrofit the five existing standards: they predate the
 template and share no section structure. They conform when they are next
@@ -384,5 +384,11 @@ opened for substantive change, not by sweep.
 *(This section starts at v1.5.0: the document reached v1.4.1 without one.
 Earlier versions are recoverable from git history, not from this page.)*
 
+- v1.6.0 (2026-09-03) — §10's "no prose cross-references" rule superseded
+  in place: it forbade citing any ID in body prose with no exception, which
+  contradicted `STD-007` the moment that standard was ratified (`STD-007`
+  permits ID citations, but only collected in a `## References` section).
+  Reworded to defer to the plain-writing standard by name rather than
+  duplicate a rule that now lives elsewhere and can drift from it again.
 - v1.5.0 (2026-09-03) — §10: the standards template, its five required
   sections, RFC 2119, and the prose cross-reference prohibition (MIS-142).

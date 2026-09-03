@@ -209,6 +209,28 @@
           "debt": null
         }
       ]
+    },
+    "check-plain-writing": {
+      "script": "scripts/check-plain-writing.mjs",
+      "sees": "prose in standards/*.md: bare series IDs outside the References table, section pointers anywhere, and IDs used but never listed",
+      "blind_to": [
+        {
+          "spot": "whether the document is actually READABLE — PW-04 is an editorial judgment about whether a reader can finish without opening another document, and no script can measure it",
+          "covered_by": null
+        },
+        {
+          "spot": "whether the plain name a document uses is the RIGHT one — it checks that prose avoids the ID, not that 'the header standard' names the document the author meant",
+          "covered_by": null
+        },
+        {
+          "spot": "every series except standards/ — STD-007 binds only its own shelf, so canon/, protocols/ and decisions/ may cite by ID in prose and this guard never looks",
+          "covered_by": null
+        },
+        {
+          "spot": "IDs inside code fences and inline code spans — deliberately masked, because quoting a bad citation is how the rule is taught; a real violation hidden in backticks reads as green",
+          "covered_by": null
+        }
+      ]
     }
   }
 }
