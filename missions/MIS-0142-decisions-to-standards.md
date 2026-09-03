@@ -13,7 +13,7 @@ started: "2026-09-03T06:27:46Z"
 completed: null
 
 type: mission
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-03T06:27:46Z"
 updated: "2026-09-03T06:27:46Z"
 author: "ursa"
@@ -131,8 +131,8 @@ Deliberately excluded, recorded so they are not lost:
 
 | # | Document | Verdict | Lands as | State |
 |---|---|---|---|---|
-| 1 | — | template for the series | `templates/STD-TEMPLATE.md` + `STD-004` | in progress |
-| 2 | `ADR-001` | policy — substrate, format, data sovereignty | a new `standards/` document | pending |
+| 1 | — | template for the series | `templates/STD-TEMPLATE.md` + `STD-004` §10 | **done** (`53b6cb5`) |
+| 2 | `ADR-001` | policy — substrate, format, data sovereignty | `STD-006` (draft) | **done** |
 | 3 | `ADR-004` | pending review | — | pending |
 | 4 | `ADR-005` | pending review | — | pending |
 | 5 | `ADR-023` | pending review | — | pending |
@@ -179,5 +179,7 @@ not have to rediscover them:
 
 ## Version history
 
+- v0.2.0 (2026-09-03) — `ADR-001` recalified: `STD-006` drafted, the record
+  superseded in place with its withdrawn clauses documented.
 - v0.1.0 (2026-09-03) — Mission opened. Scope, criteria and pre-work
   findings recorded.
