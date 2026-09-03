@@ -3014,6 +3014,17 @@
   "tokens": 45666
  },
  {
+  "path": "standards/STD-009-core-rules.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 13843,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 3405
+ },
+ {
   "path": "system/SYS-001-cao-architecture.md",
   "dir": "system",
   "series": "system",
