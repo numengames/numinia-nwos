@@ -4,215 +4,193 @@ id: "STD-002"
 uid: ""
 type: documentation
 status: active
-version: "2.1.0"
+version: "2.2.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-02T00:45:00+02:00"
+updated: "2026-09-04T00:45:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [governance, roles, permissions, thresholds, versioning]
 license: "CC0-1.0"
 ---
 
-# Governance — Archive Summa
+# Governance — who may change what, and at what cost
 
-> **Summary:** Who may change what in this repository, at what cost, and who must approve it.
-> **Epistemic:** Roles, permissions per fund, change thresholds, versioning authority, approval scale.
-> **Pragmatic:** Before creating, modifying or deleting any document, find your row here.
+> **Summary:** Who may change what in this repository, at what cost, and who
+> must approve it.
+> **Epistemic:** Roles, permissions per series, change thresholds, versioning
+> authority, approval scale.
+> **Pragmatic:** Before creating, modifying or deleting any document, find your
+> row here.
 > **Audience:** Agents · Oracles
-
----
-
-
-Rules derived from 100 mental simulations. Each rule includes the simulation that revealed it.
 
 ---
 
 ## Roles
 
-| Role | Description |
-|------|-------------|
-| `oracle` | Pablo FM. Maximum authority. Approves structural changes. |
-| `custodian` | Adonaz and equivalents. Document management, INDEX, CHANGELOG. |
-| `active-agent` | Nimrod and other operational agents. Write access to own files and assigned missions. |
-| `design-agent` | Agents in design phase (Alquimista, Procyon, etc.). Read only. |
-| `system` | CI/CD, automation bots. Restricted write to reports/ only. |
+| Role | Who | What it may do |
+|---|---|---|
+| `oracle` | Pablo FM | maximum authority; approves structural change |
+| `custodian` | Adonaz and equivalents | document management, index, changelog |
+| `active-agent` | operational agents | writes its own files and its assigned missions |
+| `design-agent` | agents in design phase | read only |
+| `system` | automation | restricted write, reports only |
 
 ---
 
-## Permissions by fund
+## Permissions by series
 
-| Fund | Create | Modify | Archive/Delete | PR Approval |
-|-------|--------|--------|----------------|-------------|
-| `canon/` | oracle | oracle | oracle | oracle — `sealed`, see below |
+| Series | Create | Modify | Archive or delete | Approval |
+|---|---|---|---|---|
+| `canon/` | oracle | oracle | oracle | oracle — `sealed` |
 | `agents/{own}/` | oracle | active-agent (own) + oracle | oracle | oracle |
 | `agents/{other}/` | oracle | oracle | oracle | oracle |
 | `operations/` | oracle + custodian | oracle + custodian | oracle | oracle |
-| `protocols/` | oracle + custodian | New version = new file | Mark status: superseded | oracle |
-| `missions/` — status: backlog/draft | oracle + custodian | oracle | oracle | oracle |
-| `missions/` — status: in-progress/in-review | active-agent + oracle | Only executor | Oracle sets status: done | oracle |
-| `missions/` — status: done | Automatic on close | Substance: nobody. Form: with the commit saying so | oracle | N/A |
-| `decisions/` | oracle + custodian | Only add superseded_by | **Never delete** | oracle |
+| `protocols/` | oracle + custodian | new version = new file | mark `superseded` | oracle |
+| `missions/` — `todo` | oracle + custodian | oracle | oracle | oracle |
+| `missions/` — `in-progress` · `in-review` | active-agent + oracle | only the executor | Oracle sets `done` | oracle |
+| `missions/` — `done` | automatic on close | substance: nobody; form: with the commit saying so | oracle | — |
+| `decisions/` | oracle + custodian | only add `superseded_by` | **never delete** | oracle |
 | `blueprints/` | oracle + agents | oracle + agents | oracle | oracle |
-| `reports/` — `subtype: daily` | active-agent + system | Same day only | ADR-030 consumer tests (no fixed retention) | Auto-merge |
-| `reports/` — `subtype: audit` · `analysis` · `proposal` | author + oracle | Closed on publication; form only (STD-001 §2.1) | ADR-030 consumer tests | oracle |
+| `reports/` — `subtype: daily` | active-agent + system | same day only | consumer tests | auto-merge |
+| `reports/` — `audit` · `analysis` · `proposal` | author + oracle | closed on publication, form only | consumer tests | oracle |
 
 ### Change thresholds
 
-The table above says **who**. `STD-001` §2.1 says **how much agreement**, and the
-two must be read together:
+The table above says **who**. The glossary says **how much agreement**, and the
+two are read together.
 
 | Threshold | What it takes | Applies to |
 |---|---|---|
-| `sealed` | Oracle's signature + an ADR recording the reason; the previous version stays reachable | `canon/` |
-| `governed` | An ADR, or a PR the Oracle approves | `standards/` · `protocols/` · `decisions/` |
-| `closed` | Substance is not reopened; form may be corrected and the commit must say so | `missions/` done · `reports/` |
-| `open` | Normal PR | everything else |
+| `sealed` | the Oracle's signature and a recorded decision; the previous version stays reachable | `canon/` |
+| `governed` | a decision record, or a pull request the Oracle approves | `standards/` · `protocols/` · `decisions/` |
+| `closed` | substance is not reopened; form may be corrected and the commit must say so | `missions/` done · `reports/` |
+| `open` | normal pull request | everything else |
 
-**Nothing here is immutable, and this document no longer claims otherwise.**
-An earlier version stated that `canon/` could be modified by "Nobody" and that
-CODEOWNERS enforced it technically. Both were false: 14 of 14 canon documents
-carry more than one commit, and `.github/CODEOWNERS` says in its own header
-that enforcement *"needs branch protection"*.
+**Nothing here is immutable, and this document does not claim otherwise.**
 
-That gap has since closed on the mechanical side. The `protect-main` ruleset
-is active on the default branch with pull requests, required status checks,
-linear history, and no force-push or deletion — with **zero bypass actors**,
-checked against the repository's ruleset API on 2026-09-03. What the table
-above still cannot enforce is *who* approves: the rows name authorities the
-platform does not distinguish. Those rows are a convention held by people.
-The branch is not.
+**What is mechanically enforced, and what is not.** The `protect-main` ruleset
+is active on the default branch — pull requests, required status checks, linear
+history, no force-push, no deletion, **zero bypass actors**, verified against
+the ruleset API on 2026-09-03. What the permission table **cannot** enforce is
+*who approves*: the rows name authorities the platform does not distinguish.
+Those rows are a convention held by people. The branch is not.
 
 ---
 
-## This is the governance document
+## The rules
 
-There were two. `operations/STD-002-governance.md` (1,136 chars) covered the same
-ground as this file (6,413) and carried both false claims above. It was
-deleted by the Oracle on 2026-08-24; references now point here.
+| Rule | Description |
+|---|---|
+| G-01 | When a mission contradicts the canon, the mission is wrong. Escalate. |
+| G-02 | One active mission has exactly one executor. Collaboration is declared. |
+| G-03 | Only the executor edits an active mission. Others read. |
+| G-04 | Agents never modify their own `SOUL.md` or `OPERATOR.md`. |
+| G-05 | No agent deletes documents from `missions/` done or `decisions/`. |
+| G-06 | Escalation runs agent → Oracle, per the escalation protocol. |
+| G-07 | When in doubt about sensitivity, do not commit. Escalate first. |
+| G-08 | A mission sitting in `todo` more than 90 days without activity is stale. |
+| G-09 | Any change to `canon/` requires the canon-change label and explicit Oracle approval. |
+| G-10 | The Oracle has 48 hours to answer a mission that requires approval. |
+| G-11 | Canon propagates by pin and digest, never by copy. The emitter publishes, versions, signs, generates and notifies; the consumer pins, verifies and reports upstream. |
+| G-12 | A derived NWOS repository is sovereign. Updates are offered, never imposed; the emitter's authority ends at notification. |
 
-`STD-001` is the vocabulary — what each series holds and what every field means.
-This document is the authority — who may change what, and at what cost. They do
-not overlap and neither restates the other.
+### Canon emission — the canon is not copied, it is pinned
 
----
+The repository that governs a law writes it, versions it, generates its derived
+artifacts and publishes them. Consumers keep no copy: they pin a version and a
+digest, verify drift in their own pipeline, and report upstream instead of
+patching. **A local copy is a fork waiting to happen.**
 
-## Key rules (with simulation origin)
+Per governed artifact, the emitter **publishes** at a stable public address for
+the master and every derived artifact; **versions** it in the artifact itself
+and in the path, so a new version never overwrites an old address; **signs** it
+with a manifest carrying a digest per file; **generates** derived artifacts from
+the master by script, never by hand; **notifies** known consumers of every new
+version with its digest; and keeps an **append-only** history inside the master,
+never reusing a retired number.
 
-| Rule | Origin | Description |
-|------|--------|-------------|
-| G-01 | SIM-2.4 | When a mission contradicts canon, the mission is wrong. Escalate via P-005. |
-| G-02 | SIM-2.5 | One active mission has exactly one executor. Collaborative missions must be declared. |
-| G-03 | SIM-2.13 | Only the executor edits an active mission. Others can read, not write. |
-| G-04 | SIM-4.1 | Agents never modify their own SOUL.md or OPERATOR.md. |
-| G-05 | SIM-4.5 | No agent deletes documents from done/ or decisions/. |
-| G-06 | SIM-3.4 | Escalation path: agent → procyon → oracle. No skipping. |
-| G-07 | SIM-5.4 | When in doubt about sensitivity, don't commit. Escalate first. |
-| G-08 | SIM-2.8 | Missions in backlog >90 days without activity are marked stale. |
-| G-09 | SIM-4.3 | Any change to canon/ requires label canon-change + explicit oracle approval. |
-| G-10 | SIM-2.6 | Oracles have 48h to approve missions with requires_oracle_approval. |
+### Sovereignty of derived repositories
 
----
-
-## Canon emission — the canon is not copied: it is pinned
-
-*(2026-08-18, MIS-068 first case. Consumer-side counterpart: numinia-web
-ADR-022. Rule G-11.)*
-
-The repository that governs a law writes it, versions it, generates its
-derived artifacts and publishes them. Consumers keep no copy: they pin a
-version and a digest, verify drift in CI, and report upstream instead of
-patching. A local copy is a fork waiting to happen.
-
-**Emitter duties (this repo, per governed artifact):**
-
-| Duty | Meaning |
-|------|---------|
-| Publish | Stable public URL for the master and every derived artifact |
-| Version | Semver in the artifact; versioned filenames/paths — a new version never overwrites the old URL |
-| Sign | `manifest.json` with sha256 per file, next to the artifacts |
-| Generate | Derived artifacts (kits, fragments) come from the master by script, never by hand |
-| Notify | Every new version is announced to known consumers with its digest |
-| History | Append-only changelog inside the master; retired numbers are never reused |
-
-**Applied cases:** Design System — master in `standards/`, kit generated by
-`scripts/generate-design-kit.mjs` to `numinia.org/diseno/kit/<version>/`
-with `kit/manifest.json`; consumer pin in `numinia-web:design-source.json`
-guarded by their `design:check`.
-
-## Sovereignty of derived NWOS repositories
-
-*(2026-08-18, Oracle. Rule G-12. Registered contradiction: CON-006.)*
-
-**Once an organization has created its own NWOS repository, it is
-sovereign.** We publish; they adopt. Nothing we write becomes law inside
-their repo by inheritance, fork relationship, or template lineage.
-
-What that forbids and what it requires:
+**Once an organization has created its own NWOS repository, it is sovereign.**
+We publish; they adopt. Nothing written here becomes law inside their repository
+by inheritance, fork relationship or template lineage.
 
 | Not this | This |
 |---|---|
-| «It is a fork of the mould, so it receives our document» | The mould is **versioned**; the organization **pins a version** |
-| A practice written upstream is MUST downstream | A new version is **published and announced**; adopting it is the organization's decision |
-| «Consumer repos must never drift» | Drift is legitimate — what is illegitimate is drifting **silently** while claiming to be current |
-| Sync imposed | Update **offered**, with a changelog of what changes and why |
+| "it is a fork of the mould, so it receives our document" | the mould is **versioned**; the organization **pins a version** |
+| a practice written upstream is mandatory downstream | a new version is **published and announced**; adopting it is their decision |
+| "consumer repositories must never drift" | drift is legitimate; drifting **silently while claiming to be current** is not |
+| sync imposed | update **offered**, with a changelog of what changes and why |
 
-The emitter's duties (G-11) hold unchanged — publish, version, sign,
-generate, notify. What G-12 adds is the limit of the emitter's authority:
-its duty ends at notification. A sovereign organization may stay on an old
-version forever, and that is not debt on their side — it is a fact our
-tooling must be able to read.
+The emitter's duties hold unchanged. What sovereignty adds is the limit of the
+emitter's authority: **its duty ends at notification.** A sovereign organization
+may stay on an old version forever, and that is not debt on their side — it is a
+fact our tooling must be able to read.
 
 **Watch for this error class:** any artifact that assumes authority over a
-repository it does not own — a MUST aimed downstream, a mandatory sync, a
-guard that fails someone else's build for not being current. When you
-find one, register it as a contradiction before acting on it.
-
-| Rule | Origin | Description |
-|------|--------|-------------|
-| G-11 | ADR-022 (numinia-web) + MIS-068 | Canon propagates by pin + digest, never by copy. The emitter publishes, versions, signs, generates and notifies; the consumer pins, verifies and reports upstream. |
-| G-12 | Oracle 2026-08-18 (CON-006) | A derived NWOS repository is sovereign. The original is versioned and its updates are offered, never imposed; the emitter's authority ends at notification. |
+repository it does not own — a requirement aimed downstream, a mandatory sync, a
+guard that fails someone else's build for not being current. Register it as a
+contradiction before acting on it.
 
 ---
 
 ## Versioning authority
 
-*(Absorbed from `STANDARDS.md` §7F on 2026-08-30 — the rule is the Oracle's,
-established 2026-04-07/08. It lives here because it is authority, not
-vocabulary: SemVer itself is defined in STD-001; this table says who may move
-a version.)*
+Every artifact follows a two-stage lifecycle. Semantic versioning itself is
+defined in the glossary; this table says **who may move a version**.
 
-Every artifact follows a two-stage lifecycle:
-
-| Transition | Example | Who authorizes |
-|---|---|---|
-| New artifact | — → v0.1.0 | Digital agent — every artifact starts at v0.1.0, no exceptions |
-| Development iteration | v0.1.0 → v0.2.0 | Digital agent |
-| **Stable promotion** | **v0.X.0 → v1.0.0** | **Oracle only** — signals production-ready |
-| Stable iteration | v1.0.0 → v1.1.0 | Digital agent |
-| **Major breaking** | **v1.X.0 → v2.0.0** | **Oracle only** (score 9/10) |
+| Transition | Who authorizes |
+|---|---|
+| new artifact → v0.1.0 | digital agent — every artifact starts at v0.1.0, no exceptions |
+| v0.1.0 → v0.2.0, development iteration | digital agent |
+| **v0.X.0 → v1.0.0, stable promotion** | **Oracle only** — signals production-ready |
+| v1.0.0 → v1.1.0, stable iteration | digital agent |
+| **v1.X.0 → v2.0.0, major breaking** | **Oracle only** |
 
 ---
 
 ## Human approval scale
 
-*(Absorbed from `STANDARDS.md` §9 on 2026-08-30. Oracle ruling 2026-08-30:
-this is the definition of `human_approval_score` — a **gate**, scored before
-acting: how much human approval an action needs. It resolves
-`D-003` (extinguished per ADR-030; text in git history), which
-recorded the field as undefined; the definition existed here all along.)*
+This is the definition of `human_approval_score`: a **gate**, scored before
+acting — how much human approval an action needs.
 
 | Score | Category | Description | Response time |
-|-------|----------|-------------|---------------|
-| 1-2 | Routine | No risk, instantly reversible | No approval required |
-| 3-4 | Operational | Limited impact, reversible | 24h |
-| 5-6 | Tactical | Moderate impact, partially reversible | 24h |
-| 7-8 | Strategic | Affects multiple systems or agents | 12h |
-| 9 | Systemic | Modifies canon, OPERATOR, security | Immediate |
-| 10 | Foundational | Irreversible, reputation, real money | Immediate + meeting |
+|---|---|---|---|
+| 1–2 | routine | no risk, instantly reversible | none required |
+| 3–4 | operational | limited impact, reversible | 24h |
+| 5–6 | tactical | moderate impact, partially reversible | 24h |
+| 7–8 | strategic | affects multiple systems or agents | 12h |
+| 9 | systemic | modifies canon, operator, security | immediate |
+| 10 | foundational | irreversible, reputation, real money | immediate, and a meeting |
 
 ---
 
-*Rules derived from simulations. Version 2.0.0 — 2026-08-30. v2.1.0 — 2026-09-01: the two `reports/` rows of "Permissions by fund" follow `ADR-005` v1.2.0 — one flat folder, `subtype` as the discriminator; `reports/weekly/` (never existed) and the 90-day retention (replaced by `ADR-030`) removed.*
-*Nimrod 🗡️ — Numen Games*
+## References
+
+| ID | Name | Why cited |
+|---|---|---|
+| `STD-001` | The glossary | Defines the change thresholds this document's permission table is read against, and semantic versioning. |
+| `PRO-005` | The escalation protocol | Carries the escalation path that rule G-06 names. |
+| `PRO-008` | The decision protocol | Carries the request format the approval scale is scored in. |
+
+---
+
+## Version history
+
+- v2.2.0 (2026-09-04) — **Two dead references corrected.** Rule G-06 routed
+  escalation through an intermediate agent that was never activated; the
+  escalation protocol recorded the correction on 2026-08-31 and this document
+  did not, so the later ruling now stands in both. The permission table and rule
+  G-08 named mission states `backlog` and `draft`, withdrawn from the closed
+  vocabulary on 2026-08-30. Removed: the narrative of the two false claims a
+  previous version carried about `canon/` being unmodifiable, which is a
+  correction now three versions old and recorded in git; the account of the
+  duplicate governance file deleted in August; and the absorption notes on the
+  versioning and approval sections. The simulation origins of rules G-01 to G-10
+  are dropped from the table — they are provenance, and provenance lives in the
+  history, not in the rule.
+- v2.1.0 (2026-09-01) — reports rows follow the flat-folder decision.
+- v2.0.0 (2026-08-30) — absorbed versioning authority and the approval scale.
+- v1.x — see git history.
