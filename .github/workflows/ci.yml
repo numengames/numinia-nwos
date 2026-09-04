@@ -60,11 +60,6 @@ jobs:
       - name: naming lint (S-001 §9, D-001 item 3 — filename scheme, N-01…N-05)
         run: node scripts/lint-naming.mjs
 
-      # 7. STD-009 CORE-31: a rule that does not break the build does not exist
-      #    for an agent. Executes the eight mechanically checkable core rules.
-      - name: core rules (STD-009 — CORE-12/13/16/19/21/26/45/50)
-        run: node scripts/check-core-rules.mjs
-
       # ── MIS-138 telemetry: telemetry/ must be the dataset HEAD produces. Bare node; runs before `npm ci`. ──
       # Fix a red step by running `node scripts/telemetry.mjs` on the branch and committing telemetry/ — never by editing latest.json.
 

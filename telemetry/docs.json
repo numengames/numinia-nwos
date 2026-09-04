@@ -2953,10 +2953,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 10387,
+  "chars": 10416,
   "apparatus": false,
   "archived": false,
-  "tokens": 2652
+  "tokens": 2657
  },
  {
   "path": "standards/STD-004-header-standard.md",
@@ -3019,10 +3019,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 13843,
+  "chars": 15384,
   "apparatus": false,
   "archived": false,
-  "tokens": 3405
+  "tokens": 3758
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
