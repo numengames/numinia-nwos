@@ -2413,11 +2413,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-progress",
-  "chars": 9659,
+  "status": "done",
+  "chars": 15615,
   "apparatus": false,
   "archived": false,
-  "tokens": 2507
+  "tokens": 3961
  },
  {
   "path": "missions/MIS-0146-normative-refoundation.md",
@@ -2711,10 +2711,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 36322,
+  "chars": 36925,
   "apparatus": false,
   "archived": false,
-  "tokens": 9395
+  "tokens": 9532
  },
  {
   "path": "standards/STD-002-governance.md",
@@ -2838,25 +2838,168 @@
   "tokens": 3488
  },
  {
+  "path": "templates/ADR-TEMPLATE.md",
+  "dir": "templates",
+  "series": null,
+  "type": "adr",
+  "status": "draft",
+  "chars": 3684,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 929
+ },
+ {
+  "path": "templates/BLU-TEMPLATE.md",
+  "dir": "templates",
+  "series": null,
+  "type": "blueprint",
+  "status": "draft",
+  "chars": 3089,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 785
+ },
+ {
+  "path": "templates/CAN-TEMPLATE.md",
+  "dir": "templates",
+  "series": null,
+  "type": "seminal",
+  "status": "draft",
+  "chars": 3264,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 800
+ },
+ {
+  "path": "templates/DBT-TEMPLATE.md",
+  "dir": "templates",
+  "series": null,
+  "type": "documentation",
+  "status": "active",
+  "chars": 3627,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 937
+ },
+ {
+  "path": "templates/GLD-TEMPLATE.md",
+  "dir": "templates",
+  "series": null,
+  "type": "charter",
+  "status": "active",
+  "chars": 3240,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 848
+ },
+ {
+  "path": "templates/INF-TEMPLATE.md",
+  "dir": "templates",
+  "series": null,
+  "type": "documentation",
+  "status": "active",
+  "chars": 2538,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 643
+ },
+ {
+  "path": "templates/MIS-TEMPLATE-CHANGES.md",
+  "dir": "templates",
+  "series": null,
+  "type": "documentation",
+  "status": "active",
+  "chars": 15695,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 4037
+ },
+ {
+  "path": "templates/MIS-TEMPLATE-EXAMPLE.md",
+  "dir": "templates",
+  "series": null,
+  "type": "mission",
+  "status": "done",
+  "chars": 4103,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 1107
+ },
+ {
+  "path": "templates/MIS-TEMPLATE.md",
+  "dir": "templates",
+  "series": null,
+  "type": "mission",
+  "status": "todo",
+  "chars": 5866,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 1526
+ },
+ {
+  "path": "templates/OPS-TEMPLATE.md",
+  "dir": "templates",
+  "series": null,
+  "type": "documentation",
+  "status": "active",
+  "chars": 3064,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 786
+ },
+ {
+  "path": "templates/PRO-TEMPLATE.md",
+  "dir": "templates",
+  "series": null,
+  "type": "protocol",
+  "status": "draft",
+  "chars": 3475,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 877
+ },
+ {
   "path": "templates/README.md",
   "dir": "templates",
   "series": null,
   "type": null,
   "status": null,
-  "chars": 2599,
+  "chars": 4777,
   "apparatus": true,
   "archived": false,
-  "tokens": 642
+  "tokens": 1333
+ },
+ {
+  "path": "templates/RPT-TEMPLATE.md",
+  "dir": "templates",
+  "series": null,
+  "type": "report",
+  "status": "closed",
+  "chars": 3863,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 985
  },
  {
   "path": "templates/STD-TEMPLATE.md",
   "dir": "templates",
   "series": null,
   "type": "documentation",
-  "status": "draft          # draft|active|superseded|withdrawn   (a standard opens at draft)",
-  "chars": 4583,
+  "status": "draft",
+  "chars": 4658,
   "apparatus": true,
   "archived": false,
-  "tokens": 1174
+  "tokens": 1186
+ },
+ {
+  "path": "templates/SYS-TEMPLATE.md",
+  "dir": "templates",
+  "series": null,
+  "type": "documentation",
+  "status": "active",
+  "chars": 3235,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 809
  }
 ]

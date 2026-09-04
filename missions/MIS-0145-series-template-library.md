@@ -2,21 +2,21 @@
 id: "MIS-145"
 uid: ""
 title: "Series template library: every registered series gets a copy-from template in templates/"
-status: in-progress
+status: done
 priority: medium
 effort: M
 guild: "Alchemists"
 territory: "Archive"
 type_execution: digital
 assigned_to: "ursa"
-completed: null
+completed: "2026-09-04"
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-09-03T10:22:10Z"
 created_source: "git:7ca43b3"
 created_confidence: exact
-updated: "2026-09-03T10:22:10Z"
+updated: "2026-09-04T20:15:00Z"
 author: "ursa"
 owner: "oracle"
 tags: [templates, series, archive, standards]
@@ -146,7 +146,10 @@ per the MIS-138 recipe) or `telemetry --check` fails CI.
 
 ## Out of scope
 
-- `infra/` — 0 eligible files, prefix reserved (DBT-001). No template until it has content.
+- ~~`infra/` — 0 eligible files, prefix reserved. No template until it has content.~~
+  **This was false at the base commit** (see Closure, divergence 1): `infra/` has a
+  tracked document. It was templated. The line is struck rather than deleted, because
+  what the brief believed is part of what the mission found.
 - Any content change to the moved templates beyond consolidation notes.
 - Moving `agents/_template/` (explicitly kept in place, see Scope).
 - Changes to the `templates/` licence regime (already CC0-1.0).
@@ -175,4 +178,97 @@ per the MIS-138 recipe) or `telemetry --check` fails CI.
 
 ## Closure
 
-*(Fill at close.)*
+**Closed 2026-09-04 by ursa.** Every criterion above holds. The mission was
+re-opened after its first pass and executed a second time; what follows is the
+difference between the brief and what the work found.
+
+### What was done
+
+- **Twelve moulds rewritten, not moved.** The first pass consolidated files and
+  gave nine series a template. This pass replaced their content: each mould is
+  now a worked example of its own series' contract — frontmatter split into
+  required / optional with the optional ring commented out, and body prose that
+  says what each section is for and what makes it fail.
+- **Every mould is `.md`.** Twelve of the fourteen files were extensionless, so
+  every markdown tool in the repository was blind to the documents the corpus is
+  copied from. `check-references` indexed 263 documents before, 276 after.
+- **`templates/INF-TEMPLATE.md` created** — see divergence 1.
+- **`scripts/check-templates.mjs` written** (T-01…T-10), registered in CI as
+  step 6b and in the blind-spot registry. Nothing had ever checked the moulds.
+- **`scripts/lib/rings.mjs` extracted** from `lint-frontmatter.mjs`. The ring
+  registry now has two consumers, so it stops being one guard's private copy —
+  the same move MIS-138 made for the vocabularies, for the same reason.
+- **`check-references` taught to recognise placeholders** — see divergence 3.
+- **`check-license-frontmatter` exempts `templates/`** — see divergence 2.
+
+### What diverged, and why
+
+1. **The brief excluded `infra/`; the repository contradicted it.** Out of scope
+   said "0 eligible files, prefix reserved". `git ls-files infra/` returns one
+   tracked document, and the shelf had no ring-3 registry line — so any field
+   beyond rings 1 and 2 was an H-30 violation by silence rather than by ruling.
+   A registered series with content and no mould is exactly the gap this mission
+   exists to close, so INF was templated and its registry line written. **The
+   repo beat the brief.**
+
+2. **A mould cannot satisfy `check-license-frontmatter`, by construction.** The
+   mould's `license:` must teach the destination's regime — `CC-BY-4.0` for
+   debt, `MIT` for infra, `LicenseRef-Numen-AllRightsReserved` for guilds —
+   while the mould's own path is `templates/**`, which REUSE.toml declares
+   `CC0-1.0`. That guard compares a file's frontmatter against its own path, so
+   for a mould it demands precisely the answer that makes every document copied
+   from it wrong. Six moulds failed it. The fix is not to make the moulds lie:
+   `templates/` is now skipped there and checked harder in T-04, which resolves
+   the destination directory and compares the regime there. The exemption is
+   declared in the blind-spot registry, with the guard that covers it.
+   That guard's own header records this drift recurring "three times, from three
+   different templates" — this is why.
+
+3. **`check-references` could not tell a shape from a citation.** `MIS-NNNN-slug.md`
+   names a filename pattern; no document will ever carry that name. The guard
+   read it as a broken reference, so the nine placeholder patterns already in the
+   corpus had been silenced one at a time in the baseline. A template library
+   would have added two dozen more entries that can never resolve by design.
+   Placeholder recognition was added instead: the nine pre-existing entries now
+   resolve and the class is closed. **A baseline is for real breakage awaiting
+   repair — a shape is not breakage.**
+
+4. **`agents/_template/` stayed, and so did the two `.github/` templates.** The
+   brief asked for every template in the repository to move into `templates/`.
+   Three cannot. The agent scaffold is a six-file *directory* whose shape is the
+   thing being scaffolded; flattening it destroys it. GitHub reads
+   `ISSUE_TEMPLATE/` and `PULL_REQUEST_TEMPLATE.md` by path — moving them would
+   silently disable them. They are platform configuration written in markdown,
+   not moulds for archive documents. `templates/README.md` states all three
+   exclusions and why, so the next reader does not re-open the question.
+
+### Evidence
+
+Verified at `aa8ad06` + this branch, 2026-09-04:
+
+- Twelve documents were generated by copying each mould to its destination and
+  substituting only the placeholders a human must fill. All twelve passed
+  `lint-frontmatter`, `lint-naming`, `check-license-frontmatter`,
+  `check-frontmatter-yaml`, `check-frontmatter-delimiter` and `check-core-rules`
+  with **no manual edit**, and `npm run build` completed — 299 pages, so the Zod
+  schemas accept them. The probe documents were then removed; they were the
+  experiment, not the deliverable.
+- Falsification of the new guard: run against the templates as they stood on
+  `main`, `check-templates` reports 27 findings — the twelve missing extensions,
+  and the inline-comment corruption in `STD-TEMPLATE.md` whose `status` value
+  read `draft          # draft|active|superseded|withdrawn`. A guard that only
+  ever passes proves nothing.
+- `check-references`: 9 previously-broken references now resolve; no new ones.
+- Full guard sweep green: templates, frontmatter, naming, licence, YAML,
+  delimiter, core rules, internal links, orphan content, plain writing.
+
+### What remains open
+
+- `MIS-TEMPLATE-CHANGES.md` and `MIS-TEMPLATE-EXAMPLE.md` cite four retired
+  `D-` identifiers and three files that no longer exist. They are records of a
+  design made on 2026-08-25, so their citations are historically correct and
+  were left intact; they sit in the reference baseline rather than being
+  rewritten. Correcting them would falsify a dated record.
+- `check-templates` reads frontmatter contracts, not prose. Whether a mould's
+  guidance is *good* remains an editorial judgment, declared as a blind spot.
+

@@ -110,6 +110,11 @@
           "covered_by": null,
           "debt": null,
           "fixture": "no-license-field"
+        },
+        {
+          "spot": "templates/ — a mould declares the licence of the series it scaffolds, not of its own path, so this guard skips it (MIS-145 v2, 2026-09-04)",
+          "covered_by": "scripts/check-templates.mjs T-04, which resolves each mould's destination directory and checks the regime there",
+          "debt": null
         }
       ]
     },
@@ -229,6 +234,32 @@
         {
           "spot": "IDs inside code fences and inline code spans — deliberately masked, because quoting a bad citation is how the rule is taught; a real violation hidden in backticks reads as green",
           "covered_by": null
+        }
+      ]
+    },
+    "check-templates": {
+      "script": "scripts/check-templates.mjs",
+      "sees": "templates/ against the contract of the series each mould scaffolds — name, destination licence, type, lifecycle, ring registry, SemVer, context card, and whether every registered series has a mould at all",
+      "blind_to": [
+        {
+          "spot": "whether the mould's PROSE teaches the right thing — it checks the frontmatter contract and the presence of the context card, not whether the guidance under it is sound or current",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "whether documents already in the corpus were created from these moulds — a template can be perfect and universally ignored, and this guard cannot tell",
+          "covered_by": "lint-frontmatter and check-license-frontmatter, which read the documents themselves",
+          "debt": null
+        },
+        {
+          "spot": "the -EXAMPLE and -CHANGES companions past T-01/T-02/T-03: they document a real mission, so the destination contract does not apply to them and is not enforced",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "scaffolds that are not single files — agents/_template/ is a directory of five documents and is checked by nothing here",
+          "covered_by": null,
+          "debt": null
         }
       ]
     }

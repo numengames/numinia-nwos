@@ -2,12 +2,14 @@
 # Copy this file to standards/STD-NNN-<kebab-slug>.md and fill it in.
 # The filename shape is enforced: STD-NNN-slug.md, three digits, kebab-case.
 id: "STD-NNN"
-uid:
+uid: ""
 title: "The rule, stated — not the topic"
 type: documentation
 subtype: standard
-status: draft          # draft|active|superseded|withdrawn   (a standard opens at draft)
-version: "0.1.0"       # every artifact starts at 0.1.0; only the Oracle promotes to 1.0.0
+# status: draft | active | superseded | withdrawn — a standard opens at draft
+status: draft
+# every artifact starts at 0.1.0; only the Oracle promotes to 1.0.0
+version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"
 updated: "YYYY-MM-DDTHH:MM:SSZ"
 author: "agent-id"
@@ -16,9 +18,10 @@ license: "CC0-1.0"
 tags: [area, subject]
 
 # OPTIONAL — use when they apply, omit without guilt.
-# ratified_by: "ADR-NNN"     # the decision that moved this from draft to active
+# ratified_by: "ADR-NNN"            # the decision that moved this from draft to active
 # supersedes_version: "1.2.0"
-# threshold: sealed          # when this standard amends canon/
+# threshold: sealed                 # when this standard amends canon/
+# series_change: "what this changes about the series itself"
 ---
 
 # STD-NNN — The rule, stated

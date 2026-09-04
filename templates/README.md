@@ -1,49 +1,114 @@
-# Templates — the copy-from library
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
 
-One template per registered series, consolidated here so a new document of
-any series starts from a canonical mould instead of archaeology.
+# templates/ — the moulds
 
-`templates/` is apparatus (MIS-142): scaffolding a document is copied from,
-never a member of any series and never published. Licence regime: CC0-1.0
-(REUSE.toml).
+One mould per series. Copy it, fill it, delete the guidance.
 
-## Series → template map
+`templates/` is **apparatus**: scaffolding a document is copied from, never a
+member of any series, never published, never counted in the corpus figures.
 
-| Series | Template | What it scaffolds |
+---
+
+## The library
+
+| Copy this | To create | In |
 |---|---|---|
-| Missions | `MIS-TEMPLATE` | A mission file — the ten build-verified fields + Scope / Acceptance criteria / Closure |
-| Missions (design record) | `MIS-TEMPLATE-CHANGES` | The figures that rebuilt the v2 mission template |
-| Missions (filled example) | `MIS-TEMPLATE-EXAMPLE` | A real small mission written with the template |
-| Standards | `STD-TEMPLATE.md` | A standard — the five required sections (STD-004 §10) |
-| Protocols | `PRO-TEMPLATE` | A protocol — what an actor executes in a repeated situation |
-| Decisions | `ADR-TEMPLATE` | An ADR — why something was chosen over the alternatives |
-| Debt | `DBT-TEMPLATE` | A debt entry — what is known to be missing or wrong |
-| Reports | `RPT-TEMPLATE` | A report — what was observed, signed, and dated |
-| Operations | `OPS-TEMPLATE` | An operations record — what sustains the business |
-| Canon | `CAN-TEMPLATE` | A canon document — what the system IS |
-| Blueprints | `BLU-TEMPLATE` | A blueprint — what could be, and the gap it attacks |
-| System | `SYS-TEMPLATE` | A system reference — how the system works today |
-| Guilds | `GLD-TEMPLATE` | A guild charter — identity and operational profile |
+| `MIS-TEMPLATE.md` | a mission | `missions/MIS-NNNN-slug.md` |
+| `STD-TEMPLATE.md` | a standard | `standards/STD-NNN-slug.md` |
+| `PRO-TEMPLATE.md` | a protocol | `protocols/PRO-NNN-slug.md` |
+| `ADR-TEMPLATE.md` | a decision | `decisions/ADR-NNN-slug.md` |
+| `DBT-TEMPLATE.md` | a debt entry | `debt/DBT-NNN-slug.md` |
+| `RPT-TEMPLATE.md` | a report | `reports/RPT-NNN-slug.md` |
+| `OPS-TEMPLATE.md` | an operations record | `operations/OPS-NNN-slug.md` |
+| `CAN-TEMPLATE.md` | a canon text | `canon/CAN-NNN-slug.md` |
+| `BLU-TEMPLATE.md` | a blueprint | `blueprints/BLU-NNN-slug.md` |
+| `SYS-TEMPLATE.md` | a system reference | `system/SYS-NNN-slug.md` |
+| `INF-TEMPLATE.md` | an infra reference | `infra/INF-NNN-slug.md` |
+| `GLD-TEMPLATE.md` | a guild charter | `guilds/<slug>/GLD-NNN-charter.md` |
 
-## Agents
+Two companions of the mission mould, which are records rather than moulds:
 
-The agent scaffold lives in `agents/_template/` (it is a directory scaffold,
-not a single document, and `agents/` is outside the filename scheme per
-ADR-005 v1.1.0). Copy it when creating a new agent.
+| File | What it is |
+|---|---|
+| `MIS-TEMPLATE-EXAMPLE.md` | a filled mission, to read next to the blank one |
+| `MIS-TEMPLATE-CHANGES.md` | why the mission mould has the shape it has |
 
-## Using a template
+**Not here, deliberately:**
 
-1. Copy the template to the target folder with the correct filename
-   (ADR-005: 4-digit zero-padded for missions, 3-digit for everything else).
-2. Fill the frontmatter contract — every field the series requires, derived
-   from the live corpus (headers of actual documents), not invented.
-3. Fill the body sections the template defines.
-4. Run the guards (`node scripts/lint-frontmatter.mjs`,
-   `node scripts/lint-naming.mjs`, `node scripts/check-references.mjs`,
-   `node scripts/check-license-frontmatter.mjs`) before pushing.
+- `agents/_template/` — the agent scaffold is a *directory* of six files
+  (`SOUL.md`, `OPERATOR.md`, `SOURCES.md`, `AGENT.yaml`, two adapter configs).
+  Flattening a six-file scaffold into this folder would break the one thing it
+  scaffolds: the directory shape.
+- `.github/ISSUE_TEMPLATE/task.md`, `.github/PULL_REQUEST_TEMPLATE.md` —
+  GitHub reads these from `.github/` by path. Moving them here would disable
+  them. They are platform configuration that happens to be written in
+  markdown, not moulds for archive documents.
 
-## Adding a new template
+---
 
-When a new series is registered (STD-001 §2, rules.json `series`), add its
-template here and update this README. The template carries the series' real
-frontmatter contract and required structure, derived from the live corpus.
+## How to use one
+
+1. Copy the mould to its destination with the destination's own filename.
+   The shape is enforced: `PREFIX-NNN-kebab-slug.md`, three digits — **four**
+   for missions, whose `id` still carries three.
+2. Fill the frontmatter. The commented block at the top is the *optional*
+   ring: uncomment what applies, delete what does not.
+3. Write the body. The prose under each heading explains what that section is
+   for, and what makes it fail. Delete it as you replace it.
+4. Delete the closing `NOTES ON USING THIS TEMPLATE` block.
+5. Run the guards before committing:
+
+```
+node scripts/lint-frontmatter.mjs
+node scripts/lint-naming.mjs
+node scripts/check-license-frontmatter.mjs
+node scripts/check-references.mjs
+```
+
+A document created from an unedited mould should pass all four. If it does
+not, the mould is wrong — fix it here, not in the copy.
+
+---
+
+## What the moulds guarantee
+
+`node scripts/check-templates.mjs` verifies every file in this folder against
+the contract of the series it scaffolds:
+
+| | |
+|---|---|
+| T-01 | frontmatter parses, and carries the whole of ring 1 |
+| T-02 | the filename is `PREFIX-TEMPLATE.md` for a registered prefix |
+| T-03 | no inline `#` comment after a value — the shape that corrupts it |
+| T-04 | `license:` matches the REUSE regime of the **destination** |
+| T-05 | `type` belongs to the destination series (STD-004 §4) |
+| T-06 | `status` is in the destination's lifecycle (STD-004 §5) |
+| T-07 | every field is registered in some ring for the destination |
+| T-08 | version is bare SemVer, opening at `0.1.0` (STD-002) |
+| T-09 | the context card carries Summary, Epistemic and Pragmatic |
+| T-10 | every registered series has a mould |
+
+T-04 is the one no other guard can perform. `check-license-frontmatter` reads
+a file's *own* path, and every path here is `templates/**` → CC0-1.0. So a
+mould could declare a licence that contradicts REUSE.toml for the folder it is
+copied to, and nothing would notice until a document built from it failed CI
+on its first commit. Six of them did, before 2026-09-04.
+
+---
+
+## The rule about editing them
+
+**The mould is normative for its series.** Changing a mould changes what every
+future document of that series looks like, so it is not a cosmetic edit.
+
+- A change of *guidance* (clearer prose, a better example) needs no ceremony.
+- A change of *contract* — adding a field, changing a lifecycle, moving a
+  section from required to optional — must follow the standard that governs
+  it (STD-004 for the header, the series' own standard for the body), and the
+  standard changes first.
+
+A mould that disagrees with STD-004 does not amend it. It is a bug, and it
+propagates itself into every document copied from it until someone notices.
