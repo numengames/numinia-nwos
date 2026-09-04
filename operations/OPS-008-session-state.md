@@ -37,7 +37,7 @@ the board are for). First step of any session: `git pull` and audit
 | What | Where | Pending decision |
 |---|---|---|
 | **Design System v5.1.0** | `standards/STD-008-design-system.md` · [web](https://numinia.org/corpus/standards/2026_08_18-sistema_de_diseno-v510) | State still «proposed»; sign it or send it back |
-| **P-010 How to Archive v0.3.0** | [web](https://numinia.org/corpus/protocols/p-010-how-to-archive) | It is MIS-089's **F0**: without a signature not one file of the archive moves |
+| **PRO-010 How to Archive v0.3.0** | [web](https://numinia.org/corpus/protocols/p-010-how-to-archive) | It is MIS-089's **F0**: without a signature not one file of the archive moves |
 | **MIS-089** information architecture | [web](https://numinia.org/missions/mis-089) | D1–D8 register of duplicates: approve dispositions |
 | **MIS-095** Updates practice (PM-06) | [web](https://numinia.org/missions/mis-095) | 3 decisions: numinia.org versioning, language, SHOULD/MUST level |
 | **MIS-096** sovereign versioning of NWOS | [web](https://numinia.org/missions/mis-096) | 5 open questions; the key one: what is the «NWOS core» |
@@ -85,7 +85,7 @@ the board are for). First step of any session: `git pull` and audit
 - **G-11** (`GOVERNANCE.md`): the canon is not copied, it is pinned.
 - **G-12** (`GOVERNANCE.md`): a derived NWOS repo is sovereign; it is
   offered versions, not imposed law. With its error class to watch.
-- **P-008 v1.2.0**: everything submitted for review carries its
+- **PRO-008 v1.2.0**: everything submitted for review carries its
   canonical numinia.org URL (L3 bridge between agents).
 - **P-010 §3.1**: mission IDs are computed over what is committed after
   pull; on collision, whoever committed second renumbers.
