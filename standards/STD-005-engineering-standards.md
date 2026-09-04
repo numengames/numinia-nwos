@@ -104,6 +104,7 @@ Each practice has an ID, a requirement level (MUST / SHOULD), and a check tag: `
 | ARC-07 | Infrastructure declarative only: Terraform + containers. Nothing hand-configured in dashboards | MUST | `[MANUAL]` → target `[AUTO]` via drift detection |
 | ARC-08 | Shared base config (tsconfig / eslint / prettier) imported from one package, never copied | MUST | `[AUTO: lint rule / knip]` |
 | ARC-09 | Dependencies reviewed before adoption: maintained, licensed compatibly, Scorecard score consulted | SHOULD | `[MANUAL]` |
+| ARC-10 | WCAG 2.2 AA on every public route; keyboard tab order matches visual order and the focus ring is visible | MUST | `[AUTO: axe-core + Playwright, numinia-web/apps/store/e2e/a11y.spec.ts]` — **coverage incomplete, `DBT-013`: platform chrome only (28 routes), not `/corpus/**` documents** |
 
 #### ARC-06 commit convention (Oracle ruling 2026-08-30)
 
