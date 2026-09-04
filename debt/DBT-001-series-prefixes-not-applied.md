@@ -122,7 +122,8 @@ documents with `registration: exempt` still enter the scheme, including
 `operations/security-policy.md` and `credential-map.md`. This ruling is
 narrow by construction.
 
-**`standards/STANDARDS.md` note:** `type: meta`, `status: closed`,
+**`standards/STANDARDS.md` note:** `type: meta`, `status: superseded`
+(`closed` until #224 gave the normative series an off switch),
 `registration: exempt` (`registration_reason: "singular document, not a
 numbered series"`) — a tombstone/redirector pointing to the living rules
 (`superseded_by: "STD-001 · STD-004 · STD-002-governance.md · STD-005-engineering-standards.md"`),

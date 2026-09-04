@@ -67,7 +67,6 @@ const ROOT_UPPERCASE_RE = /^[A-Z][A-Z_]*\.md$/;
 const KEBAB_SLUG_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const VERSION_SUFFIX_RE = /-v\d+(\.\d+){0,2}\.md$/i;
 const DATED_PREFIX_RE = /^\d{4}_\d{2}_\d{2}-/;
-const FROZEN_ARTIFACT_RE = /^\d{4}_\d{2}_\d{2}-[A-Za-z0-9_]+-v\d+\.\d+\.\d+\.md$/;
 /* ADR-005 v1.2.0 rule 1 / ADR-004 rule 3: the daily-report shape. No slug —
    the date is the whole identity. */
 const DAILY_REPORT_RE = /^RPT-\d{4}-\d{2}-\d{2}\.md$/;
