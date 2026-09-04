@@ -14,6 +14,12 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Removed — 2026-09-04 (reports/ series extinction, Oracle instruction)
+- 22 of 24 `reports/RPT-*.md` deleted: none post-dates 2026-08-26, no report series has produced anything since, register judged obsolete noise. `RPT-003-wardley-map.md` and `RPT-008-gaps-capability-map.md` kept — `web/src/lib/wardley.ts` and `gaps.ts` parse them at build time as the data source for `/wardley` and `/gaps`; they are live inputs, not archive prose.
+- `reports/evidence/` removed in full (`RPT-011` licensing-audit annex — SBOM, `reuse lint` transcript, seven `robots.txt` captures; `RPT-2026-08-25` forensic note on the 2026-04-15 canon deletion), overriding ADR-005 v1.2.0 rule 5's "never rewritten" guarantee by explicit dated Oracle authority — see `decisions/ADR-005-prefix-ruling.md` §Note, 2026-09-04. Both remain reachable in git history.
+- `scripts/references-baseline.json` regenerated to absorb now-broken citations to the deleted IDs (881 → 632 known-broken references — a net decrease, most prior entries were internal to the deleted files) rather than rewriting the ~30 citing documents.
+- `web/astro.config.mjs`: 22 `/reports/rpt-*` addresses (plus their `/reportes/diario-*` and `/reports/daily-*` aliases) 301 to `/reports`, the section index — the question each report answered was withdrawn, not moved, same precedent as the debt register extinction (#244).
+
 ### Changed — 2026-09-03 (STD refactor, licensing: STD-003 reservation reversed)
 - standards/STD-003-platform-role-system.md: `license` LicenseRef-Numen-AllRightsReserved → CC0-1.0. Oracle ruling, 2026-09-03: the 2026-08-25 reservation (rank names and promotion mechanics as Numinia trade secret) rests on a premise the Oracle now holds false. Recorded as a dated licence-amendment note at the top of the document body, alongside the original `series_change` field it reverses — preserved unmodified, as the record of the ruling it supersedes.
 - Verified against git history rather than assumed: the file was born 2026-04-07 under its old canon name, carried no `license:` field until 2026-08-25, and the repository's root `LICENSE` has been CC0-1.0 since the initial commit `9f51ad1` (2026-04-06). For four and a half months in a public repository the only licence statement covering it was CC0. The reservation was therefore unenforceable when written; this entry records a release that had already happened rather than performing a new one. The waiver remains irrevocable and is accepted as such.

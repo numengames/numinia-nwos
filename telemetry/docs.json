@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 20601,
+  "chars": 21969,
   "apparatus": false,
   "archived": false,
-  "tokens": 5963
+  "tokens": 6333
  },
  {
   "path": "CLAUDE.md",
@@ -621,10 +621,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 15583,
+  "chars": 17266,
   "apparatus": false,
   "archived": false,
-  "tokens": 4568
+  "tokens": 5016
  },
  {
   "path": "decisions/ADR-023-canon-vocabulary.md",
@@ -2651,28 +2651,6 @@
   "tokens": 1365
  },
  {
-  "path": "reports/RPT-001-debt-register-refactor.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "closed",
-  "chars": 21584,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 6312
- },
- {
-  "path": "reports/RPT-002-ursa-web-access.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "active",
-  "chars": 15585,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 4897
- },
- {
   "path": "reports/RPT-003-wardley-map.md",
   "dir": "reports",
   "series": "reports",
@@ -2684,50 +2662,6 @@
   "tokens": 4664
  },
  {
-  "path": "reports/RPT-004-cold-agent.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "closed",
-  "chars": 18760,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 5430
- },
- {
-  "path": "reports/RPT-005-stack.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "closed",
-  "chars": 22341,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 6052
- },
- {
-  "path": "reports/RPT-006-navigability.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "draft",
-  "chars": 7889,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2362
- },
- {
-  "path": "reports/RPT-007-system-audit.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "closed",
-  "chars": 9718,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2800
- },
- {
   "path": "reports/RPT-008-gaps-capability-map.md",
   "dir": "reports",
   "series": "reports",
@@ -2737,215 +2671,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 4242
- },
- {
-  "path": "reports/RPT-009-canon-edit.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "closed",
-  "chars": 7479,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2074
- },
- {
-  "path": "reports/RPT-010-phase0-inventory.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "closed",
-  "chars": 13287,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 3782
- },
- {
-  "path": "reports/RPT-011-licensing-c005.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "closed",
-  "chars": 41854,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 12537
- },
- {
-  "path": "reports/RPT-012-c005-52-third-party-declaration.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "draft",
-  "chars": 11667,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 3215
- },
- {
-  "path": "reports/RPT-013-process.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "closed",
-  "chars": 7322,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2050
- },
- {
-  "path": "reports/RPT-014-provenance.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "closed",
-  "chars": 17100,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 4984
- },
- {
-  "path": "reports/RPT-015-complexity.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "closed",
-  "chars": 8127,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2195
- },
- {
-  "path": "reports/RPT-016-governance.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "closed",
-  "chars": 9136,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2385
- },
- {
-  "path": "reports/RPT-2026-04-02.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "closed",
-  "chars": 2228,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 701
- },
- {
-  "path": "reports/RPT-2026-04-03.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "closed",
-  "chars": 2450,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 763
- },
- {
-  "path": "reports/RPT-2026-04-04.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "closed",
-  "chars": 2453,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 768
- },
- {
-  "path": "reports/RPT-2026-04-05.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "closed",
-  "chars": 2754,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 865
- },
- {
-  "path": "reports/RPT-2026-04-06.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "closed",
-  "chars": 3156,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 958
- },
- {
-  "path": "reports/RPT-2026-04-07.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "closed",
-  "chars": 3548,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1062
- },
- {
-  "path": "reports/RPT-2026-08-24.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "closed",
-  "chars": 16452,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 4358
- },
- {
-  "path": "reports/RPT-2026-08-25.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "closed",
-  "chars": 16146,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 4415
- },
- {
-  "path": "reports/evidence/README.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "documentation",
-  "status": "active",
-  "chars": 4032,
-  "apparatus": true,
-  "archived": false,
-  "tokens": 1193
- },
- {
-  "path": "reports/evidence/RPT-011/README.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "documentation",
-  "status": "closed",
-  "chars": 2972,
-  "apparatus": true,
-  "archived": false,
-  "tokens": 895
- },
- {
-  "path": "reports/evidence/RPT-2026-08-25/canon-2026-04-15-recovery.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "documentation",
-  "status": "closed",
-  "chars": 3925,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1136
  },
  {
   "path": "standards/STANDARDS.md",

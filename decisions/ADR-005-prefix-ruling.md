@@ -4,9 +4,9 @@ uid:
 title: "Registration prefixes: the 13-series register (superseded amendment, MIS-125)"
 type: adr
 status: active
-version: "1.2.0"
+version: "1.2.1"
 created: "2026-08-25T01:30:00Z"
-updated: "2026-09-01T23:30:00+02:00"
+updated: "2026-09-04T17:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -27,6 +27,32 @@ evidence_head: "9b45016"
 under **Original ruling (v1.0.0, 2026-08-24)**. Amended again 2026-09-01
 (**v1.2.0**, below) to settle what v1.1.0 left contradicting `ADR-004`:
 the shape of a daily report's identifier, and the layout of `reports/`.
+
+## Note — `reports/` series extinguished, evidence apparatus retired (2026-09-04)
+
+**Not an amendment; a dated record, per this repo's rule that a deletion is
+never silent.** Oracle instruction, 2026-09-04: 22 of 24 `RPT-*.md`
+documents removed as obsolete — none post-dates 2026-08-26, no report
+series has produced anything since, and the register was judged noise.
+`RPT-003` and `RPT-008` were kept: `web/src/lib/wardley.ts` and `gaps.ts`
+parse them at build time as the data source for `/wardley` and `/gaps`,
+so they are live inputs, not archive prose, and this instruction did not
+cover deleting them. `reports/evidence/` was removed in full alongside
+them — the v1.2.0 rule 5 guarantee below ("no rename tool rewrites it...
+no hand edit either... never rewritten") is explicitly overridden by this
+same Oracle authority, not silently: the `RPT-011` licensing-audit annex
+(SBOM, `reuse lint` transcript, seven `robots.txt` captures — its own
+`README.md` called the `robots/` capture *"the only record of the prior
+state that will exist"* once Cloudflare's managed block changed) and the
+`RPT-2026-08-25` forensic note on the 2026-04-15 canon deletion are gone
+from the tree; both remain reachable in git history at this commit's
+parent. `references-baseline.json` absorbs the now-broken citations
+(881 → 632 — a net decrease, most prior entries were internal to the
+deleted files) rather than rewriting 30 citing documents; dead public
+addresses (`/reports/rpt-NNN...`) redirect to `/reports`, the section
+index, in `web/astro.config.mjs`. The v1.2.0 rules below describe a
+convention that now governs two files instead of twenty-four; the rules
+themselves are not retracted.
 
 ## v1.2.0 amendment — `reports/`: one folder, two id shapes, four subtypes (2026-09-01)
 
