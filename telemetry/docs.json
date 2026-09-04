@@ -478,10 +478,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "draft",
-  "chars": 5531,
+  "chars": 5543,
   "apparatus": false,
   "archived": false,
-  "tokens": 1442
+  "tokens": 1443
  },
  {
   "path": "blueprints/BLU-007-dual-nomenclature.md",
@@ -2788,10 +2788,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 10675,
+  "chars": 10507,
   "apparatus": false,
   "archived": false,
-  "tokens": 2911
+  "tokens": 2857
  },
  {
   "path": "system/SYS-002-agent-cycle.md",
