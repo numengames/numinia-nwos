@@ -67,15 +67,21 @@ address a reader outside the corpus — the repository's own `README`, its
 contribution notes, its changelog, its agent instructions. They are governed by
 the conventions of the platform they serve, not by the numbered series.
 
-**What executes.** Eight of these rules run on every push — CORE-12, CORE-13,
-CORE-16, CORE-19, CORE-21, CORE-26, CORE-45 and CORE-50 — in
-`scripts/check-core-rules.mjs`. The rest are read by a person or an agent.
+**What executes.** Eight of these rules are executed by
+`scripts/check-core-rules.mjs` — CORE-12, CORE-13, CORE-16, CORE-19, CORE-21,
+CORE-26, CORE-45 and CORE-50. The rest are read by a person or an agent.
 A rule moving from the second group to the first is an improvement that needs
 no amendment to this document.
 
-**What ratification changes.** This standard is `draft` until the Oracle signs
-it. While it is `draft`, the eight executing rules bind because CI enforces
-them; the remaining fifty-four state intent and bind nothing.
+**What ratification changes, and how it is undone.** The `status` field of this
+document is the switch. While it reads anything other than `active`, the guard
+reports breaches and lets the build pass: nothing here binds. Setting it to
+`active` makes those eight rules fail the build. Setting it back to `draft`
+suspends them again, immediately and without touching any script.
+
+No rule of this standard binds until the Oracle sets that field, and any rule
+can be suspended by returning it. A standard that cannot be switched off is not
+a standard; it is an accident.
 
 ---
 

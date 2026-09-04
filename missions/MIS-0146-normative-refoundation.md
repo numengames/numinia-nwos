@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-09-03T17:46:00Z"
 created_source: "git:eb91cbb"
 created_confidence: exact
-updated: "2026-09-03T17:46:00Z"
+updated: "2026-09-04T00:00:00Z"
 author: "ursa"
 owner: "oracle"
 tags: [standards, governance, contradictions, compression, refoundation]
@@ -146,6 +146,68 @@ Every pull request lands with the full suite green: nine guards, telemetry
 the commit, never hand-edited. Baselines are never whitewashed when the
 breakage is caused by our own text.
 
+## What the second phase found
+
+Recorded here because the pull requests carry the changes but not the reasoning.
+
+### The compression is spent
+
+Six documents were slimmed across PRs #232, #234, #235 and #236. The normative
+layer fell from 101,893 words to 90,783: eleven per cent, with no rule lost and
+one rule recovered that the first draft had dropped.
+
+`STD-008` was measured and deliberately **not** slimmed. Its content is 88.3%
+specification — token tables, colour values, spacing scales — and 11.7% prose.
+A design system's tables are its rules, the way `STD-004`'s field tables are.
+Compressing it would have produced roughly 2,000 words and required inventing
+values. **Assuming the largest document was the most compressible was wrong,
+and measuring it was what showed that.**
+
+### The rules did not exist
+
+`STD-009` was written with sixty-two rules and never executed. Running the
+eleven mechanically checkable ones found six breaches — and four of those were
+defects in the rules, not in the corpus: two bound every markdown file in the
+repository rather than the corpus, one condemned 68 design tokens as ageing
+figures, and one imposed a commit-subject limit that 129 of the last 200
+commits break. `scripts/check-core-rules.mjs` now executes eight of them over
+the 257 bound documents, verified by mutation.
+
+### The rules are not in force, by instruction
+
+The Oracle's ruling, stated more than once and not previously honoured:
+*"las reglas no me las hagas cumplir, que las necesitamos revisar antes de que
+estén como norma activa."*
+
+`STD-009`'s `status` field is now the switch. While it is anything other than
+`active`, the guard reports and the build passes. Setting it to `active`
+enforces; returning it to `draft` suspends. Both positions were tested with a
+real breach injected. **The deactivation mechanism exists and has been
+exercised — which was the point of building it before ratification, not after.**
+
+### Where the corpus is genuinely ambiguous
+
+Fifty-one documents across the seven load-bearing series were compared for
+shared phrasing and for subject sprawl.
+
+**Overlap is not the defect.** The highest-scoring pair shares 7.8% of its
+phrasing, and that shared text is the supersession note every debt record
+carries — boilerplate present in 12 of 12 records. No two documents in the
+corpus cover the same ground.
+
+**Subject sprawl is the defect.** `CAN-002` carries 7,869 words in 37 sections
+across five declared books — Narrative, Business, Brand, Culture, DNA — each
+with its own subtitle marking which book it belongs to. The document announces
+its own division in its table of contents. A reader looking for the pricing
+model and a reader looking for the visual identity open the same file.
+
+`CAN-004` carries 6,846 words in seven sections, of which four are a treatise
+on categorisation theory — basic level theory, prototype theory, semantic
+principles — and three are the role structure the title promises.
+
+Both are `canon/`, sealed. **Neither was touched.** The finding is recorded for
+a ruling.
+
 ## Out of scope
 
 - **Deleting reference material.** Length is not the defect.
@@ -155,6 +217,9 @@ breakage is caused by our own text.
 - **The `CAN-005` vs `REUSE.toml` licence contradiction** — `CC-BY-4.0`
   against `CC0-1.0` across 7 directories and 195 documents. Real, open, and
   its own mission: it is a canon-layer ruling, not a compression task.
+- **Splitting `CAN-002` and `CAN-004`.** Measured, recorded above, not done.
+  `canon/` is sealed and a split is a canon ruling, not a compression task.
+- **Ratifying any rule of `STD-009`.** The Oracle reviews first.
 
 ## Acceptance criteria
 

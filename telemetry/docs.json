@@ -2403,10 +2403,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 7099,
+  "chars": 10360,
   "apparatus": false,
   "archived": false,
-  "tokens": 1839
+  "tokens": 2631
  },
  {
   "path": "missions/TEMPLATE-CHANGES.md",
@@ -3019,10 +3019,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 15384,
+  "chars": 15727,
   "apparatus": false,
   "archived": false,
-  "tokens": 3758
+  "tokens": 3835
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
