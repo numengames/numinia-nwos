@@ -1,8 +1,8 @@
 ---
 # CORE — the ten fields the build verifies (web/src/content.config.ts).
-id: "MIS-146"
+id: "MIS-150"
 uid: ""
-title: "Triage the ten Dependabot advisories on main and close DBT-007"
+title: "Triage the open Dependabot advisories on main and close DBT-007"
 status: todo
 # ^ todo — the board's state for a mission awaiting assignment (STD-001 §7;
 #   the retired 'backlog' value maps to this).
@@ -39,13 +39,16 @@ paths:
   - .github/workflows/ci.yml
 context: "2026-09-02"
 ---
-# MIS-146 — Triage the ten Dependabot advisories on main and close DBT-007
+# MIS-150 — Triage the open Dependabot advisories on main and close DBT-007
 
-> **Summary:** GitHub reports **10 vulnerabilities on the default branch —
-> 3 high, 4 moderate, 3 low** — a number that exists only in the `git push`
-> banner and nowhere in the corpus. This mission enumerates each advisory
-> with package, severity and reach, gives each a verdict (patch, accept with
-> reason, or not applicable), and closes `DBT-007`.
+> **Summary:** GitHub's push banner reported **10 vulnerabilities on the
+> default branch — 3 high, 4 moderate, 3 low** on 2026-08-25, a number that
+> exists only in that banner and nowhere in the corpus. `npm audit` on
+> 2026-09-04 reports **4** (2 high, 2 low) — see the execution log. Neither
+> figure is the measurement this mission owes; both are inputs to it. This
+> mission enumerates each advisory from the live source with package,
+> severity and reach, gives each a verdict (patch, accept with reason, or
+> not applicable), and closes `DBT-007`.
 > **Epistemic:** whether the repository's security surface is real exposure
 > or static-build noise — measured, not assumed (DBT-007 refuses to state
 > the counts as measured; this mission measures them).
@@ -69,7 +72,13 @@ Its own "What would close it" block is the contract this mission executes:
 
 The count comes from GitHub's push banner (10 · 3 high · 4 moderate ·
 3 low) and is **unverified** — the counts may have changed since 2026-08-25.
-The first act of execution is to re-measure from the live source.
+The first act of execution is to re-measure from the live source. A partial
+re-measurement on 2026-09-04 already contradicts it (see the execution log):
+`npm audit` reports 4, and the Dependabot API returned HTTP 403 to the
+agent's token. The enumeration this mission owes still has to come from the
+Dependabot alerts themselves, which is what DBT-007 asks for; `npm audit`
+sees the npm tree, not GitHub's advisory state, and the two are not the same
+source.
 
 ---
 
@@ -181,3 +190,36 @@ Add here — never edit `Scope` or the criteria to match what happened.)*
   `missions/mis-146-dependabot-advisories-triage`, rebased onto `main`
   `3ada698`. Content and `todo` state carried over; the old remote branch
   is deleted. Still not assigned, not executed.
+- 2026-09-04 — **Renumbered 146 → 150** (ID collision, PRO-003 §4, third
+  time for this draft). While this branch sat unmerged, `MIS-146` was taken
+  by `MIS-0146-normative-refoundation`, merged into `main` by #239. Same
+  outcome as the previous two moves and for the same reason: a branch claim
+  only binds the agents who can see it, and the merged document is in the
+  tree while this one is not. 150 is the first free number — 147, 148 and
+  149 are held by `main` or by live branches, and no branch, file or open PR
+  mentions 150. Rebased onto `main` `3020ab2`. Content, scope and `todo`
+  state unchanged. *(The numbers in the two entries above are left as they
+  were written. This entry writes its own bare, without the `MIS-` prefix,
+  because they name numbers this mission carried, not other documents:
+  spelled as identifiers the reference lint reads them as citations of the
+  missions that now hold them and fails.)*
+- 2026-09-04 — **Partial re-measurement, not the triage.** Recorded because
+  the mission's own premise is now known to be stale, and a `todo` document
+  that states a false number is worse than one that states none.
+  - `npm audit` in `web/` at `main` `3020ab2`: **4 advisories — 2 high
+    (astro, sharp), 2 low (esbuild, @astrojs/tailwind)**. The banner's
+    10 · 3 · 4 · 3 does not reproduce.
+  - `gh api /repos/numengames/numinia-nwos/dependabot/alerts` → **HTTP 403,
+    "Resource not accessible by personal access token"**. The enumeration
+    DBT-007 asks for cannot be produced with the agent's current token. This
+    is a blocker for execution, not a finding: whoever executes needs a token
+    with `security_events`, or an Oracle reading the alerts UI.
+  - Every one of the four reports `fixAvailable: astro@7.3.1`. The repo is on
+    `astro@^5.18.1`, and this mission's scope explicitly excludes the Astro
+    major upgrade (DBT-007 §"Why it is registered" point 2). On the evidence
+    available today the verdict for all four would be **accept with reason**,
+    and the mission would close having patched nothing. That is a real
+    outcome, but it is the executor's call with the Oracle, not the
+    renumbering agent's — so nothing here is decided, only measured.
+  - No dependency was bumped, no lockfile touched, no verdict written into
+    the mission body. Status stays `todo`.
