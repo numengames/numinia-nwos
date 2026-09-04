@@ -2420,6 +2420,17 @@
   "tokens": 930
  },
  {
+  "path": "missions/MIS-0149-agent-roster-page.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3974,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 947
+ },
+ {
   "path": "missions/MIS-0149-ursa-git-cold-start-bootstrap.md",
   "dir": "missions",
   "series": "missions",
