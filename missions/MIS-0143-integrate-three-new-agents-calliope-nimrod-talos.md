@@ -15,10 +15,10 @@ completed: null
 # REGISTRO
 type: mission
 version: "1.0.0"
-created: "2026-09-04T00:00:00Z"
+created: "2026-09-04T12:00:00Z"
 created_source: "git:c80f2b0"
 created_confidence: exact
-updated: "2026-09-04T00:00:00Z"
+updated: "2026-09-04T12:00:00Z"
 author: "ursa"
 owner: "oracle"
 tags: [agents, calliope, nimrod, talos, integration, guilds]
