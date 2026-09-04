@@ -3,12 +3,12 @@ id: "DBT-013"
 uid:
 title: "Design System filename is dated (frozen-artifact shape) but the document is not frozen"
 type: documentation
-status: active
-version: "1.0.0"
+status: closed
+version: "1.1.0"
 created: "2026-09-02T12:55:00+02:00"
 created_source: "git:e4b94e7"
 created_confidence: exact
-updated: "2026-09-02T12:55:00+02:00"
+updated: "2026-09-04T12:52:30Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -18,14 +18,29 @@ license: "CC-BY-4.0"
 visibility: "public"
 severity: medium
 opened_by: "Oracle, 2026-09-02, via Ursa"
-related: ["ADR-037", "MIS-140", "PRO-010", "MIS-125", "STD-001"]
+related: ["ADR-037", "MIS-151", "PRO-010", "MIS-125", "STD-001"]
 ---
 
 # DBT-013 — Design System filename is dated but the document is not frozen
 
+> **Closed before this document reached `main`.** Opened 2026-09-02 against
+> the dated Design System filename. On 2026-09-03, PR #229 — *"A filename is
+> not a state"* — registered that document as `standards/STD-008-design-system.md`
+> and merged its terminology into `CAN-004`. The dated name survives only in
+> the `supersedes:` field, which is a historical pointer, not a live path.
+>
+> This entry is published as `closed`, not deleted, because the reasoning
+> is the useful part: the same argument (a dated filename asserts a stability
+> a living specification does not have) is what #229 acted on. Registering it
+> as `active` would have introduced a debt the tree had already paid.
+>
+> **What follows is the original text, unedited** — an out-of-date record is
+> history. The path it cites no longer exists; that is the point.
+
 ## What happened
 
-`standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md` carries the dated
+The Design System standard, then filed under standards/ with the name
+2026_08_18-Sistema_de_Diseno-v5.1.0, carries the dated
 frozen-artifact filename shape described in `PRO-010 §3.2` (a date, an
 underscored title, and a semver suffix) — the convention `STD-001 §2.1.1`
 describes as *"a photograph: it is not edited because a new version is a
@@ -86,3 +101,22 @@ acceptable after all.
 | Opened | 2026-09-02, during the accessibility-documentation pass (`ADR-037`) |
 | Blocks | nothing — `ARC-10`/`STD-005` work proceeded independently |
 | Closes when | Oracle's dedicated naming pass resolves it |
+
+## Resolution
+
+**Closed 2026-09-03 by PR #229**, one day after this entry was written and
+before it reached `main`. The Oracle's pass took option 1: the file was
+renamed to `standards/STD-008-design-system.md` and its terminology merged
+into `CAN-004`. The dated name is retained only as a `supersedes:` value,
+which records what the document used to be rather than pointing at a live
+file.
+
+The three citations of the old path — in this entry, in `ADR-037` and in
+MIS-151 — were handled in two ways in this pass. Where the text cites the
+document's *content* (the §1.2 contrast rules), it now points at `STD-008`,
+because that is where the content lives. Where the text argues *about the
+name itself*, the name is written as prose rather than as a path: repointing
+those to `STD-008` would have destroyed the argument, which is precisely
+that a dated filename was the wrong shape. Older records that cite the dated
+path — MIS-094, MIS-116, MIS-117 — were left untouched and remain baselined:
+an out-of-date record is history.

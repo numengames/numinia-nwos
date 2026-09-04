@@ -1,6 +1,6 @@
 ---
 # CORE — the ten fields the build verifies (web/src/content.config.ts).
-id: "MIS-140"
+id: "MIS-151"
 uid: ""
 title: "One normative home for the accessibility gate — ARC-10, ADR-037, DBT-013"
 status: in-progress
@@ -29,9 +29,9 @@ paths:
   - standards/STD-005-engineering-standards.md
   - decisions/ADR-037-accessibility-gate-single-home.md
   - debt/DBT-013-design-system-filename-not-frozen.md
-depends_on: ["MIS-141"]
+depends_on: ["MIS-152"]
 ---
-# MIS-140 — One normative home for the accessibility gate
+# MIS-151 — One normative home for the accessibility gate
 
 > **Summary:** the same code-accessibility rule (WCAG AA) was asserted in
 > three places — `numinia-web/CLAUDE.md`, the Design System §1.2, and an
@@ -51,7 +51,7 @@ depends_on: ["MIS-141"]
 ## Context
 
 Triggered by the Oracle's question, during the `numinia.org` SpeechPlayer
-accessibility follow-up (after `MIS-141`): *"¿está en algún protocolo, en
+accessibility follow-up (after `MIS-152`): *"¿está en algún protocolo, en
 alguna decisión o en algún estándar? ¿dónde hablamos de esto?"* — followed
 by *"se me antoja que está un poco dispersada esa información"*.
 
@@ -59,7 +59,7 @@ Verified against the repo: the WCAG AA / accessibility requirement existed
 in three places with no cross-reference between them —
 
 1. `numinia-web/CLAUDE.md` — prose in "Code standards", no rule ID.
-2. `standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md` §1.2/§12 — correctly
+2. `standards/STD-008-design-system.md` §1.2/§12 — correctly
    scoped to design (contrast, focus color, tap targets), not the same
    sujeto as the code gate, but read as duplication before closer reading.
 3. `numinia-web/apps/store/e2e/a11y.spec.ts` — the actual CI gate
@@ -74,7 +74,8 @@ No `standards/` document had ever registered this as a numbered practice
 accessibility had no entry there at all).
 
 **Second finding, out of this mission's scope by the Oracle's explicit
-instruction:** `standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md` carries
+instruction:** the Design System standard, then named for the date
+2026_08_18 with a v5.1.0 suffix, carries
 a dated frozen-artifact filename while functioning as a living, revised
 standard (already superseded one prior version; declares a six-month
 review cadence). `PRO-010 §3.2.2` (`MIS-125` ruling) currently forbids
@@ -105,7 +106,7 @@ to be resolved in the Oracle's own dedicated pass. **Not executed here.**
 **Out of scope:** renaming the Design System document (`DBT-013`);
 amending or reversing `PRO-010 §3.2.2` / `MIS-125`; closing the corpus
 tab-order coverage gap itself (`ARC-10`'s check column states it, closing
-it is future audit work, tracked loosely against `MIS-141`); any change to
+it is future audit work, tracked loosely against `MIS-152`); any change to
 `STD-005`'s own `Status: Proposal` vs. `status: active` frontmatter
 mismatch, noticed in passing and not part of this mission.
 
@@ -153,4 +154,14 @@ Add here — never edit `Scope` or the criteria to match what happened.)*
   itself a process note: the mission should have preceded the commits,
   not followed them — noted so the pattern is not repeated.
 - **Evidence:** commits on both branches above; linter output (3/3 clean).
+- **Renumbered 2026-09-04:** this mission was drafted as 140 and its
+  companion as 141. Both numbers were taken while the branch sat unmerged —
+  `MIS-0140-publish-coverage-guard` and `MIS-0141-telemetry-view` are in
+  `main`. They move to 151 and 152, the first free pair, verified against
+  every remote branch and every open PR. `depends_on` and the cross
+  references in `ADR-037` and `DBT-013` moved with them. Nothing else
+  changed: same scope, same criteria, same closure text. *(The old numbers
+  are named here without the `MIS-` prefix where they refer to this
+  mission's own past identifiers, so the reference lint does not read them
+  as citations of the documents that now hold them.)*
 - **Closed:** _pending_ · **by:** _pending_

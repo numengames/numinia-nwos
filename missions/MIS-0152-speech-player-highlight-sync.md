@@ -1,6 +1,6 @@
 ---
 # CORE — the ten fields the build verifies (web/src/content.config.ts).
-id: "MIS-141"
+id: "MIS-152"
 uid: ""
 title: "Highlight the sentence SpeechPlayer is currently reading"
 status: todo
@@ -27,7 +27,7 @@ license: "CC0-1.0"
 paths: [web/src/components/SpeechPlayer.astro]
 depends_on: ["MIS-119"]
 ---
-# MIS-141 — Highlight the sentence SpeechPlayer is currently reading
+# MIS-152 — Highlight the sentence SpeechPlayer is currently reading
 
 > **Summary:** while `SpeechPlayer` (MIS-119) speaks a document, visually
 > mark the sentence being spoken right now, and keep it in view as playback
@@ -123,4 +123,10 @@ Add here — never edit `Scope` or the criteria to match what happened.)*
   that went exactly as planned teaches nothing that the plan did not
   already say.
 - **Evidence:** command, figure, commit, or route that proves it.
+- **Renumbered 2026-09-04:** drafted as 139, renumbered to 141 on 2026-09-02
+  after colliding with #207, and now 152 — 141 was taken by
+  `MIS-0141-telemetry-view` in `main` while this branch sat unmerged. Its
+  companion moved 140 → 151 in the same pass. A duplicate branch carrying
+  the 139 copy of this document was deleted rather than rebased: it differed
+  from this one in two lines, the id and the H1. Content unchanged.
 - **Closed:** YYYY-MM-DD · **by:** agent-id

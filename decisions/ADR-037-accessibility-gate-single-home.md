@@ -15,7 +15,7 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [accessibility, a11y, wcag, standards, std-005, arc-10, dispersion]
 license: "CC-BY-4.0"
-related: ["STD-001", "STD-005", "MIS-140", "MIS-141", "MIS-127", "MIS-125", "DBT-013"]
+related: ["STD-001", "STD-005", "MIS-151", "MIS-152", "MIS-127", "MIS-125", "DBT-013"]
 superseded_by: null
 ---
 
@@ -38,7 +38,7 @@ without citing each other:
 
 1. `numinia-web/CLAUDE.md` — prose in the "Code standards" list: *"semantic
    HTML, WCAG AA"*. No `ARC-NN` identifier, no cross-reference.
-2. `standards/2026_08_18-Sistema_de_Diseno-v5.1.0.md` §1.2 — *"Equable →
+2. `standards/STD-008-design-system.md` §1.2 — *"Equable →
    accessibility is equity, not compliance; AA is the floor"* — a design
    *value*, correctly scoped to that document's own subject (§12 has the
    full spec: contrast ratios, focus visibility, 44×44 touch targets).
@@ -57,7 +57,7 @@ discoverable of them.
 
 **What this ADR does NOT resolve, on the Oracle's explicit instruction:**
 the Design System's dated-filename shape
-(`2026_08_18-Sistema_de_Diseno-v5.1.0.md`) is itself judged wrong — a
+(the dated 2026_08_18 Sistema de Diseno v5.1.0 name) is itself judged wrong — a
 `standards/` document that changes in substance (v5.0.0 → v5.1.0 already
 happened) should not carry a frozen-artifact name. `PRO-010 §3.2.2`
 (`MIS-125` ruling, 2026-08-31) currently forbids exactly this rename, on
@@ -95,7 +95,7 @@ not lost. **Not executed here.**
   `numinia-nwos`'s `/corpus/**` document routes) is now written where the
   rule lives, not buried in a code comment — closing the gap the Oracle's
   question surfaced two turns ago.
-- `MIS-141` (SpeechPlayer highlight-sync, `mission/MIS-0141-speech-player-highlight-sync`) and any
+- `MIS-152` (SpeechPlayer highlight-sync, `mission/MIS-0152-speech-player-highlight-sync`) and any
   future tab-order audit of the corpus toolbar now have a rule ID to cite
   in their acceptance criteria instead of prose.
 - `DBT-013` keeps the naming defect visible without forcing a rename this
@@ -108,5 +108,5 @@ not lost. **Not executed here.**
 - `PRO-010 §3.2.2` / `MIS-125` is not amended or reversed.
 - The corpus toolbar's own tab-order coverage gap (only the platform home
   nav is tested, not `/corpus/**` documents with `SpeechPlayer`) is
-  described in `ARC-10`'s check column but not closed — that is `MIS-141`
+  described in `ARC-10`'s check column but not closed — that is `MIS-152`
   and future audit work, not this ADR.
