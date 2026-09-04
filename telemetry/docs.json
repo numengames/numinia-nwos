@@ -2194,10 +2194,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 27851,
+  "chars": 31474,
   "apparatus": false,
   "archived": false,
-  "tokens": 8183
+  "tokens": 9133
  },
  {
   "path": "missions/MIS-0128-link-hygiene-english-renames.md",

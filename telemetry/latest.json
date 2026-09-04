@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "10d6d71",
-  "corpus_hash": "4314a3928ab7ea74d68aafd55aa5ba213442efbba7fb746f74fb033f7b8315eb",
+  "head": "12c70f1",
+  "corpus_hash": "b1ece115851fe4b83fe6f721a03f746be622c94f81ff77e4e1cee46bd76eaf76",
   "root_dirty": 0,
-  "measured_at": "2026-09-04T19:22:00Z",
+  "measured_at": "2026-09-04T19:30:52Z",
   "families": [
     "corpus",
     "series",
@@ -357,13 +357,13 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 498700,
+      "value": 499650,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "missions": 259955,
+        "missions": 260905,
         "standards": 71643,
         "canon": 41567,
         "agents": 25317,
@@ -390,7 +390,7 @@
         "done": 120601,
         "draft": 72898,
         "todo": 52793,
-        "in-progress": 40332,
+        "in-progress": 41282,
         "frozen": 34004,
         "closed": 17613,
         "(none)": 11480,
@@ -402,7 +402,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 52.13,
+      "value": 52.22,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -425,8 +425,8 @@
           9395
         ],
         [
-          "canon/CAN-004-role-structure.md",
-          8902
+          "missions/MIS-0127-entropy-reduction.md",
+          9133
         ]
       ],
       "unit": "tokens",
@@ -733,20 +733,20 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 390
+          "3": 395
         },
         "MIS": {
-          "3": 1234,
+          "3": 1235,
           "4": 50
         },
         "CAN": {
-          "3": 124
+          "3": 125
         },
         "ADR": {
-          "3": 471
+          "3": 474
         },
         "OPS": {
-          "3": 32
+          "3": 34
         },
         "RPT": {
           "3": 38,
@@ -762,10 +762,10 @@
           "3": 37
         },
         "SYS": {
-          "3": 48
+          "3": 50
         },
         "BLU": {
-          "3": 54
+          "3": 55
         },
         "GLD": {
           "3": 27
@@ -839,13 +839,13 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 427,
+      "value": 429,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
     "figures.live_by_doc": {
       "value": {
-        "missions/MIS-0127-entropy-reduction.md": 37,
+        "missions/MIS-0127-entropy-reduction.md": 39,
         "standards/STD-008-design-system.md": 37,
         "missions/MIS-0125-prefix-register.md": 26,
         "operations/OPS-005-simulations.md": 19,
@@ -890,7 +890,7 @@
       "definition": "docs_total − docs_con_frontmatter"
     },
     "legacy.referencias_textuales_total": {
-      "value": 2107,
+      "value": 2111,
       "unit": "mentions",
       "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
     },
@@ -898,7 +898,7 @@
       "value": [
         [
           "ADR-005",
-          105
+          107
         ],
         [
           "MIS-062",
@@ -906,7 +906,7 @@
         ],
         [
           "MIS-127",
-          52
+          53
         ],
         [
           "C-005",
