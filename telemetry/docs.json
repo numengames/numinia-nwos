@@ -598,11 +598,11 @@
   "dir": "debt",
   "series": "debt",
   "type": "documentation",
-  "status": "open",
-  "chars": 2761,
+  "status": "draft",
+  "chars": 2906,
   "apparatus": false,
   "archived": false,
-  "tokens": 790
+  "tokens": 825
  },
  {
   "path": "decisions/ADR-001-the-archive.md",
