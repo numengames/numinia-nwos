@@ -2480,10 +2480,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 4583,
+  "chars": 4565,
   "apparatus": false,
   "archived": false,
-  "tokens": 1249
+  "tokens": 1244
  },
  {
   "path": "missions/MIS-0144-scripts-cleanup.md",

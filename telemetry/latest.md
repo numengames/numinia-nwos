@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-04T12:33:38Z"
+updated: "2026-09-04T12:38:37Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `99808a0`  · corpus_hash: `8a33c3153acdffa8…`  · measured_at: 2026-09-04T12:33:38Z  · root_dirty: 0
+- head: `015cdc9+index`  · corpus_hash: `195a84078fc3fa14…`  · measured_at: 2026-09-04T12:38:37Z  · root_dirty: 0
 
 ## corpus
 
@@ -152,8 +152,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `missions.by_effort` | (table below) | missions | by frontmatter `effort` |
 | `missions.by_assignee` | (table below) | missions | by frontmatter `assigned_to`; `(none)` = unassigned |
 | `missions.territory_tba` | 38 | missions | `territory: TBA` (ADR-028 deferral, owner MIS-124) |
-| `missions.unassigned` | 96 | missions | `assigned_to` absent or null-like |
-| `missions.in_progress_unassigned` | 3 | missions | `status: in-progress` with no `assigned_to` |
+| `missions.unassigned` | 95 | missions | `assigned_to` absent or null-like |
+| `missions.in_progress_unassigned` | 2 | missions | `status: in-progress` with no `assigned_to` |
 | `missions.done_without_closure` | 34 | missions | `status: done` with no `## Closure` heading (MIS-134 strict form) |
 | `missions.done_without_closure_tolerant` | 11 | missions | `status: done` with none of the five closure headings MIS-134 tolerates |
 | `missions.without_author` | 33 | missions | frontmatter `author` absent or null-like |
@@ -216,21 +216,21 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | missions |
 |---|---|
-| (none) | 96 |
+| (none) | 95 |
 | claude-fable-5 | 1 |
 | nimrod | 14 |
 | numengames-web + nwos-deploy | 1 |
 | numinia-nwos | 5 |
 | numinia-web | 1 |
 | procurador-01 | 1 |
-| ursa | 27 |
+| ursa | 28 |
 
 ## tokens
 
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 621340 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 621335 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
 | `tokens.missions_share_pct` | 40.98 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
@@ -240,7 +240,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| missions | 254614 |
+| missions | 254609 |
 | reports | 86903 |
 | standards | 77147 |
 | canon | 42805 |
@@ -267,7 +267,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | draft | 83528 |
 | closed | 82510 |
 | todo | 50279 |
-| in-progress | 37505 |
+| in-progress | 37500 |
 | frozen | 34004 |
 | (none) | 11110 |
 | in-review | 11110 |

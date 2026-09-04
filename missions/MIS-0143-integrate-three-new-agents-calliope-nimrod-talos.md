@@ -11,7 +11,6 @@ assigned_to: ursa
 guild: "Sentinels"
 territory: "Archive"
 type_execution: digital
-assigned_to: null
 completed: null
 
 # REGISTRO

@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "99808a0",
-  "corpus_hash": "8a33c3153acdffa859c9503fec36aba0dc7d36fcc85d3b9554ac5468e2fc7546",
+  "head": "015cdc9+index",
+  "corpus_hash": "195a84078fc3fa147d11ce13acb748dd4eb72ee80606ca444ecc9124f1b5b622",
   "root_dirty": 0,
-  "measured_at": "2026-09-04T12:33:38Z",
+  "measured_at": "2026-09-04T12:38:37Z",
   "families": [
     "corpus",
     "series",
@@ -300,14 +300,14 @@
     },
     "missions.by_assignee": {
       "value": {
-        "(none)": 96,
+        "(none)": 95,
         "claude-fable-5": 1,
         "nimrod": 14,
         "numengames-web + nwos-deploy": 1,
         "numinia-nwos": 5,
         "numinia-web": 1,
         "procurador-01": 1,
-        "ursa": 27
+        "ursa": 28
       },
       "unit": "missions",
       "definition": "by frontmatter `assigned_to`; `(none)` = unassigned"
@@ -318,12 +318,12 @@
       "definition": "`territory: TBA` (ADR-028 deferral, owner MIS-124)"
     },
     "missions.unassigned": {
-      "value": 96,
+      "value": 95,
       "unit": "missions",
       "definition": "`assigned_to` absent or null-like"
     },
     "missions.in_progress_unassigned": {
-      "value": 3,
+      "value": 2,
       "unit": "missions",
       "definition": "`status: in-progress` with no `assigned_to`"
     },
@@ -358,13 +358,13 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 621340,
+      "value": 621335,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "missions": 254614,
+        "missions": 254609,
         "reports": 86903,
         "standards": 77147,
         "canon": 42805,
@@ -392,7 +392,7 @@
         "draft": 83528,
         "closed": 82510,
         "todo": 50279,
-        "in-progress": 37505,
+        "in-progress": 37500,
         "frozen": 34004,
         "(none)": 11110,
         "in-review": 11110,
