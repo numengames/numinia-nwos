@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "4cce7bf",
-  "corpus_hash": "e3cc3fb8c5fd3e79211ec89e98daa2b2f799575fd98febc10a749ed64e1a0695",
+  "head": "0e39b7e",
+  "corpus_hash": "74acecefa59fb16716d81466c52961382296ec1e166a83c98bd2d34337b4eb2e",
   "root_dirty": 0,
-  "measured_at": "2026-09-04T10:23:27Z",
+  "measured_at": "2026-09-04T10:29:09Z",
   "families": [
     "corpus",
     "series",
@@ -127,7 +127,7 @@
       "definition": "those scripts by language, from the extension"
     },
     "corpus.scripts_in_ci": {
-      "value": 13,
+      "value": 12,
       "unit": "files",
       "definition": "scripts named in `.github/workflows/ci.yml` as `scripts/<name>`"
     },
@@ -726,7 +726,6 @@
         "scripts/check-frontmatter-delimiter.mjs",
         "scripts/lint-frontmatter.mjs",
         "scripts/lint-naming.mjs",
-        "scripts/check-core-rules.mjs",
         "scripts/telemetry.mjs",
         "scripts/telemetry.mjs",
         "scripts/test/telemetry.test.mjs",
@@ -1113,7 +1112,6 @@
         "scripts/check-frontmatter-delimiter.mjs",
         "scripts/lint-frontmatter.mjs",
         "scripts/lint-naming.mjs",
-        "scripts/check-core-rules.mjs",
         "scripts/telemetry.mjs",
         "scripts/telemetry.mjs",
         "scripts/test/telemetry.test.mjs",
