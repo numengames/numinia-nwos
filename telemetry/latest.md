@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-03T22:11:59Z"
+updated: "2026-09-04T07:18:43Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `b38b5f2`  · corpus_hash: `b212452ecfa84513…`  · measured_at: 2026-09-03T22:11:59Z  · root_dirty: 0
+- head: `143aa05`  · corpus_hash: `b896f536cc755c0a…`  · measured_at: 2026-09-04T07:18:43Z  · root_dirty: 0
 
 ## corpus
 
@@ -230,10 +230,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 615682 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 602905 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
-| `tokens.missions_share_pct` | 40.56 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.missions_share_pct` | 41.42 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
 | `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
@@ -241,8 +241,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | tokens |
 |---|---|
 | missions | 249702 |
-| standards | 89104 |
 | reports | 86903 |
+| standards | 76327 |
 | canon | 42805 |
 | debt | 37559 |
 | operations | 21655 |
@@ -262,7 +262,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| active | 203421 |
+| active | 190644 |
 | done | 121708 |
 | closed | 82510 |
 | draft | 71277 |
@@ -318,8 +318,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | type_execution | 125 |
 | started | 62 |
 | requested_by | 60 |
+| subtype | 40 |
 | registration | 39 |
-| subtype | 39 |
 | freeze_reason | 38 |
 | registration_reason | 35 |
 | agent | 31 |
@@ -329,7 +329,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | requires_oracle_approval | 23 |
 | paths | 22 |
 | absorbs | 17 |
-| evidence_head | 17 |
+| evidence_head | 16 |
 | related | 15 |
 | visibility | 14 |
 | context | 13 |
@@ -455,7 +455,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 |---|---|---|---|
 | `contradictions.status_vocabulary_used` | (table below) | documents | frontmatter status values in the corpus with counts |
 | `contradictions.status_vocabulary_undeclared` | (table below) | documents | status values in use that scripts/lib/rules.json does not declare (mission ∪ adr ∪ _default), with the docs carrying them — a contradiction between a document and the vocabulary |
-| `contradictions.ci_markers_std001` | 7 | rows | table rows of STD-001 carrying `[CI]` |
+| `contradictions.ci_markers_std001` | 1 | rows | table rows of STD-001 carrying `[CI]` |
 | `contradictions.ci_marked_scripts_not_in_ci` | (table below) | scripts | scripts a `[CI]` row names that ci.yml runs in no `run: node` step — a norm claiming a machine check that does not happen |
 | `contradictions.ci_scripts_not_marked` | (table below) | scripts | scripts ci.yml runs that no `[CI]` row of STD-001 names — a check the norm does not claim |
 | `contradictions.id_form_per_series` | (table below) | citations | per series prefix, citations by digit width (3 vs 4) across the corpus; S1 fixes 4 for MIS files, 3 in `id:` |
@@ -492,20 +492,20 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 ### `contradictions.ci_scripts_not_marked`
 
-9 rows (scripts) — in `latest.json`.
+11 rows (scripts) — in `latest.json`.
 
 ### `contradictions.id_form_per_series`
 
 | | 3 |
 |---|---|
-| STD | 445 |
-| MIS | 1446 |
-| CAN | 134 |
-| ADR | 670 |
+| STD | 427 |
+| MIS | 1411 |
+| CAN | 129 |
+| ADR | 643 |
 | OPS | 37 |
 | RPT | 72 |
 | DBT | 123 |
-| PRO | 258 |
+| PRO | 259 |
 | DEC | 54 |
 | SYS | 52 |
 | BLU | 62 |
@@ -523,7 +523,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `figures.live` | 656 | lines | lines in non-apparatus docs outside telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — "N tokens\|documents\|files\|missions", "N/M", "N %" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines |
+| `figures.live` | 621 | lines | lines in non-apparatus docs outside telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — "N tokens\|documents\|files\|missions", "N/M", "N %" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines |
 | `figures.live_by_doc` | (table below) | lines | the fifteen docs with most such lines |
 | `figures.cited` | 0 | citations | citations in the §10.5 form `key = value @ head` across the corpus |
 | `figures.stale_citations` | (table below) | citations | cited `key = value @ head` whose value in latest.json at this HEAD differs from the cited value: [where, key, cited, current]. A stale citation is not an error — the head beside it says when it was true |
@@ -533,7 +533,6 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | lines |
 |---|---|
 | standards/STD-008-design-system.md | 41 |
-| standards/STD-001-glossary.md | 40 |
 | missions/MIS-0127-entropy-reduction.md | 36 |
 | debt/DBT-001-series-prefixes-not-applied.md | 27 |
 | missions/MIS-0125-prefix-register.md | 26 |
@@ -547,6 +546,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | reports/RPT-001-debt-register-refactor.md | 12 |
 | reports/RPT-004-cold-agent.md | 11 |
 | missions/MIS-0138-telemetry-instrument.md | 10 |
+| operations/OPS-007-sales.md | 10 |
 
 ### `figures.stale_citations`
 
@@ -559,7 +559,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `legacy.docs_total` | 281 | documents | every tracked path ending in .md (git ls-files '*.md'), web/ included, telemetry/ excluded |
 | `legacy.docs_con_frontmatter` | 273 | documents | docs_total whose text starts with a `---` block closed by a second `---` line |
 | `legacy.docs_sin_frontmatter` | 8 | documents | docs_total − docs_con_frontmatter |
-| `legacy.referencias_textuales_total` | 2903 | mentions | occurrences of `(MIS\|ADR\|DEC\|RPT\|AUD\|P\|C\|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included) |
+| `legacy.referencias_textuales_total` | 2809 | mentions | occurrences of `(MIS\|ADR\|DEC\|RPT\|AUD\|P\|C\|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included) |
 | `legacy.referencias_top` | (table below) | mentions | the six most-mentioned identifiers as [id, count]; ties keep first-seen order (Python Counter.most_common) |
 | `legacy.matricula` | (table below) | documents | per series dir (count-evidence order, 11 dirs — `system` absent, as in the script): con = filenames matching the scheme; total = docs in the dir minus _template/, reports/evidence/, apparatus (canonical name or type: meta) and dated filenames, as the replayed tool did; pct = 100·con/total rounded to 0.1 |
 | `legacy.excluidos` | (table below) | paths | the apparatus and dated-name paths removed from the matricula denominators, in scan order |
