@@ -75,7 +75,7 @@ The goal is not to justify the system — it already works. The goal is to **opt
 |--------|-------------|---------------|
 | Continuity score | System coherence across sessions | Manual audit (9.1/10 as of 2026-04-07) |
 | Rework rate | PRs that needed fixes | ~10% estimated |
-| Protocol compliance | Sessions following PRO-001 + PRO-006 | 100% (verifiable via commits) |
+| Protocol compliance | Sessions following PRO-001 (opening and closing) | 100% (verifiable via commits) |
 | Canon coherence | Decisions consistent with seminal docs | Manual QA |
 
 ### Category 5 — ROI metrics

@@ -138,27 +138,23 @@ numinia-digital-agents/
 
 | ID | Name | When to use |
 |----|------|------------|
-| **PRO-001** | Agent Briefing | Every session start — mandatory |
-| **PRO-002** | Agent Onboarding | New agent joining the CAO |
+| **PRO-001** | Agent Session | Every session — opening, execution, closing. Mandatory |
 | **PRO-003** | Mission Cycle | Create, execute, review, close missions |
-| **PRO-004** | Inter-Agent Communication | Coordination between agents (repo is the channel) |
 | **PRO-005** | Escalation | When blocked, uncertain, or decision exceeds authority |
-| **PRO-006** | Session Close | Every session end — mandatory |
-| **PRO-007** | Context Load | Self-monitor context (warn at ≥7/10) |
-| **PRO-008** | Approval Brief | Compact format for Oracle approval requests |
-| **PRO-009** | Mission Briefing | Before starting any mission — mission first, execution after |
+| **PRO-008** | Decision | Recording a decision and requesting approval |
+| **PRO-010** | How to Archive | Moving, superseding and retiring documents |
+| **PRO-011** | Security Audit | Auditing the repository for exposed material |
+| **PRO-013** | Handing a Guard to CI | Turning a verified rule into an enforced check |
 
 ### Protocol dependency chain
 
 ```
-P-001 (start)
-  └─► P-009 (briefing before mission)
-        └─► P-003 (mission lifecycle)
-              ├─► P-004 (if multi-agent)
-              ├─► P-005 (if blocked)
-              └─► P-008 (if approval needed)
-  └─► P-007 (context monitor, throughout)
-P-006 (end — always)
+PRO-001 (opening)
+  └─► PRO-003 (mission lifecycle)
+        ├─► PRO-005 (if blocked or beyond authority)
+        └─► PRO-008 (if a decision must be recorded)
+  └─► PRO-010 (if a document moves or is retired)
+PRO-001 (closing — always)
 ```
 
 ---
