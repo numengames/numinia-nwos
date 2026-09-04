@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "143aa05",
-  "corpus_hash": "b896f536cc755c0a9c7a57149765962d0b631fb26b1bf6020d77099a3b499bbe",
+  "head": "e6c0bfe",
+  "corpus_hash": "b2695831cad0b4fa8a85148c9944cadf3d1a2f6624d2bb16aa42de182df83331",
   "root_dirty": 0,
-  "measured_at": "2026-09-04T07:18:43Z",
+  "measured_at": "2026-09-04T08:33:40Z",
   "families": [
     "corpus",
     "series",
@@ -358,7 +358,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 602905,
+      "value": 602921,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -368,7 +368,7 @@
         "reports": 86903,
         "standards": 76327,
         "canon": 42805,
-        "debt": 37559,
+        "debt": 37575,
         "operations": 21655,
         "decisions": 17897,
         "agents": 16628,
@@ -387,7 +387,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 190644,
+        "active": 190660,
         "done": 121708,
         "closed": 82510,
         "draft": 71277,

@@ -489,10 +489,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 17477,
+  "chars": 17543,
   "apparatus": false,
   "archived": false,
-  "tokens": 5451
+  "tokens": 5467
  },
  {
   "path": "debt/DBT-002-root-of-trust-unestablished.md",
