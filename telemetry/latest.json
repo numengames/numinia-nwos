@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "43b3a89",
+  "head": "8daa305",
   "corpus_hash": "831bcb10f2f3b68bad9b16232ac77c6866bfb82bbc43056ad6d48113782d0a8f",
   "root_dirty": 0,
-  "measured_at": "2026-09-04T12:54:15Z",
+  "measured_at": "2026-09-04T13:03:08Z",
   "families": [
     "corpus",
     "series",
@@ -634,7 +634,7 @@
       "definition": "[path, created, first-add] for created_ahead_of_commit"
     },
     "provenance.created_behind_commit": {
-      "value": 45,
+      "value": 49,
       "unit": "documents",
       "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged"
     },
