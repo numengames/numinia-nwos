@@ -103,6 +103,42 @@ export default defineConfig({
 		"/corpus/debt/d-047-reference-guard-basename-blindness": "/corpus/debt",
 		"/corpus/debt/d-048-rename-tool-rewrites-mentions": "/corpus/debt",
 		"/corpus/debt/d-049-guards-blind-to-untracked-files": "/corpus/debt",
+		// reports/ series extinction, 2026-09-04 (Oracle instruction): 22 of
+		// 24 RPT-*.md removed — judged obsolete, produced before this repo
+		// began writing reports/ at all, superseded by nothing (no report
+		// series has run since). RPT-003 and RPT-008 kept alive: they are
+		// parsed at build time by web/src/lib/wardley.ts and gaps.ts as the
+		// data source for /wardley and /gaps, not archive prose. Each dead
+		// address points at /reports (the index), the honest target — the
+		// question these reports answered was withdrawn, not moved, same
+		// precedent as the debt register extinction above. reports/evidence/
+		// (RPT-011 SBOM+robots.txt capture, RPT-2026-08-25 forensic note) was
+		// removed with it, overriding ADR-005 v1.2.0 rule 5 ("no rename tool
+		// rewrites it... no hand edit either") by the same explicit Oracle
+		// authority, not silently — see reports/evidence/README.md's own
+		// text for what those annexes captured and could not be recaptured.
+		"/reports/rpt-001-debt-register-refactor": "/reports",
+		"/reports/rpt-002-ursa-web-access": "/reports",
+		"/reports/rpt-004-cold-agent": "/reports",
+		"/reports/rpt-005-stack": "/reports",
+		"/reports/rpt-006-navigability": "/reports",
+		"/reports/rpt-007-system-audit": "/reports",
+		"/reports/rpt-009-canon-edit": "/reports",
+		"/reports/rpt-010-phase0-inventory": "/reports",
+		"/reports/rpt-011-licensing-c005": "/reports",
+		"/reports/rpt-012-c005-52-third-party-declaration": "/reports",
+		"/reports/rpt-013-process": "/reports",
+		"/reports/rpt-014-provenance": "/reports",
+		"/reports/rpt-015-complexity": "/reports",
+		"/reports/rpt-016-governance": "/reports",
+		"/reports/rpt-2026-04-02": "/reports",
+		"/reports/rpt-2026-04-03": "/reports",
+		"/reports/rpt-2026-04-04": "/reports",
+		"/reports/rpt-2026-04-05": "/reports",
+		"/reports/rpt-2026-04-06": "/reports",
+		"/reports/rpt-2026-04-07": "/reports",
+		"/reports/rpt-2026-08-24": "/reports",
+		"/reports/rpt-2026-08-25": "/reports",
 		// 2026-08-31 MIS-128: protocols merged 15 -> 7 and renamed P- -> PRO-
 		// (ADR-005 prefix, 0/13 applied until now). Astro derives the URL from
 		// the filename, so every protocol address changed. Absorbed documents
@@ -200,16 +236,20 @@ export default defineConfig({
 		// daily's own page, rendered from reports/RPT-YYYY-MM-DD.md. The 04-04
 		// daily never had a hand-written page; it has one now, from the source.
 		"/reportes": "/reports",
-		"/reportes/diario-2026-04-02": "/reports/rpt-2026-04-02",
-		"/reports/daily-2026-04-02": "/reports/rpt-2026-04-02",
-		"/reportes/diario-2026-04-03": "/reports/rpt-2026-04-03",
-		"/reports/daily-2026-04-03": "/reports/rpt-2026-04-03",
-		"/reportes/diario-2026-04-05": "/reports/rpt-2026-04-05",
-		"/reports/daily-2026-04-05": "/reports/rpt-2026-04-05",
-		"/reportes/diario-2026-04-06": "/reports/rpt-2026-04-06",
-		"/reports/daily-2026-04-06": "/reports/rpt-2026-04-06",
-		"/reportes/diario-2026-04-07": "/reports/rpt-2026-04-07",
-		"/reports/daily-2026-04-07": "/reports/rpt-2026-04-07",
+		// Re-pointed straight to /reports 2026-09-04 (reports/ series
+		// extinction, above): their old target, /reports/rpt-2026-04-0N,
+		// died in this same change. A redirect-to-a-redirect is not a lie,
+		// but it is an extra hop this repo does not need to carry.
+		"/reportes/diario-2026-04-02": "/reports",
+		"/reports/daily-2026-04-02": "/reports",
+		"/reportes/diario-2026-04-03": "/reports",
+		"/reports/daily-2026-04-03": "/reports",
+		"/reportes/diario-2026-04-05": "/reports",
+		"/reports/daily-2026-04-05": "/reports",
+		"/reportes/diario-2026-04-06": "/reports",
+		"/reports/daily-2026-04-06": "/reports",
+		"/reportes/diario-2026-04-07": "/reports",
+		"/reports/daily-2026-04-07": "/reports",
 		"/agente": "/agent",
 		"/continuidad": "/continuity",
 		"/idioma": "/language",
