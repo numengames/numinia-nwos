@@ -45,13 +45,6 @@ before 2026-08-30).
 | §6 Commit convention | superseded | `STD-005-engineering-standards.md` ARC-06 — seven types, defined there. Oracle ruling 2026-08-30: minimal standard set; `debt`/`audit` are scopes, not types |
 | §7A BDD/Gherkin · 7C Wardley · 7D DORA · 7G Active Inference · 7H OODA · 7I BML | retired | Aspirational frameworks from April; nothing in the corpus invokes them as norm. The ADR practice (§7B) is real and lives in `STD-005-engineering-standards.md` ARC-05 |
 | §7F Versioning lifecycle | **moved** | `STD-002-governance.md` «Versioning authority» — the Oracle's promotion rule, unchanged |
-| §8 Context card | **moved** | `S-004` §9 — Summary/Epistemic/Pragmatic card, used by 228 documents |
+| §8 Context card | **moved** | `S-004` §9 — Summary/Epistemic/Pragmatic card; coverage is measured by `node scripts/telemetry.mjs`, not copied here |
 | §9 Human approval scale | **moved** | `STD-002-governance.md` «Human approval scale» — Oracle ruling 2026-08-30 defines it as the gate reading; resolves D-003 |
 | §10 Agent log system | retired | Dead letter: MIS-039 closed but `logs/` never existed in this repo and no consumer ever read the format |
-
-## Change history
-
-| Version | Date | Change |
-|---------|------|--------|
-| 1.0.0 – 1.4.0 | 2026-04-07/08 | See git history — full text preserved |
-| 2.0.0 | 2026-08-30 | Superseded. Moved from repo root to `standards/`. Body replaced by the supersession map above (Oracle-approved consolidation PR) |

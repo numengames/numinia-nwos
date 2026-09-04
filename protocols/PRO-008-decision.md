@@ -160,14 +160,3 @@ perfect or unused, and the difference matters.
 
 - `PRO-005` — escalation, when approval does not arrive in the expected time.
 - `PRO-001` — session protocol.
-
-## Version history
-
-- v3.0.0 (2026-09-03) — the protocol keeps both procedures and loses the
-  narrative around them. Removed: the story of the ruling that was caught by
-  its own condition, the worked approval example of score 8, the duplicated
-  full template that restated the compact form as a document, and the record
-  table that copied two decisions already recorded in their own documents. The
-  score-7 threshold now states what a formal request adds instead of showing a
-  second form. Same rules, a third of the words.
-- v2.0.0 and earlier — see git history.

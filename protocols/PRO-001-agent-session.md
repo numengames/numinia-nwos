@@ -144,21 +144,3 @@ PRO-001 closing — always
 ```
 
 ---
-
-## Version history
-
-- v0.4.0 (2026-09-04) — **Two dead commands removed.** The close ordered
-  `git push origin main`, which the `protect-main` ruleset forbids and has
-  forbidden since it was activated, and required the commit prefix
-  `session({agent-name}):`, retired by the engineering standard on 2026-08-30
-  — one commit in the following thirty days used it. The close now names the
-  pull request as the route to the trunk. Also removed: the simulation-origin
-  table, the standards-to-know table that duplicated three other documents, the
-  message and recapitulation templates, the numbered close steps rewritten as
-  prose, and the cycle diagram that restated the section headings. Rules
-  unchanged otherwise.
-- v0.3.0 (2026-08-31) — Merged `P-006` (close) and `P-007` (context load) in as
-  sections, absorbed the three surviving onboarding rules of `P-002`, renamed
-  per ADR-005, fixed a startup command that named a repository which does not
-  exist. MIS-127.
-- v0.2.0 and earlier — see git history.

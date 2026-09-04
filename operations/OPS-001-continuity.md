@@ -91,8 +91,8 @@ This is not a theoretical question. It is the real test of whether the NWOS is a
 | Folder | Description | Critical |
 |--------|-------------|----------|
 | 🤖 `agents/` | Complete identity of every agent: SOUL, OPERATOR, STATUS, MEMORY. | ✅ |
-| 📜 `canon/` | The 9 foundational documents of Numinia. Immutable. The Constitution. | ✅ |
-| ⚡ `missions/` | 54 missions with history, criteria, epistemic value and Real Execution. | ✅ |
+| 📜 `canon/` | The foundational documents of Numinia. The Constitution. | ✅ |
+| ⚡ `missions/` | Every mission with history, criteria, epistemic value and Real Execution. | ✅ |
 | 🪨 `decisions/` | Every decision with its context, rejected alternatives and why. | ✅ |
 | 📐 `blueprints/` | Current and target state of each subsystem. Gaps and dependencies. | — |
 | 📋 `reports/` | Daily operations history. What happened, what it cost, what was learned. | — |

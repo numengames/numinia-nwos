@@ -296,13 +296,3 @@ declare the scope's denominator counted from the API, and wait for confirmation
 before the full sweep.
 
 ---
-
-## Version history
-
-- v0.2.0 (2026-09-04) — Same procedure, a quarter fewer words. The phase and
-  census structure is unchanged; what went is the restatement of rules the
-  engineering and secrets standards already carry, the how-to-work section that
-  repeated conventions binding every session, and the derivation note of the
-  initial draft. Section-number pointers into other documents removed: they are
-  coordinates that shift on the next edit.
-- v0.1.0 (2026-08-21) — Initial draft.

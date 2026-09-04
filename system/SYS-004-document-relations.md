@@ -338,8 +338,3 @@ machine-readable relation index may improve retrieval, but it must preserve the
  distinction between derived enumeration and authored judgement.
 
 ---
-
-## Version history
-
-- v0.1.0 (2026-09-03) — Initial draft, grounded in `STD-001`, `ADR-035`, and the
-  repository's current series definitions.

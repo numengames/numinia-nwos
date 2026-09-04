@@ -42,18 +42,3 @@ undocumented policy that happens to run. Absorbed from ADR-029.
 
 Each answers "what does the header mean and who guarantees it". Ratified
 across 48 hours as one apparatus.
-
-## Consequences
-
-- `type: meta` for indexes and apparatus (`STD-001` §3). `decisions/INDEX.md`
-  declared `type: adr` and `canon/INDEX.md` `type: seminal` — both wrong,
-  tracked as **D-021**.
-- New guards require a signed rule first; the reverse order is the defect
-  D-029 records.
-- `scripts/lint-frontmatter.mjs` enforces shape, not truth.
-
-## History
-
-- v2.0.0 (2026-08-31) — MIS-127: absorbs ADR-028 (absence is declared) and
-  ADR-029 (sign what machines enforce). One ratification, three acts.
-- v1.0.0 (2026-08-30) — STD-001 ratified.

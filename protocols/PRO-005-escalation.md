@@ -77,9 +77,3 @@ a judgement moves the work to the Oracle rather than the decision.
 - Do not escalate a preference as if it were a blocker
 
 ---
-
-## Version history
-
-- v1.0.0 (2026-04-06) — Initial creation.
-- v1.1.0 (2026-04-07) — Translated to English (MIS-056).
-- v1.2.0 (2026-08-31) — Renamed `P-005` → `PRO-005` per ADR-005. Escalation path corrected: the intermediate coordinator was never activated, so the path is Agent → Oracle. Recommendation made mandatory in the format. Retained standalone in the 15→7 merge (MIS-127) by Oracle ruling: a protocol invoked under pressure must not be nested.

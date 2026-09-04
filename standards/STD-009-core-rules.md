@@ -274,14 +274,6 @@ is not a measurement, and the corpus reserves that decision to the Oracle.
 
 ---
 
-## 17. Version log
-
-| Version | Date | Change |
-|---|---|---|
-| 0.1.0 | 2026-09-03 | First draft. Sixty-two rules extracted from the existing normative layer, plus the precedence article, which is new. |
-
----
-
 ## 18. References
 
 - `STD-001` — the glossary, source of the change thresholds and of the rule that history outranks the document

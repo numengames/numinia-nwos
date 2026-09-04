@@ -176,21 +176,3 @@ acting — how much human approval an action needs.
 | `PRO-008` | The decision protocol | Carries the request format the approval scale is scored in. |
 
 ---
-
-## Version history
-
-- v2.2.0 (2026-09-04) — **Two dead references corrected.** Rule G-06 routed
-  escalation through an intermediate agent that was never activated; the
-  escalation protocol recorded the correction on 2026-08-31 and this document
-  did not, so the later ruling now stands in both. The permission table and rule
-  G-08 named mission states `backlog` and `draft`, withdrawn from the closed
-  vocabulary on 2026-08-30. Removed: the narrative of the two false claims a
-  previous version carried about `canon/` being unmodifiable, which is a
-  correction now three versions old and recorded in git; the account of the
-  duplicate governance file deleted in August; and the absorption notes on the
-  versioning and approval sections. The simulation origins of rules G-01 to G-10
-  are dropped from the table — they are provenance, and provenance lives in the
-  history, not in the rule.
-- v2.1.0 (2026-09-01) — reports rows follow the flat-folder decision.
-- v2.0.0 (2026-08-30) — absorbed versioning authority and the approval scale.
-- v1.x — see git history.

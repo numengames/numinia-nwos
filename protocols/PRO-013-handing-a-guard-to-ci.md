@@ -20,7 +20,7 @@ applies_to: "any agent writing a verification guard"
 mandatory: true
 ---
 
-# P-013 — Handing a guard to CI
+# PRO-013 — Handing a guard to CI
 
 > **Summary:** How a verification guard written by an agent reaches the
 > pipeline, given that the agent cannot edit the workflow file.
@@ -125,14 +125,3 @@ gh run view <id> --log | grep -A3 '<step name>'
 
 Report the run identifier in the mission or debt entry. A guard nobody has
 watched run is a guard nobody knows works.
-
-## Version history
-
-- v2.0.0 (2026-09-03) — the register of guards is deleted, not updated. It
-  claimed the naming lint was neither written nor wired when the file existed
-  and the pipeline ran it, omitted four other wired guards and three telemetry
-  steps, and contradicted this protocol's own rule that the register is read
-  from the workflow file and never remembered. Section 4 now states where to
-  read it. The correction notice about the first exercise of this protocol is
-  folded into section 1 as rules rather than kept as narrative.
-- v1.1.0 and earlier — see git history.

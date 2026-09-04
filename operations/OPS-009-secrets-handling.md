@@ -133,21 +133,3 @@ nothing falsified. It is not unique: `D-033` measures **145 such assertions
 across the corpus, 132 of them unverified**.
 
 ---
-
-## Version history
-
-- v1.0.0 (2026-04-06) — Initial creation (as two documents: `security-policy.md`
-  and `credential-map.md`).
-- v1.1.0 (2026-04-07) — Translated to English (MIS-056).
-- v1.2.0 (2026-08-25) — Correction record (§5): the `VPS server` row
-  asserted for 141 days that the address was not in this repository. It was.
-  Assertion corrected in place, not silently; the address retired from 6 `.md`
-  files. Detected incidentally, by no guard.
-- v2.0.0 (2026-09-01) — **Merged.** Absorbs `credential-map.md` as §4–5. The
-  two documents were one subject split in two: the rule said "see the map for
-  credential management", the map said "real values are never here" — the
-  same claim, cross-referenced instead of stated once. Both carried
-  `registration: exempt` with reason `pending-genre-ruling` (D-024); the merged
-  document enters the `OPS-` series as a protocol, which is what both
-  already declared themselves to be in `type:`. Renamed per ADR-005 v1.1.0.
-  MIS-127.

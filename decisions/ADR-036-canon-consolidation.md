@@ -27,32 +27,6 @@ supersedes_record_of: ["canon/INDEX.md", "canon/README.md"]
 **−4 files, −4,225 tokens** (`cl100k_base`, same method as the rest of that
 line).
 
-## Context
-
-`canon/` held twelve files. Three were apparatus (`INDEX.md`, `README.md`,
-«archive-lore.md» (retired)), two were documents whose subject belonged elsewhere, and
-the five remaining seminals carried a `C-` prefix that `ADR-005` v1.1.0 had
-already replaced with `CAN-` — eight `N-04` violations sitting in
-`scripts/naming-baseline.json` since 2026-08-31.
-
-Two further faults were found while executing, not before:
-
-1. **The regime was declaring something legally impossible.** `REUSE.toml`
-   annotated `canon/**` as `LicenseRef-Numen-AllRightsReserved` from
-   2026-08-16. But all seven canon documents were first published in
-   `f765b99` (2026-04-07), under the root `CC0-1.0` `LICENSE` that governed
-   this repository from `9f51ad1` until `2efd546`. `git merge-base
-   --is-ancestor f765b99 0157be9` confirms it. A CC0 grant is irrevocable;
-   the reservation never took effect on them. This is the exact fault
-   `ADR-026` corrected for `agents/**` on 2026-08-28, unnoticed one folder
-   over.
-
-2. **«canon/README.md» (retired) had been lying for four months.** Its document table
-   listed «Epistemic relations between Numen Games and Numinia» (retired), a
-   filename retired on 2026-04-15. No guard caught it: `check-references.mjs`
-   validates identifiers, not filenames inside prose tables — the
-   basename-blindness defect recorded in `DBT-010` manifesting in canon.
-
 ## Decision
 
 ### 1. The `C-` series becomes `CAN-`, and the folder holds seven documents
@@ -204,14 +178,6 @@ numbering has gaps and a duplicate — ch. 2 jumps 5→7, ch. 3 jumps 5→8, ch.
 has two «Fragmento 6». It comes that way from the original; correcting it is
 an editorial decision for the Oracle.
 
-### 6.4 Why three documents left the series before this ADR
-
-| Was | Where it went | Why |
-|---|---|---|
-| `S-006` Platform Role System | `standards/STD-003` | A permissions matrix regulates an artifact; it does not name the world (`ADR-023`) |
-| `S-008` RPG manual | `numinia-lore` | The manual's source of truth is the lore repository; kept as a pointer so a reader does not conclude it is missing |
-| `S-010` Archive System | *retired* | Apparatus, not seminal: regenerable from the others. An index that lists itself as foundational confuses instrument with record |
-
 ## Consequences
 
 **Positive.** Eight `N-04` naming violations close. `canon/` drops from twelve
@@ -256,22 +222,3 @@ closed missions, audits and reports cite the retired filenames. `PRO-010`
 | `README.md` | ✅ repaired | ✅ nothing unique to preserve | ✅ redirect added | ✅ §5 |
 | `C-006` | ✅ repaired | ✅ moved, upgraded | ✅ redirect added | ✅ §4 |
 | `C-007` | ✅ repaired | ✅ verbatim → `CAN-003` | ✅ redirect added | ✅ §4 |
-
-## Alternatives considered
-
-**Keep `canon/**` reserved.** Rejected on evidence: the documents were
-published under the root CC0 license in April, irrevocably. Keeping the
-annotation would have preserved a false declaration, which is the fault
-`ADR-026` already corrected once.
-
-**Give the de-frozen documents the next two free numbers (008/009) and leave
-006/007 as gaps.** This was the recommended option and it complies with `ADR-004` rule 4
-without exception. Overruled by the Oracle: the gap is bookkeeping for an
-identity system that `uid` will replace, and the correct move is to record
-the debt rather than shape the numbering around an unfinished mechanism.
-
-**Delete `C-007` outright.** Rejected: the Archon's social dimension is
-content that exists nowhere else. Merging preserves it at zero document cost.
-
-**A tombstone in `canon/` for each departure.** Rejected by «canon/INDEX.md» (retired)'s
-own standing ruling, quoted in §5.

@@ -175,10 +175,3 @@ compliant.
   may be allowed to hold, not who operates it.
 
 ---
-
-## 5. Version history
-
-- v0.1.0 (2026-09-03) — Initial draft. Replaces `ADR-001`: substrate and
-  format restated, the authority clause removed as out of genre, and the
-  hosting clause replaced by the sovereignty constraint as a whole-system
-  capability requirement (MIS-142).
