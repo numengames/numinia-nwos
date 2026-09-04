@@ -103,7 +103,7 @@
         {
           "spot": "whether the licence is CORRECT for the content — this checks consistency between two declarations, not legal fit",
           "covered_by": null,
-          "debt": "D-042"
+          "debt": null
         },
         {
           "spot": "files with no `license:` field at all — they are skipped, not flagged",
@@ -180,7 +180,7 @@
         {
           "spot": "whether a page that DOES read a .md renders it faithfully. A file containing getCollection is exempt wholesale, so prose hardcoded beside an archive read is invisible here",
           "covered_by": null,
-          "debt": "DBT-003"
+          "debt": null
         },
         {
           "spot": "prose in .ts/.js data modules and in web/scripts/ — the scan covers pages, views and components only, so content moved into a lib/ constant leaves the measure without leaving the codebase",

@@ -71,10 +71,10 @@
   "series": null,
   "type": "documentation",
   "status": "active",
-  "chars": 5842,
+  "chars": 5862,
   "apparatus": true,
   "archived": false,
-  "tokens": 1513
+  "tokens": 1521
  },
  {
   "path": "SECURITY.md",
@@ -583,149 +583,6 @@
   "tokens": 2389
  },
  {
-  "path": "debt/DBT-001-series-prefixes-not-applied.md",
-  "dir": "debt",
-  "series": "debt",
-  "type": "documentation",
-  "status": "active",
-  "chars": 17543,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 5467
- },
- {
-  "path": "debt/DBT-002-root-of-trust-unestablished.md",
-  "dir": "debt",
-  "series": "debt",
-  "type": "documentation",
-  "status": "active",
-  "chars": 19881,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 5345
- },
- {
-  "path": "debt/DBT-003-publication-integrity.md",
-  "dir": "debt",
-  "series": "debt",
-  "type": "documentation",
-  "status": "active",
-  "chars": 26530,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 7292
- },
- {
-  "path": "debt/DBT-004-url-lifecycle-unmanaged.md",
-  "dir": "debt",
-  "series": "debt",
-  "type": "documentation",
-  "status": "active",
-  "chars": 9883,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2630
- },
- {
-  "path": "debt/DBT-005-path-derived-licensing.md",
-  "dir": "debt",
-  "series": "debt",
-  "type": "documentation",
-  "status": "active",
-  "chars": 7590,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1997
- },
- {
-  "path": "debt/DBT-006-unverified-compliance-assertions.md",
-  "dir": "debt",
-  "series": "debt",
-  "type": "documentation",
-  "status": "active",
-  "chars": 8694,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2380
- },
- {
-  "path": "debt/DBT-007-dependabot-advisories-untriaged.md",
-  "dir": "debt",
-  "series": "debt",
-  "type": "documentation",
-  "status": "active",
-  "chars": 4711,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1255
- },
- {
-  "path": "debt/DBT-008-missions-without-author.md",
-  "dir": "debt",
-  "series": "debt",
-  "type": "documentation",
-  "status": "active",
-  "chars": 4996,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1368
- },
- {
-  "path": "debt/DBT-009-c005-files-agents-as-lore.md",
-  "dir": "debt",
-  "series": "debt",
-  "type": "documentation",
-  "status": "active",
-  "chars": 5192,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1412
- },
- {
-  "path": "debt/DBT-010-guard-blindness.md",
-  "dir": "debt",
-  "series": "debt",
-  "type": "documentation",
-  "status": "active",
-  "chars": 9893,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2687
- },
- {
-  "path": "debt/DBT-011-cross-repo-consumers-broken.md",
-  "dir": "debt",
-  "series": "debt",
-  "type": "documentation",
-  "status": "active",
-  "chars": 8490,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2723
- },
- {
-  "path": "debt/DBT-012-c005-legal-compliance-ledger.md",
-  "dir": "debt",
-  "series": "debt",
-  "type": "documentation",
-  "status": "active",
-  "chars": 10316,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 3020
- },
- {
-  "path": "debt/DBT-013-design-system-filename-not-frozen.md",
-  "dir": "debt",
-  "series": "debt",
-  "type": "documentation",
-  "status": "closed",
-  "chars": 5389,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1433
- },
- {
   "path": "decisions/ADR-001-the-archive.md",
   "dir": "decisions",
   "series": "decisions",
@@ -823,17 +680,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 4445
- },
- {
-  "path": "decisions/ADR-037-accessibility-gate-single-home.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "active",
-  "chars": 5514,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1547
  },
  {
   "path": "guilds/alquimistas/GLD-001-charter.md",
@@ -2326,10 +2172,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 25772,
+  "chars": 27851,
   "apparatus": false,
   "archived": false,
-  "tokens": 7628
+  "tokens": 8183
  },
  {
   "path": "missions/MIS-0128-link-hygiene-english-renames.md",
@@ -2574,28 +2420,6 @@
   "tokens": 2814
  },
  {
-  "path": "missions/MIS-0151-accessibility-gate-single-home.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "in-progress",
-  "chars": 8035,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2277
- },
- {
-  "path": "missions/MIS-0152-speech-player-highlight-sync.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 6112,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1567
- },
- {
   "path": "operations/OPS-001-continuity.md",
   "dir": "operations",
   "series": "operations",
@@ -2777,10 +2601,10 @@
   "series": "reports",
   "type": "report",
   "status": "closed",
-  "chars": 20829,
+  "chars": 21584,
   "apparatus": false,
   "archived": false,
-  "tokens": 6120
+  "tokens": 6312
  },
  {
   "path": "reports/RPT-002-ursa-web-access.md",
@@ -3129,10 +2953,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 20014,
+  "chars": 19715,
   "apparatus": false,
   "archived": false,
-  "tokens": 5186
+  "tokens": 5103
  },
  {
   "path": "standards/STD-006-archive-substance.md",

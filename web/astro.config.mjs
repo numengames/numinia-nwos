@@ -54,21 +54,37 @@ export default defineConfig({
 		// point at the document that now CONTAINS their reasoning, not at a
 		// section index — check-url-lifecycle.mjs warns that a redirect to a page
 		// which does not answer the question is 'a 200 that lies'.
-		"/corpus/debt/d-008-series-prefixes-not-applied": "/corpus/debt/dbt-001-series-prefixes-not-applied",
-		"/corpus/debt/d-011-thresholds-unenforced": "/corpus/debt/dbt-002-root-of-trust-unestablished",
-		"/corpus/debt/d-019-signatures-not-third-party-verifiable": "/corpus/debt/dbt-002-root-of-trust-unestablished",
-		"/corpus/debt/d-020-software-key-for-sealed": "/corpus/debt/dbt-002-root-of-trust-unestablished",
-		"/corpus/debt/d-023-no-guard-for-new-series": "/corpus/debt/dbt-003-publication-integrity",
-		"/corpus/debt/d-026-no-identity-map": "/corpus/debt/dbt-002-root-of-trust-unestablished",
-		"/corpus/debt/d-028-url-lifecycle-unmanaged": "/corpus/debt/dbt-004-url-lifecycle-unmanaged",
-		"/corpus/debt/d-030-path-derived-licensing": "/corpus/debt/dbt-005-path-derived-licensing",
-		"/corpus/debt/d-031-index-coverage-unverified": "/corpus/debt/dbt-003-publication-integrity",
-		"/corpus/debt/d-032-orphan-content-outside-renderer": "/corpus/debt/dbt-003-publication-integrity",
-		"/corpus/debt/d-034-dependabot-advisories-untriaged": "/corpus/debt/dbt-007-dependabot-advisories-untriaged",
-		"/corpus/debt/d-035-build-pdf-not-run": "/corpus/debt/dbt-003-publication-integrity",
-		"/corpus/debt/d-036-missions-without-author": "/corpus/debt/dbt-008-missions-without-author",
-		"/corpus/debt/d-038-c005-files-agents-as-lore": "/corpus/debt/dbt-009-c005-files-agents-as-lore",
-		"/corpus/debt/d-039-green-ratchet-certified-corruption": "/corpus/debt/dbt-010-guard-blindness",
+		"/corpus/debt/d-008-series-prefixes-not-applied": "/corpus/debt",
+		"/corpus/debt/d-011-thresholds-unenforced": "/corpus/debt",
+		"/corpus/debt/d-019-signatures-not-third-party-verifiable": "/corpus/debt",
+		"/corpus/debt/d-020-software-key-for-sealed": "/corpus/debt",
+		"/corpus/debt/d-023-no-guard-for-new-series": "/corpus/debt",
+		"/corpus/debt/d-026-no-identity-map": "/corpus/debt",
+		"/corpus/debt/d-028-url-lifecycle-unmanaged": "/corpus/debt",
+		"/corpus/debt/d-030-path-derived-licensing": "/corpus/debt",
+		"/corpus/debt/d-031-index-coverage-unverified": "/corpus/debt",
+		"/corpus/debt/d-032-orphan-content-outside-renderer": "/corpus/debt",
+		"/corpus/debt/d-034-dependabot-advisories-untriaged": "/corpus/debt",
+		"/corpus/debt/d-035-build-pdf-not-run": "/corpus/debt",
+		"/corpus/debt/d-036-missions-without-author": "/corpus/debt",
+		"/corpus/debt/d-038-c005-files-agents-as-lore": "/corpus/debt",
+		"/corpus/debt/d-039-green-ratchet-certified-corruption": "/corpus/debt",
+		// Debt register extinction, 2026-09-04 (Oracle instruction): all twelve
+		// DBT- entries retired — judged duplicative of missions/MIS-0127's own
+		// ledger. Each address points at the register itself, the honest target
+		// per RPT-001 §6 precedent (the question was withdrawn, not moved).
+		"/corpus/debt/dbt-001-series-prefixes-not-applied": "/corpus/debt",
+		"/corpus/debt/dbt-002-root-of-trust-unestablished": "/corpus/debt",
+		"/corpus/debt/dbt-003-publication-integrity": "/corpus/debt",
+		"/corpus/debt/dbt-004-url-lifecycle-unmanaged": "/corpus/debt",
+		"/corpus/debt/dbt-005-path-derived-licensing": "/corpus/debt",
+		"/corpus/debt/dbt-006-unverified-compliance-assertions": "/corpus/debt",
+		"/corpus/debt/dbt-007-dependabot-advisories-untriaged": "/corpus/debt",
+		"/corpus/debt/dbt-008-missions-without-author": "/corpus/debt",
+		"/corpus/debt/dbt-009-c005-files-agents-as-lore": "/corpus/debt",
+		"/corpus/debt/dbt-010-guard-blindness": "/corpus/debt",
+		"/corpus/debt/dbt-011-cross-repo-consumers-broken": "/corpus/debt",
+		"/corpus/debt/dbt-012-c005-legal-compliance-ledger": "/corpus/debt",
 		// Extinguished entries (RPT-001 §6): no document answers these any more.
 		// They resolve to the debt register itself — the honest target, since the
 		// question was withdrawn rather than moved.
