@@ -583,6 +583,17 @@
   "tokens": 2389
  },
  {
+  "path": "debt/DBT-013-design-system-filename-not-frozen.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "closed",
+  "chars": 5389,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1433
+ },
+ {
   "path": "decisions/ADR-001-the-archive.md",
   "dir": "decisions",
   "series": "decisions",
@@ -680,6 +691,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 4445
+ },
+ {
+  "path": "decisions/ADR-037-accessibility-gate-single-home.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "active",
+  "chars": 5514,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1547
  },
  {
   "path": "guilds/alquimistas/GLD-001-charter.md",
@@ -2420,6 +2442,28 @@
   "tokens": 2814
  },
  {
+  "path": "missions/MIS-0151-accessibility-gate-single-home.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-progress",
+  "chars": 8035,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2277
+ },
+ {
+  "path": "missions/MIS-0152-speech-player-highlight-sync.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 6112,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1567
+ },
+ {
   "path": "operations/OPS-001-continuity.md",
   "dir": "operations",
   "series": "operations",
@@ -2953,10 +2997,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 19715,
+  "chars": 20014,
   "apparatus": false,
   "archived": false,
-  "tokens": 5103
+  "tokens": 5186
  },
  {
   "path": "standards/STD-006-archive-substance.md",
