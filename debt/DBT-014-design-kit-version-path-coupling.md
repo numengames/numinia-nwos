@@ -70,8 +70,8 @@ without manual directory creation.
 ## State
 
 Open. The generator works at `5.1.0`; it was also broken outright before this
-branch — it searched for a `Sistema_de_Diseno-vN.N.N.md` filename that PR #229
-had already renamed away, so it had thrown on every run since. That part is
-fixed: it now reads `standards/STD-008-design-system.md` and its `version:`
-field, which is why the drift in §19.3 (a token copy stamped `v5.0.0` inside a
-`5.1.0` document) could finally be corrected.
+branch — it searched for the old dated `Sistema_de_Diseno-vN.N.N` filename
+shape that PR #229 had already renamed away, so it had thrown on every run
+since. That part is fixed: it now reads `standards/STD-008-design-system.md`
+and its `version:` field, which is why the drift in §19.3 (a token copy
+stamped `v5.0.0` inside a `5.1.0` document) could finally be corrected.
