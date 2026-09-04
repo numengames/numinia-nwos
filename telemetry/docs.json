@@ -2409,6 +2409,17 @@
   "tokens": 2631
  },
  {
+  "path": "missions/MIS-0147-document-relations.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-progress",
+  "chars": 3791,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 930
+ },
+ {
   "path": "operations/OPS-001-continuity.md",
   "dir": "operations",
   "series": "operations",
@@ -3023,6 +3034,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 3600
+ },
+ {
+  "path": "system/SYS-004-document-relations.md",
+  "dir": "system",
+  "series": "system",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 14744,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 3247
  },
  {
   "path": "templates/README.md",
