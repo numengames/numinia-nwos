@@ -1,7 +1,7 @@
 {
   "_comment": "Known-broken references frozen at adoption time. The lint fails only on NEW breakage. This list should shrink over time and never grow. Regenerate only when fixing entries.",
-  "generated": "2026-09-04T10:47:37.671Z",
-  "count": 801,
+  "generated": "2026-09-04T12:26:17.260Z",
+  "count": 802,
   "entries": [
     "FILE AGENTS.md -> MEMORY.md",
     "FILE CHANGELOG.md -> APPROVAL-REQUEST-template.md",
@@ -665,6 +665,7 @@
     "ID   missions/MIS-0134-closure-guard.md -> D-025",
     "ID   missions/MIS-0135-normalisation-residue-register.md -> P-010",
     "ID   missions/MIS-0142-decisions-to-standards.md -> S-005",
+    "ID   missions/MIS-0150-dependabot-advisories-triage.md -> D-017",
     "ID   operations/OPS-008-session-state.md -> P-008",
     "ID   operations/OPS-008-session-state.md -> P-010",
     "ID   operations/OPS-009-secrets-handling.md -> D-024",

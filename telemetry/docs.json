@@ -2541,6 +2541,17 @@
   "tokens": 5179
  },
  {
+  "path": "missions/MIS-0150-dependabot-advisories-triage.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 10586,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2814
+ },
+ {
   "path": "operations/OPS-001-continuity.md",
   "dir": "operations",
   "series": "operations",
