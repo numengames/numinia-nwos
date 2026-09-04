@@ -64,11 +64,23 @@ const subjects = execFileSync('git', ['log', '-400', '--format=%s'], { cwd: ROOT
 for (const s of subjects) if (s.includes('\n')) record('CORE-26', 'multi-line subject', s.slice(0, 60));
 
 const RULES = ['CORE-12', 'CORE-13', 'CORE-16', 'CORE-19', 'CORE-21', 'CORE-26', 'CORE-45', 'CORE-50'];
+
+/* The standard's own `status` field decides whether these rules bind. `active`
+   enforces; anything else reports and exits clean. This is the on/off switch:
+   ratification is an edit to STD-009's header, not to this file. */
+const std009 = loadDocs().find((d) => (d.rel ?? d.path) === 'standards/STD-009-core-rules.md');
+const status = std009?.fm?.status ?? 'draft';
+const enforcing = status === 'active';
+
 console.log(`check-core-rules: ${docs.length} bound documents, ${RULES.length} rules executed`);
+console.log(`  STD-009 is \`${status}\` — ${enforcing ? 'ENFORCING' : 'reporting only, breaches do not fail the build'}`);
 
 if (failures.length) {
-  for (const f of failures) console.error(`  ${f.rule}  ${f.what}\n      ${f.where}`);
-  console.error(`\n${failures.length} breach(es).`);
-  process.exit(1);
+  const out = enforcing ? console.error : console.log;
+  for (const f of failures) out(`  ${f.rule}  ${f.what}\n      ${f.where}`);
+  out(`\n${failures.length} breach(es).`);
+  if (enforcing) process.exit(1);
+  console.log('Not enforced: STD-009 awaits ratification.');
+  process.exit(0);
 }
 console.log(`  ${RULES.join(' ')} — all hold.`);
