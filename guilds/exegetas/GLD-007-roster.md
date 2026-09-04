@@ -24,6 +24,7 @@ license: "LicenseRef-Numen-AllRightsReserved"
 |-------|--------|--------|-----------|-------|
 | [Byblos](../../agents/byblos/SOUL.md) (formerly Adonaz, renamed 2026-08-28) | Chroniclers | ✅ Active | 2026-08-28 | [→](../../agents/byblos/) |
 | [Senet](../../agents/senet/SOUL.md) | Scholars | ✅ Active | 2026-08-28 | [→](../../agents/senet/) |
+| [Calliope](../../agents/calliope/SOUL.md) | Erudites | 📐 Designed | 2026-09-04 | [→](../../agents/calliope/) |
 
 *Guild/branch labels carry over from the previous roster design; a full guild
 re-assignment for the 2026-08-28 roster is deferred to a future iteration by

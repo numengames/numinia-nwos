@@ -22,7 +22,10 @@ license: "LicenseRef-Numen-AllRightsReserved"
 
 | Agent | Branch | Status | Activated | Files |
 |-------|--------|--------|-----------|-------|
-| Nimrod | Archangels | 🪦 Retired 2026-08-28 (MIS-118) — 57 commits remain as `Centinela-01`; see [agents/INDEX.md](../../agents/INDEX.md) | 2026-04-02 | history only |
+| Nimrod (new agent) | Archangels | 📐 Designed | 2026-09-04 | [→](../../agents/nimrod/) |
+| [Talos](../../agents/talos/SOUL.md) | Seraphim | 📐 Designed | 2026-09-04 | [→](../../agents/talos/) |
+
+The retired Nimrod remains historical only: 57 commits remain as `Centinela-01`; see [agents/INDEX.md](../../agents/INDEX.md).
 
 ---
 

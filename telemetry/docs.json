@@ -104,10 +104,10 @@
   "series": "agents",
   "type": "meta",
   "status": "active",
-  "chars": 4274,
+  "chars": 4696,
   "apparatus": true,
   "archived": false,
-  "tokens": 1270
+  "tokens": 1385
  },
  {
   "path": "agents/_template/OPERATOR.md",
@@ -209,6 +209,39 @@
   "tokens": 347
  },
  {
+  "path": "agents/calliope/OPERATOR.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 2099,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 464
+ },
+ {
+  "path": "agents/calliope/SOUL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 8222,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1618
+ },
+ {
+  "path": "agents/calliope/SOURCES.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 1799,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 440
+ },
+ {
   "path": "agents/doulos/OPERATOR.md",
   "dir": "agents",
   "series": "agents",
@@ -275,6 +308,39 @@
   "tokens": 370
  },
  {
+  "path": "agents/nimrod/OPERATOR.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 2110,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 463
+ },
+ {
+  "path": "agents/nimrod/SOUL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 9427,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1830
+ },
+ {
+  "path": "agents/nimrod/SOURCES.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 3312,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 755
+ },
+ {
   "path": "agents/procyon/OPERATOR.md",
   "dir": "agents",
   "series": "agents",
@@ -339,6 +405,39 @@
   "apparatus": false,
   "archived": false,
   "tokens": 324
+ },
+ {
+  "path": "agents/talos/OPERATOR.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 2862,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 618
+ },
+ {
+  "path": "agents/talos/SOUL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 8446,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1639
+ },
+ {
+  "path": "agents/talos/SOURCES.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 3557,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 747
  },
  {
   "path": "agents/ursa/OPERATOR.md",
@@ -753,10 +852,10 @@
   "series": "guilds",
   "type": "charter",
   "status": "active",
-  "chars": 953,
+  "chars": 1107,
   "apparatus": false,
   "archived": false,
-  "tokens": 314
+  "tokens": 362
  },
  {
   "path": "guilds/exegetas/GLD-002-charter.md",
@@ -775,10 +874,10 @@
   "series": "guilds",
   "type": "charter",
   "status": "active",
-  "chars": 1200,
+  "chars": 1314,
   "apparatus": false,
   "archived": false,
-  "tokens": 389
+  "tokens": 435
  },
  {
   "path": "guilds/procuradores/GLD-003-charter.md",
@@ -2380,11 +2479,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 4069,
+  "status": "in-progress",
+  "chars": 4565,
   "apparatus": false,
   "archived": false,
-  "tokens": 1116
+  "tokens": 1244
  },
  {
   "path": "missions/MIS-0144-scripts-cleanup.md",

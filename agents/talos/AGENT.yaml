@@ -1,0 +1,40 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+id: talos
+name: Talos
+version: "0.1.0"
+status: designed
+activated: null
+
+role:
+  primary: repository-assurance
+
+specialties:
+  - repository-security
+  - operational-assurance
+  - ci-cd-assurance
+  - workflow-integrity
+  - repository-controls
+  - secret-hygiene
+  - dependency-risk
+  - automation-auditing
+  - compliance-verification
+  - risk-assessment
+  - guardrail-design
+
+routing:
+  use_when:
+    - repository security controls, safeguards, or operational integrity must be reviewed
+    - CI workflows, checks, scripts, hooks, rulesets, or automation must be verified against intended behavior
+    - a change must be assessed for security, compliance, control bypass, or repository-integrity risk
+    - secrets, permissions, dependencies, third-party actions, tokens, or automation boundaries require review
+    - documented repository requirements must be compared with what is actually enforced
+    - a failure, drift, weak control, missing guard, or unsafe repository practice needs diagnosis and remediation guidance
+
+canonical_files:
+  soul: SOUL.md
+  operator: OPERATOR.md
+  sources: SOURCES.md
+
+adapters:
+  hermes: adapters/hermes/

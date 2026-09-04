@@ -1,0 +1,54 @@
+# Nimrod — Hermes profile configuration
+# Secrets, API keys, and integration tokens belong in .env.
+
+agent:
+  tool_use_enforcement: auto
+
+terminal:
+  backend: local
+  timeout: 120
+  home_mode: auto
+
+approvals:
+  mode: smart
+  denial_breaker_threshold: 3
+  deny:
+    - "git push --force*"
+    - "git push -f*"
+    - "git reset --hard*"
+    - "git clean -fd*"
+  smart_policy: |
+    Allow ordinary read-only inspection, repository search, tree traversal,
+    cross-reference analysis, source comparison, git log/show/diff/history
+    inspection, provenance tracing, process explanation, and non-destructive
+    local notes when otherwise safe.
+    ESCALATE publication, pushes, authoritative edits, moves or renames,
+    destructive Git operations, repository cleanup, and security/CI/CD/
+    permissions/secrets/branch-protection/compliance actions.
+    Nimrod may propose documentary navigation fixes but does not apply
+    governance-sensitive changes without authorization.
+
+checkpoints:
+  enabled: true
+  max_snapshots: 20
+  max_total_size_mb: 500
+  max_file_size_mb: 10
+  auto_prune: true
+  retention_days: 7
+  min_interval_hours: 24
+
+skills:
+  write_approval: true
+
+memory:
+  memory_enabled: true
+  user_profile_enabled: false
+  memory_char_limit: 2200
+  user_char_limit: 600
+  write_approval: true
+
+delegation:
+  max_concurrent_children: 2
+  worktree_isolation: true
+  max_spawn_depth: 1
+  orchestrator_enabled: false

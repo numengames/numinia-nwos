@@ -53,6 +53,9 @@ agents/{name}/
 | [Senet](senet/SOUL.md) | Game Master & Interactive Design | RPG sessions, mechanics, puzzles, encounters | 2026-08-28 |
 | [Procyon](procyon/SOUL.md) | Ambassador & Onboarding Guide | first explanations, orientation, stakeholder guidance | 2026-08-28 |
 | [Doulos](doulos/SOUL.md) | General-Purpose Execution Worker | bounded, repetitive, low-ambiguity work | 2026-08-28 |
+| [Calliope](calliope/SOUL.md) | Copywriter & Professional Writer | copywriting, editorial writing, channel adaptation | 2026-09-04 |
+| [Nimrod](nimrod/SOUL.md) | Repository Guide & Knowledge Navigator | repository navigation, authority mapping, provenance | 2026-09-04 |
+| [Talos](talos/SOUL.md) | Repository Security & Operational Assurance | CI/CD, safeguards, automation integrity, control verification | 2026-09-04 |
 
 Routing does not transfer authority: a specialist escalates or consults
 another specialist when a task materially exceeds its own domain
