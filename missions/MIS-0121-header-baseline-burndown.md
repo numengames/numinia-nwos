@@ -111,7 +111,7 @@ Order is deliberate: mechanically safe first, contested last.
       #143): templates fixed at source, then exempted from H-06/H-07 for
       their placeholder dates — the placeholder IS the template's content.
       Today they emit 0.*
-      `TEMPLATE.md`, `TEMPLATE-EXAMPLE.md`, `TEMPLATE-CHANGES.md`. First
+      `templates/MIS-TEMPLATE`, `templates/MIS-TEMPLATE-EXAMPLE`, `templates/MIS-TEMPLATE-CHANGES`. First
       because every mission copied from them inherits what they carry: fixing
       them last means draining a baseline that refills from its own source.
       `area → territory` ×2, placeholder dates given a real ISO time ×6,
@@ -464,7 +464,7 @@ hides its decisions makes the next reader guess.
    series was already using informally becomes the one the standard names.
    No new lifecycle is minted. Check **B** below.
 3. **The template family still emits violations.** Three files —
-   `TEMPLATE.md`, `TEMPLATE-EXAMPLE.md`, `TEMPLATE-CHANGES.md` — produce
+   `templates/MIS-TEMPLATE`, `templates/MIS-TEMPLATE-EXAMPLE`, `templates/MIS-TEMPLATE-CHANGES` — produce
    **9 findings** between them, and every mission copied from them inherits
    the defects: `area:` retired (×2), placeholder dates that are not ISO
    times (×6), `type: standard` in `missions/` (×1).

@@ -1,0 +1,55 @@
+---
+id: "ADR-000"
+uid: ""
+title: "Decision — why something was chosen over the alternatives"
+type: adr
+status: active
+version: "1.0.0"
+created: "YYYY-MM-DD"
+created_source: "git:84a9f71"
+created_confidence: inferred
+updated: "YYYY-MM-DD"
+author: "agent-id"
+owner: "oracle"
+guild: "Alchemists"
+territory: "Archive"
+tags: [decisions, adr]
+absorbs: []
+superseded_by: ""
+license: "CC-BY-4.0"
+related: []
+---
+
+# ADR-000 — Decision title
+
+> **Summary:** The decision and the alternatives it replaces.
+> **Epistemic:** The reasoning that makes this the chosen path.
+> **Pragmatic:** What changes because of this decision.
+> **Audience:** Agents · Oracles
+
+---
+
+## Context
+
+The situation that demanded a decision. What was known, what was uncertain,
+and what constraints were non-negotiable.
+
+## Decision
+
+The chosen option, stated as a claim. Not a description of what *is* — a
+declaration of what *will be* because of this document.
+
+## Alternatives considered
+
+At least one rejected option and why it was inferior. A decision with no
+rejected alternative is a decree, not a decision.
+
+## Consequences
+
+What becomes true, what becomes false, and what new work this creates or
+remains undone.
+
+## Status
+
+`active` · `superseded` · `absorbed` (ADR-030). A decision is never deleted:
+it is superseded or absorbed, and the previous version stays reachable.

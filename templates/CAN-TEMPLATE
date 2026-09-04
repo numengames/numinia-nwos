@@ -1,0 +1,46 @@
+---
+id: "CAN-000"
+uid: ""
+title: "Canon — what the system IS"
+type: seminal
+status: active
+version: "1.0.0"
+created: "YYYY-MM-DD"
+created_source: "git:84a9f71"
+created_confidence: inferred
+updated: "YYYY-MM-DD"
+author: "agent-id"
+owner: "oracle"
+guild: "Exegetes"
+territory: "Archive"
+tags: [canon, seminal]
+license: "CC0-1.0"
+threshold: sealed
+---
+
+# CAN-000 — Canon title
+
+> **Summary:** What this foundational document defines the system to be.
+> **Epistemic:** What you learn about Numinia/Numen Games by reading it.
+> **Pragmatic:** What you must consult before asserting anything about lore,
+> brand, or philosophy.
+> **Audience:** Agents · Oracles
+
+> **Canon is `sealed` threshold.** Changing it takes the Oracle's signature
+> and an ADR that says why; the previous version stays reachable (STD-001 §2).
+
+---
+
+## What the system IS
+
+The foundational claim. Not a description of what *was* — a declaration of
+what the system *is* by design.
+
+## Governing principle
+
+The principle that follows from the claim, and what it forbids.
+
+## Related
+
+- Other canon documents this one depends on.
+- Decisions that interpret it (`ADR-NNN`).

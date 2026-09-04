@@ -35,7 +35,7 @@ The principal areas of this repository:
 - `protocols/` — procedures: session close, briefing, archiving.
 - `guilds/` — guild charters and rosters; guilds reference agents, they do
   not contain them.
-- `missions/` — the unit of work; `TEMPLATE.md` defines the contract.
+- `missions/` — the unit of work; `templates/MIS-TEMPLATE` defines the contract.
 - `decisions/` — ADRs, append-only; `debt/` — the register of what is known
   to be wrong; `reports/` — audits and evidence.
 - `operations/` — business records, one flat `OPS-` series (`OPS-003`,

@@ -105,9 +105,10 @@ you cannot verify it, do not assign it.
 
 ## 3 · The cycle
 
-**Creating** (Oracle): start from the template, fill every required header
-field, verify the next identifier against the repository, set `status: todo`,
-name the file `MIS-NNNN-<english-slug>.md`, and open a pull request.
+**Creating** (Oracle): start from `templates/MIS-TEMPLATE`, fill every required
+header field, verify the next identifier against the repository, set
+`status: todo`, name the file `MIS-NNNN-<english-slug>.md`, and open a pull
+request.
 
 **Activating** (Oracle): `status: in-progress`, one `assigned_to` and only one,
 and the `started` stamp.

@@ -233,6 +233,34 @@ regenerable view of a field that already exists on every agent — and the
 `charter` files norm, which belongs in `standards/`. The folder stays until an
 ADR decides.
 
+### 2.3 Series → template map (MIS-145)
+
+Each registered series has a copy-from template in `templates/`. When creating
+a new document of any series, copy the corresponding template — never start
+from archaeology.
+
+| Series | Template | Notes |
+|---|---|---|
+| Missions | `templates/MIS-TEMPLATE` | The ten build-verified fields + Scope / Acceptance criteria / Closure |
+| Standards | `templates/STD-TEMPLATE.md` | Five required sections (STD-004 §10) |
+| Protocols | `templates/PRO-TEMPLATE` | What an actor executes in a repeated situation |
+| Decisions | `templates/ADR-TEMPLATE` | Why something was chosen over the alternatives |
+| Debt | `templates/DBT-TEMPLATE` | What is known to be missing or wrong |
+| Reports | `templates/RPT-TEMPLATE` | What was observed, signed, and dated |
+| Operations | `templates/OPS-TEMPLATE` | What sustains the business |
+| Canon | `templates/CAN-TEMPLATE` | What the system IS |
+| Blueprints | `templates/BLU-TEMPLATE` | What could be, and the gap it attacks |
+| System | `templates/SYS-TEMPLATE` | How the system works today |
+| Guilds | `templates/GLD-TEMPLATE` | Guild charter — identity and operational profile |
+
+The agent scaffold lives in `agents/_template/` (a directory scaffold, not a
+single document; `agents/` is outside the filename scheme per ADR-005 v1.1.0).
+Copy it when creating a new agent.
+
+`templates/` is apparatus (MIS-142): scaffolding a document is copied from,
+never a member of any series and never published. Licence regime: CC0-1.0
+(REUSE.toml).
+
 ---
 
 ## 3. Series, `type` and the relation between them

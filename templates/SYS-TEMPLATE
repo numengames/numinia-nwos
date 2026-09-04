@@ -1,0 +1,52 @@
+---
+id: "SYS-000"
+uid: ""
+title: "System — reference manual of how the system works today"
+type: documentation
+subtype: reference
+status: active
+version: "0.1.0"
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+author: "agent-id"
+owner: "oracle"
+tags: [system, reference]
+territory: "Archive"
+license: "CC0-1.0"
+mission: ""
+former_id: ""
+former_id_note: ""
+accuracy_warning: ""
+---
+
+# SYS-000 — System reference title
+
+> **Summary:** What this reference manual documents about the live system.
+> **Epistemic:** How the system works as wired today — components,
+> connections, boundaries, data flows.
+> **Pragmatic:** Use to onboard, audit, or plan changes.
+> **Audience:** Agents · Oracles
+
+> **A system document is a reference manual, not a plan.** It describes what
+> *is*, not what *could be* (that is `blueprints/`, STD-001 §2).
+
+---
+
+## Scope
+
+What this reference covers, and what is explicitly out of scope.
+
+## Architecture
+
+The components, their connections, and the boundaries between them. Concrete:
+repos, services, protocols, data flows.
+
+## Accuracy
+
+Known staleness, if any, and the debt entry that tracks it. A reference that
+contradicts reality is a defect, not a plan.
+
+## Related
+
+- Blueprints that supersede this reference (`BLU-NNN`).
+- Missions that produced it (`MIS-NNN`).
