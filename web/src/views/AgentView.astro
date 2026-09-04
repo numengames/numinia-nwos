@@ -1,408 +1,108 @@
 ---
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
+// Agent roster — an editorial RPG-style directory for the Numinia organization.
 import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
 
-const capas = [
-  {
-    id: "L1",
-    nombre: "Agente Digital",
-    subtitulo: "El actor. El que piensa y actúa.",
-    color: "#8fc46b",
-    icono: "robot",
-    componentes: ["Modelo de IA (LLM)", "Contexto activo (RAM de sesión)", "Memoria semántica (Vector DB)", "Orquestador (OpenClaw)"],
-    epistemico: "El agente no tiene inteligencia propia — tiene acceso a un modelo de lenguaje y a las instrucciones que definen quién es. La inteligencia emerge de la combinación de modelo + instrucciones + contexto.",
-    pragmatico: "Puede ejecutar tareas sin supervisión continua: escribir código, enviar emails, crear documentos, analizar datos. El límite es lo que el Biológico le autoriza.",
-    caso: "Nimrod (Centinela-01) arranca a las 8am, carga SOUL.md y OPERATOR.md, y ejecuta el reporte diario. No hay humano en el loop hasta que el reporte llega a Telegram.",
-  },
-  {
-    id: "L2",
-    nombre: "Infraestructura",
-    subtitulo: "El substrato. Donde el agente existe físicamente.",
-    color: "#d33440",
-    icono: "desktop",
-    componentes: ["Servidor VPS", "GPU ≥32GB VRAM (on-premises, en camino)", "Tools & Skills (web, shell, APIs)", "Identity & Auth (permisos por agente)", "Observability (logs, trazas, métricas)"],
-    epistemico: "La infraestructura define los límites de lo posible. Un agente sin GPU suficiente no puede ejecutar modelos locales. Sin Auth Layer, cualquier agente puede hacer cualquier cosa — eso es una vulnerabilidad.",
-    pragmatico: "El PC dedicado (Ryzen 9 7950X + RTX 4080) reducirá el coste de inferencia un 60-70% cuando llegue. La infraestructura es la diferencia entre $50/mes y $5/mes.",
-    caso: "Cuando Nimrod ejecuta `gog gmail send`, el orquestador verifica los permisos del agente antes de ejecutar la tool. Si la Ley 1 no está autorizada, la acción no ocurre.",
-  },
-  {
-    id: "L3",
-    nombre: "Archive Summa",
-    subtitulo: "La memoria permanente. El sistema nervioso del NWOS.",
-    color: "#5d9bd6",
-    icono: "books",
-    componentes: ["GitHub (git repo)", "Archivos .md con YAML frontmatter", "SOUL.md — identidad del agente", "OPERATOR.md — leyes operativas", "Misiones, decisiones, planos, reportes", "Protocolos y memoria diaria"],
-    epistemico: "El Archive no es un almacén — es la fuente de verdad. Lo que no está en el Archive no existe institucionalmente. Un agente que cierra sesión sin escribir pierde ese conocimiento para siempre. Por eso el COMMIT es el momento más crítico del ciclo.",
-    pragmatico: "Cualquier agente nuevo puede leer el Archive y operar con contexto completo en minutos. Git es el historial completo y auditable de cada decisión. No hay reunión de 'actualización' — el Archive es la actualización.",
-    caso: "Esta sesión de hoy: Nimrod escribió RPT-2026-04-07.md al Archive. La próxima sesión, aunque sea en otro modelo o en otra máquina, arrancará leyendo ese reporte y tendrá contexto de lo que pasó.",
-  },
-  {
-    id: "L4",
-    nombre: "Assets Digitales",
-    subtitulo: "El cuerpo. Los materiales de los que está hecho el mundo.",
-    color: "#a98be0",
-    icono: "palette",
-    componentes: ["CDN (R2 / AWS S3)", "Imágenes (jpg, png, webp)", "Video (mp4, webm)", "Modelos 3D (glb, gltf)", "Avatares (vrm)", "Audio (mp3, ogg)"],
-    epistemico: "Los assets son el conocimiento encarnado — la forma en que el sistema existe perceptualmente. Un avatar .vrm es la identidad visual del agente. Un .glb de Numinia es el espacio donde ocurren las interacciones.",
-    pragmatico: "Los assets se sirven via CDN — disponibles globalmente, sin latencia. Separados del Archive porque tienen ciclos de vida distintos: un .md se versiona con git, un .mp4 no.",
-    caso: "El juego 'El Velo' en pablofm.com/openclaw-test usa Three.js con geometrías procedurales. Cuando haya avatares .vrm reales, se servirán desde R2 y el agente digital podrá 'encarnarlos' en sesiones de Numinia.",
-  },
-  {
-    id: "L5",
-    nombre: "Agente Biológico",
-    subtitulo: "La autoridad. El que decide, intuye y autoriza.",
-    color: "#efa517",
-    icono: "user",
-    componentes: ["IQ + experiencia + intuición", "Posición (Oráculo, Ciudadano, etc.)", "Rol en el gremio", "Autoridad de aprobación", "Conocimiento tácito (no documentado)"],
-    epistemico: "El Biológico tiene algo que el Digital nunca tendrá: conocimiento tácito — intuición construida por años de experiencia que no puede ser completamente documentada. Eso es irreemplazable. El riesgo: ese conocimiento muere con la persona si no se externaliza parcialmente al Archive.",
-    pragmatico: "El Biológico es el único que puede autorizar acciones de alto riesgo (Ley 1). También es el que detecta cuando el sistema está produciendo outputs correctos pero equivocados — el agente puede hacer exactamente lo que le pides y aun así estar equivocado.",
-    caso: "Pablo aprueba cada PR antes de mergear. Nimrod puede proponer 10 cambios correctos técnicamente — pero Pablo sabe si 'esto no es el momento' por razones que no están en ningún documento. Eso es el Biológico.",
-  },
-  {
-    id: "L6",
-    nombre: "Organización",
-    subtitulo: "El emergente. La suma que supera a sus partes.",
-    color: "#a6dad5",
-    icono: "bank",
-    componentes: ["No se instancia — emerge", "Es la suma de L1+L2+L3+L4+L5 en operación continua", "Cultura = comportamientos repetidos del sistema", "Memoria institucional = Archive Summa vivo", "Inteligencia colectiva = Digital + Biológico en loop"],
-    epistemico: "La organización no es un objeto que puedes crear directamente. Es un patrón que emerge cuando todos los componentes operan juntos en el tiempo. Por eso 'deployar NWOS' no es suficiente — el sistema tiene que vivirse.",
-    pragmatico: "Cuando el ciclo funciona (Biológico activa → Digital ejecuta → Archive recibe → Biológico revisa), la organización aprende. Cada misión completada hace al sistema ligeramente más inteligente. Esa es la promesa del NWOS.",
-    caso: "Numen Games lleva 5 días operando con este sistema. 54 misiones documentadas, 32 PRs, 5 reportes, 5 decisiones. Eso no es una empresa de 5 días — es una organización con memoria de años si el sistema se mantiene.",
-  },
-];
-
-const ciclo = [
-  {
-    fase: "BOOT",
-    icono: "download-simple",
-    color: "#5d9bd6",
-    que: "El agente arranca y lee su identidad desde el Archive Summa.",
-    como: "git pull → carga SOUL.md, OPERATOR.md, memoria del día anterior, protocolos activos.",
-    epistemico: "El agente sin BOOT es amnésico. Sin identidad cargada, es un modelo genérico sin personalidad ni leyes. El BOOT transforma 'un LLM' en 'Nimrod'.",
-    pragmatico: "El arranque en frío toma 30-60 segundos. Con el Archive bien estructurado, el agente opera con contexto completo desde el primer mensaje.",
-    ejemplo: "07:00 UTC — Nimrod arranca para el reporte diario. Lee MEMORY.md (contexto de sesiones anteriores), HEARTBEAT.md (tareas pendientes), y los últimos reportes. En 45 segundos tiene todo el contexto de los últimos 5 días.",
-  },
-  {
-    fase: "EXECUTE",
-    icono: "lightning",
-    color: "#8fc46b",
-    que: "El agente recibe instrucción del Biológico y ejecuta usando tools.",
-    como: "Biológico → Orquestador → Agente → Tools (web, shell, APIs, email, git) → Output → Biológico.",
-    epistemico: "La ejecución es donde el conocimiento cargado en BOOT se convierte en acción real. Es también donde el conocimiento nuevo se genera — cada conversación, cada error, cada decisión tomada es conocimiento nuevo aún no persistido.",
-    pragmatico: "El agente puede operar en paralelo con múltiples herramientas. El límite no es la velocidad de pensamiento sino la latencia de APIs y la ventana de contexto del modelo.",
-    ejemplo: "Esta sesión: Pablo dice 'haz el Wardley Map'. Nimrod lee el estado de todas las páginas, invoca al equipo (Alquimista-01, Exégeta-01), sintetiza sus análisis, escribe la página, crea el PR, y hace el merge. Todo en 15 minutos.",
-  },
-  {
-    fase: "COMMIT",
-    icono: "upload-simple",
-    color: "#efa517",
-    que: "El agente escribe el conocimiento generado de vuelta al Archive Summa.",
-    como: "git add → git commit → git push → el conocimiento es permanente.",
-    epistemico: "Este es el momento más crítico del ciclo. El conocimiento que no se hace COMMIT desaparece cuando la sesión termina. No hay amnesia gradual — hay pérdida total. El COMMIT es el acto de convertir experiencia efímera en memoria institucional.",
-    pragmatico: "Cada COMMIT es un punto de recuperación. Si mañana hay que reconstruir el sistema desde cero, el Archive tiene todo. Los commits son también auditables — se puede ver exactamente qué hizo qué agente en qué momento.",
-    ejemplo: "Al final de cada sesión, Nimrod escribe RPT-YYYY-MM-DD.md con lo que hizo, cuánto costó y qué quedó pendiente. Ese archivo persiste para siempre. En 6 meses, cualquier Oráculo puede leer el historial completo sin preguntar.",
-  },
+const agents = [
+  { id: "ursa", name: "Ursa", role: "Technical Architect & Orchestrator", className: "Systems architect", color: "#a6dad5", icon: "⌁", quote: "Turn a technical objective into a reliable system.", route: "software · architecture · Hermes · orchestration", stats: [["Systems", "S+"], ["Precision", "A"], ["Tempo", "A"]], specialties: ["Software architecture", "Code review", "Automation", "Security", "Testing", "Systems integration"], bio: "Ursa turns ambiguity into executable structure. She chooses when to orchestrate, when to delegate and when to take the keyboard herself — then verifies the result." },
+  { id: "byblos", name: "Byblos", role: "Records Manager & Information Governance", className: "Archive keeper", color: "#efa517", icon: "▤", quote: "If it cannot be found, it cannot govern.", route: "classification · lifecycle · archive governance", stats: [["Memory", "S+"], ["Order", "S"], ["Patience", "A"]], specialties: ["Records management", "Classification", "Versioning", "Naming", "Information lifecycle"], bio: "Byblos protects the organization’s memory. She makes knowledge legible, durable and findable — so a decision can outlive the session that produced it." },
+  { id: "antunj", name: "Antunj", role: "Product Strategist & Narrative Architect", className: "Meaning smith", color: "#a98be0", icon: "✦", quote: "Make the thing mean something before making more of it.", route: "positioning · product narrative · coherence", stats: [["Framing", "S+"], ["Taste", "A"], ["Clarity", "S"]], specialties: ["Product definition", "Positioning", "Naming", "Narrative", "Strategic coherence"], bio: "Antunj gives projects a reason to exist in public. He connects product, language and intention until the organization can explain what it is building — and why." },
+  { id: "lexa", name: "Lexa", role: "Legal & Regulatory Analyst", className: "Boundary reader", color: "#d33440", icon: "◈", quote: "Find the edge before the edge finds us.", route: "digital law · licensing · crypto/Web3 · compliance", stats: [["Risk sense", "S+"], ["Diligence", "S"], ["Scope", "A"]], specialties: ["Digital law", "Licensing", "Crypto / Web3", "Privacy", "Compliance risk"], bio: "Lexa reads the boundary conditions. She surfaces legal and regulatory risk early, separating what is possible, what is permitted and what needs a human decision." },
+  { id: "senet", name: "Senet", role: "Game Master & Interactive Designer", className: "Experience shaper", color: "#8fc46b", icon: "◇", quote: "A rule is a promise about what can happen next.", route: "RPG · mechanics · puzzles · encounters", stats: [["Play", "S+"], ["Systems", "A"], ["Surprise", "S"]], specialties: ["TTRPG", "Game mechanics", "Puzzles", "Encounters", "Interactive design"], bio: "Senet turns systems into experiences. She designs the rules, friction and moments of discovery that make Numinia something people can enter, not just something they can read." },
+  { id: "procyon", name: "Procyon", role: "Ambassador & Onboarding Guide", className: "Wayfinder", color: "#5d9bd6", icon: "↗", quote: "The first five minutes decide whether a door feels open.", route: "orientation · onboarding · stakeholder guidance", stats: [["Welcome", "S+"], ["Signal", "A"], ["Empathy", "A"]], specialties: ["Onboarding", "Orientation", "Explanations", "Stakeholder guidance", "Representation"], bio: "Procyon makes the unfamiliar navigable. He translates the archive, the roles and the rituals for people arriving at the edge of the organization." },
+  { id: "doulos", name: "Doulos", role: "General-Purpose Execution Worker", className: "Reliable hand", color: "#c4b5a6", icon: "+", quote: "Small, clear work is still work worth doing well.", route: "bounded · repetitive · low-ambiguity work", stats: [["Reliability", "S"], ["Focus", "S"], ["Drama", "C"]], specialties: ["Bounded tasks", "Repetitive work", "Low ambiguity", "Execution", "Follow-through"], bio: "Doulos handles the work that should not consume a strategist. Clear brief in, finished artefact out — with no theatre between the two." },
 ];
 ---
 
-<Layout
-  title="Cómo funciona un agente — NWOS · Numen Games"
-  description="Arquitectura completa de un agente digital en el Narrative Work OS. Capas, ciclo de vida, casos prácticos y valor epistémico por etapa."
-  canonicalPath="/agente"
-  activeNav="agente"
->
-
-  <!-- Hero -->
-  <section class="pt-16 pb-12 border-b border-border">
-    <div class="mx-auto max-w-[800px] px-6">
-      <div class="flex flex-wrap items-center gap-2 mb-6">
-        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Numen Games · NWOS · Diagrama C</span>
-      </div>
-      <h1 class="font-display text-4xl sm:text-5xl text-foreground mb-4">Cómo funciona un agente</h1>
-      <p class="text-lg text-muted-foreground leading-relaxed mb-6">
-        Un agente digital no es un chatbot. Es un colaborador con identidad persistente, leyes operativas, memoria institucional y acceso a herramientas reales. Esta página explica cómo está construido — y cómo aprende.
-      </p>
-      <div class="flex flex-wrap gap-3">
-        <div class="rounded-lg border border-border bg-card px-4 py-2">
-          <span class="font-mono text-[0.65rem] text-accent">6 capas</span>
-        </div>
-        <div class="rounded-lg border border-border bg-card px-4 py-2">
-          <span class="font-mono text-[0.65rem] text-accent">3 fases de ciclo de vida</span>
-        </div>
-        <div class="rounded-lg border border-border bg-card px-4 py-2">
-          <span class="font-mono text-[0.65rem] text-accent">Casos reales de Nimrod</span>
+<Layout title="The Agents — Numinia" description="Meet the biological and digital agents that make Numinia work." canonicalPath="/agent" activeNav="agent">
+  <div class="agents-page">
+    <section class="agents-hero">
+      <div class="agents-hero-copy">
+        <p class="eyebrow"><span class="pulse"></span> NUMINIA / ORGANIZATIONAL ROSTER / 01</p>
+        <h1>The people<br /><em>behind the work.</em></h1>
+        <p class="hero-lede">Numinia is a living system of biological judgment and digital capability. These are the agents who give it memory, momentum and shape.</p>
+        <div class="hero-actions">
+          <a href="#digital" class="roster-button">Explore the roster <span>↓</span></a>
+          <span class="hero-note">7 digital agents · 1 shared mission</span>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Diagrama C — visual -->
-  <section class="py-16 border-b border-border">
-    <div class="mx-auto max-w-[900px] px-6">
-      <div class="mb-6 flex items-center gap-3">
-        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Diagrama C — Arquitectura de capas</span>
-        <span class="h-px flex-1 bg-border"></span>
+      <div class="hero-sigil" aria-hidden="true">
+        <div class="sigil-orbit orbit-a"></div><div class="sigil-orbit orbit-b"></div><div class="sigil-core">N</div>
+        <span class="sigil-label label-top">BIOLOGICAL<br />JUDGMENT</span><span class="sigil-label label-bottom">DIGITAL<br />CAPABILITY</span>
       </div>
+    </section>
 
-      <!-- Stack visual -->
-      <div class="space-y-1.5">
-        <!-- L6 -->
-        <div class="rounded-xl border border-[#a6dad5]/30 bg-[#a6dad5]/5 px-6 py-4 text-center">
-          <p class="font-mono text-[0.6rem] text-[#a6dad5] uppercase tracking-widest mb-1">L6 · Emergente</p>
-          <p class="font-display text-lg text-[#a6dad5] flex items-center justify-center gap-2"><Icon name="bank" size={18} /> ORGANIZACIÓN</p>
-          <p class="font-mono text-[0.6rem] text-dim mt-1">No se instancia — emerge de la operación continua del sistema</p>
-        </div>
-
-        <!-- L5 -->
-        <div class="rounded-xl border border-[#efa517]/30 bg-[#efa517]/5 px-6 py-4 flex flex-wrap items-center justify-between gap-3">
-          <div>
-            <p class="font-mono text-[0.6rem] text-[#efa517] uppercase tracking-widest mb-1">L5 · Autoridad</p>
-            <p class="font-display text-lg text-[#efa517] flex items-center gap-2"><Icon name="user" size={18} /> AGENTE BIOLÓGICO</p>
-            <p class="font-mono text-[0.6rem] text-dim mt-1">IQ · Posición · Rol · Intuición · Aprobación</p>
-          </div>
-          <div class="flex flex-col items-center gap-1">
-            <span class="font-mono text-[0.55rem] text-dim">instrucción ↓</span>
-            <span class="text-[#efa517] text-xl">⇅</span>
-            <span class="font-mono text-[0.55rem] text-dim">aprobación ↑</span>
-          </div>
-        </div>
-
-        <!-- L3 — transversal -->
-        <div class="rounded-xl border-2 border-[#5d9bd6]/50 bg-[#5d9bd6]/8 px-6 py-5">
-          <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
-            <div>
-              <p class="font-mono text-[0.6rem] text-[#5d9bd6] uppercase tracking-widest mb-1">L3 · Transversal — Bus de Estado</p>
-              <p class="font-display text-lg text-[#5d9bd6] flex items-center gap-2"><Icon name="books" size={18} /> ARCHIVE SUMMA</p>
-            </div>
-            <div class="flex gap-6 text-center">
-              <div>
-                <p class="font-mono text-[0.55rem] text-[#5d9bd6]">↓ BOOT</p>
-                <p class="font-mono text-[0.5rem] text-dim">git pull</p>
-              </div>
-              <div>
-                <p class="font-mono text-[0.55rem] text-[#efa517]">↑ COMMIT</p>
-                <p class="font-mono text-[0.5rem] text-dim">git push</p>
-              </div>
-            </div>
-          </div>
-          <div class="flex flex-wrap gap-2">
-            {["SOUL.md", "OPERATOR.md", "Misiones", "Decisiones", "Planos", "Reportes", "Protocolos", "Memoria"].map(t => (
-              <span class="font-mono text-[0.55rem] border border-[#5d9bd6]/30 text-[#5d9bd6]/70 rounded px-2 py-0.5">{t}</span>
-            ))}
-          </div>
-        </div>
-
-        <!-- L1 + L2 side by side -->
-        <div class="grid sm:grid-cols-2 gap-1.5">
-          <div class="rounded-xl border border-[#8fc46b]/30 bg-[#8fc46b]/5 px-5 py-4">
-            <p class="font-mono text-[0.6rem] text-[#8fc46b] uppercase tracking-widest mb-1">L1 · Runtime</p>
-            <p class="font-display text-base text-[#8fc46b] flex items-center gap-2"><Icon name="robot" size={16} /> AGENTE DIGITAL</p>
-            <p class="font-mono text-[0.6rem] text-dim mt-1">Modelo IA · Orquestador · Contexto · Vector DB</p>
-          </div>
-          <div class="rounded-xl border border-[#d33440]/30 bg-[#d33440]/5 px-5 py-4">
-            <p class="font-mono text-[0.6rem] text-[#d33440] uppercase tracking-widest mb-1">L2 · Substrato</p>
-            <p class="font-display text-base text-[#d33440] flex items-center gap-2"><Icon name="desktop" size={16} /> INFRAESTRUCTURA</p>
-            <p class="font-mono text-[0.6rem] text-dim mt-1">Servidor · GPU · Tools · Auth · Observability</p>
-          </div>
-        </div>
-
-        <!-- L4 -->
-        <div class="rounded-xl border border-[#a98be0]/30 bg-[#a98be0]/5 px-6 py-4">
-          <p class="font-mono text-[0.6rem] text-[#a98be0] uppercase tracking-widest mb-1">L4 · Media</p>
-          <p class="font-display text-base text-[#a98be0] flex items-center gap-2"><Icon name="palette" size={16} /> ASSETS DIGITALES (CDN)</p>
-          <p class="font-mono text-[0.6rem] text-dim mt-1">jpg · mp4 · glb · vrm · mp3 · R2 / AWS S3</p>
-        </div>
+    <section class="human-panel" id="biological">
+      <div class="section-index">00 <span></span> THE BIOLOGICAL AGENT</div>
+      <div class="human-grid">
+        <div><h2>The Oracle<br /><em>sets the direction.</em></h2></div>
+        <div class="human-copy"><p>Biological agents are the people who bring authority, intuition and lived context to the system. They decide, approve, notice what the documents cannot, and give the work a reason to matter.</p><p class="mono-small">The digital roster does not replace this layer. It makes its judgment more legible, more repeatable and easier to act on.</p><a href="/corpus/canon/can-004-role-structure" class="text-link">Read the role structure <span>↗</span></a></div>
       </div>
+    </section>
 
-      <p class="font-mono text-[0.6rem] text-dim text-center mt-4 italic">
-        L3 (Archive Summa) es transversal — no está encima ni debajo, conecta todas las capas
-      </p>
-    </div>
-  </section>
-
-  <!-- Las 6 capas en detalle -->
-  <section class="py-16 border-b border-border">
-    <div class="mx-auto max-w-[960px] px-6">
-      <div class="mb-8 flex items-center gap-3">
-        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Las 6 capas — detalle</span>
-        <span class="h-px flex-1 bg-border"></span>
-      </div>
-      <div class="space-y-6">
-        {capas.map((capa) => (
-          <div class="rounded-2xl border border-border bg-card overflow-hidden">
-            <div class="p-6 border-b border-border/50">
-              <div class="flex flex-wrap items-center gap-3 mb-3">
-                <span style={`color: ${capa.color}`}><Icon name={capa.icono} size={22} /></span>
-                <span class="font-mono text-[0.6rem] font-bold px-2 py-0.5 rounded" style={`color: ${capa.color}; background: ${capa.color}15; border: 1px solid ${capa.color}30`}>{capa.id}</span>
-                <h3 class="font-display text-xl" style={`color: ${capa.color}`}>{capa.nombre}</h3>
-              </div>
-              <p class="font-mono text-[0.7rem] text-muted-foreground mb-4">{capa.subtitulo}</p>
-              <div class="flex flex-wrap gap-2">
-                {capa.componentes.map(c => (
-                  <span class="font-mono text-[0.6rem] border border-border bg-card/50 rounded px-2 py-0.5 text-muted-foreground">{c}</span>
-                ))}
-              </div>
-            </div>
-            <div class="grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border/50">
-              <div class="p-5">
-                <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-2 flex items-center gap-1.5"><Icon name="brain" size={10} /> Valor epistémico</p>
-                <p class="text-xs text-muted-foreground leading-relaxed">{capa.epistemico}</p>
-              </div>
-              <div class="p-5">
-                <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-2 flex items-center gap-1.5"><Icon name="lightning" size={10} /> Valor pragmático</p>
-                <p class="text-xs text-muted-foreground leading-relaxed">{capa.pragmatico}</p>
-              </div>
-              <div class="p-5 bg-card/30">
-                <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-2 flex items-center gap-1.5"><Icon name="map-pin" size={10} /> Caso real — Nimrod</p>
-                <p class="text-xs text-muted-foreground leading-relaxed italic">{capa.caso}</p>
-              </div>
-            </div>
-          </div>
+    <section class="roster-section" id="digital">
+      <div class="section-heading"><div><p class="section-index">01 <span></span> THE DIGITAL ROSTER</p><h2>Choose your <em>specialist.</em></h2></div><p class="section-intro">Not chatbots. Persistent roles with a defined domain, a route into the organization and a responsibility to leave the system stronger.</p></div>
+      <div class="roster-toolbar"><span class="roster-count">ACTIVE / 07</span><div class="filter-group" role="group" aria-label="Filter agents"><button class="filter active" data-filter="all">All agents</button><button class="filter" data-filter="strategy">Strategy</button><button class="filter" data-filter="systems">Systems</button><button class="filter" data-filter="experience">Experience</button></div></div>
+      <div class="agent-grid">
+        {agents.map((agent, index) => (
+          <article class="agent-card" data-agent={agent.id} data-category={agent.id === "ursa" || agent.id === "doulos" ? "systems" : agent.id === "antunj" || agent.id === "lexa" ? "strategy" : "experience"} style={`--agent-color: ${agent.color}; --delay: ${index * 70}ms`}>
+            <button class="agent-card-button" data-open={agent.id} aria-label={`Open ${agent.name} profile`}>
+              <div class="card-top"><span class="agent-mark">{agent.icon}</span><span class="agent-id">AGENT / {String(index + 1).padStart(2, "0")}</span><span class="status-dot"></span></div>
+              <div class="card-main"><p class="agent-class">{agent.className}</p><h3>{agent.name}</h3><p class="agent-role">{agent.role}</p></div>
+              <div class="card-bottom"><span>{agent.route}</span><span class="open-arrow">↗</span></div>
+            </button>
+          </article>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- El ciclo de vida -->
-  <section class="py-16 border-b border-border">
-    <div class="mx-auto max-w-[960px] px-6">
-      <div class="mb-8 flex items-center gap-3">
-        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Ciclo de vida — BOOT · EXECUTE · COMMIT</span>
-        <span class="h-px flex-1 bg-border"></span>
-      </div>
+    <section class="protocol-strip"><div class="section-index">02 <span></span> HOW THEY WORK</div><div class="protocol-line"><strong>BOOT</strong><span>→</span><strong>EXECUTE</strong><span>→</span><strong>COMMIT</strong><p>Every agent reads the shared archive, acts within its role and returns what it learned to the organization.</p></div></section>
+  </div>
 
-      <!-- Ciclo visual -->
-      <div class="flex flex-col sm:flex-row items-stretch gap-2 mb-10">
-        {ciclo.map((fase, i) => (
-          <div class="flex-1 rounded-xl border p-5 relative" style={`border-color: ${fase.color}30; background: ${fase.color}08`}>
-            <div class="flex items-center gap-2 mb-3">
-              <span style={`color: ${fase.color}`}><Icon name={fase.icono} size={18} /></span>
-              <span class="font-display text-lg" style={`color: ${fase.color}`}>{fase.fase}</span>
-            </div>
-            <p class="text-sm text-muted-foreground leading-relaxed">{fase.que}</p>
-            <p class="font-mono text-[0.6rem] text-dim mt-2">{fase.como}</p>
-            {i < ciclo.length - 1 && (
-              <div class="hidden sm:block absolute -right-3 top-1/2 -translate-y-1/2 z-10">
-                <span class="text-dim text-sm">→</span>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
+  <div class="profile-drawer" id="profile-drawer" aria-hidden="true"><div class="drawer-backdrop" data-close></div><aside class="drawer-panel" aria-label="Agent profile"><button class="drawer-close" data-close aria-label="Close profile">×</button><div id="drawer-content"></div></aside></div>
 
-      <!-- Detalle por fase -->
-      <div class="space-y-4">
-        {ciclo.map((fase) => (
-          <div class="rounded-xl border border-border bg-card overflow-hidden">
-            <div class="px-5 py-3 border-b border-border/50 flex items-center gap-2" style={`background: ${fase.color}08`}>
-              <span style={`color: ${fase.color}`}><Icon name={fase.icono} size={14} /></span>
-              <span class="font-display text-base" style={`color: ${fase.color}`}>{fase.fase}</span>
-            </div>
-            <div class="grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border/50">
-              <div class="p-5">
-                <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-2 flex items-center gap-1.5"><Icon name="brain" size={10} /> Valor epistémico</p>
-                <p class="text-xs text-muted-foreground leading-relaxed">{fase.epistemico}</p>
-              </div>
-              <div class="p-5">
-                <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-2 flex items-center gap-1.5"><Icon name="lightning" size={10} /> Valor pragmático</p>
-                <p class="text-xs text-muted-foreground leading-relaxed">{fase.pragmatico}</p>
-              </div>
-              <div class="p-5 bg-card/30">
-                <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-2 flex items-center gap-1.5"><Icon name="map-pin" size={10} /> Caso real</p>
-                <p class="text-xs text-muted-foreground leading-relaxed italic">{fase.ejemplo}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Caso práctico externo -->
-  <section class="py-16 border-b border-border">
-    <div class="mx-auto max-w-[800px] px-6">
-      <div class="mb-6 flex items-center gap-3">
-        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Caso práctico — Organización externa</span>
-        <span class="h-px flex-1 bg-border"></span>
-      </div>
-      <div class="rounded-2xl border border-border bg-card p-7">
-        <p class="font-mono text-[0.65rem] text-accent mb-4">Acme Studio — Estudio indie de videojuegos, 12 personas, Madrid</p>
-        <div class="space-y-6">
-          {[
-            {
-              semana: "Semana 1 — Setup",
-              que: "El equipo clona el repo de referencia NWOS. Cada persona crea su SOUL.md con su rol y gremio. El CTO configura el orquestador con el agente Centinela.",
-              resultado: "El Archive Summa de Acme Studio tiene identidades documentadas. El agente sabe quién es cada persona y cuál es su autoridad.",
-            },
-            {
-              semana: "Semana 2 — Primera misión",
-              que: "El CEO instruye al agente: 'Crea las 20 misiones más críticas para lanzar nuestro juego en Steam en 3 meses.' El agente lee el contexto del equipo, genera las misiones con criterios de aceptación y valor por cada una.",
-              resultado: "20 misiones en el Archive. El CEO revisa, aprueba 18, modifica 2. El backlog está documentado y el agente puede actualizarlo.",
-            },
-            {
-              semana: "Semana 4 — Ciclo funcionando",
-              que: "Cada lunes, el agente genera el reporte de la semana anterior. Cada día cierra las misiones completadas con Ejecución Real. El Archive crece con cada sesión.",
-              resultado: "En 4 semanas, Acme Studio tiene más documentación institucional que en sus 2 años anteriores. Cualquier miembro nuevo entiende el estado del proyecto leyendo el Archive.",
-            },
-          ].map((step) => (
-            <div class="flex gap-4">
-              <div class="flex-shrink-0 w-1 rounded-full bg-accent/30 mt-1"></div>
-              <div>
-                <p class="font-mono text-[0.65rem] text-accent mb-1">{step.semana}</p>
-                <p class="text-sm text-muted-foreground mb-2">{step.que}</p>
-                <p class="text-xs text-foreground/60 italic">→ {step.resultado}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Lo que falta — próxima iteración -->
-  <section class="py-16 border-b border-border">
-    <div class="mx-auto max-w-[800px] px-6">
-      <div class="mb-6 flex items-center gap-3">
-        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Lo que aún falta en este diagrama</span>
-        <span class="h-px flex-1 bg-border"></span>
-      </div>
-      <div class="grid sm:grid-cols-2 gap-3">
-        {[
-          { nombre: "Vector DB / Memoria semántica", desc: "Git es para instrucciones. Para búsqueda por similitud ('¿qué decidimos sobre X?') se necesita un vector store.", estado: "pendiente" },
-          { nombre: "Event Bus inter-agente", desc: "¿Cómo se comunican Nimrod y Alquimista-01 sin polling? Necesitan un bus de mensajes.", estado: "pendiente" },
-          { nombre: "Mission State Machine", desc: "El ciclo IDLE → BOOTING → ACTIVE → CLOSING → ARCHIVED necesita representación explícita.", estado: "pendiente" },
-          { nombre: "Knowledge Graph relacional", desc: "Los .md son planos. El conocimiento real de Numinia es un grafo de entidades relacionadas.", estado: "futuro" },
-          { nombre: "Observability Stack", desc: "Logs estructurados, trazas de decisión, métricas por agente. Sin esto el agente es caja negra.", estado: "futuro" },
-          { nombre: "Conocimiento tácito del Biológico", desc: "La intuición y experiencia no documentada que entra al sistema sin pasar por el agente.", estado: "filosófico" },
-        ].map((item) => (
-          <div class="rounded-xl border border-border bg-card/50 p-5">
-            <div class="flex items-start justify-between gap-2 mb-2">
-              <p class="font-semibold text-sm text-foreground">{item.nombre}</p>
-              <span class={`font-mono text-[0.55rem] rounded-full px-2 py-0.5 flex-shrink-0 ${
-                item.estado === "pendiente" ? "bg-yellow/10 text-yellow" :
-                item.estado === "futuro" ? "bg-accent/10 text-accent" :
-                "bg-purple/10 text-purple"
-              }`}>{item.estado}</span>
-            </div>
-            <p class="text-xs text-muted-foreground">{item.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <section class="py-10">
-    <div class="mx-auto max-w-[800px] px-6 flex flex-wrap items-center justify-between gap-4">
-      <p class="font-mono text-[0.65rem] text-dim inline-flex items-center gap-1.5">Diagrama C · Nimrod <Icon name="sword" size={10} /> + Alquimista-01 + Exégeta-01 · 2026-04-07</p>
-      <div class="flex gap-4">
-        <a href="/archive" class="font-mono text-[0.65rem] text-accent hover:text-accent/80 transition-colors">Archive Summa →</a>
-        <a href="/planos/nwos-system" class="font-mono text-[0.65rem] text-dim hover:text-foreground transition-colors">NWOS overview →</a>
-        <a href="/wardley" class="font-mono text-[0.65rem] text-dim hover:text-foreground transition-colors">Wardley Map →</a>
-      </div>
-    </div>
-  </section>
-
+  <script define:vars={{ agents }}>
+    const cards = document.querySelectorAll('[data-open]');
+    const drawer = document.querySelector('#profile-drawer');
+    const content = document.querySelector('#drawer-content');
+    const close = () => { drawer?.classList.remove('is-open'); drawer?.setAttribute('aria-hidden', 'true'); };
+    cards.forEach((card) => card.addEventListener('click', () => {
+      const agent = agents.find((item) => item.id === card.dataset.open); if (!agent || !content) return;
+      content.innerHTML = `<p class="eyebrow">AGENT PROFILE / ${agent.id.toUpperCase()}</p><div class="drawer-mark" style="color:${agent.color}">${agent.icon}</div><p class="agent-class">${agent.className}</p><h2>${agent.name}</h2><p class="drawer-role">${agent.role}</p><blockquote>“${agent.quote}”</blockquote><p class="drawer-bio">${agent.bio}</p><p class="eyebrow specialty-label">SPECIALIZATION</p><div class="specialties">${agent.specialties.map((item) => `<span>${item}</span>`).join('')}</div><div class="drawer-stats">${agent.stats.map(([label, value]) => `<div><span>${label}</span><strong>${value}</strong></div>`).join('')}</div>`;
+      drawer?.classList.add('is-open'); drawer?.setAttribute('aria-hidden', 'false');
+    }));
+    document.querySelectorAll('[data-close]').forEach((item) => item.addEventListener('click', close));
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') close(); });
+    document.querySelectorAll('.filter').forEach((filter) => filter.addEventListener('click', () => { document.querySelectorAll('.filter').forEach((button) => button.classList.remove('active')); filter.classList.add('active'); document.querySelectorAll('.agent-card').forEach((card) => { card.hidden = filter.dataset.filter !== 'all' && card.dataset.filter !== filter.dataset.filter; }); }));
+  </script>
 </Layout>
+
+<style>
+  .agents-page { color: rgb(var(--text)); background: radial-gradient(circle at 78% 8%, rgba(1,142,161,.11), transparent 32rem); }
+  .agents-hero, .human-panel, .roster-section, .protocol-strip { max-width: 1100px; margin: 0 auto; padding-left: 2rem; padding-right: 2rem; }
+  .agents-hero { min-height: 620px; display: grid; grid-template-columns: minmax(0, 1.1fr) .9fr; align-items: center; gap: 3rem; padding-top: 5rem; padding-bottom: 5rem; }
+  .eyebrow, .section-index, .agent-id, .mono-small, .hero-note, .roster-count, .filter, .card-bottom, .agent-class, .specialty-label { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .14em; font-size: .62rem; }
+  .eyebrow { color: rgb(var(--accent)); display: flex; align-items: center; gap: .65rem; }
+  .pulse, .status-dot { width: 6px; height: 6px; border-radius: 50%; background: rgb(var(--green)); box-shadow: 0 0 12px rgb(var(--green)); display: inline-block; }
+  .agents-hero h1 { font-size: clamp(3.8rem, 8vw, 7.8rem); line-height: .89; letter-spacing: -.075em; margin: 1.35rem 0 2rem; font-weight: 650; }
+  h1 em, h2 em { color: rgb(var(--accent)); font-style: normal; }
+  .hero-lede { max-width: 530px; color: rgb(var(--text-muted)); font-size: 1.08rem; line-height: 1.7; }
+  .hero-actions { display: flex; align-items: center; gap: 1.2rem; margin-top: 2.25rem; flex-wrap: wrap; }
+  .roster-button { border: 1px solid rgb(var(--accent)); color: rgb(var(--accent)); padding: .85rem 1rem; font-family: var(--font-mono); font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; transition: .2s; } .roster-button:hover { background: rgb(var(--accent)); color: rgb(var(--bg)); }
+  .hero-note { color: rgb(var(--text-dim)); }
+  .hero-sigil { height: 380px; position: relative; display: grid; place-items: center; }
+  .sigil-orbit { position: absolute; border: 1px solid rgba(166,218,213,.3); border-radius: 50%; transform: rotate(-28deg); } .orbit-a { width: 280px; height: 125px; } .orbit-b { width: 160px; height: 310px; transform: rotate(48deg); border-color: rgba(239,165,23,.34); }
+  .sigil-core { width: 112px; height: 112px; border: 1px solid rgb(var(--accent)); color: rgb(var(--accent)); display: grid; place-items: center; font-size: 4rem; letter-spacing: -.1em; box-shadow: 0 0 60px rgba(166,218,213,.16); }
+  .sigil-label { position: absolute; color: rgb(var(--text-dim)); font: .58rem/1.35 var(--font-mono); letter-spacing: .14em; } .label-top { top: 18%; right: 6%; } .label-bottom { bottom: 16%; left: 5%; color: rgb(var(--ambar)); }
+  .human-panel { border-top: 1px solid rgb(var(--border)); border-bottom: 1px solid rgb(var(--border)); padding-top: 3rem; padding-bottom: 4.5rem; }
+  .section-index { color: rgb(var(--text-dim)); display: flex; align-items: center; gap: .75rem; } .section-index span { width: 42px; height: 1px; background: rgb(var(--border)); display: inline-block; }
+  .human-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 2.5rem; } h2 { font-size: clamp(2.4rem, 5vw, 4.8rem); line-height: .95; letter-spacing: -.06em; margin: 0; } .human-copy { max-width: 480px; color: rgb(var(--text-muted)); line-height: 1.7; } .human-copy p:first-child { font-size: 1.18rem; color: rgb(var(--text)); } .text-link { color: rgb(var(--accent)); font: .68rem var(--font-mono); text-transform: uppercase; letter-spacing: .1em; }
+  .roster-section { padding-top: 6rem; padding-bottom: 6rem; } .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 3rem; } .section-heading h2 { margin-top: 1.2rem; } .section-intro { max-width: 350px; color: rgb(var(--text-muted)); line-height: 1.6; font-size: .92rem; }
+  .roster-toolbar { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgb(var(--border)); border-bottom: 1px solid rgb(var(--border)); margin-top: 3.5rem; padding: .9rem 0; } .roster-count { color: rgb(var(--green)); } .filter-group { display: flex; gap: .35rem; flex-wrap: wrap; justify-content: end; } .filter { color: rgb(var(--text-dim)); background: transparent; border: 1px solid transparent; padding: .55rem .7rem; cursor: pointer; } .filter:hover, .filter.active { color: rgb(var(--accent)); border-color: rgba(166,218,213,.35); background: rgba(166,218,213,.06); }
+  .agent-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgb(var(--border)); margin-top: 1px; } .agent-card { background: rgb(var(--bg-card)); min-height: 270px; transition: background .2s; } .agent-card:hover { background: rgb(var(--bg-card-hover)); } .agent-card-button { all: unset; box-sizing: border-box; width: 100%; height: 100%; padding: 1.4rem; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; color: inherit; } .card-top, .card-bottom { display: flex; align-items: center; gap: .7rem; } .agent-mark { color: var(--agent-color); font-size: 1.8rem; line-height: 1; } .agent-id { color: rgb(var(--text-dim)); } .status-dot { margin-left: auto; background: var(--agent-color); box-shadow: 0 0 10px var(--agent-color); } .agent-class { color: var(--agent-color); margin: 2.5rem 0 .55rem; } .card-main h3 { font-size: clamp(2.3rem, 5vw, 4rem); letter-spacing: -.07em; line-height: .9; margin: 0 0 .55rem; } .agent-role { color: rgb(var(--text-muted)); font-size: .86rem; max-width: 270px; } .card-bottom { color: rgb(var(--text-dim)); border-top: 1px solid rgb(var(--border)); padding-top: 1rem; justify-content: space-between; } .open-arrow { color: var(--agent-color); font-size: 1rem; }
+  .protocol-strip { padding-top: 3rem; padding-bottom: 5rem; border-top: 1px solid rgb(var(--border)); } .protocol-line { display: flex; align-items: baseline; gap: 1.1rem; margin-top: 2.2rem; flex-wrap: wrap; } .protocol-line strong { color: rgb(var(--accent)); font: 1.1rem var(--font-mono); letter-spacing: .08em; } .protocol-line span { color: rgb(var(--text-dim)); } .protocol-line p { color: rgb(var(--text-muted)); margin: 0 0 0 1rem; font-size: .9rem; }
+  .profile-drawer { position: fixed; inset: 0; z-index: 100; visibility: hidden; transition: visibility .25s; } .profile-drawer.is-open { visibility: visible; } .drawer-backdrop { position: absolute; inset: 0; background: rgba(10,8,7,.72); backdrop-filter: blur(5px); opacity: 0; transition: opacity .25s; } .is-open .drawer-backdrop { opacity: 1; } .drawer-panel { position: absolute; right: 0; top: 0; height: 100%; width: min(520px, 100%); overflow-y: auto; background: rgb(var(--bg-card)); border-left: 1px solid rgb(var(--border)); padding: 4rem 3rem; transform: translateX(100%); transition: transform .3s ease; } .is-open .drawer-panel { transform: translateX(0); } .drawer-close { position: absolute; top: 1.3rem; right: 1.5rem; color: rgb(var(--text-muted)); background: none; border: 0; font-size: 2rem; cursor: pointer; } .drawer-mark { font-size: 4rem; margin: 3rem 0 1rem; } .drawer-panel h2 { font-size: 5rem; margin: .3rem 0; } .drawer-role { color: rgb(var(--text-muted)); } blockquote { border-left: 1px solid rgb(var(--accent)); color: rgb(var(--text)); font-size: 1.3rem; line-height: 1.4; margin: 2.5rem 0; padding-left: 1.2rem; } .drawer-bio { color: rgb(var(--text-muted)); line-height: 1.75; } .specialty-label { margin-top: 2.5rem; color: rgb(var(--text-dim)); } .specialties { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .9rem; } .specialties span { color: rgb(var(--text-muted)); border: 1px solid rgb(var(--border)); padding: .45rem .6rem; font: .65rem var(--font-mono); } .drawer-stats { border-top: 1px solid rgb(var(--border)); display: grid; grid-template-columns: repeat(3,1fr); margin-top: 2.5rem; padding-top: 1rem; gap: 1rem; } .drawer-stats div { display: flex; flex-direction: column; gap: .3rem; } .drawer-stats span { color: rgb(var(--text-dim)); font: .58rem var(--font-mono); text-transform: uppercase; } .drawer-stats strong { color: rgb(var(--agent-color, var(--accent))); font: 1.4rem var(--font-mono); }
+  @media (max-width: 720px) { .agents-hero, .human-grid, .section-heading { grid-template-columns: 1fr; display: grid; gap: 2rem; } .agents-hero { min-height: auto; padding-top: 4rem; } .hero-sigil { height: 260px; order: -1; } .orbit-a { width: 210px; height: 95px; } .orbit-b { height: 220px; width: 120px; } .sigil-core { width: 82px; height: 82px; font-size: 3rem; } .label-top { top: 5%; } .label-bottom { bottom: 5%; } .agent-grid { grid-template-columns: 1fr; } .roster-toolbar { align-items: start; flex-direction: column; gap: 1rem; } .filter-group { justify-content: start; } .agents-hero, .human-panel, .roster-section, .protocol-strip { padding-left: 1.25rem; padding-right: 1.25rem; } .drawer-panel { padding: 3.5rem 1.5rem; } .drawer-panel h2 { font-size: 4rem; } }
+</style>
