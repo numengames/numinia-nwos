@@ -5,9 +5,9 @@ title: "The rules of the corpus, and which one wins"
 type: documentation
 subtype: standard
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-03T22:10:00Z"
+updated: "2026-09-04T00:00:00Z"
 author: "ursa"
 owner: "oracle"
 license: "CC0-1.0"
@@ -53,6 +53,29 @@ corpus.
 answer yes or no about. If a sentence here cannot be answered yes or no about
 a given document, commit or action, that sentence is defective and the defect
 is reported, not interpreted.
+
+**What a rule here binds.** Unless a rule says otherwise, *document* means a
+registered document of the corpus. It does not mean every markdown file in the
+repository. The boundary is not restated here: `scripts/lib/rules.json` defines
+apparatus — scaffolding around a series rather than a member of it — and
+`scripts/lib/frontmatter.mjs` computes it. That computation is the definition,
+and where this standard and the classifier disagree, the classifier is right
+and this sentence is the defect.
+
+A second class sits outside these rules without being apparatus: the files that
+address a reader outside the corpus — the repository's own `README`, its
+contribution notes, its changelog, its agent instructions. They are governed by
+the conventions of the platform they serve, not by the numbered series.
+
+**What executes.** Eight of these rules run on every push — CORE-12, CORE-13,
+CORE-16, CORE-19, CORE-21, CORE-26, CORE-45 and CORE-50 — in
+`scripts/check-core-rules.mjs`. The rest are read by a person or an agent.
+A rule moving from the second group to the first is an improvement that needs
+no amendment to this document.
+
+**What ratification changes.** This standard is `draft` until the Oracle signs
+it. While it is `draft`, the eight executing rules bind because CI enforces
+them; the remaining fifty-four state intent and bind nothing.
 
 ---
 
@@ -132,7 +155,7 @@ the one it inherits.
 | ID | Rule | How it is checked |
 |---|---|---|
 | **CORE-25** | Work reaches the main branch through a pull request, never by direct push. | Branch protection rejects the alternative. |
-| **CORE-26** | A commit's first line says what changed and why, within seventy-two characters. | Read the first line; measure it. |
+| **CORE-26** | A commit's first line says what changed and why, and stays on one line. | Read the first line; it contains no newline. |
 | **CORE-27** | A generated file is regenerated, never edited by hand. | The generator reproduces the file byte for byte. |
 | **CORE-28** | Telemetry is regenerated after the commit it measures, never before. | The telemetry commit follows the commit it describes. |
 | **CORE-29** | A conflict inside a generated file is resolved by regenerating it, not by choosing sides. | The resolved file matches fresh output. |
@@ -224,7 +247,7 @@ the one it inherits.
 | ID | Rule | How it is checked |
 |---|---|---|
 | **CORE-61** | A rule is one sentence that can be answered yes or no. | Read it; try to answer it. |
-| **CORE-62** | Measurements and counts live in reports, not in the documents that bind. | No normative document carries a figure that ages. |
+| **CORE-62** | A normative document states no figure that its own subject will age: counts of the corpus, coverage and progress live in reports. A value the document itself defines — a token, a ratio, a threshold it sets — is specification, not measurement. | For each figure, ask whether the corpus changing would make it wrong. |
 
 ---
 
