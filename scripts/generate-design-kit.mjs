@@ -19,16 +19,20 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const standards = path.join(root, "standards");
 
-// The current master: highest version among Sistema_de_Diseno files.
-const masters = fs
-  .readdirSync(standards)
-  .filter((f) => /Sistema_de_Diseno-v\d+\.\d+\.\d+\.md$/.test(f))
-  .sort();
-const masterFile = masters[masters.length - 1];
-if (!masterFile) throw new Error("No Design System master found in standards/");
+// The master is the registered Design System standard. Its version comes
+// from the `version:` frontmatter field, not from the filename — a filename
+// carries no version (CORE-13), which is why STD-008 was renamed off the
+// dated `Sistema_de_Diseno-vN.N.N.md` shape in the first place.
+const masterFile = "STD-008-design-system.md";
 const masterPath = path.join(standards, masterFile);
+if (!fs.existsSync(masterPath))
+  throw new Error(`Design System master not found: standards/${masterFile}`);
 const doc = fs.readFileSync(masterPath, "utf-8");
-const version = masterFile.match(/v(\d+\.\d+\.\d+)\.md$/)[1];
+const fm = doc.match(/^---\n([\s\S]*?)\n---\n/);
+const vMatch = fm && fm[1].match(/^version:\s*"?(\d+\.\d+\.\d+)"?\s*$/m);
+if (!vMatch)
+  throw new Error(`No version: field in standards/${masterFile} frontmatter`);
+const version = vMatch[1];
 
 // Fenced-block extraction: first ```css and first ```js after §13.1,
 // first ```json after §19.3.
@@ -49,8 +53,13 @@ const header = (ext) =>
 
 const css = header("css") + block("### 13.1", "css");
 const js = header("js") + block("### 13.1", "js");
-const tokensRaw = block("### 19.3", "json");
-const tokens = JSON.parse(tokensRaw); // fail loudly if the master's JSON drifts
+// Tokens are no longer inlined in the master: §19.3 used to carry a copy of
+// the JSON, and the copy drifted (it declared v5.0.0 under a 5.1.0 document).
+// The published file is the source; this script re-stamps and re-hashes it.
+const tokensPath = path.join(root, "web/public/diseno/kit", version, "sistema.tokens.json");
+if (!fs.existsSync(tokensPath))
+  throw new Error(`Tokens not found for v${version}: ${path.relative(root, tokensPath)}`);
+const tokens = JSON.parse(fs.readFileSync(tokensPath, "utf-8"));
 tokens["$description"] = `Numen Games · Sistema de Diseño · v${version} · Solar 40 / Steam 40 / Cyber 20`;
 const tokensOut = JSON.stringify(tokens, null, 2) + "\n";
 
@@ -61,6 +70,11 @@ const files = {
   "sistema.js": js,
   "sistema.tokens.json": tokensOut,
 };
+// The agent instruction fragment (§19.5) is a published artefact too: it
+// ships in the kit and is hashed like the rest, so a consumer can verify it.
+const promptPath = path.join(root, "web/public/diseno/kit", version, "sistema.prompt.txt");
+if (fs.existsSync(promptPath))
+  files["sistema.prompt.txt"] = fs.readFileSync(promptPath, "utf-8");
 const sha = (s) => createHash("sha256").update(s).digest("hex");
 const manifest = {
   sistema: "Numen Games · Sistema de Diseño",
