@@ -54,7 +54,7 @@ It has three layers with three different speeds of change:
 
 **Golden rule:** every practice in Layer 2 maps to an automated check in Layer 3, or is explicitly tagged `[MANUAL]`. A `[MANUAL]` tag is debt. Continuous improvement means moving practices from `[MANUAL]` to `[AUTO]`.
 
-**Relation to existing canon:** licensing practices are governed by Canon C-005 and are referenced here, not duplicated. Design output is governed by the Numen Design System. Where this document conflicts with a canon document, the canon wins.
+**Relation to existing canon:** licensing practices are governed by the licensing canon `CAN-005` and are referenced here, not duplicated. Design output is governed by the Numen Design System. Where this document conflicts with a canon document, the canon wins.
 
 ---
 

@@ -233,7 +233,7 @@ regenerable view of a field that already exists on every agent — and the
 `charter` files norm, which belongs in `standards/`. The folder stays until an
 ADR decides.
 
-### 2.3 Series → template map (MIS-145)
+### 2.3 Series → template map
 
 Each registered series has a copy-from template in `templates/`. When creating
 a new document of any series, copy the corresponding template — never start
@@ -242,7 +242,7 @@ from archaeology.
 | Series | Template | Notes |
 |---|---|---|
 | Missions | `templates/MIS-TEMPLATE` | The ten build-verified fields + Scope / Acceptance criteria / Closure |
-| Standards | `templates/STD-TEMPLATE.md` | Five required sections (STD-004 §10) |
+| Standards | `templates/STD-TEMPLATE.md` | The five sections the header standard requires |
 | Protocols | `templates/PRO-TEMPLATE` | What an actor executes in a repeated situation |
 | Decisions | `templates/ADR-TEMPLATE` | Why something was chosen over the alternatives |
 | Debt | `templates/DBT-TEMPLATE` | What is known to be missing or wrong |
@@ -254,10 +254,11 @@ from archaeology.
 | Guilds | `templates/GLD-TEMPLATE` | Guild charter — identity and operational profile |
 
 The agent scaffold lives in `agents/_template/` (a directory scaffold, not a
-single document; `agents/` is outside the filename scheme per ADR-005 v1.1.0).
+single document; `agents/` is outside the filename scheme — the prefix register
+withdrew the scheme for that series).
 Copy it when creating a new agent.
 
-`templates/` is apparatus (MIS-142): scaffolding a document is copied from,
+`templates/` is apparatus: scaffolding a document is copied from,
 never a member of any series and never published. Licence regime: CC0-1.0
 (REUSE.toml).
 
@@ -825,25 +826,3 @@ no `@ head` beside them; `figures.stale_citations` lists citations whose value
 has since moved. Neither is wired to CI; the ratchet is a later decision.
 
 ---
-
-## Version history
-
-- **v6.0.0** (2026-09-04) — every rule kept, the argument for each removed. Gone:
-  the dated census of 2026-08-24, whose figures had been superseded by the
-  instrument that replaced the script producing them; the coverage percentages in
-  §4.1, which claimed `standards/ 5/5` while ten standards existed; the running
-  commentary on corrections to earlier versions of this document; the `frozen`
-  doctrine that survived in §2.1 after the 2026-09-03 ruling struck it; the
-  per-series registration plans, which are work lists belonging to their
-  missions; and the field-shape rules now owned by `STD-004`, which this
-  document defers to by name rather than restating. **Section numbering is
-  unchanged** — 26 documents cite these sections by number, and an identifier is
-  a promise about the past. The controlled vocabularies and the dates section
-  swapped order; both keep their numbers.
-- **v5.0.0**–**v1.0.0** (2026-08-24 → 2026-09-02) — see git history. The
-  substantive additions were: change thresholds replacing a false claim of
-  immutability, git history named as the fifth and only enforced threshold, the
-  `live` threshold for state rather than record, `registration: exempt` so a gap
-  and a declared exception stop looking alike, the pointer/record distinction for
-  renames, plausible artefacts named as a class, failure by omission, and the
-  measurement rules on unit, root and step.

@@ -138,15 +138,15 @@ numinia-digital-agents/
 
 | ID | Name | When to use |
 |----|------|------------|
-| **P-001** | Agent Briefing | Every session start — mandatory |
-| **P-002** | Agent Onboarding | New agent joining the CAO |
-| **P-003** | Mission Cycle | Create, execute, review, close missions |
-| **P-004** | Inter-Agent Communication | Coordination between agents (repo is the channel) |
-| **P-005** | Escalation | When blocked, uncertain, or decision exceeds authority |
-| **P-006** | Session Close | Every session end — mandatory |
-| **P-007** | Context Load | Self-monitor context (warn at ≥7/10) |
-| **P-008** | Approval Brief | Compact format for Oracle approval requests |
-| **P-009** | Mission Briefing | Before starting any mission — mission first, execution after |
+| **PRO-001** | Agent Briefing | Every session start — mandatory |
+| **PRO-002** | Agent Onboarding | New agent joining the CAO |
+| **PRO-003** | Mission Cycle | Create, execute, review, close missions |
+| **PRO-004** | Inter-Agent Communication | Coordination between agents (repo is the channel) |
+| **PRO-005** | Escalation | When blocked, uncertain, or decision exceeds authority |
+| **PRO-006** | Session Close | Every session end — mandatory |
+| **PRO-007** | Context Load | Self-monitor context (warn at ≥7/10) |
+| **PRO-008** | Approval Brief | Compact format for Oracle approval requests |
+| **PRO-009** | Mission Briefing | Before starting any mission — mission first, execution after |
 
 ### Protocol dependency chain
 
@@ -271,13 +271,3 @@ CEO visits pablofm.com/velo → Fills DeployForm
 - [agents/INDEX.md](../agents/INDEX.md) — Agent registry
 
 ---
-
-## Version history
-
-| Version | Date | Change |
-|---------|------|--------|
-| 0.1.0 | 2026-04-08T05:58:00Z | Initial creation — MIS-045. Complete system reference. |
-
----
-
-*Nimrod 🗡️ — Numen Games — CC0 1.0*

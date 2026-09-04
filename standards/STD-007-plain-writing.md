@@ -104,13 +104,6 @@ It does not cover non-`standards/` series. The canon, protocol, and decision
 series may reference each other by ID in prose today; changing that is a
 separate decision, not made here.
 
-## 5. Version history
-
-- v0.1.0 (2026-09-03) — Initial draft. Formalizes the rule already present
-  informally in the standards template, merged with the Oracle's amendment:
-  references are not banned outright, they are pulled into one list, and
-  the hard ban is narrowed to section-number pointers only.
-
 ## References
 
 | ID | Name | Why cited |

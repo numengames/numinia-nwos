@@ -75,7 +75,7 @@ The goal is not to justify the system — it already works. The goal is to **opt
 |--------|-------------|---------------|
 | Continuity score | System coherence across sessions | Manual audit (9.1/10 as of 2026-04-07) |
 | Rework rate | PRs that needed fixes | ~10% estimated |
-| Protocol compliance | Sessions following P-001 + P-006 | 100% (verifiable via commits) |
+| Protocol compliance | Sessions following PRO-001 + PRO-006 | 100% (verifiable via commits) |
 | Canon coherence | Decisions consistent with seminal docs | Manual QA |
 
 ### Category 5 — ROI metrics
@@ -139,12 +139,3 @@ ROI of 80-133x is remarkable but unverifiable without real cost data. This frame
 - Makes the system's value legible to outsiders
 
 ---
-
-## Version history
-
-- v0.1.0 (2026-04-07) — Foundation layer. Cost estimates, output metrics, DORA structure, ROI model. Open questions marked for Pablo. (MIS-057)
-- v0.1.1 (2026-04-07) — uid added, renamed from BLU-002-business-metrics.md, MIS-048 blocker explicit. Adonaz QA fixes applied.
-
----
-
-*Nimrod 🗡️ — 2026-04-07*

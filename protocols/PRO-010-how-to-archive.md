@@ -16,7 +16,7 @@ license: "CC0-1.0"
 supersedes: "protocols/2026_04_14-Read_Me_How_to_Archive-v0.2.0.md  # deleted 2026-08-31, MIS-127"
 review_next: "2027-02-18"
 ---
-# P-010 — How to Archive (draft)
+# PRO-010 — How to Archive (draft)
 
 > **Summary:** How every document in the NWOS archive is named, where it
 > lives, and how it ages.
@@ -180,18 +180,3 @@ is the living inventory, with zero silent exclusions. The guards that enforce
 this protocol, and whether each one runs in the pipeline, are listed in the
 guard register — that register is read from the workflow file, never
 remembered.
-
-## Change history
-
-- v0.9.0 (2026-09-03) — the protocol keeps its rules and loses the record of
-  how they were argued. Removed: the lineage section, the reversal narrative
-  and its correction notice, the ruling against a decision record, the account
-  of what the previous deletion scheme was, and the inherited-and-discarded
-  ledger. All of it survives in the decision records and in git, which is
-  where the corpus keeps what happened. Three false claims about the code went
-  with it: a constant said to live in a library that does not define it, a
-  guard advertised as running in the pipeline that is not wired into it, and a
-  verification script that belongs to a different repository. Two stale
-  identifier schemes in the taxonomy corrected: canon and protocols were
-  listed under their pre-registration prefixes.
-- v0.8.3 and earlier — see git history.

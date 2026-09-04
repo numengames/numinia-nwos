@@ -180,12 +180,3 @@ The canon feeds agents and missions; the protocols ritualize both; the
 operations sustain them; missions crystallize into decisions and are
 born from blueprints. The exact positions and edges of the viewer's 3D
 diagram live in the frontmatter (`graph:`).
-
-## History
-
-- v1.0.0 (2026-08-17) — Extraction from the viewer's components
-  (MIS-065 phase C), with document paths corrected to the post-MIS-066
-  flat layout. Each fondo's lore lives in this file's own `fondos[].lore`
-  field (ADR-036 folded the retired «canon/archive-lore.md» in here when canon/ became
-  CC0 and the one-file-one-regime split stopped being necessary)
-  (reserved regime).

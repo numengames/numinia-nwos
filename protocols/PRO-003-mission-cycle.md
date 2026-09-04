@@ -166,16 +166,3 @@ explicit coordination.
 renumbers and fixes their own references.
 
 ---
-
-## Version history
-
-- v4.3.0 (2026-09-04) — Same rules, a third fewer words. Removed: the 2026-04-07
-  incident narrative that justified the briefing rule, the eight-line briefing
-  checklist that repeated the steps above it, the anti-pattern table that
-  restated four rules as their own violations, the field-extraction table, and
-  the collision anecdote. The numbered step lists of the cycle are prose.
-- v4.2.0 (2026-09-02) — states aligned with the glossary's closed vocabulary.
-- v4.1.0 (2026-09-02) — four-digit filenames, sub-missions take their own
-  number.
-- v4.0.0 (2026-08-31) — merged `P-009` and `P-004` in as sections. MIS-127.
-- v3.0.0 and earlier — see git history.
