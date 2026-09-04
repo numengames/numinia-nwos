@@ -2376,6 +2376,17 @@
   "tokens": 2126
  },
  {
+  "path": "missions/MIS-0143-integrate-three-new-agents-calliope-nimrod-talos.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4069,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1116
+ },
+ {
   "path": "missions/MIS-0144-scripts-cleanup.md",
   "dir": "missions",
   "series": "missions",
