@@ -7,7 +7,7 @@ subtype: reference
 status: draft
 version: "0.1.0"
 created: "2026-09-03T21:11:55Z"
-created_source: "git:6c28a06"
+created_source: "git:f8733e3"
 created_confidence: exact
 updated: "2026-09-03T21:11:55Z"
 author: "ursa"
