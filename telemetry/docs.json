@@ -2431,6 +2431,17 @@
   "tokens": 930
  },
  {
+  "path": "missions/MIS-0149-ursa-git-cold-start-bootstrap.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 21805,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 5179
+ },
+ {
   "path": "operations/OPS-001-continuity.md",
   "dir": "operations",
   "series": "operations",
