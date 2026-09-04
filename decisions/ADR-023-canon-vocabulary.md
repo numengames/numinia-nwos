@@ -43,17 +43,3 @@ honour that declaration (`web/src/pages/corpus/[...slug].astro`).
 Four terms because the pairs are the distinctions; English because the
 agents, the tooling and the intended readership operate in it, and a corpus
 in two languages resolves every ambiguity twice.
-
-## Consequences
-
-- Translation is a migration with a guard (`scripts/translate-corpus.mjs`),
-  not a rewrite.
-- A document without `lang:` is English by default.
-- Spanish public routes (`/decisiones`, `/planos`) stay — URLs are not
-  vocabulary.
-
-## History
-
-- v2.0.0 (2026-08-31) — MIS-127: absorbs ADR-024 (English as canon
-  language). Terms and the language they are written in are one decision.
-- v1.0.0 (2026-08-25) — four terms, two pairs.

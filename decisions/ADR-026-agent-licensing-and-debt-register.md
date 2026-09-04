@@ -21,7 +21,7 @@ related: ["C-005", "D-038", "ADR-030", "STD-001", "MIS-127"]
 # Agent licensing and the debt register
 
 > **Summary:** Agent definitions are CC0. Debt is recorded in one register.
-> Both are amendments owed to `C-005`.
+> Both are amendments owed to `CAN-005`.
 
 ## Decision
 
@@ -39,18 +39,3 @@ mission, not a list in a report. Absorbed from ADR-031.
 Both narrow `C-005`, which assigned licences by directory and assumed debt
 could live wherever it was found. A defect recorded in two places is
 resolved in neither; a defect recorded in none is D-033.
-
-## Consequences
-
-- `C-005` owes a formal amendment for both clauses — tracked as **D-038**.
-  Until it lands, this ADR is the operative rule and `C-005` is stale.
-- `scripts/check-license-frontmatter.mjs` enforces the CC0 field; it does
-  **not** verify the claim is legally correct.
-- Two agent-facing documents (`CLAUDE.md`, `agents/lexa/SOURCES.md`) still
-  point at the retired standalone legal-debt file; both are baselined.
-
-## History
-
-- v2.0.0 (2026-08-31) — MIS-127: absorbs ADR-031 (one debt register). Both
-  are the same pending amendment to C-005.
-- v1.0.0 (2026-08-30) — agent definitions are CC0.

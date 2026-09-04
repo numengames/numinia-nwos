@@ -27,38 +27,8 @@ related: ["ADR-004", "ADR-005", "ADR-030", "PRO-010", "MIS-129"]
 > A dead plan is a lifecycle problem; a misfiled manual is a taxonomy one,
 > and they need different instruments.
 > **Pragmatic:** Before creating a document, ask what genre it is. If the
-> answer is not in `S-005` §2, that is a missing shelf, not a reason to use
+> answer is not in `STD-001` §2, that is a missing shelf, not a reason to use
 > the nearest one.
-
-## Context
-
-`S-005` §2 maps genre → folder → ID → web section. It has ten rows. The
-corpus has more genres than that, and the overflow landed in
-`blueprints/` because it was the only folder whose name did not obviously
-reject a document.
-
-Measured at `ca62d86`, the eight `BLU-*` files are:
-
-| Document | Genre | Evidence it is not a blueprint |
-|---|---|---|
-| `RPT-2026-04-07-wardley` Wardley map | Report | A dated market analysis whose central claim is a countdown that started 2026-04-07 |
-| `BLU-002` Business metrics | Blueprint | Framework designed, not built; blocked on Oracle input |
-| `the Mission System v2 record` Mission system v2 | Superseded record | Its own opening banner declares it replaced by MIS-066 |
-| `SYS-001` CAO architecture | Reference manual | Describes what is wired today, in the present tense |
-| `SYS-003` Archive fondos | Reference manual | Describes the seven fondos that exist; also carries live page data |
-| `SYS-002` Agent cycle | Reference manual | Describes how an agent operates today |
-| `BLU-007` Dual nomenclature | Blueprint | Design in progress, MIS-055 open |
-| `BLU-008` NWOS system | Product copy | 75% of its prose strings are byte-identical to `nwos-deploy`'s landing page |
-
-The archive's own definition of the folder is in `SYS-003` itself —
-*"unmanifested potential; the future lives here before becoming
-present"*. Six of eight fail it. Five of those six move here; the sixth,
-`BLU-008`, fails the test too but its shelf is in another repository, so
-this ADR declares the fault and leaves the file where it is (see §3).
-
-This is not `ADR-032` (now in `ADR-030`)'s case. None of these six has a dead foundation;
-they are alive and shelved wrong. Extinguishing them would destroy
-content that is correct, merely misplaced.
 
 ## Decision (Oracle, 2026-08-31)
 
@@ -128,55 +98,3 @@ where its content went, chained so no crawler takes two hops.
 **6. `blueprints/` remains an operational series** (`ADR-032` (now in `ADR-030`) §1). This
 ADR amends `S-005` §2's table by adding two rows; it does not touch
 `ADR-032` (now in `ADR-030`)'s extinction rule or its list of operational series.
-
-## Alternatives discarded
-
-- **Extinguish the five under `ADR-032` (now in `ADR-030`).** Rejected: their foundation is
-  alive. `ADR-032` (now in `ADR-030`)'s criterion is a dead cited decision, and none of the
-  five qualifies. Stretching a lifecycle rule to solve a taxonomy fault
-  would have destroyed correct content and left the taxonomy just as
-  wrong.
-
-- **Put the manuals in `standards/`.** Rejected: a standard says how a
-  document must be written and can be complied with or violated. A manual
-  of how the CAO is wired cannot be violated — it can only be accurate or
-  stale. Different genre, different lifecycle, different failure mode.
-
-- **Put the manuals in `protocols/`.** Rejected: a protocol is a sequence
-  of steps with an actor. `SYS-001` has no steps.
-
-- **Rename nothing and just fix `blueprints/`'s description.** Rejected:
-  it would define the folder by what happens to be in it, which is how
-  the drawer formed in the first place.
-
-- **`history/` as a numbered series `HIS-NNN`.** Rejected: numbering
-  asserts membership in a living register. `S-005` §3.2 already has the
-  right shape for a photograph, and it is already enforced by
-  `lint-naming.mjs` (N-02/N-03).
-
-## Consequences
-
-- `blueprints/` holds three documents. Two match the folder's own
-  definition. The third, `BLU-008`, does not and is declared in §3 rather
-  than moved: its shelf is in another repository, and this mission's scope
-  is this one. Opening the folder now predicts what you will read in two
-  cases out of three, and names the exception instead of hiding it.
-- Two shelves exist that did not, and `S-005` §2 has two more rows —
-  which means the next manual has somewhere to go and will not silently
-  become a blueprint.
-- `SYS-001` moves to `system/` carrying content known to be stale (it
-  names a repository since renamed, an agent since renamed, and lists
-  Ursa as pending activation while Ursa is active). The move does not
-  fix it and does not hide it: an `accuracy_warning` field declares it,
-  and it is opened as debt. Moving a wrong document to the right shelf
-  makes the wrongness visible instead of excusable.
-- `RPT-2026-04-07-wardley-map` keeps three internal contradictions it
-  declares itself. Reshelving does not resolve them; the report shelf at
-  least dates them.
-- `history/` starts with one document. A shelf with one item is a shelf,
-  not a mistake — the alternative was leaving a self-declared superseded
-  design in the folder for things that do not exist yet.
-
-## Version history
-
-- v1.0.0 (2026-08-31) — Initial ruling. `MIS-129`.

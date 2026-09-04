@@ -77,26 +77,3 @@ The corpus and its published surface run on infrastructure the project
 controls (Cloudflare Workers). Absorbed from DEC-001, which had marked
 itself `superseded` naming no successor: the ruling outlived the record.
 SaaS remains fine for things that are not the archive.
-
-## Why (as recorded)
-
-An archive that cannot be read without its authoring tool is a hostage. An
-archive whose rules live elsewhere has no rules.
-
-## Consequences (as recorded)
-
-- Losing GitHub costs hosting, not the corpus — every clone is complete.
-- Anything requiring a proprietary editor stays out of the corpus.
-- Downstream repos cite `nwos:` identifiers; the reverse is qualified
-  (`web:ADR-012`, ADR-004 §7).
-
-## History
-
-- v2.1.0 (2026-09-03) — MIS-142: superseded by STD-006. Retained, not
-  deleted: `absorbs:` keeps ADR-002, ADR-003 and DEC-001 resolving, and the
-  record is cited from fifteen documents. The withdrawn hosting clause is
-  documented above rather than silently dropped.
-- v2.0.0 (2026-08-31) — MIS-127: absorbs ADR-002 (Markdown), ADR-003
-  (standards emitter) and DEC-001 (self-hosting). One decision about one
-  object.
-- v1.0.0 (2026-04-06) — GitHub as Archive Summa.

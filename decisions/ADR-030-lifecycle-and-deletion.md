@@ -66,21 +66,3 @@ not on a stub, and not on a 404.
 The folder was never the right unit. `debt/` holds entries safe to delete
 and entries that are the only record of a defect; `decisions/` holds both
 live rules and superseded ones. The consumer knows; the directory does not.
-
-## Consequences
-
-- `P-010` §5 is rewritten by this record.
-- Deleting a document costs a citation sweep, not a `git rm`. Measured:
-  removing `ADR-002` alone broke 8 references, 7 of them invisible to any
-  build.
-- `check-deletable.mjs` fails closed and currently rejects every document in
-  `decisions/`, including the one that installed it. A guard that never says
-  yes is blocking, not measuring — **D-028**.
-
-## History
-
-- v3.0.0 (2026-08-31) — MIS-127: absorbs ADR-032 (operational series) and
-  ADR-033 (deletion by consumer). ADR-033 had already declared §2 of this
-  record and §4 of ADR-032 spent; the three were one document corrected
-  twice.
-- v1.0.0 (2026-08-30) — debt extinguishes on close.
