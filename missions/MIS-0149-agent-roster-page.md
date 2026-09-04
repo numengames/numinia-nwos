@@ -14,10 +14,10 @@ completed: null
 
 type: mission
 version: "1.0.0"
-created: "2026-09-03T00:00:00Z"
-created_source: "git:pending"
-created_confidence: inferred
-updated: "2026-09-03T00:00:00Z"
+created: "2026-09-04T11:48:02Z"
+created_source: "git:52c51e5"
+created_confidence: exact
+updated: "2026-09-04T11:48:02Z"
 author: "ursa"
 owner: "oracle"
 tags: [agents, web, roster, public-interface]
