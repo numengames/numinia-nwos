@@ -5,9 +5,9 @@ title: "Debt register refactor: which entries answer a question still open"
 type: report
 subtype: audit
 status: closed
-version: "1.3.0"
+version: "1.4.0"
 created: "2026-08-31T20:30:00+02:00"
-updated: "2026-08-31T23:59:00+02:00"
+updated: "2026-09-04T00:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -426,3 +426,19 @@ dangling pointers is that case.
 
 This report does not resolve it. It is the Oracle's ruling, and it is the
 one decision blocking the whole operation.
+
+---
+
+## Amendment (2026-09-04, v1.4.0)
+
+The 12 survivors this report certified were extinguished in full on
+2026-09-04, by the Oracle's direct instruction, over Ursa's recorded
+dissent (see `MIS-0127` ledger row 11). This report's §0 test and its
+conclusion — 12 of 39 pose a question still open and unanswered elsewhere
+— are **not retracted**: no evidence surfaced that the test was wrong, or
+that the twelve had in the meantime become answered. The Oracle's
+instruction did not name a flaw in this report; it overrode its
+conclusion by authority, which this report always held he could do. This
+note exists so a future reader does not mistake the empty `debt/`
+directory for confirmation that the analysis below was mistaken — it
+was not shown to be.
