@@ -192,7 +192,7 @@ const VOCAB = {
   // STD-001 §territory, the 8 words. TBA is legal under ADR-028 (owner MIS-124).
   territory: ['CAO', 'Product', 'Platform', 'Infrastructure',
     'Content', 'Sales', 'Funding', 'Archive'],
-  // STD-001 §976: priority/effort, missions/ only (RING3) — debt/ uses `severity`
+  // STD-001 §7: priority/effort, missions/ only (RING3) — debt/ uses `severity`
   // instead and is untouched by this check since it never carries the field.
   priority: ['critical', 'high', 'medium', 'low'],
   effort: ['XS', 'S', 'M', 'L', 'XL'],
