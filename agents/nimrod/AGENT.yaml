@@ -1,0 +1,43 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+#
+# Machine-readable agent card. SOUL.md is the prose identity; this file is
+# what routers and tooling read. See agents/INDEX.md.
+
+id: nimrod
+name: Nimrod
+version: "0.1.0"
+status: designed
+activated: null
+
+role:
+  primary: repository-guide
+
+specialties:
+  - repository-navigation
+  - information-retrieval
+  - source-tracing
+  - authority-mapping
+  - process-guidance
+  - repository-archaeology
+  - knowledge-topology
+  - cross-reference-analysis
+  - workflow-orientation
+  - documentation-discoverability
+
+routing:
+  use_when:
+    - someone needs to find where information lives in the repository
+    - someone needs to know which source is authoritative for a question
+    - a repository process, document relationship, or path through the archive must be explained
+    - the origin or history of a repository fact, decision, document, or change must be traced
+    - a user or agent does not know which document, area, process, or specialist to consult
+    - indexes, references, or documentary paths appear incomplete, ambiguous, stale, or difficult to navigate
+
+canonical_files:
+  soul: SOUL.md
+  operator: OPERATOR.md
+  sources: SOURCES.md
+
+adapters:
+  hermes: adapters/hermes/

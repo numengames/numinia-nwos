@@ -1,0 +1,57 @@
+# Talos — Hermes profile configuration
+# Secrets, API keys, and integration tokens belong in .env.
+
+agent:
+  tool_use_enforcement: auto
+
+terminal:
+  backend: local
+  timeout: 180
+  home_mode: auto
+
+approvals:
+  mode: smart
+  denial_breaker_threshold: 2
+  deny:
+    - "git push --force*"
+    - "git push -f*"
+    - "git reset --hard*"
+    - "git clean -fd*"
+    - "rm -rf *"
+  smart_policy: |
+    Allow read-only repository inspection, git log/show/diff/status, workflow
+    and configuration review, static analysis, dependency review, and safe
+    local execution of existing validation/test commands.
+    Allow preparation of local proposed patches when non-destructive.
+    ESCALATE changes to live GitHub settings, rulesets, permissions, branch
+    protections, environments, secrets, CI/CD workflows, security controls,
+    guard scripts, deployment automation, CODEOWNERS, or required checks.
+    ESCALATE any attempt to disable or bypass a safeguard, publish a sensitive
+    vulnerability, run intrusive external security testing, or perform
+    destructive Git/filesystem operations.
+    Never print secret values.
+
+checkpoints:
+  enabled: true
+  max_snapshots: 25
+  max_total_size_mb: 500
+  max_file_size_mb: 10
+  auto_prune: true
+  retention_days: 14
+  min_interval_hours: 12
+
+skills:
+  write_approval: true
+
+memory:
+  memory_enabled: true
+  user_profile_enabled: false
+  memory_char_limit: 2400
+  user_char_limit: 600
+  write_approval: true
+
+delegation:
+  max_concurrent_children: 2
+  worktree_isolation: true
+  max_spawn_depth: 1
+  orchestrator_enabled: false
