@@ -260,6 +260,15 @@ export default defineConfig({
 		"/corpus/canon/archive-lore": "/corpus/system/sys-003-archive-fondos",
 		"/corpus/canon/index": "/decisiones/adr-036",
 		"/corpus/canon/readme": "/decisiones/adr-036",
+		// MIS-145: the three mission templates left missions/ for templates/,
+		// which is apparatus and is not published (content.config.ts globs
+		// missions/**, not templates/). The addresses cannot follow the files,
+		// so they land on the standard that now carries the series → template
+		// map (STD-001 §2.3) — the question "which template do I copy?" is
+		// answered there. The templates themselves stay reachable on GitHub.
+		"/corpus/missions/template": "/corpus/standards/std-001-glossary",
+		"/corpus/missions/template-changes": "/corpus/standards/std-001-glossary",
+		"/corpus/missions/template-example": "/corpus/standards/std-001-glossary",
 		// MIS-127: BLU-003 dropped the "-v2" version suffix from its filename
 		// (STD-001 §9 — the version lives in frontmatter, not the name).
 		// MIS-129 then moved the document itself out of blueprints/ into
