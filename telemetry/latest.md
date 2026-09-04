@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-04T11:23:58Z"
+updated: "2026-09-04T12:03:02Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,16 +20,16 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `ef272f7`  · corpus_hash: `b0e31ec35d3f7e8c…`  · measured_at: 2026-09-04T11:23:58Z  · root_dirty: 0
+- head: `6b0cc03`  · corpus_hash: `6a178ab4b716a4c7…`  · measured_at: 2026-09-04T12:03:02Z  · root_dirty: 0
 
 ## corpus
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `corpus.files_total` | 602 | files | `git ls-files` at HEAD, every path |
+| `corpus.files_total` | 603 | files | `git ls-files` at HEAD, every path |
 | `corpus.files_by_ext` | (table below) | files | tracked files by lowercase extension; `(none)` when no extension |
-| `corpus.md_total` | 281 | files | tracked `.md` anywhere, including `web/` |
-| `corpus.docs_total` | 279 | documents | tracked `.md` outside `web/` — the corpus every other family measures |
+| `corpus.md_total` | 282 | files | tracked `.md` anywhere, including `web/` |
+| `corpus.docs_total` | 280 | documents | tracked `.md` outside `web/` — the corpus every other family measures |
 | `corpus.docs_by_dir` | (table below) | documents | corpus documents by top-level directory; root files under `(root)` |
 | `corpus.docs_by_type` | (table below) | documents | corpus documents by frontmatter `type`; `(none)` when absent |
 | `corpus.docs_without_frontmatter` | 7 | documents | corpus documents with no `---` block at the top |
@@ -51,7 +51,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | .jpg | 1 |
 | .js | 1 |
 | .json | 22 |
-| .md | 281 |
+| .md | 282 |
 | .mjs | 40 |
 | .png | 36 |
 | .py | 7 |
@@ -81,7 +81,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | guilds | 8 |
 | history | 2 |
 | infra | 1 |
-| missions | 144 |
+| missions | 145 |
 | operations | 9 |
 | protocols | 7 |
 | reports | 27 |
@@ -101,7 +101,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | documentation | 40 |
 | legal | 2 |
 | meta | 3 |
-| mission | 143 |
+| mission | 144 |
 | protocol | 8 |
 | report | 24 |
 | seminal | 7 |
@@ -119,8 +119,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `series.registration` | (table below) | documents | per series with a naming scheme (rules.json): documents whose filename matches `<PREFIX>-<NNN>-` (or the daily `RPT-<date>` form in reports/) over documents in the series — excluding `_template/`, `reports/evidence/`, apparatus and frozen artefacts (by filename shape). Same predicate as `count-evidence.py matricula`. |
-| `series.registered_total` | 235 | documents | sum of `registration[*].registered` |
-| `series.registrable_total` | 235 | documents | sum of `registration[*].total` |
+| `series.registered_total` | 236 | documents | sum of `registration[*].registered` |
+| `series.registrable_total` | 236 | documents | sum of `registration[*].total` |
 | `series.agents_folder_named` | 7 | directories | directories under `agents/` other than `_template` — identified by folder name, no prefix by design (ADR-005 v1.1.0) |
 
 ### `series.registration`
@@ -133,7 +133,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | decisions | 9 | 9 | 0 | 0 | 100 |
 | guilds | 8 | 8 | 0 | 0 | 100 |
 | infra | 0 | 0 | 1 | 0 |  |
-| missions | 143 | 143 | 1 | 0 | 100 |
+| missions | 144 | 144 | 1 | 0 | 100 |
 | operations | 9 | 9 | 0 | 0 | 100 |
 | protocols | 7 | 7 | 0 | 0 | 100 |
 | reports | 24 | 24 | 0 | 0 | 100 |
@@ -144,7 +144,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `missions.total` | 143 | missions | files `missions/MIS-NNNN-*.md` with a frontmatter block |
+| `missions.total` | 144 | missions | files `missions/MIS-NNNN-*.md` with a frontmatter block |
 | `missions.by_status` | (table below) | missions | by frontmatter `status` |
 | `missions.by_guild` | (table below) | missions | by frontmatter `guild`; `(none)` when absent or null-like |
 | `missions.by_territory` | (table below) | missions | by frontmatter `territory`; `TBA` folds into `(none)`, reported separately as `territory_tba` |
@@ -152,7 +152,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `missions.by_effort` | (table below) | missions | by frontmatter `effort` |
 | `missions.by_assignee` | (table below) | missions | by frontmatter `assigned_to`; `(none)` = unassigned |
 | `missions.territory_tba` | 38 | missions | `territory: TBA` (ADR-028 deferral, owner MIS-124) |
-| `missions.unassigned` | 93 | missions | `assigned_to` absent or null-like |
+| `missions.unassigned` | 94 | missions | `assigned_to` absent or null-like |
 | `missions.in_progress_unassigned` | 2 | missions | `status: in-progress` with no `assigned_to` |
 | `missions.done_without_closure` | 34 | missions | `status: done` with no `## Closure` heading (MIS-134 strict form) |
 | `missions.done_without_closure_tolerant` | 11 | missions | `status: done` with none of the five closure headings MIS-134 tolerates |
@@ -168,7 +168,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | frozen | 38 |
 | in-progress | 12 |
 | in-review | 2 |
-| todo | 28 |
+| todo | 29 |
 
 ### `missions.by_guild`
 
@@ -177,14 +177,14 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | Alchemists | 63 |
 | Exegetes | 24 |
 | Procurators | 18 |
-| Sentinels | 38 |
+| Sentinels | 39 |
 
 ### `missions.by_territory`
 
 | | missions |
 |---|---|
 | (none) | 38 |
-| Archive | 26 |
+| Archive | 27 |
 | CAO | 18 |
 | Content | 7 |
 | Funding | 6 |
@@ -198,7 +198,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | missions |
 |---|---|
 | critical | 27 |
-| high | 72 |
+| high | 73 |
 | low | 5 |
 | medium | 39 |
 
@@ -207,7 +207,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | missions |
 |---|---|
 | L | 24 |
-| M | 55 |
+| M | 56 |
 | S | 42 |
 | XL | 11 |
 | XS | 11 |
@@ -216,7 +216,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | missions |
 |---|---|
-| (none) | 93 |
+| (none) | 94 |
 | claude-fable-5 | 1 |
 | nimrod | 14 |
 | numengames-web + nwos-deploy | 1 |
@@ -230,17 +230,17 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 603315 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 604431 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
-| `tokens.missions_share_pct` | 40.67 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.missions_share_pct` | 40.78 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
 | `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
 
 | | tokens |
 |---|---|
-| missions | 245372 |
+| missions | 246488 |
 | reports | 86903 |
 | standards | 77147 |
 | canon | 42805 |
@@ -266,7 +266,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | done | 120601 |
 | closed | 82510 |
 | draft | 74954 |
-| todo | 42286 |
+| todo | 43402 |
 | in-progress | 36256 |
 | frozen | 34004 |
 | (none) | 11110 |
@@ -282,7 +282,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `headers.docs_with_frontmatter` | 272 | documents | docs whose text opens with a --- block the shared reader parses |
+| `headers.docs_with_frontmatter` | 273 | documents | docs whose text opens with a --- block the shared reader parses |
 | `headers.docs_without_frontmatter` | 7 | documents | corpus docs minus docs_with_frontmatter |
 | `headers.field_usage` | (table below) | documents | per frontmatter key, the number of docs carrying it, most used first |
 | `headers.uid_present` | 0 | documents | docs with a non-empty uid |
@@ -295,27 +295,27 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | documents |
 |---|---|
-| created | 271 |
-| license | 271 |
-| status | 271 |
-| title | 271 |
-| type | 271 |
-| updated | 271 |
-| version | 271 |
-| owner | 257 |
-| id | 242 |
-| author | 238 |
-| uid | 233 |
-| tags | 232 |
-| created_source | 228 |
-| created_confidence | 225 |
-| territory | 196 |
-| guild | 185 |
-| assigned_to | 143 |
-| completed | 143 |
-| effort | 143 |
-| priority | 143 |
-| type_execution | 124 |
+| created | 272 |
+| license | 272 |
+| status | 272 |
+| title | 272 |
+| type | 272 |
+| updated | 272 |
+| version | 272 |
+| owner | 258 |
+| id | 243 |
+| author | 239 |
+| uid | 234 |
+| tags | 233 |
+| created_source | 229 |
+| created_confidence | 226 |
+| territory | 197 |
+| guild | 186 |
+| assigned_to | 144 |
+| completed | 144 |
+| effort | 144 |
+| priority | 144 |
+| type_execution | 125 |
 | started | 63 |
 | requested_by | 60 |
 | subtype | 40 |
@@ -326,8 +326,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | depends_on | 30 |
 | former_id | 25 |
 | former_id_note | 25 |
-| requires_oracle_approval | 23 |
-| paths | 22 |
+| requires_oracle_approval | 24 |
+| paths | 23 |
 | absorbs | 17 |
 | evidence_head | 16 |
 | related | 16 |
@@ -406,19 +406,19 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | values |
 |---|---|
 | dates_without_time | 0 |
-| empty_values | 233 |
+| empty_values | 234 |
 | v_prefixed_versions | 0 |
-| placeholders | 30 |
+| placeholders | 31 |
 
 ## provenance
 
 | key | value | unit | definition |
 |---|---|---|---|
 | `provenance.authorship` | (table below) | documents | nature of author: per doc, `author:` normalised → human (Oracle aliases) · ai-persona (agents whose SOUL.md declares a model, list of 2026-08-26) · ai-model (name matches claude\|gpt\|opus\|sonnet\|fable\|gemini\|llm) · other · no-author · no-frontmatter |
-| `provenance.dates_vs_commits_compared` | 267 | documents | docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed) |
+| `provenance.dates_vs_commits_compared` | 268 | documents | docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed) |
 | `provenance.created_ahead_of_commit` | 3 | documents | created day later than the day the file was first added to git (dates-vs-commits.py "DISCREPA", over the whole corpus, not the post-tag set) |
 | `provenance.created_ahead_list` | (table below) | documents | [path, created, first-add] for created_ahead_of_commit |
-| `provenance.created_behind_commit` | 41 | documents | created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged |
+| `provenance.created_behind_commit` | 43 | documents | created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged |
 | `provenance.regime_crossings` | 6 | renames | renames in history (git -M) whose source and target resolve to different REUSE.toml licences (last matching annotation wins); regime-crossings.py |
 | `provenance.regime_crossings_list` | (table below) | renames | [from, to, regime change, date] |
 | `provenance.protocol_anchor` | (table below) | missions | P-003 rule as protocol-anchor.py applies it: status ∈ {done,frozen,cancelled,backlog} is Oracle-set → anchored if owner=oracle, anchored-weak if another owner, anchored-no-owner if none; other states not-oracle-state. The CYCLE_* timestamp evidence it also used lived in /tmp and is not reproducible |
@@ -427,7 +427,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | documents |
 |---|---|
-| ai-persona | 137 |
+| ai-persona | 138 |
 | ai-model | 49 |
 | human | 46 |
 | no-author | 34 |
@@ -447,7 +447,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | missions |
 |---|---|
 | anchored | 101 |
-| not-oracle-state | 42 |
+| not-oracle-state | 43 |
 
 ## contradictions
 
@@ -474,7 +474,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | superseded | 2 |
 | closed | 25 |
 | frozen | 38 |
-| todo | 28 |
+| todo | 29 |
 | done | 63 |
 | in-progress | 12 |
 | in-review | 2 |
@@ -509,7 +509,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | DEC | 54 |
 | SYS | 58 |
 | BLU | 62 |
-| GLD | 23 |
+| GLD | 27 |
 
 ### `contradictions.id_form_mixed`
 
@@ -556,10 +556,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `legacy.docs_total` | 281 | documents | every tracked path ending in .md (git ls-files '*.md'), web/ included, telemetry/ excluded |
-| `legacy.docs_con_frontmatter` | 272 | documents | docs_total whose text starts with a `---` block closed by a second `---` line |
+| `legacy.docs_total` | 282 | documents | every tracked path ending in .md (git ls-files '*.md'), web/ included, telemetry/ excluded |
+| `legacy.docs_con_frontmatter` | 273 | documents | docs_total whose text starts with a `---` block closed by a second `---` line |
 | `legacy.docs_sin_frontmatter` | 9 | documents | docs_total − docs_con_frontmatter |
-| `legacy.referencias_textuales_total` | 2819 | mentions | occurrences of `(MIS\|ADR\|DEC\|RPT\|AUD\|P\|C\|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included) |
+| `legacy.referencias_textuales_total` | 2821 | mentions | occurrences of `(MIS\|ADR\|DEC\|RPT\|AUD\|P\|C\|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included) |
 | `legacy.referencias_top` | (table below) | mentions | the six most-mentioned identifiers as [id, count]; ties keep first-seen order (Python Counter.most_common) |
 | `legacy.matricula` | (table below) | documents | per series dir (count-evidence order, 11 dirs — `system` absent, as in the script): con = filenames matching the scheme; total = docs in the dir minus _template/, reports/evidence/, apparatus (canonical name or type: meta) and dated filenames, as the replayed tool did; pct = 100·con/total rounded to 0.1 |
 | `legacy.excluidos` | (table below) | paths | the apparatus and dated-name paths removed from the matricula denominators, in scan order |
@@ -573,7 +573,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `legacy.type_execution_valores` | (table below) | documents | distinct raw `type_execution:` values with counts |
 | `legacy.area_valores_distintos` | 0 | values | number of distinct non-empty `area:` values |
 | `legacy.created_T000000Z` | 4 | documents | `created:` lines whose value carries the midnight-UTC placeholder time |
-| `legacy.created_total` | 271 | documents | docs with a `created:` line |
+| `legacy.created_total` | 272 | documents | docs with a `created:` line |
 | `legacy.ci_workflow_existe` | true | boolean | .github/workflows/ci.yml is present |
 | `legacy.ci_guards` | (table below) | paths | the `run: node scripts/…` steps of ci.yml, in file order |
 
@@ -585,7 +585,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | esquema | con | total | aparato | pct |
 |---|---|---|---|---|---|
-| missions | MIS-NNNN | 143 | 143 | 1 | 100 |
+| missions | MIS-NNNN | 144 | 144 | 1 | 100 |
 | protocols | PRO-NNN | 7 | 7 | 0 | 100 |
 | decisions | ADR/DEC-NNN | 9 | 9 | 0 | 100 |
 | reports | RPT-NNN · RPT-YYYY-MM-DD (daily) | 24 | 24 | 0 | 100 |
@@ -610,7 +610,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 |---|---|
 | done | 63 |
 | frozen | 38 |
-| todo | 28 |
+| todo | 29 |
 | in-progress | 12 |
 | in-review | 2 |
 | draft | 1 |
@@ -620,7 +620,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | documents |
 |---|---|
 | Alchemists | 88 |
-| Sentinels | 40 |
+| Sentinels | 41 |
 | Exegetes | 30 |
 | Procurators | 27 |
 
@@ -628,7 +628,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | documents |
 |---|---|
-| digital | 97 |
+| digital | 98 |
 | hybrid | 19 |
 | biological | 8 |
 
