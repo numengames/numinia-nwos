@@ -594,6 +594,17 @@
   "tokens": 1433
  },
  {
+  "path": "debt/DBT-014-design-kit-version-path-coupling.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "open",
+  "chars": 2761,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 790
+ },
+ {
   "path": "decisions/ADR-001-the-archive.md",
   "dir": "decisions",
   "series": "decisions",
@@ -2579,10 +2590,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 5017,
+  "chars": 6735,
   "apparatus": false,
   "archived": false,
-  "tokens": 1250
+  "tokens": 1714
  },
  {
   "path": "protocols/PRO-003-mission-cycle.md",
@@ -2766,10 +2777,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 141965,
+  "chars": 122702,
   "apparatus": false,
   "archived": false,
-  "tokens": 41211
+  "tokens": 34069
  },
  {
   "path": "standards/STD-009-core-rules.md",
