@@ -116,6 +116,28 @@ governed — Oracle-approved PR).
   (and any other the reference guard flags). Form-only: never rewrite what a closed record
   claims.
 
+**Amendment, 2026-09-04 (execution) — this clause was applied more narrowly than
+written, and the narrowing needs Oracle confirmation.**
+
+The first execution read "form-only repoint" as licence to rewrite every mention,
+and a global substitution reached nine closed records: a 2026-04 history entry, a
+signed report (`RPT-2026-08-25`), the `CHANGELOG`, and four `done` missions. Those
+documents do not cite a live path — they narrate what a file was called at the time
+they were written: in April the file was called TEMPLATE, in missions/. Rewriting that
+makes the record say something it did not say, which STD-001 forbids: *an out-of-date
+record is history*.
+
+So the repoint was applied only to live documents — `PRO-003`, `AGENTS.md`,
+`CONTRIBUTING.md`, `DBT-003`, `MIS-0121`, `MIS-0135` — and the nine surviving mentions
+were added to `scripts/references-baseline.json` instead. This follows the precedent of
+the `P-NNN` → `PRO-NNN` rename, whose `history/` mentions were baselined, not rewritten
+(two entries still in the baseline today).
+
+**Cost, stated plainly:** the baseline gained 9 entries, and its own header says the list
+"should shrink over time and never grow". Net it fell 869 → 801 (77 unrelated references
+healed in the same run), but the 9 are a real addition. The alternative was falsifying
+nine records. If the Oracle prefers the rewrite, this is the line to reverse.
+
 ### Telemetry dataset
 
 The corpus changes (three files leave `missions/`): regenerate and commit `telemetry/`
