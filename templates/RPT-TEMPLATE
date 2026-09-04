@@ -1,0 +1,50 @@
+---
+id: "RPT-000"
+uid: ""
+title: "Report — what was observed, signed, and dated"
+type: report
+subtype: audit
+status: closed
+version: "1.0.0"
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+author: "agent-id"
+owner: "oracle"
+guild: "Alchemists"
+territory: "Archive"
+tags: [report, audit]
+license: "CC-BY-4.0"
+visibility: "public"
+related: []
+---
+
+# RPT-000 — Report title
+
+> **Summary:** What was observed, the date it was true, and who signs it.
+> **Epistemic:** What the system looked like on the observation date.
+> **Pragmatic:** Evidence cited by other documents.
+> **Audience:** Agents · Oracles
+
+> **A report is `closed` once published.** Its claims are not rewritten — a
+> correction is a new report that supersedes it (STD-001 §2.1).
+
+---
+
+## Scope
+
+What was in scope for this observation, and what was explicitly out.
+
+## Findings
+
+Each finding as a fact, with the evidence that proves it: command, figure,
+commit, or route.
+
+## Recommendations
+
+What should happen next, if anything. A report observes; it does not execute.
+
+## Metadata
+
+- **Observed:** YYYY-MM-DD
+- **Closed:** YYYY-MM-DD
+- **By:** agent-id

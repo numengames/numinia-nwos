@@ -2,7 +2,7 @@
 id: "MIS-145"
 uid: ""
 title: "Series template library: every registered series gets a copy-from template in templates/"
-status: todo
+status: in-progress
 priority: medium
 effort: M
 guild: "Alchemists"
@@ -40,7 +40,7 @@ The archive has 12 registered series (STD-001 §2; rules.json `series`), but onl
 templates, scattered:
 
 - `templates/STD-TEMPLATE.md` — created by MIS-142, the only file in `templates/`.
-- `missions/TEMPLATE.md`, `missions/TEMPLATE-CHANGES.md`, `missions/TEMPLATE-EXAMPLE.md` —
+- `templates/MIS-TEMPLATE`, `templates/MIS-TEMPLATE-CHANGES`, `templates/MIS-TEMPLATE-EXAMPLE` —
   the mission contract and its design record, living inside the series they scaffold.
 - `agents/_template/` — the agent scaffold (AGENT.yaml, SOUL.md, OPERATOR.md, SOURCES.md,
   adapters/), living where it is copied from.
@@ -57,12 +57,12 @@ still renders in the same column, MIS-132). It flips to `in-progress` when execu
 
 ### Move into `templates/` (git mv — history follows)
 
-- `missions/TEMPLATE.md` → `templates/MIS-TEMPLATE` — the canonical mission contract
+- `templates/MIS-TEMPLATE` → `templates/MIS-TEMPLATE` — the canonical mission contract
   (the ten build-verified fields + Scope/Acceptance criteria/Closure). Take this one as the
   reference for consolidation: it is the most elaborated and the one the build verifies.
-- `missions/TEMPLATE-CHANGES.md` → `templates/MIS-TEMPLATE-CHANGES` — the design record:
+- `templates/MIS-TEMPLATE-CHANGES` → `templates/MIS-TEMPLATE-CHANGES` — the design record:
   the figures that rebuilt the v2 mission template. Epistemic value, kept with the template.
-- `missions/TEMPLATE-EXAMPLE.md` → `templates/MIS-TEMPLATE-EXAMPLE` — a real filled mission.
+- `templates/MIS-TEMPLATE-EXAMPLE` → `templates/MIS-TEMPLATE-EXAMPLE` — a real filled mission.
   Pragmatic value, kept with the template.
 
 ### Create the missing series templates
@@ -110,11 +110,33 @@ governed — Oracle-approved PR).
 
 ### Repair citations broken by the moves (form-only edits on closed records, STD-001 §2.1)
 
-- `protocols/PRO-003-mission-cycle.md` — "Use TEMPLATE.md" → point at `templates/MIS-TEMPLATE`.
+- `protocols/PRO-003-mission-cycle.md` — "Use templates/MIS-TEMPLATE" → point at `templates/MIS-TEMPLATE`.
 - `AGENTS.md` and `CONTRIBUTING.md` — same repoint.
 - Missions citing `missions/TEMPLATE*.md` by path: MIS-0111, MIS-0115, MIS-0133, MIS-0135
   (and any other the reference guard flags). Form-only: never rewrite what a closed record
   claims.
+
+**Amendment, 2026-09-04 (execution) — this clause was applied more narrowly than
+written, and the narrowing needs Oracle confirmation.**
+
+The first execution read "form-only repoint" as licence to rewrite every mention,
+and a global substitution reached nine closed records: a 2026-04 history entry, a
+signed report (`RPT-2026-08-25`), the `CHANGELOG`, and four `done` missions. Those
+documents do not cite a live path — they narrate what a file was called at the time
+they were written: in April the file was called TEMPLATE, in missions/. Rewriting that
+makes the record say something it did not say, which STD-001 forbids: *an out-of-date
+record is history*.
+
+So the repoint was applied only to live documents — `PRO-003`, `AGENTS.md`,
+`CONTRIBUTING.md`, `DBT-003`, `MIS-0121`, `MIS-0135` — and the nine surviving mentions
+were added to `scripts/references-baseline.json` instead. This follows the precedent of
+the `P-NNN` → `PRO-NNN` rename, whose `history/` mentions were baselined, not rewritten
+(two entries still in the baseline today).
+
+**Cost, stated plainly:** the baseline gained 9 entries, and its own header says the list
+"should shrink over time and never grow". Net it fell 869 → 801 (77 unrelated references
+healed in the same run), but the 9 are a real addition. The alternative was falsifying
+nine records. If the Oracle prefers the rewrite, this is the line to reverse.
 
 ### Telemetry dataset
 

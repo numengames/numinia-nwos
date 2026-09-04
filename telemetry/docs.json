@@ -27,10 +27,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 7405,
+  "chars": 7416,
   "apparatus": false,
   "archived": false,
-  "tokens": 1630
+  "tokens": 1633
  },
  {
   "path": "CHANGELOG.md",
@@ -60,10 +60,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1324,
+  "chars": 1337,
   "apparatus": false,
   "archived": false,
-  "tokens": 325
+  "tokens": 330
  },
  {
   "path": "README.md",
@@ -511,10 +511,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 26528,
+  "chars": 26530,
   "apparatus": false,
   "archived": false,
-  "tokens": 7291
+  "tokens": 7292
  },
  {
   "path": "debt/DBT-004-url-lifecycle-unmanaged.md",
@@ -2139,10 +2139,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 30625,
+  "chars": 30691,
   "apparatus": false,
   "archived": false,
-  "tokens": 8594
+  "tokens": 8612
  },
  {
   "path": "missions/MIS-0122-fix-uid-rule.md",
@@ -2293,10 +2293,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 14818,
+  "chars": 14824,
   "apparatus": false,
   "archived": false,
-  "tokens": 4482
+  "tokens": 4485
  },
  {
   "path": "missions/MIS-0136-correct-deuda404-comment.md",
@@ -2391,11 +2391,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 8238,
+  "status": "in-progress",
+  "chars": 9659,
   "apparatus": false,
   "archived": false,
-  "tokens": 2137
+  "tokens": 2507
  },
  {
   "path": "missions/MIS-0146-normative-refoundation.md",
@@ -2407,39 +2407,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2631
- },
- {
-  "path": "missions/TEMPLATE-CHANGES.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "documentation",
-  "status": "active",
-  "chars": 15695,
-  "apparatus": true,
-  "archived": false,
-  "tokens": 4037
- },
- {
-  "path": "missions/TEMPLATE-EXAMPLE.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "done",
-  "chars": 4103,
-  "apparatus": true,
-  "archived": false,
-  "tokens": 1107
- },
- {
-  "path": "missions/TEMPLATE.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 5208,
-  "apparatus": true,
-  "archived": false,
-  "tokens": 1299
  },
  {
   "path": "operations/OPS-001-continuity.md",
@@ -2557,10 +2524,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 7303,
+  "chars": 7315,
   "apparatus": false,
   "archived": false,
-  "tokens": 1776
+  "tokens": 1782
  },
  {
   "path": "protocols/PRO-005-escalation.md",
@@ -2931,10 +2898,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 36211,
+  "chars": 37723,
   "apparatus": false,
   "archived": false,
-  "tokens": 9388
+  "tokens": 9773
  },
  {
   "path": "standards/STD-002-governance.md",
@@ -3056,6 +3023,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 3600
+ },
+ {
+  "path": "templates/README.md",
+  "dir": "templates",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 2599,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 642
  },
  {
   "path": "templates/STD-TEMPLATE.md",
