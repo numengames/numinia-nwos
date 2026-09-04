@@ -2931,10 +2931,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 80548,
+  "chars": 36211,
   "apparatus": false,
   "archived": false,
-  "tokens": 22165
+  "tokens": 9388
  },
  {
   "path": "standards/STD-002-governance.md",
