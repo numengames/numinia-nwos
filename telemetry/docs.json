@@ -605,6 +605,17 @@
   "tokens": 1005
  },
  {
+  "path": "debt/DBT-015-core-45-guard-condemns-withdrawn.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 3272,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 911
+ },
+ {
   "path": "decisions/ADR-001-the-archive.md",
   "dir": "decisions",
   "series": "decisions",
@@ -2425,10 +2436,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 10360,
+  "chars": 13339,
   "apparatus": false,
   "archived": false,
-  "tokens": 2631
+  "tokens": 3496
  },
  {
   "path": "missions/MIS-0147-document-relations.md",
@@ -2986,10 +2997,10 @@
   "series": null,
   "type": "documentation",
   "status": "draft",
-  "chars": 4658,
+  "chars": 5773,
   "apparatus": true,
   "archived": false,
-  "tokens": 1186
+  "tokens": 1481
  },
  {
   "path": "templates/SYS-TEMPLATE.md",
