@@ -199,6 +199,23 @@ const LINK_RE = /\[[^\]]*\]\(([^)\s#]+\.md)(?:#[^)]*)?\)/g;
 // rarely include the folder, exactly per D-008/D-024's own finding).
 const BARE_FILENAME_RE = /(?:^|[\s(`"'])((?:[\w-]+\/)*[\w][\w.-]*\.md)\b/g;
 
+/* A PLACEHOLDER is not a citation. "Copy this to missions/MIS-NNNN-slug.md"
+ * names a shape, not a document, and no document will ever have that name.
+ *
+ * MIS-145 v2 (2026-09-04). Before this, the guard could not tell the two
+ * apart, so the nine placeholder patterns already written across the corpus —
+ * MIS-NNN-english-slug.md, RPT-YYYY-MM-DD.md, YYYY_MM_DD-Title-vX.Y.Z.md and
+ * the rest — were silenced by adding them to the baseline one at a time. That
+ * works until you write a template library, at which point every mould in it
+ * documents its own destination and the baseline grows by two dozen entries
+ * that will never resolve by design.
+ *
+ * The baseline is for real breakage awaiting repair. A shape is not breakage.
+ * Recognising placeholders removes those nine entries and stops the class. */
+const PLACEHOLDER_RE = /(^|[^A-Za-z])(N{3,}|X{3,}|YYYY|MM|DD|PREFIX|SLUG|TITLE|vX\.Y\.Z)([^A-Za-z]|$)/;
+const isPlaceholder = (cited) =>
+  PLACEHOLDER_RE.test(cited) || /[<>{}]/.test(cited) || /\bslug\b/.test(cited);
+
 for (const rel of files) {
   const abs = path.join(ROOT, rel);
   const text = readFileSync(abs, 'utf8');
@@ -244,6 +261,7 @@ for (const rel of files) {
     const cited = m[1];
     const bare = path.basename(cited);
     if (bare === ownBase) continue;                // self-citation
+    if (isPlaceholder(cited)) continue;            // a shape, not a document
     if (seenFile.has(bare)) continue;
     seenFile.add(bare);
     if (basenames.has(bare)) continue;              // resolves, current corpus

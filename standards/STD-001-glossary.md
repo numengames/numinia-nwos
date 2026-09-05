@@ -241,17 +241,27 @@ from archaeology.
 
 | Series | Template | Notes |
 |---|---|---|
-| Missions | `templates/MIS-TEMPLATE` | The ten build-verified fields + Scope / Acceptance criteria / Closure |
+| Missions | `templates/MIS-TEMPLATE.md` | The ten build-verified fields + Scope / Acceptance criteria / Closure |
 | Standards | `templates/STD-TEMPLATE.md` | The five sections the header standard requires |
-| Protocols | `templates/PRO-TEMPLATE` | What an actor executes in a repeated situation |
-| Decisions | `templates/ADR-TEMPLATE` | Why something was chosen over the alternatives |
-| Debt | `templates/DBT-TEMPLATE` | What is known to be missing or wrong |
-| Reports | `templates/RPT-TEMPLATE` | What was observed, signed, and dated |
-| Operations | `templates/OPS-TEMPLATE` | What sustains the business |
-| Canon | `templates/CAN-TEMPLATE` | What the system IS |
-| Blueprints | `templates/BLU-TEMPLATE` | What could be, and the gap it attacks |
-| System | `templates/SYS-TEMPLATE` | How the system works today |
-| Guilds | `templates/GLD-TEMPLATE` | Guild charter — identity and operational profile |
+| Protocols | `templates/PRO-TEMPLATE.md` | What an actor executes in a repeated situation |
+| Decisions | `templates/ADR-TEMPLATE.md` | Why something was chosen over the alternatives |
+| Debt | `templates/DBT-TEMPLATE.md` | What is known to be missing or wrong |
+| Reports | `templates/RPT-TEMPLATE.md` | What was observed, signed, and dated |
+| Operations | `templates/OPS-TEMPLATE.md` | What sustains the business |
+| Canon | `templates/CAN-TEMPLATE.md` | What the system IS |
+| Blueprints | `templates/BLU-TEMPLATE.md` | What could be, and the gap it attacks |
+| System | `templates/SYS-TEMPLATE.md` | How the system works today |
+| Infra | `templates/INF-TEMPLATE.md` | The repository's own machinery, as configured |
+| Guilds | `templates/GLD-TEMPLATE.md` | Guild charter — identity and operational profile |
+
+Every mould is a `.md` file since the template library was rebuilt on
+2026-09-04. Twelve of them were not,
+which made every markdown tool in the repository — the reference resolver
+included — blind to the documents the whole corpus is copied from.
+
+`node scripts/check-templates.mjs` verifies each mould against the contract of
+the series it scaffolds: destination licence, type, lifecycle, ring registry,
+SemVer and context card. It also fails when a registered series has no mould.
 
 The agent scaffold lives in `agents/_template/` (a directory scaffold, not a
 single document; `agents/` is outside the filename scheme — the prefix register
