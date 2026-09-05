@@ -2436,10 +2436,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 13339,
+  "chars": 14705,
   "apparatus": false,
   "archived": false,
-  "tokens": 3496
+  "tokens": 3861
  },
  {
   "path": "missions/MIS-0147-document-relations.md",
@@ -2451,17 +2451,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1406
- },
- {
-  "path": "missions/MIS-0149-agent-roster-page.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 3974,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 947
  },
  {
   "path": "missions/MIS-0149-ursa-git-cold-start-bootstrap.md",
@@ -2506,6 +2495,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1567
+ },
+ {
+  "path": "missions/MIS-0153-agent-roster-page.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4615,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1115
  },
  {
   "path": "operations/OPS-001-continuity.md",
@@ -2810,10 +2810,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 15517,
+  "chars": 16737,
   "apparatus": false,
   "archived": false,
-  "tokens": 3772
+  "tokens": 4279
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
