@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "99d0183",
-  "corpus_hash": "9c760425f5595953141221162ad2fcddcd5a0f27b0f385a90cbc9b7d7ab54cfb",
+  "head": "1b82186",
+  "corpus_hash": "3a164f3dce176b05ea9d4a4818dce192d6116865762b066a0412e117c7c74f6f",
   "root_dirty": 0,
-  "measured_at": "2026-09-05T10:02:39Z",
+  "measured_at": "2026-09-05T10:15:11Z",
   "families": [
     "corpus",
     "series",
@@ -357,14 +357,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 516139,
+      "value": 516582,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "missions": 265881,
-        "standards": 66425,
+        "missions": 266371,
+        "standards": 66378,
         "canon": 41567,
         "agents": 25317,
         "operations": 21347,
@@ -386,11 +386,11 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 147748,
+        "active": 147447,
         "done": 127113,
-        "draft": 68277,
+        "draft": 68531,
         "todo": 54487,
-        "in-progress": 40685,
+        "in-progress": 41175,
         "frozen": 34004,
         "closed": 18598,
         "(none)": 12171,
@@ -401,7 +401,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 51.51,
+      "value": 51.56,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -730,14 +730,14 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 486
+          "3": 500
         },
         "MIS": {
           "3": 1263,
           "4": 56
         },
         "CAN": {
-          "3": 127
+          "3": 128
         },
         "ADR": {
           "3": 480

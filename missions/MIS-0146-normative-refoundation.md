@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.5.0"
+version: "1.6.0"
 created: "2026-09-03T17:46:00Z"
 created_source: "git:eb91cbb"
 created_confidence: exact
-updated: "2026-09-05T13:20:00+02:00"
+updated: "2026-09-05T14:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [standards, governance, contradictions, compression, refoundation]
@@ -411,6 +411,43 @@ duplicated.
 
 `STD-002` goes to v5.0.0. Removing obligations is a major by `CORE-23`, even
 when the obligations survive elsewhere.
+
+### Batch 2, done — authority and versions
+
+Four sections of `STD-002` became pointers, and two rules that existed nowhere
+were written.
+
+**The thresholds were stated three times.** `STD-001` §2.1 defines them and
+argues why they are thresholds and not properties of a file; `STD-002`
+§Permissions by series listed them again; `CORE-03` cites them without
+defining them. The glossary's version is the one that survives, because it is
+the only one that explains itself. The other two point at it.
+
+**`CORE-64` did not exist.** `STD-009` §6 said which number moves for which
+kind of change, and never said who may move it. `STD-002` did — patch to a
+digital agent, minor to an Archon, major to an Oracle alone — but as prose in a
+document that was losing its authority sections. It is now a rule with a
+number.
+
+**`CORE-65` did not exist either.** `STD-009` §3 says what each *change*
+costs; it never said what each *rank* may do. That was `STD-002` §Roles, and it
+was the section the Oracle marked for removal. Removing it without writing
+`CORE-65` would have deleted the rule, not moved it.
+
+**The twelve folders were listed in both places.** `STD-002` gave each one a
+sentence; the glossary gives each one an **IS / IS NOT** test. Only one of
+those settles an argument about where a document belongs.
+
+The pair shrank by 30 words: `STD-002` lost 202, `STD-009` gained 172. Without
+the amendment note `STD-002` would have lost 320. The note is the cost of
+`CORE-04` — an override must name what it overrides — and it is charged once
+per operation, not per rule.
+
+Cumulative across batches 1 and 2: the pair is up 174 words and down four
+duplicated sections. The word count is the wrong measure and this mission
+should stop quoting it as a goal; the measure that moved is that precedence,
+versioning authority, rank permissions and the folder taxonomy now each have
+exactly one home.
 
 ### Ratification is the Oracle's
 

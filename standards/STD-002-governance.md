@@ -4,11 +4,11 @@ id: "STD-002"
 uid: ""
 type: documentation
 status: active
-version: "5.0.0"
+version: "6.0.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-05T13:10:00+02:00"
+updated: "2026-09-05T14:10:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [governance, roles, permissions, thresholds, versioning, precedence, relations]
@@ -57,23 +57,9 @@ is what the document says, not how it changes.
 
 ## Roles
 
-**Oracles** hold maximum authority. They approve structural change, seal the
-canon, and are the only ones who promote an artifact to stable or break it.
+What each rank may do to a document is `CORE-65`. Who holds which rank is the
+canon of roles, `CAN-004`. Neither is restated here.
 
-**Archons** lead other agents and hold structural responsibility over the
-system, not only over their own work. They authorise development iterations
-below the stable line.
-
-**Digital agents** write their own files and their assigned missions, and move
-patch versions.
-
-**Custodians** manage documents, indexes and the changelog. **Automation**
-writes reports only.
-
-Rank is defined by the canon of roles, not here. This document only says what
-each rank may do to a document.
-
----
 
 ## What a document can be
 
@@ -95,15 +81,9 @@ binding. That is what `superseded` and `withdrawn` are for.
 ## Permissions by series
 
 One rule covers every series: **a document's change state says who may touch
-it, and no series overrides it.**
-
-- **open** — normal pull request. Everything not listed below.
-- **closed** — substance is not reopened; form may be corrected, and the commit
-  says so. Done missions, reports.
-- **governed** — a decision record, or a pull request an Oracle approves.
-  Standards, protocols, decisions.
-- **sealed** — an Oracle's signature and a recorded decision; the previous
-  version stays reachable. Canon.
+it, and no series overrides it.** The four states — `open`, `closed`,
+`governed`, `sealed` — and what each costs are defined in the glossary,
+`STD-001` §The series. Their order of precedence is `CORE-03`.
 
 Two exceptions, both deliberate. Any agent may open a debt entry without
 approval, because naming a gap is not a change to the system, and requiring
@@ -112,44 +92,12 @@ in `history/` is ever deleted, by anyone, at any state.
 
 ### What each series answers
 
-Every folder answers one question. If your document does not answer that
-folder's question, it belongs in another folder.
+Every folder answers one question, and if a document does not answer that
+folder's question it belongs in another folder. Which question each folder
+answers is defined in the glossary, `STD-001` §The series, with the **IS / IS
+NOT** test for each — including the `standards` ⟷ `protocols` boundary, which
+is the mechanism and not the topic.
 
-**canon/** — what is foundational. **standards/** — what an artifact must
-comply with. **protocols/** — what an actor executes. **system/** — how it
-works today. **agents/** — who acts, and with what authority. **guilds/** —
-how actors group.
-
-**missions/** — what work is promised or done. **decisions/** — why something
-was chosen. **blueprints/** — what could exist. **reports/** — what was
-observed, and when. **operations/** — what sustains the business. **debt/** —
-what we know is missing. **history/** — what was tried and replaced.
-
-The line between a standard and a protocol is the mechanism, not the topic: a
-standard is complied with, a protocol is executed.
-
-The folder is a filing decision; the `type:` field is a declared genre. They
-must agree. When they disagree the document moves — you do not edit its genre
-to match the shelf it landed on.
-
-Citing a document does not change what you are. A standard that cites canon is
-still a standard, and a mission that cites a standard does not become one.
-
----
-
-### What is actually enforced
-
-Nothing here is immutable, and this document does not claim otherwise.
-
-The `protect-main` ruleset is active on the default branch: pull requests,
-required status checks, linear history, no force-push, no deletion, zero bypass
-actors. Verified against the ruleset API on 2026-09-03.
-
-What the machine **cannot** enforce is *who approves*. Oracle, Archon and agent
-are ranks the platform does not distinguish. Those rules are a convention held
-by people. The branch protection is not.
-
----
 
 ## The rules
 
@@ -222,24 +170,10 @@ relation from a shared folder, author, or subject.
 
 ## Versioning authority
 
-We use **Semantic Versioning 2.0.0** ([semver.org](https://semver.org)). We did
-not invent it and we do not redefine it here: `MAJOR.MINOR.PATCH`, where MAJOR
-breaks compatibility, MINOR adds it, PATCH fixes without changing it. Read the
-spec for what each number means. This section only says **who may move which
-number.**
-
-**Digital agents move the patch.** A fix that changes nothing anyone depends on.
-
-**Archons move the minor.** A new capability, backwards compatible. This is the
-ordinary development iteration.
-
-**Oracles move the major**, and only Oracles. A break is a promise withdrawn,
-and it costs a signature. Promotion to `1.0.0` is a major move: it declares the
-artifact production-ready.
-
-Every artifact starts at `0.1.0`, no exceptions.
-
----
+Which number moves is `CORE-22` and `CORE-23`. Who may move it is `CORE-64`: a
+digital agent moves the patch, an Archon moves the minor, an Oracle moves the
+major. All in the core rules standard, which also records that we adopt
+Semantic Versioning 2.0.0 as published.
 
 ## Human approval scale
 
@@ -302,3 +236,27 @@ standard did not.
 This is a removal of obligations from this document, which `CORE-23` makes a
 major. The obligations are not gone — they are stated once, where they can be
 cited by number.
+
+## Amendment, 2026-09-05 (second)
+
+Four more sections were emptied, in the same operation as the first two.
+
+§Versioning authority restated Semantic Versioning and named who moves which
+number. The adoption and the numbers are `CORE-21`, `CORE-22` and `CORE-23`;
+who may move them had no rule anywhere and became `CORE-64`.
+
+§Permissions by series listed the four change thresholds. The glossary defines
+them in more detail — including the reason they are thresholds and not
+properties of a file — so the definition stays there and this document points
+at it. The two exceptions are not stated anywhere else and stay here: a debt
+entry needs no approval, and nothing in `history/` is deleted.
+
+§What each series answers listed twelve folders in two lines. The glossary
+gives each one an **IS / IS NOT** test, which is the part that settles an
+argument.
+
+§Roles said what each rank may do to a document. That became `CORE-65`. Who
+holds a rank was already the canon's, and this document said so.
+
+Three thresholds tables existed in this corpus — here, in the glossary, and in
+the core rules. Two are now pointers.
