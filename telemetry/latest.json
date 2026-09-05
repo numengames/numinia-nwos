@@ -1,6 +1,6 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "746545c+index",
+  "head": "ae8f988",
   "corpus_hash": "8d007efde6ed8cdf3c0e4a4013bdc5c207f3fba633a24f89ef512ea06c1b587f",
   "root_dirty": 0,
   "measured_at": "2026-09-05T06:03:21Z",

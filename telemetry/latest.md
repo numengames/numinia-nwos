@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `746545c+index`  · corpus_hash: `8d007efde6ed8cdf…`  · measured_at: 2026-09-05T06:03:21Z  · root_dirty: 0
+- head: `ae8f988`  · corpus_hash: `8d007efde6ed8cdf…`  · measured_at: 2026-09-05T06:03:21Z  · root_dirty: 0
 
 ## corpus
 
