@@ -1,7 +1,7 @@
 {
   "$comment": "URL manifest — D-028/ADR-033. Every public address the site published at the last accepted build. check-url-lifecycle.mjs fails when one of these stops being built without a redirect in web/astro.config.mjs. Regenerate deliberately with --write-baseline, in the same PR as the deletion that changed it, never to silence a failure.",
-  "generated": "2026-09-04",
-  "count": 675,
+  "generated": "2026-09-05",
+  "count": 678,
   "urls": [
     "/",
     "/agent",
@@ -163,6 +163,7 @@
     "/corpus/debt/dbt-011-cross-repo-consumers-broken",
     "/corpus/debt/dbt-012-c005-legal-compliance-ledger",
     "/corpus/debt/dbt-013-design-system-filename-not-frozen",
+    "/corpus/debt/dbt-014-design-kit-version-path-coupling",
     "/corpus/decisions",
     "/corpus/decisions.md",
     "/corpus/deuda-404",
@@ -288,6 +289,7 @@
     "/decisiones/adr-035",
     "/decisiones/adr-036",
     "/decisiones/adr-037",
+    "/decisiones/adr-038",
     "/decisiones/dec-001",
     "/decisions",
     "/decisions/adr-001",
@@ -308,6 +310,7 @@
     "/decisions/adr-035",
     "/decisions/adr-036",
     "/decisions/adr-037",
+    "/decisions/adr-038",
     "/decisions/dec-001",
     "/diseno",
     "/es",
