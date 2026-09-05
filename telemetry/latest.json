@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "1bd2ade",
-  "corpus_hash": "4a42d4d9849cdbf0c60b74e8e1557afba94d0ad05db7026f01b785c6b6b3b670",
+  "head": "746545c+index",
+  "corpus_hash": "8d007efde6ed8cdf3c0e4a4013bdc5c207f3fba633a24f89ef512ea06c1b587f",
   "root_dirty": 0,
-  "measured_at": "2026-09-04T20:01:37Z",
+  "measured_at": "2026-09-05T06:03:21Z",
   "families": [
     "corpus",
     "series",
@@ -68,7 +68,7 @@
         "blueprints": 3,
         "canon": 7,
         "debt": 2,
-        "decisions": 10,
+        "decisions": 11,
         "guilds": 8,
         "history": 2,
         "infra": 1,
@@ -77,7 +77,7 @@
         "protocols": 7,
         "reports": 2,
         "standards": 10,
-        "system": 4,
+        "system": 3,
         "templates": 2
       },
       "unit": "documents",
@@ -86,11 +86,11 @@
     "corpus.docs_by_type": {
       "value": {
         "(none)": 8,
-        "adr": 10,
+        "adr": 11,
         "agent": 33,
         "blueprint": 3,
         "charter": 8,
-        "documentation": 27,
+        "documentation": 26,
         "legal": 2,
         "meta": 3,
         "mission": 149,
@@ -154,8 +154,8 @@
           "pct": 100
         },
         "decisions": {
-          "registered": 10,
-          "total": 10,
+          "registered": 11,
+          "total": 11,
           "apparatus": 0,
           "archived": 0,
           "pct": 100
@@ -210,8 +210,8 @@
           "pct": 100
         },
         "system": {
-          "registered": 4,
-          "total": 4,
+          "registered": 3,
+          "total": 3,
           "apparatus": 0,
           "archived": 0,
           "pct": 100
@@ -242,9 +242,9 @@
     },
     "missions.by_status": {
       "value": {
-        "done": 63,
+        "done": 64,
         "frozen": 38,
-        "in-progress": 14,
+        "in-progress": 13,
         "in-review": 2,
         "todo": 32
       },
@@ -357,26 +357,26 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 493797,
+      "value": 493772,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "missions": 260905,
-        "standards": 64501,
+        "missions": 261381,
+        "standards": 65864,
         "canon": 41567,
         "agents": 25317,
         "operations": 21347,
-        "system": 12980,
+        "decisions": 13458,
         "": 12353,
-        "decisions": 12300,
         "protocols": 11834,
+        "system": 9778,
         "reports": 8906,
         "history": 7274,
         "blueprints": 5596,
         "guilds": 3014,
-        "debt": 2258,
+        "debt": 2438,
         "templates": 1816,
         "infra": 1511,
         ".github": 318
@@ -386,11 +386,11 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 135213,
-        "done": 120601,
-        "draft": 66581,
+        "active": 138739,
+        "done": 122007,
+        "draft": 62554,
         "todo": 52793,
-        "in-progress": 41282,
+        "in-progress": 40352,
         "frozen": 34004,
         "closed": 17613,
         "(none)": 11480,
@@ -402,7 +402,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 52.84,
+      "value": 52.94,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -455,11 +455,11 @@
         "author": 219,
         "id": 217,
         "tags": 213,
-        "created_source": 208,
         "uid": 208,
-        "created_confidence": 207,
+        "created_source": 207,
+        "created_confidence": 206,
         "territory": 182,
-        "guild": 171,
+        "guild": 172,
         "assigned_to": 149,
         "completed": 149,
         "effort": 149,
@@ -474,8 +474,8 @@
         "agent": 33,
         "paths": 28,
         "requires_oracle_approval": 27,
-        "subtype": 17,
         "related": 16,
+        "subtype": 16,
         "context": 14,
         "former_id": 13,
         "former_id_note": 13,
@@ -486,8 +486,8 @@
         "extraction_note": 9,
         "threshold": 9,
         "superseded_by": 8,
+        "absorbs": 6,
         "divergence_log": 6,
-        "absorbs": 5,
         "applies_to": 4,
         "blocked_by": 4,
         "in_review_at": 4,
@@ -672,22 +672,22 @@
     },
     "provenance.protocol_anchor": {
       "value": {
-        "anchored": 101,
-        "not-oracle-state": 48
+        "anchored": 102,
+        "not-oracle-state": 47
       },
       "unit": "missions",
       "definition": "P-003 rule as protocol-anchor.py applies it: status ∈ {done,frozen,cancelled,backlog} is Oracle-set → anchored if owner=oracle, anchored-weak if another owner, anchored-no-owner if none; other states not-oracle-state. The CYCLE_* timestamp evidence it also used lived in /tmp and is not reproducible"
     },
     "contradictions.status_vocabulary_used": {
       "value": {
-        "active": 75,
-        "draft": 20,
+        "active": 77,
+        "draft": 18,
         "closed": 5,
         "superseded": 2,
         "frozen": 38,
         "todo": 32,
-        "done": 63,
-        "in-progress": 14,
+        "done": 64,
+        "in-progress": 13,
         "in-review": 2,
         "draft          # draft|active|superseded|withdrawn   (a standard opens at draft)": 1
       },
@@ -733,17 +733,17 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 409
+          "3": 428
         },
         "MIS": {
-          "3": 1236,
+          "3": 1238,
           "4": 50
         },
         "CAN": {
           "3": 126
         },
         "ADR": {
-          "3": 474
+          "3": 481
         },
         "OPS": {
           "3": 34
@@ -753,7 +753,7 @@
           "4": 20
         },
         "DBT": {
-          "3": 113
+          "3": 112
         },
         "PRO": {
           "3": 309
@@ -762,7 +762,7 @@
           "3": 37
         },
         "SYS": {
-          "3": 50
+          "3": 55
         },
         "BLU": {
           "3": 55
@@ -890,7 +890,7 @@
       "definition": "docs_total − docs_con_frontmatter"
     },
     "legacy.referencias_textuales_total": {
-      "value": 2112,
+      "value": 2121,
       "unit": "mentions",
       "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
     },
@@ -914,7 +914,7 @@
         ],
         [
           "ADR-004",
-          44
+          47
         ],
         [
           "MIS-066",
@@ -942,8 +942,8 @@
         },
         "decisions": {
           "esquema": "ADR/DEC-NNN",
-          "con": 10,
-          "total": 10,
+          "con": 11,
+          "total": 11,
           "aparato": 0,
           "pct": 100
         },
@@ -1046,10 +1046,10 @@
     },
     "legacy.misiones_por_status": {
       "value": {
-        "done": 63,
+        "done": 64,
         "frozen": 38,
         "todo": 32,
-        "in-progress": 14,
+        "in-progress": 13,
         "in-review": 2,
         "draft": 1
       },
@@ -1058,7 +1058,7 @@
     },
     "legacy.guild_valores": {
       "value": {
-        "Alchemists": 81,
+        "Alchemists": 82,
         "Sentinels": 41,
         "Exegetes": 30,
         "Procurators": 19

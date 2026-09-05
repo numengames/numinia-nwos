@@ -598,11 +598,11 @@
   "dir": "debt",
   "series": "debt",
   "type": "documentation",
-  "status": "draft",
-  "chars": 2906,
+  "status": "active",
+  "chars": 3669,
   "apparatus": false,
   "archived": false,
-  "tokens": 825
+  "tokens": 1005
  },
  {
   "path": "decisions/ADR-001-the-archive.md",
@@ -713,6 +713,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 713
+ },
+ {
+  "path": "decisions/ADR-038-genre-map-is-government.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "active",
+  "chars": 4329,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1158
  },
  {
   "path": "guilds/alquimistas/GLD-001-charter.md",
@@ -2424,11 +2435,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-progress",
-  "chars": 3791,
+  "status": "done",
+  "chars": 5645,
   "apparatus": false,
   "archived": false,
-  "tokens": 930
+  "tokens": 1406
  },
  {
   "path": "missions/MIS-0149-agent-roster-page.md",
@@ -2711,10 +2722,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 8397,
+  "chars": 13949,
   "apparatus": false,
   "archived": false,
-  "tokens": 2122
+  "tokens": 3472
  },
  {
   "path": "standards/STD-003-platform-role-system.md",
@@ -2733,10 +2744,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 11695,
+  "chars": 11724,
   "apparatus": false,
   "archived": false,
-  "tokens": 3098
+  "tokens": 3111
  },
  {
   "path": "standards/STD-005-engineering-standards.md",
@@ -2825,17 +2836,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 3488
- },
- {
-  "path": "system/SYS-004-document-relations.md",
-  "dir": "system",
-  "series": "system",
-  "type": "documentation",
-  "status": "draft",
-  "chars": 14599,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 3202
  },
  {
   "path": "templates/README.md",
