@@ -2722,10 +2722,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 13949,
+  "chars": 12562,
   "apparatus": false,
   "archived": false,
-  "tokens": 3472
+  "tokens": 3019
  },
  {
   "path": "standards/STD-003-platform-role-system.md",
