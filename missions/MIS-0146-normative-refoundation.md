@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-09-03T17:46:00Z"
 created_source: "git:eb91cbb"
 created_confidence: exact
-updated: "2026-09-04T00:00:00Z"
+updated: "2026-09-05T10:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [standards, governance, contradictions, compression, refoundation]
@@ -207,6 +207,68 @@ principles — and three are the role structure the title promises.
 
 Both are `canon/`, sealed. **Neither was touched.** The finding is recorded for
 a ruling.
+
+## The third phase: ratify by batch, and empty what it replaces
+
+`STD-009` compresses 24 normative documents — 72,770 words — into 62 rules and
+2,705 words. That is 27x. The compression is only real if the source documents
+stop carrying the rules that moved: a digest that leaves its sources intact
+does not reduce the corpus, it duplicates it.
+
+So ratification and emptying are the same act, and they happen one section at
+a time. A section is not ratified until the documents it drew from cite it
+instead of restating it.
+
+### Why batches and not one pull request
+
+Fifteen source documents in one change is a diff nobody can review, and a
+revert that takes the whole refoundation with it. Each batch is a section of
+`STD-009`, its source documents, and one pull request. If a batch is wrong, it
+reverts alone.
+
+The switch already exists. `check-core-rules.mjs` reads `STD-009`'s own
+`status`: `active` enforces, anything else reports and the build passes. That
+was built before ratification and exercised in both positions. Ratification is
+an edit to a header, not to a script — and it is reversible in one line.
+
+### The batches
+
+| # | Section | Rules | Source documents to empty |
+|---|---|---|---|
+| 1 | §2 Precedence | `CORE-01`..`05` | `STD-002` |
+| 2 | §3 Authority · §6 Versions | `CORE-06`..`10`, `CORE-21`..`24` | `STD-002`, `STD-001` |
+| 3 | §4 Identity · §5 The header | `CORE-11`..`20` | `STD-001`, `STD-004` |
+| 4 | §7 Git · §12 Citation | `CORE-25`..`30`, `CORE-50`..`53` | `STD-005`, `PRO-013` |
+| 5 | §11 Archiving · §13 Secrets · §14 Licences | `CORE-45`..`49`, `CORE-54`..`60` | `PRO-010`, `CAN-005`, `STD-006` |
+
+### What leaves `STD-009` instead of being ratified
+
+Sixteen rules are in the wrong document. They are not law about the corpus; they
+are procedure about actors, or engineering about tooling.
+
+- **§8 Guards** (`CORE-31`..`35`) — how a guard is built and wired. That is
+  `STD-005`.
+- **§9 Work** (`CORE-36`..`41`) and **§10 Sessions** (`CORE-42`..`44`) — what
+  an actor executes, step by step. Those are `PRO-003` and `PRO-001`. A
+  standard is complied with; a protocol is executed.
+- **§15 Writing** (`CORE-61`..`62`) — `STD-007` is the plain-writing standard
+  and it has a guard.
+
+### The defect that must be fixed before any batch
+
+None of the 62 rules names a guard. The "How it is checked" column says things
+like *"compare the claim against `git log`"* — an instruction to a human, not
+a check. `CORE-31` states that a rule which does not break the build does not
+exist, and by its own test most of these rules do not exist yet.
+
+Every rule gets either a named script or an explicit `[MANUAL]` with a reason.
+That is batch 0, and nothing ratifies before it lands.
+
+### Ratification is the Oracle's
+
+Each batch ends with `STD-009` `status: active` for the sections it covers, and
+that edit is authorised by the Oracle, not by an agent. The digital agent
+prepares the batch, empties the sources, proves the guards green, and stops.
 
 ## Out of scope
 
