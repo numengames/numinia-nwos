@@ -3,12 +3,12 @@ id: "DBT-014"
 uid:
 title: "Design System kit path is derived from the document version, so a version bump breaks the generator"
 type: documentation
-status: draft
-version: "1.0.0"
+status: active
+version: "1.1.0"
 created: "2026-09-04T22:30:00+02:00"
 created_source: "git:aa8ad06"
 created_confidence: exact
-updated: "2026-09-04T22:30:00+02:00"
+updated: "2026-09-05T09:15:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -69,10 +69,7 @@ without manual directory creation.
 
 ## State
 
-Open — `status: draft` is the lifecycle value for an unresolved entry in this
-series; `DBT-013` uses `closed` because it is resolved.
-
-The generator works at `5.1.0`; it was also broken outright before this
+Open. The generator works at `5.1.0`; it was also broken outright before this
 branch — it searched for the old dated `Sistema_de_Diseno-vN.N.N` filename
 shape that PR #229 had already renamed away, so it had thrown on every run
 since. That part is fixed: it now reads `standards/STD-008-design-system.md`
