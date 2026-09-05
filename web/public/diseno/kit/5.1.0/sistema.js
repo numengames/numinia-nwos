@@ -1,4 +1,4 @@
-/* GENERADO de 2026_08_18-Sistema_de_Diseno-v5.1.0.md — Sistema de Diseño · v5.1.0 — no editar aquí: la fuente es el .md */
+/* GENERADO de STD-008-design-system.md — Sistema de Diseño · v5.1.0 — no editar aquí: la fuente es el .md */
 /* Sistema · tecleo (01) y revelado (02), implementación de referencia accesible */
 const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
 function tecleo(el, ms = 22){

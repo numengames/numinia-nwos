@@ -4,11 +4,11 @@ uid: ""
 title: "Agent Session Protocol — open, monitor, close"
 type: protocol
 status: active
-version: "0.4.0"
+version: "0.5.0"
 created: "2026-04-08T06:02:27Z"
 created_source: "git:a5b6a0d"
 created_confidence: exact
-updated: "2026-09-04T00:30:00+02:00"
+updated: "2026-09-04T22:05:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [protocol, briefing, startup, session, close, context, mandatory]
@@ -52,11 +52,45 @@ STEP 3.5 — If starting a new mission:
   → Apply the mission protocol's briefing before any execution
 
 STEP 4 — Context (only if the mission requires it):
-  → The specific protocol in protocols/
+  → The specific protocol in protocols/ — the mission names it
+  → If the mission writes or moves a document: the table in §1.1 below
   → canon/ only for an explicit philosophical question
 
 BEGIN OPERATIONS.
 ```
+
+### 1.1 Writing a document: what to read, and only that
+
+Ten questions stand between an agent and a conforming document. Each one
+has exactly one answer, in one section. Read the row, not the document —
+opening all five in full costs roughly ten times as much and answers the
+same ten questions.
+
+| The question | Document | Section |
+|---|---|---|
+| Which folder does it go in? | `STD-001` | §2.2 What each series holds |
+| Which identifier does it take? | `STD-001` | §4.1 Prefix per series |
+| What is the file called? | `PRO-010` | §3 Names |
+| Which frontmatter fields are required? | `STD-004` | §1 The three rings |
+| Which `type` value? | `STD-004` | §4 The `type` vocabulary |
+| Which `status`, and what may follow it? | `STD-004` | §5 Status lifecycles |
+| Does it need a context card? | `STD-004` | §9 The context card |
+| Which licence? | `CAN-005` | §2 Which license each piece gets |
+| How is it versioned? | `PRO-010` | §4 Documentary semantic versioning |
+| How is the commit written? | `STD-005` | ARC-06 commit convention |
+
+Sections are named as well as numbered on purpose: a number moves, a
+title survives the move.
+
+**Two of these five are not ratified.** `PRO-010` and `STD-005` are
+`draft`. They are the only written answer to their questions, and they
+are cited as binding across the corpus, so an agent follows them — but
+an agent should know it is following a document that does not yet claim
+authority, rather than discover it later.
+
+**When a row is silent, ask.** A question this table does not answer is
+not an invitation to invent an answer; it is a gap, and gaps are
+escalated, not filled.
 
 **Minimum under pressure:** pull, SOUL, OPERATOR, active missions, briefing if
 new mission. These five are the inviolable minimum; without them there is no

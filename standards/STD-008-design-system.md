@@ -7,7 +7,7 @@ subtype: standard
 status: draft
 version: "5.1.0"
 created: "2026-08-18T13:41:01Z"
-updated: "2026-09-03T17:20:00Z"
+updated: "2026-09-04T22:20:00+02:00"
 author: "oracle"
 owner: "oracle"
 registration: registered
@@ -1186,205 +1186,17 @@ A value outside §19.3 MUST NOT be invented.
 
 ### 19.3 Canonical tokens (W3C DTCG)
 
-This block is the source; the kit also distributes it as `kit/sistema.tokens.json`, generated at packaging time.
+The tokens are not written here. They live in
+`web/public/diseno/kit/5.1.0/sistema.tokens.json`, published with a sha256
+digest in `kit/manifest.json`, and any consumer reads them from there.
 
-```json
-{
-  "$description": "Numen Games · Sistema de Diseño · v5.0.0 · Solar 40 / Steam 40 / Cyber 20 · Registros: Umbral, Velo, Low-poly, Píxel",
-  "color": {
-    "$type": "color",
-    "marca": {
-      "verdemar": { "$value": "#A6DAD5" }, "turquesa": { "$value": "#018EA1" },
-      "ambar": { "$value": "#EFA517" }, "arena": { "$value": "#F9EBDC" },
-      "coral": { "$value": "#F35059" }, "grana": { "$value": "#D33440" }
-    },
-    "texto-sobre-claro": {
-      "turquesa": { "$value": "#016E7D" }, "grana": { "$value": "#B02330" }, "ambar": { "$value": "#7A5100" },
-      "verdemar": { "$value": "#1F6B5F" }
-    },
-    "interactivo": {
-      "$description": "Rellenos de acción con texto claro · la interacción oscurece (§3.4, §9.1)",
-      "fondo": { "$value": "#017C8D" }, "hover": { "$value": "#016E7D" }, "activo": { "$value": "#015866" },
-      "destructivo-hover": { "$value": "#B02330" }
-    },
-    "enlace": { "nocturno": { "$value": "#A6DAD5" }, "diurno": { "$value": "#016E7D" } },
-    "datos": {
-      "$description": "Paleta de datos §3.8 · máx. 6 series",
-      "categorica": { "$value": ["#018EA1", "#EFA517", "#A6DAD5", "#D33440", "#8FC46B", "#8A7D72"] },
-      "secuencial": { "$value": ["#14110F", "#016E7D", "#018EA1", "#A6DAD5", "#F9EBDC"] },
-      "divergente": { "$value": ["#D33440", "#8A7D72", "#018EA1"] }
-    },
-    "nocturno": {
-      "fondo-base": { "$value": "#14110F" }, "fondo-superficie": { "$value": "#1E1A17" },
-      "fondo-elevada": { "$value": "#292420" }, "linea-tenue": { "$value": "#241F1B" },
-      "linea-fuerte": { "$value": "#3A332D" }, "texto-primario": { "$value": "#F9EBDC" },
-      "texto-secundario": { "$value": "#C4B5A6" }, "texto-terciario": { "$value": "#8A7D72" }
-    },
-    "diurno": {
-      "fondo-base": { "$value": "#F9EBDC" }, "fondo-superficie": { "$value": "#FDF6EE" },
-      "tinte-confirmacion": { "$value": "#EFE9DB" }, "tinte-aviso": { "$value": "#F8D8CC" },
-      "tinte-critico": { "$value": "#F4D5C9" }, "tinte-interactivo": { "$value": "#DBE0D5" },
-      "linea-tenue": { "$value": "#E2D3C2" },
-      "texto-primario": { "$value": "#14110F" }, "texto-secundario": { "$value": "#4A423B" },
-      "texto-terciario": { "$value": "#6E6259" }
-    },
-    "rareza": {
-      "pobre":      { "$value": "#F9EBDC", "$extensions": { "numen": { "diurnoTexto": "#6E6259", "alias": "arena" } } },
-      "comun":      { "$value": "#8A7D72", "$extensions": { "numen": { "diurnoTexto": "#5A4F45", "alias": "ceniza" } } },
-      "poco-comun": { "$value": "#8FC46B", "$extensions": { "numen": { "diurnoTexto": "#356C19" } } },
-      "raro":       { "$value": "#5D9BD6", "$extensions": { "numen": { "diurnoTexto": "#2E6BB0" } } },
-      "epico":      { "$value": "#A98BE0", "$extensions": { "numen": { "diurnoTexto": "#6B44B8" } } },
-      "legendario": { "$value": "#EFA517", "$extensions": { "numen": { "diurnoTexto": "#7A5100", "alias": "ambar", "halo": "0 0 12px rgba(239,165,23,.25)" } } }
-    }
-  },
-  "fontFamily": {
-    "$type": "fontFamily",
-    "sans": { "$value": ["Geist", "Inter", "Aptos", "Segoe UI", "Arial", "sans-serif"] },
-    "mono": { "$value": ["Geist Mono", "Consolas", "Courier New", "monospace"] },
-    "serif": { "$value": ["Alegreya", "Georgia", "serif"], "$description": "Tercera voz · solo libro y códex (§4.6) [EXTENSIÓN — validar]" },
-    "pixel": { "$value": ["Pixelify Sans", "Geist", "sans-serif"], "$description": "Solo registro píxel: diálogo, display de escena, HUD" }
-  },
-  "fontSize": {
-    "$type": "dimension",
-    "display-xl": { "$value": "4.300rem" }, "display-l": { "$value": "3.583rem" },
-    "display-m": { "$value": "2.986rem" }, "titulo-l": { "$value": "2.488rem" },
-    "titulo-m": { "$value": "2.074rem" }, "titulo-s": { "$value": "1.728rem" },
-    "cuerpo-l": { "$value": "1.440rem" }, "cuerpo-m": { "$value": "1rem" },
-    "cuerpo-s": { "$value": "0.875rem" }, "etiqueta": { "$value": "0.750rem" }
-  },
-  "space": {
-    "$type": "dimension",
-    "100": { "$value": "4px" }, "200": { "$value": "8px" }, "300": { "$value": "12px" },
-    "400": { "$value": "16px" }, "500": { "$value": "24px" }, "600": { "$value": "32px" },
-    "700": { "$value": "48px" }, "800": { "$value": "64px" }, "900": { "$value": "96px" },
-    "1000": { "$value": "128px" }
-  },
-  "borderRadius": { "$type": "dimension", "0": { "$value": "0px" }, "control": { "$value": "6px" }, "marco": { "$value": "8px" }, "completo": { "$value": "9999px" } },
-  "duration": {
-    "$type": "duration",
-    "instante": { "$value": "120ms" }, "corto": { "$value": "200ms" },
-    "medio": { "$value": "320ms" }, "largo": { "$value": "560ms" },
-    "tecleo-caracter": { "$value": "22ms" }, "cursor": { "$value": "1000ms" },
-    "puntos-espera": { "$value": "900ms" }, "pulso": { "$value": "2400ms" },
-    "fase-lunar": { "$value": "1400ms" }, "fundido-fase": { "$value": "240ms" }, "barrido": { "$value": "8000ms" }, "trazo": { "$value": "1600ms" },
-    "escalonado": { "$value": "80ms" }
-  },
-  "cubicBezier": { "$type": "cubicBezier", "ciclo": { "$value": [0.2, 0, 0, 1] } },
-  "asset": {
-    "logo-escarabajo": { "$value": "Khepri_Logo.svg" }, "logo-escarabajo-ng": { "$value": "Khepri_NG_Logo.svg" },
-    "logo-ng": { "$value": "NG_Logo.svg" }, "word-horizontal": { "$value": "Numen_Games_Horizontal_Word.svg" },
-    "word-vertical": { "$value": "Numen_Games_Vertical_Word.svg" }, "word-numen": { "$value": "Numen_Word.svg" },
-    "word-numinia": { "$value": "Numinia_Word.svg" },
-    "glifo-space": { "$value": "marca/glifo-space.svg" },
-    "glifo-people": { "$value": "marca/glifo-people.svg" },
-    "glifo-connect": { "$value": "marca/glifo-connect.svg" },
-    "plantilla-factura": { "$value": "../plantillas/2026_08_03-Plantilla_Factura-v1.0.0.html" },
-    "fuente-sans": { "$value": "fonts/Geist-Variable.woff2" }, "fuente-mono": { "$value": "fonts/GeistMono-Variable.woff2" },
-    "textura-normal-3d": { "$value": "textura-circuito-normal.png" }, "textura-css": { "$value": "textura-relieve-nocturno-768.webp" },
-    "textura-hq": { "$value": "textura-relieve-nocturno.png" }, "textura-alpha": { "$value": "textura-relieve-alpha.webp" }
-  },
-  "pixel": {
-    "$description": "Registro píxel y guía de producción · §2.4, §3.7, §4.5, §5.1, §9.6, §10.4, §13.9",
-    "paleta-pixel16": { "$value": ["#14110F","#1E1A17","#292420","#3A332D","#8A7D72","#C4B5A6","#F9EBDC","#A6DAD5","#018EA1","#016E7D","#EFA517","#7A5100","#F35059","#D33440","#B02330","#8FC46B"] },
-    "modo-color": { "$value": "indexed" },
-    "dominancia-neutral-min": { "$value": "60%" },
-    "dialogo-excluidos": { "$value": ["#D33440"] },
-    "rejillas": { "$value": [12, 24, 48] },
-    "escalas": { "$value": [2, 3, 4, 6, 8] },
-    "interpolacion": { "$value": "nearest-neighbor" },
-    "coordenadas": { "$value": "integer-only" },
-    "contorno": { "$value": "#14110F" },
-    "luz": { "$value": "top-left" },
-    "dithering": { "$value": "two-color-checkerboard" },
-    "fotogramas-ciclo": { "$value": [2, 4] },
-    "duracion-fotograma": { "$value": ["120ms", "200ms", "320ms"] },
-    "formato-maestro": { "$value": "indexed-png" },
-    "transparencia": { "$value": "binary-alpha" },
-    "sprite-escarabajo": { "$value": "pixel/khepri-sprite-24.png" },
-    "sprite-moneda": { "$value": "pixel/moneda-12.png" },
-    "sprite-moneda-giro": { "$value": "pixel/moneda-giro-12x4.png" },
-    "sprite-cartografo": { "$value": "pixel/cartografo-24.png" },
-    "fuente": { "$value": "fonts/PixelifySans-Variable.woff2" }
-  },
-  "velo": {
-    "$description": "Registro del Velo · §2.7 · solo alfa sobre canónicos · solo Nocturno · animaciones 10–12 con duration.largo y duration.medio",
-    "rejilla":       { "$value": "rgba(166,218,213,.025)", "$extensions": { "numen": { "celda": "40px", "alfaMax": ".03", "origen": "verdemar" } } },
-    "niebla":        { "$value": "rgba(1,142,161,.06)",    "$extensions": { "numen": { "alfaMax": ".08", "posicion": "abajo-izquierda", "origen": "turquesa" } } },
-    "imagen":        { "$value": "rgba(20,17,15,.72)",     "$extensions": { "numen": { "jardin": ".60", "origen": "noche" } } },
-    "cristal":       { "$value": "rgba(30,26,23,.65)",     "$extensions": { "numen": { "blur": "12px", "origen": "basalto" } } },
-    "cristal-borde": { "$value": "rgba(58,51,45,.5)",      "$extensions": { "numen": { "origen": "linea-fuerte" } } },
-    "cielo": {
-      "$description": "El cielo del Velo · la rareza hecha cosmos (§2.7.1) · colores = escala §3.6",
-      "$value": { "estrellas": 175, "pesos": [60, 25, 10, 4, 1], "alfa": [0.05, 0.85], "deriva": "0.06px/frame", "radios": [[0.3,1.2],[0.5,1.5],[0.6,1.8],[0.8,2.5],[1.0,3.0]] }
-    },
-    "lectura": { "$value": { "blur": "2.2px", "mascara": "linear-gradient(180deg,#000,transparent 90%)" }, "$description": "Velo de lectura §2.7.2 · lo velado queda inerte" },
-    "afloramiento":  { "$value": { "duracion": "{duration.largo}", "blur": "8px", "ascenso": "8px" } },
-    "cristalizacion":{ "$value": { "duracion": "{duration.medio}" } },
-    "paso-pagina":   { "$value": { "duracion": "{duration.medio}", "estado": "verificar contra LAP" } }
-  },
-  "papel": {
-    "$description": "Registro del libro · §6.5 grano, §4.6 tercera voz, §9.9 componentes",
-    "grano": { "$value": "feTurbulence fractalNoise · baseFrequency 0.85 · numOctaves 3 · rgba(74,64,51,.045)", "$extensions": { "numen": { "intensidadMax": "5%", "nocturno": "50% del valor" } } },
-    "capitular": { "$value": "4.4em" }, "medida": { "$value": "70ch" },
-    "tamanos-lector": { "$value": ["1rem", "1.125rem", "1.25rem"], "$description": "A · A · A" },
-    "barra": { "$value": "54px" }, "barra-compacta": { "$value": "40px" },
-    "tinta-terciaria": {
-      "$description": "Texto terciario SOBRE PAPEL (5.1.0 · H1): la tinta del sistema (#6E6259/#8A7D72) se queda en 3.7:1 sobre el papel del códex — bajo AA. Estos valores, verificados en producción, la sustituyen dentro del registro papel.",
-      "diurno": { "$value": "#75695E" }, "nocturno": { "$value": "#97897D" }
-    }
-  },
-  "registros": {
-    "$description": "Jerarquía canónica · §2.8",
-    "orden": { "$value": ["umbral", "velo", "low-poly", "pixel"] }
-  },
-  "controles": {
-    "$description": "Carpintería de producto · §9.8 · lo activo se viste de tinta",
-    "casilla": { "$value": "18px" }, "interruptor": { "$value": "36x20px" },
-    "opcion-fila": { "$value": "40px" }, "barra": { "$value": "4px" },
-    "modal-confirmacion": { "$value": "480px" }, "modal-contenido": { "$value": "640px" }
-  },
-  "mensajes": {
-    "$description": "Mensajes al usuario · §9.7",
-    "aviso-auto": { "$value": "6s" }, "aviso-max": { "$value": 3 }, "tooltip-retardo": { "$value": "400ms" }
-  },
-  "plataforma": {
-    "$description": "Plano §13.11 · Diurno por defecto, primario tinta",
-    "sidebar": { "$value": "240px" }, "fila": { "$value": "40px" },
-    "primario": { "$value": "tinta" }
-  },
-  "lowpoly": {
-    "$description": "Registro §2.6 · presupuesto [EXTENSIÓN — validar]",
-    "tris-personaje": { "$value": "2000–10000" }, "tris-prop": { "$value": "200–2000" },
-    "formatos": { "$value": ["glb", "gltf"] }
-  },
-  "binaria": {
-    "$description": "La binaria habla · §6.1 · ASCII 8 bits + sedimento",
-    "frase": { "$value": "Leave things better than we found them." },
-    "bits": { "$value": "010011000110010101100001011101100110010100100000011101000110100001101001011011100110011101110011001000000110001001100101011101000111010001100101011100100010000001110100011010000110000101101110001000000111011101100101001000000110011001101111011101010110111001100100001000000111010001101000011001010110110100101110" }
-  },
-  "epoca": {
-    "$description": "La línea de los cien años · §2.1",
-    "steampunk": { "$value": "1920" }, "cyberpunk": { "$value": "2020" }, "solarpunk": { "$value": "2120" },
-    "sello": { "$value": "1920 · 2020 · 2120" }
-  },
-  "marca-juego": {
-    "$description": "Juego de marca §8.5 · registro expresivo, nunca firma",
-    "glifos-orden": { "$value": ["space", "people", "connect"] },
-    "pares-aprobados": { "$value": ["turquesa/arena", "arena/ambar", "ambar/turquesa", "arena/coral", "grana/arena"] },
-    "contraste-identificador": { "$value": "3:1" }
-  },
-  "icon": {
-    "sistema": { "$value": "phosphor" }, "defecto": { "$value": "regular" },
-    "activo": { "$value": "fill" },
-    "pequeno": { "$value": "bold", "$extensions": { "numen": { "umbral": "<16px" } } },
-    "display": { "$value": "light", "$extensions": { "numen": { "umbral": ">=48px" } } },
-    "prohibidos": { "$value": ["thin", "duotone"] },
-    "subconjunto": { "$description": "Los 26 iconos que la casa usa (§7.3)", "$value": ["archive","bell","book-open","caret-down","caret-left","chart-bar","download-simple","flame","flame-light","gear","github-logo","globe-hemisphere-west","globe-hemisphere-west-light","house","magnifying-glass","moon","moon-stars","music-notes","package","sign-out","sun","sword","sword-light","user","users","x-logo"] },
-    "conmutador-modo": { "$value": ["moon-stars", "sun"], "$description": "§7.4 · el icono muestra el modo al que lleva un toque" },
-    "libro": { "$value": { "rejilla": "16", "stroke": "1.5", "piezas": ["indice","marcapaginas","narrador","pausa","sol","luna","umbral","filete"] }, "$description": "§7.5 [EXTENSIÓN]" }
-  }
-}
-```
+The generator `scripts/generate-design-kit.mjs` builds the kit from this
+document and stamps it with the `version:` field above.
+
+**A token is never quoted in prose.** A value copied into a sentence is a
+value that will disagree with the file the moment either changes — which is
+exactly what happened while this section held a copy: it said `v5.0.0` for a
+document declaring `5.1.0`.
 
 ### 19.4 Pre-delivery checklist
 
@@ -1417,94 +1229,15 @@ This block is the source; the kit also distributes it as `kit/sistema.tokens.jso
 
 ### 19.5 Reusable instruction fragment
 
-```
-Diseña con el Sistema de Diseño de Numen Games v5.0.0.
-Registro antes que medio (§2.8): 1 Umbral (general: web, deck, documento, factura,
-interfaz) · 2 Velo (archivo, Summa, visores — la profundidad) · 3 Low-poly (3D) ·
-4 Píxel (2D). Los registros no se apilan: se enmarcan, con frontera visible.
-Kit de arranque CSS/JS y planos por medio: §13.1–13.10 — cópialos, no los reescribas.
-Dirección: Solarpunk 40 / Steampunk 40 / Cyberpunk 20. La luz domina, la máquina
-estructura, la señal parpadea. Ni Blade Runner ni catálogo de jardinería. El
-escarabajo cierra toda pieza; nunca la abre.
-Paleta: verdemar #A6DAD5, turquesa #018EA1 (interactivo), ámbar #EFA517 (énfasis/logro),
-arena #F9EBDC (neutral), coral #F35059 (aviso), grana #D33440 (crítico). Máx. 3 por
-composición; coral y grana no coexisten. Texto sobre claro: #016E7D #B02330 #7A5100.
-Nocturno: fondo #14110F, superficies #1E1A17/#292420, texto #F9EBDC/#C4B5A6, líneas
-#241F1B/#3A332D. Diurno: papel #F9EBDC, tinta #14110F. Sin sombras en oscuro salvo el
-halo legendario 0 0 12px rgba(239,165,23,.25).
-Rareza (solo juego, borde progresivo + nombre escrito): pobre #F9EBDC, común #8A7D72,
-poco común #8FC46B, raro #5D9BD6, épico #A98BE0, legendario #EFA517.
-Tipografía: solo Geist y Geist Mono (Vercel, autoalojadas). Sans afirma, Mono mide;
-etiquetas Mono versales +0.10em; cifras tabulares.
-Iconos: Phosphor. regular defecto, fill activo, bold <16px, light ≥48px; thin y duotone
-prohibidos; etiqueta en primer uso; el escarabajo y la Luna no son iconos.
-Materia: relieve de circuito solo en fondos Nocturno ≤6% cover sin repeat; binaria
-10100→xxx como separador; superficies elevadas lisas; nada de textura en Diurno.
-El Velo (§2.7) no añade hexes, añade alfa: rejilla rgba(166,218,213,.025) a 40px,
-niebla rgba(1,142,161,.06) abajo-izquierda, cristal rgba(30,26,23,.65)+blur 12px con
-borde rgba(58,51,45,.5); atmósfera DETRÁS del contenido, techos 3%/8%, solo Nocturno;
-cristal solo con atmósfera detrás y texto ≥ secundario; rejilla y relieve no conviven.
-El cielo del Velo (§2.7.1) es la rareza hecha cosmos: 175 estrellas con pesos
-60/25/10/4/1 y los colores de la escala §3.6, deriva lenta y alfa .05–.85, sin
-parallax; lo velado tras el Umbral se ve y no se lee (blur 2.2px + máscara, inerte).
-Tercera voz Alegreya SOLO libro/códex (§4.6, §13.12) y entera: redonda para el cuerpo,
-itálica para lore, small caps para capitular y títulos — nunca versalitas sintéticas.
-El papel lleva grano (§6.5: ruido fractal ≤5%, fondo, mitad en Nocturno), nunca
-relieve. El libro es Diurno con conmutador propio, la luna es el marcapáginas, estados
-«abierto / tras el Umbral», descargas .md/pdf/epub visibles, colofón con escarabajo;
-la factura no hereda nada de esto. Piezas editoriales en §9.9; iconos del libro en §7.5
-(rejilla 16, trazo 1.5) — fuera del libro manda Phosphor, subconjunto de §7.3, y el
-conmutador de modo muestra el modo AL QUE LLEVA un toque, no el actual.
-Animación, solo estas trece: tecleo 22ms/car con cursor de bloque (titulares hero, lore,
-cargas — la bandera, herencia de aventuras gráficas); revelado 320ms al entrar en
-viewport; barrido de señal 8s máx. uno; elevación 120ms sin desplazamiento; pulso
-legendario 2.4s ×2 solo al obtener; fase lunar 560ms/paso en cargas largas; puntos de
-espera 900ms en botones; cursor 1s; momento orquestado (tecleo + escalonado 80ms), uno
-por pieza. Del Velo y el papel vivo (nunca en Umbral corporativo): afloramiento
-560ms (opacidad + blur 8→0 + 8px de ascenso, al descubrirse), cristalización 320ms
-(blur 0→12 + borde), trazo 1.6s (marcos de grabado que se dibujan, portada y capítulo),
-cielo (deriva ±0.06px + alfa .05–.85 — única excepción al veto de loops, solo fondo
-del Velo). La 12 está retirada: el códex no anima el paso de hoja. Prohibido: parallax,
-glitch, loops ambientales, animar foco o color de texto.
-prefers-reduced-motion: todo instantáneo, y el cielo se detiene a alfa media.
-Botones: relleno de acción #017C8D con blanco (uno por vista) y estados que OSCURECEN
-(hover #016E7D, active #015866; destructivo grana con hover #B02330, con confirmación y
-lejos del primario), fantasma, silencioso; radio 6px; etiquetas = verbos, sin versales.
-Enlaces: Verdemar en oscuro, #016E7D en claro. Éxito sobre claro: #1F6B5F. Datos: solo
-la paleta §3.8, máx 6 series. Época: tres décadas de una historia (1920 máquina · 2020
-señal · 2120 jardín); sello «1920 · 2020 · 2120» junto al cierre en piezas expresivas;
-pátina de imagen única (§6.3); la época es sabor, no skin. El registro píxel no tiene
-Diurno: sus escenas permanecen Nocturno aunque la pieza que las enmarca sea clara.
-La binaria habla: codifica «Leave things better than we found them.» en 8 bits +
-sedimento x — cópiala de tokens binaria.bits o usa binaria() del kit; no inventes ruido.
-Forma: dos radios — control 6px, marco 8px; el registro píxel conserva cantos rectos.
-Mensajes (§9.7): qué pasó + qué hacer, nivel I; el error mudo está prohibido; tooltip
-habla en el modo contrario; aviso 6s máx 3; destructivo nunca preenfocado.
-Entregable: el kit zip (readme en raíz); kit/sistema.{css,js,tokens.json} generados —
-enlázalos, no los reescribas. Sin kit no hay marca: los wordmarks solo viven ahí.
-Controles (§9.8): lo activo se viste de tinta — casilla 18 marcada, interruptor 36×20
-encendido, opción del selector, página actual y fila: todos píldora/relleno tinta-papel.
-Modal = velo canónico .72 + panel elevado, foco atrapado, Esc cierra. Barra 4px cápsula
-tinta + cifra Mono, solo determinate — indeterminada prohibida (luna o puntos).
-Superficies: mapa en §2.5. Plataforma = Diurno por defecto, primario de TINTA
-(Noche/papel), sidebar 240, filas 40, wallets en Mono truncado. 3D = registro low-poly
-(§2.6): malla honesta, color plano de paleta, GLB/glTF, sin texturas fotográficas.
-Copy: cultivada, llana y clara; declara nivel I/II/III y mantenlo.
-Registro píxel (solo cuando la narrativa lo pide, nivel II): paleta cerrada Píxel-16,
-neutrales ≥60%, Grana solo relleno; silueta primero y validación a ×1; luz
-arriba-izquierda; contorno Noche solo en silueta; 2–4 colores por material de rampas
-compartidas; sin pillow shading, antialias ni píxeles sueltos; tramado solo entre
-adyacentes; escalado entero pixelated y coordenadas enteras; Pixelify a múltiplos solo
-para diálogo/HUD; sprites de 2–4 fotogramas a 120/200/320ms sin tweening; PNG indexado y
-alpha binaria. El detalle normativo completo vive en §2.4, §3.7, §4.5.1, §5.1, §9.6,
-§10.4 y §13.9 — ante duda, esas secciones mandan sobre este resumen. El sprite del
-escarabajo es el entregado, no se redibuja. Herencia: Monkey Island, DOTT, La Abadía — citada,
-nunca copiada.
-Marca: wordmark horizontal firma por defecto; Arena/Noche; nunca recolorear, rotar,
-sombrear ni deformar; Numinia solo para el mundo. El color sobre la marca existe solo
-en el juego (§8.5): glifos space·people·connect, mosaico de escarabajos y wordmark en
-pares de paleta — registro expresivo, jamás facturas, propuestas ni cabeceras. WCAG 2.2 AA. Nada solo por color.
-```
+The fragment is published as `web/public/diseno/kit/5.1.0/sistema.prompt.txt`,
+stamped with the version above and hashed in `kit/manifest.json`. Paste that
+file; do not retype it from here.
+
+It is a summary, and it says so: where it disagrees with the numbered
+sections, **the sections win**. It carried `v5.0.0` under a `5.1.0` document
+for exactly as long as it lived in this file as prose — a summary of a
+document, kept inside that same document, has no mechanism to notice when
+the document moves.
 
 ---
 
