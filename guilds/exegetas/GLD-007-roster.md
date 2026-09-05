@@ -36,3 +36,4 @@ Oracle decision (MIS-118).*
 
 - v1.0.0 (2026-04-07) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English. Updated to Senet (MIS-056).
+- v1.2.0 (2026-08-31) — Renamed to the `GLD-NNN` series and re-registered (MIS-125, #163).

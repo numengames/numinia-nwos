@@ -52,5 +52,6 @@ Create, innovate, and build. The Alchemists are responsible for technical invent
 
 - v1.0.0 (2026-04-06) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English. Updated Ursa as replacement for Alquimista-01 (MIS-056).
+- v1.2.0 (2026-08-31) — Renamed to the `GLD-NNN` series and re-registered (MIS-125, #163).
 
 *Oracle: Pablo FM — Numen Games*

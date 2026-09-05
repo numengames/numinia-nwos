@@ -222,5 +222,6 @@ Validated by: `contradictions.classes` at the first run — if ≤ 5 classes acc
 ## Version history
 
 - v1.0.0 (2026-09-02) — brief opened (#204): instrument, dataset, v1 key table, two documents rendered by markers, four decisions.
-- v1.1.1 (2026-09-02) — decision 2 resolved (citation form, "A"); decision 5 re-cut so the language choice is reversible by data (`rules.json`, schema + golden fixtures, rank file pinned by hash); decision 7 deferred (`cl100k_base` only). Scope items 1 and 6 follow. Instrument work starts.
 - v1.1.0 (2026-09-02) — iteration 1: Design section (D1–D6); markers dropped; `corpus_hash`; rule re-drafted; criteria rewritten in key + target form; decisions re-stated (1, 3 resolved; 4 adopted; 5–7 new); `status: in-progress`, `started` set. Context split into the `e4b94e7` snapshot (cited) and this revision's measurements.
+- v1.1.1 (2026-09-02) — decision 2 resolved (citation form, "A"); decision 5 re-cut so the language choice is reversible by data (`rules.json`, schema + golden fixtures, rank file pinned by hash); decision 7 deferred (`cl100k_base` only). Scope items 1 and 6 follow. Instrument work starts.
+

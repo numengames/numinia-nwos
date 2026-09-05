@@ -33,7 +33,9 @@ for (const d of docs) {
   const r = rel(d);
   const f = fm(d);
 
-  if (/-(draft|final|frozen|old|new|deprecated)\.md$/.test(r))
+  /* A negation is not a state claim: `-not-frozen.md` describes a defect about
+     another document, it does not encode this one's state. */
+  if (/-(draft|final|frozen|old|new|deprecated)\.md$/.test(r) && !/-not-[a-z]+\.md$/.test(r))
     record('CORE-12', 'filename encodes state', r);
 
   if (/-v\d+(\.\d+)*\.md$/.test(r) && !r.startsWith('history/'))
@@ -67,21 +69,33 @@ for (const d of docs) {
       record('CORE-20', `${k} holds a placeholder: "${v}"`, r);
   }
 
-  /* CORE-24: when a document keeps its own changelog, the version at its top
-     must be the version in the header. Two places, one fact, and they drift.
-     Only checked where the changelog is newest-first; a chronological log
-     opens at the oldest version by design, so the highest entry is compared. */
-  const ch = body(d).match(/^##\s+.*(?:version history|changelog).*$/im);
+  /* CORE-24: when a document keeps its own changelog, its newest entry must be
+     the version in the header. Two places, one fact, and they drift.
+
+     The heading must BE a changelog, not mention one — `## Version history`,
+     not `## 7. …register in the design system changelog`. The section ends at
+     the next heading; scanning to end of file catches version-shaped numbers
+     in unrelated prose. Logs here run oldest-first, so the newest entry is the
+     last line, and a log that goes backwards is its own defect. */
+  const ch = body(d).match(/^##\s+(?:\d+\.\s*)?(?:version history|changelog)\s*$/im);
   if (ch && f.version) {
-    const after = body(d).slice(body(d).indexOf(ch[0]) + ch[0].length);
-    const found = [...after.matchAll(/v?(\d+\.\d+\.\d+)/g)].map((m) => m[1]);
+    const from = body(d).indexOf(ch[0]) + ch[0].length;
+    const rest = body(d).slice(from);
+    const end = rest.search(/^##\s/m);
+    const section = end === -1 ? rest : rest.slice(0, end);
+    const entries = [...section.matchAll(/^[-*]\s+v?(\d+\.\d+\.\d+)/gm)].map((m) => m[1]);
     const cmp = (a, b) => {
       const [x, y] = [a.split('.').map(Number), b.split('.').map(Number)];
       return x[0] - y[0] || x[1] - y[1] || x[2] - y[2];
     };
-    const top = found.sort(cmp).pop();
-    if (top && cmp(top, String(f.version)) !== 0)
-      record('CORE-24', `header says ${f.version}, changelog's highest entry is ${top}`, r);
+    if (entries.length) {
+      const newest = entries[entries.length - 1];
+      if (cmp(newest, String(f.version)) !== 0)
+        record('CORE-24', `header says ${f.version}, newest log entry is ${newest}`, r);
+      for (let i = 1; i < entries.length; i += 1)
+        if (cmp(entries[i], entries[i - 1]) < 0)
+          record('CORE-21', `change log goes backwards: ${entries[i - 1]} then ${entries[i]}`, r);
+    }
   }
 }
 

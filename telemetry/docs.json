@@ -742,10 +742,10 @@
   "series": "guilds",
   "type": "charter",
   "status": "active",
-  "chars": 1442,
+  "chars": 1533,
   "apparatus": false,
   "archived": false,
-  "tokens": 394
+  "tokens": 435
  },
  {
   "path": "guilds/alquimistas/GLD-005-roster.md",
@@ -753,10 +753,10 @@
   "series": "guilds",
   "type": "charter",
   "status": "active",
-  "chars": 877,
+  "chars": 968,
   "apparatus": false,
   "archived": false,
-  "tokens": 280
+  "tokens": 321
  },
  {
   "path": "guilds/centinelas/GLD-004-charter.md",
@@ -764,10 +764,10 @@
   "series": "guilds",
   "type": "charter",
   "status": "active",
-  "chars": 1540,
+  "chars": 1631,
   "apparatus": false,
   "archived": false,
-  "tokens": 420
+  "tokens": 461
  },
  {
   "path": "guilds/centinelas/GLD-006-roster.md",
@@ -775,10 +775,10 @@
   "series": "guilds",
   "type": "charter",
   "status": "active",
-  "chars": 1107,
+  "chars": 1198,
   "apparatus": false,
   "archived": false,
-  "tokens": 362
+  "tokens": 403
  },
  {
   "path": "guilds/exegetas/GLD-002-charter.md",
@@ -786,10 +786,10 @@
   "series": "guilds",
   "type": "charter",
   "status": "active",
-  "chars": 1508,
+  "chars": 1599,
   "apparatus": false,
   "archived": false,
-  "tokens": 436
+  "tokens": 477
  },
  {
   "path": "guilds/exegetas/GLD-007-roster.md",
@@ -797,10 +797,10 @@
   "series": "guilds",
   "type": "charter",
   "status": "active",
-  "chars": 1314,
+  "chars": 1405,
   "apparatus": false,
   "archived": false,
-  "tokens": 435
+  "tokens": 476
  },
  {
   "path": "guilds/procuradores/GLD-003-charter.md",
@@ -808,10 +808,10 @@
   "series": "guilds",
   "type": "charter",
   "status": "active",
-  "chars": 1357,
+  "chars": 1448,
   "apparatus": false,
   "archived": false,
-  "tokens": 384
+  "tokens": 425
  },
  {
   "path": "guilds/procuradores/GLD-008-roster.md",
@@ -819,10 +819,10 @@
   "series": "guilds",
   "type": "charter",
   "status": "active",
-  "chars": 1005,
+  "chars": 1096,
   "apparatus": false,
   "archived": false,
-  "tokens": 303
+  "tokens": 344
  },
  {
   "path": "history/2026_04_07-Epistemic_Relations-v1.0.0.md",
@@ -1347,7 +1347,7 @@
   "series": "missions",
   "type": "mission",
   "status": "done",
-  "chars": 2309,
+  "chars": 2310,
   "apparatus": false,
   "archived": false,
   "tokens": 678
@@ -2348,7 +2348,7 @@
   "series": "missions",
   "type": "mission",
   "status": "in-review",
-  "chars": 30209,
+  "chars": 30210,
   "apparatus": false,
   "archived": false,
   "tokens": 8537
@@ -2392,7 +2392,7 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 7707,
+  "chars": 7708,
   "apparatus": false,
   "archived": false,
   "tokens": 2126
@@ -2436,10 +2436,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 14705,
+  "chars": 18091,
   "apparatus": false,
   "archived": false,
-  "tokens": 3861
+  "tokens": 4676
  },
  {
   "path": "missions/MIS-0147-document-relations.md",
@@ -2447,10 +2447,10 @@
   "series": "missions",
   "type": "mission",
   "status": "done",
-  "chars": 5645,
+  "chars": 5758,
   "apparatus": false,
   "archived": false,
-  "tokens": 1406
+  "tokens": 1444
  },
  {
   "path": "missions/MIS-0149-ursa-git-cold-start-bootstrap.md",
