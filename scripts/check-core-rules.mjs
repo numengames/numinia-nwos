@@ -56,6 +56,43 @@ for (const d of docs) {
     const m = prose.match(/\b[A-Z]{2,4}-\d+\s+§\d[\d.]*/g);
     if (m) record('CORE-50', `cites a section by number: ${m.join(', ')}`, r);
   }
+
+  /* CORE-20: an unknown value is left empty, never guessed. These are the
+     shapes a guess takes in this corpus — a template marker left in place,
+     or a word standing in for a value nobody looked up. `todo` is excluded:
+     it is a legitimate mission status in rules.json, not a placeholder. */
+  for (const [k, v] of Object.entries(f)) {
+    if (typeof v !== 'string' || k === 'status') continue;
+    if (/^(TBD|TODO|XXX|N\/A|\?+|<.*>|YYYY-MM-DD|unknown|placeholder)$/i.test(v.trim()))
+      record('CORE-20', `${k} holds a placeholder: "${v}"`, r);
+  }
+
+  /* CORE-24: when a document keeps its own changelog, the version at its top
+     must be the version in the header. Two places, one fact, and they drift.
+     Only checked where the changelog is newest-first; a chronological log
+     opens at the oldest version by design, so the highest entry is compared. */
+  const ch = body(d).match(/^##\s+.*(?:version history|changelog).*$/im);
+  if (ch && f.version) {
+    const after = body(d).slice(body(d).indexOf(ch[0]) + ch[0].length);
+    const found = [...after.matchAll(/v?(\d+\.\d+\.\d+)/g)].map((m) => m[1]);
+    const cmp = (a, b) => {
+      const [x, y] = [a.split('.').map(Number), b.split('.').map(Number)];
+      return x[0] - y[0] || x[1] - y[1] || x[2] - y[2];
+    };
+    const top = found.sort(cmp).pop();
+    if (top && cmp(top, String(f.version)) !== 0)
+      record('CORE-24', `header says ${f.version}, changelog's highest entry is ${top}`, r);
+  }
+}
+
+/* CORE-14: an identifier is never reused. Two documents holding one id means
+   one of them is unreachable by citation — the reference resolver picks one. */
+const seen = new Map();
+for (const d of docs) {
+  const id = fm(d).id;
+  if (!id) continue;
+  if (seen.has(id)) record('CORE-14', `id ${id} is held by two documents`, `${seen.get(id)} + ${rel(d)}`);
+  else seen.set(id, rel(d));
 }
 
 /* CORE-26: a commit subject is one line. */
@@ -63,7 +100,7 @@ const subjects = execFileSync('git', ['log', '-400', '--format=%s'], { cwd: ROOT
   .split('\n').filter(Boolean);
 for (const s of subjects) if (s.includes('\n')) record('CORE-26', 'multi-line subject', s.slice(0, 60));
 
-const RULES = ['CORE-12', 'CORE-13', 'CORE-16', 'CORE-19', 'CORE-21', 'CORE-26', 'CORE-45', 'CORE-50'];
+const RULES = ['CORE-12', 'CORE-13', 'CORE-14', 'CORE-16', 'CORE-19', 'CORE-20', 'CORE-21', 'CORE-24', 'CORE-26', 'CORE-45', 'CORE-50'];
 
 /* The standard's own `status` field decides whether these rules bind. `active`
    enforces; anything else reports and exits clean. This is the on/off switch:

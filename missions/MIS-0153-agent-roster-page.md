@@ -1,6 +1,6 @@
 ---
 # CORE — the ten fields the build verifies.
-id: "MIS-149"
+id: "MIS-153"
 uid: ""
 title: "Publish the Numinia agent roster as an organizational RPG directory"
 status: todo
@@ -17,16 +17,16 @@ version: "1.0.0"
 created: "2026-09-04T11:48:02Z"
 created_source: "git:52c51e5"
 created_confidence: exact
-updated: "2026-09-04T11:48:02Z"
+updated: "2026-09-05T11:25:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [agents, web, roster, public-interface]
 license: "CC0-1.0"
 
 requires_oracle_approval: true
-paths: [missions/MIS-0149-agent-roster-page.md, web/src/pages/agent.astro, web/src/views/AgentView.astro]
+paths: [missions/MIS-0153-agent-roster-page.md, web/src/pages/agent.astro, web/src/views/AgentView.astro]
 ---
-# MIS-149 — Publish the Numinia agent roster as an organizational RPG directory
+# MIS-153 — Publish the Numinia agent roster as an organizational RPG directory
 
 > **Summary:** Create the public `/agent/` page as an organizational “who we are” directory for the biological and digital agents of Numinia.
 > **Epistemic:** Establish how the canonical agent definitions become a legible public interface without changing their authority or identity documents.
@@ -39,7 +39,7 @@ Only the Numinia web viewer and this mission record:
 
 - `web/src/pages/agent.astro`
 - `web/src/views/AgentView.astro`
-- `missions/MIS-0149-agent-roster-page.md`
+- `missions/MIS-0153-agent-roster-page.md`
 
 The page must use the repository’s existing layout, global design tokens, fonts, navigation and icon system. It may introduce page-local styles and client-side interaction in `AgentView.astro`.
 
@@ -90,3 +90,19 @@ When a Chromium-compatible browser is available, additionally verify `/agent/`, 
 - **What diverged, and why:**
 - **Evidence:**
 - **Closed:** YYYY-MM-DD · **by:** agent-id
+
+---
+
+## Renumbering note, 2026-09-05
+
+This mission was created as `MIS-149`. So was the Ursa cold-start bootstrap
+mission, three hours earlier on the same day. `CORE-14` forbids two documents
+holding one identifier, and `CORE-15` settles the collision by commit order:
+the earlier commit keeps the number. This document takes `MIS-153`, the next
+free identifier.
+
+`MIS-149` is not reused for anything else. Nothing outside these two files
+cited either of them, so no reference was broken by the change.
+
+Found by `check-core-rules.mjs` when `CORE-14` was implemented (`MIS-146`,
+batch 0). No reader had noticed in the intervening day.
