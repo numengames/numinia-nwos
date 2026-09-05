@@ -308,6 +308,11 @@ export default defineConfig({
 		// dist, not by the build itself — redirects are not validated.
 		"/corpus/canon/about-session-zero": "/decisiones/adr-036",
 		"/corpus/canon/c-006-session-zero": "/decisiones/adr-036",
+		// SYS-004 was absorbed into STD-002 (ADR-038, MIS-147). The genre map
+		// and the relation vocabulary are sections of the governance standard
+		// now, so this points at the document that answers the question, not
+		// at the system index — a 301 to a section listing is a 200 that lies.
+		"/corpus/system/sys-004-document-relations": "/corpus/standards/std-002-governance",
 		// Rank Specifications was absorbed into CAN-003 (ADR-036 §4).
 		"/corpus/canon/rank-specifications": "/corpus/canon/can-003-attributes-and-ranks",
 		"/corpus/canon/c-007-rank-specifications": "/corpus/canon/can-003-attributes-and-ranks",

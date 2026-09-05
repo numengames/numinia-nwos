@@ -3,12 +3,12 @@ id: "DBT-014"
 uid:
 title: "Design System kit path is derived from the document version, so a version bump breaks the generator"
 type: documentation
-status: draft
-version: "1.0.0"
+status: active
+version: "1.2.0"
 created: "2026-09-04T22:30:00+02:00"
 created_source: "git:aa8ad06"
 created_confidence: exact
-updated: "2026-09-04T22:30:00+02:00"
+updated: "2026-09-05T09:55:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -43,38 +43,50 @@ document is still `5.1.0` for that reason and no other.
 ## Why it is not fixed here
 
 Fixing it means deciding what a version bump *means* for a published kit, and
-that is a design decision, not a repair:
+that is a design decision, not a repair.
 
-- **Carry forward** — a bump copies the previous kit into the new directory
-  and re-stamps it. Simple, but it silently publishes a new version whose
-  contents nobody changed.
-- **Read from the previous version** — the generator falls back to the highest
-  existing kit. Keeps bumps cheap, but the directory name stops meaning
-  "these tokens".
-- **Bump only through the generator** — a `--bump` flag owns both the
-  frontmatter field and the directory. Correct, and the most work.
+**The Oracle ruled on 2026-09-05:** the design system does not get its own
+naming scheme. It lives in the folders and identifiers the corpus already has,
+and `kit/<semver>/` is a nomenclature invented for this one artifact and used
+nowhere else in the repository. So the version must come out of the path.
 
-The third is the right answer. It is not this branch's work.
+That removes the coupling at its root rather than teaching the generator to
+work around it: with a stable path there is no directory to create on a bump,
+nothing to carry forward, and no `--bump` flag that has to own two things at
+once. The version stays where every other document keeps it — the `version:`
+field, and the git history.
 
 ## What is owed
 
-Either the generator tolerates a version it has not published yet, or the
-version field stops being the sole input to the path. Until then, `STD-008`
-cannot take a version bump without a matching kit directory created by hand.
+The published kit moves to a path with no version in it. The generator then
+reads and writes one location, and `STD-008` can be bumped like any other
+document.
+
+Open questions the move has to answer, none of them settled here:
+
+- **Consumers.** `kit/5.1.0/` is referenced from the web app and from the kit
+  manifest. Every reference moves in the same change or the site breaks.
+- **Old versions.** Whether previously published kit directories stay reachable
+  as frozen URLs or are removed. `PRO-010` §5 and the URL ratchet govern this;
+  a published URL is not deleted casually.
+- **What `manifest.json` becomes** once it no longer indexes by version.
 
 ## Closes when
 
-`STD-008` can be bumped and `node scripts/generate-design-kit.mjs` succeeds
-without manual directory creation.
+The published kit path contains no version number, every consumer points at it,
+`STD-008` takes a version bump, and `node scripts/generate-design-kit.mjs`
+succeeds without manual directory creation.
 
 ## State
 
-Open — `status: draft` is the lifecycle value for an unresolved entry in this
-series; `DBT-013` uses `closed` because it is resolved.
-
-The generator works at `5.1.0`; it was also broken outright before this
+Open. The generator works at `5.1.0`; it was also broken outright before this
 branch — it searched for the old dated `Sistema_de_Diseno-vN.N.N` filename
 shape that PR #229 had already renamed away, so it had thrown on every run
 since. That part is fixed: it now reads `standards/STD-008-design-system.md`
 and its `version:` field, which is why the drift in §19.3 (a token copy
 stamped `v5.0.0` inside a `5.1.0` document) could finally be corrected.
+
+Note that #229 renamed the *master* to remove a version from its filename, and
+this entry is the same defect one layer down: the version simply moved from the
+document's name to the artifact's directory. The rule was applied to the file
+that was looked at, not to the pattern.

@@ -4,26 +4,75 @@ id: "STD-002"
 uid: ""
 type: documentation
 status: active
-version: "2.2.0"
+version: "3.0.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-04T00:45:00+02:00"
+updated: "2026-09-05T09:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
-tags: [governance, roles, permissions, thresholds, versioning]
+tags: [governance, roles, permissions, thresholds, versioning, precedence, relations]
+absorbs: ["SYS-004"]
 license: "CC0-1.0"
 ---
 
 # Governance — who may change what, and at what cost
 
-> **Summary:** Who may change what in this repository, at what cost, and who
+> **Summary:** Which document wins, who may change what, at what cost, and who
 > must approve it.
 > **Epistemic:** Roles, permissions per series, change thresholds, versioning
 > authority, approval scale.
 > **Pragmatic:** Before creating, modifying or deleting any document, find your
 > row here.
 > **Audience:** Agents · Oracles
+
+---
+
+## Which document wins
+
+Four rules settle every conflict in this corpus. Nothing else grants authority.
+
+| | Rule |
+|---|---|
+| **1** | Git history outranks every document. When a document and the history disagree, the history is the record and the document is a claim. |
+| **2** | The tree outranks the prose. When a document says the code does something and the code does not, the code wins and the document is corrected. |
+| **3** | Between two documents, the one that costs more agreement to change wins: `sealed`, then `governed`, then `closed`, then `open`. |
+| **4** | At equal cost, the later ruling wins — and a later ruling must name what it overrides. |
+
+A claim of precedence written inside a document is void unless it rests on one
+of these four. A document does not become authoritative by saying it is.
+
+**Why cost of change and not importance.** A hierarchy by importance invites an
+argument about what is important. Cost of change is already recorded — it is how
+much agreement each series demands before it may be edited — and a reader can
+verify it without asking anyone.
+
+This is why the canon outranks a standard: not because it matters more, but
+because changing it costs the Oracle's signature, and changing a standard costs
+a pull request.
+
+---
+
+## Changing a standard
+
+The question comes up more than any other, so it is answered here in full.
+
+1. **Anyone may propose.** A standard changes by a pull request the Oracle
+   approves, or by a decision record. There is no third route.
+2. **The change lands in the standard itself.** A rule that lives in a decision,
+   a mission, or a comment is not a rule yet — the standard is where a reader
+   looks, so that is where the sentence goes.
+3. **Retiring a rule needs an heir or an admission.** `superseded` means a
+   replacement exists and is named. `withdrawn` means the rule is gone and
+   nothing replaced it. A rule does not simply stop.
+4. **The version moves.** New rule or changed obligation: minor. Removed or
+   reversed obligation: major, which the Oracle authorises.
+5. **A `draft` standard binds nobody.** It may still be the only written answer
+   to its question, and agents may follow it — but until `status: active`, a
+   breach is not a breach.
+
+The same five steps govern a protocol. The difference is what the document
+says, not how it changes.
 
 ---
 
@@ -44,17 +93,60 @@ license: "CC0-1.0"
 | Series | Create | Modify | Archive or delete | Approval |
 |---|---|---|---|---|
 | `canon/` | oracle | oracle | oracle | oracle — `sealed` |
+| `standards/` | oracle + custodian | oracle + custodian | mark `superseded` or `withdrawn` | oracle — `governed` |
+| `protocols/` | oracle + custodian | new version = new file | mark `superseded` | oracle |
+| `decisions/` | oracle + custodian | only add `superseded_by` | **never delete** | oracle |
+| `system/` | oracle + agents | oracle + agents | oracle | oracle |
 | `agents/{own}/` | oracle | active-agent (own) + oracle | oracle | oracle |
 | `agents/{other}/` | oracle | oracle | oracle | oracle |
+| `guilds/` | oracle | oracle | oracle | oracle |
 | `operations/` | oracle + custodian | oracle + custodian | oracle | oracle |
-| `protocols/` | oracle + custodian | new version = new file | mark `superseded` | oracle |
 | `missions/` — `todo` | oracle + custodian | oracle | oracle | oracle |
 | `missions/` — `in-progress` · `in-review` | active-agent + oracle | only the executor | Oracle sets `done` | oracle |
 | `missions/` — `done` | automatic on close | substance: nobody; form: with the commit saying so | oracle | — |
-| `decisions/` | oracle + custodian | only add `superseded_by` | **never delete** | oracle |
 | `blueprints/` | oracle + agents | oracle + agents | oracle | oracle |
 | `reports/` — `subtype: daily` | active-agent + system | same day only | consumer tests | auto-merge |
 | `reports/` — `audit` · `analysis` · `proposal` | author + oracle | closed on publication, form only | consumer tests | oracle |
+| `debt/` | any agent | any agent | mark `closed`, **never delete** | — |
+| `history/` | on retirement only | nobody | **never** | oracle |
+| `templates/` | oracle + custodian | oracle + custodian | oracle | oracle |
+
+An agent opens a debt entry without asking: naming a gap is not a change to the
+system, and requiring approval to admit a problem is how a corpus learns to
+stay quiet.
+
+### What each series answers
+
+The permission table says who. This says what belongs there — the question a
+reader is holding when they open the folder.
+
+| Series | The question it answers | What it is not |
+|---|---|---|
+| `canon/` | What is foundational? | Operating policy or a procedure |
+| `standards/` | What must an artifact comply with? | A description of how things work |
+| `protocols/` | What does an actor execute? | A rule an artifact satisfies |
+| `system/` | How does it work today? | A norm or a future design |
+| `agents/` | Who acts, with what authority? | A user account |
+| `guilds/` | How do actors group? | The definition of one agent |
+| `missions/` | What work is promised or done? | A general policy |
+| `decisions/` | Why was this chosen? | A restatement of a standard |
+| `blueprints/` | What could exist? | A record of what happened |
+| `reports/` | What was observed, and when? | A plan or a list of closed missions |
+| `operations/` | What sustains the business? | Canon |
+| `debt/` | What do we know is missing? | A substitute for fixing it |
+| `history/` | What was tried and replaced? | A live design |
+
+The `standards` ⟷ `protocols` boundary is the mechanism, not the topic: a
+standard is complied with, a protocol is executed.
+
+**The folder is a filing decision; `type:` is a declared genre.** They are
+independent, and they must agree. When they disagree the document moves — its
+declared genre is not edited to match the shelf it landed on.
+
+Citing a document does not change what you are. A standard that cites canon is
+still a standard, and a mission that cites a standard does not become one.
+
+---
 
 ### Change thresholds
 
@@ -136,6 +228,24 @@ contradiction before acting on it.
 
 ---
 
+## Relation vocabulary
+
+Declare a relation when it matters for retrieval, audit, or a future change.
+
+| Relation | Meaning |
+|---|---|
+| `related` | Relevant to one another, no stronger direction known |
+| `supersedes` / `superseded_by` | A later record replaces an earlier one, which stays reachable |
+| `absorbs` | A later record carries the earlier reasoning into itself; the identifier keeps resolving |
+| `ratified_by` | An authority promoted or confirmed the record |
+| `parent_mission` | A bounded child of a larger mission |
+| `former_id` | The identifier this record carried before a governed move |
+
+Do not use `related` when a stronger relation is known, and do not infer a
+relation from a shared folder, author, or subject.
+
+---
+
 ## Versioning authority
 
 Every artifact follows a two-stage lifecycle. Semantic versioning itself is
@@ -174,5 +284,6 @@ acting — how much human approval an action needs.
 | `STD-001` | The glossary | Defines the change thresholds this document's permission table is read against, and semantic versioning. |
 | `PRO-005` | The escalation protocol | Carries the escalation path that rule G-06 names. |
 | `PRO-008` | The decision protocol | Carries the request format the approval scale is scored in. |
+| `SYS-004` | Document relations | Absorbed into this document. Its genre map and relation vocabulary are the two sections above; the identifier resolves here. |
 
 ---

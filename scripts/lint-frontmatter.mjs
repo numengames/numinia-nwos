@@ -116,7 +116,14 @@ const RING3 = {
   'operations': ['extraction_note', 'restoration_note',
     'language', 'language_note', 'review_flags', 'source_title'],
   'standards': ['supersedes_version', 'ratified_by', 'subtype', 'threshold',
-    'series_change'],
+    'series_change',
+    // registered 2026-09-05 (MIS-147). Same load-bearing role it already has
+    // in decisions/ and debt/: check-references.mjs reads `absorbs` to keep an
+    // absorbed document's identifier resolving. STD-002 absorbed SYS-004, so a
+    // standard can now be the absorbing document — the field had only ever
+    // been needed where a record merged into a peer, and this is the first
+    // time a system manual merged into the standard that governs it.
+    'absorbs'],
   'canon': ['supersedes_version', 'ratified_by', 'threshold',
     'changelog', 'lore', 'extraction_note',
     // registered 2026-09-01 (ADR-036). `former_id`/`former_id_note` carry the

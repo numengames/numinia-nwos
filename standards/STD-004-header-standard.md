@@ -121,6 +121,7 @@ no out-of-band extension.
 | `missions/` | `priority` `effort` `assigned_to` `started` `completed` `type_execution` `freeze_reason` `in_review_at` `depends_on` `parent_mission` `sub_missions` `blocked_by` `requires_oracle_approval` `human_approval_score` `paths` `context` `divergence_log` |
 | `reports/` | `severity` `period` `subtype` `model` `agent` `week` `scope` `former_id` `former_id_note` |
 | `decisions/` | `deciders` `consulted` `outcome` `decision` `absorbs` `amends` |
+| `standards/` | `absorbs` |
 | `agents/` | `role` `platform` `model` `soul` `agent` |
 | `debt/` | `severity` `severity_reason` `detected` `refuted` `source_audit` `opened_by` `visibility_reason` |
 | `blueprints/` `operations/` | `extraction_note` `restoration_note` |
