@@ -61,13 +61,23 @@ The body. Every normative statement uses RFC 2119 language:
 Do not write "should" as a synonym for "must". If both appear with the same
 force, the reader will obey neither.
 
-**Write self-contained prose.** A standard MUST NOT point into the live body
-of another document — no "see `STD-00X` §4", no "as defined in `PRO-0XX`".
-Documents are rewritten underneath their citations and the pointer survives
-the paragraph it pointed at. If this standard depends on a rule, it states
-that rule in its own words and owns it. Structural relations
-(`supersedes`, `ratified_by`, `absorbs`) belong in frontmatter, where a
-guard can verify them.
+**Cite the rule, never the place.** A standard MUST NOT point at a section
+number or a heading in another document — no "see `STD-00X` §4", no "as
+described in `PRO-0XX` step 3. Sections get renumbered, headings get
+rewritten, and the pointer quietly survives the paragraph it pointed at.
+
+A standard MUST cite a **rule identifier** instead — `CORE-03`, `H-30`,
+`SEC-07`. An identifier is stable, and a guard can verify that it still
+resolves. That is the whole difference: an address decays, a plate does not.
+
+**Do not restate a rule that already has an identifier.** Restating it makes
+two sources for one obligation, and they drift apart on the first amendment.
+State the rules this standard owns; cite the ones it depends on. If you find
+yourself writing "as X requires, namely: ...", stop — cite X and delete the
+namely.
+
+Structural relations (`supersedes`, `ratified_by`, `absorbs`) belong in
+frontmatter, where a guard can verify them.
 
 **One standard, one thing.** A grouping of concepts is legitimate when it is
 a single conceptual distinction. Sharing a date, a mission, or an amendment
@@ -90,6 +100,13 @@ of verification:
 |---|---|---|
 | `X-01` | one-line restatement of the MUST | `node scripts/<guard>.mjs`, or `[MANUAL]` |
 
+A worked row, from the header standard:
+
+| Check | Rule | Verified by |
+|---|---|---|
+| `H-01` | `id` is present and matches its series prefix | `node scripts/lint-frontmatter.mjs` |
+| `H-02` | `title` is present, non-empty, English | presence by `lint-frontmatter`; language `[MANUAL]` — detectors lie |
+
 A rule that cannot be checked mechanically is marked **`[MANUAL]`** and says
 why in one sentence. There is no third kind — an unverifiable rule with no
 `[MANUAL]` mark is an opinion that has learnt to look official.
@@ -110,9 +127,9 @@ wrong — it is being stretched to govern what it never examined.
 
 ---
 
-## 5. Version history
+## 5. References
 
-- v0.1.0 (YYYY-MM-DD) — Initial draft.
+- [`STD-004` — The header standard](../standards/STD-004-header-standard.md)
 
 <!--
 NOTES ON USING THIS TEMPLATE — delete this block.
@@ -123,6 +140,11 @@ subsections that could each be cited alone, split the document.
 
 Status: a standard opens at `draft`/0.1.0 and is promoted by the Oracle.
 `active` means it binds; `closed` means it is retired, not paused.
+
+No version history section. `git log --follow` on this file is the history,
+it cannot drift from the truth, and a hand-written changelog can. What the
+frontmatter carries is the current `version` and the structural relations
+(`supersedes`, `absorbs`, `ratified_by`) that a guard can check.
 
 Sections: 1-5 are required. Add others only when they earn their place —
 a measured problem statement (`STD-004` §0) is worth its space when the
