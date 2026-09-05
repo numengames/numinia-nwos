@@ -4,11 +4,11 @@ id: "STD-002"
 uid: ""
 type: documentation
 status: active
-version: "4.0.0"
+version: "5.0.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-05T10:40:00+02:00"
+updated: "2026-09-05T13:10:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [governance, roles, permissions, thresholds, versioning, precedence, relations]
@@ -30,57 +30,28 @@ license: "CC0-1.0"
 
 ## Which document wins
 
-Four rules settle every conflict. Nothing else grants authority.
+Settled by `CORE-01` through `CORE-05`, in the core rules standard. Five rules,
+in this order: the git history outranks every document; the documents outrank
+the code; between two documents the one that costs more agreement to change
+wins; at equal cost the later ruling wins and must name what it overrides; and
+no document holds authority except by those four.
 
-**1. The git history outranks every document.** When a document and the history
-disagree, the history is the record and the document is a claim.
-
-**2. The documents outrank the code.** They are the source of truth; the code
-implements them. When the code does something the documents do not say, the
-code is wrong and gets corrected — not the document.
-
-*Exception:* when a document describes what the code already does and describes
-it wrong, that is a broken description, and the description is fixed. The test
-is direction. A rule the code disobeys is a bug in the code. A description the
-code contradicts is a bug in the description.
-
-**3. The document that is harder to change wins.** Harder means more agreement
-needed. In order: sealed, governed, closed, open.
-
-*Why this and not importance:* importance is an argument. How much agreement a
-change needs is already written down, per series, so anyone can check it without
-asking. The canon outranks a standard because changing the canon needs an
-Oracle's signature and changing a standard needs a pull request — not because
-the canon matters more.
-
-**4. At equal difficulty, the newer ruling wins** — and it must name what it
-replaces. A ruling that silently contradicts an older one is not a ruling.
-
-A document does not become authoritative by saying it is. Any claim of
-precedence not resting on these four rules is void.
+They lived here until 2026-09-05. They were also written, in different words,
+in the core rules standard — the same law in two `governed` documents, neither
+naming the other. This document keeps the thresholds that make rule three
+measurable, in §Permissions by series, and states them once.
 
 ---
 
 ## Changing a standard
 
-The question comes up more than any other, so it is answered here in full.
+Who may approve is `CORE-07`; where the rule lands is `CORE-63`; retiring a
+rule is `CORE-45`; which number moves is `CORE-22` and `CORE-23`; and a `draft`
+binding nobody is stated with the precedence rules. All in the core rules
+standard.
 
-1. **Anyone may propose.** A standard changes by a pull request the Oracle
-   approves, or by a decision record. There is no third route.
-2. **The change lands in the standard itself.** A rule that lives in a decision,
-   a mission, or a comment is not a rule yet — the standard is where a reader
-   looks, so that is where the sentence goes.
-3. **Retiring a rule needs an heir or an admission.** `superseded` means a
-   replacement exists and is named. `withdrawn` means the rule is gone and
-   nothing replaced it. A rule does not simply stop.
-4. **The version moves.** New rule or changed obligation: minor. Removed or
-   reversed obligation: major, which the Oracle authorises.
-5. **A `draft` standard binds nobody.** It may still be the only written answer
-   to its question, and agents may follow it — but until `status: active`, a
-   breach is not a breach.
-
-The same five steps govern a protocol. The difference is what the document
-says, not how it changes.
+What this document adds: the same five steps govern a protocol. The difference
+is what the document says, not how it changes.
 
 ---
 
@@ -290,6 +261,9 @@ acting — how much human approval an action needs.
 
 - [`STD-001` — The glossary](STD-001-glossary.md). Defines the change
   thresholds this document is read against.
+- [`STD-009` — Core rules](STD-009-core-rules.md). Holds the precedence rules
+  and the rules for changing a document. This document points at them by
+  identifier and does not restate them.
 - [`PRO-005` — Escalation](../protocols/PRO-005-escalation.md). The path rule
   G-06 names.
 - [`PRO-008` — Decision](../protocols/PRO-008-decision.md). The request format
@@ -302,3 +276,29 @@ acting — how much human approval an action needs.
   resolves here.
 
 ---
+
+---
+
+## Amendment, 2026-09-05
+
+Two sections were emptied on the day this document reached v4.0.0.
+
+§Which document wins stated the same law as `CORE-01`..`CORE-05`, and
+§Changing a standard restated `CORE-07`, `CORE-22`, `CORE-23` and `CORE-45`.
+The law was written twice, in two `governed` documents, and neither named the
+other. Both sections are now pointers.
+
+Four formulations were better here than there, and moved rather than being
+deleted: the worked example of cost (`CORE-03`), "a document does not become
+authoritative by saying it is" (`CORE-05`), the `superseded`/`withdrawn`
+distinction (`CORE-45`), and "a `draft` binds nobody". One had no rule at all
+and became `CORE-63`: the change lands in the document it governs.
+
+`CORE-02` was corrected in the move. It said the code outranks the documents;
+the Oracle settled on 2026-09-05 that the documents are the source of truth and
+the code implements them, and this document already said so. The core rules
+standard did not.
+
+This is a removal of obligations from this document, which `CORE-23` makes a
+major. The obligations are not gone — they are stated once, where they can be
+cited by number.

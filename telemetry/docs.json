@@ -2436,10 +2436,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 18091,
+  "chars": 21165,
   "apparatus": false,
   "archived": false,
-  "tokens": 4676
+  "tokens": 5471
  },
  {
   "path": "missions/MIS-0147-document-relations.md",
@@ -2733,10 +2733,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 12562,
+  "chars": 12445,
   "apparatus": false,
   "archived": false,
-  "tokens": 3019
+  "tokens": 3045
  },
  {
   "path": "standards/STD-003-platform-role-system.md",
@@ -2810,10 +2810,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 16737,
+  "chars": 18165,
   "apparatus": false,
   "archived": false,
-  "tokens": 4279
+  "tokens": 4623
  },
  {
   "path": "system/SYS-001-cao-architecture.md",

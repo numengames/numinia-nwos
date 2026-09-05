@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.4.0"
+version: "1.5.0"
 created: "2026-09-03T17:46:00Z"
 created_source: "git:eb91cbb"
 created_confidence: exact
-updated: "2026-09-05T12:20:00+02:00"
+updated: "2026-09-05T13:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [standards, governance, contradictions, compression, refoundation]
@@ -264,6 +264,29 @@ exist, and by its own test most of these rules do not exist yet.
 Every rule gets either a named script or an explicit `[MANUAL]` with a reason.
 That is batch 0, and nothing ratifies before it lands.
 
+### The design system is not a standard, and says so in its own headings
+
+Recorded here because it changes what closing `standards/` means, and it is not
+part of any batch above.
+
+`STD-008` is 18,447 words — more than every `active` standard in the series
+put together. Six of its nineteen sections are marked `[CANON]` or
+`[CANON — direction decision]` in their own headings, one is `[DERIVED]`, and
+the rest are recipes: §13 Application recipes, §16 roadmap, §19 Agent contract.
+A document that labels its own sections as canon is not a standard that drifted
+into canon territory. It is three genres filed under one identifier.
+
+The Oracle has the design system saved outside the repository and knows how it
+should be rebuilt, so nothing here needs to be preserved for its own sake. What
+belongs in `standards/` is the design standards — which standards the design
+work adopts — and the rest goes to canon and to protocols as the axes get
+completed.
+
+This is why ratifying `STD-009` does not close `standards/`. Four of the nine
+documents in the series are `draft`, holding 26,792 of its 38,085 words, and
+`STD-008` alone is 69% of that. The core rules work settles which document wins;
+it does not settle what the design series is.
+
 ## What to do with a guard whose rule is not settled yet
 
 Three options get proposed whenever a guard blocks work: turn it off, ignore
@@ -352,6 +375,42 @@ agrees with the last line, and nothing was looking for it.
 The eleven executable rules all hold. What made this cheap is that the guard
 ran in reporting mode while the corpus was still wrong — the breaches were
 visible for a day before anything depended on them being absent.
+
+### Batch 1, done — precedence is stated once
+
+`STD-002` §Which document wins and `STD-009` §2 said the same law in two
+`governed` documents, and neither named the other. `STD-002` reached v3.0.0 on
+2026-09-05 and overrode `STD-009` §2 in fact without naming it — a breach of
+`CORE-04`, which it promulgated in the same section.
+
+The law stays in `STD-009`, where the rules have citable identifiers and a
+verifier column. `STD-002` keeps two pointers and the thresholds that make the
+cost rule measurable.
+
+`CORE-02` was wrong and is corrected. It said the code outranks the documents.
+The Oracle settled the opposite on 2026-09-05 and `STD-002` was amended that
+day; `STD-009` was not, so the corpus held both readings for six hours. The
+correction carries `STD-002`'s exception — a document that describes what the
+code does and describes it wrong is a broken description — because the test is
+direction, and `STD-009` had no test at all.
+
+Four formulations moved instead of being deleted: the worked example of cost
+(`CORE-03`), "a document does not become authoritative by saying it is"
+(`CORE-05`), the `superseded`/`withdrawn` distinction (`CORE-45`), and "a
+`draft` binds nobody", which `STD-009` stated only about itself.
+
+One had no rule anywhere and became `CORE-63`: the change lands in the document
+it governs, because a rule written in a decision or a commit message is not a
+rule yet.
+
+The pair grew by 204 words. `STD-002` lost 50 and `STD-009` gained 254, of
+which the amendment note in `STD-002` and the correction rationale account for
+most. Deduplication that carries its own audit trail is not free, and the
+saving arrives in batch 2 when the same pointers serve sections that are still
+duplicated.
+
+`STD-002` goes to v5.0.0. Removing obligations is a major by `CORE-23`, even
+when the obligations survive elsewhere.
 
 ### Ratification is the Oracle's
 
