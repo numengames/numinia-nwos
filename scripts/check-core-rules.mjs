@@ -50,8 +50,17 @@ for (const d of docs) {
   if (f.version && !/^\d+\.\d+\.\d+$/.test(String(f.version)))
     record('CORE-21', `version "${f.version}" is not semantic`, r);
 
-  if (['superseded', 'retired', 'withdrawn'].includes(f.status) && !f.superseded_by)
-    record('CORE-45', `status ${f.status} with no heir`, r);
+  /* CORE-45: `superseded` names its heir; `withdrawn` is the state where the
+     rule left and nothing replaced it, so naming an heir there is the error.
+     The check is symmetric on purpose: a silent allowance would let a
+     `withdrawn` document carry a stale `superseded_by` for ever. `retired` is
+     not in the status vocabulary of any series — see rules.json — so it is not
+     tested here; lint-frontmatter rejects unknown values. */
+  if (f.status === 'superseded' && !f.superseded_by)
+    record('CORE-45', 'status superseded with no heir', r);
+
+  if (f.status === 'withdrawn' && f.superseded_by)
+    record('CORE-45', `status withdrawn names an heir "${f.superseded_by}" — a withdrawn rule has none; use superseded`, r);
 
   if (r.startsWith('standards/')) {
     const prose = body(d).replace(/```[\s\S]*?```/g, '').replace(/`[^`]*`/g, '');

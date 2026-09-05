@@ -5,9 +5,9 @@ title: "The rules of the corpus, and which one wins"
 type: documentation
 subtype: standard
 status: draft
-version: "0.6.0"
+version: "0.7.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-05T14:40:00+02:00"
+updated: "2026-09-05T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC0-1.0"
@@ -79,10 +79,14 @@ verifier, and `[MANUAL]` marks the ones no parser can decide. A rule moving
 from the second group to the first is an improvement that needs no amendment.
 
 **What ratification changes, and how it is undone.** The `status` field of this
-document is the switch. While it reads anything other than `active`, the guard
-reports breaches and lets the build pass: nothing here binds. Setting it to
-`active` makes the executed rules fail the build. Setting it back to `draft`
-suspends them again, immediately and without touching any script.
+document is the switch, and it is one of two. While `status` reads anything
+other than `active`, the guard reports breaches and lets the build pass:
+nothing here binds. Setting it to `active` arms the executed rules — but the
+guard only reaches a pull request once `check-core-rules.mjs` is a step in
+`.github/workflows/ci.yml`, which it is not yet. Until both switches are
+thrown, ratification binds the reader and not the build. Setting `status` back
+to `draft` suspends the rules again, immediately and without touching any
+script.
 
 No rule of this standard binds until the Oracle sets that field, and any rule
 can be suspended by returning it. A standard that cannot be switched off is not
@@ -306,6 +310,18 @@ execute and named them; eleven do, and the list was stale within a day of
 being written. `CORE-62` forbids a normative document from stating a figure
 its own subject will age, so the count is not corrected here — it is deleted,
 and the `Verified by` column of each rule carries the answer instead.
+
+`CORE-45` was reworded the same day and the guard behind it corrected: it
+demanded an heir from `withdrawn` documents, which by definition have none, and
+tested `retired`, a value in no series' status vocabulary. The check is now
+symmetric — `superseded` without an heir is a breach, `withdrawn` with one is
+a breach — and `DBT-015` closed.
+
+The ratification paragraph of section 1 claimed that setting `status` to
+`active` makes the executed rules fail the build. It does not: the guard is not
+a step in the workflow file, so the rules bind the reader and not the pipeline.
+The sentence now names both switches. An agent cannot write
+`.github/workflows/`, so the second one is the Oracle's to throw.
 
 ---
 

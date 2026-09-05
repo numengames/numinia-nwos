@@ -17,6 +17,14 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { ROOT } from '../lib/frontmatter.mjs';
 
+/* Removing a scratch clone races anything git left running in it: a detached
+   `gc --auto` from the fixture commits can still be writing under .git/objects
+   when the tree is unlinked, and rmdir then fails ENOTEMPTY. `force` does not
+   cover that — it suppresses missing paths, not busy ones. These are the
+   retry options node documents for exactly this class (EBUSY, ENOTEMPTY,
+   EPERM). scratchClone also turns gc off, which removes the usual writer. */
+const rmTree = (p) => rmSync(p, { recursive: true, force: true, maxRetries: 10, retryDelay: 100 });
+
 const results = [];
 // a check returns true, false, or a string; a string starting `skipped:` is a named skip (counted, never a failure)
 const check = (name, fn) => { try { const r = fn(); const skip = typeof r === 'string' && r.startsWith('skipped:'); results.push({ name, ok: skip || (r !== false && typeof r !== 'string'), skip, note: typeof r === 'string' ? r : '' }); } catch (e) { results.push({ name, ok: false, note: e.message.split('\n')[0] }); } };
@@ -70,7 +78,7 @@ check('contradictions: claims.json states follow the tree (open → resolved / m
     rmSync(path.join(c, 'debt/moved-fixture.md')); execFileSync('git', ['-C', c, 'add', '-A'], { stdio: 'ignore' });
     const resolved = run(c).figures['contradictions.claims'].value.find((r) => r.id === first.id);
     return (moved.state === 'moved' && moved.where === 'debt/moved-fixture.md' && resolved.state === 'resolved') || `got ${moved.state}/${moved.where} then ${resolved.state}`;
-  } finally { rmSync(c, { recursive: true, force: true }); }
+  } finally { rmTree(c); }
 });
 
 // Criterion 9: the ledger only grows. Every line ever committed in history.jsonl is still in it,
@@ -110,7 +118,7 @@ for (const f of golden) {
       return bad.length === 0 || `differ on: ${bad.join(', ')}`;
     } finally {
       spawnSync('git', ['-C', ROOT, 'worktree', 'remove', '--force', clone]);
-      rmSync(clone, { recursive: true, force: true });
+      rmTree(clone);
     }
   });
 }
@@ -123,7 +131,7 @@ check('fixture: an added done mission without Closure moves missions.total and d
     const t = run(clone);
     const d = (k) => t.figures[k].value - t1.figures[k].value;
     return (d('missions.total') === 1 && d('missions.done_without_closure') === 1 && d('corpus.docs_total') === 1) || `deltas total=${d('missions.total')} dwc=${d('missions.done_without_closure')} docs=${d('corpus.docs_total')}`;
-  } finally { rmSync(clone, { recursive: true, force: true }); }
+  } finally { rmTree(clone); }
 });
 check('fixture: a mis-named file in debt/ lowers series.registration.debt.pct, not the count of registered', () => {
   const clone = scratchClone();
@@ -132,7 +140,7 @@ check('fixture: a mis-named file in debt/ lowers series.registration.debt.pct, n
     execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
     const a = t1.figures['series.registration'].value.debt, b = run(clone).figures['series.registration'].value.debt;
     return (b.registered === a.registered && b.total === a.total + 1 && b.pct < a.pct) || `before ${JSON.stringify(a)} after ${JSON.stringify(b)}`;
-  } finally { rmSync(clone, { recursive: true, force: true }); }
+  } finally { rmTree(clone); }
 });
 check('fixture: corpus_hash changes when a tracked file changes, and --check then reports STALE', () => {
   const clone = scratchClone();
@@ -150,7 +158,7 @@ check('fixture: corpus_hash changes when a tracked file changes, and --check the
     if (!(r.status === 1 && /STALE/.test(r.stderr))) return `expected STALE exit 1, got ${r.status}: ${r.stderr.trim()}`;
     const after = run(clone).corpus_hash;
     return before !== after || 'corpus_hash did not change';
-  } finally { rmSync(clone, { recursive: true, force: true }); }
+  } finally { rmTree(clone); }
 });
 
 function scratchClone() {
@@ -160,6 +168,7 @@ function scratchClone() {
   // telemetry/ is output and stays out — except claims.json, which is input (the register)
   if (existsSync(path.join(ROOT, 'telemetry/claims.json'))) { mkdirSync(path.join(dir, 'telemetry'), { recursive: true }); cpSync(path.join(ROOT, 'telemetry/claims.json'), path.join(dir, 'telemetry/claims.json')); }
   execFileSync('git', ['-C', dir, 'init', '--quiet'], { stdio: 'ignore' });
+  execFileSync('git', ['-C', dir, 'config', 'gc.auto', '0'], { stdio: 'ignore' });
   execFileSync('git', ['-C', dir, 'add', '-A'], { stdio: 'ignore' });
   execFileSync('git', ['-C', dir, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-q', '-m', 'base'], { stdio: 'ignore' });
   return dir;
