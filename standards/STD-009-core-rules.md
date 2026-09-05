@@ -5,9 +5,9 @@ title: "The rules of the corpus, and which one wins"
 type: documentation
 subtype: standard
 status: draft
-version: "0.4.0"
+version: "0.5.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-05T13:05:00+02:00"
+updated: "2026-09-05T14:05:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC0-1.0"
@@ -95,7 +95,7 @@ a pointer here, and `CORE-02` was corrected in the move.
 |---|---|---|
 | **CORE-01** | Git history outranks every document; when a document and the history disagree, the history is the record and the document is the claim. | `[MANUAL]` — a claim about history is checked by reading `git log`, and no parser knows which claim to check |
 | **CORE-02** | The documents outrank the code: they are the source of truth and the code implements them. When the code does something the documents do not say, the code is corrected. The exception is a document that describes what the code already does and describes it wrong — that is a broken description, and the description is fixed. The test is direction: a rule the code disobeys is a bug in the code; a description the code contradicts is a bug in the description. | `[MANUAL]` — deciding which of the two is the claim requires understanding both |
-| **CORE-03** | Between two documents, the one that costs more agreement to change wins: sealed, then governed, then closed, then open. | `[MANUAL]` — the thresholds are declared, but recognising that two documents conflict is a judgement |
+| **CORE-03** | Between two documents, the one that costs more agreement to change wins: `sealed`, then `governed`, then `closed`, then `open`. What each threshold costs is defined in the glossary, `STD-001`, and is not restated here. | `[MANUAL]` — the thresholds are declared, but recognising that two documents conflict is a judgement |
 | **CORE-04** | At equal cost, the later ruling wins, and a later ruling names what it overrides. | `[MANUAL]` — a guard cannot tell a ruling from a mention |
 | **CORE-05** | A document does not become authoritative by saying it is. No document holds authority over another except by `CORE-01`..`CORE-04`, and a claim of precedence written inside a document is void unless it rests on one of them. | `[MANUAL]` — an authority claim is a sentence, and no parser recognises one |
 **Why cost of change and not rank.** A hierarchy by importance invites argument
@@ -129,6 +129,7 @@ the one it inherits.
 | **CORE-08** | A finished mission or a published report keeps its claims; its form may be corrected and the commit says so. | `[MANUAL]` — separating a claim from its form needs a reader |
 | **CORE-09** | Everything else changes by an ordinary pull request. | branch protection, GitHub settings |
 | **CORE-10** | Facing an irreversible act in doubt, an agent does not act and escalates instead. | `[MANUAL]` — an act not taken leaves no trace to check |
+| **CORE-65** | What each rank may do to a document: an Oracle approves structural change, seals canon, and alone promotes an artefact to stable or breaks it; an Archon authorises iterations below the stable line; a digital agent writes its own files and its assigned missions; a custodian maintains documents, indexes and changelogs; automation writes reports only. Which rank an actor holds is defined in the canon of roles, not here. | `[MANUAL]` — mapping an author to a rank needs the roster |
 ---
 
 ## 4. Identity and names
@@ -157,7 +158,8 @@ the one it inherits.
 
 | ID | Rule | Verified by |
 |---|---|---|
-| **CORE-21** | Versions are semantic. | `check-core-rules.mjs` |
+| **CORE-21** | Versions are semantic, as defined by Semantic Versioning 2.0.0 (https://semver.org). Adopted as published, not redefined here. Every artefact starts at `0.1.0`. | `check-core-rules.mjs` |
+| **CORE-64** | Who may move a number is set by which number it is: a digital agent moves the patch, an Archon moves the minor, and only an Oracle moves the major. Promotion to `1.0.0` is a major move. | `[MANUAL]` — matching an author to the number they moved is judgement |
 | **CORE-22** | Changing what a document requires raises at least the middle number. | `[MANUAL]` — classifying a diff as a changed obligation is the judgement itself |
 | **CORE-23** | Reversing what a document requires raises the first number. | `[MANUAL]` — same as CORE-22, and see `DBT-015` for the escalation it triggers |
 | **CORE-24** | The version in the header and the version at the top of the document's own change log agree. | `check-core-rules.mjs` |
@@ -260,7 +262,7 @@ the one it inherits.
 Stating this is a requirement of the corpus, not a courtesy.
 
 Every rule above names a verifier. 23 are decided by a script or by a
-GitHub setting; 40 are marked `[MANUAL]` and say in one line why no
+GitHub setting; 42 are marked `[MANUAL]` and say in one line why no
 parser can decide them. There is no third kind: a rule with an empty verifier
 column would be an opinion that had learnt to look official.
 
