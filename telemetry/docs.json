@@ -2810,10 +2810,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 19177,
+  "chars": 20521,
   "apparatus": false,
   "archived": false,
-  "tokens": 4877
+  "tokens": 5176
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
