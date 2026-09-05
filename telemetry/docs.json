@@ -609,11 +609,11 @@
   "dir": "debt",
   "series": "debt",
   "type": "documentation",
-  "status": "active",
-  "chars": 3272,
+  "status": "closed",
+  "chars": 4265,
   "apparatus": false,
   "archived": false,
-  "tokens": 911
+  "tokens": 1158
  },
  {
   "path": "decisions/ADR-001-the-archive.md",
@@ -2810,10 +2810,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 20521,
+  "chars": 21460,
   "apparatus": false,
   "archived": false,
-  "tokens": 5176
+  "tokens": 5416
  },
  {
   "path": "system/SYS-001-cao-architecture.md",

@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "b9a7cfc",
-  "corpus_hash": "50371ac439822e526b27651c80971dd052a11a793b4715572cd107ff2aeb7d89",
+  "head": "9b7a07f",
+  "corpus_hash": "7497f6d3311c002c9af6c8df98877da876fa871af89f4889e6a17dfeff0b73ca",
   "root_dirty": 0,
-  "measured_at": "2026-09-05T20:42:54Z",
+  "measured_at": "2026-09-05T21:00:30Z",
   "families": [
     "corpus",
     "series",
@@ -357,14 +357,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 516881,
+      "value": 517368,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "missions": 266371,
-        "standards": 66677,
+        "standards": 66917,
         "canon": 41567,
         "agents": 25317,
         "operations": 21347,
@@ -376,7 +376,7 @@
         "reports": 8906,
         "history": 7274,
         "blueprints": 5596,
-        "debt": 3349,
+        "debt": 3596,
         "guilds": 3342,
         "infra": 1511,
         ".github": 318
@@ -386,13 +386,13 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 147447,
+        "active": 146536,
         "done": 127113,
-        "draft": 68830,
+        "draft": 69070,
         "todo": 54487,
         "in-progress": 41175,
         "frozen": 34004,
-        "closed": 18598,
+        "closed": 19756,
         "(none)": 12171,
         "in-review": 11110,
         "superseded": 1946
@@ -401,7 +401,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 51.53,
+      "value": 51.49,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -682,9 +682,9 @@
     },
     "contradictions.status_vocabulary_used": {
       "value": {
-        "active": 84,
+        "active": 83,
         "draft": 23,
-        "closed": 6,
+        "closed": 7,
         "superseded": 2,
         "frozen": 38,
         "todo": 33,
@@ -730,7 +730,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 500
+          "3": 501
         },
         "MIS": {
           "3": 1263,
@@ -750,7 +750,7 @@
           "4": 20
         },
         "DBT": {
-          "3": 114
+          "3": 115
         },
         "PRO": {
           "3": 315
