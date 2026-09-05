@@ -4,11 +4,11 @@ id: "STD-002"
 uid: ""
 type: documentation
 status: active
-version: "3.0.0"
+version: "4.0.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-05T09:30:00+02:00"
+updated: "2026-09-05T10:40:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [governance, roles, permissions, thresholds, versioning, precedence, relations]
@@ -30,26 +30,34 @@ license: "CC0-1.0"
 
 ## Which document wins
 
-Four rules settle every conflict in this corpus. Nothing else grants authority.
+Four rules settle every conflict. Nothing else grants authority.
 
-| | Rule |
-|---|---|
-| **1** | Git history outranks every document. When a document and the history disagree, the history is the record and the document is a claim. |
-| **2** | The tree outranks the prose. When a document says the code does something and the code does not, the code wins and the document is corrected. |
-| **3** | Between two documents, the one that costs more agreement to change wins: `sealed`, then `governed`, then `closed`, then `open`. |
-| **4** | At equal cost, the later ruling wins — and a later ruling must name what it overrides. |
+**1. The git history outranks every document.** When a document and the history
+disagree, the history is the record and the document is a claim.
 
-A claim of precedence written inside a document is void unless it rests on one
-of these four. A document does not become authoritative by saying it is.
+**2. The documents outrank the code.** They are the source of truth; the code
+implements them. When the code does something the documents do not say, the
+code is wrong and gets corrected — not the document.
 
-**Why cost of change and not importance.** A hierarchy by importance invites an
-argument about what is important. Cost of change is already recorded — it is how
-much agreement each series demands before it may be edited — and a reader can
-verify it without asking anyone.
+*Exception:* when a document describes what the code already does and describes
+it wrong, that is a broken description, and the description is fixed. The test
+is direction. A rule the code disobeys is a bug in the code. A description the
+code contradicts is a bug in the description.
 
-This is why the canon outranks a standard: not because it matters more, but
-because changing it costs the Oracle's signature, and changing a standard costs
-a pull request.
+**3. The document that is harder to change wins.** Harder means more agreement
+needed. In order: sealed, governed, closed, open.
+
+*Why this and not importance:* importance is an argument. How much agreement a
+change needs is already written down, per series, so anyone can check it without
+asking. The canon outranks a standard because changing the canon needs an
+Oracle's signature and changing a standard needs a pull request — not because
+the canon matters more.
+
+**4. At equal difficulty, the newer ruling wins** — and it must name what it
+replaces. A ruling that silently contradicts an older one is not a ruling.
+
+A document does not become authoritative by saying it is. Any claim of
+precedence not resting on these four rules is void.
 
 ---
 
@@ -78,153 +86,149 @@ says, not how it changes.
 
 ## Roles
 
-| Role | Who | What it may do |
-|---|---|---|
-| `oracle` | Pablo FM | maximum authority; approves structural change |
-| `custodian` | Adonaz and equivalents | document management, index, changelog |
-| `active-agent` | operational agents | writes its own files and its assigned missions |
-| `design-agent` | agents in design phase | read only |
-| `system` | automation | restricted write, reports only |
+**Oracles** hold maximum authority. They approve structural change, seal the
+canon, and are the only ones who promote an artifact to stable or break it.
+
+**Archons** lead other agents and hold structural responsibility over the
+system, not only over their own work. They authorise development iterations
+below the stable line.
+
+**Digital agents** write their own files and their assigned missions, and move
+patch versions.
+
+**Custodians** manage documents, indexes and the changelog. **Automation**
+writes reports only.
+
+Rank is defined by the canon of roles, not here. This document only says what
+each rank may do to a document.
+
+---
+
+## What a document can be
+
+A normative document — canon, standard or protocol — has four states:
+
+- **draft** — written, not yet binding on anyone
+- **active** — in force; you must comply with it
+- **superseded** — replaced by a newer document, which it names
+- **withdrawn** — retired without replacement; the rule is gone
+
+Everything else uses three: **draft**, **active**, **closed** — closed meaning
+finished, kept for the record, not reopened.
+
+A rule that binds must be switchable off without lying about why it stopped
+binding. That is what `superseded` and `withdrawn` are for.
 
 ---
 
 ## Permissions by series
 
-| Series | Create | Modify | Archive or delete | Approval |
-|---|---|---|---|---|
-| `canon/` | oracle | oracle | oracle | oracle — `sealed` |
-| `standards/` | oracle + custodian | oracle + custodian | mark `superseded` or `withdrawn` | oracle — `governed` |
-| `protocols/` | oracle + custodian | new version = new file | mark `superseded` | oracle |
-| `decisions/` | oracle + custodian | only add `superseded_by` | **never delete** | oracle |
-| `system/` | oracle + agents | oracle + agents | oracle | oracle |
-| `agents/{own}/` | oracle | active-agent (own) + oracle | oracle | oracle |
-| `agents/{other}/` | oracle | oracle | oracle | oracle |
-| `guilds/` | oracle | oracle | oracle | oracle |
-| `operations/` | oracle + custodian | oracle + custodian | oracle | oracle |
-| `missions/` — `todo` | oracle + custodian | oracle | oracle | oracle |
-| `missions/` — `in-progress` · `in-review` | active-agent + oracle | only the executor | Oracle sets `done` | oracle |
-| `missions/` — `done` | automatic on close | substance: nobody; form: with the commit saying so | oracle | — |
-| `blueprints/` | oracle + agents | oracle + agents | oracle | oracle |
-| `reports/` — `subtype: daily` | active-agent + system | same day only | consumer tests | auto-merge |
-| `reports/` — `audit` · `analysis` · `proposal` | author + oracle | closed on publication, form only | consumer tests | oracle |
-| `debt/` | any agent | any agent | mark `closed`, **never delete** | — |
-| `history/` | on retirement only | nobody | **never** | oracle |
-| `templates/` | oracle + custodian | oracle + custodian | oracle | oracle |
+One rule covers every series: **a document's change state says who may touch
+it, and no series overrides it.**
 
-An agent opens a debt entry without asking: naming a gap is not a change to the
-system, and requiring approval to admit a problem is how a corpus learns to
-stay quiet.
+- **open** — normal pull request. Everything not listed below.
+- **closed** — substance is not reopened; form may be corrected, and the commit
+  says so. Done missions, reports.
+- **governed** — a decision record, or a pull request an Oracle approves.
+  Standards, protocols, decisions.
+- **sealed** — an Oracle's signature and a recorded decision; the previous
+  version stays reachable. Canon.
+
+Two exceptions, both deliberate. Any agent may open a debt entry without
+approval, because naming a gap is not a change to the system, and requiring
+permission to admit a problem is how a corpus learns to stay quiet. And nothing
+in `history/` is ever deleted, by anyone, at any state.
 
 ### What each series answers
 
-The permission table says who. This says what belongs there — the question a
-reader is holding when they open the folder.
+Every folder answers one question. If your document does not answer that
+folder's question, it belongs in another folder.
 
-| Series | The question it answers | What it is not |
-|---|---|---|
-| `canon/` | What is foundational? | Operating policy or a procedure |
-| `standards/` | What must an artifact comply with? | A description of how things work |
-| `protocols/` | What does an actor execute? | A rule an artifact satisfies |
-| `system/` | How does it work today? | A norm or a future design |
-| `agents/` | Who acts, with what authority? | A user account |
-| `guilds/` | How do actors group? | The definition of one agent |
-| `missions/` | What work is promised or done? | A general policy |
-| `decisions/` | Why was this chosen? | A restatement of a standard |
-| `blueprints/` | What could exist? | A record of what happened |
-| `reports/` | What was observed, and when? | A plan or a list of closed missions |
-| `operations/` | What sustains the business? | Canon |
-| `debt/` | What do we know is missing? | A substitute for fixing it |
-| `history/` | What was tried and replaced? | A live design |
+**canon/** — what is foundational. **standards/** — what an artifact must
+comply with. **protocols/** — what an actor executes. **system/** — how it
+works today. **agents/** — who acts, and with what authority. **guilds/** —
+how actors group.
 
-The `standards` ⟷ `protocols` boundary is the mechanism, not the topic: a
+**missions/** — what work is promised or done. **decisions/** — why something
+was chosen. **blueprints/** — what could exist. **reports/** — what was
+observed, and when. **operations/** — what sustains the business. **debt/** —
+what we know is missing. **history/** — what was tried and replaced.
+
+The line between a standard and a protocol is the mechanism, not the topic: a
 standard is complied with, a protocol is executed.
 
-**The folder is a filing decision; `type:` is a declared genre.** They are
-independent, and they must agree. When they disagree the document moves — its
-declared genre is not edited to match the shelf it landed on.
+The folder is a filing decision; the `type:` field is a declared genre. They
+must agree. When they disagree the document moves — you do not edit its genre
+to match the shelf it landed on.
 
 Citing a document does not change what you are. A standard that cites canon is
 still a standard, and a mission that cites a standard does not become one.
 
 ---
 
-### Change thresholds
+### What is actually enforced
 
-The table above says **who**. The glossary says **how much agreement**, and the
-two are read together.
+Nothing here is immutable, and this document does not claim otherwise.
 
-| Threshold | What it takes | Applies to |
-|---|---|---|
-| `sealed` | the Oracle's signature and a recorded decision; the previous version stays reachable | `canon/` |
-| `governed` | a decision record, or a pull request the Oracle approves | `standards/` · `protocols/` · `decisions/` |
-| `closed` | substance is not reopened; form may be corrected and the commit must say so | `missions/` done · `reports/` |
-| `open` | normal pull request | everything else |
+The `protect-main` ruleset is active on the default branch: pull requests,
+required status checks, linear history, no force-push, no deletion, zero bypass
+actors. Verified against the ruleset API on 2026-09-03.
 
-**Nothing here is immutable, and this document does not claim otherwise.**
-
-**What is mechanically enforced, and what is not.** The `protect-main` ruleset
-is active on the default branch — pull requests, required status checks, linear
-history, no force-push, no deletion, **zero bypass actors**, verified against
-the ruleset API on 2026-09-03. What the permission table **cannot** enforce is
-*who approves*: the rows name authorities the platform does not distinguish.
-Those rows are a convention held by people. The branch is not.
+What the machine **cannot** enforce is *who approves*. Oracle, Archon and agent
+are ranks the platform does not distinguish. Those rules are a convention held
+by people. The branch protection is not.
 
 ---
 
 ## The rules
 
-| Rule | Description |
-|---|---|
-| G-01 | When a mission contradicts the canon, the mission is wrong. Escalate. |
-| G-02 | One active mission has exactly one executor. Collaboration is declared. |
-| G-03 | Only the executor edits an active mission. Others read. |
-| G-04 | Agents never modify their own `SOUL.md` or `OPERATOR.md`. |
-| G-05 | No agent deletes documents from `missions/` done or `decisions/`. |
-| G-06 | Escalation runs agent → Oracle, per the escalation protocol. |
-| G-07 | When in doubt about sensitivity, do not commit. Escalate first. |
-| G-08 | A mission sitting in `todo` more than 90 days without activity is stale. |
-| G-09 | Any change to `canon/` requires the canon-change label and explicit Oracle approval. |
-| G-10 | The Oracle has 48 hours to answer a mission that requires approval. |
-| G-11 | Canon propagates by pin and digest, never by copy. The emitter publishes, versions, signs, generates and notifies; the consumer pins, verifies and reports upstream. |
-| G-12 | A derived NWOS repository is sovereign. Updates are offered, never imposed; the emitter's authority ends at notification. |
+**On authority.** When a mission contradicts the canon, the mission is wrong;
+escalate (G-01). Any change to `canon/` needs the canon-change label and an
+Oracle's explicit approval (G-09). Escalation runs from agent to Oracle, per the
+escalation protocol (G-06), and an Oracle has 48 hours to answer a mission
+waiting on approval (G-10).
 
-### Canon emission — the canon is not copied, it is pinned
+**On who writes what.** An active mission has exactly one executor, and only
+that executor edits it; collaboration is declared (G-02, G-03). Agents never
+modify their own `SOUL.md` or `OPERATOR.md` (G-04). Nobody deletes a done
+mission or a decision (G-05).
 
-The repository that governs a law writes it, versions it, generates its derived
-artifacts and publishes them. Consumers keep no copy: they pin a version and a
-digest, verify drift in their own pipeline, and report upstream instead of
-patching. **A local copy is a fork waiting to happen.**
+**On doubt.** When unsure whether something is sensitive, do not commit —
+escalate first (G-07). A mission sitting in `todo` for more than 90 days without
+activity is stale (G-08).
 
-Per governed artifact, the emitter **publishes** at a stable public address for
-the master and every derived artifact; **versions** it in the artifact itself
-and in the path, so a new version never overwrites an old address; **signs** it
-with a manifest carrying a digest per file; **generates** derived artifacts from
-the master by script, never by hand; **notifies** known consumers of every new
-version with its digest; and keeps an **append-only** history inside the master,
-never reusing a retired number.
+**On distribution.** The canon propagates by pin and digest, never by copy
+(G-11). A derived NWOS repository is sovereign: updates are offered, never
+imposed (G-12).
 
-### Sovereignty of derived repositories
+### Canon emission and sovereignty — not yet in force
 
-**Once an organization has created its own NWOS repository, it is sovereign.**
-We publish; they adopt. Nothing written here becomes law inside their repository
-by inheritance, fork relationship or template lineage.
+**Status: green.** This describes where we are going, not where we are. Three
+consumer repositories still keep local copies of the design kit; `MIS-102` is
+the mission that ends that, and it has not started. Treat the rest of this
+section as a target, not as a rule you can be measured against today.
 
-| Not this | This |
-|---|---|
-| "it is a fork of the mould, so it receives our document" | the mould is **versioned**; the organization **pins a version** |
-| a practice written upstream is mandatory downstream | a new version is **published and announced**; adopting it is their decision |
-| "consumer repositories must never drift" | drift is legitimate; drifting **silently while claiming to be current** is not |
-| sync imposed | update **offered**, with a changelog of what changes and why |
+**Emission.** The repository that governs a law writes it, versions it,
+generates its derived artifacts and publishes them. Consumers keep no copy:
+they pin a version and a digest, check for drift in their own pipeline, and
+report upstream instead of patching. A local copy is a fork waiting to happen.
 
-The emitter's duties hold unchanged. What sovereignty adds is the limit of the
-emitter's authority: **its duty ends at notification.** A sovereign organization
-may stay on an old version forever, and that is not debt on their side — it is a
-fact our tooling must be able to read.
+The emitter publishes at a stable public address, versions the artifact in the
+path so a new version never overwrites an old address, ships a manifest with a
+digest per file, generates derived artifacts by script rather than by hand, and
+notifies known consumers of each new version.
 
-**Watch for this error class:** any artifact that assumes authority over a
-repository it does not own — a requirement aimed downstream, a mandatory sync, a
-guard that fails someone else's build for not being current. Register it as a
-contradiction before acting on it.
+**Sovereignty.** Once an organization has created its own NWOS repository, it
+is sovereign. We publish; they adopt. Nothing written here becomes law inside
+their repository by inheritance, fork relationship or template lineage. They
+pin a version; a new one is announced, and adopting it is their decision.
+Staying on an old version forever is legitimate, and is not debt on their side.
+Drifting silently while claiming to be current is the thing that is not.
+
+The emitter's authority ends at notification. Watch for any artifact that
+assumes authority over a repository it does not own — a requirement aimed
+downstream, a mandatory sync, a guard that fails someone else's build for not
+being current.
 
 ---
 
@@ -232,14 +236,13 @@ contradiction before acting on it.
 
 Declare a relation when it matters for retrieval, audit, or a future change.
 
-| Relation | Meaning |
-|---|---|
-| `related` | Relevant to one another, no stronger direction known |
-| `supersedes` / `superseded_by` | A later record replaces an earlier one, which stays reachable |
-| `absorbs` | A later record carries the earlier reasoning into itself; the identifier keeps resolving |
-| `ratified_by` | An authority promoted or confirmed the record |
-| `parent_mission` | A bounded child of a larger mission |
-| `former_id` | The identifier this record carried before a governed move |
+**related** — relevant to one another, no stronger direction known.
+**supersedes** / **superseded_by** — a later record replaces an earlier one,
+which stays reachable. **absorbs** — a later record carries the earlier
+reasoning into itself, and the old identifier keeps resolving. **ratified_by** —
+an authority promoted or confirmed the record. **parent_mission** — a bounded
+child of a larger mission. **former_id** — the identifier this record carried
+before a governed move.
 
 Do not use `related` when a stronger relation is known, and do not infer a
 relation from a shared folder, author, or subject.
@@ -248,16 +251,22 @@ relation from a shared folder, author, or subject.
 
 ## Versioning authority
 
-Every artifact follows a two-stage lifecycle. Semantic versioning itself is
-defined in the glossary; this table says **who may move a version**.
+We use **Semantic Versioning 2.0.0** ([semver.org](https://semver.org)). We did
+not invent it and we do not redefine it here: `MAJOR.MINOR.PATCH`, where MAJOR
+breaks compatibility, MINOR adds it, PATCH fixes without changing it. Read the
+spec for what each number means. This section only says **who may move which
+number.**
 
-| Transition | Who authorizes |
-|---|---|
-| new artifact → v0.1.0 | digital agent — every artifact starts at v0.1.0, no exceptions |
-| v0.1.0 → v0.2.0, development iteration | digital agent |
-| **v0.X.0 → v1.0.0, stable promotion** | **Oracle only** — signals production-ready |
-| v1.0.0 → v1.1.0, stable iteration | digital agent |
-| **v1.X.0 → v2.0.0, major breaking** | **Oracle only** |
+**Digital agents move the patch.** A fix that changes nothing anyone depends on.
+
+**Archons move the minor.** A new capability, backwards compatible. This is the
+ordinary development iteration.
+
+**Oracles move the major**, and only Oracles. A break is a promise withdrawn,
+and it costs a signature. Promotion to `1.0.0` is a major move: it declares the
+artifact production-ready.
+
+Every artifact starts at `0.1.0`, no exceptions.
 
 ---
 
@@ -279,11 +288,17 @@ acting — how much human approval an action needs.
 
 ## References
 
-| ID | Name | Why cited |
-|---|---|---|
-| `STD-001` | The glossary | Defines the change thresholds this document's permission table is read against, and semantic versioning. |
-| `PRO-005` | The escalation protocol | Carries the escalation path that rule G-06 names. |
-| `PRO-008` | The decision protocol | Carries the request format the approval scale is scored in. |
-| `SYS-004` | Document relations | Absorbed into this document. Its genre map and relation vocabulary are the two sections above; the identifier resolves here. |
+- [`STD-001` — The glossary](STD-001-glossary.md). Defines the change
+  thresholds this document is read against.
+- [`PRO-005` — Escalation](../protocols/PRO-005-escalation.md). The path rule
+  G-06 names.
+- [`PRO-008` — Decision](../protocols/PRO-008-decision.md). The request format
+  the approval scale is scored in.
+- [`MIS-0102` — Consumers pin the emitted kit](../missions/MIS-0102-consumers-pin-the-emitted-kit.md).
+  The mission that puts canon emission into force. Still `todo`.
+- [Semantic Versioning 2.0.0](https://semver.org). Adopted as-is, not
+  redefined here.
+- `SYS-004` — Document relations. Absorbed into this document; the identifier
+  resolves here.
 
 ---
