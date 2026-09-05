@@ -179,7 +179,8 @@ not have to rediscover them:
 
 ## Version history
 
-- v0.2.0 (2026-09-03) — `ADR-001` recalified: `STD-006` drafted, the record
-  superseded in place with its withdrawn clauses documented.
 - v0.1.0 (2026-09-03) — Mission opened. Scope, criteria and pre-work
   findings recorded.
+- v0.2.0 (2026-09-03) — `ADR-001` recalified: `STD-006` drafted, the record
+  superseded in place with its withdrawn clauses documented.
+

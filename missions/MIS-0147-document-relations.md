@@ -125,3 +125,4 @@ paths: [standards/STD-002-governance.md, missions/MIS-0147-document-relations.md
 ## Version history
 
 - v0.1.0 (2026-09-03) — Initial mission brief.
+- v1.0.0 (2026-09-05) — Mission closed: the genre map and relation vocabulary landed in STD-002 (ADR-038, #251).

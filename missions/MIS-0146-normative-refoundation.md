@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.3.0"
+version: "1.4.0"
 created: "2026-09-03T17:46:00Z"
 created_source: "git:eb91cbb"
 created_confidence: exact
-updated: "2026-09-05T11:30:00+02:00"
+updated: "2026-09-05T12:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [standards, governance, contradictions, compression, refoundation]
@@ -264,6 +264,40 @@ exist, and by its own test most of these rules do not exist yet.
 Every rule gets either a named script or an explicit `[MANUAL]` with a reason.
 That is batch 0, and nothing ratifies before it lands.
 
+## What to do with a guard whose rule is not settled yet
+
+Three options get proposed whenever a guard blocks work: turn it off, ignore
+it, or make it pass. Two of them destroy the instrument.
+
+**Turning it off** deletes the measurement. The corpus stops being wrong and
+starts being unmeasured, which reads the same in a green build and is not the
+same thing. When the rule is settled the drift has to be discovered again from
+zero.
+
+**Ignoring it** is worse, because the guard still runs. A red build nobody acts
+on trains every reader to skip the output, and the next failure — a real one —
+is skipped with it. A guard that is ignored has negative value: it costs
+attention and returns none.
+
+**Making it pass** by relaxing the check, adding an exception list, or editing
+documents to satisfy a rule nobody agreed to is the only one that produces a
+false record. The build says the corpus complies. It does not.
+
+The fourth option is the one already built. `check-core-rules.mjs` reads
+`STD-009`'s own `status`: while it is anything but `active`, every breach is
+printed and the build passes. The measurement is taken, published, and not
+enforced. Nothing is hidden, nothing is faked, and the day the standard is
+ratified the guard changes behaviour without a line of code changing.
+
+This is the general rule, not a special case for `STD-009`. A guard for an
+unratified rule reports; a guard for a ratified rule blocks. Which one it does
+is read from the document, not decided in the script — so throwing the switch
+is an edit to a header, and reverting it is the same edit backwards.
+
+The cost is real and worth naming: a reporting guard is easy to stop reading.
+The thirteen breaches closed above sat visible for a day. That is the price of
+not lying, and it is lower than the alternatives.
+
 ### Batch 0, done — every rule names its verifier
 
 All 62 rules carry a verifier. 23 are decided by a script or a GitHub setting;
@@ -289,6 +323,35 @@ Four `[MANUAL]` marks are pending tools rather than undecidable rules:
 `CORE-32` and `CORE-33` wait on the guard register, `CORE-49` on a
 content-hash scan, `CORE-54` on a secret scanner. There is no secret scanning
 wired into the pipeline today.
+
+### Batch 0b, done — the corpus holds every executable rule
+
+Ratification was blocked by thirteen open breaches. They are closed, so the
+switch can be thrown without the build going red on the first commit after it.
+
+Three were defects in the guard, not in the corpus. `CORE-24` matched a heading
+that *mentioned* a changelog instead of being one, scanned to end of file
+instead of to the next heading, and compared against the highest version rather
+than the newest entry. `CORE-12` read `-not-frozen.md` as a filename encoding
+`frozen`, when a negation is a claim about another document. A guard that cries
+wolf gets muted, and a muted guard is worse than none.
+
+Nine were real and had one cause: the eight guild documents were born at
+v1.2.0 in the `GLD-NNN` rename (`e9f58f6`, #163) carrying a change log from
+their previous life, and `MIS-0147` had its version raised in #251 without an
+entry. Each now records the act that moved it.
+
+Three logs ran backwards. `MIS-0044` was the interesting one: a normalisation
+pass in September wrote v1.0.1 over a document already at v1.1.0, which is not
+a lower patch but a version going backwards. It is v1.1.1.
+
+Writing `CORE-21`'s check for ordering was not planned. It fell out of reading
+the logs: a log whose entries descend is a defect whether or not the header
+agrees with the last line, and nothing was looking for it.
+
+The eleven executable rules all hold. What made this cheap is that the guard
+ran in reporting mode while the corpus was still wrong — the breaches were
+visible for a day before anything depended on them being absent.
 
 ### Ratification is the Oracle's
 

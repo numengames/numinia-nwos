@@ -33,3 +33,4 @@ The retired Nimrod remains historical only: 57 commits remain as `Centinela-01`;
 
 - v1.0.0 (2026-04-07) — Initial creation.
 - v1.1.0 (2026-04-07) — Translated to English (MIS-056).
+- v1.2.0 (2026-08-31) — Renamed to the `GLD-NNN` series and re-registered (MIS-125, #163).
