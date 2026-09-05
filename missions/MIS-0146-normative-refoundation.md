@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.2.0"
+version: "1.3.0"
 created: "2026-09-03T17:46:00Z"
 created_source: "git:eb91cbb"
 created_confidence: exact
-updated: "2026-09-05T10:40:00+02:00"
+updated: "2026-09-05T11:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [standards, governance, contradictions, compression, refoundation]
@@ -263,6 +263,32 @@ exist, and by its own test most of these rules do not exist yet.
 
 Every rule gets either a named script or an explicit `[MANUAL]` with a reason.
 That is batch 0, and nothing ratifies before it lands.
+
+### Batch 0, done — every rule names its verifier
+
+All 62 rules carry a verifier. 23 are decided by a script or a GitHub setting;
+39 are `[MANUAL]` with a one-line reason. The "How it is checked" column, which
+held instructions to a human, is now "Verified by" and names an artefact.
+
+Eleven rules are executable in `check-core-rules.mjs`, up from eight. The three
+added are `CORE-14` (an identifier is never reused), `CORE-20` (an unknown
+value is left empty, never guessed) and `CORE-24` (the header version and the
+document's own changelog agree).
+
+`CORE-14` found a real collision on its first run: `MIS-149` was held by two
+missions created three hours apart on 2026-09-04. `CORE-15` settles it by
+commit order, so the roster mission was renumbered to `MIS-153` and carries a
+note saying why. Nothing outside the two files cited either.
+
+`CORE-24` reports 12 documents whose header and internal changelog disagree —
+nine guild charters and rosters, three missions. Not fixed here: that is a
+burndown, and it belongs to its own batch. The guard reports them and the
+build passes, which is what the switch is for.
+
+Four `[MANUAL]` marks are pending tools rather than undecidable rules:
+`CORE-32` and `CORE-33` wait on the guard register, `CORE-49` on a
+content-hash scan, `CORE-54` on a secret scanner. There is no secret scanning
+wired into the pipeline today.
 
 ### Ratification is the Oracle's
 
