@@ -5,9 +5,9 @@ title: "The rules of the corpus, and which one wins"
 type: documentation
 subtype: standard
 status: draft
-version: "0.5.0"
+version: "0.6.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-05T14:05:00+02:00"
+updated: "2026-09-05T14:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC0-1.0"
@@ -56,27 +56,32 @@ is reported, not interpreted.
 
 **What a rule here binds.** Unless a rule says otherwise, *document* means a
 registered document of the corpus. It does not mean every markdown file in the
-repository. The boundary is not restated here: `scripts/lib/rules.json` defines
-apparatus — scaffolding around a series rather than a member of it — and
-`scripts/lib/frontmatter.mjs` computes it. That computation is the definition,
-and where this standard and the classifier disagree, the classifier is right
-and this sentence is the defect.
+repository. The boundary is *apparatus* — scaffolding around a series rather
+than a member of it. `scripts/lib/rules.json` transcribes that boundary and
+`scripts/lib/frontmatter.mjs` computes it, as `rules.json` says of itself:
+each block names the ruling it transcribes, and changing the ruling changes
+the block. Where this standard and the classifier disagree, `CORE-02` settles
+it: this standard is the source and the classifier is the implementation, so
+the classifier is corrected — unless the disagreement is this sentence
+describing wrongly what the classifier already does, which is a broken
+description and is fixed here.
 
 A second class sits outside these rules without being apparatus: the files that
 address a reader outside the corpus — the repository's own `README`, its
 contribution notes, its changelog, its agent instructions. They are governed by
 the conventions of the platform they serve, not by the numbered series.
 
-**What executes.** Eight of these rules are executed by
-`scripts/check-core-rules.mjs` — CORE-12, CORE-13, CORE-16, CORE-19, CORE-21,
-CORE-26, CORE-45 and CORE-50. The rest are read by a person or an agent.
-A rule moving from the second group to the first is an improvement that needs
-no amendment to this document.
+**What executes.** Some of these rules are executed by
+`scripts/check-core-rules.mjs`; the rest are read by a person or an agent.
+Which rule falls in which group is not stated here, because it changes without
+this document changing: every rule's own `Verified by` column names its
+verifier, and `[MANUAL]` marks the ones no parser can decide. A rule moving
+from the second group to the first is an improvement that needs no amendment.
 
 **What ratification changes, and how it is undone.** The `status` field of this
 document is the switch. While it reads anything other than `active`, the guard
 reports breaches and lets the build pass: nothing here binds. Setting it to
-`active` makes those eight rules fail the build. Setting it back to `draft`
+`active` makes the executed rules fail the build. Setting it back to `draft`
 suspends them again, immediately and without touching any script.
 
 No rule of this standard binds until the Oracle sets that field, and any rule
@@ -283,6 +288,24 @@ breach and lets the build pass.
 Five conflicts between the governance document and the protocols that govern
 the same acts are unresolved. They are not decided here because deciding them
 is not a measurement, and the corpus reserves that decision to the Oracle.
+
+---
+
+## 17. Amendment, 2026-09-05
+
+`CORE-02` was reversed in batch 1 of this document's ratification: the
+documents outrank the code, where before the tree outranked the prose. Section
+1 was not revisited in that move and went on delegating its own boundary to
+the classifier — "the classifier is right and this sentence is the defect" —
+which is the rule `CORE-02` had just abolished. A standard cannot hold both.
+`rules.json` already agreed with the corrected rule: its own comment says each
+block *transcribes* a ruling. The transcription is not the ruling.
+
+Two figures were removed rather than updated. Section 1 said eight rules
+execute and named them; eleven do, and the list was stale within a day of
+being written. `CORE-62` forbids a normative document from stating a figure
+its own subject will age, so the count is not corrected here — it is deleted,
+and the `Verified by` column of each rule carries the answer instead.
 
 ---
 
