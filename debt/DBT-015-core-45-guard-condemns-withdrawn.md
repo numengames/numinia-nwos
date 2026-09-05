@@ -3,12 +3,12 @@ id: "DBT-015"
 uid: ""
 title: "The CORE-45 guard demands an heir from withdrawn documents, which by definition have none"
 type: documentation
-status: active
-version: "1.0.0"
+status: closed
+version: "2.0.0"
 created: "2026-09-05T10:45:00+02:00"
 created_source: "git:94ba0f8"
 created_confidence: exact
-updated: "2026-09-05T10:45:00+02:00"
+updated: "2026-09-05T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [guards, standards, core-rules, lifecycle]
@@ -49,7 +49,7 @@ The distinction the corpus draws:
   to name, and inventing one to satisfy a guard would be a false statement in
   frontmatter.
 
-## Why it is inert today
+## Why it was inert while it stood
 
 Two reasons, both temporary:
 
@@ -60,7 +60,27 @@ Two reasons, both temporary:
 Either of those changing makes this bite. Ratifying `STD-009` — which
 `MIS-146` plans to do by batch — flips the second one.
 
-## Why it is not fixed here
+## Resolved, 2026-09-05
+
+Fixed in `scripts/check-core-rules.mjs`. The check is now symmetric: `superseded`
+without an heir is a breach, and `withdrawn` **with** an heir is a breach too.
+The second half is the positive form this record asked for — dropping
+`withdrawn` from the array would have allowed a withdrawn document to carry a
+stale `superseded_by` unchallenged.
+
+`retired` left the array as well: it is in no series' status vocabulary in
+`rules.json`, so the guard was testing a value `lint-frontmatter` already
+rejects. `CORE-45` was reworded in the same movement and names this record.
+
+Verified by breaking it four ways: superseded without heir fails, withdrawn
+with heir fails, withdrawn without heir passes, and the clean tree reports 243
+documents with all eleven rules holding.
+
+The second defect below — the `CORE-23` / `STD-002` escalation gap — is **not**
+resolved. It needs a sentence only the Oracle can authorise, and it survives
+this record's closure.
+
+## Why it was not fixed when opened
 
 The guard belongs to the guard-redesign work, not to this record. Changing it
 while `MIS-146` is rewriting the rules it enforces would put two hands on the
