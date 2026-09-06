@@ -616,6 +616,17 @@
   "tokens": 1158
  },
  {
+  "path": "debt/DBT-016-section-numbers-are-load-bearing.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 5049,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1393
+ },
+ {
   "path": "decisions/ADR-001-the-archive.md",
   "dir": "decisions",
   "series": "decisions",
@@ -2436,10 +2447,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 24929,
+  "chars": 26837,
   "apparatus": false,
   "archived": false,
-  "tokens": 6451
+  "tokens": 6918
  },
  {
   "path": "missions/MIS-0147-document-relations.md",
