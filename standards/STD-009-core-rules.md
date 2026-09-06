@@ -5,9 +5,9 @@ title: "The rules of the corpus, and which one wins"
 type: documentation
 subtype: standard
 status: draft
-version: "0.7.0"
+version: "0.9.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-05T21:30:00+02:00"
+updated: "2026-09-05T22:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC0-1.0"
@@ -79,14 +79,12 @@ verifier, and `[MANUAL]` marks the ones no parser can decide. A rule moving
 from the second group to the first is an improvement that needs no amendment.
 
 **What ratification changes, and how it is undone.** The `status` field of this
-document is the switch, and it is one of two. While `status` reads anything
-other than `active`, the guard reports breaches and lets the build pass:
-nothing here binds. Setting it to `active` arms the executed rules — but the
-guard only reaches a pull request once `check-core-rules.mjs` is a step in
-`.github/workflows/ci.yml`, which it is not yet. Until both switches are
-thrown, ratification binds the reader and not the build. Setting `status` back
-to `draft` suspends the rules again, immediately and without touching any
-script.
+document is the switch, and it is now the only one. `check-core-rules.mjs`
+became a step in `.github/workflows/ci.yml` on 2026-09-05, so the guard reaches
+every pull request. While `status` reads anything other than `active` it
+reports breaches and lets the build pass: nothing here binds. Setting it to
+`active` makes the executed rules refuse a merge. Setting it back to `draft`
+suspends them again, immediately and without touching any script.
 
 No rule of this standard binds until the Oracle sets that field, and any rule
 can be suspended by returning it. A standard that cannot be switched off is not
@@ -159,8 +157,8 @@ the one it inherits.
 | **CORE-16** | Every document opens with frontmatter fenced by three dashes on their own lines. | `check-frontmatter-delimiter.mjs` |
 | **CORE-17** | Frontmatter parses as valid YAML. | `check-frontmatter-yaml.mjs` |
 | **CORE-18** | A new frontmatter field requires both a line in the header standard's registry and a decision record. | `[MANUAL]` — the registry line is checkable; that the decision justifies it is not |
-| **CORE-19** | Every document declares its licence. | `check-license-frontmatter.mjs` |
-| **CORE-20** | A field whose value is unknown is left empty, never filled with a guess. | `check-core-rules.mjs` |
+| **CORE-19** | Every document declares its licence. What the value must be — an SPDX identifier that agrees with the licence manifest — is `H-08` in the header standard. | `check-license-frontmatter.mjs` |
+| **CORE-20** | A field whose value is unknown is never filled with a guess. An empty value is not the way to say so: absence is declared, in one of the three forms the glossary distinguishes — the field omitted, `null`, or `TBA` with the mission that resolves it. | `check-core-rules.mjs` |
 ---
 
 ## 6. Versions
@@ -222,7 +220,7 @@ the one it inherits.
 
 | ID | Rule | Verified by |
 |---|---|---|
-| **CORE-45** | A `superseded` document names its heir. A document is `withdrawn` when the rule left and nothing replaced it — that state names no heir, and demanding one is the defect recorded in `DBT-015`. | `check-core-rules.mjs` |
+| **CORE-45** | A `superseded` document names its heir. A document is `withdrawn` when the rule left and nothing replaced it: that state names no heir, and the check is symmetric — `superseded` without an heir is a breach, `withdrawn` with one is a breach. | `check-core-rules.mjs` |
 | **CORE-46** | A retired document stays reachable at the address where it was published. | `check-url-lifecycle.mjs` |
 | **CORE-47** | A redirect points at the destination that replaced the document, never at an index. | `[MANUAL]` — a redirect resolves; whether its target is the right heir does not |
 | **CORE-48** | Nothing is deleted while something still cites it. | `check-references.mjs` |

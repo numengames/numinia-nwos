@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-06T10:04:24Z"
+updated: "2026-09-06T11:00:50Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `12ad498`  · corpus_hash: `22fa11d42a0d59fa…`  · measured_at: 2026-09-06T10:04:24Z  · root_dirty: 0
+- head: `25036ec`  · corpus_hash: `d541ef761dc377b5…`  · measured_at: 2026-09-06T11:00:50Z  · root_dirty: 0
 
 ## corpus
 
@@ -229,18 +229,18 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 517368 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 518023 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
-| `tokens.missions_share_pct` | 51.49 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.missions_share_pct` | 51.52 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
 | `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
 
 | | tokens |
 |---|---|
-| missions | 266371 |
-| standards | 66917 |
+| missions | 266861 |
+| standards | 67082 |
 | canon | 41567 |
 | agents | 25317 |
 | operations | 21347 |
@@ -261,11 +261,11 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| active | 146536 |
+| active | 146632 |
 | done | 127113 |
-| draft | 69070 |
+| draft | 69139 |
 | todo | 54487 |
-| in-progress | 41175 |
+| in-progress | 41665 |
 | frozen | 34004 |
 | closed | 19756 |
 | (none) | 12171 |
@@ -488,13 +488,13 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | 3 |
 |---|---|
-| STD | 501 |
+| STD | 502 |
 | MIS | 1263 |
 | CAN | 128 |
 | ADR | 480 |
 | OPS | 36 |
 | RPT | 38 |
-| DBT | 115 |
+| DBT | 114 |
 | PRO | 315 |
 | DEC | 37 |
 | SYS | 55 |
