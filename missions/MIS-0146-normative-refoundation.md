@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.7.0"
+version: "1.8.0"
 created: "2026-09-03T17:46:00Z"
 created_source: "git:eb91cbb"
 created_confidence: exact
-updated: "2026-09-05T22:45:00+02:00"
+updated: "2026-09-06T14:10:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [standards, governance, contradictions, compression, refoundation]
@@ -482,6 +482,38 @@ rewrite, and a dated filename reserves nothing.
 and every `H-nn` is more specific than the `CORE` beside it. The batch table
 listed it as a document to empty. That was wrong — a registry is not a
 duplicate of the invariants that constrain it.
+
+### The next axis: canon keeps the why, standards take the obligations
+
+The Oracle's rule for the axis, stated 2026-09-06: **canon says why, a standard
+says what, a protocol says how.** Measured against the tree, the axis is sound
+and its application is not.
+
+**Two canons hold obligations.** `CAN-005` (licensing) carries 40 of them and is
+doing a standard's work for its whole length. `CAN-004` has one section,
+*Prototype theory*, with six. The other five canons carry none. So the defect is
+not general — it is two documents, and one of them is almost entirely it.
+
+**The move is: what obliges goes down to a standard, what explains stays.** Not
+the `[UNIVERSAL]`/`[NUMEN]` marks already in `CAN-005` — those record *scope*, so
+that a section can be promoted to a higher organisation's canon without a
+rewrite. They are not a canon/standard split, and reading them as one would send
+the generic rules down and keep the business-specific ones in canon, which is a
+different cut from the one instructed.
+
+**Section numbers stay where they are.** An emptied section keeps its heading and
+its number, and holds a pointer to the rule that now owns it. The reason is
+measured in `DBT-016`: 422 citations across 107 files name sections by number,
+123 of them inside `scripts/field-decisions.json`, and three in `LICENSE`,
+`REUSE.toml` and `TRADEMARKS.md` — the repository's legal declaration. Moving the
+text without keeping the numbers breaks all of them silently.
+
+This is containment, not a fix, and it is deliberate. The Oracle's stated intent
+is a later structural reduction — *"va a haber un momento que tenemos que arrasar
+con el sistema que tenemos ahora para reducirlo y dejarlo que sea mucho más
+cómodo"*. Holding the numbering steady now means that operation happens once, on
+purpose, with the coupling already measured, instead of being paid piecemeal by
+every batch that touches a cited document.
 
 ### Ratification is the Oracle's
 
