@@ -2436,10 +2436,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 23049,
+  "chars": 24929,
   "apparatus": false,
   "archived": false,
-  "tokens": 5961
+  "tokens": 6451
  },
  {
   "path": "missions/MIS-0147-document-relations.md",
@@ -2722,10 +2722,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 36925,
+  "chars": 37012,
   "apparatus": false,
   "archived": false,
-  "tokens": 9532
+  "tokens": 9557
  },
  {
   "path": "standards/STD-002-governance.md",
@@ -2755,10 +2755,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 11724,
+  "chars": 11983,
   "apparatus": false,
   "archived": false,
-  "tokens": 3111
+  "tokens": 3182
  },
  {
   "path": "standards/STD-005-engineering-standards.md",
@@ -2810,10 +2810,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 21421,
+  "chars": 21715,
   "apparatus": false,
   "archived": false,
-  "tokens": 5415
+  "tokens": 5485
  },
  {
   "path": "system/SYS-001-cao-architecture.md",

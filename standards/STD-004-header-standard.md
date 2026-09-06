@@ -5,11 +5,11 @@ title: "The header in three rings: identity, provenance, extension"
 type: documentation
 subtype: standard
 status: active
-version: "2.0.0"
+version: "2.1.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-09-03T23:50:00Z"
+updated: "2026-09-05T22:40:00+02:00"
 ratified_by: "ADR-027 (formerly ADR-029)"
 author: "ursa"
 owner: "oracle"
@@ -69,11 +69,14 @@ growing without limit.
 | `license` | present; SPDX identifier; agrees with the licence manifest | **H-08** |
 
 **H-00, the gate:** every Markdown file under a governed series carries
-frontmatter.
+frontmatter. Its shape — three dashes on their own lines, and valid YAML
+between them — is `CORE-16` and `CORE-17`, and adding a field to this registry
+also requires a decision record, which is `CORE-18`.
 
 **H-09, empty is absent:** a field with an empty value is an error. Absence is
 declared, not left blank — omit the field, write `null`, or write `TBA`,
-whichever tells the truth about the gap.
+whichever tells the truth about the gap. `CORE-20` forbids the other failure:
+filling it with a guess.
 
 ## 3. Ring 2 — provenance
 

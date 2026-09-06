@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.6.0"
+version: "1.7.0"
 created: "2026-09-03T17:46:00Z"
 created_source: "git:eb91cbb"
 created_confidence: exact
-updated: "2026-09-05T14:20:00+02:00"
+updated: "2026-09-05T22:45:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [standards, governance, contradictions, compression, refoundation]
@@ -448,6 +448,40 @@ duplicated sections. The word count is the wrong measure and this mission
 should stop quoting it as a goal; the measure that moved is that precedence,
 versioning authority, rank permissions and the folder taxonomy now each have
 exactly one home.
+
+### Batch 3, done — identity and the header
+
+The smallest batch by word count and the one that found a contradiction.
+
+**`CORE-20` said the opposite of `H-09`.** The core rule said an unknown value
+is *left empty*; the header standard says an empty value is an error, and that
+absence is declared in one of three forms — the field omitted, `null`, or
+`TBA` naming the mission that resolves it. The guard implements `H-09`, not
+`CORE-20`: it tests for placeholder strings and never for emptiness. Two
+`governed` standards disagreed, the executable one was right, and the rule that
+was wrong is the one that had been ratified into a compendium. `CORE-20` now
+states the prohibition — never a guess — and points at the glossary for how a
+gap is declared.
+
+**`H-00` and `CORE-16` are the same rule.** Both say a governed document opens
+with frontmatter. `H-00` keeps the gate because the header standard is where a
+reader looks for what a header must contain; it now names `CORE-16`, `CORE-17`
+and `CORE-18` for the shape rather than restating it.
+
+**`CORE-19` was a subset of `H-08`.** "Declares its licence" against "present,
+SPDX identifier, agrees with the licence manifest". The core rule keeps the
+obligation and points at `H-08` for the value.
+
+**The glossary lost two restatements.** §4 said an identifier is never reused
+and never renumbered — `CORE-11` and `CORE-14`. §9 said a filename carries no
+version or date — `CORE-13` and `CORE-12`. Both kept their reasoning, which is
+the part no rule carries: an identifier is cited in plain text nobody can
+rewrite, and a dated filename reserves nothing.
+
+`STD-004` gained pointers rather than losing rules: it is the field registry,
+and every `H-nn` is more specific than the `CORE` beside it. The batch table
+listed it as a document to empty. That was wrong — a registry is not a
+duplicate of the invariants that constrain it.
 
 ### Ratification is the Oracle's
 

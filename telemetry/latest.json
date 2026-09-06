@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "9601cb7",
-  "corpus_hash": "04aed397cbacaa185b941004081d8996eb15b39c9a65afbf1a4768434473446e",
+  "head": "25036ec",
+  "corpus_hash": "d541ef761dc377b570606189bcf1a667c735f6d051b3d90197dc0f34f9fa22a0",
   "root_dirty": 0,
-  "measured_at": "2026-09-06T10:48:44Z",
+  "measured_at": "2026-09-06T11:00:50Z",
   "families": [
     "corpus",
     "series",
@@ -357,14 +357,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 517367,
+      "value": 518023,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "missions": 266371,
-        "standards": 66916,
+        "missions": 266861,
+        "standards": 67082,
         "canon": 41567,
         "agents": 25317,
         "operations": 21347,
@@ -386,11 +386,11 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 146536,
+        "active": 146632,
         "done": 127113,
-        "draft": 69069,
+        "draft": 69139,
         "todo": 54487,
-        "in-progress": 41175,
+        "in-progress": 41665,
         "frozen": 34004,
         "closed": 19756,
         "(none)": 12171,
@@ -401,7 +401,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 51.49,
+      "value": 51.52,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -421,7 +421,7 @@
         ],
         [
           "standards/STD-001-glossary.md",
-          9532
+          9557
         ],
         [
           "missions/MIS-0127-entropy-reduction.md",
@@ -733,7 +733,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 501
+          "3": 502
         },
         "MIS": {
           "3": 1263,
@@ -810,7 +810,7 @@
           "id": "MIS-135#10",
           "severity": "B",
           "state": "open",
-          "where": "standards/STD-004-header-standard.md#L121",
+          "where": "standards/STD-004-header-standard.md#L124",
           "claim": "STD-004's Ring 3 registry still lists fields the corpus no longer carries as registered. Deferred → STD-004 v1.5.0. Anchor re-pointed 2026-09-03: the original quote lived in an amendment note removed when STD-004 was slimmed to v2.0.0; the registry row it denounces is unchanged, so the claim stays open."
         },
         {

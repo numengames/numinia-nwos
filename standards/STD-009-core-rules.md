@@ -5,9 +5,9 @@ title: "The rules of the corpus, and which one wins"
 type: documentation
 subtype: standard
 status: draft
-version: "0.8.0"
+version: "0.9.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-05T22:10:00+02:00"
+updated: "2026-09-05T22:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC0-1.0"
@@ -157,8 +157,8 @@ the one it inherits.
 | **CORE-16** | Every document opens with frontmatter fenced by three dashes on their own lines. | `check-frontmatter-delimiter.mjs` |
 | **CORE-17** | Frontmatter parses as valid YAML. | `check-frontmatter-yaml.mjs` |
 | **CORE-18** | A new frontmatter field requires both a line in the header standard's registry and a decision record. | `[MANUAL]` — the registry line is checkable; that the decision justifies it is not |
-| **CORE-19** | Every document declares its licence. | `check-license-frontmatter.mjs` |
-| **CORE-20** | A field whose value is unknown is left empty, never filled with a guess. | `check-core-rules.mjs` |
+| **CORE-19** | Every document declares its licence. What the value must be — an SPDX identifier that agrees with the licence manifest — is `H-08` in the header standard. | `check-license-frontmatter.mjs` |
+| **CORE-20** | A field whose value is unknown is never filled with a guess. An empty value is not the way to say so: absence is declared, in one of the three forms the glossary distinguishes — the field omitted, `null`, or `TBA` with the mission that resolves it. | `check-core-rules.mjs` |
 ---
 
 ## 6. Versions

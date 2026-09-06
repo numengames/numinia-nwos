@@ -5,9 +5,9 @@ uid: ""
 type: documentation
 subtype: standard
 status: active
-version: "6.0.0"
+version: "6.1.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-09-04T00:30:00Z"
+updated: "2026-09-05T22:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -363,9 +363,10 @@ A document holding both should say which part is which, or be split.
 ## 4. Registration: the identifier
 
 An identifier connects a document to the textual references that name it —
-almost always in plain text, without a link. Hence: **opaque and permanent.** It
-encodes nothing that can change, is never reused, is never renumbered
-(`ADR-004`).
+almost always in plain text, without a link. Hence: **opaque and permanent.**
+That it never changes is `CORE-11` and that it is never reused is `CORE-14`;
+what this section adds is why — it encodes nothing that can change, and the
+references that name it are plain text nobody can rewrite (`ADR-004`).
 
 ### 4.1 Prefix per series `[MANUAL]`
 
@@ -660,10 +661,9 @@ lose the trail when a file is renamed *and* heavily edited in the same commit.
 **Root documents:** `UPPERCASE.md` — GitHub convention, marks repository
 governance.
 
-**Never a version or a date in the filename of a living document**: git carries
-the history, `version:` carries the version. Dated names
-(`YYYY_MM_DD-Title-vX.Y.Z.md`) are a legacy shape and **reserve nothing** — they
-carry no meaning about a document's state (§5.0).
+A filename carries no version and no state — `CORE-13` and `CORE-12`. Dated
+names (`YYYY_MM_DD-Title-vX.Y.Z.md`) are a legacy shape and **reserve nothing**:
+they carry no meaning about a document's state (§5.0).
 
 ### 9.1 Citing an identifier vs mentioning one as data `[MANUAL]`
 
