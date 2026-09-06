@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "93da503",
-  "corpus_hash": "2f5026f326777346babb9dbf7b0e7f6da3f2acc99c13f17259deacea5dde34c7",
+  "head": "12ad498",
+  "corpus_hash": "22fa11d42a0d59fac7db3bf5662f084c85ebee7d81945cab3fc6f1c30e9e1c51",
   "root_dirty": 0,
-  "measured_at": "2026-09-05T21:04:41Z",
+  "measured_at": "2026-09-06T10:04:24Z",
   "families": [
     "corpus",
     "series",
@@ -126,7 +126,7 @@
       "definition": "those scripts by language, from the extension"
     },
     "corpus.scripts_in_ci": {
-      "value": 12,
+      "value": 14,
       "unit": "files",
       "definition": "scripts named in `.github/workflows/ci.yml` as `scripts/<name>`"
     },
@@ -721,8 +721,11 @@
         "scripts/telemetry.mjs",
         "scripts/telemetry.mjs",
         "scripts/test/telemetry.test.mjs",
+        "scripts/check-core-rules.mjs",
+        "scripts/check-templates.mjs",
         "scripts/check-orphan-content.mjs",
-        "scripts/check-url-lifecycle.mjs"
+        "scripts/check-url-lifecycle.mjs",
+        "scripts/check-internal-links.mjs"
       ],
       "unit": "scripts",
       "definition": "scripts ci.yml runs that no `[CI]` row of STD-001 names — a check the norm does not claim"
@@ -1103,8 +1106,11 @@
         "scripts/telemetry.mjs",
         "scripts/telemetry.mjs",
         "scripts/test/telemetry.test.mjs",
+        "scripts/check-core-rules.mjs",
+        "scripts/check-templates.mjs",
         "scripts/check-orphan-content.mjs",
-        "scripts/check-url-lifecycle.mjs"
+        "scripts/check-url-lifecycle.mjs",
+        "scripts/check-internal-links.mjs"
       ],
       "unit": "paths",
       "definition": "the `run: node scripts/…` steps of ci.yml, in file order"
