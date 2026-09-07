@@ -638,6 +638,17 @@
   "tokens": 1199
  },
  {
+  "path": "debt/DBT-018-design-system-is-four-documents.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 4905,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1322
+ },
+ {
   "path": "decisions/ADR-001-the-archive.md",
   "dir": "decisions",
   "series": "decisions",
@@ -2469,10 +2480,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 28831,
+  "chars": 30655,
   "apparatus": false,
   "archived": false,
-  "tokens": 7416
+  "tokens": 7871
  },
  {
   "path": "missions/MIS-0147-document-relations.md",
@@ -2832,10 +2843,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 122702,
+  "chars": 122735,
   "apparatus": false,
   "archived": false,
-  "tokens": 34069
+  "tokens": 34079
  },
  {
   "path": "standards/STD-009-core-rules.md",

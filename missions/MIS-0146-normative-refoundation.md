@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.9.0"
+version: "1.10.0"
 created: "2026-09-03T17:46:00Z"
 created_source: "git:eb91cbb"
 created_confidence: exact
-updated: "2026-09-07T10:50:00+02:00"
+updated: "2026-09-07T13:05:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [standards, governance, contradictions, compression, refoundation]
@@ -553,6 +553,39 @@ does not exist either. Removed from the standard; the surviving citation is `ADR
 lint rule the canon describes **is not implemented**. Writing a conformance table
 forced stating this; the canon never had one, so the gap was invisible for as long
 as it existed. `STD-010` says it in its own conformance section.
+
+### The design system, measured before touching it
+
+`STD-008` is 18,447 words and carries **33 obligations** — one per 559 words.
+`STD-010`, written this week, carries one per 74. The largest document in the
+corpus is also the emptiest per word.
+
+It is four documents in one file. Roughly 7,300 words of art direction, 3,400 of
+standard, 3,600 of protocol, and 4,100 of apparatus. **Six of its nineteen
+sections say `[CANON — direction decision]` in their own titles.** The file has
+been announcing what it is, and nobody acted on it.
+
+Section 19 is the clearest case in the corpus of a protocol filed as a standard:
+a precedence list, a numbered algorithm an agent executes, a pre-delivery
+checklist, and a reusable instruction fragment.
+
+**What the measurement did not find is drift.** The published kit holds 239
+tokens and 36 hex colours, and every one appears in the master. The six hexes in
+the document that are missing from the kit are all quoted as defects — colours
+the live site uses that the system rejects. Document and code agree.
+
+**The blocker was the generator, and it is fixed.** `generate-design-kit.mjs`
+extracted the published CSS and JS by searching for the literal string
+`### 13.1`. Moving that section broke the kit; renumbering it broke the kit
+silently, because `indexOf` returned −1 and the error named a missing heading
+instead of the cause. Extraction is now by `<!-- kit:css -->` and `<!-- kit:js -->`
+markers, which survive renumbering and survive the section moving to another
+file. Proven both ways: the kit rebuilds byte-identical, and renumbering §13.1 to
+§99.7 no longer changes the output.
+
+This is `DBT-016` in its acute form — there the coupling was prose citations,
+here a build artefact published under a versioned URL depended on a heading
+number. It is registered as `DBT-018`.
 
 ### Ratification is the Oracle's
 

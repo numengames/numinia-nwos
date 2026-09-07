@@ -859,6 +859,7 @@ Every medium has its **blueprint**: the rule in one line, the normative skeleton
 
 Base of every website and HTML document. It is **copied as is** — rewriting it from memory produces token drift. Paths relative to `/assets/`. Distribution: the kit includes `kit/sistema.css` and `kit/sistema.js` **generated from these blocks at packaging time** — link them or copy them; editing the files without touching this § is drift.
 
+<!-- kit:css -->
 ```css
 /* Sistema de Diseño v5.0.0 · kit de arranque */
 @font-face{font-family:'Geist';src:url('assets/fonts/Geist-Variable.woff2') format('woff2');font-weight:100 900;font-display:swap}
@@ -911,6 +912,7 @@ h1{font-size:2.986rem;font-weight:500}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}}
 ```
 
+<!-- kit:js -->
 ```js
 /* Sistema · tecleo (01) y revelado (02), implementación de referencia accesible */
 const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
