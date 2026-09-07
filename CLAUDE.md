@@ -31,7 +31,7 @@ Astro 5, `output: "static"`, no adapter — fully static, deployed to Cloudflare
 
 None. The viewer needs no secrets to build or run.
 
-## Licensing — from Numinia canon C-005 (source of truth; do not edit here)
+## Licensing — from Numinia STD-010 (source of truth; do not edit here)
 
 **Emit:** `packages/*` — library/SDK/types/tokens/script/CI/infra → `MIT` ·
 `apps/*` — deployable app that *decides* (identity, progression, billing) →
@@ -60,7 +60,7 @@ proprietary, CC-NC, CC-ND. Resolve every dependency's SPDX from the registry BEF
 adding it — never from memory.
 
 **Present is not distributed.** A forbidden transitive dependency that tree-shaking
-keeps out of the artifact does NOT block work, but MUST be logged in `LEGAL_DEBT.md`
+keeps out of the artifact does NOT block work, but MUST be logged as a `debt/` entry tagged `legal` (ADR-026)
 with an **exit threshold** (a condition, not a date, evaluated by CI on every build)
 and guarded by a check that inspects the artifact's **contents** — bundler metafile or
 module paths, never comment strings, which minifiers strip. Hard limit: **if that
@@ -99,5 +99,5 @@ package.json. CI runs `license-check`: error on `.com`, warning on `.store`.
 neither deploy to production nor publish. Severity follows exposure, not directory or
 domain names; if exposure can't be determined, error.
 
-Full canon: `C-005 · Licensing Canon`. This block is authoritative for day-to-day
-work; when it is silent, ask rather than infer.
+Why we license this way: `CAN-005`. What must be done: `STD-010`. This block is
+authoritative for day-to-day work; when it is silent, ask rather than infer.

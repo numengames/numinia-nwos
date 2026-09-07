@@ -4,11 +4,11 @@ uid: ""
 title: "Numinia Licensing Canon"
 type: seminal
 status: active
-version: "1.5.0"
+version: "2.0.0"
 created: "2026-08-16T19:58:17+02:00"
 created_source: "git:2efd546"
 created_confidence: exact
-updated: "2026-09-01T12:00:00+02:00"
+updated: "2026-09-07T10:35:00+02:00"
 author: "oracle"
 owner: "oracle"
 guild: "Procurators"
@@ -86,128 +86,23 @@ matters most is where one can least depend on the reader inferring correctly.
 
 ---
 
-## 2. Which license each piece gets [NUMEN, except §2.5–§2.6 UNIVERSAL]
+## 2. Which license each piece gets
 
-Four questions, in order. The first one that stops the flow wins.
+**Moved to `STD-010`.** The four ordering questions, the software and culture
+branch tables, the generator rule (§2.5), the AI-provenance rule (§2.6) and the
+media checks before CC0 are obligations, not principle. They now live in the
+licensing standard.
 
-**1 · Is it ours?** Without demonstrable ownership —employment contract,
-commission, written assignment or a compatible license of origin— **it is not
-published**.
-
-**2 · Is it executable or is it content?** A shader is code. A `.blend` is content.
-
-**3 · Does it decide or does it show?** If it decides with authority, it is core. If
-it shows, computes or describes, it is edge.
-
-**4 · Can it be undone?** If not, the decision is signed by an Oracle (§4).
-
-**The repository is not a legal unit.** The license is determined by what is
-distributed or served, not by where the file lives. A monorepo MAY contain
-`apps/*` under AGPL and `packages/*` under MIT, declared by `REUSE.toml`. What MUST
-be guaranteed is the **direction of the dependencies**: MIT imported by AGPL is
-correct —and the MIT package published separately remains MIT—; AGPL imported by MIT
-is forbidden and a lint rule prevents it.
-
-**Separate repository only for inherited copyleft.** A third party's copyleft can
-be enforced against us and its derivative-work boundary is debatable: it is
-isolated. Our own copyleft carries no such risk, because we are the owners:
-declaring it per directory suffices.
-
-### Software branch
-
-| Case | License |
-|---|---|
-| Depends on a copyleft engine **inherited from a third party** | the engine's, in a **separate repository** |
-| Deployable application: platform, backend or service that **decides** (`apps/*`) | `AGPL-3.0-only` |
-| Library, package, SDK, types, tokens, script, CI, infrastructure (`packages/*`) | `MIT` |
-| Unpublished prototype or spike | reserved until decided |
-
-### Culture branch
-
-| Case | License |
-|---|---|
-| Public catalog: GLB, VRM, textures, sprites, audio, video | `CC0-1.0` |
-| Data, metadata, indexes | `CC0-1.0` |
-| Design system: tokens, CSS, own iconography | `CC0-1.0` |
-| Documentation, ADRs, specifications | `CC-BY-4.0` |
-| Lore, narrative, scripts, brand | reserved |
-| Third-party material | its license of origin, without exception |
-
-### 2.5 Templates, generators and generated work [UNIVERSAL]
-
-**A generator never propagates its license to what it generates.** Ownership of the
-work follows whoever commissions it, not the tool that produces it. This applies to
-repository templates, *scaffolding*, document generators and to NWOS.
-
-- The **template** is a piece of ours and is licensed per §2: usually `MIT`.
-- The **generated work** belongs to the client. The template **MUST NOT** emit its
-  own license into the artifact.
-- The template **MUST** emit into the artifact a **reserved-rights `LICENSE` in the
-  client's name** —not its own, and not none either—, because silence does not
-  declare (§1).
-- Client *workspaces* are **not** subject to §5: their regime is set by the client.
-
-### 2.6 AI-generated content [UNIVERSAL]
-
-In several jurisdictions purely machine-generated work **generates no
-copyright**, so there may be no ownership to assign or to claim.
-
-- Every piece MUST declare its provenance: `human`, `ai-assisted` or
-  `ai-generated`.
-- Whatever is delivered or published **as our own work** MUST have substantial,
-  recorded human intervention; pure `ai-generated` is declared nobody's work.
-- **[LAWYER]** What ownership a contract promises over documents drafted by a
-  model is a contractual question, not this canon's, and it precedes billing for
-  them.
-
-### Before applying CC0 to media
-
-The following MUST be verified: origin of every *sample* in audio; written consent
-if identifiable people appear; EXIF cleanup in photography; complete chain of
-rights in video; consent contemplating cloning in voice. **CC0 is not applied to
-what contains people without documented consent** — CC0 waives our own rights, it
-cannot waive someone else's.
+What remains canon is above: the four regimes exist because there are four kinds
+of value, and each is opened only by an act.
 
 ---
 
-## 3. What we can use [UNIVERSAL]
+## 3. What we can use
 
-| | Licenses |
-|---|---|
-| **Freely** | `MIT` `ISC` `BSD-2-Clause` `BSD-3-Clause` `Apache-2.0` `0BSD` `CC0-1.0` `CC-BY-4.0` · `OFL-1.1` fonts only |
-| **With isolation** | `MPL-2.0` `EPL-2.0` `LGPL-3.0` |
-| **With a signed decision, isolated and declared** | `GPL-3.0` `AGPL-3.0` — separate repository if a third party's (§2) |
-| **Never** | `BUSL` `SSPL` `Elastic` Commons Clause · proprietary · `CC-BY-NC-*` `CC-BY-ND-*` · any dependency without a `license` field |
-
-**Present is not distributed.** The *never* list applies to what is **distributed
-or served**. A forbidden transitive dependency that stays out of the final artifact
-through *tree-shaking* **MUST NOT** block development, but **MUST**: be logged in
-a `debt/` entry tagged `legal` (ADR-026) with an **exit threshold** —not a date, the condition that makes it
-untenable—; be protected by a CI guard that inspects the artifact's **contents**,
-not the tree's names, because bundlers inline code; and be verified against the
-real text of the license, not against its label. Mandatory check before granting
-the exception: **if that license imposes additional restrictions and the artifact
-is AGPL, no exception is possible** — it would be a state impossible to comply
-with, not merely undesirable.
-
-**Missing `license` field in a transitive dependency.** It is a hygiene signal, not
-an autonomous breach: it blocks while the terms are unknown and clears once they
-are documented by reading the package's `LICENSE`. What the canon forbids is
-depending on terms nobody has read.
-
-**Floor rule.** The strongest copyleft in the distributed tree sets the minimum of
-the outbound license: a single GPL `import` excludes MIT as output.
-`devDependencies` and build tools do not count; what is bundled into the client
-does.
-
-**Direction of pull.** `MIT / BSD / ISC → Apache-2.0 → GPL-3.0 → AGPL-3.0`, and
-never the other way.
-
-**The process boundary is the license boundary.** Two programs talking over HTTP
-are two works; two modules importing each other are one.
-
-Every dependency's SPDX is resolved **against the registry before adding it**,
-never from memory.
+**Moved to `STD-010`.** The allow / isolate / never lists, the floor rule, the
+direction of pull, *present is not distributed* and the process boundary are
+engineering obligations verified against artifacts.
 
 ---
 
@@ -225,119 +120,34 @@ anyone can fork it from there.
 | 4 | Permissive, published | None in practice |
 | 5 | CC0, published | None. The waiver is irrevocable |
 
-**Permanent-publication gate (MUST).** Before writing to Arweave, ownership,
-absence of incompatible third-party material and absence of personal data are
-verified, and an Oracle signs. What does not pass is served only from CDN, which
-can be withdrawn.
-
 **Birth license ≠ publication.** A repository is born with its `LICENSE` from the
 first commit; while it is private it grants permission to no one.
 
-**Visibility-change gate (MUST).** Turning a repository from private to public
-**is the grant**: a license offer made publicly with the work available grants
-rights to whoever takes them, with no need for `npm publish` or Arweave. It is
-irreversible in practice and therefore an act signed by an Oracle, with the same
-gate as permanent publication. Before changing visibility, verify:
+**Two acts are irreversible and therefore signed by an Oracle**: writing to a
+permanent store, and turning a repository from private to public. The second is
+the one that surprises people — making the work publicly available under a licence
+offer *is* the grant, with no `npm publish` and no Arweave needed.
 
-1. `LICENSES/`, `REUSE.toml`, `TRADEMARKS.md` and `NOTICE` complete and correct.
-2. **A real listing of sensitive directories against the annotations**, not a
-   hand-written list: what is enumerated by hand desynchronizes and the reserved
-   publishes itself.
-3. No reserved file reachable by a general annotation.
-4. No personal data or secrets in the history, not just in `HEAD`.
+**The checks each gate requires are in `STD-010`.** What is canon is that they are
+acts and not operations.
 
 ---
 
-## 5. How it is declared [UNIVERSAL]
+## 5. How it is declared
 
-Every public repository MUST contain `LICENSE`, `LICENSES/` with the text of each
-license used, `REUSE.toml`, `TRADEMARKS.md`, and `NOTICE` if it distributes any
-Apache-2.0 dependency. Every `package.json` MUST declare `license` with the exact
-SPDX.
+**Moved to `STD-010`.** Required files, SPDX headers, `REUSE.toml`, the
+one-file-one-regime rule, the per-format metadata table, the VRM defaults, the
+language rule and the CI severity default are all mechanics of declaration.
 
-```ts
-// SPDX-FileCopyrightText: 2026 Numen Games S.L.
-// SPDX-License-Identifier: MIT
-```
-
-```toml
-version = 1
-[[annotations]]
-path = "assets/**"
-SPDX-FileCopyrightText = "2026 Numen Games S.L."
-SPDX-License-Identifier = "CC0-1.0"
-```
-
-**One file, one regime (MUST).** An SPDX expression with `AND` means the recipient
-must comply with **both licenses over the whole file**, not «this part yes and
-this one no». Combining an open license with reservation that way produces a
-permission impossible to comply with: the same defect for which we reject licenses
-that impose additional restrictions on copyleft artifacts, only self-inflicted.
-
-When two regimes coexist in one file, **the content is separated**: the data, the
-lore or the configuration move out to their own file with their own annotation,
-and the code stays clean. It is, besides, what *File Over App* already demanded —
-lore embedded in a component violates that principle regardless of licenses. If
-for a technical reason it cannot be separated, REUSE admits
-`SPDX-SnippetBegin`/`SnippetEnd` for the fragment; that is the patch, not the
-solution.
-
-**Exception — files that cannot be modified.** Third-party kits pinned by
-byte-for-byte identity proof, *vendored* code, generated artifacts and binaries
-with no metadata field **MUST NOT** be altered to insert the header: they are
-declared via `REUSE.toml` or an adjacent `.license` file. Modifying a pinned file
-to comply with this norm is breaking another.
-
-**The license travels inside the file.** A binary leaving the CDN loses the
-README. If the license does not go inside, it ceases to exist.
-
-| Format | Field |
-|---|---|
-| glTF / GLB | `asset.copyright` |
-| VRM | `VRMC_vrm.meta` — `licenseUrl`, `otherLicenseUrl`, permissions |
-| MP3 | ID3v2 `TCOP` + `TXXX:LICENSE` |
-| WAV / FLAC / OGG | Vorbis comments `LICENSE`, `COPYRIGHT` |
-| JPEG / PNG / WebP | XMP `xmpRights:WebStatement` + `cc:license`; EXIF `Copyright` |
-| MP4 / MOV | embedded XMP |
-| SVG | RDF with `dc:rights` and `cc:license` |
-
-**VRM (MUST).** The specification's defaults are restrictive and would block a
-file declared CC0. Mandatory: `otherLicenseUrl` to CC0, `avatarPermission:
-everyone`, `commercialUsage: corporation`, `creditNotation: unnecessary`,
-`allowRedistribution: true`, `modification: allowModificationRedistribution`.
-
-**Language of enforceable artifacts and of the canon (MUST).** `LICENSE`,
-`LICENSES/`, `TRADEMARKS.md`, `NOTICE`, the CLA and the agents' fragment go **in
-English**. They are what is held against a third party. **This canon also goes in
-English** (`ADR-023`): governance documents are part of what an organization
-adopting NWOS reads, and English is the base language of every summa (`DEC-006`).
-The original es-ES exception was revoked on 2026-08-27.
-
-**CI (MUST).** `license-check` fails on an unknown, forbidden or missing license.
-**Default regime: error.** Warning is the exception and requires an explicit list:
-only tracks that neither deploy to production nor publish. Severity follows
-**exposure**, not the directory's or domain's name; if the system cannot determine
-exposure, error.
-
-**Debt thresholds (MUST).** The exits recorded in `debt/` entries tagged `legal` (ADR-026) are expressed as
-a condition, not a date, and **the CI guard evaluates them on every build**. The
-condition is the trigger: a threshold nobody measures is not an exit, it is a
-wish.
+The canon's claim about declaration is in §1 and stays there: **silence does not
+declare.** Everything else is how.
 
 ---
 
-## 6. Contributions [UNIVERSAL]
+## 6. Contributions
 
-| Where | Instrument |
-|---|---|
-| Every repository containing AGPL code, even in one part | **CLA** Apache-style: the contributor keeps their copyright and grants us a broad license with sublicensing and patents |
-| Exclusively MIT repositories and documentation | **DCO**: sign with `git commit -s` |
-| Assets | Explicit CC0 declaration in the PR |
-
-The CLA is required **per repository, not per path**. A CLA conditioned on which
-files each PR touches is confusing for contributors and its failure is silent: a
-contribution to AGPL code accepted without a CLA removes the dual license over
-that file forever, without anyone noticing.
+**Moved to `STD-010`.** CLA, DCO and the asset declaration are instruments, and
+which one applies where is a rule with a failure mode, not a principle.
 
 ---
 
@@ -359,98 +169,50 @@ presenting a fork as official.
 
 ## 8. Sources
 
-| License | SPDX | Official text |
-|---|---|---|
-| CC0 1.0 Universal | `CC0-1.0` | <https://creativecommons.org/publicdomain/zero/1.0/legalcode.en> |
-| CC Attribution 4.0 | `CC-BY-4.0` | <https://creativecommons.org/licenses/by/4.0/> |
-| MIT | `MIT` | <https://spdx.org/licenses/MIT.html> |
-| Apache License 2.0 | `Apache-2.0` | <https://www.apache.org/licenses/LICENSE-2.0> |
-| Mozilla Public License 2.0 | `MPL-2.0` | <https://www.mozilla.org/MPL/2.0/> |
-| GNU GPL v3 | `GPL-3.0-only` | <https://www.gnu.org/licenses/gpl-3.0.html> |
-| GNU AGPL v3 | `AGPL-3.0-only` | <https://www.gnu.org/licenses/agpl-3.0.html> |
-| SIL Open Font License 1.1 | `OFL-1.1` | <https://openfontlicense.org/open-font-license-official-text/> |
-| Free Cultural Works | — | <https://freedomdefined.org/Definition/Es> |
-| Identifiers | SPDX | <https://spdx.org/licenses/> |
-| Declaration | REUSE 3.3 | <https://reuse.software/spec-3.3/> |
-| VRM 1.0 · meta | — | <https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/meta.md> |
+**Moved to `STD-010`.** The table of official licence texts is reference
+material, and it changes when a licence steward moves a URL.
 
 ---
 
 ## 9. Fragment for `CLAUDE.md`
 
-Copied literally into every repository. If it diverges, this canon rules. In English per ADR-008.
-
-````markdown
-## Licensing — from Numinia canon C-005 (source of truth; do not edit here)
-
-**Emit:** `packages/*` — library/SDK/types/tokens/script/CI/infra → `MIT` ·
-`apps/*` — deployable app that *decides* (identity, progression, billing) →
-`AGPL-3.0-only` · code on a third-party strong-copyleft engine, **separate repo** →
-the engine's · assets/data/metadata/design tokens → `CC0-1.0` · docs/ADRs/specs →
-`CC-BY-4.0` · lore/brand/unpublished → none, all rights reserved.
-
-A monorepo may mix these: declare per directory in `REUSE.toml`. Dependencies MUST
-flow apps → packages, never the reverse. **One file, one regime:** never write an
-`AND` expression mixing an open license with reserved — that is an unsatisfiable
-permission. Split the content out into its own file instead.
-
-**Generators:** a generator never propagates its own license to what it generates. The
-template is ours (usually MIT); the generated work belongs to whoever commissioned it,
-and the template MUST emit a reserved-rights `LICENSE` in the client's name — never its
-own, never none. Reserved means a `LICENSE` that says so; silence does not declare.
-
-Every code file starts with:
-// SPDX-FileCopyrightText: 2026 Numen Games S.L.
-// SPDX-License-Identifier: MIT   (or the applicable ID)
-
-**Consume:** MIT · ISC · BSD · Apache-2.0 · 0BSD · CC0-1.0 · CC-BY-4.0 freely.
-MPL-2.0 · EPL-2.0 · LGPL-3.0 with isolation. **Third-party** GPL/AGPL only in a
-separate repo with a signed decision. NEVER: BUSL, SSPL, Elastic, Commons Clause,
-proprietary, CC-NC, CC-ND. Resolve every dependency's SPDX from the registry BEFORE
-adding it — never from memory.
-
-**Present is not distributed.** A forbidden transitive dependency that tree-shaking
-keeps out of the artifact does NOT block work, but MUST be logged as a `debt/` entry tagged `legal` (ADR-026)
-with an **exit threshold** (a condition, not a date, evaluated by CI on every build)
-and guarded by a check that inspects the artifact's **contents** — bundler metafile or
-module paths, never comment strings, which minifiers strip. Hard limit: **if that
-licence imposes additional restrictions and the artifact is AGPL, no exception is
-possible** — the result is unsatisfiable, not merely undesirable. A missing `license`
-field is a hygiene signal, not a breach on its own: it blocks while the terms are
-unknown and clears once you read the package's LICENSE and document them.
-
-**Floor rule:** the strongest copyleft in the distributed tree sets the minimum
-outbound license — one GPL import excludes MIT output. devDependencies and build tools
-don't count; whatever ships in the client bundle does.
-
-**Contributions:** any repo containing AGPL code requires a CLA (per repo, not per
-path); MIT-only repos and docs use DCO (`git commit -s`); asset PRs need an explicit
-CC0 declaration.
-
-**Header exception:** never edit pinned third-party kits, vendored code, generated
-artifacts or metadata-less binaries to insert an SPDX header — declare them in
-`REUSE.toml` or an adjacent `.license` file.
-
-**Repo skeleton on creation:** `LICENSE` · `LICENSES/` · `REUSE.toml` ·
-`TRADEMARKS.md` · `NOTICE` if Apache-2.0 ships · `license` field in every
-package.json. CI runs `license-check`: error on `.com`, warning on `.store`.
-
-**Stop and ask — never proceed alone:**
-- **Turning any repository public** — that IS the grant, before any `npm publish`.
-  Gated and signed off, like Arweave. Verify the sensitive directories against a real
-  listing, never a hand-written list.
-- Publishing anything CC0 to Arweave (irreversible; gated; requires sign-off)
-- Ownership of a piece is unclear or undocumented
-- Files containing people, voices, or personal data — CC0 waives our rights, never
-  someone else's
-- Any license outside the lists above
-
-**CI severity defaults to error.** Warning is the listed exception, for surfaces that
-neither deploy to production nor publish. Severity follows exposure, not directory or
-domain names; if exposure can't be determined, error.
-
-Full canon: `C-005 · Licensing Canon`. This block is authoritative for day-to-day
-work; when it is silent, ask rather than infer.
-````
+**Moved to `STD-010`.** The block copied into every repository's `CLAUDE.md` is
+an operational artifact with a propagation guard (`MIS-0068`), and it must be
+maintained next to the obligations it summarises.
 
 ---
+
+---
+
+## Amendment — 2026-09-07
+
+Sections 2, 3, 5, 6, 8 and 9 were emptied to pointers, and the two publication
+gates in section 4 were moved. Their content is now `STD-010`, the licensing
+standard, verbatim except for the corrections noted below.
+
+**Why.** This canon carried 40 obligations — more than the other six canons
+combined, which carry eleven between them. A canon states why; a standard states
+what must be done. This document was doing both, and the second job was the
+larger one.
+
+**What this canon still decides.** The four regimes and why each exists (§1);
+that silence does not declare (§1); that the `canon/` corpus is `CC0-1.0` by an
+irrevocable grant (§1); that opening is an act and closing is impossible (§4);
+that the trademark sits outside every free licence (§7).
+
+**Section numbers were kept.** Every heading stays at its number and holds a
+pointer, because 27 citations across the corpus name these sections by number —
+including `REUSE.toml`, `TRADEMARKS.md`, `LICENSES/LicenseRef-Numen-AllRightsReserved.txt`
+and `scripts/check-license-frontmatter.mjs`. Renumbering would break all of them
+silently. The coupling is registered as `DBT-016`.
+
+**Corrections made while moving, not before.** The `[UNIVERSAL]`/`[NUMEN]` marks
+were dropped from the moved text: they record *scope for future promotion to a
+higher organisation's canon*, which is a property of canon, not of a standard.
+The conformance table in `STD-010` §7 states what this canon never did — that five
+of its seven obligations have no guard, and that the AGPL-import lint rule §2
+describes does not exist.
+
+**Version.** Major, per `CORE-23`: obligations were withdrawn from this document.
+They survive in `STD-010`, but a reader who complied with this canon alone would
+now be under-informed.
