@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "a1073a5",
-  "corpus_hash": "25f61ccab23f93ed1d1740404cdcc5e96c0e8edd41335facbffd0ea61a6e5d30",
+  "head": "f85e64b",
+  "corpus_hash": "6b63f4efa1c34cfa11808399010abb36594587b86e4632a74095830e41bd3c64",
   "root_dirty": 0,
-  "measured_at": "2026-09-07T09:40:45Z",
+  "measured_at": "2026-09-07T09:55:53Z",
   "families": [
     "corpus",
     "series",
@@ -17,7 +17,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 590,
+      "value": 592,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -31,9 +31,9 @@
         ".ico": 1,
         ".jpg": 1,
         ".js": 1,
-        ".json": 17,
+        ".json": 18,
         ".md": 283,
-        ".mjs": 42,
+        ".mjs": 43,
         ".png": 36,
         ".py": 7,
         ".sh": 2,
@@ -112,13 +112,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 47,
+      "value": 48,
       "unit": "files",
       "definition": "files under `scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 38,
+        "node": 39,
         "python": 7,
         "shell": 2
       },
@@ -357,13 +357,13 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 530551,
+      "value": 531211,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "missions": 269246,
+        "missions": 269615,
         "standards": 71548,
         "canon": 38190,
         "agents": 25317,
@@ -373,7 +373,7 @@
         "protocols": 14218,
         "": 12373,
         "system": 9778,
-        "debt": 8916,
+        "debt": 9207,
         "reports": 8906,
         "history": 7274,
         "blueprints": 5596,
@@ -386,13 +386,13 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 154844,
-        "done": 127113,
+        "active": 155137,
+        "done": 127098,
         "draft": 71050,
         "todo": 54487,
-        "in-progress": 44050,
+        "in-progress": 44434,
         "frozen": 34004,
-        "closed": 19756,
+        "closed": 19754,
         "(none)": 12191,
         "in-review": 11110,
         "superseded": 1946
@@ -417,15 +417,15 @@
         ],
         [
           "missions/MIS-0125-prefix-register.md",
-          10084
+          10069
         ],
         [
           "standards/STD-001-glossary.md",
           9908
         ],
         [
-          "missions/MIS-0127-entropy-reduction.md",
-          9133
+          "missions/MIS-0146-normative-refoundation.md",
+          9222
         ]
       ],
       "unit": "tokens",
@@ -733,7 +733,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 604
+          "3": 605
         },
         "MIS": {
           "3": 1263,
@@ -753,10 +753,10 @@
           "4": 20
         },
         "DBT": {
-          "3": 138
+          "3": 140
         },
         "PRO": {
-          "3": 332
+          "3": 336
         },
         "DEC": {
           "3": 36

@@ -48,7 +48,7 @@ superseded_by: null
 ## Not done here
 
 - The Design System document is not renamed.
-- `PRO-010 §3.2.2` / `MIS-125` is not amended or reversed.
+- `PRO-010` (legacy dated names) / `MIS-125` is not amended or reversed.
 - The corpus toolbar's own tab-order coverage gap (only the platform home
   nav is tested, not `/corpus/**` documents with `SpeechPlayer`) is
   described in `ARC-10`'s check column but not closed — that is `MIS-152`

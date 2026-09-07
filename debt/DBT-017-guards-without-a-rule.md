@@ -6,7 +6,7 @@ type: documentation
 status: active
 version: "0.1.0"
 created: "2026-09-07T11:25:00+02:00"
-updated: "2026-09-07T11:25:00+02:00"
+updated: "2026-09-07T16:10:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -127,3 +127,12 @@ broken links; it caught two while `STD-010` was being written.
 
 The defect is not the behaviour. It is that the behaviour obliges without a
 document, and the system's own account of itself says that cannot happen.
+
+## The newest guard was written the other way round
+
+`check-section-citations.mjs` (2026-09-07) enforces a rule that was written
+first: *cite the rule, never the place*, stated in `DBT-016` and in the plain
+writing standard. The guard is evidence for an existing obligation rather than
+a new obligation smuggled in as code.
+
+That is the shape every guard in this entry should be brought to.

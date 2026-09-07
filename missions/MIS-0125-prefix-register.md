@@ -285,7 +285,7 @@ error in the prior version.
 PR: https://github.com/numengames/numinia-nwos/pull/157 (merged) and
 https://github.com/numengames/numinia-nwos/pull/161 (merged, `534e25e`).
 
-**Blocker resolved — ruling made 2026-08-31, in `PRO-010` §3.2.2:**
+**Blocker resolved — ruling made 2026-08-31, in `PRO-010` (legacy dated names):**
 `PRO-010` §3.2 defines `registration_exemption: frozen-artifact` files as
 permanent dated snapshots that never evolve ("a photograph, not a living
 document"). `D-008`'s own "24 exempt enter the scheme" ruling included 5
@@ -322,14 +322,14 @@ dated names permanently.** Four grounds, each measured against the repo at
    the other three declare no threshold) — changing them takes an Oracle
    signature and an ADR, which a bulk prefix pass is not.
 
-**Correction, 2026-08-31 (same day, see `PRO-010` §3.2.3):** as first
+**Correction, 2026-08-31 (same day, see `PRO-010` (legacy dated names)):** as first
 published this list said "59 citations across 27 files" (actual: **71
 across 24**), and cited `check-design-source.mjs` as if it ran in this
 repo (it lives in `numinia-web`). Ground order changed accordingly: the
 URL ground is now first because it is the one verified against built
 output. The ruling is unchanged.
 
-**Documents changed:** `PRO-010` v0.5.0 (§3.2.1 + §3.2.2 — the rule now says
+**Documents changed:** `PRO-010` v0.5.0 (legacy dated names — the rule now says
 what it means and how to detect it), `D-008` v3.0.0 (ruling reversed,
 denominators corrected), `D-024` v1.3.0 (two v1.1.0 claims withdrawn),
 `scripts/count-evidence.py`, `scripts/rename-series.mjs` (header + operator
@@ -350,7 +350,7 @@ message; the detection logic was already correct).
   protocol describes a filename convention. The two files carrying the
   shape without the field were counted as non-compliance — the counter was
   manufacturing the very debt this ruling removes. Both now key on the
-  filename shape, and `PRO-010` §3.2.1 states which is normative.
+  filename shape, and `PRO-010` (legacy dated names) states which is normative.
 - Also excluded from the denominator: `APPROVAL-REQUEST-template.md`,
   ruled apparatus by `D-024` v1.2.0 on 2026-08-31, which no counter had
   ever excluded.

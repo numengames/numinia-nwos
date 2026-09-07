@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.12.0"
+version: "1.13.0"
 created: "2026-09-03T17:46:00Z"
 created_source: "git:eb91cbb"
 created_confidence: exact
-updated: "2026-09-07T15:20:00+02:00"
+updated: "2026-09-07T16:10:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [standards, governance, contradictions, compression, refoundation]
@@ -656,6 +656,35 @@ pointing at sections that no longer existed — `§19.2` to `§19.5`, cited from
 reading instructions, the agent order and the references table. The guard for
 broken links does not read `§` citations, so nothing failed. `DBT-016` said
 section numbers were load-bearing; this is the first time that debt collected.
+
+### The citations get a guard, and it caught eleven
+
+Yesterday's cut left nine broken `§` citations and no guard noticed. That was
+the finding, so the next step was the guard rather than the next cut.
+
+`scripts/check-section-citations.mjs` resolves every `DOC §N.M` in the corpus
+against the headings the cited document actually has. It skips documents whose
+headings are prose — in an `ADR`, `§2` means *the second section*, and failing
+on that would teach people to ignore the guard.
+
+**It found eleven breakages already merged into `main`**, and only two of them
+were mine. Nine point at `PRO-010` sections that #232 deleted when it cut that
+protocol from 3,652 words to 1,406. The rules survived; their subdivision did
+not, and every citation to `§3.2.1`, `§3.2.2` and `§3.2.3` has been dangling
+since.
+
+All eleven are repaired by naming the rule instead of the place, so the
+baseline ships empty and any new breakage fails.
+
+**The guard corrected me once while I wrote it.** Its first version read
+`` `PRO-013`, `STD-001` §10.4 `` as a broken citation to `PRO-013`, because a
+greedy window attributed the section to the first identifier on the line. The
+citation was correct and the guard was wrong. A guard that reports a real
+document as broken is worse than no guard, and this one nearly shipped that way.
+
+**What it still cannot see:** that a section exists is not that it still says
+what the citing document claims. A renumbered section resolving to different
+content passes silently. That is `DBT-016`'s deeper half and stays open.
 
 ### Ratification is the Oracle's
 

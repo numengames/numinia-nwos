@@ -6,7 +6,7 @@ type: documentation
 status: active
 version: "0.1.0"
 created: "2026-09-06T14:05:00+02:00"
-updated: "2026-09-06T14:05:00+02:00"
+updated: "2026-09-07T16:10:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -131,3 +131,20 @@ The interim mitigation — adopted for the canon-to-standards move planned after
 pointer**. The heading stays, the content moves, the 422 citations keep landing.
 That is a containment measure, not a fix: it preserves the coupling deliberately
 so that the migration can happen in one pass, later, on purpose.
+
+## A guard now reads them
+
+2026-09-07: `scripts/check-section-citations.mjs` resolves every `DOC §N.M`
+citation against the headings the cited document actually has.
+
+It found **eleven broken citations already in `main`**, nine of them to
+`PRO-010` sections deleted by #232 when that protocol was cut from 3,652 to
+1,406 words. Nothing had failed; the breakage had been merged and sat there.
+
+All eleven are repaired — rewritten to name the rule rather than the place — so
+the baseline ships **empty**. From here, a citation that stops resolving fails.
+
+**What the guard still does not see**, and this is the deeper half of this
+entry: it verifies a section **exists**, never that it still says what the
+citing document claims. A renumbered section that resolves to different content
+passes silently. Only a human reading both documents catches that.

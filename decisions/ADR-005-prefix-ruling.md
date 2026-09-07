@@ -60,7 +60,7 @@ violations. Four active documents, three answers, measured 2026-09-01.
    documents lived in the root because they fitted neither, and the Wardley
    map inherited `subtype: audit` from the folder it sat next to. Same defect
    `ADR-035` removed from `blueprints/`, same fix `missions/` and (2026-09-01,
-   `MIS-127`) `operations/` already have. `PRO-010` §1.6's "maximum two
+   `MIS-127`) `operations/` already have. `PRO-010` (principles)'s "maximum two
    levels" is restored at the same time: the folder had reached three.
 5. **Evidence has one home: `reports/evidence/<RPT-id>/`.** An annex is
    named after the report it belongs to, moves as an opaque block, and is

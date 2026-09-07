@@ -588,10 +588,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "closed",
-  "chars": 5389,
+  "chars": 5417,
   "apparatus": false,
   "archived": false,
-  "tokens": 1433
+  "tokens": 1431
  },
  {
   "path": "debt/DBT-014-design-kit-version-path-coupling.md",
@@ -621,10 +621,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 5049,
+  "chars": 5901,
   "apparatus": false,
   "archived": false,
-  "tokens": 1393
+  "tokens": 1590
  },
  {
   "path": "debt/DBT-017-guards-without-a-rule.md",
@@ -632,10 +632,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 4390,
+  "chars": 4782,
   "apparatus": false,
   "archived": false,
-  "tokens": 1199
+  "tokens": 1295
  },
  {
   "path": "debt/DBT-018-design-system-is-four-documents.md",
@@ -687,10 +687,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 7901,
+  "chars": 7909,
   "apparatus": false,
   "archived": false,
-  "tokens": 2337
+  "tokens": 2338
  },
  {
   "path": "decisions/ADR-023-canon-vocabulary.md",
@@ -764,10 +764,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 2409,
+  "chars": 2423,
   "apparatus": false,
   "archived": false,
-  "tokens": 713
+  "tokens": 712
  },
  {
   "path": "decisions/ADR-038-genre-map-is-government.md",
@@ -2260,10 +2260,10 @@
   "series": "missions",
   "type": "mission",
   "status": "done",
-  "chars": 34620,
+  "chars": 34665,
   "apparatus": false,
   "archived": false,
-  "tokens": 10084
+  "tokens": 10069
  },
  {
   "path": "missions/MIS-0126-field-decision-index.md",
@@ -2491,10 +2491,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 34579,
+  "chars": 36123,
   "apparatus": false,
   "archived": false,
-  "tokens": 8836
+  "tokens": 9222
  },
  {
   "path": "missions/MIS-0147-document-relations.md",
@@ -2535,10 +2535,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 8035,
+  "chars": 8063,
   "apparatus": false,
   "archived": false,
-  "tokens": 2277
+  "tokens": 2275
  },
  {
   "path": "missions/MIS-0152-speech-player-highlight-sync.md",
