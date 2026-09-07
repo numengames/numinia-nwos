@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 8051,
+  "chars": 8103,
   "apparatus": false,
   "archived": false,
-  "tokens": 2058
+  "tokens": 2072
  },
  {
   "path": "CONTRIBUTING.md",
@@ -658,6 +658,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1284
+ },
+ {
+  "path": "debt/DBT-020-declared-automatic-executed-by-nobody.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 5287,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1443
  },
  {
   "path": "decisions/ADR-001-the-archive.md",
@@ -2535,10 +2546,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 42609,
+  "chars": 44064,
   "apparatus": false,
   "archived": false,
-  "tokens": 10775
+  "tokens": 11090
  },
  {
   "path": "missions/MIS-0147-document-relations.md",
@@ -2854,10 +2865,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 11838,
+  "chars": 11855,
   "apparatus": false,
   "archived": false,
-  "tokens": 2927
+  "tokens": 2934
  },
  {
   "path": "standards/STD-003-platform-role-system.md",
@@ -2876,10 +2887,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 11983,
+  "chars": 12004,
   "apparatus": false,
   "archived": false,
-  "tokens": 3182
+  "tokens": 3188
  },
  {
   "path": "standards/STD-005-engineering-standards.md",
@@ -2887,10 +2898,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 20044,
+  "chars": 20192,
   "apparatus": false,
   "archived": false,
-  "tokens": 5195
+  "tokens": 5251
  },
  {
   "path": "standards/STD-006-archive-substance.md",
@@ -2898,10 +2909,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 8425,
+  "chars": 8446,
   "apparatus": false,
   "archived": false,
-  "tokens": 2025
+  "tokens": 2031
  },
  {
   "path": "standards/STD-007-plain-writing.md",
@@ -2909,10 +2920,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5250,
+  "chars": 5271,
   "apparatus": false,
   "archived": false,
-  "tokens": 1352
+  "tokens": 1358
  },
  {
   "path": "standards/STD-008-design-system.md",
@@ -2920,10 +2931,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 118139,
+  "chars": 118160,
   "apparatus": false,
   "archived": false,
-  "tokens": 32709
+  "tokens": 32715
  },
  {
   "path": "standards/STD-009-core-rules.md",
@@ -2931,10 +2942,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 21715,
+  "chars": 21732,
   "apparatus": false,
   "archived": false,
-  "tokens": 5485
+  "tokens": 5492
  },
  {
   "path": "standards/STD-010-licensing.md",
@@ -2942,10 +2953,21 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 19784,
+  "chars": 19857,
   "apparatus": false,
   "archived": false,
-  "tokens": 5087
+  "tokens": 5108
+ },
+ {
+  "path": "standards/STD-011-external-standards.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 8137,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2403
  },
  {
   "path": "system/SYS-001-cao-architecture.md",

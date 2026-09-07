@@ -10,6 +10,7 @@ created: "2026-09-03T10:30:00Z"
 updated: "2026-09-03T10:30:00Z"
 author: "ursa"
 owner: "oracle"
+territory: "Content"
 license: "CC0-1.0"
 tags: [standards, writing, references, readability]
 ---

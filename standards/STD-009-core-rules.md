@@ -10,6 +10,7 @@ created: "2026-09-03T22:10:00Z"
 updated: "2026-09-05T22:40:00+02:00"
 author: "ursa"
 owner: "oracle"
+territory: "CAO"
 license: "CC0-1.0"
 tags: [standards, governance, precedence, rules, core]
 ---

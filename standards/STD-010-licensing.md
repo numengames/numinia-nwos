@@ -10,6 +10,7 @@ created: "2026-09-07T10:30:00+02:00"
 updated: "2026-09-07T10:30:00+02:00"
 author: "ursa"
 owner: "oracle"
+territory: "Funding"
 license: "CC0-1.0"
 tags: [licensing, legal, REUSE, SPDX]
 threshold: sealed
@@ -344,8 +345,10 @@ and the template MUST emit a reserved-rights `LICENSE` in the client's name — 
 own, never none. Reserved means a `LICENSE` that says so; silence does not declare.
 
 Every code file starts with:
+<!-- REUSE-IgnoreStart -->
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT   (or the applicable ID)
+<!-- REUSE-IgnoreEnd -->
 
 **Consume:** MIT · ISC · BSD · Apache-2.0 · 0BSD · CC0-1.0 · CC-BY-4.0 freely.
 MPL-2.0 · EPL-2.0 · LGPL-3.0 with isolation. **Third-party** GPL/AGPL only in a

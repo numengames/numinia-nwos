@@ -10,6 +10,7 @@ created: "2026-08-18T13:41:01Z"
 updated: "2026-09-04T22:20:00+02:00"
 author: "oracle"
 owner: "oracle"
+territory: "Product"
 registration: registered
 supersedes: 2026_08_18-Sistema_de_Diseno-v5.0.0.md
 license: "CC0-1.0"

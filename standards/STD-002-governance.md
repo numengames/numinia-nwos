@@ -11,6 +11,7 @@ created_confidence: exact
 updated: "2026-09-07T12:10:00+02:00"
 author: "nimrod"
 owner: "oracle"
+territory: "CAO"
 tags: [governance, roles, permissions, thresholds, versioning, precedence, relations]
 absorbs: ["SYS-004"]
 license: "CC0-1.0"

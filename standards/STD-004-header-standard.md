@@ -13,6 +13,7 @@ updated: "2026-09-05T22:40:00+02:00"
 ratified_by: "ADR-027 (formerly ADR-029)"
 author: "ursa"
 owner: "oracle"
+territory: "Archive"
 license: "CC0-1.0"
 tags: [frontmatter, standard, lint, metadata]
 ---
