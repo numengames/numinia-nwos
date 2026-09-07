@@ -649,6 +649,17 @@
   "tokens": 1322
  },
  {
+  "path": "debt/DBT-019-canon-marks-name-a-canon-that-does-not-hold-them.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 4416,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1284
+ },
+ {
   "path": "decisions/ADR-001-the-archive.md",
   "dir": "decisions",
   "series": "decisions",
@@ -2480,10 +2491,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 32513,
+  "chars": 34579,
   "apparatus": false,
   "archived": false,
-  "tokens": 8330
+  "tokens": 8836
  },
  {
   "path": "missions/MIS-0147-document-relations.md",
@@ -2854,10 +2865,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 117299,
+  "chars": 118139,
   "apparatus": false,
   "archived": false,
-  "tokens": 32517
+  "tokens": 32709
  },
  {
   "path": "standards/STD-009-core-rules.md",

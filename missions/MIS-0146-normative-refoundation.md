@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.11.0"
+version: "1.12.0"
 created: "2026-09-03T17:46:00Z"
 created_source: "git:eb91cbb"
 created_confidence: exact
-updated: "2026-09-07T14:25:00+02:00"
+updated: "2026-09-07T15:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [standards, governance, contradictions, compression, refoundation]
@@ -619,6 +619,43 @@ the document's own `version:` field, so `5.2.0` sends it to a directory that doe
 not exist. The document says so in the pointer rather than quietly carrying an
 undeclared change. `DBT-014` now records that the coupling has falsified a
 version field, not merely annoyed an editor.
+
+### The second cut stopped before cutting
+
+The plan was to separate art direction from standard inside `STD-008`. Measuring
+first stopped it, and the measurement is the finding.
+
+`STD-008` §0.2 defines its provenance marks. `[CANON]` means *stated in the Brand
+& Culture or a direction decision already taken; **changed there***. The mark is
+a pointer plus an instruction: this is not mine, go change it upstream.
+
+**Forty-two marks. For the creative direction, upstream does not hold it.**
+`CAN-002` mentions steampunk and cyberpunk three times each — in a list of the
+Oracle's tastes, in a list of cultural references, and in one sentence about
+essence. It never doses the threads, never names a register, and **has no
+creative-direction section at all**. Its design material is three short sections
+under 300 words.
+
+So the second cut cannot be made on the marks. Cutting `[CANON]` sections out of
+the standard would send them to a canon that never made those decisions, and
+`STD-008` is the only document where they exist.
+
+**This is the same shape of error as the licensing marks, one level down.** There
+`[UNIVERSAL]`/`[NUMEN]` measured scope and would have inverted the cut. Here
+`[CANON]` measures *provenance* and would have moved material to a document that
+does not own it. Twice now a mark inside a document has looked like the axis and
+has not been.
+
+**What is not wrong:** `CAN-002` fixes six hex values, and all six appear in
+`STD-008` with the same roles, none of them among the colours the system
+rejects. Canon and standard agree where they overlap. The defect is a provenance
+claim that cannot be honoured, not a contradiction. Recorded as `DBT-019`.
+
+**Repaired in passing:** moving §19 out yesterday left nine internal references
+pointing at sections that no longer existed — `§19.2` to `§19.5`, cited from the
+reading instructions, the agent order and the references table. The guard for
+broken links does not read `§` citations, so nothing failed. `DBT-016` said
+section numbers were load-bearing; this is the first time that debt collected.
 
 ### Ratification is the Oracle's
 
