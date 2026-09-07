@@ -5,9 +5,9 @@ uid: ""
 type: documentation
 subtype: standard
 status: active
-version: "6.1.0"
+version: "2.3.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-09-05T22:40:00+02:00"
+updated: "2026-09-07T11:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -81,6 +81,35 @@ written down: a gap you can name is a gap you can close.
 The test that keeps a series honest: **what function stops working if this
 folder disappears?** If the answer is a name, it is a series. If it is "several
 things", it is a drawer.
+
+### 2.00 The axis obliges, the register relates
+
+Before the folders, the two kinds of folder.
+
+**Three series form the axis, and only the axis obliges.** `canon/` says **why**,
+`standards/` say **what**, `protocols/` say **how**. A reader who complies with
+the axis is compliant; a reader who ignores it is in breach. Nothing outside these
+three can put a reader in breach.
+
+**Everything else registers, and a register cannot oblige.** `decisions/` and
+`debt/` record — what was chosen, what is broken. `missions/` and `reports/`
+narrate — what was attempted, what was found. `blueprints/` propose — what is not
+yet decided.
+
+The distinction is not about importance. A mission can be more consequential than
+a standard. It is about **what a reader owes the document**: the axis is owed
+compliance, the register is owed only belief.
+
+Two consequences follow, and both are load-bearing.
+
+**An obligation written outside the axis does not bind.** If a mission says "every
+document MUST carry a uid", that is a plan, not a rule, and no one is in breach for
+ignoring it. The rule must land in a standard before it obliges — which is why
+`CORE-63` exists.
+
+**A rule inside the axis binds even if nothing checks it.** Most of them are not
+checked: of 65 core rules, 23 have a guard. The other 42 oblige exactly as much.
+A guard is evidence of compliance, not the source of the obligation.
 
 ### 2.0 Nothing here is immutable
 
