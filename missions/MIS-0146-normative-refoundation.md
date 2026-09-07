@@ -12,7 +12,7 @@ assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.16.0"
+version: "1.17.0"
 created: "2026-09-03T17:46:00Z"
 created_source: "git:eb91cbb"
 created_confidence: exact
@@ -786,6 +786,32 @@ pillars, the palette, the personality, the beliefs, the rituals, the rules.
 
 **Canon: 25,680 this morning -> 15,716 now, 39% down**, across four documents
 and not one lost decision.
+
+### The projections leave, and a heading came back
+
+**Oracle decision, 2026-09-07**: the financial projections leave `CAN-002`.
+Four tables of 2026-2029 figures inside a document about narrative, brand and
+culture. They are recorded as they stood, defects included: every row — income,
+costs, EBITDA, debt — **empty except the totals**; one table headed
+*Proyecciones 2024* with columns running 2026 to 2029; one row reading `Dedt`.
+Nothing in the corpus cited them.
+
+**And a mistake, found while removing them.** The scaffolding cut deleted the
+`# BRAND` heading and its line — *Brand is about Belonging and Prestige* —
+because that block ended with an inline contents list and the deletion took the
+heading with it. One of the four top-level divisions of the document
+disappeared, and **the guards passed**: no guard checks that a document keeps
+its own structure.
+
+Recovered from `origin/main` and restored, along with **the three axes** — Profit
+and Growth, Belonging and Prestige, Productivity and Trust — which had been read
+as part of the table of contents and were in fact the only place the document
+named the relationship between its three blocks.
+
+**Why it happened**: the deletions were written as exact-string replacements
+against a document with irregular spacing, and the block boundaries were assumed
+rather than read. **What caught it**: reading the surviving headings after the
+edit, not any automated check.
 
 ### Ratification is the Oracle's
 

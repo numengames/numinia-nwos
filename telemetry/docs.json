@@ -522,10 +522,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 35244,
+  "chars": 34536,
   "apparatus": false,
   "archived": false,
-  "tokens": 7723
+  "tokens": 7411
  },
  {
   "path": "canon/CAN-003-attributes-and-ranks.md",
@@ -922,6 +922,17 @@
   "apparatus": false,
   "archived": true,
   "tokens": 2772
+ },
+ {
+  "path": "history/2026_09_07-Financial_Projections-v1.0.0.md",
+  "dir": "history",
+  "series": null,
+  "type": "documentation",
+  "status": "closed",
+  "chars": 2521,
+  "apparatus": false,
+  "archived": true,
+  "tokens": 838
  },
  {
   "path": "history/2026_09_07-Role_Structure_Treatise-v1.0.0.md",
@@ -2524,10 +2535,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 41181,
+  "chars": 42609,
   "apparatus": false,
   "archived": false,
-  "tokens": 10446
+  "tokens": 10775
  },
  {
   "path": "missions/MIS-0147-document-relations.md",
