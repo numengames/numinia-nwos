@@ -4,7 +4,8 @@
 //
 // Design System kit generator (MIS-068 first case: the emitter publishes).
 // Extracts the canonical kit from the CURRENT master in standards/ —
-// sistema.css and sistema.js from §13.1, sistema.tokens.json from §19.3 —
+// sistema.css and sistema.js from the <!-- kit:css --> and <!-- kit:js -->
+// markers, sistema.tokens.json from the published kit —
 // and publishes it under a versioned path with a sha256 manifest:
 //
 //   web/public/diseno/kit/<version>/sistema.{css,js,tokens.json}
@@ -34,13 +35,30 @@ if (!vMatch)
   throw new Error(`No version: field in standards/${masterFile} frontmatter`);
 const version = vMatch[1];
 
-// Fenced-block extraction: first ```css and first ```js after §13.1,
-// first ```json after §19.3.
-function block(afterHeading, lang) {
-  const start = doc.indexOf(afterHeading);
-  if (start < 0) throw new Error(`Heading not found: ${afterHeading}`);
+// Fenced-block extraction, by explicit marker rather than by section number.
+//
+// This used to search for the literal string "### 13.1". That pinned a
+// published build artefact to a heading number in a Markdown document: moving
+// the section broke the kit, and renumbering it broke the kit *silently*,
+// because indexOf returned −1 and the failure named a heading rather than the
+// cause (DBT-016, DBT-018).
+//
+// The master now carries `<!-- kit:css -->` and `<!-- kit:js -->` immediately
+// before the blocks it publishes. A marker survives renumbering, moving the
+// section to another document, and rewriting the prose around it.
+function block(marker, lang) {
+  const tag = `<!-- kit:${marker} -->`;
+  const start = doc.indexOf(tag);
+  if (start < 0)
+    throw new Error(
+      `Marker not found in standards/${masterFile}: ${tag}\n` +
+        `The kit is extracted by marker, not by section number. Put the marker ` +
+        `on its own line immediately before the \`\`\`${lang} block.`
+    );
+  if (doc.indexOf(tag, start + tag.length) >= 0)
+    throw new Error(`Marker appears more than once, so extraction is ambiguous: ${tag}`);
   const fence = doc.indexOf("```" + lang + "\n", start);
-  if (fence < 0) throw new Error(`No \`\`\`${lang} block after ${afterHeading}`);
+  if (fence < 0) throw new Error(`No \`\`\`${lang} block after ${tag}`);
   const bodyStart = fence + lang.length + 4;
   const end = doc.indexOf("\n```", bodyStart);
   return doc.slice(bodyStart, end + 1);
@@ -51,8 +69,8 @@ const header = (ext) =>
     ? ""
     : `/* GENERADO de ${masterFile} — Sistema de Diseño · v${version} — no editar aquí: la fuente es el .md */\n`;
 
-const css = header("css") + block("### 13.1", "css");
-const js = header("js") + block("### 13.1", "js");
+const css = header("css") + block("css", "css");
+const js = header("js") + block("js", "js");
 // Tokens are no longer inlined in the master: §19.3 used to carry a copy of
 // the JSON, and the copy drifted (it declared v5.0.0 under a 5.1.0 document).
 // The published file is the source; this script re-stamps and re-hashes it.
