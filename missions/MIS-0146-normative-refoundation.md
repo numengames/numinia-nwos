@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.13.0"
+version: "1.14.0"
 created: "2026-09-03T17:46:00Z"
 created_source: "git:eb91cbb"
 created_confidence: exact
-updated: "2026-09-07T16:10:00+02:00"
+updated: "2026-09-07T18:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [standards, governance, contradictions, compression, refoundation]
@@ -685,6 +685,44 @@ document as broken is worse than no guard, and this one nearly shipped that way.
 **What it still cannot see:** that a section exists is not that it still says
 what the citing document claims. A renumbered section resolving to different
 content passes silently. That is `DBT-016`'s deeper half and stays open.
+
+### Cutting the canon, phase one
+
+The canon was 25,680 words across seven documents. Three of them held 74% of
+that. Phase one takes the two worst.
+
+**`CAN-004` role structure: 6,801 -> 2,085 words, 69% out.** Four and a half
+thousand words derived the role system from cognitive linguistics — Rosch's
+basic level and prototype theory — from the EEM Institute's systems thinking,
+and from Hjelmslev's glossematics on function. Five sections of argument before
+the document said what a guild is.
+
+None of it could be complied with or violated. It justified the structure; it
+did not decide it. **The decisions were kept and stated flat**: the four guilds
+and their hierarchy, the four factions and their domain types, role as dynamic
+and position as preferred role, positions preferentially held by non-player
+characters, profile is not role, function is not utility. Two hundred words
+where there were four and a half thousand.
+
+**`CAN-002` brand and culture: 7,826 -> 6,374 words, 18% out.** Seventy-six
+lines of decorative binary and filler characters, and a 1,364-word brand
+research interview — a blank sixteen-question questionnaire plus the Oracle's
+answers in two rounds.
+
+**The document convicted itself**: the section was titled *research phase* and
+announced its content *"will later be included"* in the material above it. It
+was scaffolding left inside the building, sitting in a sealed document.
+
+One of the binary lines encoded the words *Public dommain*, typo included. It
+now reads as text.
+
+**Nothing was deleted.** All 6,994 words are in `history/`, each with its
+provenance, its `former_id`, and the CC0 waiver that travels with canon text.
+A retired argument is still the argument that produced the rule, and File Over
+App means it survives the document that no longer carries it.
+
+**Canon: 25,680 -> 19,512 words.** The 24% came out of two documents in one
+sitting, and neither lost a single decision.
 
 ### Ratification is the Oracle's
 
