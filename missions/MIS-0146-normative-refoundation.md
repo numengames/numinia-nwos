@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.8.0"
+version: "1.9.0"
 created: "2026-09-03T17:46:00Z"
 created_source: "git:eb91cbb"
 created_confidence: exact
-updated: "2026-09-06T14:10:00+02:00"
+updated: "2026-09-07T10:50:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [standards, governance, contradictions, compression, refoundation]
@@ -514,6 +514,45 @@ con el sistema que tenemos ahora para reducirlo y dejarlo que sea mucho más
 cómodo"*. Holding the numbering steady now means that operation happens once, on
 purpose, with the coupling already measured, instead of being paid piecemeal by
 every batch that touches a cited document.
+
+### Licensing, done — the first axis cut
+
+`CAN-005` carried 40 obligations, more than the other six canons combined, which
+hold eleven between them. Six of its nine sections were obligation tables,
+declaration mechanics, or a copy-paste artifact. It was a standard with a canon's
+first section.
+
+**The obligations are now `STD-010`.** The canon keeps the four regimes and why
+each exists, that silence does not declare, the irrevocable `CC0-1.0` grant over
+`canon/`, that opening is an act, and the trademark boundary. It went from 3,156
+words to 1,232, and from 40 obligations to one.
+
+`ADR-039` records the decision, because `CAN-005` is `sealed` and a sealed
+document may not change without one.
+
+**The measurement, unflattering as usual.** The canon lost 1,924 words; the
+standard added 2,962 and the decision record 719. **The corpus grew by 1,757.**
+Of the standard's words, 620 are the `CLAUDE.md` fragment, which is a verbatim
+copy that existed before and merely changed address.
+
+What actually moved is that *what must I do about licences* and *why do we
+license this way* are now two questions with two homes, instead of one file
+answering both badly.
+
+**Three defects surfaced during the move, none of them introduced by it.**
+
+A legal-debt file is cited by name in `CLAUDE.md` and does not exist. It was inherited into
+the fragment and would have been copied into `STD-010` unnoticed; the guard caught
+it because the file was new. Corrected to the `debt/`-entry form the canon already
+used elsewhere.
+
+A retired decision record is cited by `CAN-005` for the English-language rule and
+does not exist either. Removed from the standard; the surviving citation is `ADR-023`.
+
+**Five of the seven licensing obligations have no guard**, and the AGPL-import
+lint rule the canon describes **is not implemented**. Writing a conformance table
+forced stating this; the canon never had one, so the gap was invisible for as long
+as it existed. `STD-010` says it in its own conformance section.
 
 ### Ratification is the Oracle's
 

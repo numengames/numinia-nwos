@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 8003,
+  "chars": 8051,
   "apparatus": false,
   "archived": false,
-  "tokens": 2038
+  "tokens": 2058
  },
  {
   "path": "CONTRIBUTING.md",
@@ -555,10 +555,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 21932,
+  "chars": 9037,
   "apparatus": false,
   "archived": false,
-  "tokens": 5743
+  "tokens": 2366
  },
  {
   "path": "canon/CAN-006-epistemic-relations.md",
@@ -746,6 +746,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1158
+ },
+ {
+  "path": "decisions/ADR-039-licensing-obligations-leave-canon.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "active",
+  "chars": 5021,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1330
  },
  {
   "path": "guilds/alquimistas/GLD-001-charter.md",
@@ -2447,10 +2458,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 26837,
+  "chars": 28831,
   "apparatus": false,
   "archived": false,
-  "tokens": 6918
+  "tokens": 7416
  },
  {
   "path": "missions/MIS-0147-document-relations.md",
@@ -2825,6 +2836,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 5485
+ },
+ {
+  "path": "standards/STD-010-licensing.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 19774,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 5084
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
