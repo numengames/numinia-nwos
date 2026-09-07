@@ -4,7 +4,7 @@
   "master": {
     "path": "standards/STD-008-design-system.md",
     "url": "https://numinia.org/corpus/standards/std-008-design-system.md",
-    "sha256": "69a057dfaf6e287ba109305a7a675eb8f8229fb0fdb017f6776019982bdae55c"
+    "sha256": "7713a238837c85b989a7d880f79d8eaadd95eb8769350bd8811f009a172c4414"
   },
   "files": {
     "5.1.0/sistema.css": "edaa5ff426149bdd2098b708a4189cafb30dc72a14f366aa93d333da83c2790a",

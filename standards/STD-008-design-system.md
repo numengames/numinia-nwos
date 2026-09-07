@@ -1171,75 +1171,26 @@ Semver: MAJOR breakage/direction · MINOR additions · PATCH corrections. Hierar
 
 ## 19. Agent contract
 
-### 19.1 Precedence
+**Moved to `PRO-014`.** The precedence list, the algorithm, the token rule and
+the pre-delivery checklist are a procedure, not a standard: they say *how* to
+apply this document, and this document says *what* holds. They kept their order and their
+wording; only the address changed.
 
-1 The person's instruction → 2 Accessibility and HARD RULES → 3 Brand & Culture → 4 this document → 5 previous material → 6 own judgement. If 1 contradicts 2, flag it and propose the accessible alternative before executing.
+Nothing was withdrawn and nothing was added. The section number stays because
+citations name it.
 
-### 19.2 Algorithm
+**The version of this document does not move for this change, and that is a
+defect, not a decision.** Removing a section is a `minor` move under `CORE-22`.
+It is not applied because the kit generator resolves its token path from this
+document's `version:` field, so a bump to `5.2.0` makes it read a
+`kit/5.2.0/` directory that does not exist and the build fails. That coupling
+is `DBT-014`; until it is fixed, this document cannot be versioned honestly.
 
-```
-1 Medio (§13) → 1b Registro (§2.8): Umbral | Velo | Low-poly | Píxel — el Velo solo en Nocturno → 2 Modo (emite=Nocturno | imprime=Diurno; el registro píxel no tiene Diurno) → 3 Nivel de lengua (§11)
-→ 4 Tokens (§19.3) → 5 Retícula (§5) → 6 Escala tipo (§4.3) → 7 Iconos Phosphor (§7.1) → 7b ¿Gráficas? paleta de datos (§3.8)
-→ 8 ¿Juego? rareza (§3.6) → 8b ¿3D? registro low-poly (§2.6) → 9 ¿Registro píxel? producción (§2.4, §3.7, §4.5, §5.1, §9.6, §10.4, §13.9)
-→ 10 ¿Movimiento? solo del catálogo (§10.1) → 11 Copy en el nivel fijado → 12 Checklist (§19.4)
-```
-
-A value outside §19.3 MUST NOT be invented.
-
-### 19.3 Canonical tokens (W3C DTCG)
-
-The tokens are not written here. They live in
-`web/public/diseno/kit/5.1.0/sistema.tokens.json`, published with a sha256
-digest in `kit/manifest.json`, and any consumer reads them from there.
-
-The generator `scripts/generate-design-kit.mjs` builds the kit from this
-document and stamps it with the `version:` field above.
-
-**A token is never quoted in prose.** A value copied into a sentence is a
-value that will disagree with the file the moment either changes — which is
-exactly what happened while this section held a copy: it said `v5.0.0` for a
-document declaring `5.1.0`.
-
-### 19.4 Pre-delivery checklist
-
-- [ ] **Register declared before the medium** (§2.8): Umbral, Velo, low-poly or pixel; the boundary between registers, visible.
-- [ ] Mode, language level and **40/40/20 dose** correct (mix test §2.1: neither Blade Runner nor a gardening catalogue).
-- [ ] Colors only from §19.3; max three per composition; Coral and Grana do not coexist; text variants over light.
-- [ ] Spacing on the 4-scale; only self-hosted Geist Sans/Mono; one display level; tabular Mono figures.
-- [ ] Phosphor icons by weight; never thin/duotone; label on first use; no mixing weights in a row; the scarab and the Moon never as icons.
-- [ ] Fills with light text: `#017C8D` background and states that **darken** (hover turquesa-text, active `#015866`; destructive hover grana-text). Tertiary only over the base background. Data with the §3.8 palette and never with rarity.
-- [ ] §9.8 controls: the active in ink; label always; modal with the canonical veil and trapped focus; table with `aria-sort`; bar only with a real percentage.
-- [ ] Shape: `control` radius on controls, `marco` on cards and dialogs; straight edges only in pixel and printed tables. Messages per §9.7: cause + way out, never mute.
-- [ ] Surface identified on the §2.5 map; if Platform: Diurno by default, ink primary, compact density, wallets and amounts in Mono. If 3D: low-poly register §2.6, flat palette color, no photographic textures.
-- [ ] Era only through sanctioned devices: `1920 · 2020 · 2120` seal, single patina (§6.3), lexicon as spice; with them removed, the piece is still the System's.
-- [ ] Correct brand register: monochrome signature on the corporate; color, glyphs and mosaic only in play (§8.5), with a label on first use and ≥3:1 if the brand is the only identifier.
-- [ ] Brand per §8: correct lockup, Arena/Noche, respect, calm zone over texture; no recoloring/rotating/shadowing/deforming; the scarab is the §8.4 path.
-- [ ] Texture only on Nocturno backgrounds ≤6 %, `cover`, elevated surfaces flat, never in Diurno.
-- [ ] If there is game: full rarity with progressive treatment and name; never in the corporate.
-- [ ] Motion only from the §10.1 catalogue; one orchestrated moment; one sweep maximum; pulse only on obtaining; no parallax/glitch; `prefers-reduced-motion` respected; focus not animated.
-- [ ] Buttons: one primary per view; destructive with confirmation and far from the primary; labels = verbs, no all-caps.
-- [ ] AA contrasts; nothing by color alone; measure ≤90; lunar-phase sequences only where a real sequence exists; closing with the scarab on a major piece; file name §11.
-- [ ] If pixel register: Píxel-16 only, neutrals ≥60 %, Grana without dialogue, 12/24/48 grid, integer scaling with `pixelated`, Noche outline, Pixelify at multiples, the scarab sprite the canonical one, full register entry/exit, and never in level III.
-- [ ] Pixel Art produced at ×1: legible silhouette, continuous clusters, regular diagonals, no *pillow shading*, top-left light, maximum 2–4 colors per material, dithering only between adjacent colors, no decorative loose pixels.
-- [ ] Sprites: stable cells and anchors, 2–4 frames, 120/200/320 ms durations, no interpolation or subpixel; reduced motion shows the most informative pose.
-- [ ] Export: indexed PNG, binary transparency, Píxel-16 palette verified, uniform sprite sheet, ×1 test + integer scale + minimum viewport.
-- [ ] If Velo register: only alphas over canonicals (zero new hexes); grid ≤3 % and fog ≤8 %; atmosphere behind the content, never on cards or elevated surfaces; glass only with atmosphere behind and text ≥ secondary; no Velo in Diurno; one dominant matter per view (grid and relief do not coexist); animations 10–11 only here; the orchestrated moment is still one.
-- [ ] If there is sky (§2.7.1): weights 60/25/10/4/1 with the §3.6 colors, no parallax or cursor reaction, stopped with reduced motion; the grain (§6.5) only on paper, ≤5 %, never with relief or grid.
-- [ ] Icons from the §7.3 subset; mode switch showing the **destination** mode; the book's icons only inside the paper register.
-- [ ] If living paper (§13.12): third voice only in the book (roman body, SC drop cap and titles, italic lore, no synthetic small caps); bar that yields but does not disappear; glossary with a source per definition; moon as bookmark (waxing phases); `abierto / tras el Umbral` states; .md/pdf/epub downloads visible; literary opening separated from the body; full colophon with the scarab; the invoice inherits none of this.
-- [ ] One element has been removed before delivering.
-
-### 19.5 Reusable instruction fragment
-
-The fragment is published as `web/public/diseno/kit/5.1.0/sistema.prompt.txt`,
-stamped with the version above and hashed in `kit/manifest.json`. Paste that
-file; do not retype it from here.
-
-It is a summary, and it says so: where it disagrees with the numbered
-sections, **the sections win**. It carried `v5.0.0` under a `5.1.0` document
-for exactly as long as it lived in this file as prose — a summary of a
-document, kept inside that same document, has no mechanism to notice when
-the document moves.
+**Two rules travelled with it**, and they are rules rather than procedure: a
+value outside the published token file is never invented, and a token is never
+quoted in prose. They are stated in `PRO-014` §3, which is where the token file
+is identified. If they later need to bind outside production, they belong in
+this document.
 
 ---
 
