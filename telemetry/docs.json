@@ -522,10 +522,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 53892,
+  "chars": 42505,
   "apparatus": false,
   "archived": false,
-  "tokens": 11817
+  "tokens": 9392
  },
  {
   "path": "canon/CAN-003-attributes-and-ranks.md",
@@ -544,10 +544,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 43010,
+  "chars": 13636,
   "apparatus": false,
   "archived": false,
-  "tokens": 8902
+  "tokens": 3070
  },
  {
   "path": "canon/CAN-005-licensing.md",
@@ -900,6 +900,28 @@
   "apparatus": false,
   "archived": true,
   "tokens": 4051
+ },
+ {
+  "path": "history/2026_09_07-Brand_Research_Interview-v1.0.0.md",
+  "dir": "history",
+  "series": null,
+  "type": "documentation",
+  "status": "closed",
+  "chars": 9917,
+  "apparatus": false,
+  "archived": true,
+  "tokens": 2134
+ },
+ {
+  "path": "history/2026_09_07-Role_Structure_Treatise-v1.0.0.md",
+  "dir": "history",
+  "series": null,
+  "type": "documentation",
+  "status": "closed",
+  "chars": 34926,
+  "apparatus": false,
+  "archived": true,
+  "tokens": 7307
  },
  {
   "path": "infra/github/README.md",
@@ -2491,10 +2513,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 36123,
+  "chars": 38047,
   "apparatus": false,
   "archived": false,
-  "tokens": 9222
+  "tokens": 9686
  },
  {
   "path": "missions/MIS-0147-document-relations.md",
