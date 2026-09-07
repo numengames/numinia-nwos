@@ -522,10 +522,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 42505,
+  "chars": 35244,
   "apparatus": false,
   "archived": false,
-  "tokens": 9392
+  "tokens": 7723
  },
  {
   "path": "canon/CAN-003-attributes-and-ranks.md",
@@ -2524,10 +2524,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 39554,
+  "chars": 41181,
   "apparatus": false,
   "archived": false,
-  "tokens": 10057
+  "tokens": 10446
  },
  {
   "path": "missions/MIS-0147-document-relations.md",

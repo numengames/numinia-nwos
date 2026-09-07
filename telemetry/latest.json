@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "4c6632b",
-  "corpus_hash": "a7e21772b1aa1859f612007077a00f318c733cf1d7ba51e7763d7779180d7a61",
+  "head": "f320716",
+  "corpus_hash": "3f3e8a4ba96f97666e547e7dcd3703dc8f5fd9e7f59e40848885098b98116e4c",
   "root_dirty": 0,
-  "measured_at": "2026-09-07T11:04:50Z",
+  "measured_at": "2026-09-07T11:15:41Z",
   "families": [
     "corpus",
     "series",
@@ -357,16 +357,16 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 534238,
+      "value": 532958,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "missions": 270450,
+        "missions": 270839,
         "standards": 71548,
-        "canon": 25439,
         "agents": 25317,
+        "canon": 23770,
         "operations": 21347,
         "history": 19487,
         "templates": 17883,
@@ -386,11 +386,11 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 145116,
+        "active": 143447,
         "done": 127098,
         "draft": 71050,
         "todo": 54487,
-        "in-progress": 45269,
+        "in-progress": 45658,
         "frozen": 34004,
         "closed": 31967,
         "(none)": 12191,
@@ -401,7 +401,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 50.62,
+      "value": 50.82,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -412,20 +412,20 @@
           32709
         ],
         [
-          "missions/MIS-0125-prefix-register.md",
-          10069
+          "missions/MIS-0146-normative-refoundation.md",
+          10446
         ],
         [
-          "missions/MIS-0146-normative-refoundation.md",
-          10057
+          "missions/MIS-0125-prefix-register.md",
+          10069
         ],
         [
           "standards/STD-001-glossary.md",
           9908
         ],
         [
-          "canon/CAN-002-brand-and-culture.md",
-          9392
+          "missions/MIS-0127-entropy-reduction.md",
+          9133
         ]
       ],
       "unit": "tokens",
@@ -733,14 +733,14 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 607
+          "3": 609
         },
         "MIS": {
           "3": 1263,
           "4": 69
         },
         "CAN": {
-          "3": 193
+          "3": 194
         },
         "ADR": {
           "3": 488
@@ -839,7 +839,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 446,
+      "value": 448,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
@@ -851,7 +851,7 @@
         "operations/OPS-005-simulations.md": 19,
         "reports/RPT-008-gaps-capability-map.md": 19,
         "missions/MIS-0121-header-baseline-burndown.md": 18,
-        "missions/MIS-0146-normative-refoundation.md": 16,
+        "missions/MIS-0146-normative-refoundation.md": 18,
         "missions/MIS-0116-translate-remaining-spanish-docs.md": 15,
         "missions/MIS-0138-telemetry-instrument.md": 10,
         "operations/OPS-007-sales.md": 10,

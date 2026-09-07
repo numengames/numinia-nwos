@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.15.0"
+version: "1.16.0"
 created: "2026-09-03T17:46:00Z"
 created_source: "git:eb91cbb"
 created_confidence: exact
-updated: "2026-09-07T19:10:00+02:00"
+updated: "2026-09-07T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [standards, governance, contradictions, compression, refoundation]
@@ -753,6 +753,39 @@ CC0 waiver that travels with canon text.
 
 **What the canon is now:** seven documents, none over 6,500 words, and the
 largest — brand and culture — is the next one to measure.
+
+### Brand and culture drops the scaffolding
+
+`CAN-002`: **6,484 -> 5,336 words, 17% out, and 126 sections become 62.**
+
+The suspicion going in was that the document hid a business plan. **It did not.**
+What it hid was scaffolding: the measurement found 52 of 126 sections empty,
+three separate tables of contents, and 45 headings that were nothing but a
+breadcrumb — *Brand > Personality* sitting directly under *Personality*.
+
+**The table of contents existed twice**, once in English and once in Spanish,
+381 words of it, and every top-level block then repeated its own contents
+inline. The document spent four hundred words telling the reader where they
+were.
+
+**Nine sections promised instead of stating.** *"This section will cover"*,
+*"aims to highlight"*, *"we should introduce"*. Finance was thirty-two words of
+future tense. The dictionary section said the system *should introduce a
+glossary* — and the glossary has been a standard for months.
+
+**Legal and Lobby was 250 words copied from the Creative Commons website**,
+explaining what CC0 and CC BY are, with one paragraph pasted twice. `STD-010`
+already says which licence covers what. The canon now decides to be open in
+sixty words and points at the standard for the rest.
+
+**The body declared version 0.1.2** under a frontmatter that said 2.0.0, and
+announced a review cycle nobody has run. Removed.
+
+**Nothing that decides anything was touched**: the manifesto, the values, the
+pillars, the palette, the personality, the beliefs, the rituals, the rules.
+
+**Canon: 25,680 this morning -> 15,716 now, 39% down**, across four documents
+and not one lost decision.
 
 ### Ratification is the Oracle's
 

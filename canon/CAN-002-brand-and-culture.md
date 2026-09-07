@@ -20,150 +20,16 @@ threshold: sealed
 
 # Numinia Brand & Culture
 
-> **Summary:** NWOS system document — Numinia Brand and Culture.
-> **Epistemic:** What you learn by reading this document.
-> **Pragmatic:** What you can do with this document.
+> **Summary:** What Numinia says about itself: its narrative, its business
+> shape, its brand and its culture.
+> **Epistemic:** The decisions behind the voice, the palette, the values and
+> the rituals — and where each one came from.
+> **Pragmatic:** Cite it when a piece of work has to sound, look or behave like
+> Numinia. It states the direction; the standards say how to apply it.
 > **Audience:** Agents · Oracles
 
 ---
 
-
-**Version:** V.0.1.2
-**Date:** Numinia Narrative March 20 2026
-**Review Cycle:** Every Six Months
-
----
-
-## Table of Contents
-
-### NARRATIVE
-- Worldview
-- Concept and Context
-- Pillars
-- Purpose
-- Mission
-- Values and principles
-- Key messages
-- Manifesto
-- Clients and world
-- Consciousness and legacy
-
-### BUSINESS
-- Product
-- Design
-- Technology
-- Research and Lab
-- Models and margins
-- Operations and data
-- Finance
-- Legal and Lobby
-- Performance Marketing
-
-### BRAND
-- Personality
-- Emotion
-- Cause
-- HXC
-- Hobbies and tastes
-- Visual identity
-- Verbal identity
-- Creative direction
-- Community and content
-- Marketing and PR
-
-### CULTURE
-- Rules and regulations
-- Processes
-- Behaviors
-- Attitudes
-- Beliefs
-- Rituals
-- Symbols and references
-- Incentives
-- Promotions
-- Advantages and benefits
-
-### DNA
-
-- **PROFIT AND GROWTH** — Business
-- **BELONGING AND PRESTIGE** — Brand
-- **PRODUCTIVITY AND TRUST** — Culture
-
----
-
-### Table of Contents (Spanish)
-
-### NARRATIVA
-- Historia y quienes somos
-- Problema y Solucion
-- Contexto y Concepto
-- Cosmovision
-  - ↳ Proposito
-  - ↳ Mision
-  - ↳ Valores y principios
-  - ↳ Objetivos y ejes
-  - ↳ Clientes y mercado
-  - ↳ Industria y sociedad
-  - ↳ Conciencia y legado
-  - ↳ Manifiesto
-- Mensajes clave
-- Diccionarios
-
-### NEGOCIO
-- Producto
-  - ↳ MVP, MMP, MLP, M(Virtuous)P
-  - ↳ Tecnologia
-  - ↳ Diseno
-  - ↳ Dato
-  - ↳ Modelos y margenes
-  - ↳ Soporte
-- Investigacion y Lab
-- Operaciones y logistica
-- Finanzas
-- Legal y lobby
-- Crecimiento
-  - ↳ Paid Marketing
-
-### MARCA
-- Personalidad
-- Emocion
-- Causa
-- Features, Beneficios y HXC
-- Aficiones y gustos
-- Identidad visual
-  - ↳ Logo, colores, tipografia...
-- Identidad verbal
-  - ↳ Voz y tono, lenguaje inclusivo...
-- Creatividad y comunidad
-  - ↳ Campanas, redes, eventos...
-- Awareness & PR
-  - ↳ Paid Marketing
-  - ↳ Alianzas y ecosistema
-  - ↳ Informes, Employee branding...
-
-### CULTURA
-- Reglas y normas
-- Reclutamiento
-  - ↳ Onboarding
-  - ↳ Offboarding
-  - ↳ Entrevistas de trabajo
-  - ↳ Usos herramientas
-- Procesos
-- Actitudes y comportamientos
-- Creencias y pactos tacitos
-- Rituales
-- Simbolos y referentes
-- Retribucion e incentivos
-- Plan de carrera
-- Ventajas y beneficios
-
-### ADN
-
-- **UTILIDAD Y CRECIMIENTO**
-- **PERTENENCIA Y PRESTIGIO**
-- **PRODUCTIVIDAD Y CONFIANZA**
-
----
 
 # NARRATIVE
 
@@ -183,7 +49,6 @@ This section should give a brief overview of your organization's past, present, 
 
 How did we meet? Add narrative on the formation of the team, focusing on their collective expertise and the diversity of backgrounds. What core purpose do we share?
 
-### Narrative > History and Who We are?
 
 ### Origins
 
@@ -228,7 +93,6 @@ Problem: The issue or challenge you are addressing. Turn the problem into an opp
 
 Solution: The idea for tackling the problem is your product hypothesis, including both the solution and concept. Discuss pricing, model, market size, and customer type further in future discussions.
 
-### Narrative > Problem and Solution
 
 ### WHAT? — Problem
 
@@ -246,7 +110,6 @@ An update to the Work Approach: Embracing core concepts of antifragility, data s
 
 ## Context and Concept
 
-### Narrative > Context and Concept
 
 Context: Why now? Explain how your solution is aligned with current trends and societal shifts, answering timely needs.
 
@@ -284,7 +147,6 @@ Unique Selling Point: We're redefining how organizations work, using gamificatio
 
 ## Worldview
 
-### Narrative > Worldview
 
 Vision & Philosophy, we outline the essential elements of the speech, highlighting your distinctive and strategic way of seeing and improving the organization, industry, and society. It consists of different elements such as your purpose, mission, values, pillars, clients, industry, legacy, manifesto, etc..
 
@@ -302,7 +164,6 @@ In this epoch, we transcend the typical bounds of the digital universe, pioneeri
 
 ### Purpose
 
-#### Narrative > Worldview > Purpose
 
 Is your 'why.' Why do you do what you do beyond the economic aspect? It's your aspirational goal with a social perspective, often captured in a concise 4-7 words phrase starting with a verb for memorability and impact.
 
@@ -318,7 +179,6 @@ Creating environments where play and art blend with work, fostering a culture of
 
 ### Mission
 
-#### Narrative > Worldview > Mission
 
 Mission is your 'what.' The 'what' is related to the product/solution/service you will build. What are we going to do to achieve our purpose (our 'why')?
 
@@ -334,7 +194,6 @@ Our Promise: At this organization, we combine play and work to achieve an innova
 
 ### Values & Principles
 
-#### Narrative > Worldview > Values & Principles
 
 Values serve as the foundational guidance for strategy, products, and behavior, while principles work to articulate and represent these values through messages and attitudes. Values and principles are your 'how.' How will you build your product and behave?
 
@@ -357,7 +216,6 @@ How are you going to build your product and behave?
 
 ### Pillars & Objectives
 
-#### Narrative > Worldview > Pillars & Objectives
 
 The purpose, the mission, the values, and the concept are like the compass that defines your course, but the pillars are like the sails of the ship that propel you the organization to articulate and implement your strategy daily in a more operational manner.
 
@@ -386,7 +244,6 @@ The objectives are intermediate milestones in the path. The end of the path is a
 
 ### Clients & World
 
-#### Narrative > Worldview > Clients & World
 
 Encompass understanding the people and communities we serve. This involves knowing the demographics, interests, and motivations of our audience. Additionally, it involves gauging the market size and identifying key insights to shape the brand's strategies.
 
@@ -422,9 +279,6 @@ Gamification Market - Industry Trends, Size 2031 Report
 
 ### Industry & Society
 
-#### Narrative > Worldview > Industry & Society
-
-This section will highlight our innovative practices that set industry trends, our commitment to social responsibility, and how our initiatives promote positive change and community engagement.
 
 **INDUSTRY — Digital Industry**
 
@@ -436,7 +290,6 @@ Numinia changes how work is done. Incentives are built to make relations flouris
 
 ### Consciousness & Legacy
 
-#### Narrative > Worldview > Consciousness & legacy
 
 Prosperity and sustainability - here you share your commitment to your workers, society, and the planet, ensuring your product is as present in this aspect as it is in industry and society.
 
@@ -450,7 +303,6 @@ In our epitaph you could read, they dreamed and experimented life, they imagined
 
 ### Manifesto
 
-#### Narrative > Worldview > Manifesto
 
 What does your organization believe in? The answer is drawn from the vision and philosophy previously outlined. A good manifesto answers the question of what an organization believes in and is written by addressing mission, purpose, and pillars.
 
@@ -470,7 +322,6 @@ Numinia believes that humans play to learn.
 
 ## Key Messages
 
-### Narrative > Key messages
 
 Research phase or need to refine the core language that will appear whenever possible in your discourse. Crafting definitions of who we are, what we do, and who is our audience? These later serve for elevator pitches, communication guidelines, internal culture, press speeches, pitch decks etc.
 
@@ -524,16 +375,6 @@ For proactive agents in organizations Who work better while playing Numinia is T
 
 ---
 
-## Dictionary
-
-### Narrative > Dictionary
-
-We should introduce a comprehensive glossary that defines key terms, concepts, and jargon used throughout our narrative and documentation
-
-Link to the Dictionary
-
----
-
 # BUSINESS
 
 Business is the all about Profit & Growth.
@@ -542,9 +383,6 @@ Business is the all about Profit & Growth.
 
 ## Product
 
-### Business > Product
-
-This section aims to highlight how our products meet market demands and user expectations, emphasizing innovation and user engagement at the core of our product strategy.
 
 **Weaknesses:**
 - Scalability
@@ -563,9 +401,6 @@ This section aims to highlight how our products meet market demands and user exp
 
 ### MVP & MLP
 
-#### Business > Product > MVP & MLP
-
-This section will outline our strategies for rapidly bringing new products to market, focusing on essential features that meet customer needs with the MVP, and enhancing user experience to make the product lovable with the MLP.
 
 **Minimum Viable Product:** A escape-room experience on the metaverse that we can charche 1 USD per adventurer in where they have fun.
 
@@ -573,9 +408,6 @@ This section will outline our strategies for rapidly bringing new products to ma
 
 ### Technology
 
-#### Business > Product > Technology
-
-This section aims to showcase how cutting-edge technologies are integrated to enhance gameplay, ensure scalability, and maintain security, reinforcing our commitment to providing a superior user experience through technological innovation.
 
 WebGL + Tree.js (JavaScript) as the core engine of Numinia. AWS as our cloud provider, that help us with services like computing, storage, emails and security. Github as our code warehouse. MongoDB as our database provider. LastPass as our password manager. Microsoft teams as our remote communication platform.
 
@@ -589,7 +421,6 @@ WEB3, DAO, DEFI, NFT, AI, METAVERSE
 
 ### Design
 
-#### Business > Product > Design
 
 Design principles are applied to enhance user interface and user experience, showcasing examples of intuitive layouts, engaging graphics, and user-centric functionalities.
 
@@ -597,7 +428,6 @@ Codigo de Hammurabi Mesopotamia, 1850 ac
 
 ### Data
 
-#### Business > Product > Data
 
 *Public domain.*
 
@@ -613,7 +443,6 @@ Codigo de Hammurabi Mesopotamia, 1850 ac
 
 ### Models & Margins
 
-#### Business > Product > Models & Margins
 
 Should provide a concise yet comprehensive overview of the revenue-generating strategies and financial effectiveness of each model.
 
@@ -625,7 +454,6 @@ Should provide a concise yet comprehensive overview of the revenue-generating st
 
 ### Support
 
-#### Business > Product > Support
 
 A brief description of the customer support infrastructure, including available resources like help desks, online support portals, and customer service teams.
 
@@ -637,7 +465,6 @@ A brief description of the customer support infrastructure, including available 
 
 ## Research & Lab
 
-### Business > Research & Lab
 
 Insights into the potential applications and market impacts of the research, emphasizing future technological advancements.
 
@@ -651,19 +478,8 @@ We dedicate ourselves to exploring the frontiers of gaming and virtual interacti
 
 ---
 
-## Operations and Data
-
-### Business > Operations and data
-
-The core operational strategies and data analytics practices that drive efficiency and growth. This section will detail how we utilize operational data to optimize game performance and player satisfaction, demonstrating our commitment to leveraging data insights to enhance processes and decision- making.
-
----
-
 ## Finance
 
-### Business > Finance
-
-This section will highlight key financial metrics, including revenue streams, cost management, and investment strategies, illustrating how robust financial planning supports sustainable growth and innovation within our projects.
 
 ### Projections 2026-2028
 
@@ -713,47 +529,15 @@ comprehensive overview of Numen Games' projected financial performance.
 
 ## Legal and Lobby
 
-### Business > Legal and Lobby
+**Legal By Design.** Numinia publishes under open licences by decision, not by
+default: the work is meant to be built upon.
 
-Will cover how we navigate regulatory environments, protect intellectual property, and advocate for favorable policies, ensuring our business practices align with industry standards and contribute to shaping the legal landscape in gaming and technology.
-
-**Legal By Design**
-
-"No Rights Reserved" CC0 CC0 enables scientists, educators, artists and other creators and owners of copyright- or database-protected content to waive those interests in their works and thereby place them as completely as possible in the public domain, so that others may freely build upon, enhance and reuse the works for any purposes without restriction under copyright or database law. In contrast to CC's licenses that allow copyright holders to choose from a range of permissions while retaining their copyright, CC0 empowers yet another choice altogether -- the choice to opt out of copyright and database protection, and the exclusive rights automatically granted to creators -- the "no rights reserved" alternative to our licenses.
-
-**The CC License options**
-
-The CC0 Public Domain Dedication CC0 (aka CC Zero) is a public dedication tool, which enables creators to give up their copyright and put their works into the worldwide public domain. CC0 enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, with no conditions.
-
-CC BY This license enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, so long as attribution is given to the creator. The license allows for commercial use. CC BY includes the following elements: BY: credit must be given to the creator.
-
-CC BY This license enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, so long as attribution is given to the creator. The license allows for commercial use. CC BY includes the following elements: BY: credit must be given to the creator.
-
----
-
-## Performance Marketing
-
-### Business > Performance Marketing
-
-This section will outline our key marketing metrics, campaign effectiveness, and ROI analysis, showcasing our ability to optimize marketing spend and drive significant growth through targeted, performance-oriented strategies.
-
----
-
-# BRAND
-
-Brand is about Belonging and Prestige.
-
-- Articulating a Personality
-- Mastering an Emotion
-- Advocating for a Cause
-
-What is branding?
-
----
+What that means in practice — which licence covers the catalogue, the code, the
+documentation and the canon, and how each file declares it — is `STD-010`. The
+canon decides to be open; the standard says what open means for each kind of
+file.
 
 ## Personality
-
-### Brand > Personality
 
 
 **BIG FIVE PERSONALITY TRAITS**
@@ -784,8 +568,6 @@ WIKIPEDIA | CARL GUSTAV JUNG
 
 ## Emotion
 
-### Brand > Emotion
-
 
 **PLUTCHIK'S WHEEL OF EMOTIONS**
 
@@ -799,8 +581,6 @@ WIKIPEDIA
 
 ## Cause
 
-### Brand > Cause
-
 
 **Digital Humanism. Humans are not the problem.**
 
@@ -808,7 +588,6 @@ WIKIPEDIA
 
 ## High Expectation Customer
 
-### Brand > High Expectation Customer
 
 HXC is the peak benefit customers want from a brand, fulfilling their needs completely. Meeting the HXC lets businesses exceed customer expectations. Consider for whom, the functional, and aspirational benefits.
 
@@ -818,8 +597,6 @@ HXC is the peak benefit customers want from a brand, fulfilling their needs comp
 
 ## Hobbies and Tastes
 
-### Brand > Hobbies and Tastes
-
 
 **Hobbies:** Reading, Role Games, Table Games, Videogames, Watch movies, Collecting Art, Listen to music
 
@@ -828,8 +605,6 @@ HXC is the peak benefit customers want from a brand, fulfilling their needs comp
 ---
 
 ## Visual Identity
-
-### Brand > Visual identity
 
 
 ### Khepri
@@ -884,8 +659,6 @@ abcdefghijklmnopqrstuvwxyz
 
 ## Verbal Identity
 
-### Brand > Verbal identity
-
 
 **VERBAL IDENTITY — Technology and Humanity**
 
@@ -905,8 +678,6 @@ Numinia's verbal identity merges precision with a touch of fantasy. "We Build". 
 
 ## Creative Direction
 
-### Brand > Creative direction
-
 
 **CREATIVE DIRECTION — History, Myths and Fantasy**
 
@@ -918,26 +689,6 @@ Three elements make up the creative tapestry of Numinia: classical Mediterranean
 
 ---
 
-## Community & Content
-
-### Brand > Community & Content
-
-
----
-
-## Marketing and PR
-
-### Brand > Marketing and PR
-
-
-Q2 2024
-
-Redes
-
-800 | 24 | 120
-
----
-
 # CULTURE
 
 Culture is about Productivity and Trust
@@ -945,8 +696,6 @@ Culture is about Productivity and Trust
 ---
 
 ## Rules & Regulations
-
-### Culture > Rules & Regulations
 
 
 - **Respect.** Regardless of who they are or if their opinions differ from yours. This applies to everyone from the Numinia citizens, also our moderators or other community members.
@@ -960,8 +709,6 @@ Culture is about Productivity and Trust
 ---
 
 ## Processes
-
-### Culture > Processes
 
 
 - Feedback Loops
@@ -979,8 +726,6 @@ Culture is about Productivity and Trust
 
 ## Attitudes & Behaviors
 
-### Culture > Attitudes & Behaviors
-
 
 **Attitudes:** Agility, Empathy, Curiosity, Openness, Resilience, Inclusivity, Proactivity, Accountability, Quality Focus, Joyful Engagement
 
@@ -989,8 +734,6 @@ Culture is about Productivity and Trust
 ---
 
 ## Beliefs
-
-### Culture > Beliefs
 
 
 **Ten Beliefs:**
@@ -1009,8 +752,6 @@ Culture is about Productivity and Trust
 ---
 
 ## Rituals
-
-### Culture > Rituals
 
 
 ### Weekly
@@ -1037,8 +778,6 @@ Culture is about Productivity and Trust
 
 ## Symbols & References
 
-### Culture > Symbols & References
-
 
 **Symbols:**
 
@@ -1056,16 +795,7 @@ Fusion between the scientific universe and the fantastic universe
 
 ---
 
-## Incentives
-
-### Culture > Incentives
-
-
----
-
 ## Promotions
-
-### Culture > Promotions
 
 
 **Promotions Protocol**
@@ -1079,8 +809,6 @@ Leveling Up Mechanics, Digital Badges and Titles, Interactive Career Pathways
 ---
 
 ## Advantages & Benefits
-
-### Culture > Advantages & Benefits
 
 
 **Advantages:**
