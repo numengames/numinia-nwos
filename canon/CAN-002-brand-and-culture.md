@@ -31,6 +31,14 @@ threshold: sealed
 ---
 
 
+## The three axes
+
+- **PROFIT AND GROWTH** — Business
+- **BELONGING AND PRESTIGE** — Brand
+- **PRODUCTIVITY AND TRUST** — Culture
+
+---
+
 # NARRATIVE
 
 Narrative is the DNA of an organization.
@@ -478,55 +486,6 @@ We dedicate ourselves to exploring the frontiers of gaming and virtual interacti
 
 ---
 
-## Finance
-
-
-### Projections 2026-2028
-
-comprehensive overview of Numen Games' projected financial performance.
-
-**Income Projections +20%**
-
-| | 2026 | 2027 | 2028 | 2029 |
-|---|---|---|---|---|
-| Income | | | | |
-| Costs | | | | |
-| EBITDA | | | | |
-| Debt | | | | |
-| Total | \$100M | \$120M | \$144M | \$173M |
-
-**Proyecciones +15%**
-
-| | 2026 | 2027 | 2028 | 2029 |
-|---|---|---|---|---|
-| Income | | | | |
-| Costs | | | | |
-| EBITDA | | | | |
-| Debt | | | | |
-| Total | \$75M | \$86M | \$99M | \$114M |
-
-**Proyecciones 2024**
-
-| | 2026 | 2027 | 2028 | 2029 |
-|---|---|---|---|---|
-| Income | | | | |
-| Costs | | | | |
-| EBITDA | | | | |
-| Debt | | | | |
-| Total | \$25M | \$33M | \$44M | \$58M |
-
-**Proyecciones ENISA**
-
-| | 2025 | 2026 | 2027 | 2028 |
-|---|---|---|---|---|
-| Income | | | | |
-| Costs | | | | |
-| EBITDA | | | | |
-| Dedt | | | | |
-| Total | \$64M | \$75M | \$89M | \$104M |
-
----
-
 ## Legal and Lobby
 
 **Legal By Design.** Numinia publishes under open licences by decision, not by
@@ -536,6 +495,14 @@ What that means in practice — which licence covers the catalogue, the code, th
 documentation and the canon, and how each file declares it — is `STD-010`. The
 canon decides to be open; the standard says what open means for each kind of
 file.
+
+---
+
+# BRAND
+
+Brand is about Belonging and Prestige.
+
+---
 
 ## Personality
 
