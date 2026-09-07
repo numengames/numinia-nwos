@@ -4,11 +4,11 @@ id: "STD-002"
 uid: ""
 type: documentation
 status: active
-version: "6.0.0"
+version: "3.1.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-05T14:10:00+02:00"
+updated: "2026-09-07T12:10:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [governance, roles, permissions, thresholds, versioning, precedence, relations]
@@ -40,6 +40,21 @@ They lived here until 2026-09-05. They were also written, in different words,
 in the core rules standard — the same law in two `governed` documents, neither
 naming the other. This document keeps the thresholds that make rule three
 measurable, in §Permissions by series, and states them once.
+
+**These five bind now, from this document.** The core rules standard is still
+`draft`; a draft binds nobody. The pointer above names where the five will live
+once it is ratified, not a condition on their force. Until then the text in this
+section is the operative statement, and the second of the five is the one the
+system is most often asked about:
+
+> **The documents outrank the code.** They are the source of truth; the code
+> implements them. When the code does something the documents do not say, the
+> code is wrong — not the documents. A guard that fails on a behaviour no
+> document states is enforcing nothing, and is itself the defect.
+
+That last sentence is not decoration. Five guards currently enforce behaviour no
+axis document states, three of them blocking merges; the condition is recorded as
+`DBT-017`.
 
 ---
 

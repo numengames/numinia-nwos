@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "9b52023",
-  "corpus_hash": "7b5d90a68430f7ab5eee62bc62e207f0e708d961dc9d6e2c11f9d90ca8f5e070",
+  "head": "ac76e20",
+  "corpus_hash": "795c192caa8a78f09f0075f7ce57ba645264cc50fa1e6de74dd90663006362d3",
   "root_dirty": 0,
-  "measured_at": "2026-09-07T07:13:23Z",
+  "measured_at": "2026-09-07T07:47:10Z",
   "families": [
     "corpus",
     "series",
@@ -357,21 +357,21 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 524988,
+      "value": 525383,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "missions": 267826,
-        "standards": 72517,
+        "standards": 72908,
         "canon": 38190,
         "agents": 25317,
         "operations": 21347,
         "templates": 17883,
         "decisions": 14788,
         "": 12373,
-        "protocols": 11834,
+        "protocols": 11838,
         "system": 9778,
         "reports": 8906,
         "history": 7274,
@@ -386,9 +386,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 147528,
+        "active": 149736,
         "done": 127113,
-        "draft": 74223,
+        "draft": 72410,
         "todo": 54487,
         "in-progress": 42630,
         "frozen": 34004,
@@ -401,7 +401,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 51.02,
+      "value": 50.98,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -682,8 +682,8 @@
     },
     "contradictions.status_vocabulary_used": {
       "value": {
-        "active": 86,
-        "draft": 24,
+        "active": 87,
+        "draft": 23,
         "closed": 7,
         "superseded": 2,
         "frozen": 38,
@@ -733,7 +733,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 541
+          "3": 544
         },
         "MIS": {
           "3": 1263,
@@ -753,7 +753,7 @@
           "4": 20
         },
         "DBT": {
-          "3": 122
+          "3": 123
         },
         "PRO": {
           "3": 318

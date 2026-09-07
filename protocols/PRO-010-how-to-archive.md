@@ -30,7 +30,7 @@ review_next: "2027-02-18"
 
 ## 1. Principles
 
-1. **File over app.** The document is the deliverable; the repo is the archive.
+1. **File over app** (`STD-006`). The document is the deliverable; the repo is the archive.
 2. **One source, zero copies.** Link, never copy. A derived copy in another
    repo declares its master.
 3. **Git versions the content; the frontmatter versions the document.** The

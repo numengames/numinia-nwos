@@ -4,10 +4,10 @@ uid:
 title: "The archive is plain text, versioned, and sovereign"
 type: documentation
 subtype: standard
-status: draft
-version: "0.1.0"
+status: active
+version: "1.0.0"
 created: "2026-09-03T06:27:46Z"
-updated: "2026-09-03T06:27:46Z"
+updated: "2026-09-07T12:05:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC0-1.0"
@@ -54,6 +54,25 @@ written. §2.3 states the constraint the archive actually holds.
 ---
 
 ## 2. The norm
+
+### 2.0 The name of this rule is File Over App
+
+Four documents of the axis invoke *File Over App* as settled law. None of them
+states it. The phrase was load-bearing and homeless: cited as an authority, and
+defined nowhere a reader could reach.
+
+**It is stated here, because this standard already was it:**
+
+> **File Over App.** The file outlives the application that reads it. An artifact
+> the system asserts MUST exist as a plain-text file in the repository, readable
+> and editable with no tool but a text editor. Any application — this repository's
+> site, an editor, a viewer, a future one — is a *reader* of that file and never
+> its owner. When the application disappears, the file is unharmed; when the file
+> is only inside the application, it does not exist.
+
+The rest of this section is what that costs in practice.
+
+
 
 ### 2.1 Substrate
 
