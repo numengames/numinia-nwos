@@ -511,10 +511,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 31668,
+  "chars": 11854,
   "apparatus": false,
   "archived": false,
-  "tokens": 7153
+  "tokens": 2659
  },
  {
   "path": "canon/CAN-002-brand-and-culture.md",
@@ -911,6 +911,17 @@
   "apparatus": false,
   "archived": true,
   "tokens": 2134
+ },
+ {
+  "path": "history/2026_09_07-Cultural_Cartography-v1.0.0.md",
+  "dir": "history",
+  "series": null,
+  "type": "documentation",
+  "status": "closed",
+  "chars": 12275,
+  "apparatus": false,
+  "archived": true,
+  "tokens": 2772
  },
  {
   "path": "history/2026_09_07-Role_Structure_Treatise-v1.0.0.md",
@@ -2513,10 +2524,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 38047,
+  "chars": 39554,
   "apparatus": false,
   "archived": false,
-  "tokens": 9686
+  "tokens": 10057
  },
  {
   "path": "missions/MIS-0147-document-relations.md",
@@ -2770,6 +2781,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2380
+ },
+ {
+  "path": "protocols/PRO-015-joining-and-leaving.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "active",
+  "chars": 11173,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2730
  },
  {
   "path": "reports/RPT-003-wardley-map.md",

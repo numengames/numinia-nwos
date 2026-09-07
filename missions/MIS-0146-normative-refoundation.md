@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.14.0"
+version: "1.15.0"
 created: "2026-09-03T17:46:00Z"
 created_source: "git:eb91cbb"
 created_confidence: exact
-updated: "2026-09-07T18:00:00+02:00"
+updated: "2026-09-07T19:10:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [standards, governance, contradictions, compression, refoundation]
@@ -723,6 +723,36 @@ App means it survives the document that no longer carries it.
 
 **Canon: 25,680 -> 19,512 words.** The 24% came out of two documents in one
 sitting, and neither lost a single decision.
+
+### Cutting the canon, phase two
+
+`CAN-001` welcome: **4,442 -> 1,794 words, 59% out.** It carried three things
+that were not canon, and the canon is now 16,864 words — **34% down from this
+morning's 25,680**.
+
+**Onboarding and offboarding** had numbered phases, explicit gates and a named
+owner for every checklist item. That is a path somebody walks, which is the
+definition of a protocol, so it became one: `PRO-015`. Nothing in it changed
+except a duplicated Phase 0 — the same section appeared twice, once in Spanish,
+once in English — which was collapsed.
+
+**The cultural cartography** is a reading list of literary, philosophical and
+academic works. Nothing consults it to decide anything and nothing in it can be
+complied with or violated. It is a register.
+
+**Scrum's Definition of Done** was a textbook page: third person, describing
+what such a definition *"typically includes"*. Numinia decided none of it.
+**And the system already has its own** — `STD-005` requires the pull request
+template to carry a Definition of Done checklist, and that template exists. The
+canon was carrying a generic description of a thing the standard already
+governs concretely.
+
+**The three canon documents cut today lose 8,816 words between them and not one
+decision.** Every word is in `history/` or in `PRO-015`, with provenance and the
+CC0 waiver that travels with canon text.
+
+**What the canon is now:** seven documents, none over 6,500 words, and the
+largest — brand and culture — is the next one to measure.
 
 ### Ratification is the Oracle's
 
