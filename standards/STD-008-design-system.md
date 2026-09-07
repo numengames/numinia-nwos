@@ -63,7 +63,7 @@ This document **does not invent the identity**. It executes it. The identity liv
 ## 0. How to use this document
 
 **Person:** read §1–§2 for the why; work from §13 (Recipes); come back to §3–§11 for concrete values.
-**Digital agent:** start at §19 (Contract) and follow the order in §0.3; the starter kit lives in §13.1. Do not invent values outside §19.3. The YAML declares the **reading budget**: choose between the fragment (quick task), §19 + blueprint (production) or the whole document (audit).
+**Digital agent:** start at `PRO-014` and follow the order in §0.3; the starter kit lives in §13.1. Do not invent values outside the published token file `PRO-014` names. The YAML declares the **reading budget**: choose between the fragment (quick task), `PRO-014` + blueprint (production) or the whole document (audit).
 
 ### 0.1 Normative words
 
@@ -73,21 +73,31 @@ This document **does not invent the identity**. It executes it. The identity liv
 
 **[CANON]** stated in the Brand & Culture or a direction decision already taken; changed there. **[DERIVED]** necessary consequence of something CANON. **[EXTENSION]** added here in order to produce; it is what needs validating.
 
+**Warning, 2026-09-07: most of the `[CANON]` marks in this document cannot be
+honoured.** They claim provenance in `CAN-002`, and for the creative direction —
+the dosage of the three threads, the four registers, the surface map — `CAN-002`
+contains none of it. An agent told to change those decisions "there" has nowhere
+to go. `CAN-002` does fix six colours, and this document agrees with all six.
+The mark is a provenance claim, not a layer: it says which document owns a
+decision, and forty-two times it names a document that does not own it. Until an
+Oracle rules whether that material is inherited or this document's own, treat a
+`[CANON]` mark on a direction decision as unverified. Recorded as `DBT-019`.
+
 ### 0.3 Use by code agents (Claude Code and similar) [EXTENSION — validate]
 
 This document is meant to be **executed**, not just read. A code agent receiving "do it with the System" MUST follow this order:
 
 0. Identify the **register** (§2.8): Umbral, Velo, low-poly or pixel — before the medium.
 
-1. Load §19 (contract) and §19.3 (tokens) as the single source of values; nothing is invented.
+1. Load `PRO-014` and the token file it names as the single source of values; nothing is invented.
 2. Copy the **starter kit** from §13.1 as the CSS/JS base of every web piece or HTML document — it is copied, not rewritten from memory.
 3. Choose the **medium's blueprint** in §13.2–§13.10 and fill it in. The skeletons are normative: the structure is not improvised; the content is.
 4. Write the copy with §11: declared level, and the world's lexicon (§11, Numinia capsule) only if the piece is level II.
-5. Run the checklist §19.4 before delivering.
+5. Run the checklist in `PRO-014` before delivering.
 
 **The deliverable for agents is the kit (zip).** It is self-sufficient and self-explanatory: a readme at the root of the zip carries the install instruction, and `kit/` contains `sistema.css`, `sistema.js` and `sistema.tokens.json` **generated from this document at packaging time** — they are linked or copied, never rewritten. The `.md` alone MAY suffice for style and reference tasks; its degradation is explicit: without the kit, fonts are obtained from their origins (§4.1, §14) and **signed pieces are not produced** — wordmarks and brand assets live only in the kit.
 
-**Repository integration:** the project's `CLAUDE.md` SHOULD point to this file and reproduce the §19.5 fragment. **Precedence over old material:** if the agent also receives earlier decks, PDFs or websites, this document rules — whatever contradicts it (e.g. a display serif in old presentations) is legacy to migrate, not reference to imitate.
+**Repository integration:** the project's `CLAUDE.md` SHOULD point to this file and reproduce the instruction fragment `PRO-014` publishes. **Precedence over old material:** if the agent also receives earlier decks, PDFs or websites, this document rules — whatever contradicts it (e.g. a display serif in old presentations) is legacy to migrate, not reference to imitate.
 
 ### 0.4 The renaming — equivalence table [CANON — direction decision, 5.0.0]
 
@@ -101,7 +111,7 @@ The codename "Khepri" is retired from the system. Functional reason: this manual
 | "Khepri closes every piece" | "**the scarab** closes every piece" |
 | `kit/khepri.{css,js,tokens.json}` | `kit/sistema.{css,js,tokens.json}` |
 
-**What is not renamed:** the scarab (the brandmark) is brand, not the system's name; asset files (`Khepri_Logo.svg`, `pixel/khepri-sprite-24.png`) keep their physical names until the kit is rebuilt, so repositories don't break; the history (§18) is append-only and is not rewritten. `[ORACLE — pending]`: whether the scarab keeps its mythological name as a level II character (the draft assumes yes: only the system is renamed).
+**What is not renamed:** the scarab (the brandmark) is brand, not the system's name; asset files (`Khepri_Logo.svg`, `pixel/khepri-sprite-24.png`) keep their physical names until the kit is rebuilt, so repositories don't break; the change log at the end of this document is append-only and is not rewritten. `[ORACLE — pending]`: whether the scarab keeps its mythological name as a level II character (the draft assumes yes: only the system is renamed).
 
 ### 0.5 On standards
 
@@ -306,7 +316,7 @@ The codex's session boundary, already in production: the closed chapter **is sho
 
 ### 2.8 The four registers — hierarchy and values [CANON — direction decision, 5.0.0]
 
-The System speaks in four registers, ordered by importance. Every piece declares its own **before its medium** (§19.2). Like every NWOS mission, each register answers for its **epistemic value** (what it teaches) and its **pragmatic value** (what it produces).
+The System speaks in four registers, ordered by importance. Every piece declares its own **before its medium**, as `PRO-014` orders. Like every NWOS mission, each register answers for its **epistemic value** (what it teaches) and its **pragmatic value** (what it produces).
 
 **1 · The Umbral** — the general register. The name comes from the world: the Umbral is the border anyone can cross. It is the entire base system (§3–§13): websites, presentations, documents, **invoices** (§13.4; real piece 2026-A-014), interface, event and email.
 *Epistemic:* it sets the priors of whoever arrives from outside — first contact teaches what Numen is without needing the world.
@@ -532,7 +542,7 @@ Two textures, the machine's two states: the signal (what flows) and the circuit 
 010011000110010101100001011101100110010100100000011101000110100001101001011011100110011101110011001000000110001001100101011101000111010001100101011100100010000001110100011010000110000101101110001000000111011101100101001000000110011001101111011101010110111001100100001000000111010001101000011001010110110100101110
 ```
 
-Rules: the string is **copied** from here or from `§19.3 → binaria.bits` (or generated with the §13.1 kit) — no new noise is invented; the `x` sediment goes **after** the message completes (the signal finishes speaking and then sediments); the separator remains decorative (`aria-hidden`), the message is for whoever reads the code; visual cropping by width does not matter — the DOM always carries the whole phrase. Future easter-egg phrases are added here with their version.
+Rules: the string is **copied** from here or from the `binaria.bits` token (or generated with the §13.1 kit) — no new noise is invented; the `x` sediment goes **after** the message completes (the signal finishes speaking and then sediments); the separator remains decorative (`aria-hidden`), the message is for whoever reads the code; visual cropping by width does not matter — the DOM always carries the whole phrase. Future easter-egg phrases are added here with their version.
 
 ### 6.2 The circuit — relief
 
@@ -1124,7 +1134,7 @@ PORTADA                                CAPÍTULO
 - **The literary opening** in italics is the only level II inside a II/III body and does not blend with it.
 - **The colophon always signs:** typographic voice + System + "La fuente de verdad vive en Git" + scarab. The invoice's footer and the book's colophon are the same idea on two papers.
 - **The book has its own switch**, independent from the rest of the platform: someone can read at night without turning off the whole city. The book's Nocturno is dark paper (`#14110F` / `#1E1A17`) with the grain at half intensity, not the product Nocturno.
-- **The book's inks** [5.1.0 · H1]: the system's tertiary text (`#6E6259`/`#8A7D72`) sits at 3.7:1 over the codex's paper — below AA. Inside the paper register, the tertiary is `#75695E` (Diurno) and `#97897D` (Nocturno) — token `papel.tinta-terciaria` (§19.3), verified in production. Outside the paper, the system's inks stay intact.
+- **The book's inks** [5.1.0 · H1]: the system's tertiary text (`#6E6259`/`#8A7D72`) sits at 3.7:1 over the codex's paper — below AA. Inside the paper register, the tertiary is `#75695E` (Diurno) and `#97897D` (Nocturno) — token `papel.tinta-terciaria`, verified in production. Outside the paper, the system's inks stay intact.
 - **The editions are blueprint, not courtesy** [5.1.0 · H4]: the **pdf** is produced by printing the site's CSS (`@media print`, A4 — the full codex prints like a real book, ~413 pages); the **printable sheet** ships without the action bar or controls (paper carries no buttons); the **epub** keeps the glossary links. No edition is generated with a separate typesetter: the source is one, the CSS is the same.
 - **The editorial pieces** (drop cap, reading box, plate, numbered table, margin note, fillet, seal, glossary, downloads, colophon, rating gears, Narrator) are specified in §9.9; the book's icons, in §7.5; the grain, in §6.5.
 - **The invoice inherits none of it** (§13.4): administrative paper remains pure Geist, one page, total in toasted Ámbar; neither third voice nor Velo frame.
@@ -1139,7 +1149,7 @@ PORTADA                                CAPÍTULO
 | **Phosphor Icons** | Helena Zhang · Tobias Fried | MIT | [phosphoricons.com](https://phosphoricons.com) · [github.com/phosphor-icons/core](https://github.com/phosphor-icons/core) · npm `@phosphor-icons/web` | Sole iconography (§7) |
 | **Pixelify Sans** | Stefie Justprince | SIL OFL 1.1 | [Google Fonts](https://fonts.google.com/specimen/Pixelify+Sans) · self-hosted in `/assets/fonts/` | Pixel-register typography (§4.5) |
 | **Alegreya · Alegreya SC** | Juan Pablo del Peral · Huerta Tipográfica | SIL OFL 1.1 | [Google Fonts](https://fonts.google.com/specimen/Alegreya) · variable roman + italic and small caps 400/500, self-hosted (v5 rebuild) | Third voice — book and codex (§4.6) [EXTENSION] |
-| **W3C Design Tokens (DTCG)** | W3C Community Group | Open specification | [design-tokens.github.io/community-group/format](https://design-tokens.github.io/community-group/format/) | Token format (§19.3) |
+| **W3C Design Tokens (DTCG)** | W3C Community Group | Open specification | [design-tokens.github.io/community-group/format](https://design-tokens.github.io/community-group/format/) | Token format (`PRO-014` §3) |
 | **WCAG 2.2** | W3C | Norm (EN 301 549) | [w3.org/TR/WCAG22](https://www.w3.org/TR/WCAG22/) | Accessibility floor (§12) |
 | **Octalysis** | Yu-kai Chou | Behavioral framework | [yukaichou.com](https://yukaichou.com/gamification-examples/octalysis-complete-gamification-framework/) | Behavioral design of proposals |
 | **8 Bit & '8 Bitish' Graphics — Outside the Box** | Mark Ferrari · GDC 2016 | Professional reference | [gdcvault.com/play/1023586](https://www.gdcvault.com/play/1023586/8-Bit-8-Bitish-Graphics) | Clusters, limited palette and palette cycling; production reference, not visual canon |
@@ -1159,7 +1169,7 @@ PORTADA                                CAPÍTULO
 
 ## 16. What is missing · roadmap [EXTENSION]
 
-1. **Photography and illustration direction** — germinated in §6.3 with the three era patinas; it still needs validating with six real photographs and fixing framing and what not to photograph. 2. **Figma library** with Variables synced to the DTCG. 3. **Master templates** (deck, A4, proposal). 4. **`@numen/sistema-css`** on npm, CC0. 5. **Application set** (favicon, app icons, OG, social, email signature). 6. **Full 3D material** (albedo, roughness, AO + lighting guide). 7. **Sprite library** — the production guide already defines grammar, ramps, clusters, components, animation, export and QA; missing are the working set and its editable masters (24 px characters with 2–4-frame cycles, 12 px objects, 48 px scene modules), **naming the production guide inside the lore** (proposal on the table: «La Escuela del Píxel») **and fixing which Oracle signs the validation of canonical sprites** — without an owner, §2.4's closed exception cannot close. 8. **Recorded motion library** (the §10 catalogue already specifies; reference captures per medium are missing). 9. **Versioned glossary/lore**. 10. **Sound identity** (sound logo, interface SFX and their pixel variant — the typing asks for its click —, silence rule). 11. **Six-monthly audit process**. 12. **Platform theme** (shadcn/Tailwind mapped to the System's tokens) — the living store converges by neutral substitution: white→paper, black→ink; the store's low-poly assets validate the §2.6 budget; the controls, the modal, the pagination and the bar are already specified (§9.8) and the table resolved (§13.11); only the packaging remains. 13. **Editorial blueprints** (comic and book): page, gutter, balloon and lettering for the comic; type box, folio and drop cap for the book — today they inherit from §2.4/§6.3/§13.4, they lack their own blueprint. 14. **Print equivalences** (Pantone/CMYK for Ámbar, Turquesa and Arena): the physical event matches inks, not screens — a badly matched backdrop is the most expensive color error. 15. **Velo validation** — grid/relief coexistence with real pieces; packaging of the **`velo.tokens.json` theme** for the NWOS mould (§2.8.2); consecration of the third voice and of the renaming's scope by an Oracle. *(Resolved in 5.1.0: Alegreya self-hosted whole with its OFL in the kit; the page turn had no specs to extract — retired, §10.1-12.)* 16. ~~**Sky recoloring** (§2.7.1)~~ **RESOLVED** (2026-08-18, MIS-092): numinia.org's sky uses the §3.6 scale and the site's palette migrated whole to §19.3 — zero out-of-system hexes in its code.
+1. **Photography and illustration direction** — germinated in §6.3 with the three era patinas; it still needs validating with six real photographs and fixing framing and what not to photograph. 2. **Figma library** with Variables synced to the DTCG. 3. **Master templates** (deck, A4, proposal). 4. **`@numen/sistema-css`** on npm, CC0. 5. **Application set** (favicon, app icons, OG, social, email signature). 6. **Full 3D material** (albedo, roughness, AO + lighting guide). 7. **Sprite library** — the production guide already defines grammar, ramps, clusters, components, animation, export and QA; missing are the working set and its editable masters (24 px characters with 2–4-frame cycles, 12 px objects, 48 px scene modules), **naming the production guide inside the lore** (proposal on the table: «La Escuela del Píxel») **and fixing which Oracle signs the validation of canonical sprites** — without an owner, §2.4's closed exception cannot close. 8. **Recorded motion library** (the §10 catalogue already specifies; reference captures per medium are missing). 9. **Versioned glossary/lore**. 10. **Sound identity** (sound logo, interface SFX and their pixel variant — the typing asks for its click —, silence rule). 11. **Six-monthly audit process**. 12. **Platform theme** (shadcn/Tailwind mapped to the System's tokens) — the living store converges by neutral substitution: white→paper, black→ink; the store's low-poly assets validate the §2.6 budget; the controls, the modal, the pagination and the bar are already specified (§9.8) and the table resolved (§13.11); only the packaging remains. 13. **Editorial blueprints** (comic and book): page, gutter, balloon and lettering for the comic; type box, folio and drop cap for the book — today they inherit from §2.4/§6.3/§13.4, they lack their own blueprint. 14. **Print equivalences** (Pantone/CMYK for Ámbar, Turquesa and Arena): the physical event matches inks, not screens — a badly matched backdrop is the most expensive color error. 15. **Velo validation** — grid/relief coexistence with real pieces; packaging of the **`velo.tokens.json` theme** for the NWOS mould (§2.8.2); consecration of the third voice and of the renaming's scope by an Oracle. *(Resolved in 5.1.0: Alegreya self-hosted whole with its OFL in the kit; the page turn had no specs to extract — retired, §10.1-12.)* 16. ~~**Sky recoloring** (§2.7.1)~~ **RESOLVED** (2026-08-18, MIS-092): numinia.org's sky uses the §3.6 scale and the site's palette migrated whole to the published tokens — zero out-of-system hexes in its code.
 
 ---
 
