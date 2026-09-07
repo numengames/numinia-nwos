@@ -819,6 +819,35 @@ Each batch ends with `STD-009` `status: active` for the sections it covers, and
 that edit is authorised by the Oracle, not by an agent. The digital agent
 prepares the batch, empties the sources, proves the guards green, and stops.
 
+### The system names what it obeys
+
+Twenty-eight external standards were crossed against the eleven standards
+documents. Fourteen appeared nowhere. Nine appeared in more than one document.
+Only three carried a link to the text they claim to follow.
+
+`STD-011` now holds the adoption: name, primary source, territory, distance to
+the tree, and the document that carries the obligation. It copies no foreign
+normative text — pointers, not copies, the rule the agent template already
+stated and the standards never used.
+
+The eleven standards declare `territory` for the first time. Two had it; nine
+did not. Nothing moved, nothing was renamed, no citation broke.
+
+Four automations declared with an `[AUTO]` mark naming a tool were verified
+against five repositories and found in none. They now read `[MANUAL]`, with the
+reason, and `DBT-020` records why.
+
+The licence verification the system presents as its best-executed standard had
+never been run. Running it found three defects that eleven guards and six CI
+checks had never seen: a documentation example the tool read as a real
+declaration, in two files because that block is duplicated by hand, and one
+file left with no licence information as a result. The tree is now compliant,
+593 of 593 files, verified rather than assumed.
+
+The accessibility gate was cited as incomplete against a debt closed on
+2026-09-04, pointing at a path in another repository. The citation now says
+where the test lives.
+
 ## Out of scope
 
 - **Deleting reference material.** Length is not the defect.

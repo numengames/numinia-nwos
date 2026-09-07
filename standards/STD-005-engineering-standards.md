@@ -11,6 +11,7 @@ created_confidence: exact
 updated: "2026-09-03T11:20:00Z"
 author: "pablofm"
 owner: "oracle"
+territory: "Platform"
 tags: [standards]
 license: "CC0-1.0"
 ---
@@ -97,14 +98,14 @@ Each practice has an ID, a requirement level (MUST / SHOULD), and a check tag: `
 |---|---|---|---|
 | ARC-01 | Identical CI pipeline in every repo: `type-check → lint → test → build`. Exceptions live in rule severity, never in pipeline steps | MUST | `[AUTO: shared workflow]` |
 | ARC-02 | Branch protection on `main`: PR required, status checks required, no force push | MUST | `[AUTO: Scorecard Branch-Protection]` |
-| ARC-03 | License per Canon C-005 trichotomy; REUSE 3.3 compliance | MUST | `[AUTO: reuse lint in CI]` |
+| ARC-03 | License per Canon C-005 trichotomy; REUSE 3.3 compliance | MUST | `[MANUAL]` — declared, not executed: `DBT-020` |
 | ARC-04 | Executable README: clone → green tests in under 5 minutes; CI and coverage badges | MUST | `[MANUAL]` → target `[AUTO]` via smoke script |
 | ARC-05 | ADRs in `docs/decisions/`, agreed format, one decision per file | MUST | `[MANUAL]` |
-| ARC-06 | Conventional commits enforced; semver tags; GitHub Releases with notes | MUST | `[AUTO: commitlint + release workflow]` |
+| ARC-06 | Conventional commits enforced; semver tags; GitHub Releases with notes | MUST | `[MANUAL]` — no commitlint in any of the five repositories: `DBT-020` |
 | ARC-07 | Infrastructure declarative only: Terraform + containers. Nothing hand-configured in dashboards | MUST | `[MANUAL]` → target `[AUTO]` via drift detection |
 | ARC-08 | Shared base config (tsconfig / eslint / prettier) imported from one package, never copied | MUST | `[AUTO: lint rule / knip]` |
 | ARC-09 | Dependencies reviewed before adoption: maintained, licensed compatibly, Scorecard score consulted | SHOULD | `[MANUAL]` |
-| ARC-10 | WCAG 2.2 AA on every public route; keyboard tab order matches visual order and the focus ring is visible | MUST | `[AUTO: axe-core + Playwright, numinia-web/apps/store/e2e/a11y.spec.ts]` — **coverage incomplete, `DBT-013`: platform chrome only (28 routes), not `/corpus/**` documents** |
+| ARC-10 | WCAG 2.2 AA on every public route; keyboard tab order matches visual order and the focus ring is visible | MUST | `[AUTO: axe-core + Playwright, in the sibling repository `numinia-web`]` — 31 routes, both themes. Source and distance in `STD-011` |
 
 #### ARC-06 commit convention (Oracle ruling 2026-08-30)
 
@@ -143,7 +144,7 @@ history, never in new commits): `session`, `qa`, `standards`, `canon`,
 | DEV-01 | `.env.example` exhaustive and in sync with the Zod env schema | MUST | `[AUTO: schema-vs-example test]` |
 | DEV-02 | Identical npm scripts across repos: `dev`, `build`, `test`, `lint` mean the same everywhere | MUST | `[AUTO: template check]` |
 | DEV-03 | `.editorconfig` + shared editor settings committed | SHOULD | `[AUTO: presence check]` |
-| DEV-04 | Pre-commit hooks fast (<5s): lint-staged + commitlint. CI is the authority; the hook is courtesy | MUST | `[AUTO: husky config in template]` |
+| DEV-04 | Pre-commit hooks fast (<5s): lint-staged + commitlint. CI is the authority; the hook is courtesy | MUST | `[MANUAL]` — no husky in any of the five repositories: `DBT-020` |
 | DEV-05 | Comments in English, explaining *why*; TSDoc on every exported public API | MUST | `[MANUAL]` (review) |
 | DEV-06 | Small PRs with context: what, why, how to verify | SHOULD | `[MANUAL]` (review) |
 | DEV-07 | Code review before `main`: at least one approval | MUST | `[AUTO: branch protection]` |
@@ -165,7 +166,7 @@ history, never in new commits): `session`, `qa`, `standards`, `canon`,
 |---|---|---|---|
 | OSS-01 | `CONTRIBUTING.md` that a stranger can follow | MUST (public repos) | `[AUTO: Scorecard Contributing]` |
 | OSS-02 | Code of Conduct present | MUST (public repos) | `[AUTO: presence check]` |
-| OSS-03 | DCO or CLA per repo license regime (Canon C-005: DCO for MIT-only, CLA for AGPL dual-licensed) | MUST | `[AUTO: DCO/CLA bot]` |
+| OSS-03 | DCO or CLA per repo license regime (Canon C-005: DCO for MIT-only, CLA for AGPL dual-licensed) | MUST | `[MANUAL]` — no bot; 0 of the last 30 commits signed: `DBT-020` |
 | OSS-04 | Issue triage cadence defined (even if the answer is "weekly, by the Oracle") | SHOULD | `[MANUAL]` |
 | OSS-05 | Social preview image set | SHOULD | `[MANUAL]` |
 
@@ -175,7 +176,7 @@ history, never in new commits): `session`, `qa`, `standards`, `canon`,
 |---|---|---|---|
 | AGT-01 | `CLAUDE.md` at repo root; first instruction: audit current branch state before assuming anything | MUST | `[AUTO: presence + content check]` |
 | AGT-02 | Deterministic conventions: predictable naming and paths so agents never hallucinate structure | MUST | `[MANUAL]` (design review) |
-| AGT-03 | Everything normative exists in machine-readable form alongside prose: SPDX, DTCG, JSON Schema, Gherkin | MUST | `[AUTO: respective linters]` |
+| AGT-03 | Everything normative exists in machine-readable form alongside prose: SPDX, DTCG, JSON Schema, Gherkin | MUST | `[MANUAL]` — no Gherkin tooling; the rule itself is contested: `DBT-020` |
 | AGT-04 | CI is the agent's feedback loop: a rule that doesn't break the build does not exist for an agent | MUST | (restatement of Principle 1) |
 | AGT-05 | Mission briefs in Numinia Standard format with Gherkin acceptance criteria | MUST | `[MANUAL]` |
 | AGT-06 | Clear AI stance per repo: what agents may do autonomously vs. what requires Oracle sign-off (cosmetic vs. irreversible) | MUST | `[MANUAL]` — documented in `CLAUDE.md` |

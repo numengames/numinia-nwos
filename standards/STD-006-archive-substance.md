@@ -10,6 +10,7 @@ created: "2026-09-03T06:27:46Z"
 updated: "2026-09-07T12:05:00+02:00"
 author: "ursa"
 owner: "oracle"
+territory: "Archive"
 license: "CC0-1.0"
 tags: [archive, substrate, format, sovereignty, self-hosting]
 supersedes: ["ADR-001"]
