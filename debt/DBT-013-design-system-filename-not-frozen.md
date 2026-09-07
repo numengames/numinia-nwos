@@ -56,7 +56,7 @@ own lifecycle contradicts.
 
 ## Why it is not fixed here
 
-`PRO-010 §3.2.2` (`MIS-125` ruling, 2026-08-31) explicitly forbids
+`PRO-010` (legacy dated names) (`MIS-125` ruling, 2026-08-31) explicitly forbids
 renaming this file into a `STD-NNN` series slot, on four measured grounds:
 71 incoming citations across 24 files, a public URL derived from the
 filename (`/corpus/standards/2026_08_18-sistema_de_diseno-v510`), the
@@ -76,7 +76,7 @@ work (`ADR-037`) or executed reactively.
 A decision — not yet made — on one of:
 
 1. Rename to a `STD-NNN` slot, accepting the cost: 71 citations rewritten,
-   redirects for the published URL, `PRO-010 §3.2.2` amended or explicitly
+   redirects for the published URL, `PRO-010` (legacy dated names) amended or explicitly
    overridden for this one document with its own recorded reasoning.
 2. Keep the dated filename but add a frontmatter field that makes the
    contradiction explicit and machine-checkable (e.g. an explicit

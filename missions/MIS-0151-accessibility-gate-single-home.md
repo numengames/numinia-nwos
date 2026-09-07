@@ -78,7 +78,7 @@ instruction:** the Design System standard, then named for the date
 2026_08_18 with a v5.1.0 suffix, carries
 a dated frozen-artifact filename while functioning as a living, revised
 standard (already superseded one prior version; declares a six-month
-review cadence). `PRO-010 §3.2.2` (`MIS-125` ruling) currently forbids
+review cadence). `PRO-010` (legacy dated names) (`MIS-125` ruling) currently forbids
 renaming it, citing 71 incoming citations and a URL derived from the
 filename. The Oracle's position: *the ruling's coherence work stands, but
 a citation count does not make a wrong name right* — filed as `DBT-013`,
@@ -104,7 +104,7 @@ to be resolved in the Oracle's own dedicated pass. **Not executed here.**
   cite `ARC-10`/`ADR-037` instead of the unattributed "constitution" quote.
 
 **Out of scope:** renaming the Design System document (`DBT-013`);
-amending or reversing `PRO-010 §3.2.2` / `MIS-125`; closing the corpus
+amending or reversing `PRO-010` (legacy dated names) / `MIS-125`; closing the corpus
 tab-order coverage gap itself (`ARC-10`'s check column states it, closing
 it is future audit work, tracked loosely against `MIS-152`); any change to
 `STD-005`'s own `Status: Proposal` vs. `status: active` frontmatter
