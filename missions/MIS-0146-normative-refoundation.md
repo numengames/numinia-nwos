@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.10.0"
+version: "1.11.0"
 created: "2026-09-03T17:46:00Z"
 created_source: "git:eb91cbb"
 created_confidence: exact
-updated: "2026-09-07T13:05:00+02:00"
+updated: "2026-09-07T14:25:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [standards, governance, contradictions, compression, refoundation]
@@ -586,6 +586,39 @@ file. Proven both ways: the kit rebuilds byte-identical, and renumbering §13.1 
 This is `DBT-016` in its acute form — there the coupling was prose citations,
 here a build artefact published under a versioned URL depended on a heading
 number. It is registered as `DBT-018`.
+
+### The first cut into the design system: the protocol leaves
+
+`STD-008` §19 was called *Agent contract*. It held a precedence list, a numbered
+algorithm an agent executes step by step, a rule about which tokens may be used,
+a pre-delivery checklist and a reusable instruction fragment.
+
+That is a procedure. It says **how** to apply the design system, and a standard
+says **what** must hold. It is now `PRO-014`, *Producing a design piece*, active
+and mandatory, 1,308 words.
+
+`STD-008` drops from 18,453 to 17,472 words. That is a small number and it is
+the point: **nothing was deleted.** The corpus did not shrink, it sorted itself.
+An agent that has to produce a piece now reads 1,308 words instead of finding the
+algorithm at the end of a 17,000-word document about colour.
+
+**Every reference in the moved text was requalified.** Inside `STD-008`, `§5`
+meant the grid section of that document; inside a protocol it means nothing, so
+28 references became `STD-008 §5` and the like, and only the two that pointed
+within the moved block stayed local. The mechanical pass got this wrong on the
+first attempt — it rewrote `§4.3` as local when it belongs to the standard — and
+was redone marking the self-references first.
+
+**The generator fix from the previous change earned itself here.** Moving a
+section out of the master is exactly what used to break the published kit
+silently. The kit rebuilt byte-identical.
+
+**What did not move is the version.** Removing a section is a `minor` bump under
+`CORE-22`, and it was not applied: the generator resolves its token path from
+the document's own `version:` field, so `5.2.0` sends it to a directory that does
+not exist. The document says so in the pointer rather than quietly carrying an
+undeclared change. `DBT-014` now records that the coupling has falsified a
+version field, not merely annoyed an editor.
 
 ### Ratification is the Oracle's
 

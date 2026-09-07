@@ -4,9 +4,9 @@ uid: ""
 title: "The design system is four documents in one file, and a build script reads it by heading"
 type: documentation
 status: active
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-07T12:40:00+02:00"
-updated: "2026-09-07T12:40:00+02:00"
+updated: "2026-09-07T14:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"

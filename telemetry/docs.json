@@ -599,10 +599,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 3669,
+  "chars": 4108,
   "apparatus": false,
   "archived": false,
-  "tokens": 1005
+  "tokens": 1127
  },
  {
   "path": "debt/DBT-015-core-45-guard-condemns-withdrawn.md",
@@ -2480,10 +2480,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 30655,
+  "chars": 32513,
   "apparatus": false,
   "archived": false,
-  "tokens": 7871
+  "tokens": 8330
  },
  {
   "path": "missions/MIS-0147-document-relations.md",
@@ -2728,6 +2728,17 @@
   "tokens": 1224
  },
  {
+  "path": "protocols/PRO-014-producing-a-design-piece.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "active",
+  "chars": 8430,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2380
+ },
+ {
   "path": "reports/RPT-003-wardley-map.md",
   "dir": "reports",
   "series": "reports",
@@ -2843,10 +2854,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 122735,
+  "chars": 117299,
   "apparatus": false,
   "archived": false,
-  "tokens": 34079
+  "tokens": 32517
  },
  {
   "path": "standards/STD-009-core-rules.md",

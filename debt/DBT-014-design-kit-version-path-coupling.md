@@ -8,7 +8,7 @@ version: "1.2.0"
 created: "2026-09-04T22:30:00+02:00"
 created_source: "git:aa8ad06"
 created_confidence: exact
-updated: "2026-09-05T09:55:00+02:00"
+updated: "2026-09-07T14:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -90,3 +90,13 @@ Note that #229 renamed the *master* to remove a version from its filename, and
 this entry is the same defect one layer down: the version simply moved from the
 document's name to the artifact's directory. The rule was applied to the file
 that was looked at, not to the pattern.
+
+## It has now blocked a real change
+
+2026-09-07: §19 was moved out of `STD-008` into `PRO-014`. Removing a section
+is a `minor` move under `CORE-22`, and the bump was **not applied** — a version
+of `5.2.0` sends the generator to `kit/5.2.0/`, which does not exist, and the
+build fails.
+
+So the document now carries a change it cannot declare. The coupling stopped
+being a nuisance during editing and started falsifying the version field.
