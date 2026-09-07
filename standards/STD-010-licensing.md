@@ -224,7 +224,7 @@ impose additional restrictions on copyleft artifacts, only self-inflicted.
 
 When two regimes coexist in one file, **the content is separated**: the data, the
 lore or the configuration move out to their own file with their own annotation,
-and the code stays clean. It is, besides, what *File Over App* already demanded —
+and the code stays clean. It is, besides, what File Over App (`STD-006`) already demanded —
 lore embedded in a component violates that principle regardless of licences. If
 for a technical reason it cannot be separated, REUSE admits
 `SPDX-SnippetBegin`/`SnippetEnd` for the fragment; that is the patch, not the

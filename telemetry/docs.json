@@ -2689,10 +2689,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 8085,
+  "chars": 8097,
   "apparatus": false,
   "archived": false,
-  "tokens": 2080
+  "tokens": 2084
  },
  {
   "path": "protocols/PRO-011-security-audit.md",
@@ -2766,10 +2766,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 11015,
+  "chars": 11838,
   "apparatus": false,
   "archived": false,
-  "tokens": 2744
+  "tokens": 2927
  },
  {
   "path": "standards/STD-003-platform-role-system.md",
@@ -2799,21 +2799,21 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 20032,
+  "chars": 20044,
   "apparatus": false,
   "archived": false,
-  "tokens": 5190
+  "tokens": 5195
  },
  {
   "path": "standards/STD-006-archive-substance.md",
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "draft",
-  "chars": 7588,
+  "status": "active",
+  "chars": 8425,
   "apparatus": false,
   "archived": false,
-  "tokens": 1825
+  "tokens": 2025
  },
  {
   "path": "standards/STD-007-plain-writing.md",
@@ -2854,10 +2854,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 19774,
+  "chars": 19784,
   "apparatus": false,
   "archived": false,
-  "tokens": 5084
+  "tokens": 5087
  },
  {
   "path": "system/SYS-001-cao-architecture.md",

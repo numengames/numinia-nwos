@@ -134,7 +134,7 @@ history, never in new commits): `session`, `qa`, `standards`, `canon`,
 | PM-02 | Issue templates + PR template with Definition of Done checklist | MUST | `[AUTO: presence check]` |
 | PM-03 | Standardized labels across all repos (same set, same colors) | SHOULD | `[AUTO: label-sync action]` |
 | PM-04 | `CHANGELOG.md` or releases generated from conventional commits | MUST | `[AUTO: release workflow]` |
-| PM-05 | Roadmap/TODO as a file in the repo — File Over App applies to management | MUST | `[AUTO: presence check]` |
+| PM-05 | Roadmap/TODO as a file in the repo — File Over App (`STD-006`) applies to management | MUST | `[AUTO: presence check]` |
 
 ### 2.4 Dev team — Ergonomics
 
