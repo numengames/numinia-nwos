@@ -627,6 +627,17 @@
   "tokens": 1393
  },
  {
+  "path": "debt/DBT-017-guards-without-a-rule.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 4390,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1199
+ },
+ {
   "path": "decisions/ADR-001-the-archive.md",
   "dir": "decisions",
   "series": "decisions",
@@ -2744,10 +2755,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 37012,
+  "chars": 38395,
   "apparatus": false,
   "archived": false,
-  "tokens": 9557
+  "tokens": 9908
  },
  {
   "path": "standards/STD-002-governance.md",
