@@ -1100,17 +1100,6 @@
   "tokens": 2128
  },
  {
-  "path": "missions/MIS-0146-normative-refoundation.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "in-progress",
-  "chars": 49989,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 12465
- },
- {
   "path": "missions/MIS-0149-ursa-git-cold-start-bootstrap.md",
   "dir": "missions",
   "series": "missions",
@@ -1413,10 +1402,21 @@
   "series": "reports",
   "type": "report",
   "status": "active",
-  "chars": 2381,
+  "chars": 2430,
   "apparatus": false,
   "archived": false,
-  "tokens": 732
+  "tokens": 772
+ },
+ {
+  "path": "reports/RPT-019-2026-w37.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "closed",
+  "chars": 3663,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1113
  },
  {
   "path": "standards/STD-001-glossary.md",
@@ -1424,10 +1424,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 40661,
+  "chars": 18591,
   "apparatus": false,
   "archived": false,
-  "tokens": 10470
+  "tokens": 5066
  },
  {
   "path": "standards/STD-002-governance.md",
@@ -1468,10 +1468,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 13112,
+  "chars": 13136,
   "apparatus": false,
   "archived": false,
-  "tokens": 3613
+  "tokens": 3615
  },
  {
   "path": "standards/STD-006-archive-substance.md",
@@ -1512,10 +1512,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 16807,
+  "chars": 16817,
   "apparatus": false,
   "archived": false,
-  "tokens": 4299
+  "tokens": 4292
  },
  {
   "path": "standards/STD-010-licensing.md",

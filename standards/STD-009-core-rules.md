@@ -205,7 +205,7 @@ that is what `superseded` and `withdrawn` are for. Who holds which rank is
 
 | ID | Rule | Verified by |
 |---|---|---|
-| **CORE-54** | No credential, token or key is ever written into the corpus. | `[MANUAL]` — no secret scanner is wired; see `MIS-146` |
+| **CORE-54** | No credential, token or key is ever written into the corpus. | `[MANUAL]` — no secret scanner is wired |
 | **CORE-55** | An exposed credential is rotated before the exposure is written down. | `[MANUAL]` — rotation happens outside this repository |
 | **CORE-56** | A live finding is reported out of band, not committed to this repository. | `[MANUAL]` — the absence of a report is not observable from inside |
 | **CORE-57** | An audit declares how many things it examined out of how many exist. | `[MANUAL]` — the denominator is prose |
@@ -234,7 +234,7 @@ this standard is from `CORE-31` in `STD-005`; `telemetry/` reports it, this
 document does not state it.
 
 Two rules wait on a tool rather than on a decision: `CORE-49` on a
-content-hash scan and `CORE-54` on a secret scanner. `MIS-146` carries them.
+content-hash scan and `CORE-54` on a secret scanner. Neither is planned in a living document.
 
 ---
 
@@ -266,4 +266,4 @@ It does not rank itself above the canon. `CORE-01` says where it sits.
 - `PRO-011` — the security audit
 - `PRO-013` — handing a guard to the pipeline
 - `CAN-005` — licensing
-- `MIS-146` — the mission under which this standard was written
+- `RPT-019` — the week the refoundation that wrote this standard closed
