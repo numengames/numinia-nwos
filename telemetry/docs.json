@@ -236,10 +236,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 1799,
+  "chars": 1833,
   "apparatus": false,
   "archived": false,
-  "tokens": 440
+  "tokens": 452
  },
  {
   "path": "agents/doulos/OPERATOR.md",
@@ -836,6 +836,17 @@
   "tokens": 1463
  },
  {
+  "path": "decisions/ADR-043-one-page-per-document.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "active",
+  "chars": 5749,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1515
+ },
+ {
   "path": "guilds/alquimistas/GLD-001-charter.md",
   "dir": "guilds",
   "series": "guilds",
@@ -1094,10 +1105,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 48513,
+  "chars": 49989,
   "apparatus": false,
   "archived": false,
-  "tokens": 12097
+  "tokens": 12465
  },
  {
   "path": "missions/MIS-0149-ursa-git-cold-start-bootstrap.md",
@@ -1474,15 +1485,15 @@
   "tokens": 2110
  },
  {
-  "path": "standards/STD-007-plain-writing.md",
+  "path": "standards/STD-007-one-page-per-document.md",
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5648,
+  "chars": 4189,
   "apparatus": false,
   "archived": false,
-  "tokens": 1472
+  "tokens": 1108
  },
  {
   "path": "standards/STD-008-design-system.md",
@@ -1721,10 +1732,10 @@
   "series": null,
   "type": "documentation",
   "status": "draft",
-  "chars": 5773,
+  "chars": 2773,
   "apparatus": true,
   "archived": false,
-  "tokens": 1481
+  "tokens": 743
  },
  {
   "path": "templates/SYS-TEMPLATE.md",

@@ -45,6 +45,9 @@ export default defineConfig({
 		// ADR-041 (2026-09-08): history/ is deleted; git is the archive. The
 		// seven archived addresses land on the decision that removed them.
 		"/corpus/standards/standards": "/decisions/adr-041",
+		// ADR-043 (2026-09-08): STD-007 renamed from plain-writing to
+		// one-page-per-document. Same identifier, same file, new slug.
+		"/corpus/standards/std-007-plain-writing": "/corpus/standards/std-007-one-page-per-document",
 		"/corpus/history/2026_09_08-superseded_constitution-v200": "/decisions/adr-041",
 		"/corpus/history/2026_04_07-epistemic_relations-v100": "/decisions/adr-041",
 		"/corpus/history/2026_04_07-mission_system_v2-v100": "/decisions/adr-041",
