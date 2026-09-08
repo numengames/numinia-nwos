@@ -3,7 +3,7 @@
 id: "MIS-0143"
 uid: ""
 title: "Integrate three new agents: Calliope, Nimrod, Talos"
-status: in-progress
+status: done
 started: "2026-09-04T12:25:36Z"
 priority: high
 effort: M
@@ -90,12 +90,25 @@ This mission also registers all three agents in `agents/INDEX.md` and updates th
 
 ## Closure
 
-*(Fill when the mission closes. Not before, and not with intentions.)*
+- **What was done:** Se integraron los tres agentes (Calliope, Nimrod, Talos) en el archivo canónico NWOS. Cada uno con sus 6 documentos: AGENT.yaml, SOUL.md, OPERATOR.md, SOURCES.md, adapters/hermes/config.yaml, adapters/hermes/profile.yaml. Se actualizó agents/INDEX.md y los roster de guilds correspondientes (exegetas/GLD-007-roster.md, centinelas/GLD-006-roster.md).
 
-- **What was done:**
-- **What diverged, and why:**
-- **Evidence:**
-- **Closed:** YYYY-MM-DD · **by:** agent-id
+- **What diverged, and why:** El brief original describía SOUL files placeholder; se integraron los documentos suministrados por el Oracle. Nimrod SOURCES.md se corrigió de `missions/TEMPLATE` a `templates/MIS-TEMPLATE` tras la migración del template en main.
+
+- **Evidence:** Los 13 criterios de aceptación se verifican con:
+  ```bash
+  for a in calliope nimrod talos; do
+    test -f agents/$a/AGENT.yaml && test -f agents/$a/SOUL.md && \
+    test -f agents/$a/OPERATOR.md && test -f agents/$a/SOURCES.md && \
+    test -f agents/$a/adapters/hermes/config.yaml && echo "$a: OK"
+  done
+  grep -q "Calliope" agents/INDEX.md && grep -q "Nimrod" agents/INDEX.md && \
+  grep -q "Talos" agents/INDEX.md && echo "INDEX: OK"
+  grep -q "Calliope" guilds/exegetas/GLD-007-roster.md && echo "EXEGETES: OK"
+  grep -q "Nimrod" guilds/centinelas/GLD-006-roster.md && \
+  grep -q "Talos" guilds/centinelas/GLD-006-roster.md && echo "CENTINELAS: OK"
+  ```
+
+- **Closed:** 2026-09-08 · **by:** ursa
 
 <!--
 OPTIONAL SECTIONS — add only when they earn their place.
