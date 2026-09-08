@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "4d235e9",
-  "corpus_hash": "16effb1fc8d621743d9bcdeaf2b996f0aba06a8308c635df5a3ada87fbd186ff",
+  "head": "e124322",
+  "corpus_hash": "265943e4d716fb2eed34ad7a451b05cccf9c51214ebd62b0484170892358f406",
   "root_dirty": 0,
-  "measured_at": "2026-09-08T22:28:29Z",
+  "measured_at": "2026-09-08T22:31:17Z",
   "families": [
     "corpus",
     "series",
@@ -342,14 +342,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 303805,
+      "value": 303623,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "missions": 52067,
-        "standards": 48353,
+        "standards": 48167,
         "canon": 30370,
         "agents": 25348,
         "protocols": 24501,
@@ -357,8 +357,8 @@
         "decisions": 21475,
         "operations": 21358,
         "templates": 17148,
-        "": 12433,
-        "system": 9734,
+        "": 12438,
+        "system": 9733,
         "debt": 8744,
         "blueprints": 5596,
         "guilds": 3342,
@@ -370,20 +370,20 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 159340,
+        "active": 159153,
         "draft": 63430,
         "todo": 25264,
         "in-progress": 15763,
         "closed": 13593,
         "done": 12558,
-        "(none)": 12251,
+        "(none)": 12256,
         "superseded": 1606
       },
       "unit": "tokens",
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 17.14,
+      "value": 17.15,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -473,8 +473,8 @@
         "visibility_reason": 6,
         "amends": 5,
         "ratified_by": 5,
+        "series_change": 5,
         "requested_by": 4,
-        "series_change": 4,
         "deciders": 3,
         "evidence_script": 3,
         "parent_mission": 3,
@@ -604,7 +604,7 @@
       "definition": "[path, created, first-add] for created_ahead_of_commit"
     },
     "provenance.created_behind_commit": {
-      "value": 22,
+      "value": 23,
       "unit": "documents",
       "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged"
     },
@@ -724,7 +724,7 @@
           "3": 162
         },
         "ADR": {
-          "3": 419
+          "3": 420
         },
         "PRO": {
           "3": 255
@@ -805,7 +805,7 @@
           "id": "MIS-135#19",
           "severity": "A",
           "state": "open",
-          "where": "web/astro.config.mjs#L240",
+          "where": "web/astro.config.mjs#L241",
           "claim": "Parameterised redirect that check-url-lifecycle matches literally — neither verified nor expanded. Deferred: design choice."
         },
         {
@@ -871,7 +871,7 @@
       "definition": "docs_total − docs_con_frontmatter"
     },
     "legacy.referencias_textuales_total": {
-      "value": 1559,
+      "value": 1560,
       "unit": "mentions",
       "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
     },
