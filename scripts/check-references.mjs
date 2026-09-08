@@ -216,9 +216,23 @@ const PLACEHOLDER_RE = /(^|[^A-Za-z])(N{3,}|X{3,}|YYYY|MM|DD|PREFIX|SLUG|TITLE|v
 const isPlaceholder = (cited) =>
   PLACEHOLDER_RE.test(cited) || /[<>{}]/.test(cited) || /\bslug\b/.test(cited);
 
+/* CORE-53 (ADR-041): a broken link inside a closed record is a photograph,
+ * not a defect. A `done` mission or a `superseded` standard describes what
+ * was true then; forcing it to keep resolving would make every deletion
+ * either rewrite closed records or grow the baseline forever. Closed records
+ * are therefore not walked as citers. They ARE still indexed above, so a
+ * living document citing them keeps resolving. */
+const CLOSED_STATUS = /^status:\s*["']?(done|closed|superseded|withdrawn|frozen)\b/m;
+const isClosedRecord = (text) => {
+  const fm = text.match(/^---\s*\n([\s\S]*?)\n---/);
+  return !!(fm && CLOSED_STATUS.test(fm[1]));
+};
+let skippedClosed = 0;
+
 for (const rel of files) {
   const abs = path.join(ROOT, rel);
   const text = readFileSync(abs, 'utf8');
+  if (isClosedRecord(text)) { skippedClosed++; continue; }
   const body = stripFM(text);
   const ownBase = path.basename(rel);
 

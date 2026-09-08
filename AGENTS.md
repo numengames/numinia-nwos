@@ -36,7 +36,7 @@ The principal areas of this repository:
 - `guilds/` — guild charters and rosters; guilds reference agents, they do
   not contain them.
 - `missions/` — the unit of work; `templates/MIS-TEMPLATE` defines the contract.
-- `decisions/` — ADRs, append-only; `debt/` — the register of what is known
+- `decisions/` — ADRs; `debt/` — the register of what is known
   to be wrong; `reports/` — audits and evidence.
 - `operations/` — business records, one flat `OPS-` series (`OPS-003`,
   `OPS-004` and `OPS-007` are reserved, pinned per-file in `REUSE.toml`).
@@ -161,7 +161,8 @@ cosmetic-vs-irreversible protocol.
 
 Prefer traceable operations for changes to authoritative content: Git
 commits, change histories, review records, approvals, documented decisions
-(`decisions/`). Do not sacrifice documentary history for convenience.
+(`decisions/`). Git is the archive: a retired document is deleted, not kept
+as a copy (`ADR-041`).
 
 ## Uncertainty
 

@@ -91,16 +91,16 @@ a consequences section with no cost in it was written by the advocate.
 
 Where this record stands today, and by what.
 
-`draft` — proposed, not binding. `active` — binding. `superseded` — replaced,
-kept resolving because a decision is never deleted (`superseded_by` names its
-replacement).
+`draft` — proposed, not binding. `active` — binding. `superseded` — replaced
+(`superseded_by` names its replacement); deleted once nothing living cites it
+(`ADR-041`).
 
 <!--
 NOTES ON USING THIS TEMPLATE — delete this block.
 
-A decision record is append-only. Correcting one means writing the next one
-and pointing `superseded_by` at it, never editing what this one claimed.
-That is the whole value of the series: what was believed, and when.
+Correcting a decision means writing the next one and pointing `superseded_by`
+at it, not editing what this one claimed. The superseded record is deleted
+when nothing living cites it; git keeps what was believed, and when.
 
 `absorbs` is load-bearing, not a note: the reference guard reads it to keep
 a merged decision's original identifiers resolving. Consolidating records

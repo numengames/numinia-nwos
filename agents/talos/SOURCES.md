@@ -31,7 +31,7 @@ repository operating expectations.
 
 `CONTRIBUTING.md` — contribution path and requirements.
 
-`standards/STD-002-governance.md` — governance and change-control requirements.
+`standards/STD-009-core-rules.md` — the rules of the corpus, precedence and change control.
 
 `standards/` — applicable standards whose requirements may be enforced or
 verified by repository controls.

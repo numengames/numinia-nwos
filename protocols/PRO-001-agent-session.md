@@ -4,7 +4,7 @@ uid: ""
 title: "Agent Session Protocol — open, monitor, close"
 type: protocol
 status: active
-version: "0.5.0"
+version: "0.6.0"
 created: "2026-04-08T06:02:27Z"
 created_source: "git:a5b6a0d"
 created_confidence: exact
@@ -42,7 +42,7 @@ STEP 1 — Identity:
 
 STEP 2 — Security (every session):
   → operations/OPS-009-secrets-handling.md
-  → standards/STD-002-governance.md (if not read in <7 days)
+  → standards/STD-009-core-rules.md (if not read in <7 days)
 
 STEP 3 — Active missions:
   → missions/ with status in-progress — do I have one assigned?
@@ -163,6 +163,18 @@ the recommended next step.
 Without commit and push there is no valid close. Knowledge that is not
 committed disappears when the session ends: there is no gradual amnesia, there
 is total loss.
+
+---
+
+## The rules of a session
+
+Three rules carry a `CORE` identifier: they were rules of the corpus until
+2026-09-08 and are now executed here, number kept (`CORE-14`).
+
+| ID | Rule | Verified by |
+| **CORE-42** | A session begins by syncing the corpus, before any read or write. | `[MANUAL]` — the sync is a local act with no artefact |
+| **CORE-43** | A session ends with its record committed. | `[MANUAL]` — the closing commit exists; that it closes the session is judgement |
+| **CORE-44** | An agent works from the corpus in the tree, never from a copy pasted elsewhere. | `[MANUAL]` — a claim sourced from a paste looks identical to one sourced from the tree |
 
 ---
 

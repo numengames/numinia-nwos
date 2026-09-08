@@ -87,7 +87,7 @@ the contract of the series it scaffolds:
 | T-05 | `type` belongs to the destination series (STD-004 §4) |
 | T-06 | `status` is in the destination's lifecycle (STD-004 §5) |
 | T-07 | every field is registered in some ring for the destination |
-| T-08 | version is bare SemVer, opening at `0.1.0` (STD-002) |
+| T-08 | version is bare SemVer, opening at `0.1.0` (STD-009) |
 | T-09 | the context card carries Summary, Epistemic and Pragmatic |
 | T-10 | every registered series has a mould |
 

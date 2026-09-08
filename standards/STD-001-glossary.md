@@ -5,7 +5,7 @@ uid: ""
 type: documentation
 subtype: standard
 status: active
-version: "2.3.0"
+version: "3.0.0"
 created: "2026-08-24T16:00:00Z"
 updated: "2026-09-07T11:20:00+02:00"
 author: "ursa"
@@ -230,8 +230,9 @@ do now" in repeated situations. **IS** an ordered sequence whose subject is an
 **`missions/` — the *work*.** Flat folder. **State lives in `status:`, never in
 the path.** A `done` mission is `closed`.
 
-**`decisions/` — *why* something was chosen · `governed`.** Append-only: a
-decision is superseded, never deleted.
+**`decisions/` — *why* something was chosen · `governed`.** A decision is
+superseded by the next one and deleted when nothing living cites it
+(`ADR-041`).
 
 **Absorption** is the second way a record leaves the folder. Where superseding
 replaces reasoning, absorption carries it into another record — the file goes,
@@ -246,15 +247,16 @@ protects; the file is one way to serve it, not the only one.**
 report of what happened.
 
 **`reports/` — what was *observed* · `closed`.** What was true on a date, signed
-by whoever observed it. Once published its claims are not rewritten — a
-correction is a new report that supersedes it.
+by whoever observed it. A correction is made in place with a dated note and
+a version bump (`ADR-041`); dated evidence under `reports/evidence/` is not
+edited.
 
 **`operations/` — what *sustains* the business.** Legal, strategy: the
 connective tissue between system and world.
 
 **`debt/` — what we know is *missing* `[MANUAL]`.** Explicit, numbered
-uncertainty beats false completeness. Append-only: an entry is marked RESOLVED,
-never deleted.
+uncertainty beats false completeness. A resolved entry is deleted once nothing
+living cites it (`ADR-041`).
 
 **`guilds/` — how actors *group* · `governed`.** Under review: `guild:` already
 works as a frontmatter field, which makes the `roster` files apparatus — a

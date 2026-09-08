@@ -23,9 +23,8 @@ threshold: sealed
 > how the in-world names map to operational ones.
 > **Epistemic:** The reasoning that produced this structure — Rosch's basic
 > level and prototype theory, the EEM Institute's role system, Hjelmslev on
-> function — is `history/2026_09_07-Role_Structure_Treatise-v1.0.0.md`. It was
-> retired from this canon on 2026-09-07: it justified the structure, it did not
-> decide it.
+> function — was retired from this canon on 2026-09-07: it justified the
+> structure, it did not decide it. Git holds it (`ADR-041`).
 > **Audience:** Everyone
 
 ## What this canon fixes

@@ -79,7 +79,7 @@ Three failure modes follow, and none is hypothetical.
 failing build. The document set claims to be the source of truth and is not, for
 these behaviours.
 
-**A rule cannot be argued with.** `STD-009` §17 makes ratification the switch that
+**A rule cannot be argued with.** `STD-009` §1 makes ratification the switch that
 turns the rules on. These three are already on, and were never ratified by
 anything.
 

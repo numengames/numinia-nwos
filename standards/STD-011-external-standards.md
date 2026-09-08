@@ -89,14 +89,14 @@ nothing in the corpus applies it yet.
 | Standard | Source | Distance | Applied in |
 |---|---|---|---|
 | RFC 2119 | <https://www.rfc-editor.org/rfc/rfc2119> | 0 | `STD-004` · used corpus-wide |
-| Semantic Versioning 2.0.0 | <https://semver.org/> | 1 | `STD-002` «Versioning authority» · `STD-009` CORE-21 |
+| Semantic Versioning 2.0.0 | <https://semver.org/> | 1 | `STD-009` CORE-21 · CORE-64 |
 | Blameless postmortem | <https://sre.google/sre-book/postmortem-culture/> | 2 | `STD-005` (practised, unnamed) |
 | NIST AI RMF | <https://www.nist.gov/itl/ai-risk-management-framework> | 3 | — |
 | ISO/IEC 42001 · AI management | <https://www.iso.org/standard/42001> | 3 | — `STD-005` AGT-06 asks by hand for part of what it formalises |
 | ISO 22301 · continuity | <https://www.iso.org/standard/75106.html> | 3 | — overlaps `PRO-001`, unreconciled |
 | ISO 9001 · quality | <https://www.iso.org/iso-9001-quality-management.html> | 3 | — **no anchor in any operating document** |
 
-> **SemVer is adapted, not adopted as published.** `STD-002` versions
+> **SemVer is adapted, not adopted as published.** `STD-009` versions
 > documents, where there is no API to break. The rule the system applies —
 > digital agents `patch`, archons `minor`, Oracles `major` — is authority-based,
 > not compatibility-based. Unverified whether the two diverge in practice.
@@ -113,7 +113,7 @@ nothing in the corpus applies it yet.
 | SLSA | <https://slsa.dev/> | 3 | — cheap extension of Scorecard, same parent project |
 | NIST SSDF · SP 800-218 | <https://csrc.nist.gov/pubs/sp/800/218/final> | 3 | — `STD-005`'s security section is a self-authored checklist with no external frame |
 | OWASP ASVS | <https://owasp.org/www-project-application-security-verification-standard/> | 3 | — |
-| DORA metrics | <https://dora.dev/research/2024/dora-report/> | 3 | **retired** by `history/2026_09_08-Superseded_Constitution-v2.0.0.md`, 2026-08-30 |
+| DORA metrics | <https://dora.dev/research/2024/dora-report/> | 3 | **retired** by the superseded constitution, 2026-08-30 (in git, `ADR-041`) |
 | Gherkin / BDD | <https://cucumber.io/docs/gherkin/> | 0 | `numinia-web`: ten `.feature` files, `@cucumber/cucumber`, `test:acceptance` in CI |
 
 > **Gherkin applies to software, not to documents.** It runs on every pull
@@ -156,5 +156,4 @@ external norm; this register does not decide which.
 - `STD-001` — what each series holds; `territory` vocabulary
 - `STD-004` — the header contract, where SPDX and ISO 8601 are enforced
 - `STD-010` — the licensing standard, where the licence sources are already cited
-- `history/2026_09_08-Superseded_Constitution-v2.0.0.md` — the superseded constitution; records the retirement of DORA and Gherkin
 - `DBT-020` — the automations this register found declared without a tool

@@ -5,7 +5,7 @@ title: "The header in three rings: identity, provenance, extension"
 type: documentation
 subtype: standard
 status: active
-version: "2.1.0"
+version: "2.2.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
@@ -94,6 +94,16 @@ filling it with a guess.
 Ring 2 admits `declared` where git cannot testify. The point is that a reader
 can always tell evidence from claim: a date derived from a commit is
 evidence; a typed one is a claim.
+
+**What a relation means.** `related` — relevant, no stronger direction known.
+`supersedes` / `superseded_by` — a later record replaces an earlier one.
+`absorbs` — a later record carries the earlier reasoning into itself and the
+old identifier keeps resolving. `ratified_by` — an authority promoted or
+confirmed the record. `parent_mission` — a bounded child of a larger mission.
+`former_id` — the identifier before a governed move. Declare a relation when
+it matters for retrieval, audit or a future change; never use `related` when
+a stronger one is known, and never infer one from a shared folder, author or
+subject.
 
 ## 4. The `type` vocabulary
 

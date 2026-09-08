@@ -53,6 +53,6 @@
   },
   "governed": {
     "_comment": "STD-004 §8: the top-level directories whose tracked .md files lint-frontmatter governs. Everything else (web/, scripts/, root, .github/) is out of its scope.",
-    "dirs": ["missions", "decisions", "protocols", "debt", "standards", "canon", "reports", "agents", "blueprints", "guilds", "operations", "infra", "system", "history"]
+    "dirs": ["missions", "decisions", "protocols", "debt", "standards", "canon", "reports", "agents", "blueprints", "guilds", "operations", "infra", "system"]
   }
 }

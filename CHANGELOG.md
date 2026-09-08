@@ -82,7 +82,7 @@ Format: [type] description — date — author
 
 ### Changed — 2026-09-01 (ADR-005 v1.2.0, reports/ normalisation — PRs #193, #194)
 - decisions/ADR-005 v1.2.0: dailies keep `RPT-YYYY-MM-DD` (subtype daily only); everything else in `reports/` is `RPT-NNN`; subtype vocabulary closed (daily · audit · analysis · proposal); folder flat; evidence in `reports/evidence/<RPT-id>/`; `AUD-`, `PROP-` retired. PRO-010 v0.8.0, STD-001 v5.1.0, STD-002 v2.1.0, STD-004 v1.4.0, DBT-001 v4.2.0 follow.
-- reports/ flattened: `audits/` and `daily/` removed; 11 `AUD-*` + wardley/gaps/PROP → `RPT-003`…`RPT-016` by `created` (former_id on each); 8 dailies moved, ids unchanged; licensing annex → `reports/evidence/RPT-011/` (opaque block); `reports/INDEX.md` deleted (stale apparatus, ADR-030); `evidence/*.py` → `scripts/experiments/` with MIT SPDX; deleted-canon text → `history/2026_04_07-Epistemic_Relations-v1.0.0.md`.
+- reports/ flattened: `audits/` and `daily/` removed; 11 `AUD-*` + wardley/gaps/PROP → `RPT-003`…`RPT-016` by `created` (former_id on each); 8 dailies moved, ids unchanged; licensing annex → `reports/evidence/RPT-011/` (opaque block); `reports/INDEX.md` deleted (stale apparatus, ADR-030); `evidence/*.py` → `scripts/experiments/` with MIT SPDX; deleted-canon text → `Epistemic_Relations (deleted 2026-09-08)`.
 - scripts: lint-naming/lint-frontmatter/count-evidence implement v1.2.0; `lint-naming.test.mjs` new (9 cases); rename-series.mjs gains `--into`, reserved numbers, dated-id handling, refuses baselines and test files (26 tests).
 - web: collection `reports` reads `reports/RPT-*.md`; `/reports` (index by subtype) + `/reports/[id]` + `/reports/[id].md` for every report; wardley/gaps read the collection; 30 redirects, 0 dead URLs.
 - web (PR #195): `pages/reports.astro` + 5 `daily-*.astro` (41.7 KB of hand-written Spanish copies, MIS-065 debt) and `pages/audits/*` deleted; `/audits*`, `/reportes/*`, `/reports/daily-*` redirect to `/reports/*`. One folder, one collection, one head.
@@ -116,7 +116,7 @@ Format: [type] description — date — author
 ## [0.4.0] — 2026-04-07 (afternoon, MIS-056)
 
 ### Added
-- history/2026_09_08-Superseded_Constitution-v2.0.0.md v1.2.0 — full English translation + language policy
+- the constitution (superseded, deleted 2026-09-08) v1.2.0 — full English translation + language policy
 - agents/nimrod/MEMORY.md → v0.2.0 (EN)
 - agents/ursa/STATUS.md → v0.2.0 (EN)
 - agents/senet/SOUL.md, OPERATOR.md, STATUS.md → v0.2.0 (EN)
@@ -137,7 +137,7 @@ Format: [type] description — date — author
 ## [0.3.0] — 2026-04-07 (morning)
 
 ### Added
-- history/2026_09_08-Superseded_Constitution-v2.0.0.md v1.1.0 — Active Inference, OODA, BML, context cards (§7G-I, §8)
+- the constitution (superseded, deleted 2026-09-08) v1.1.0 — Active Inference, OODA, BML, context cards (§7G-I, §8)
 - P-007 Context Load Protocol
 - P-008 Approval Brief Protocol
 - APPROVAL-REQUEST-template.md
@@ -164,7 +164,7 @@ Format: [type] description — date — author
 ## [0.2.0] — 2026-04-06 (Dark Council session with Christian Märtens)
 
 ### Added
-- history/2026_09_08-Superseded_Constitution-v2.0.0.md v1.0.0 — ISO 8601 timestamps, UUID v7, frontmatter schema, commit conventions, BDD/Cucumber, ADR, Wardley, DORA, SemVer
+- the constitution (superseded, deleted 2026-09-08) v1.0.0 — ISO 8601 timestamps, UUID v7, frontmatter schema, commit conventions, BDD/Cucumber, ADR, Wardley, DORA, SemVer
 - P-006 Session Close Protocol (Alquimista-01 proposal + Nimrod validation)
 - agents/adonaz/ initial design
 - guild charters — sentinels, alquimistas, exegetas

@@ -5,25 +5,27 @@ title: "The rules of the corpus, and which one wins"
 type: documentation
 subtype: standard
 status: draft
-version: "0.10.0"
+version: "0.12.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-05T22:40:00+02:00"
+updated: "2026-09-08T17:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "CAO"
 license: "CC0-1.0"
 tags: [standards, governance, precedence, rules, core]
+absorbs: ["STD-002"]
 ---
 
 # STD-009 — The rules of the corpus, and which one wins
 
-> **Summary:** Sixty-six rules, one line each, every one of them able to pass
-> or fail; and, first, the rule that settles what happens when two of them
-> disagree.
-> **Epistemic:** Why a corpus without a precedence rule grows contradictions
-> faster than it grows documents, and why the count of rules matters less than
-> the count of places they live in.
-> **Pragmatic:** The whole normative layer in one document an agent can read
+> **Summary:** The rules that bind every document of the corpus, one line
+> each, every one able to pass or fail; and, first, the rule that settles what
+> happens when two of them disagree. This is the governance document: what
+> used to be `STD-002` lives here or in the protocol that executes it.
+> **Epistemic:** A corpus without a precedence rule grows contradictions faster
+> than it grows documents; the count of rules matters less than the count of
+> places they live in.
+> **Pragmatic:** The whole normative layer in one document an agent reads
 > before starting work.
 > **Audience:** Agents · Oracles
 
@@ -34,21 +36,16 @@ tags: [standards, governance, precedence, rules, core]
 This standard states the rules that bind every document in the corpus, and the
 order in which they win.
 
-It exists because the corpus said three hundred and twenty-eight obligating
-things across nine documents, and no document said which one wins when two of
-them disagree. In that silence, documents began granting themselves authority
-over other documents, one argument at a time. Eighteen such claims were written
-before anyone noticed, and forty-six pairs of statements ended up unable to
-both hold.
-
 **What this covers:** what a document must be, how it is named, versioned,
 changed, archived and cited; how work is registered; how a rule becomes
 enforceable; and who may decide any of it.
 
 **What this does not cover:** how people are hired, welcomed, trained or paid;
-what the world of Numinia contains; how a product looks. Those are governed
-elsewhere, and a duty aimed at a person's calendar is not a rule of this
-corpus.
+what the world of Numinia contains; how a product looks; and what an actor
+does step by step — a standard is complied with, a protocol is executed. How
+a guard is built is `STD-005`; how a mission or a session runs is `PRO-003`
+and `PRO-001`; how prose is written is `STD-007`. A duty aimed at a person's
+calendar is not a rule of this corpus.
 
 **How to read a rule.** Every rule below is one sentence that a reader can
 answer yes or no about. If a sentence here cannot be answered yes or no about
@@ -58,47 +55,34 @@ is reported, not interpreted.
 **What a rule here binds.** Unless a rule says otherwise, *document* means a
 registered document of the corpus. It does not mean every markdown file in the
 repository. The boundary is *apparatus* — scaffolding around a series rather
-than a member of it. `scripts/lib/rules.json` transcribes that boundary and
-`scripts/lib/frontmatter.mjs` computes it, as `rules.json` says of itself:
-each block names the ruling it transcribes, and changing the ruling changes
-the block. Where this standard and the classifier disagree, `CORE-02` settles
-it: this standard is the source and the classifier is the implementation, so
-the classifier is corrected — unless the disagreement is this sentence
-describing wrongly what the classifier already does, which is a broken
-description and is fixed here.
+than a member of it; `scripts/lib/rules.json` transcribes that boundary and
+`scripts/lib/frontmatter.mjs` computes it. Where this standard and the
+classifier disagree, `CORE-02` settles it: the classifier is corrected.
 
 A second class sits outside these rules without being apparatus: the files that
 address a reader outside the corpus — the repository's own `README`, its
 contribution notes, its changelog, its agent instructions. They are governed by
 the conventions of the platform they serve, not by the numbered series.
 
-**What executes.** Some of these rules are executed by
-`scripts/check-core-rules.mjs`; the rest are read by a person or an agent.
-Which rule falls in which group is not stated here, because it changes without
-this document changing: every rule's own `Verified by` column names its
-verifier, and `[MANUAL]` marks the ones no parser can decide. A rule moving
-from the second group to the first is an improvement that needs no amendment.
+**What executes.** Every rule's `Verified by` column names its verifier:
+a script, a GitHub setting, or `[MANUAL]` with one line saying why no parser
+can decide it. A rule moving from `[MANUAL]` to a script needs no amendment.
 
-**What ratification changes, and how it is undone.** The `status` field of this
-document is the switch, and it is now the only one. `check-core-rules.mjs`
-became a step in `.github/workflows/ci.yml` on 2026-09-05, so the guard reaches
-every pull request. While `status` reads anything other than `active` it
-reports breaches and lets the build pass: nothing here binds. Setting it to
-`active` makes the executed rules refuse a merge. Setting it back to `draft`
-suspends them again, immediately and without touching any script.
+**The switch.** This document's `status` field decides whether the executed
+rules bind. `check-core-rules.mjs` runs on every pull request; while `status`
+is anything but `active` it reports breaches and lets the build pass, and
+setting it to `active` makes them refuse a merge. Only the Oracle sets that
+field, and setting it back suspends every rule at once.
 
-No rule of this standard binds until the Oracle sets that field, and any rule
-can be suspended by returning it. A standard that cannot be switched off is not
-a standard; it is an accident.
+**Identifiers are stable.** A rule keeps its `CORE-NN` for life. A rule that
+leaves this document leaves a gap, never a renumbering: the number is an
+address, and addresses do not move (`CORE-14`).
 
 ---
 
 ## 2. Precedence — the rule that settles the others
 
 Everything else in this corpus is a claim. These five decide whose claim wins.
-They were governance's own section until 2026-09-05. Governance now points here
-for their text and states, until this standard is ratified, that they bind from
-there — a draft binds nobody, and these five cannot be left unbinding.
 
 | ID | Rule | Verified by |
 |---|---|---|
@@ -137,8 +121,18 @@ the one it inherits.
 | **CORE-63** | The change lands in the document it governs. A rule written in a decision, a mission or a commit message is not a rule yet: the document is where a reader looks, so that is where the sentence goes. | `[MANUAL]` — recognising an obligation outside its document is the judgement |
 | **CORE-08** | A finished mission or a published report keeps its claims; its form may be corrected and the commit says so. | `[MANUAL]` — separating a claim from its form needs a reader |
 | **CORE-09** | Everything else changes by an ordinary pull request. | branch protection, GitHub settings |
+| **CORE-67** | An agent never edits its own `SOUL.md` or `OPERATOR.md`; both are Oracle-approved. | `[MANUAL]` — CODEOWNERS could decide it; not wired |
 | **CORE-10** | Facing an irreversible act in doubt, an agent does not act and escalates instead. | `[MANUAL]` — an act not taken leaves no trace to check |
 | **CORE-65** | What each rank may do to a document: an Oracle approves structural change, seals canon, and alone promotes an artefact to stable or breaks it; an Archon authorises iterations below the stable line; a digital agent writes its own files and its assigned missions; a custodian maintains documents, indexes and changelogs; automation writes reports only. Which rank an actor holds is defined in the canon of roles, not here. | `[MANUAL]` — mapping an author to a rank needs the roster |
+
+**States.** A normative document — canon, standard or protocol — is `draft`
+(binds nobody), `active` (binds), `superseded` (replaced by the document it
+names) or `withdrawn` (retired without replacement). Every other series has
+`draft`, `active`, `closed`, unless it registers otherwise in `STD-004`. A
+rule that binds must be switchable off without lying about why it stopped:
+that is what `superseded` and `withdrawn` are for. Who holds which rank is
+`CAN-004`.
+
 ---
 
 ## 4. Identity and names
@@ -186,40 +180,7 @@ the one it inherits.
 | **CORE-30** | History on a shared branch is never rewritten. | branch protection, GitHub settings |
 ---
 
-## 8. Guards
-
-| ID | Rule | Verified by |
-|---|---|---|
-| **CORE-31** | A rule that does not break the build does not exist for an agent. | `[MANUAL]` — this table is the check; a reader confirms every row is filled |
-| **CORE-32** | A guard is wired into the pipeline in the same change that writes it. | `[MANUAL]` — pending the guard register, `MIS-146` |
-| **CORE-33** | A guard register is read from the workflow file, never remembered. | `[MANUAL]` — pending the guard register, `MIS-146` |
-| **CORE-34** | A baseline records damage that predates its rule and never absorbs damage the current change caused. | `[MANUAL]` — tracing a baseline entry to its commit is archaeology |
-| **CORE-35** | A green pipeline is not a clean tree, and a change declares what it left behind. | `[MANUAL]` — residue is what nobody noticed; a guard that could see it would fail on it |
-| **CORE-66** | A guard that fails on a behaviour no axis document states is enforcing nothing, and is itself the defect: the guard is corrected or the rule is written, never the tree. | `[MANUAL]` — deciding whether a document states a behaviour is a reading, not a parse |
----
-
-## 9. Work
-
-| ID | Rule | Verified by |
-|---|---|---|
-| **CORE-36** | Work is registered before it is executed. | `[MANUAL]` — comparing a mission's date to work that may predate its branch |
-| **CORE-37** | A mission states what would count as done before work starts. | `[MANUAL]` — the section is checkable, whether it states a test is not |
-| **CORE-38** | A parent mission is not finished while any of its children is open. | `[MANUAL]` — parent and child are declared in prose, not in a field |
-| **CORE-39** | A paused mission declares why it is paused. | `[MANUAL]` — the reason is prose |
-| **CORE-40** | A finished mission is not rewritten to match later doctrine. | `[MANUAL]` — same judgement as CORE-08 |
-| **CORE-41** | An agent reads the whole mission before acting, never the title alone. | `[MANUAL]` — no trace distinguishes a full read from a skim |
----
-
-## 10. Sessions
-
-| ID | Rule | Verified by |
-|---|---|---|
-| **CORE-42** | A session begins by syncing the corpus, before any read or write. | `[MANUAL]` — the sync is a local act with no artefact |
-| **CORE-43** | A session ends with its record committed. | `[MANUAL]` — the closing commit exists; that it closes the session is judgement |
-| **CORE-44** | An agent works from the corpus in the tree, never from a copy pasted elsewhere. | `[MANUAL]` — a claim sourced from a paste looks identical to one sourced from the tree |
----
-
-## 11. Archiving
+## 8. Archiving
 
 | ID | Rule | Verified by |
 |---|---|---|
@@ -230,7 +191,7 @@ the one it inherits.
 | **CORE-49** | A document is copied nowhere; it is linked, and a derived copy declares its master. | `[MANUAL]` — pending; a content-hash scan would catch this and does not exist |
 ---
 
-## 12. Citation
+## 9. Citation
 
 | ID | Rule | Verified by |
 |---|---|---|
@@ -240,7 +201,7 @@ the one it inherits.
 | **CORE-53** | A broken link inside a closed document is a photograph, not a defect. | `[MANUAL]` — an exemption, not an obligation; nothing to check |
 ---
 
-## 13. Secrets
+## 10. Secrets
 
 | ID | Rule | Verified by |
 |---|---|---|
@@ -250,7 +211,7 @@ the one it inherits.
 | **CORE-57** | An audit declares how many things it examined out of how many exist. | `[MANUAL]` — the denominator is prose |
 ---
 
-## 14. Licences
+## 11. Licences
 
 | ID | Rule | Verified by |
 |---|---|---|
@@ -259,74 +220,22 @@ the one it inherits.
 | **CORE-60** | A permanent publication is gated on a review of ownership. | `[MANUAL]` — the review is recorded outside the corpus |
 ---
 
-## 15. Writing
+## 12. What this standard does not yet enforce
 
-| ID | Rule | Verified by |
-|---|---|---|
-| **CORE-61** | A rule is one sentence that can be answered yes or no. | `check-plain-writing.mjs` |
-| **CORE-62** | A normative document states no figure that its own subject will age: counts of the corpus, coverage and progress live in reports. A value the document itself defines — a token, a ratio, a threshold it sets — is specification, not measurement. | `[MANUAL]` — deciding whether a figure will age is the judgement the rule asks for |
----
-
-## 16. What this standard does not yet enforce
-
-Stating this is a requirement of the corpus, not a courtesy.
-
-Every rule above names a verifier. 23 are decided by a script or by a
-GitHub setting; 42 are marked `[MANUAL]` and say in one line why no
-parser can decide them. There is no third kind: a rule with an empty verifier
-column would be an opinion that had learnt to look official.
+Every rule above names a verifier. There is no third kind: a rule with an
+empty verifier column would be an opinion that had learnt to look official.
 
 `[MANUAL]` is not a synonym for unenforced. It means the check exists and a
-reader performs it. What it costs is that a breach is found by whoever looks,
-not by the pipeline — so `[MANUAL]` rules fail late, and their number is the
-honest measure of how far this standard is from `CORE-31`.
+reader performs it; a breach is found by whoever looks, not by the pipeline.
+The share of `[MANUAL]` rules is the honest measure of how far this standard
+is from `CORE-31` in `STD-005`, and it is reported, not stated here.
 
-Four of them are marked pending rather than impossible: `CORE-32` and
-`CORE-33` wait on the guard register, `CORE-49` on a content-hash scan, and
-`CORE-54` on a secret scanner. Those are absent tools, not undecidable rules,
-and `MIS-146` carries them.
-
-The rules that bind are decided by this standard's own `status` field.
-While it is anything but `active`, `check-core-rules.mjs` reports every
-breach and lets the build pass.
-
-Five conflicts between the governance document and the protocols that govern
-the same acts are unresolved. They are not decided here because deciding them
-is not a measurement, and the corpus reserves that decision to the Oracle.
+Two rules are pending a tool rather than undecidable: `CORE-49` waits on a
+content-hash scan and `CORE-54` on a secret scanner. `MIS-146` carries them.
 
 ---
 
-## 17. Amendment, 2026-09-05
-
-`CORE-02` was reversed in batch 1 of this document's ratification: the
-documents outrank the code, where before the tree outranked the prose. Section
-1 was not revisited in that move and went on delegating its own boundary to
-the classifier — "the classifier is right and this sentence is the defect" —
-which is the rule `CORE-02` had just abolished. A standard cannot hold both.
-`rules.json` already agreed with the corrected rule: its own comment says each
-block *transcribes* a ruling. The transcription is not the ruling.
-
-Two figures were removed rather than updated. Section 1 said eight rules
-execute and named them; eleven do, and the list was stale within a day of
-being written. `CORE-62` forbids a normative document from stating a figure
-its own subject will age, so the count is not corrected here — it is deleted,
-and the `Verified by` column of each rule carries the answer instead.
-
-`CORE-45` was reworded the same day and the guard behind it corrected: it
-demanded an heir from `withdrawn` documents, which by definition have none, and
-tested `retired`, a value in no series' status vocabulary. The check is now
-symmetric — `superseded` without an heir is a breach, `withdrawn` with one is
-a breach — and `DBT-015` closed.
-
-The ratification paragraph of section 1 claimed that setting `status` to
-`active` makes the executed rules fail the build. It does not: the guard is not
-a step in the workflow file, so the rules bind the reader and not the pipeline.
-The sentence now names both switches. An agent cannot write
-`.github/workflows/`, so the second one is the Oracle's to throw.
-
----
-
-## 18. References
+## 13. References
 
 - `STD-001` — the glossary, source of the change thresholds and of the rule that history outranks the document
 - `STD-002` — governance, source of the authority rules
