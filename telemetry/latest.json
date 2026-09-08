@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "8c06658+index",
-  "corpus_hash": "39bfd27efe11d89b29daf5f480b2986e69ff29c7ceb79864241bda02775a8aed",
+  "head": "a2cca75",
+  "corpus_hash": "277681349a04c20744f347dd3aad27f4b98960a42f95dd0e0310d7e813fadb51",
   "root_dirty": 0,
-  "measured_at": "2026-09-08T10:04:22Z",
+  "measured_at": "2026-09-08T10:21:34Z",
   "families": [
     "corpus",
     "series",
