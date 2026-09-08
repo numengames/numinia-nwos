@@ -223,7 +223,7 @@ rename's clothes, and the numbers below say how many decisions each is.
       *These* are mechanical. 15 findings, no judgement.
 - [x] **`H-20` non-empty `uid` — 34.** *Done (post-#129 batches): all 34
       hand-authored values emptied per STD-001 §6.2. The only `uid` values
-      left in the repo are examples inside document bodies (STANDARDS.md,
+      left in the repo are examples inside document bodies (history/2026_09_08-Superseded_Constitution-v2.0.0.md,
       2026_04_07-Mission_System_v2-v1.0.0.md) — prose, not headers.* The hand-authored pseudo-UUIDv7
       values, 2 of them colliding. `uid: "018ef820-…"` → `uid:`. `STD-001` §6.2
       already states the disposal: *"the 32 legacy values are removed, not
@@ -453,7 +453,7 @@ hides its decisions makes the next reader guess.
    field.
 
    **Blind spot found while measuring:** the guard flags 98 of those 100.
-   `README.md` and `STANDARDS.md` sit at the repository root and it never
+   `README.md` and `history/2026_09_08-Superseded_Constitution-v2.0.0.md` sit at the repository root and it never
    reaches them — worth registering against `D-025`, which requires a guard
    to declare what it cannot see.
 2. **The debt series runs an undeclared status vocabulary.** 35 `open` +

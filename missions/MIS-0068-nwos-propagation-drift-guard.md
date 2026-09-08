@@ -81,7 +81,7 @@ multiplies silently-stale surfaces.
       regime).
 - [ ] numinia-nwos itself runs it for its own internal copies (CLAUDE.md
       fragment vs canon §9 — today verified only by hand).
-- [ ] Documented in STANDARDS.md: how a new consumer repo subscribes.
+- [ ] Documented in history/2026_09_08-Superseded_Constitution-v2.0.0.md: how a new consumer repo subscribes.
 
 ## Context update (2026-08-18)
 

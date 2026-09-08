@@ -151,7 +151,7 @@ The corpus is not what is broken here.
       misses. §6.2's "32" predates two additions and is the figure to
       correct. Reproduced by `/tmp/uid_real.py`; see the note below on how
       this was nearly miscounted a second time.
-- [x] **The guard declares its blind spot.** `README.md` and `STANDARDS.md`
+- [x] **The guard declares its blind spot.** `README.md` and `history/2026_09_08-Superseded_Constitution-v2.0.0.md`
       carry `uid` at the repository root and the guard never reaches them —
       which is why 100 files have the field and 98 are flagged. `D-025`
       requires a guard to declare what it cannot see. Either widen the scope
@@ -161,7 +161,7 @@ The corpus is not what is broken here.
       mine and is closed by disproving it.** The guard walks `git ls-files`,
       which includes the repository root; all 12 root `.md` files are in
       scope. `README.md` does carry a `uid` and **is** flagged — it appears
-      in `--report`. `STANDARDS.md` carries none. Nothing is undeclared
+      in `--report`. `history/2026_09_08-Superseded_Constitution-v2.0.0.md` carries none. Nothing is undeclared
       because nothing is unseen, so `D-025` does not apply here.
 - [x] **`MIS-121` is unblocked.** Its `H-20` check — emptying the 34
       hand-authored values, 2 of them colliding — can start the moment this

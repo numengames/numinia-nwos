@@ -865,3 +865,19 @@ no `@ head` beside them; `figures.stale_citations` lists citations whose value
 has since moved. Neither is wired to CI; the ratchet is a later decision.
 
 ---
+
+
+## 11. What this standard does NOT do
+
+It does not define the vocabulary of the project — despite its filename. It
+carries three definitions and one obligation; the rest is registration law.
+`DBT-022` records the mismatch.
+
+It does not govern content. What a canon may assert, what a standard may
+oblige, what a protocol may instruct: none of that is here. This document says
+where a document lives, how it is named, how it is versioned, and what its
+header must carry.
+
+It does not rule on series it does not list. A folder absent from the series
+map is not thereby forbidden; it is unregistered, which is a different defect
+and is fixed by adding it here.

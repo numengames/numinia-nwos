@@ -36,7 +36,7 @@ license: "CC0-1.0"
 - [x] New file `P-001-agent-briefing.md` created (canonical English name)
 - [x] Old file `P-001-briefing-agente-v1.md` deleted
 - [x] P-009 added to startup sequence (Step 3.5)
-- [x] STANDARDS.md §7F (versioning) and §10 (logs) referenced
+- [x] history/2026_09_08-Superseded_Constitution-v2.0.0.md §7F (versioning) and §10 (logs) referenced
 - [x] Version bumped to v0.2.0 (development stage — Oracle promotes to v1.0.0)
 - [x] missions-index.json updated
 

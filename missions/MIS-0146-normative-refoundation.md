@@ -869,6 +869,30 @@ exactly as hard as the five that are `active`, because thirteen of the fourteen
 guards never read the field. Nothing is ratified here. The guards look; they
 do not bite.
 
+### The standards take the shape of their own template
+
+`templates/STD-TEMPLATE.md` has existed all along and required five sections
+plus a summary carrying epistemic and pragmatic value. One document of twelve
+followed it whole. The register written the day before this measurement did not
+follow it either: it was built by copying another document's header instead of
+starting from the template.
+
+Every standard now carries the summary. Nine of eleven declare their boundary —
+the section that says what the document does not do, which is the section that
+stops a document from growing, and it was missing from the longest ones.
+
+The licensing standard carried a 654-word copy of a block whose source is that
+same standard, wrapped in a note telling the reader not to edit it. It was 99.9%
+identical to the original in `CLAUDE.md`. Replaced with a pointer.
+
+The superseded constitution moved to `history/`. Nineteen documents cited it;
+their citations were repointed rather than baselined, and ten previously broken
+references now resolve. The baseline did not grow.
+
+`DBT-022` records what the measurement found and this PR did not fix: the
+glossary holds three definitions and thirty-nine sections of registration law,
+and 82 section citations make renaming it a migration rather than an edit.
+
 ## Out of scope
 
 - **Deleting reference material.** Length is not the defect.

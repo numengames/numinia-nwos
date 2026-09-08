@@ -126,7 +126,7 @@ numinia-digital-agents/
 ├── decisions/           ← ADRs and strategic decisions
 ├── canon/               ← Immutable seminal documents (10 docs)
 ├── operations/          ← Security policy, credential map
-├── STANDARDS.md         ← All technical conventions
+├── history/2026_09_08-Superseded_Constitution-v2.0.0.md         ← All technical conventions
 ├── GOVERNANCE.md        ← Roles and permissions
 ├── CHANGELOG.md         ← Version history of the system
 └── README.md            ← Entry point
@@ -263,7 +263,7 @@ CEO visits pablofm.com/velo → Fills DeployForm
 - [BP-cao.md](BP-cao.md) — CAO status and objectives
 - [BLU-002-business-metrics.md](../blueprints/BLU-002-business-metrics.md) — KPI framework
 - [STD-002-governance.md](../standards/STD-002-governance.md) — Roles and permissions
-- [STANDARDS.md](../standards/STANDARDS.md) — Technical conventions (superseded 2026-08-30; see its map)
+- [history/2026_09_08-Superseded_Constitution-v2.0.0.md](../history/2026_09_08-Superseded_Constitution-v2.0.0.md) — Technical conventions (superseded 2026-08-30; see its map)
 - [agents/INDEX.md](../agents/INDEX.md) — Agent registry
 
 ---

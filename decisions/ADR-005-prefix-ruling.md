@@ -140,7 +140,7 @@ of an active decision, recorded as one rather than silently overwritten:
 `D-008`'s `agents/` row closes by **withdrawn scheme**, not by coverage,
 per its own closing condition (*"the Oracle withdraws the scheme for a
 given series and `STD-001` records the exception"*). `STD-001` §4.1 and
-`STANDARDS.md`'s mapping to it need the same correction, and `D-008`'s own
+`history/2026_09_08-Superseded_Constitution-v2.0.0.md`'s mapping to it need the same correction, and `D-008`'s own
 `17` figure is stale too (also unverified against current `agents/`) —
 tracked as follow-up, not done in this amendment.
 

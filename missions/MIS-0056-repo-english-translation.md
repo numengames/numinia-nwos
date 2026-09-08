@@ -76,7 +76,7 @@ As an organization building in public and targeting international adoption, we w
 - [x] All `.md` files in `decisions/` translated to English
 - [x] All `.md` files in `operations/` translated to English
 - [x] README.md verified and updated in English
-- [x] STANDARDS.md, GOVERNANCE.md, CONTRIBUTING.md, CHANGELOG.md translated
+- [x] history/2026_09_08-Superseded_Constitution-v2.0.0.md, GOVERNANCE.md, CONTRIBUTING.md, CHANGELOG.md translated
 - [x] `blueprints/` translated to English (folder is empty — no files)
 - [x] `reports/` translated to English (RPT-2026-04-04 through 07-tarde → v1.1.0)
 - [x] Spanish stylistic phrases in SOUL.md files: preserved as character artifacts (DEC-006)

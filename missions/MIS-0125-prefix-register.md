@@ -222,7 +222,7 @@ reach — will break silently when Stage C renames that file.
 **Pre-work (PR #157):** re-measured the register against `main` post-Stage-A
 before writing any tool. Found a real contradiction in `D-008` v2.0.0:
 `standards/` coverage claimed `0/8`, but only 7 files actually qualify —
-`standards/STANDARDS.md` (`type: meta`, tombstone/redirector) was being
+`history/2026_09_08-Superseded_Constitution-v2.0.0.md` (`type: meta`, tombstone/redirector) was being
 counted like a numbered standard instead of excluded like
 `README.md`/`INDEX.md`. Oracle ruled: permanent apparatus, no `STD-NNN`
 ("vamos con la A"). `count-evidence.py` fixed, `D-008` corrected to v2.1.0
@@ -247,12 +247,12 @@ Dry-run tested against 6 series (`infra` 0-file edge case, `guilds`,
    citation to another. Fixed — bare-basename auto-rewrite only fires when
    the basename is unique across the whole corpus; ambiguous hits are
    listed for manual review, never auto-touched.
-2. `standards/STANDARDS.md` tried to enter the plan under a live
+2. `history/2026_09_08-Superseded_Constitution-v2.0.0.md` tried to enter the plan under a live
    `standards/` series number, contradicting the ruling made minutes
    earlier in the same session.
    Fixed — excluded by name.
 3. Slug bug: `STD-005-engineering-standards.md` was mistaken for
-   `PREFIX-name` and mangled, colliding with `STANDARDS.md`'s slug. Fixed —
+   `PREFIX-name` and mangled, colliding with `history/2026_09_08-Superseded_Constitution-v2.0.0.md`'s slug. Fixed —
    only strip a leading prefix when the file had a recognized *old series
    number*, never guessed off an unnumbered basename.
 4. `registration: exempt` files entering unconditionally —

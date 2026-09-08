@@ -198,7 +198,7 @@ All remaining files move from `missions/{queue,active,review,done}/` to
 5. **Web unification** — `/missions` board and detail build from the flat
    folder (absorbs the missions slice of MIS-065); `/misiones` redirects
    to `/missions`; `misiones.ts` deleted only after phase 3 ported it.
-6. **Docs sync** — README (`freeze/` promise), P-003, STANDARDS.md,
+6. **Docs sync** — README (`freeze/` promise), P-003, history/2026_09_08-Superseded_Constitution-v2.0.0.md,
    GOVERNANCE.md (its tables name `missions/active|done/` paths),
    CLAUDE.md, CHANGELOG, and **P-001**, which exists under two declared
    paths (`protocols/P-001-agent-briefing.md` per README:72,
@@ -221,7 +221,7 @@ is the frontend's concern).
 - **MIS-062** (unassigned by Oracle, 2026-08-17): sub-missions 062.1
   (format+folder migration), 062.2 (recover lost missions — the
   `misiones.ts` port is exactly this), 062.3 (Kanban page — survives at
-  numinia.org/missions, not pablofm.com), 062.4 (STANDARDS.md) and 062.5
+  numinia.org/missions, not pablofm.com), 062.4 (history/2026_09_08-Superseded_Constitution-v2.0.0.md) and 062.5
   (P-003 v2) are all absorbed by this mission's phases 1–6. MIS-062
   remains open only as the design record of the v2 state machine.
 - **MIS-065**: its `/missions`-route criterion moves here; MIS-065 keeps
@@ -280,7 +280,7 @@ agents (the audit's readers) stop deriving four contradictory answers to
   three generations — review content as base in the surviving filename,
   Story/values from the queue copy, prior implementation-scope criteria
   preserved under "Prior scope (superseded)". Gate grep ran over every
-  affected ID: one live reference fixed (STANDARDS.md:344
+  affected ID: one live reference fixed (history/2026_09_08-Superseded_Constitution-v2.0.0.md:344
   MIS-00059→MIS-059); remaining hits are historical records kept by
   design (append-only reports, the 2026-04-07 audit and its auditoria
   page mirror, this brief). Known interim breakage, branch only: the
