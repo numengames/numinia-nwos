@@ -5,11 +5,11 @@ title: "The MVP story: sixty-six missions, five arcs, one road still open to Alp
 type: report
 subtype: analysis
 status: active
-version: "0.3.0"
+version: "0.4.0"
 created: "2026-09-08T10:27:15Z"
 created_source: "git:59f5cfa"
 created_confidence: exact
-updated: "2026-09-08T18:10:00Z"
+updated: "2026-09-08T19:00:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -18,7 +18,7 @@ license: "CC-BY-4.0"
 visibility: "public"
 scope: "What `missions/` shows as `done` at the measured commit, compressed into a narrative; not an audit of quality or of what remains."
 related: ["MIS-127", "MIS-146", "ADR-005", "ADR-030", "ADR-040", "PRO-003"]
-absorbs: ["MIS-027", "MIS-0027", "MIS-053", "MIS-0053", "MIS-058", "MIS-0058", "MIS-064", "MIS-0064", "MIS-078", "MIS-0078", "MIS-079", "MIS-0079", "MIS-080", "MIS-0080", "MIS-081", "MIS-0081", "MIS-082", "MIS-0082", "MIS-083", "MIS-0083", "MIS-087", "MIS-0087", "MIS-088", "MIS-0088", "MIS-110", "MIS-0110", "MIS-126", "MIS-0126", "MIS-130", "MIS-0130", "MIS-133", "MIS-0133", "MIS-010", "MIS-0010", "MIS-011", "MIS-0011", "MIS-016", "MIS-0016", "MIS-037", "MIS-0037", "MIS-038", "MIS-0038", "MIS-039", "MIS-0039", "MIS-041", "MIS-0041", "MIS-042", "MIS-0042", "MIS-044", "MIS-0044", "MIS-045", "MIS-0045", "MIS-047", "MIS-0047", "MIS-051", "MIS-0051", "MIS-056", "MIS-0056", "MIS-057", "MIS-0057", "MIS-059", "MIS-0059", "MIS-060", "MIS-0060", "MIS-062", "MIS-0062", "MIS-063", "MIS-0063", "MIS-065", "MIS-0065", "MIS-066", "MIS-0066", "MIS-072", "MIS-0072", "MIS-073", "MIS-0073", "MIS-075", "MIS-0075", "MIS-076", "MIS-0076", "MIS-086", "MIS-0086", "MIS-089", "MIS-0089", "MIS-090", "MIS-0090", "MIS-091", "MIS-0091", "MIS-092", "MIS-0092", "MIS-093", "MIS-0093", "MIS-094", "MIS-0094", "MIS-105", "MIS-0105", "MIS-109", "MIS-0109", "MIS-111", "MIS-0111", "MIS-114", "MIS-0114", "MIS-115", "MIS-0115", "MIS-116", "MIS-0116", "MIS-117", "MIS-0117", "MIS-118", "MIS-0118", "MIS-119", "MIS-0119", "MIS-120", "MIS-0120", "MIS-122", "MIS-0122", "MIS-125", "MIS-0125", "MIS-128", "MIS-0128", "MIS-129", "MIS-0129", "MIS-132", "MIS-0132", "MIS-136", "MIS-0136", "MIS-137", "MIS-0137", "MIS-139", "MIS-0139", "MIS-140", "MIS-0140", "MIS-143", "MIS-0143", "MIS-144", "MIS-0144", "MIS-145", "MIS-0145", "MIS-147", "MIS-0147", "MIS-001", "MIS-0001", "MIS-002", "MIS-0002", "MIS-003", "MIS-0003", "MIS-004", "MIS-0004", "MIS-005", "MIS-0005", "MIS-006", "MIS-0006", "MIS-007", "MIS-0007", "MIS-009", "MIS-0009", "MIS-012", "MIS-0012", "MIS-013", "MIS-0013", "MIS-014", "MIS-0014", "MIS-015", "MIS-0015", "MIS-017", "MIS-0017", "MIS-019", "MIS-0019", "MIS-020", "MIS-0020", "MIS-023", "MIS-0023", "MIS-024", "MIS-0024", "MIS-025", "MIS-0025", "MIS-028", "MIS-0028", "MIS-029", "MIS-0029", "MIS-030", "MIS-0030", "MIS-031", "MIS-0031", "MIS-033", "MIS-0033", "MIS-034", "MIS-0034", "MIS-036", "MIS-0036", "MIS-040", "MIS-0040", "MIS-046", "MIS-0046", "MIS-049", "MIS-0049", "MIS-052", "MIS-0052", "MIS-054", "MIS-0054", "MIS-061", "MIS-0061", "MIS-067", "MIS-0067", "MIS-068", "MIS-0068", "MIS-074", "MIS-0074", "MIS-077", "MIS-0077", "MIS-084", "MIS-0084", "MIS-106", "MIS-0106", "MIS-108", "MIS-0108"]
+absorbs: ["MIS-027", "MIS-0027", "MIS-053", "MIS-0053", "MIS-058", "MIS-0058", "MIS-064", "MIS-0064", "MIS-078", "MIS-0078", "MIS-079", "MIS-0079", "MIS-080", "MIS-0080", "MIS-081", "MIS-0081", "MIS-082", "MIS-0082", "MIS-083", "MIS-0083", "MIS-087", "MIS-0087", "MIS-088", "MIS-0088", "MIS-110", "MIS-0110", "MIS-126", "MIS-0126", "MIS-130", "MIS-0130", "MIS-133", "MIS-0133", "MIS-010", "MIS-0010", "MIS-011", "MIS-0011", "MIS-016", "MIS-0016", "MIS-037", "MIS-0037", "MIS-038", "MIS-0038", "MIS-039", "MIS-0039", "MIS-041", "MIS-0041", "MIS-042", "MIS-0042", "MIS-044", "MIS-0044", "MIS-045", "MIS-0045", "MIS-047", "MIS-0047", "MIS-051", "MIS-0051", "MIS-056", "MIS-0056", "MIS-057", "MIS-0057", "MIS-059", "MIS-0059", "MIS-060", "MIS-0060", "MIS-062", "MIS-0062", "MIS-063", "MIS-0063", "MIS-065", "MIS-0065", "MIS-066", "MIS-0066", "MIS-072", "MIS-0072", "MIS-073", "MIS-0073", "MIS-075", "MIS-0075", "MIS-076", "MIS-0076", "MIS-086", "MIS-0086", "MIS-089", "MIS-0089", "MIS-090", "MIS-0090", "MIS-091", "MIS-0091", "MIS-092", "MIS-0092", "MIS-093", "MIS-0093", "MIS-094", "MIS-0094", "MIS-105", "MIS-0105", "MIS-109", "MIS-0109", "MIS-111", "MIS-0111", "MIS-114", "MIS-0114", "MIS-115", "MIS-0115", "MIS-116", "MIS-0116", "MIS-117", "MIS-0117", "MIS-118", "MIS-0118", "MIS-119", "MIS-0119", "MIS-120", "MIS-0120", "MIS-122", "MIS-0122", "MIS-125", "MIS-0125", "MIS-128", "MIS-0128", "MIS-129", "MIS-0129", "MIS-132", "MIS-0132", "MIS-136", "MIS-0136", "MIS-137", "MIS-0137", "MIS-139", "MIS-0139", "MIS-140", "MIS-0140", "MIS-143", "MIS-0143", "MIS-144", "MIS-0144", "MIS-145", "MIS-0145", "MIS-147", "MIS-0147", "MIS-001", "MIS-0001", "MIS-002", "MIS-0002", "MIS-003", "MIS-0003", "MIS-004", "MIS-0004", "MIS-005", "MIS-0005", "MIS-006", "MIS-0006", "MIS-007", "MIS-0007", "MIS-009", "MIS-0009", "MIS-012", "MIS-0012", "MIS-013", "MIS-0013", "MIS-014", "MIS-0014", "MIS-015", "MIS-0015", "MIS-017", "MIS-0017", "MIS-019", "MIS-0019", "MIS-020", "MIS-0020", "MIS-023", "MIS-0023", "MIS-024", "MIS-0024", "MIS-025", "MIS-0025", "MIS-028", "MIS-0028", "MIS-029", "MIS-0029", "MIS-030", "MIS-0030", "MIS-031", "MIS-0031", "MIS-033", "MIS-0033", "MIS-034", "MIS-0034", "MIS-036", "MIS-0036", "MIS-040", "MIS-0040", "MIS-046", "MIS-0046", "MIS-049", "MIS-0049", "MIS-052", "MIS-0052", "MIS-054", "MIS-0054", "MIS-061", "MIS-0061", "MIS-067", "MIS-0067", "MIS-068", "MIS-0068", "MIS-074", "MIS-0074", "MIS-077", "MIS-0077", "MIS-084", "MIS-0084", "MIS-106", "MIS-0106", "MIS-108", "MIS-0108", "MIS-138", "MIS-0138", "MIS-141", "MIS-0141", "MIS-008", "MIS-0008", "MIS-018", "MIS-0018", "MIS-021", "MIS-0021", "MIS-022", "MIS-0022", "MIS-026", "MIS-0026", "MIS-032", "MIS-0032", "MIS-035", "MIS-0035", "MIS-043", "MIS-0043", "MIS-048", "MIS-0048", "MIS-050", "MIS-0050", "MIS-055", "MIS-0055", "MIS-071", "MIS-0071", "MIS-069", "MIS-0069", "MIS-070", "MIS-0070", "MIS-085", "MIS-0085", "MIS-095", "MIS-0095", "MIS-102", "MIS-0102", "MIS-103", "MIS-0103", "MIS-104", "MIS-0104", "MIS-107", "MIS-0107", "MIS-152", "MIS-0152"]
 ---
 
 # The MVP story: sixty-six missions, five arcs, one road still open to Alpha
@@ -422,6 +422,78 @@ card.
 
 ---
 
+## 2026-09-08 — The alpha focus: 23 more, and `missions/` becomes the alpha board
+
+Dated addition, v0.4.0. Nothing above is rewritten.
+
+**The Oracle's rule, stated once.** From this point `missions/` holds only
+work that ships the numinia-nwos alpha. Anything else is deleted, not
+parked: *if it is relevant it will be rediscovered when its time comes.*
+`missions/` goes from 41 to 18. Bodies remain in git history at `45d67fd`.
+
+**2 closed by the Oracle and deleted the same day.** `MIS-138` (the
+telemetry instrument, `scripts/telemetry.mjs`, 87 figures, `--check` in
+CI) and `MIS-141` (the dataset published at `/telemetry/`) are `done` by
+Oracle decision, loose ends to be picked up if they surface. Together
+with Arc 5 above they close the measurement line this report was written
+against.
+
+| ID | Territory | Title |
+|---|---|---|
+| MIS-138 | Archive | Build the telemetry instrument so every live figure in the corpus is measured, not typed |
+| MIS-141 | Archive | Publish the telemetry dataset as a page on numinia.org |
+
+**11 April stubs.** Written 2026-04-07 alongside the 22 cancelled in the
+previous section, never frozen because nobody looked at them again. ~500
+tokens each, no body beyond the summary, `assigned_to: null` for five
+months. Deleted on the same grounds as their siblings: the plan they
+belonged to was replaced.
+
+| ID | Territory | Title |
+|---|---|---|
+| MIS-008 | Product | Define the product's North Star metrics |
+| MIS-018 | Sales | Commercial Value Proposition (One-Pager) |
+| MIS-021 | Sales | Pricing and Packages Definition |
+| MIS-022 | Sales | Alliances with indie studios and DAOs |
+| MIS-026 | Content | X/Twitter channel activation |
+| MIS-032 | Funding | Research: Ethereum Foundation ESP |
+| MIS-035 | Funding | Grants and funding CRM |
+| MIS-043 | TBA | Complete reading of the Numinia RPG Manual |
+| MIS-048 | TBA | Agent cost tracking system |
+| MIS-050 | TBA | Backlog review ritual (Dark Council) |
+| MIS-055 | CAO | Dual Nomenclature System — Narrative Dial + Gamification Dial |
+
+**1 by Oracle order.** `MIS-071` (*File over App, total*) was
+`in-progress` since 2026-08-17 with no executor. Deleted on instruction;
+its question — is every piece of the system a `.md`? — is answered by the
+tree itself now, not by a card.
+
+**9 outside the alpha.** Real missions, written in August with real
+findings, whose deliverable lives in another repository, another site, or
+the organisation at large. The reason each one is not alpha work is
+recorded so that whoever rediscovers it knows where it was pointing.
+
+| ID | Territory | Title | Why not alpha |
+|---|---|---|---|
+| MIS-069 | Infrastructure | Plan B: GitHub-independent continuity for the NWOS source of truth | continuity plan for the org, not a deliverable of this repo; git is already distributed |
+| MIS-070 | Infrastructure | Testing and best practices across the numengames org | testing across the numengames org — other repositories |
+| MIS-085 | Platform | Numinia Codex Reader + LAP (numinia.com/lap/) | Codex Reader + LAP on numinia.com — a world artefact, another site |
+| MIS-095 | TBA | Every web publishes its Updates: the evolution, readable by humans | Updates pages across every web — org-wide |
+| MIS-102 | Product | The last three consumers stop copying: pin the emitted kit at 5.1.0 | pin the emitted kit in three consumer repos — other repositories |
+| MIS-103 | TBA | The other seventeen: inventory and adoption across the organization | inventory of the other seventeen repositories — org-wide |
+| MIS-104 | Infrastructure | The ghost Worker: what actually serves nwos-web.pablofm.workers.dev | a ghost Worker in a personal account; numinia.org is served by Workers Builds "numinia-nwos" today |
+| MIS-107 | Content | numen.games speaks Spanish: nine components ignore the locale they receive | numen.games locale bug — other repository |
+| MIS-152 | TBA | Highlight the sentence SpeechPlayer is currently reading | SpeechPlayer sentence highlight — a web enhancement, not alpha-blocking |
+
+`MIS-151` declared `depends_on: ["MIS-152"]`; its body says the
+dependency was tracked loosely. The field is dropped in this PR so no live
+mission points at a deleted card.
+
+**Measured at:** `45d67fd` before the cut. `missions/` 41 → 18: `todo`
+32 → 12, `in-progress` 7 → 6, `in-review` 2 → 0.
+
+---
+
 ## Version history
 
 - v0.1.0 (2026-09-08) — First publication. 66 `done` missions at `59f5cfa`
@@ -431,3 +503,5 @@ card.
   recorded as claimed-not-delivered.
 - v0.3.0 (2026-09-08) — The frozen shelf deleted: 22 cancelled, 16 parked,
   each recorded here with its reason; PRO-003 amended via ADR-040 v1.1.0.
+- v0.4.0 (2026-09-08) — The alpha focus cut: 23 missions (2 done, 11 April
+  stubs, 1 by order, 9 outside the alpha); `missions/` is the alpha board.

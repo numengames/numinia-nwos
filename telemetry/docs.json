@@ -709,10 +709,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 5024,
+  "chars": 5034,
   "apparatus": false,
   "archived": false,
-  "tokens": 1316
+  "tokens": 1315
  },
  {
   "path": "decisions/ADR-005-prefix-ruling.md",
@@ -957,182 +957,6 @@
   "tokens": 1115
  },
  {
-  "path": "missions/MIS-0008-north-star-metrics.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 2137,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 588
- },
- {
-  "path": "missions/MIS-0018-commercial-value-proposition.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 2188,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 614
- },
- {
-  "path": "missions/MIS-0021-pricing-packages.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 2099,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 567
- },
- {
-  "path": "missions/MIS-0022-indie-dao-alliances.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 2112,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 561
- },
- {
-  "path": "missions/MIS-0026-twitter-activation.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 2142,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 586
- },
- {
-  "path": "missions/MIS-0032-ethereum-foundation-esp.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 2048,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 565
- },
- {
-  "path": "missions/MIS-0035-grants-funding-crm.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 1930,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 533
- },
- {
-  "path": "missions/MIS-0043-rpg-manual-reading.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 2798,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 851
- },
- {
-  "path": "missions/MIS-0048-agent-cost-tracking.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 2573,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 717
- },
- {
-  "path": "missions/MIS-0050-backlog-review-ritual.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 2462,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 662
- },
- {
-  "path": "missions/MIS-0055-dual-nomenclature-system.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 8780,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2261
- },
- {
-  "path": "missions/MIS-0069-github-independent-continuity.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 5356,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1383
- },
- {
-  "path": "missions/MIS-0070-testing-best-practices-org.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 7979,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2167
- },
- {
-  "path": "missions/MIS-0071-file-over-app-total.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "in-progress",
-  "chars": 8754,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2547
- },
- {
-  "path": "missions/MIS-0085-web-codex-reader-lap.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 25271,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 6779
- },
- {
-  "path": "missions/MIS-0095-updates-page-practice.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 7750,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2045
- },
- {
   "path": "missions/MIS-0096-nwos-versioning-sovereign-adoption.md",
   "dir": "missions",
   "series": "missions",
@@ -1164,50 +988,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1875
- },
- {
-  "path": "missions/MIS-0102-consumers-pin-the-emitted-kit.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 9907,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2593
- },
- {
-  "path": "missions/MIS-0103-org-repo-inventory-adoption.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 6201,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1573
- },
- {
-  "path": "missions/MIS-0104-the-ghost-worker.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 5899,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1533
- },
- {
-  "path": "missions/MIS-0107-numen-games-speaks-spanish.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 5798,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1473
  },
  {
   "path": "missions/MIS-0112-home-from-readme.md",
@@ -1309,28 +1089,6 @@
   "tokens": 4485
  },
  {
-  "path": "missions/MIS-0138-telemetry-instrument.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "in-review",
-  "chars": 30210,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 8537
- },
- {
-  "path": "missions/MIS-0141-telemetry-view.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "in-review",
-  "chars": 9883,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2573
- },
- {
   "path": "missions/MIS-0142-decisions-to-standards.md",
   "dir": "missions",
   "series": "missions",
@@ -1380,21 +1138,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 8063,
+  "chars": 8039,
   "apparatus": false,
   "archived": false,
-  "tokens": 2275
- },
- {
-  "path": "missions/MIS-0152-speech-player-highlight-sync.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 6112,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1567
+  "tokens": 2266
  },
  {
   "path": "missions/MIS-0153-agent-roster-page.md",
@@ -1633,10 +1380,10 @@
   "series": "reports",
   "type": "report",
   "status": "active",
-  "chars": 29679,
+  "chars": 34674,
   "apparatus": false,
   "archived": false,
-  "tokens": 9102
+  "tokens": 10564
  },
  {
   "path": "standards/STD-001-glossary.md",
