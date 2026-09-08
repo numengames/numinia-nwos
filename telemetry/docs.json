@@ -2523,11 +2523,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-progress",
-  "chars": 4565,
+  "status": "done",
+  "chars": 5729,
   "apparatus": false,
   "archived": false,
-  "tokens": 1244
+  "tokens": 1626
  },
  {
   "path": "missions/MIS-0144-scripts-cleanup.md",
