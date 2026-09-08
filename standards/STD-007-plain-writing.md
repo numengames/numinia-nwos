@@ -5,9 +5,9 @@ title: "Standards read as prose, not as pointers"
 type: documentation
 subtype: standard
 status: draft
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-09-03T10:30:00Z"
-updated: "2026-09-03T10:30:00Z"
+updated: "2026-09-08T19:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Content"
@@ -55,7 +55,7 @@ not owe this one a warning.
 
 **RULE-03 — References go in one place.** Every `STD-NNN`, `PRO-NNN`,
 `ADR-NNN`, or similar ID this document actually depends on MUST be listed
-in a single `## References` section at the end of the body — nowhere else.
+in a single `## 5. References` section at the end of the body — nowhere else.
 That section is a table: ID, plain name, one line on why it's cited. A
 reader who does not care about provenance can stop before that section and
 still have the whole rule.
@@ -100,15 +100,11 @@ It does not forbid frontmatter fields like `supersedes`, `ratified_by`, or
 `absorbs` — those are structured data for a guard, not prose, and are
 exactly where such relations belong.
 
-It does not require rewriting the five standards that predate it. They
-conform the next time each is substantively reopened, same rule the header
-standard already uses for itself.
-
 It does not cover non-`standards/` series. The canon, protocol, and decision
 series may reference each other by ID in prose today; changing that is a
 separate decision, not made here.
 
-## References
+## 5. References
 
 | ID | Name | Why cited |
 |---|---|---|

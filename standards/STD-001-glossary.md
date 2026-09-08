@@ -5,9 +5,9 @@ uid: ""
 type: documentation
 subtype: standard
 status: active
-version: "3.0.0"
+version: "3.1.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-09-07T11:20:00+02:00"
+updated: "2026-09-08T19:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -30,7 +30,12 @@ evidence_script: "scripts/telemetry.mjs"
 
 ---
 
-## 0. How to read this document
+## 1. Purpose and scope
+
+This standard is the registration law of the archive: which series exist,
+what each holds, how a document is identified, named, versioned and dated,
+and what its header must carry. It binds every tracked document in the
+governed tree.
 
 **This file is the source.** The published view at
 `/corpus/standards/s-001-glossary` is generated from it and cannot state
@@ -869,7 +874,20 @@ has since moved. Neither is wired to CI; the ratchet is a later decision.
 ---
 
 
-## 11. What this standard does NOT do
+## 11. Conformance
+
+Every rule from the series map to reproducible evidence carries `[CI]` or
+`[MANUAL]` in its heading or its text; the markers are defined at the top. The `[CI]` rules are executed by `lint-frontmatter.mjs`,
+`lint-naming.mjs` and `check-references.mjs` on every push, strict on the
+delta and baselined on the stock, the pattern the header standard sets. The `[MANUAL]` rules are
+executed by whoever reads; nothing stops a violation, and `debt/` carries
+the gap for each one that has a plausible guard.
+
+The change thresholds have no mechanism (`D-011`). Until they do,
+they are a reading convention, and this section says so rather than
+counting them as enforced.
+
+## 12. What this standard does NOT do
 
 It does not define the vocabulary of the project — despite its filename. It
 carries three definitions and one obligation; the rest is registration law.
@@ -883,3 +901,13 @@ header must carry.
 It does not rule on series it does not list. A folder absent from the series
 map is not thereby forbidden; it is unregistered, which is a different defect
 and is fixed by adding it here.
+
+## 13. References
+
+| ID | Title | Relation |
+|---|---|---|
+| `STD-004` | The header in three rings | the field-by-field contract; this standard names the fields, that one checks them |
+| `STD-009` | Core rules | the one-line form of the thresholds and the rule that history outranks the document |
+| `STD-007` | Plain writing | how an identifier is cited in prose; the naming section defers to it |
+| `DBT-016` | Section numbers are load-bearing | why this standard is renumbered by rename, never by reorder |
+| `DBT-022` | The glossary that is not a glossary | the split this standard still owes |

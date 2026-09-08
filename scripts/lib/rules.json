@@ -29,13 +29,13 @@
     "templatePatterns": ["^agents/_template/", "^missions/TEMPLATE(\\.md$|-)", "^templates/"]
   },
   "types": {
-    "_comment": "STD-004 §4 H-03 closed type vocabulary; H-17 type ↔ series, strict except `lax`.",
+    "_comment": "STD-004 §5 H-03 closed type vocabulary; H-17 type ↔ series, strict except `lax`.",
     "all": ["mission", "adr", "protocol", "blueprint", "report", "seminal", "legal", "charter", "documentation", "meta", "agent"],
     "series": { "mission": "missions", "adr": "decisions", "protocol": "protocols", "blueprint": "blueprints", "report": "reports", "seminal": "canon", "legal": "canon", "charter": "guilds", "agent": "agents" },
     "lax": ["documentation", "meta"]
   },
   "status": {
-    "_comment": "STD-004 §5 lifecycles by type. `_bySeries` takes precedence over `type` (2026-09-03, Oracle): a normative series needs an off switch, and `closed` could not be it — `closed` means 'published, still standing' in reports/ (21 documents) and would have to mean 'no longer binding' in standards/. One token, opposite meanings. `superseded` retires a rule that has an heir; `withdrawn` retires one that has none.",
+    "_comment": "STD-004 §6 lifecycles by type. `_bySeries` takes precedence over `type` (2026-09-03, Oracle): a normative series needs an off switch, and `closed` could not be it — `closed` means 'published, still standing' in reports/ (21 documents) and would have to mean 'no longer binding' in standards/. One token, opposite meanings. `superseded` retires a rule that has an heir; `withdrawn` retires one that has none.",
     "mission": ["todo", "in-progress", "in-review", "done", "frozen"],
     "adr": ["draft", "active", "superseded", "withdrawn"],
     "_default": ["draft", "active", "closed"],
@@ -47,12 +47,12 @@
     }
   },
   "subtypes": {
-    "_comment": "STD-004 §4 H-18; `report` closed since ADR-005 v1.2.0.",
+    "_comment": "STD-004 §5 H-18; `report` closed since ADR-005 v1.2.0.",
     "report": ["audit", "daily", "analysis", "proposal"],
     "documentation": ["standard", "guide", "reference"]
   },
   "governed": {
-    "_comment": "STD-004 §8: the top-level directories whose tracked .md files lint-frontmatter governs. Everything else (web/, scripts/, root, .github/) is out of its scope.",
+    "_comment": "STD-004 §10: the top-level directories whose tracked .md files lint-frontmatter governs. Everything else (web/, scripts/, root, .github/) is out of its scope.",
     "dirs": ["missions", "decisions", "protocols", "debt", "standards", "canon", "reports", "agents", "blueprints", "guilds", "operations", "infra", "system"]
   }
 }

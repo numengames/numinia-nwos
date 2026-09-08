@@ -84,8 +84,8 @@ the contract of the series it scaffolds:
 | T-02 | the filename is `PREFIX-TEMPLATE.md` for a registered prefix |
 | T-03 | no inline `#` comment after a value — the shape that corrupts it |
 | T-04 | `license:` matches the REUSE regime of the **destination** |
-| T-05 | `type` belongs to the destination series (STD-004 §4) |
-| T-06 | `status` is in the destination's lifecycle (STD-004 §5) |
+| T-05 | `type` belongs to the destination series (STD-004 §5) |
+| T-06 | `status` is in the destination's lifecycle (STD-004 §6) |
 | T-07 | every field is registered in some ring for the destination |
 | T-08 | version is bare SemVer, opening at `0.1.0` (STD-009) |
 | T-09 | the context card carries Summary, Epistemic and Pragmatic |

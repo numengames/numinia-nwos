@@ -4,11 +4,11 @@ id: "STD-005"
 uid: ""
 type: documentation
 status: draft
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-08-17T21:55:38+02:00"
 created_source: "git:e3123fc"
 created_confidence: exact
-updated: "2026-09-03T11:20:00Z"
+updated: "2026-09-08T19:30:00+02:00"
 author: "pablofm"
 owner: "oracle"
 territory: "Platform"
@@ -46,11 +46,11 @@ SPDX-License-Identifier: CC-BY-4.0
 **Origin:** `numengames/numinia-nwos`. Numinia is NWOS's first client: practices are proven here, in production, on real work — before they are proposed to anyone else.
 **This copy:** the operative standard of this repository. Edited here, by ADR + PR in `decisions/`. It is not downstream of anything.
 **Promotion:** what survives here is promoted to `numen-games-nwos-orgs/nwos-workspace-template` as a *starting proposal*. Whoever adopts it owns it — divergence there is adoption, not drift (G-12).
-**Change mechanism:** ADR + Pull Request against this file. See §5.
+**Change mechanism:** ADR + Pull Request against this file; the evolution section says how.
 
 ---
 
-## 0. Purpose and scope
+## 1. Purpose and scope
 
 This document exists because repository disparity is documentary debt. Every repository in the ecosystem MUST be able to answer: *which practices apply here, and which machine verifies each one?*
 
@@ -68,7 +68,7 @@ It has three layers with three different speeds of change:
 
 ---
 
-## 1. Principles (Layer 1)
+## 2. Principles (Layer 1)
 
 1. **A rule that does not fail a build is prose, not a rule.** CI is the authority; documentation is its explanation.
 2. **Automatable checks are never audited by hand.** Human attention is reserved for what machines cannot judge.
@@ -80,11 +80,11 @@ It has three layers with three different speeds of change:
 
 ---
 
-## 2. Practices by profile (Layer 2)
+## 3. Practices by profile (Layer 2)
 
 Each practice has an ID, a requirement level (MUST / SHOULD), and a check tag: `[AUTO: <tool>]` or `[MANUAL]`.
 
-### 2.1 CSO — Security and credentials
+### 3.1 CSO — Security and credentials
 
 | ID | Practice | Level | Check |
 |---|---|---|---|
@@ -101,7 +101,7 @@ Each practice has an ID, a requirement level (MUST / SHOULD), and a check tag: `
 | SEC-11 | Organization base permission: read; admin granted per repo, per need | MUST | `[MANUAL]` |
 | SEC-12 | Commits to `main` verified (signed or web-verified) | SHOULD | `[AUTO: branch protection]` |
 
-### 2.2 CTO — Architecture and quality
+### 3.2 CTO — Architecture and quality
 
 | ID | Practice | Level | Check |
 |---|---|---|---|
@@ -136,7 +136,7 @@ The **scope** carries the domain, lowercase, usually the folder:
 history, never in new commits): `session`, `qa`, `standards`, `canon`,
 `debt`, `audit`.
 
-### 2.3 PM — Traceability and state
+### 3.3 PM — Traceability and state
 
 | ID | Practice | Level | Check |
 |---|---|---|---|
@@ -146,7 +146,7 @@ history, never in new commits): `session`, `qa`, `standards`, `canon`,
 | PM-04 | `CHANGELOG.md` or releases generated from conventional commits | MUST | `[AUTO: release workflow]` |
 | PM-05 | Roadmap/TODO as a file in the repo — File Over App (`STD-006`) applies to management | MUST | `[AUTO: presence check]` |
 
-### 2.4 Dev team — Ergonomics
+### 3.4 Dev team — Ergonomics
 
 | ID | Practice | Level | Check |
 |---|---|---|---|
@@ -158,7 +158,7 @@ history, never in new commits): `session`, `qa`, `standards`, `canon`,
 | DEV-06 | Small PRs with context: what, why, how to verify | SHOULD | `[MANUAL]` (review) |
 | DEV-07 | Code review before `main`: at least one approval | MUST | `[AUTO: branch protection]` |
 
-### 2.5 SRE / Platform
+### 3.5 SRE / Platform
 
 | ID | Practice | Level | Check |
 |---|---|---|---|
@@ -169,7 +169,7 @@ history, never in new commits): `session`, `qa`, `standards`, `canon`,
 | SRE-05 | Deploy reproducible from a clean clone: no snowflake state | MUST | `[AUTO: CI deploys from scratch]` |
 | SRE-06 | Blameless postmortem for every production incident; outcome may inject one rule via ADR | MUST | `[MANUAL]` |
 
-### 2.6 OSS Maintainer / Community
+### 3.6 OSS Maintainer / Community
 
 | ID | Practice | Level | Check |
 |---|---|---|---|
@@ -179,7 +179,7 @@ history, never in new commits): `session`, `qa`, `standards`, `canon`,
 | OSS-04 | Issue triage cadence defined (even if the answer is "weekly, by the Oracle") | SHOULD | `[MANUAL]` |
 | OSS-05 | Social preview image set | SHOULD | `[MANUAL]` |
 
-### 2.7 Digital Agents
+### 3.7 Digital Agents
 
 | ID | Practice | Level | Check |
 |---|---|---|---|
@@ -190,7 +190,7 @@ history, never in new commits): `session`, `qa`, `standards`, `canon`,
 | AGT-05 | Mission briefs in Numinia Standard format. **A mission that produces software carries Gherkin acceptance criteria**; one that produces documents does not — a governance document has no scenarios. Source and tooling in `STD-011` | MUST | `[MANUAL]` |
 | AGT-06 | Clear AI stance per repo: what agents may do autonomously vs. what requires Oracle sign-off (cosmetic vs. irreversible) | MUST | `[MANUAL]` — documented in `CLAUDE.md` |
 
-### 2.8 Legal / Compliance — by reference
+### 3.8 Legal / Compliance — by reference
 
 Governed entirely by **Canon C-005** (licensing trichotomy, REUSE 3.3, SPDX, dual-licensing, legal debt in `debt/` tagged `legal` — ADR-026 (formerly ADR-031), visibility gate). This document adds only one operational rule:
 
@@ -200,34 +200,35 @@ Governed entirely by **Canon C-005** (licensing trichotomy, REUSE 3.3, SPDX, dua
 
 ---
 
-## 3. Checks (Layer 3)
+## 4. Checks (Layer 3)
 
 The machines. Every repo generated from the mould ships with:
 
-### 3.1 OpenSSF Scorecard
+### 4.1 OpenSSF Scorecard
 - Scorecard GitHub Action running weekly + on push to `main`, publishing results and badge.
 - Covers automatically: branch protection, pinned dependencies, token permissions, security policy, CI tests, code review, dangerous workflow patterns.
 - **Interpretation rule:** Scorecard measures process hygiene, not code quality. It is a thermometer, not a guarantee. Score target: ≥7 for public repos.
 - **Visibility rule:** some checks lose meaning on private repos. Each repo's `CLAUDE.md` declares which checks are in scope.
 
-### 3.2 CI pipeline (shared workflow)
+### 4.2 CI pipeline (shared workflow)
 - `type-check → lint → test → build`, called as a reusable workflow from one source of truth.
 - Coverage thresholds enforced in test config as failure, not report.
 - REUSE lint step on every repo with a license regime.
 
-### 3.3 Presence checks
+### 4.3 Presence checks
 - One lightweight CI job verifies: `CLAUDE.md`, `SECURITY.md`, `CONTRIBUTING.md` (public), CODEOWNERS, templates, `.env.example`, About fields (via API).
 - This job is the automated answer to "are all the fields filled in?"
 
-### 3.4 Local layer
+### 4.4 Local layer
 - Husky: pre-commit (lint-staged), commit-msg (commitlint). Skippable by design (`--no-verify`); CI remains the authority.
 
-### 3.5 Guards — rules about the checks themselves
+### 4.5 Guards — rules about the checks themselves
 
 Moved here from the core rules standard on 2026-09-08: how a guard is built is
 engineering, not corpus law. Identifiers are kept (`CORE-14`).
 
 | ID | Rule | Verified by |
+|---|---|---|
 | **CORE-31** | A rule that does not break the build does not exist for an agent. | `[MANUAL]` — this table is the check; a reader confirms every row is filled |
 | **CORE-32** | A guard is wired into the pipeline in the same change that writes it. | `[MANUAL]` — pending the guard register, `MIS-146` |
 | **CORE-33** | A guard register is read from the workflow file, never remembered. | `[MANUAL]` — pending the guard register, `MIS-146` |
@@ -237,7 +238,7 @@ engineering, not corpus law. Identifiers are kept (`CORE-14`).
 
 ---
 
-## 4. GitHub repository checklist ("fill everything in")
+## 5. GitHub repository checklist ("fill everything in")
 
 Every repo, at creation (the mould pre-fills what it can):
 
@@ -260,7 +261,7 @@ Every repo, at creation (the mould pre-fills what it can):
 
 ---
 
-## 5. Evolution mechanism
+## 6. Evolution mechanism
 
 This document is a system with sensors, not a PDF that ages.
 
@@ -272,7 +273,7 @@ This document is a system with sensors, not a PDF that ages.
 
 ---
 
-## 6. Adoption
+## 7. Adoption
 
 - **NWOS repos (`numen-games-nwos-orgs`):** *offered* via the mould. Generated workspaces inherit Layer 3 checks at birth as a starting point, and may amend or drop them once born. Nothing here is enforced on a repository we do not own: the canon propagates by pin and digest, never by copy, and a derived NWOS repository is sovereign — updates are offered, never imposed.
 - **Numinia repos (`numengames`):** adopt by reference — `CLAUDE.md` links to this document; the shared CI workflow and presence checks are added per repo. *(Scope pending Oracle confirmation.)*
@@ -282,11 +283,11 @@ Existing repos migrate incrementally: Scorecard first (measurement before enforc
 
 ---
 
-## 7. Agent application protocol
+## 8. Agent application protocol
 
 This document is meant to be **executed**, not just read. Any coding agent (Claude Code or similar) operating in a repo that contains or references this document MUST follow this protocol.
 
-### 7.1 Provenance — know which copy you are reading
+### 8.1 Provenance — know which copy you are reading
 
 Two repositories carry a copy of this document. **They are not the same document.**
 
@@ -301,7 +302,7 @@ Agent rules:
 - In an adopted workspace: the change is yours. Nobody upstream approves it, and nobody pulls it back.
 - Version differences between the two copies are **expected**. Do not report them as drift, and do not "sync" them.
 
-### 7.2 Execution order for any task
+### 8.2 Execution order for any task
 
 1. **Audit current branch state first.** Never assume the repo matches this document, the README, or any brief. Read what is actually there.
 2. **Load the repo's `CLAUDE.md`.** It declares which Scorecard checks are in scope, the repo's AI stance (AGT-06), and any repo-specific overrides. If `CLAUDE.md` is missing, that is itself a violation of AGT-01 — report it before proceeding.
@@ -310,7 +311,7 @@ Agent rules:
 5. **Run the checks locally before pushing.** CI is the authority, but a failing local run is faster feedback (Principle 1, AGT-04).
 6. **Never weaken a check to make a task pass.** Lowering a threshold, skipping a test, adding a lint-ignore, or unpinning an action is a Layer 2/3 change and requires an ADR — it is never a side effect of a feature task.
 
-### 7.3 What agents may do autonomously vs. never
+### 8.3 What agents may do autonomously vs. never
 
 **Autonomously (cosmetic tier):**
 - Fix violations of `[AUTO]` practices when the fix is mechanical (pin an action by SHA, add a missing `SECURITY.md` from template, sync labels, complete `.env.example`).
@@ -325,7 +326,7 @@ Agent rules:
 - Disable, weaken, or bypass any check (branch protection, coverage threshold, Scorecard, push protection).
 - Force-push, rewrite history, or delete branches/tags on `main`.
 
-### 7.4 Reporting format
+### 8.4 Reporting format
 
 After completing a task, the agent reports: practices touched (IDs), checks run and their result, any `[MANUAL]` debt observed in passing (do not fix unprompted — report it), and any decision escalated to the Oracle. Observed-but-untouched debt goes to the repo's TODO file (PM-05), not into scope creep.
 
@@ -334,7 +335,20 @@ After completing a task, the agent reports: practices touched (IDs), checks run 
 *A rule that does not fail a build is prose. This document intends to be as little prose as possible.*
 
 
-## 8. What this standard does NOT do
+## 9. Conformance
+
+| Check | Rule | Verified by |
+|---|---|---|
+| `EN-01` | Every practice in the profile tables carries an ID and an `[AUTO]`/`[MANUAL]` marker | `[MANUAL]` — a reader confirms every row is marked |
+| `EN-02` | Every `[AUTO]` practice names the job or script that runs it | `[MANUAL]` — no guard cross-checks the profile tables against `.github/workflows/` |
+| `EN-03` | The rules about guards are honoured by every script in `scripts/` | `[MANUAL]` — the guard register (`MIS-146`) will make this mechanical |
+
+Nothing in this standard fails a build in this repository today. It is
+enforced by reading, and by the checks it describes running elsewhere.
+
+---
+
+## 10. What this standard does NOT do
 
 It does not govern documents. How a document is named, versioned, headed, or
 filed belongs to the registration law; this standard governs software.
@@ -349,3 +363,14 @@ external standards register, which also records the distance.
 
 It does not enforce itself. Every check in these tables is `[MANUAL]` unless a
 named script runs it, and this document has been unratified since 2026-08-17.
+
+---
+
+## 11. References
+
+| ID | Title | Relation |
+|---|---|---|
+| `STD-009` | Core rules | the corpus law this standard sits under; `CORE-31`–`CORE-35`, `CORE-66` came from it |
+| `STD-010` | Licensing | the regimes and gates this standard cites and does not restate |
+| `STD-011` | External standards | the register that records distance to Scorecard, OpenSSF and the rest |
+| `STD-004` | The header in three rings | the document law this standard leaves alone |

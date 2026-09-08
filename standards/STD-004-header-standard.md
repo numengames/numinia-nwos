@@ -5,7 +5,7 @@ title: "The header in three rings: identity, provenance, extension"
 type: documentation
 subtype: standard
 status: active
-version: "2.2.0"
+version: "2.3.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
@@ -26,12 +26,19 @@ tags: [frontmatter, standard, lint, metadata]
 > **Pragmatic:** Write or review any header against this document.
 > **Audience:** Agents · Oracle
 
+## 1. Purpose and scope
+
+This standard defines the frontmatter header of every tracked markdown
+document in the governed tree — the directories `scripts/lib/rules.json`
+lists under `governed.dirs`. It states which fields exist, which ring each
+belongs to, what each may hold, and which check enforces it.
+
 **Design rule of this standard:** every normative statement carries a check
 identifier and is written so the header lint can implement it mechanically,
 one to one. A rule that cannot be checked is marked `[MANUAL]` and says why.
 There is no third kind.
 
-## 1. The three rings
+## 2. The three rings
 
 A header is complete when it answers three questions a third party would ask
 of any archived document: **what is this** (identity), **where did it come
@@ -56,7 +63,7 @@ every document that makes a claim, Ring 3 as each series registers. **A field
 in no ring is invalid** — that single rule is what stops the field count
 growing without limit.
 
-## 2. Ring 1 — identity
+## 3. Ring 1 — identity
 
 | Field | Rule | Check |
 |---|---|---|
@@ -79,7 +86,7 @@ declared, not left blank — omit the field, write `null`, or write `TBA`,
 whichever tells the truth about the gap. `CORE-20` forbids the other failure:
 filling it with a guess.
 
-## 3. Ring 2 — provenance
+## 4. Ring 2 — provenance
 
 | Field | Rule | Check |
 |---|---|---|
@@ -105,7 +112,7 @@ it matters for retrieval, audit or a future change; never use `related` when
 a stronger one is known, and never infer one from a shared folder, author or
 subject.
 
-## 4. The `type` vocabulary
+## 5. The `type` vocabulary
 
 `type` takes its value from the closed list in the glossary, plus `agent` for
 the agents series. **H-03** enforces the closed list; **H-17** enforces the
@@ -116,14 +123,14 @@ the two general ones.
 that type. Registered now: for reports, `audit` `daily` `analysis`
 `proposal`; for documentation, `standard` `guide`.
 
-## 5. Status lifecycles
+## 6. Status lifecycles
 
 - **missions:** `todo → in-progress → in-review → done`, plus `frozen` (**H-04**)
 - **decisions:** `draft → active → superseded`, lowercase (**H-19**)
 - **everything else:** `draft → active → closed`, unless its series registers
   otherwise in Ring 3
 
-## 6. Ring 3 — extension by series
+## 7. Ring 3 — extension by series
 
 **H-30, the anti-entropy rule:** a field that is not in Ring 1, Ring 2, or the
 registry below is an error. Adding a field costs one line in this table plus
@@ -152,7 +159,7 @@ their carriers either migrate or the field earns its decision record.
 `blocked_reason` is retired; the Spanish-era keys are retired. Each is a wave
 with its own baseline entry until its migration lands.
 
-### 6.1 Deferred values — `TBA` (H-32)
+### 7.1 Deferred values — `TBA` (H-32)
 
 A field can be required, present, and not yet decided. This is permitted under
 exactly one condition:
@@ -171,7 +178,7 @@ forgotten one, and a value nobody prints is a value nobody resolves.
 pointing at an abandoned mission passes the guard and is exactly the parking
 space this rule forbids. Only a person reading the board catches that.
 
-### 6.2 Closed vocabularies
+### 7.2 Closed vocabularies
 
 | Check | Field | Vocabulary |
 |---|---|---|
@@ -187,34 +194,12 @@ rather than double-report it. **A template may document its options inline**
 as a trailing comment; the comment is stripped before judging, so the
 vocabulary gets checked and the documentation survives.
 
-## 7. Conformance: strict on the delta, baseline on the stock
+## 8. The body: context card and standards template `[MANUAL]`
 
-A rule without a mechanism does not survive its own author. But a corpus
-cannot become conformant in one change, and a lint that fails on everything
-gets disabled.
+Two rules bind the body of a document rather than its header. Both are prose
+judgement; neither has a check beyond presence.
 
-1. The header lint runs on every pull request, over the whole corpus.
-2. Violations present at adoption are written to a baseline file — counted,
-   dated, allowed to exist but not to grow.
-3. Any new violation fails the build: a file not in the baseline, or a new
-   defect in a baselined file.
-4. Every migration shrinks the baseline. Its size is the public entropy metric
-   of the corpus, and zero is the finish line.
-
-Check-to-rule mapping is one to one by construction, and the lint prints the
-check identifier with every finding, so a failure cites the rule that condemns
-it.
-
-## 8. What this standard does NOT do
-
-- It does not migrate anything. Every existing violation stays until its
-  migration executes.
-- It does not rename fields or documents.
-- It does not decide what the undressed governance documents should contain —
-  only what a conformant header is when they get one.
-- It does not govern the site pipeline's own schema, which is the renderer's.
-
-## 9. The context card `[MANUAL]`
+### 8.1 The context card
 
 No check, deliberately: judging whether a summary describes the document is
 prose judgment, not mechanics. A presence-only check would certify
@@ -237,15 +222,17 @@ and very short documents may carry only epistemic and pragmatic. New documents
 include the card from creation; existing ones are updated when touched, never
 by mass retrofit.
 
-## 10. The standards template `[MANUAL]`
+### 8.2 The standards template
 
 No check. Whether a standard states one thing, and whether its conformance
 section is honest, is prose judgment. A presence-only check would certify a
 copied skeleton, which is the failure this section prevents.
 
 A new standard MUST be started from the standards template and MUST carry its
-five required sections: purpose and scope, the norm, conformance, what the
-standard does not do, and version history.
+five required sections, numbered 1 to 5: purpose and scope, the norm,
+conformance, what the standard does not do, and references. It MUST NOT carry
+a version history or an amendment log: `git log --follow` is the history
+(`ADR-041`).
 
 The one that is not negotiable is **conformance**. A standard states how an
 object fails it — mechanically where a guard exists, `[MANUAL]` with a written
@@ -259,10 +246,38 @@ Two conventions bind whether or not the template is used:
   as a synonym for "must" makes both unenforceable.
 - **Prose cross-references.** Governed by the plain-writing standard.
 
-This section does not retrofit the standards that predate it. They conform
-when they are next opened for substantive change, not by sweep.
+`check-templates.mjs` verifies the numbered sections and the absence of a log
+on every file in `standards/` (**T-11**). Prose judgement — one thing per
+standard, an honest conformance table — stays manual.
 
-## References
+## 9. Conformance: strict on the delta, baseline on the stock
+
+A rule without a mechanism does not survive its own author. But a corpus
+cannot become conformant in one change, and a lint that fails on everything
+gets disabled.
+
+1. The header lint runs on every pull request, over the whole corpus.
+2. Violations present at adoption are written to a baseline file — counted,
+   dated, allowed to exist but not to grow.
+3. Any new violation fails the build: a file not in the baseline, or a new
+   defect in a baselined file.
+4. Every migration shrinks the baseline. Its size is the public entropy metric
+   of the corpus, and zero is the finish line.
+
+Check-to-rule mapping is one to one by construction, and the lint prints the
+check identifier with every finding, so a failure cites the rule that condemns
+it.
+
+## 10. What this standard does NOT do
+
+- It does not migrate anything. Every existing violation stays until its
+  migration executes.
+- It does not rename fields or documents.
+- It does not decide what the undressed governance documents should contain —
+  only what a conformant header is when they get one.
+- It does not govern the site pipeline's own schema, which is the renderer's.
+
+## 11. References
 
 - `STD-001` — the vocabulary these fields draw on.
 - `STD-007` — plain writing, which governs cross-references.

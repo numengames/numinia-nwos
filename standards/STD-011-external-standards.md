@@ -5,9 +5,9 @@ title: "What the system obeys that it did not write: external standards, their s
 type: documentation
 subtype: standard
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-07T15:00:00+02:00"
-updated: "2026-09-07T15:00:00+02:00"
+updated: "2026-09-08T19:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "CAO"
@@ -145,13 +145,23 @@ nothing in the corpus applies it yet.
 | GDPR · Regulation (EU) 2016/679 | <https://eur-lex.europa.eu/eli/reg/2016/679/oj> | 1 | `OPS-003` — FLAG-2, FLAG-3, FLAG-4, FLAG-6 open, «awaiting a lawyer» |
 | OpenChain · ISO/IEC 5230 | <https://openchainproject.org/license-compliance> | 3 | — formalises what `STD-010` already executes by hand |
 
-## 8. What this register does not cover
+## 8. Conformance
+
+| Check | Rule | Verified by |
+|---|---|---|
+| `EX-01` | Every row names a source URL and a distance from the scale at the top | `[MANUAL]` — a reviewer reads the row |
+| `EX-02` | A row at distance 0 names the guard, workflow or test that enforces it | `[MANUAL]` — no guard cross-checks this register against `scripts/` |
+
+This register describes; it does not bind. Its rows become obligations only
+where the document in **Applied in** makes them so.
+
+## 9. What this register does NOT do
 
 `Content`, `Sales` and `Infrastructure` hold no external standard. Either the
 vocabulary does not fit the material or those three territories have no
 external norm; this register does not decide which.
 
-## 9. References
+## 10. References
 
 - `STD-001` — what each series holds; `territory` vocabulary
 - `STD-004` — the header contract, where SPDX and ISO 8601 are enforced

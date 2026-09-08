@@ -5,9 +5,9 @@ title: "The archive is plain text, versioned, and sovereign"
 type: documentation
 subtype: standard
 status: active
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-09-03T06:27:46Z"
-updated: "2026-09-07T12:05:00+02:00"
+updated: "2026-09-08T19:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Archive"
@@ -195,3 +195,11 @@ compliant.
   may be allowed to hold, not who operates it.
 
 ---
+
+## 5. References
+
+| ID | Title | Relation |
+|---|---|---|
+| `STD-009` | Core rules | authority: who emits, versions and signs |
+| `STD-004` | The header in three rings | the header this standard leaves to its own standard |
+| `STD-001` | Glossary | the vocabulary of series and fields |
