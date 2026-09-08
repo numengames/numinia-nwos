@@ -671,6 +671,17 @@
   "tokens": 1443
  },
  {
+  "path": "debt/DBT-021-draft-binds-as-hard-as-active.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 3631,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 985
+ },
+ {
   "path": "decisions/ADR-001-the-archive.md",
   "dir": "decisions",
   "series": "decisions",
@@ -2546,10 +2557,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 44064,
+  "chars": 45100,
   "apparatus": false,
   "archived": false,
-  "tokens": 11090
+  "tokens": 11323
  },
  {
   "path": "missions/MIS-0147-document-relations.md",
@@ -2843,10 +2854,10 @@
   "series": "standards",
   "type": "meta",
   "status": "superseded",
-  "chars": 3368,
+  "chars": 3722,
   "apparatus": true,
   "archived": false,
-  "tokens": 1021
+  "tokens": 1112
  },
  {
   "path": "standards/STD-001-glossary.md",
@@ -2898,10 +2909,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 20192,
+  "chars": 20274,
   "apparatus": false,
   "archived": false,
-  "tokens": 5251
+  "tokens": 5260
  },
  {
   "path": "standards/STD-006-archive-substance.md",
@@ -2964,10 +2975,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8137,
+  "chars": 8219,
   "apparatus": false,
   "archived": false,
-  "tokens": 2403
+  "tokens": 2408
  },
  {
   "path": "system/SYS-001-cao-architecture.md",

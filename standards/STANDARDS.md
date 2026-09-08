@@ -43,7 +43,8 @@ before 2026-08-30).
 | §4C Decisions layout | superseded | `S-001` §3 (decisions fund) |
 | §5 Frontmatter schema | superseded | `S-004` — the three rings. This file's `status` vocabulary (`active\|draft\|archived\|deprecated`) never matched any series |
 | §6 Commit convention | superseded | `STD-005-engineering-standards.md` ARC-06 — seven types, defined there. Oracle ruling 2026-08-30: minimal standard set; `debt`/`audit` are scopes, not types |
-| §7A BDD/Gherkin · 7C Wardley · 7D DORA · 7G Active Inference · 7H OODA · 7I BML | retired | Aspirational frameworks from April; nothing in the corpus invokes them as norm. The ADR practice (§7B) is real and lives in `STD-005-engineering-standards.md` ARC-05 |
+| 7C Wardley · 7D DORA · 7G Active Inference · 7H OODA · 7I BML | retired | Aspirational frameworks from April; nothing in the corpus invokes them as norm. The ADR practice (7B) is real and lives in `STD-005-engineering-standards.md` ARC-05 |
+| BDD/Gherkin (7A) | ~~retired~~ **correction 2026-09-07** | This retirement was wrong when written. `numinia-web` holds ten `.feature` files, `@cucumber/cucumber` as a dependency, and a `test:acceptance` step in its CI that runs on every pull request. The claim that nothing invoked it was made without looking outside this repository. Scope and source now in `STD-011` |
 | §7F Versioning lifecycle | **moved** | `STD-002-governance.md` «Versioning authority» — the Oracle's promotion rule, unchanged |
 | §8 Context card | **moved** | `S-004` §9 — Summary/Epistemic/Pragmatic card; coverage is measured by `node scripts/telemetry.mjs`, not copied here |
 | §9 Human approval scale | **moved** | `STD-002-governance.md` «Human approval scale» — Oracle ruling 2026-08-30 defines it as the gate reading; resolves D-003 |
