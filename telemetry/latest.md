@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-08T09:55:32Z"
+updated: "2026-09-08T10:04:22Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `c3416a0`  · corpus_hash: `d21c35e7cfe04bfe…`  · measured_at: 2026-09-08T09:55:32Z  · root_dirty: 0
+- head: `8c06658+index`  · corpus_hash: `39bfd27efe11d89b…`  · measured_at: 2026-09-08T10:04:22Z  · root_dirty: 0
 
 ## corpus
 
@@ -163,9 +163,9 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | missions |
 |---|---|
-| done | 65 |
+| done | 66 |
 | frozen | 38 |
-| in-progress | 12 |
+| in-progress | 11 |
 | in-review | 2 |
 | todo | 32 |
 
@@ -229,17 +229,17 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 541279 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 541661 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
-| `tokens.missions_share_pct` | 50.33 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.missions_share_pct` | 50.37 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
 | `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
 
 | | tokens |
 |---|---|
-| missions | 272443 |
+| missions | 272825 |
 | standards | 72979 |
 | agents | 25317 |
 | canon | 23458 |
@@ -262,10 +262,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | tokens |
 |---|---|
 | active | 146781 |
-| done | 127415 |
+| done | 129041 |
 | draft | 73208 |
 | todo | 54504 |
-| in-progress | 46877 |
+| in-progress | 45633 |
 | closed | 34148 |
 | frozen | 34055 |
 | (none) | 12256 |
@@ -438,8 +438,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | missions |
 |---|---|
-| anchored | 103 |
-| not-oracle-state | 46 |
+| anchored | 104 |
+| not-oracle-state | 45 |
 
 ## contradictions
 
@@ -467,8 +467,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | superseded | 1 |
 | frozen | 38 |
 | todo | 33 |
-| done | 66 |
-| in-progress | 12 |
+| done | 67 |
+| in-progress | 11 |
 | in-review | 2 |
 
 ### `contradictions.status_vocabulary_undeclared`
@@ -499,7 +499,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | DEC | 36 |
 | SYS | 55 |
 | BLU | 55 |
-| GLD | 27 |
+| GLD | 32 |
 
 ### `contradictions.id_form_mixed`
 
@@ -513,7 +513,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `figures.live` | 454 | lines | lines in non-apparatus docs outside telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — "N tokens\|documents\|files\|missions", "N/M", "N %" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines |
+| `figures.live` | 455 | lines | lines in non-apparatus docs outside telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — "N tokens\|documents\|files\|missions", "N/M", "N %" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines |
 | `figures.live_by_doc` | (table below) | lines | the fifteen docs with most such lines |
 | `figures.cited` | 0 | citations | citations in the §10.5 form `key = value @ head` across the corpus |
 | `figures.stale_citations` | (table below) | citations | cited `key = value @ head` whose value in latest.json at this HEAD differs from the cited value: [where, key, cited, current]. A stale citation is not an error — the head beside it says when it was true |
@@ -598,10 +598,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | documents |
 |---|---|
-| done | 65 |
+| done | 66 |
 | frozen | 38 |
 | todo | 32 |
-| in-progress | 12 |
+| in-progress | 11 |
 | in-review | 2 |
 | draft | 1 |
 
