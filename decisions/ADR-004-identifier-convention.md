@@ -27,7 +27,7 @@ license: "CC-BY-4.0"
 
 **1. Shape.** `<PREFIX>-<NNN>` for series documents, zero-padded to three
 digits. The filename adds a slug in English kebab-case:
-`MIS-0085-web-codex-reader-lap.md`. The identifier is the prefix and number;
+`MIS-0100-branch-protection-org-settings.md`. The identifier is the prefix and number;
 the slug is a human courtesy and may be corrected without consequence.
 `missions/` pads the **filename** to four digits (`ADR-005` v1.1.0); the
 `id:` field keeps the registered number — `MIS-085` in the example — so that

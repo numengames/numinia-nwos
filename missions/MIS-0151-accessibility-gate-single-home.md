@@ -29,7 +29,6 @@ paths:
   - standards/STD-005-engineering-standards.md
   - decisions/ADR-037-accessibility-gate-single-home.md
   - debt/DBT-013-design-system-filename-not-frozen.md
-depends_on: ["MIS-152"]
 ---
 # MIS-151 — One normative home for the accessibility gate
 
