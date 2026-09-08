@@ -2,7 +2,7 @@
 id: "MIS-139"
 uid:
 title: "Repoint the two legacy manual references in numinia-web to numinia-lore — close DBT-011"
-status: in-progress
+status: done
 priority: low
 effort: XS
 guild: "Alchemists"
@@ -107,4 +107,7 @@ ls numinia-lore/seminal/Numinia_Manual_del_juego_de_rol_v0_6_0
 
 ## Closure
 
-*(Fill when the mission closes.)*
+- **What was done:** Repointed two legacy manual references in `numinia-web` — `DECISIONS` line 111 and `docs/onboarding-report` line 23 — from the retired title "Numinia. El juego de rol (manual completo)" to the canonical lore location `numinia-lore/seminal/Numinia_Manual_del_juego_de_rol_v0_6_0`.
+- **What diverged, and why:** DBT-011 no longer exists in `debt/` (resolved separately). The work was executed in the `numinia-web` repository and verified there.
+- **Evidence:** Verified in `numinia-web` — `grep "manual completo" DECISIONS docs/onboarding-report` → no output. Destination exists at `numinia-lore/seminal/Numinia_Manual_del_juego_de_rol_v0_6_0`.
+- **Closed:** 2026-09-08 · **by:** ursa

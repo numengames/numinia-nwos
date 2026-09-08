@@ -2,7 +2,7 @@
 id: "MIS-140"
 uid:
 title: "Publish-coverage guard: a series not in the corpus glob fails the build — close DBT-003"
-status: in-progress
+status: done
 priority: medium
 effort: M
 guild: "Alchemists"
@@ -130,4 +130,10 @@ grep -n "non-series\|not corpus\|apparatus" scripts/check-published-coverage.mjs
 
 ## Closure
 
-*(Fill when the mission closes.)*
+- **What was done:** Created `scripts/check-published-coverage.mjs` (publish-coverage guard) that enumerates top-level folders with tracked .md files, compares against content.config.ts patterns and a declared non-series list, and fails the build if a series is neither covered nor declared. Added a CI step in `.github/workflows/ci.yml` to run it.
+
+- **What diverged, and why:** DBT-003 no longer exists in `debt/` (resolved separately). The guard requirement was still valid and implemented as specified. The non-series declaration for `infra/` was made as part of this mission's decision.
+
+- **Evidence:** `node scripts/check-published-coverage.mjs` → exit 0 (14 covered, 5 declared non-series, 0 gaps). `grep -n "check-published-coverage" .github/workflows/ci.yml` → matches the new CI step.
+
+- **Closed:** 2026-09-08 · **by:** ursa
