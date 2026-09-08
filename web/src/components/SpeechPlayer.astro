@@ -339,17 +339,18 @@ const t = useT();
     };
 
     // ---- reading marker ----------------------------------------
-    // A small amber dot rides above the word being spoken, karaoke-style,
-    // and leaves a short trail behind it. It rests where the voice rests —
-    // the engine pauses at punctuation, so the dot does too — settles with
-    // a little squash on a stop, twinkles on an accented word, and bobs
-    // gently while the voice moves. Progressive: on engines that report
+    // A small amber dot drifts above the word being spoken, karaoke-style,
+    // and leaves a long, soft trail behind it. It rests where the voice
+    // rests — the engine pauses at punctuation, so the dot does too —
+    // brightens a little on a stop, glows briefly on an accented word, and
+    // breathes slowly while the voice moves. The Oracle asked for wind,
+    // not a mouse: every motion here is slow, eased, and translucent. Progressive: on engines that report
     // word boundaries the position is exact; on the ones that do not, it
     // follows the same elapsed-time estimate pause/resume already rely on.
     // Under prefers-reduced-motion the dot still moves, but jumps: no
     // trail, no bob, no twinkle.
     const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const TRAIL = reducedMotion ? 1 : 6;
+    const TRAIL = reducedMotion ? 1 : 10;
     let marker: HTMLElement | null = null;
     let head: HTMLElement | null = null;
     let curWord = -1;
@@ -418,7 +419,11 @@ const t = useT();
       const rect = rects.length ? rects[0] : r.getBoundingClientRect();
       if (!rect.width && !rect.height) return;
       curRange = r;
+      const prevY = parseFloat(marker!.style.getPropertyValue("--y")) || 0;
       placeAt(rect);
+      const nowY = parseFloat(marker!.style.getPropertyValue("--y")) || 0;
+      // Crossing to another line: let the dot glide there, not snap.
+      marker!.classList.toggle("is-drift", Math.abs(nowY - prevY) > rect.height * 0.6);
       if (head && !reducedMotion) {
         const w = docMap.text.slice(s, e);
         head.classList.remove("is-rest", "is-twinkle");
@@ -679,10 +684,11 @@ const t = useT();
 </script>
 
 <style is:global>
-  /* Reading marker: an amber dot above the word being spoken.
-     Trail dots share the head's target position and lag behind it through
-     staggered transition durations — the "estela" is just the difference
-     between their clocks. Colour is the theme's amber token. */
+  /* Reading marker: an amber dot above the word being spoken. Trail dots
+     share the head's target position and lag behind it through staggered
+     transition durations — the "estela" is just the difference between
+     their clocks. Colour is the theme's amber token; everything is
+     translucent and slow on purpose: wind, not a mouse. */
   .sp-marker {
     position: absolute;
     top: 0;
@@ -690,13 +696,13 @@ const t = useT();
     pointer-events: none;
     z-index: 60;
     opacity: 0;
-    transition: opacity 320ms ease;
+    transition: opacity 600ms ease;
   }
   .sp-marker.is-on {
     opacity: 1;
   }
   .sp-marker.is-paused {
-    opacity: 0.55;
+    opacity: 0.4;
   }
   .sp-marker-dot {
     position: absolute;
@@ -705,11 +711,14 @@ const t = useT();
     width: 0;
     height: 0;
     transform: translate(var(--x, -100px), var(--y, -100px));
-    transition: transform calc(110ms + var(--i) * 65ms) cubic-bezier(0.2, 0.7, 0.3, 1);
+    transition: transform calc(420ms + var(--i) * 95ms) cubic-bezier(0.3, 0, 0.15, 1);
     will-change: transform;
   }
+  .sp-marker.is-drift .sp-marker-dot {
+    transition-duration: calc(720ms + var(--i) * 95ms);
+  }
   .sp-marker-dot > b {
-    --d: calc(6px - var(--i) * 0.7px);
+    --d: calc(6px - var(--i) * 0.4px);
     position: absolute;
     left: calc(var(--d) / -2);
     top: calc(var(--d) / -2 - 3px);
@@ -717,37 +726,37 @@ const t = useT();
     height: var(--d);
     border-radius: 50%;
     background: rgb(var(--yellow));
-    opacity: calc(1 - var(--i) * 0.16);
-    box-shadow:
-      0 0 calc(2px + 1px * (5 - var(--i))) rgb(var(--yellow) / 0.45);
-    animation: sp-bob calc(1.15s / var(--rate, 1)) ease-in-out infinite;
-    animation-delay: calc(var(--i) * -90ms);
+    opacity: calc(0.78 - var(--i) * 0.07);
+    box-shadow: 0 0 calc(3px + 0.6px * (9 - var(--i))) rgb(var(--yellow) / 0.35);
+    animation: sp-breathe calc(2.8s / var(--rate, 1)) ease-in-out infinite;
+    animation-delay: calc(var(--i) * -140ms);
   }
   .sp-marker.is-paused .sp-marker-dot > b {
     animation-play-state: paused;
   }
   .sp-marker-dot > b.is-rest {
-    animation: sp-rest 420ms cubic-bezier(0.3, 1.4, 0.5, 1) 1;
+    animation:
+      sp-rest 900ms ease-in-out 1,
+      sp-breathe calc(2.8s / var(--rate, 1)) ease-in-out 900ms infinite;
   }
   .sp-marker-dot > b.is-twinkle {
     animation:
-      sp-twinkle 380ms ease-out 1,
-      sp-bob calc(1.15s / var(--rate, 1)) ease-in-out 380ms infinite;
+      sp-glow 800ms ease-in-out 1,
+      sp-breathe calc(2.8s / var(--rate, 1)) ease-in-out 800ms infinite;
   }
-  @keyframes sp-bob {
+  @keyframes sp-breathe {
     0%, 100% { translate: 0 0; }
-    50% { translate: 0 -2px; }
+    50% { translate: 0 -1.5px; }
   }
   @keyframes sp-rest {
-    0% { scale: 1 1; }
-    35% { scale: 1.35 0.65; translate: 0 2px; }
-    70% { scale: 0.9 1.1; }
-    100% { scale: 1 1; }
-  }
-  @keyframes sp-twinkle {
     0% { scale: 1; filter: brightness(1); }
-    40% { scale: 1.5; filter: brightness(1.8); box-shadow: 0 0 9px 2px rgb(var(--yellow) / 0.7); }
+    45% { scale: 1.12; filter: brightness(1.25); }
     100% { scale: 1; filter: brightness(1); }
+  }
+  @keyframes sp-glow {
+    0% { filter: brightness(1); box-shadow: 0 0 3px rgb(var(--yellow) / 0.35); }
+    50% { filter: brightness(1.35); box-shadow: 0 0 9px 1px rgb(var(--yellow) / 0.5); }
+    100% { filter: brightness(1); box-shadow: 0 0 3px rgb(var(--yellow) / 0.35); }
   }
   @media (prefers-reduced-motion: reduce) {
     .sp-marker-dot { transition: none; }
