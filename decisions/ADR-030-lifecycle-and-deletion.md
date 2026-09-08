@@ -4,9 +4,9 @@ uid:
 title: "Lifecycle: debt extinguishes on close, and deletion is decided by consumers"
 type: adr
 status: active
-version: "3.0.0"
+version: "3.1.0"
 created: "2026-08-30T16:00:00+02:00"
-updated: "2026-08-31T18:00:00+02:00"
+updated: "2026-09-08T22:00:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -39,6 +39,9 @@ deleted when four tests pass. Absorbed from ADR-033, which dissolved the
 2. **No public URL dies unredirected.** `scripts/check-url-lifecycle.mjs`
    against `scripts/url-baseline.json`.
 3. **A written resolution exists.** The only test no machine performs.
+   *Amended 2026-09-08 by `ADR-042`:* a period roll-up report (`STD-012`)
+   that carries the record's line is a written resolution. The test is
+   unchanged; the set of documents that satisfy it gained one kind.
 4. **The folder's threshold is met** (`STD-001` §2.1). `decisions/` is
    `governed`: an ADR, or a PR the Oracle approves.
 

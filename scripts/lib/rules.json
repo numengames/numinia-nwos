@@ -48,7 +48,7 @@
   },
   "subtypes": {
     "_comment": "STD-004 §5 H-18; `report` closed since ADR-005 v1.2.0.",
-    "report": ["audit", "daily", "analysis", "proposal"],
+    "report": ["audit", "analysis", "proposal", "rollup"],
     "documentation": ["standard", "guide", "reference"]
   },
   "governed": {

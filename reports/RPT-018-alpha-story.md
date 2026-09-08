@@ -5,11 +5,11 @@ title: "The Alpha story: what missions/ ships while it is the alpha board"
 type: report
 subtype: analysis
 status: active
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-08T20:30:00Z"
 created_source: "git:4a60735"
 created_confidence: exact
-updated: "2026-09-08T20:30:00Z"
+updated: "2026-09-08T22:00:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -36,10 +36,12 @@ absorbs: []
 
 ## How this report grows
 
-One line per closed mission, appended at closure. The line carries the
-identifier, the title, what was done in one sentence, and the commit or
-PR that proves it. Nothing above a line is rewritten when a new one
-lands. When the Oracle declares the alpha shipped, this report is
+*Amended 2026-09-08 (`ADR-042`):* this report is an **index**, not a
+ledger. Closures land as one line each in the **weekly roll-up** report
+(`PRO-017`); this report cites the week, not the line (`STD-012`,
+`DEF-06`). The two lines already below — `MIS-121`, `MIS-151` — stay as
+written and move to week 37's report at the first roll-up, Monday
+2026-09-14. When the Oracle declares the alpha shipped, this report is
 versioned as its record and the next phase opens its own report.
 
 ## Board at the start

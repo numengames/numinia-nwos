@@ -511,10 +511,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 11839,
+  "chars": 12170,
   "apparatus": false,
   "archived": false,
-  "tokens": 2653
+  "tokens": 2734
  },
  {
   "path": "canon/CAN-002-brand-and-culture.md",
@@ -764,10 +764,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 2688,
+  "chars": 2896,
   "apparatus": false,
   "archived": false,
-  "tokens": 741
+  "tokens": 796
  },
  {
   "path": "decisions/ADR-035-a-folder-is-a-genre.md",
@@ -845,6 +845,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1250
+ },
+ {
+  "path": "decisions/ADR-042-corpus-rolls-up-by-period.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "active",
+  "chars": 5283,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1463
  },
  {
   "path": "guilds/alquimistas/GLD-001-charter.md",
@@ -1364,6 +1375,17 @@
   "tokens": 1110
  },
  {
+  "path": "protocols/PRO-017-rolling-up-the-week.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "active",
+  "chars": 4517,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1279
+ },
+ {
   "path": "reports/RPT-003-wardley-map.md",
   "dir": "reports",
   "series": "reports",
@@ -1402,10 +1424,10 @@
   "series": "reports",
   "type": "report",
   "status": "active",
-  "chars": 2242,
+  "chars": 2381,
   "apparatus": false,
   "archived": false,
-  "tokens": 666
+  "tokens": 732
  },
  {
   "path": "standards/STD-001-glossary.md",
@@ -1446,10 +1468,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 13299,
+  "chars": 13340,
   "apparatus": false,
   "archived": false,
-  "tokens": 3506
+  "tokens": 3525
  },
  {
   "path": "standards/STD-005-engineering-standards.md",
@@ -1527,6 +1549,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2625
+ },
+ {
+  "path": "standards/STD-012-corpus-does-not-grow.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "active",
+  "chars": 6536,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1749
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
