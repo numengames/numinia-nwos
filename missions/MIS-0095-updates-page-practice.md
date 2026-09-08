@@ -130,7 +130,7 @@ mould's next version**, not as a descending mandate. Proposed text:
       not just `[Unreleased]`).
 - [ ] Missions opened for the remaining webs (numengames.com, pablofm.com)
       in their parcels, pointing at this practice.
-- [ ] The practice referenced in the local `STANDARDS.md` as adopted.
+- [ ] The practice referenced in the local `history/2026_09_08-Superseded_Constitution-v2.0.0.md` as adopted.
 
 ## Epistemic value
 

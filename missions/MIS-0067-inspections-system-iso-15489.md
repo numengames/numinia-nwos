@@ -59,7 +59,7 @@ As the NWOS system, I want a standard inspection document type, so I can periodi
 
 - [ ] `inspections/` directory created in the repo
 - [ ] `INSP-template.md` with standard structure
-- [ ] `inspection` type added to STANDARDS.md §8 (document types)
+- [ ] `inspection` type added to history/2026_09_08-Superseded_Constitution-v2.0.0.md §8 (document types)
 - [ ] Cadence defined: quarterly? per event? → decision in Dark Council
 - [ ] First real inspection: ISO 15489 of the Archive Summa
 
@@ -86,7 +86,7 @@ When Numen Games has clients, inspections are the proof that the NWOS operates t
 
 *Read against `8907a56` during the missions/ normalisation (lot 3). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
 
-- **Evidence:** 2026-04 import; 0/5; 'inspections/' never created; STANDARDS.md §8 retired (STD-001 is the glossary now); 'Adonaz knows them' — Adonaz was renamed Byblos (agents/INDEX.md) and is a definition, not an operator. Assigned nimrod (retired). Cited by 7 (4 files).
+- **Evidence:** 2026-04 import; 0/5; 'inspections/' never created; history/2026_09_08-Superseded_Constitution-v2.0.0.md §8 retired (STD-001 is the glossary now); 'Adonaz knows them' — Adonaz was renamed Byblos (agents/INDEX.md) and is a definition, not an operator. Assigned nimrod (retired). Cited by 7 (4 files).
 - **Recommendation:** Freeze as cancelled — the document type it proposed (inspection) has been served by reports/ subtype audit (RPT-007…RPT-016, ADR-005 v1.2.0): thirteen audits exist, none needed an inspections/ shelf. If ISO 15489 alignment is wanted, it is a new report brief, not this mission.
 
 ## Version history

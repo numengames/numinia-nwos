@@ -18,6 +18,16 @@ license: "CC0-1.0"
 
 # Numen Games · Design System
 
+> **Summary:** The visual and interaction system every Numinia surface is built
+> from: tokens, components, motion, accessibility, and the art direction behind
+> them.
+> **Epistemic:** What a Numinia interface looks like, why it looks that way, and
+> which parts are fixed.
+> **Pragmatic:** You can build or review a screen without inventing a colour, a
+> spacing value, or a rule about contrast.
+> **Audience:** Agents · Oracles
+
+
 > **Registered, 2026-09-03 (Oracle ruling).** This document was filed as a
 > "frozen artifact" because its filename began with a date. That was a
 > fallacy: the filename never was a state. It carries 46 normative verbs and

@@ -1,19 +1,23 @@
 ---
-id: "STANDARDS"
 uid: ""
-title: "Standards — Narrative Work OS (superseded)"
-type: meta
-status: superseded
+title: "Standards — Narrative Work OS v2, superseded 2026-08-30, archived 2026-09-08 (recovered record)"
+type: documentation
+subtype: reference
+status: closed
 version: "2.0.0"
 created: "2026-04-07T12:56:00Z"
-updated: "2026-08-30T17:51:00Z"
+updated: "2026-09-08T11:45:00+02:00"
 author: "nimrod"
 owner: "oracle"
-tags: [standards, conventions, meta, nwos]
+tags: [history, standards, conventions, superseded, nwos]
+territory: "Archive"
 license: "CC0-1.0"
 registration: exempt
-registration_reason: "singular document, not a numbered series"
-superseded_by: "STD-001 · STD-004 · STD-002-governance.md · STD-005-engineering-standards.md"
+registration_exemption: frozen-artifact
+registration_reason: "superseded constitution — the file that governed the repository between April and August 2026 and told its readers to stop obeying it. Kept because it is the only record of which frameworks were retired and why, including one retirement that was wrong"
+former_id: "standards/STANDARDS.md"
+former_id_note: "Archived on 2026-09-08 by Oracle instruction. It carried status superseded since 2026-08-30 and no longer belonged in a series of binding documents. Its BDD/Gherkin retirement was corrected in place on 2026-09-07 before the move: the framework was running in numinia-web at the time it was declared dead"
+superseded_by: "STD-001 · STD-002 · STD-004 · STD-005"
 ---
 
 # STANDARDS — Narrative Work OS (superseded)

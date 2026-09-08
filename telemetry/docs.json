@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 21969,
+  "chars": 22089,
   "apparatus": false,
   "archived": false,
-  "tokens": 6333
+  "tokens": 6384
  },
  {
   "path": "CLAUDE.md",
@@ -682,6 +682,17 @@
   "tokens": 985
  },
  {
+  "path": "debt/DBT-022-a-glossary-with-three-definitions.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 3246,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 842
+ },
+ {
   "path": "decisions/ADR-001-the-archive.md",
   "dir": "decisions",
   "series": "decisions",
@@ -709,10 +720,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 7909,
+  "chars": 7949,
   "apparatus": false,
   "archived": false,
-  "tokens": 2338
+  "tokens": 2355
  },
  {
   "path": "decisions/ADR-023-canon-vocabulary.md",
@@ -775,10 +786,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 11956,
+  "chars": 11996,
   "apparatus": false,
   "archived": false,
-  "tokens": 3660
+  "tokens": 3677
  },
  {
   "path": "decisions/ADR-037-accessibility-gate-single-home.md",
@@ -918,10 +929,10 @@
   "series": null,
   "type": "documentation",
   "status": "closed",
-  "chars": 14690,
+  "chars": 14850,
   "apparatus": false,
   "archived": true,
-  "tokens": 4051
+  "tokens": 4119
  },
  {
   "path": "history/2026_09_07-Brand_Research_Interview-v1.0.0.md",
@@ -966,6 +977,17 @@
   "apparatus": false,
   "archived": true,
   "tokens": 7307
+ },
+ {
+  "path": "history/2026_09_08-Superseded_Constitution-v2.0.0.md",
+  "dir": "history",
+  "series": null,
+  "type": "documentation",
+  "status": "closed",
+  "chars": 4394,
+  "apparatus": false,
+  "archived": true,
+  "tokens": 1275
  },
  {
   "path": "infra/github/README.md",
@@ -1413,10 +1435,10 @@
   "series": "missions",
   "type": "mission",
   "status": "done",
-  "chars": 2164,
+  "chars": 2244,
   "apparatus": false,
   "archived": false,
-  "tokens": 635
+  "tokens": 669
  },
  {
   "path": "missions/MIS-0040-cao-kpi-dashboard.md",
@@ -1600,10 +1622,10 @@
   "series": "missions",
   "type": "mission",
   "status": "done",
-  "chars": 5376,
+  "chars": 5416,
   "apparatus": false,
   "archived": false,
-  "tokens": 1424
+  "tokens": 1441
  },
  {
   "path": "missions/MIS-0057-deep-system-qa.md",
@@ -1666,10 +1688,10 @@
   "series": "missions",
   "type": "mission",
   "status": "done",
-  "chars": 8341,
+  "chars": 8621,
   "apparatus": false,
   "archived": false,
-  "tokens": 2436
+  "tokens": 2555
  },
  {
   "path": "missions/MIS-0063-nwos-iteration1-deploy-form.md",
@@ -1688,10 +1710,10 @@
   "series": "missions",
   "type": "mission",
   "status": "done",
-  "chars": 2066,
+  "chars": 2106,
   "apparatus": false,
   "archived": false,
-  "tokens": 652
+  "tokens": 669
  },
  {
   "path": "missions/MIS-0065-canon-at-build-narrative-out-of-code.md",
@@ -1710,10 +1732,10 @@
   "series": "missions",
   "type": "mission",
   "status": "done",
-  "chars": 20348,
+  "chars": 20468,
   "apparatus": false,
   "archived": false,
-  "tokens": 5907
+  "tokens": 5958
  },
  {
   "path": "missions/MIS-0067-inspections-system-iso-15489.md",
@@ -1721,10 +1743,10 @@
   "series": "missions",
   "type": "mission",
   "status": "frozen",
-  "chars": 4742,
+  "chars": 4822,
   "apparatus": false,
   "archived": false,
-  "tokens": 1267
+  "tokens": 1301
  },
  {
   "path": "missions/MIS-0068-nwos-propagation-drift-guard.md",
@@ -1732,10 +1754,10 @@
   "series": "missions",
   "type": "mission",
   "status": "frozen",
-  "chars": 8147,
+  "chars": 8187,
   "apparatus": false,
   "archived": false,
-  "tokens": 2151
+  "tokens": 2168
  },
  {
   "path": "missions/MIS-0069-github-independent-continuity.md",
@@ -2029,10 +2051,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 7709,
+  "chars": 7749,
   "apparatus": false,
   "archived": false,
-  "tokens": 2033
+  "tokens": 2050
  },
  {
   "path": "missions/MIS-0096-nwos-versioning-sovereign-adoption.md",
@@ -2282,10 +2304,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 30691,
+  "chars": 30771,
   "apparatus": false,
   "archived": false,
-  "tokens": 8612
+  "tokens": 8646
  },
  {
   "path": "missions/MIS-0122-fix-uid-rule.md",
@@ -2293,10 +2315,10 @@
   "series": "missions",
   "type": "mission",
   "status": "done",
-  "chars": 11029,
+  "chars": 11109,
   "apparatus": false,
   "archived": false,
-  "tokens": 3081
+  "tokens": 3115
  },
  {
   "path": "missions/MIS-0123-make-adr-028-real.md",
@@ -2326,10 +2348,10 @@
   "series": "missions",
   "type": "mission",
   "status": "done",
-  "chars": 34665,
+  "chars": 34765,
   "apparatus": false,
   "archived": false,
-  "tokens": 10069
+  "tokens": 10114
  },
  {
   "path": "missions/MIS-0126-field-decision-index.md",
@@ -2348,10 +2370,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 31474,
+  "chars": 31544,
   "apparatus": false,
   "archived": false,
-  "tokens": 9133
+  "tokens": 9164
  },
  {
   "path": "missions/MIS-0128-link-hygiene-english-renames.md",
@@ -2557,10 +2579,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 45100,
+  "chars": 46399,
   "apparatus": false,
   "archived": false,
-  "tokens": 11323
+  "tokens": 11600
  },
  {
   "path": "missions/MIS-0147-document-relations.md",
@@ -2849,26 +2871,15 @@
   "tokens": 4242
  },
  {
-  "path": "standards/STANDARDS.md",
-  "dir": "standards",
-  "series": "standards",
-  "type": "meta",
-  "status": "superseded",
-  "chars": 3722,
-  "apparatus": true,
-  "archived": false,
-  "tokens": 1112
- },
- {
   "path": "standards/STD-001-glossary.md",
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 38395,
+  "chars": 39055,
   "apparatus": false,
   "archived": false,
-  "tokens": 9908
+  "tokens": 10063
  },
  {
   "path": "standards/STD-002-governance.md",
@@ -2887,10 +2898,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 10416,
+  "chars": 10977,
   "apparatus": false,
   "archived": false,
-  "tokens": 2657
+  "tokens": 2777
  },
  {
   "path": "standards/STD-004-header-standard.md",
@@ -2909,10 +2920,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 20274,
+  "chars": 21420,
   "apparatus": false,
   "archived": false,
-  "tokens": 5260
+  "tokens": 5518
  },
  {
   "path": "standards/STD-006-archive-substance.md",
@@ -2942,10 +2953,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 118160,
+  "chars": 118592,
   "apparatus": false,
   "archived": false,
-  "tokens": 32715
+  "tokens": 32822
  },
  {
   "path": "standards/STD-009-core-rules.md",
@@ -2964,10 +2975,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 19857,
+  "chars": 16541,
   "apparatus": false,
   "archived": false,
-  "tokens": 5108
+  "tokens": 4242
  },
  {
   "path": "standards/STD-011-external-standards.md",
@@ -2975,10 +2986,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8219,
+  "chars": 8761,
   "apparatus": false,
   "archived": false,
-  "tokens": 2408
+  "tokens": 2554
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
@@ -2986,10 +2997,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 10507,
+  "chars": 10617,
   "apparatus": false,
   "archived": false,
-  "tokens": 2857
+  "tokens": 2905
  },
  {
   "path": "system/SYS-002-agent-cycle.md",

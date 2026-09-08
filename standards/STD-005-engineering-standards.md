@@ -23,6 +23,15 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Engineering Standards
 
+> **Summary:** How this organisation builds software: the roles that own each
+> decision, the practices each one follows, and the checks that verify them.
+> **Epistemic:** Which engineering practices are required here, and which of
+> them a machine actually enforces.
+> **Pragmatic:** You can set up a new repository, or review an existing one,
+> without asking what the house rules are.
+> **Audience:** Agents · Oracles
+
+
 > **NOT RATIFIED — read before citing this document as a requirement.**
 > `status: draft` in the frontmatter now matches what this page has said
 > since 2026-08-17: it is a proposal, not a signed standard.
@@ -310,3 +319,20 @@ After completing a task, the agent reports: practices touched (IDs), checks run 
 ---
 
 *A rule that does not fail a build is prose. This document intends to be as little prose as possible.*
+
+
+## 8. What this standard does NOT do
+
+It does not govern documents. How a document is named, versioned, headed, or
+filed belongs to the registration law; this standard governs software.
+
+It does not license anything. The trichotomy, the SPDX expressions, and the
+publication gates live in the licensing standard and are cited here, not
+restated.
+
+It does not adopt external frameworks. Naming a practice here neither adopts
+the standard behind it nor claims the tree implements it; that ledger is the
+external standards register, which also records the distance.
+
+It does not enforce itself. Every check in these tables is `[MANUAL]` unless a
+named script runs it, and this document has been unratified since 2026-08-17.

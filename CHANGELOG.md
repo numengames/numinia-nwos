@@ -116,7 +116,7 @@ Format: [type] description — date — author
 ## [0.4.0] — 2026-04-07 (afternoon, MIS-056)
 
 ### Added
-- STANDARDS.md v1.2.0 — full English translation + language policy
+- history/2026_09_08-Superseded_Constitution-v2.0.0.md v1.2.0 — full English translation + language policy
 - agents/nimrod/MEMORY.md → v0.2.0 (EN)
 - agents/ursa/STATUS.md → v0.2.0 (EN)
 - agents/senet/SOUL.md, OPERATOR.md, STATUS.md → v0.2.0 (EN)
@@ -137,7 +137,7 @@ Format: [type] description — date — author
 ## [0.3.0] — 2026-04-07 (morning)
 
 ### Added
-- STANDARDS.md v1.1.0 — Active Inference, OODA, BML, context cards (§7G-I, §8)
+- history/2026_09_08-Superseded_Constitution-v2.0.0.md v1.1.0 — Active Inference, OODA, BML, context cards (§7G-I, §8)
 - P-007 Context Load Protocol
 - P-008 Approval Brief Protocol
 - APPROVAL-REQUEST-template.md
@@ -164,7 +164,7 @@ Format: [type] description — date — author
 ## [0.2.0] — 2026-04-06 (Dark Council session with Christian Märtens)
 
 ### Added
-- STANDARDS.md v1.0.0 — ISO 8601 timestamps, UUID v7, frontmatter schema, commit conventions, BDD/Cucumber, ADR, Wardley, DORA, SemVer
+- history/2026_09_08-Superseded_Constitution-v2.0.0.md v1.0.0 — ISO 8601 timestamps, UUID v7, frontmatter schema, commit conventions, BDD/Cucumber, ADR, Wardley, DORA, SemVer
 - P-006 Session Close Protocol (Alquimista-01 proposal + Nimrod validation)
 - agents/adonaz/ initial design
 - guild charters — sentinels, alquimistas, exegetas

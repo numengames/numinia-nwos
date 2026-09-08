@@ -40,7 +40,7 @@ sub_missions:
     status: "todo"
     effort: "M"
   - id: "MIS-062.4"
-    title: "Update STANDARDS.md — mission system v2"
+    title: "Update history/2026_09_08-Superseded_Constitution-v2.0.0.md — mission system v2"
     status: "todo"
     effort: "S"
   - id: "MIS-062.5"
@@ -85,7 +85,7 @@ As an Oracle, I want a Kanban board at pablofm.com/missions showing all real mis
 | MIS-062.1 | Migrate existing missions to new format + folder structure | S | todo |
 | MIS-062.2 | Recover lost missions from pablofm-web into repo | M | in-progress |
 | MIS-062.3 | Build Kanban page at pablofm.com/missions | M | todo |
-| MIS-062.4 | Update STANDARDS.md — mission system v2 | S | todo |
+| MIS-062.4 | Update history/2026_09_08-Superseded_Constitution-v2.0.0.md — mission system v2 | S | todo |
 | MIS-062.5 | Update PRO-003 Mission Cycle Protocol to v2 | S | todo |
 
 ## Acceptance criteria
@@ -94,8 +94,8 @@ As an Oracle, I want a Kanban board at pablofm.com/missions showing all real mis
 - [ ] New folder structure: queue/ active/ review/ done/ freeze/
 - [ ] All 13 "lost" missions from pablofm-web created as .md in repo
 - [ ] pablofm.com/missions live with Kanban view
-- [ ] STANDARDS.md §2 updated: MIS-NNN format (3 digits)
-- [ ] STANDARDS.md — mission states documented
+- [ ] history/2026_09_08-Superseded_Constitution-v2.0.0.md §2 updated: MIS-NNN format (3 digits)
+- [ ] history/2026_09_08-Superseded_Constitution-v2.0.0.md — mission states documented
 - [ ] PRO-003 updated to v2 cycle
 - [ ] Oracle validation before merge
 
@@ -137,8 +137,8 @@ The brief is untouched. This is the disposition, not a rewrite.
 |---|---|---|
 | Folder structure `queue/ active/ review/ done/ freeze/` | Those folders do not exist | **Contradicted.** `MIS-066` flattened `missions/` to a single folder on purpose. Not pending — decided against. |
 | `pablofm.com/missions` live with Kanban view | 5 references to a legacy domain | **Dead context.** The board lives at `numinia.org/missions`. |
-| `STANDARDS.md` §2 updated, MIS-NNN format | 3 mentions of `MIS-NNN` in `STANDARDS.md` | **Done.** |
-| `STANDARDS.md` — mission states documented | present | **Done.** |
+| `history/2026_09_08-Superseded_Constitution-v2.0.0.md` §2 updated, MIS-NNN format | 3 mentions of `MIS-NNN` in `history/2026_09_08-Superseded_Constitution-v2.0.0.md` | **Done.** |
+| `history/2026_09_08-Superseded_Constitution-v2.0.0.md` — mission states documented | present | **Done.** |
 | `P-003` updated to v2 cycle | present | **Done.** |
 | All missions migrated to v2 frontmatter (**uid**) | **182 documents in the corpus have no `uid:`** | **SURVIVES.** This is the whole of what is left. |
 

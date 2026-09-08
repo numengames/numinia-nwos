@@ -195,7 +195,7 @@ than they did before 2026-09-01. Suspension of `ADR-004` rule 4, lifted when
 `uid` is populated. §6.1 is the resolution table.
 
 ⚠️ **`ADR-004` rule 8 contradicts `S-004` §6.** Rule 8 requires `uid` to
-carry a UUIDv7 and cites `STANDARDS §2` as its basis; `STANDARDS.md` marks
+carry a UUIDv7 and cites `STANDARDS §2` as its basis; `history/2026_09_08-Superseded_Constitution-v2.0.0.md` marks
 that section *superseded — was wrong*, and `lint-frontmatter.mjs` `H-20`
 **fails any file whose `uid` is non-empty**. An active ADR founds itself on a
 retired section. Not resolved here — recorded so the next reader does not

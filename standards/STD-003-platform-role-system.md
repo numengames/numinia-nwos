@@ -261,3 +261,18 @@ Numinia's seminal documents,
 and the Numinia system's role structure.*
 
 *Numinia Digital Goods — April 2026*
+
+
+## What this standard does NOT do
+
+It does not describe the product. Which surfaces exist, what they show, and
+what a member does with them belong to the design system and to the missions
+that build them.
+
+It does not govern access to this repository. Repository permissions are a
+governance matter, not a platform rank; a citizen in the platform holds no
+rights over the corpus.
+
+It does not define payment, wallet custody, or identity verification. Those are
+operational and legal questions, recorded in `operations/` where they carry
+their own risk notes.

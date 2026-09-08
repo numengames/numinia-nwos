@@ -37,7 +37,7 @@ As operator, I want a structured log of every action executed by every agent, so
 
 ## Acceptance criteria
 
-- [x] Log format standard defined in STANDARDS.md (§10)
+- [x] Log format standard defined in history/2026_09_08-Superseded_Constitution-v2.0.0.md (§10)
 - [x] Log structure covers: timestamp, agent, action, mission, result, cost_estimate
 - [x] Example log entries documented
 - [x] Location convention defined (workspace/logs/)
@@ -59,7 +59,7 @@ Full traceability of what each agent did and how much it cost.
 or of the criteria.)*
 
 - **Category:** A — done in fact. The reality already satisfies the brief.
-- **Evidence:** `STANDARDS.md` carries `## 10. Agent log system` with entry-format and storage subsections. 5/5 criteria ticked.
+- **Evidence:** `history/2026_09_08-Superseded_Constitution-v2.0.0.md` carries `## 10. Agent log system` with entry-format and storage subsections. 5/5 criteria ticked.
 - **Signed by:** Oracle, 2026-08-25, as part of the board triage of the 111 missions.
   Classified read-only first; nothing was closed on impression.
 - **Closed:** 2026-08-25 · **by:** ursa (administrative), on the Oracle's signature

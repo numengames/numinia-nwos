@@ -109,7 +109,7 @@ Frozen missions are visible in the Kanban as a separate column — not hidden, n
 
 ### Current problem
 
-`MIS-00037` — 5-digit zero-padding from STANDARDS.md §2A.
+`MIS-00037` — 5-digit zero-padding from history/2026_09_08-Superseded_Constitution-v2.0.0.md §2A.
 
 Issues:
 - Verbose and hard to reference in conversation ("MIS dash zero zero zero three seven")
@@ -195,7 +195,7 @@ MIS-062 — Mission System v2 implementation (parent, XL)
 ├── MIS-062.1 — Migrate existing missions to new format (S)
 ├── MIS-062.2 — Recover lost missions from pablofm-web (M)
 ├── MIS-062.3 — Build Kanban page (M)
-└── MIS-062.4 — Update STANDARDS.md and protocols (S)
+└── MIS-062.4 — Update history/2026_09_08-Superseded_Constitution-v2.0.0.md and protocols (S)
 ```
 
 ---
@@ -227,7 +227,7 @@ missions/
 
 ## 5. Updated frontmatter schema
 
-Extends STANDARDS.md §5 for missions:
+Extends history/2026_09_08-Superseded_Constitution-v2.0.0.md §5 for missions:
 
 ```yaml
 ---
@@ -442,7 +442,7 @@ This blueprint becomes MIS-062. Sub-missions:
 | MIS-062.1 | Migrate existing 13 missions to new format + folder structure | S | high |
 | MIS-062.2 | Recover lost missions from Pablo (list + create .md files) | M | high |
 | MIS-062.3 | Build Kanban page at pablofm.com/kanban | M | high |
-| MIS-062.4 | Update STANDARDS.md — mission system v2 | S | medium |
+| MIS-062.4 | Update history/2026_09_08-Superseded_Constitution-v2.0.0.md — mission system v2 | S | medium |
 | MIS-062.5 | Update P-003 (Mission Cycle Protocol) to v2 | S | medium |
 
 **Sequence:**
