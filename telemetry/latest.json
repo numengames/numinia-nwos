@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "59fb676+index",
-  "corpus_hash": "c8a79041fac6620b48ccb084b0ae2fcd9d0b93f985eedc80d42808922f2d7761",
+  "head": "d93deba+index",
+  "corpus_hash": "13cd3f9771ef8c4a4ae60e7c73f46db4070e669eaf7ca9ac6bf9fde12fc78b04",
   "root_dirty": 0,
-  "measured_at": "2026-09-08T13:51:50Z",
+  "measured_at": "2026-09-08T14:02:41Z",
   "families": [
     "corpus",
     "series",
@@ -357,20 +357,20 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 549248,
+      "value": 549899,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "missions": 273533,
-        "standards": 72979,
+        "missions": 273764,
+        "standards": 69167,
         "agents": 25317,
         "canon": 23458,
         "history": 21668,
         "operations": 21347,
+        "protocols": 21343,
         "templates": 17883,
-        "protocols": 17111,
         "decisions": 16541,
         "reports": 13903,
         "debt": 12477,
@@ -386,11 +386,11 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 153660,
+        "active": 157892,
         "done": 134539,
-        "draft": 73208,
+        "draft": 69396,
         "todo": 54504,
-        "in-progress": 40843,
+        "in-progress": 41074,
         "closed": 34148,
         "frozen": 34055,
         "(none)": 12256,
@@ -401,7 +401,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 49.8,
+      "value": 49.78,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -409,11 +409,11 @@
       "value": [
         [
           "standards/STD-008-design-system.md",
-          32822
+          29010
         ],
         [
           "missions/MIS-0146-normative-refoundation.md",
-          11600
+          11831
         ],
         [
           "missions/MIS-0125-prefix-register.md",
@@ -585,7 +585,7 @@
       "definition": "nature of author: per doc, `author:` normalised → human (Oracle aliases) · ai-persona (agents whose SOUL.md declares a model, list of 2026-08-26) · ai-model (name matches claude|gpt|opus|sonnet|fable|gemini|llm) · other · no-author · no-frontmatter"
     },
     "provenance.dates_vs_commits_compared": {
-      "value": 268,
+      "value": 269,
       "unit": "documents",
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
@@ -733,7 +733,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 679
+          "3": 680
         },
         "MIS": {
           "3": 1403,
@@ -756,7 +756,7 @@
           "3": 166
         },
         "PRO": {
-          "3": 368
+          "3": 395
         },
         "DEC": {
           "3": 36
@@ -839,27 +839,27 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 464,
+      "value": 465,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
     "figures.live_by_doc": {
       "value": {
         "missions/MIS-0127-entropy-reduction.md": 39,
-        "standards/STD-008-design-system.md": 31,
+        "standards/STD-008-design-system.md": 28,
         "missions/MIS-0125-prefix-register.md": 26,
-        "missions/MIS-0146-normative-refoundation.md": 20,
+        "missions/MIS-0146-normative-refoundation.md": 21,
         "operations/OPS-005-simulations.md": 19,
         "reports/RPT-008-gaps-capability-map.md": 19,
         "missions/MIS-0121-header-baseline-burndown.md": 18,
         "missions/MIS-0116-translate-remaining-spanish-docs.md": 15,
         "missions/MIS-0138-telemetry-instrument.md": 10,
         "operations/OPS-007-sales.md": 10,
+        "protocols/PRO-014-producing-a-design-piece.md": 9,
         "missions/MIS-0066-unify-mission-system.md": 7,
         "missions/MIS-0115-mission-board-redesign.md": 7,
         "missions/MIS-0120-multilanguage-es.md": 7,
-        "missions/MIS-0135-normalisation-residue-register.md": 7,
-        "operations/OPS-001-continuity.md": 7
+        "missions/MIS-0135-normalisation-residue-register.md": 7
       },
       "unit": "lines",
       "definition": "the fifteen docs with most such lines"

@@ -102,7 +102,7 @@ This document is meant to be **executed**, not just read. A code agent receiving
 
 1. Load `PRO-014` and the token file it names as the single source of values; nothing is invented.
 2. Copy the **starter kit** from §13.1 as the CSS/JS base of every web piece or HTML document — it is copied, not rewritten from memory.
-3. Choose the **medium's blueprint** in §13.2–§13.10 and fill it in. The skeletons are normative: the structure is not improvised; the content is.
+3. Choose the **medium's blueprint** in `PRO-014` section 6.2 to 6.10 and fill it in. The skeletons are normative: the structure is not improvised; the content is.
 4. Write the copy with §11: declared level, and the world's lexicon (§11, Numinia capsule) only if the piece is level II.
 5. Run the checklist in `PRO-014` before delivering.
 
@@ -251,16 +251,16 @@ Where the system lives, at a glance. Every surface has its default mode, its lan
 
 | Surface | Default mode | Level | Register | Blueprint |
 |---|---|---|---|---|
-| Narrative web (numen.games, numinia.com) | Nocturno | II on home, I/III on inner pages | Umbral | §13.2 |
-| **Platform** (panels, store) | **Diurno, with Nocturno toggle** | I | Umbral | §13.11 |
-| Document and invoice | Diurno | III | Umbral | §13.4 |
-| Presentation | Nocturno | II/III | Umbral | §13.3 |
-| Physical event | Diurno (supports) | I/II | Umbral | §13.5 |
+| Narrative web (numen.games, numinia.com) | Nocturno | II on home, I/III on inner pages | Umbral | `PRO-014` section 6.2 |
+| **Platform** (panels, store) | **Diurno, with Nocturno toggle** | I | Umbral | `PRO-014` section 6.11 |
+| Document and invoice | Diurno | III | Umbral | `PRO-014` section 6.4 |
+| Presentation | Nocturno | II/III | Umbral | `PRO-014` section 6.3 |
+| Physical event | Diurno (supports) | I/II | Umbral | `PRO-014` section 6.5 |
 | **Archive · Summa (numinia.org, NWOS viewers)** | **Nocturno** | I/III | **Velo** | §2.7 |
-| **Book · digital codex (the LAP)** | **Diurno** (paper), Nocturno toggle | II/III | Umbral-paper; its reading frame, Velo | §13.12 |
-| Pixel register | **Nocturno always** | II | Píxel | §2.4, §13.9 |
-| Low-poly register (3D) | its host surface's | — | Low-poly | §2.6, §13.7 |
-| Email | client's light | I/III | Umbral | §13.8 |
+| **Book · digital codex (the LAP)** | **Diurno** (paper), Nocturno toggle | II/III | Umbral-paper; its reading frame, Velo | `PRO-014` section 6.12 |
+| Pixel register | **Nocturno always** | II | Píxel | §2.4, `PRO-014` section 6.9 |
+| Low-poly register (3D) | its host surface's | — | Low-poly | §2.6, `PRO-014` section 6.7 |
+| Email | client's light | I/III | Umbral | `PRO-014` section 6.8 |
 | Comic / graphic novel | Nocturno | II | Píxel (inherits) | pending — inherits pixel register, patinas §6.3 and voice §11 |
 
 The Platform is the **only emitted surface where Diurno rules**: it is a tool for prolonged work over data, and paper tires less than night. The "emits = Nocturno" rule of §5 is thereby qualified by this table.
@@ -272,7 +272,7 @@ The pixel register's 3D sibling, for environments, props and web characters (Pla
 - **Economy of masses.** Silhouette first, facets after — cluster theory (§2.4.1) in three dimensions: continuous masses legible at usage distance; detail that does not read is removed.
 - **Flat palette color.** Materials in flat color (*flat shading* or *vertex colors*) taken from the canonicals and their ramps (§3.7 as family guide); no photographic textures. The only photorealistic map allowed remains the canonical normal (§6).
 - **Orientative budget** [EXTENSION — validate]: character 2,000–10,000 tris; prop 200–2,000; modular environment by pieces. The budget is validated against the store's real assets.
-- **House lighting**: warm Ámbar key + cold Turquesa fill (§13.7); the era enters through temperature and materials (patinas §6.3), not through skins.
+- **House lighting**: warm Ámbar key + cold Turquesa fill (`PRO-014` section 6.7); the era enters through temperature and materials (patinas §6.3), not through skins.
 - **Formats**: GLB/glTF, the standards the Platform already publishes.
 - Relationship between registers: **the pixel is the world's 2D memory; the low-poly is its 3D body** — same economy of means, different dimension. Neither mixes with photorealism in the same scene.
 
@@ -288,7 +288,7 @@ The pixel register's 3D sibling, for environments, props and web characters (Pla
 |---|---|---|---|
 | `velo.rejilla` | `rgba(166,218,213,.025)` · **40 px** cell | Verdemar at 2.5 % | The Akasha's grid, barely visible; the cell matches the Platform row (40 px) — archive and tool share the same beat `[DERIVED — verified in production, pablofm-web]` |
 | `velo.niebla` | `rgba(1,142,161,.06)` · radial from bottom-left | Turquesa at 6 % | The corridors' fog: the diffuse signal of the background `[DERIVED — verified in production]` |
-| `velo.imagen` | `rgba(20,17,15,.72)` | Noche at 72 % | The foundational veil (§8.2, §9.8, §13.3) — unchanged; Jardín may lighten to `.60` (§6.3) |
+| `velo.imagen` | `rgba(20,17,15,.72)` | Noche at 72 % | The foundational veil (§8.2, §9.8, `PRO-014` section 6.3) — unchanged; Jardín may lighten to `.60` (§6.3) |
 | `velo.cristal` | `rgba(30,26,23,.65)` + `backdrop-filter: blur(12px)` | Basalto at 65 % | Glass surface: read through `[EXTENSION — validate]` |
 | `velo.cristal-borde` | `rgba(58,51,45,.5)` | Strong line at 50 % | The glass's edge `[EXTENSION — validate]` |
 | `velo.cielo` | 175 stars · weights `60/25/10/4/1` | **Rarity scale §3.6** | The Velo's sky (§2.7.1) — verified in production, numinia.org |
@@ -323,13 +323,13 @@ Behavior (canonized exactly as it stands in production): **175 stars**; drift of
 
 The codex's session boundary, already in production: the closed chapter **is shown** blurred (`blur(2.2px)`) and dissolving downward with a linear mask of `0→90 %`. It is not a wall that hides — it is a veil that promises; the funnel is soft by decision (D2 of the LAP). Rules: veiled text stays **inert** (`user-select:none`, `pointer-events:none`, out of the focus order); the Umbral's seal and its call float **sharp above**; content the person already had open is never veiled.
 
-**Its animations** live in §10.1 (10–14). The 01–09 catalogue remains available to Umbral and Velo alike; 10–12 are exclusive to the Velo and the living paper (§13.12).
+**Its animations** live in §10.1 (10–14). The 01–09 catalogue remains available to Umbral and Velo alike; 10–12 are exclusive to the Velo and the living paper (`PRO-014` section 6.12).
 
 ### 2.8 The four registers — hierarchy and values [CANON — direction decision, 5.0.0]
 
 The System speaks in four registers, ordered by importance. Every piece declares its own **before its medium**, as `PRO-014` orders. Like every NWOS mission, each register answers for its **epistemic value** (what it teaches) and its **pragmatic value** (what it produces).
 
-**1 · The Umbral** — the general register. The name comes from the world: the Umbral is the border anyone can cross. It is the entire base system (§3–§13): websites, presentations, documents, **invoices** (§13.4; real piece 2026-A-014), interface, event and email.
+**1 · The Umbral** — the general register. The name comes from the world: the Umbral is the border anyone can cross. It is the entire base system (§3–§13): websites, presentations, documents, **invoices** (`PRO-014` section 6.4; real piece 2026-A-014), interface, event and email.
 *Epistemic:* it sets the priors of whoever arrives from outside — first contact teaches what Numen is without needing the world.
 *Pragmatic:* it produces every corporate and product piece **without new decisions**; it is the register that invoices.
 
@@ -343,7 +343,7 @@ The System speaks in four registers, ordered by importance. Every piece declares
 
 **4 · Píxel** — the world's 2D memory (§2.4). Arcade adventures, minigames, playable lore.
 *Epistemic:* *Learn* given form — the heritage of the graphic adventures, cited and never copied.
-*Pragmatic:* scenes, achievements and sprites with closed pipeline and QA (§13.9–13.10).
+*Pragmatic:* scenes, achievements and sprites with closed pipeline and QA (`PRO-014` section 6.9–13.10).
 
 **Fusion rule.** Registers do not stack: a piece lives in one and MAY **frame** content from another (a sprite inside an Umbral website; a Velo viewer showing a low-poly GLB). The boundary between registers MUST be visible — the same discipline that governs the pixel's entry and exit (§2.4).
 
@@ -512,7 +512,7 @@ Sans states, Mono measures, **the serif narrates**. The codex in production alre
 | Variable italic | `Alegreya-Italic-Variable.woff2` | Literary opening, quotes, epigraphs, glossary terms |
 | **Small caps** (400/500) | `AlegreyaSC-{Regular,Medium}.woff2` | **Drop cap**, chapter titles, section small caps |
 
-The **small caps is the piece that was missing from the record**: it is not a simulated typographic effect (synthetic `font-variant` is forbidden, like Pixelify's fake bold in §4.5), it is a proper cut with its own drawn shapes. A voice **exclusive to the book** (Book · codex surface, §13.12); self-hosted with its OFL in `/assets/fonts/`, pending entry into the kit in the v5 rebuild. **Never** in interface, deck (the legacy guard §13.3 stays intact), corporate document or invoice. Until the Oracle's signature, its use stays confined to the already-published LAP.
+The **small caps is the piece that was missing from the record**: it is not a simulated typographic effect (synthetic `font-variant` is forbidden, like Pixelify's fake bold in §4.5), it is a proper cut with its own drawn shapes. A voice **exclusive to the book** (Book · codex surface, `PRO-014` section 6.12); self-hosted with its OFL in `/assets/fonts/`, pending entry into the kit in the v5 rebuild. **Never** in interface, deck (the legacy guard `PRO-014` section 6.3 stays intact), corporate document or invoice. Until the Oracle's signature, its use stays confined to the already-published LAP.
 
 ---
 
@@ -622,7 +622,7 @@ A custom icon only if Phosphor does not cover the concept; it is drawn on its gr
 
 ### 7.4 The mode switch [CANON — direction decision, 5.0.0]
 
-The `moon-stars` / `sun` pair is one piece, not two loose icons. **Hard rule: the icon shows the mode a tap leads to, not the mode you are in** — the moon with stars invites the Nocturno, the sun invites the Diurno. Only one visible at a time, in `regular` 20 px, among the bar's utilities (§13.2). Behavior canonized from production: while nobody chooses, the page **follows the operating system** and changes with it at nightfall; an explicit choice ends the following and is remembered; the preference is applied **before painting** so the page does not flash. The state is written on the document as `data-modo`, and its **absence means Nocturno** — light mode is always declared explicitly.
+The `moon-stars` / `sun` pair is one piece, not two loose icons. **Hard rule: the icon shows the mode a tap leads to, not the mode you are in** — the moon with stars invites the Nocturno, the sun invites the Diurno. Only one visible at a time, in `regular` 20 px, among the bar's utilities (`PRO-014` section 6.2). Behavior canonized from production: while nobody chooses, the page **follows the operating system** and changes with it at nightfall; an explicit choice ends the following and is remembered; the preference is applied **before painting** so the page does not flash. The state is written on the document as `data-modo`, and its **absence means Nocturno** — light mode is always declared explicitly.
 
 ### 7.5 The book's icons [EXTENSION — validate]
 
@@ -648,7 +648,7 @@ In production, **self-hosted subset** (inline SVG or sprite), as the guide's own
 | `pixel/khepri-sprite-24.png` | Canonical scarab sprite | 24×24 px | Pixel register; the brand's only pixel translation |
 | `pixel/moneda-12.png` | Ámbar coin (corrected to the Solar ramp) | 12×12 px | The register's example object; tokens, rewards |
 | `pixel/moneda-giro-12x4.png` | The coin's turn sheet | 48×12 px · 4 frames | Canonical reference cycle: 200 ms · steps(4) · stable volume |
-| `pixel/cartografo-24.png` | The Cartographer | 24×24 px | Reference character of the §13.9 pipeline; status [EXTENSION — validate] |
+| `pixel/cartografo-24.png` | The Cartographer | 24×24 px | Reference character of the `PRO-014` section 6.9 pipeline; status [EXTENSION — validate] |
 | `pixel/guia/` | Didactic how-yes / how-no pairs | 16×16 px ×1 and ×8 | Production-guide material; not game assets |
 | `fonts/PixelifySans-Variable.woff2` | Pixel typeface | variable 400–700 | Dialogue and display of the pixel register |
 | `marca/glifo-space.svg` | *Space* glyph (the wordmark's n) | 31×29 | Brand play §8.5: the space, the territory |
@@ -698,7 +698,7 @@ All demonstrated live in `index.html`.
 
 | Type | Style | When |
 |---|---|---|
-| **Primary** | Action fill `#017C8D`, white text | The main action. **One per view**. On Platform, the primary is ink (§13.11) |
+| **Primary** | Action fill `#017C8D`, white text | The main action. **One per view**. On Platform, the primary is ink (`PRO-014` section 6.11) |
 | **Ghost** | Transparent, `linea.fuerte` border; hover border+text Verdemar | Secondary action |
 | **Quiet** | Verdemar text only, underline on hover | Tertiary action |
 | **Destructive** | Grana fill, white text | Irreversible. **Confirmation mandatory. Never next to the primary** |
@@ -737,7 +737,7 @@ The system's focus (`2 px` Turquesa, offset `2 px`) remains vectorial and visibl
 
 ### 9.9 The book's components [EXTENSION — audited in production]
 
-The codex's editorial carpentry. They live **inside the paper register** (§13.12) and do not replace the components of §9.1–9.5.
+The codex's editorial carpentry. They live **inside the paper register** (`PRO-014` section 6.12) and do not replace the components of §9.1–9.5.
 
 | Component | Construction | Usage rule |
 |---|---|---|
@@ -745,7 +745,7 @@ The codex's editorial carpentry. They live **inside the paper register** (§13.1
 | **Drop cap** | chapter's first letter in small caps at `4.4em`, floated, structure color | One per chapter and only in the first paragraph; removed in printable sheets |
 | **Reading box** | deep paper, 1 px border + 3 px solar edge on the left, radius `0 10px 10px 0`, `LECTURA` label riding the top border | Long quote, table rule or author's aside; in italics, secondary text |
 | **Plate** | `marco` frame, gap with diagonal hatching when the illustration does not yet exist, caption with description + technical sheet in Mono | The gap **is shown**, not disguised: a book under construction says so |
-| **Numbered table** | `caption` in Mono small caps («Tabla I · …»), header in structure, first column in italics, rows with hairline | The book's table is not the product's (§13.11): here reading rules, not density |
+| **Numbered table** | `caption` in Mono small caps («Tabla I · …»), header in structure, first column in italics, rows with hairline | The book's table is not the product's (`PRO-014` section 6.11): here reading rules, not density |
 | **Margin note** | 200–220 px side column from `1200 px`; below that, it drops to the paragraph's foot | **Never duplicated**: either margin or foot. Reference in Mono, superscript in interactive color |
 | **Fillet** | hexagonal glyph centered between two 96 px gradients | Separator of the book's sections; replaces the binary inside the paper |
 | **Umbral seal** | 100 px disc, structure border, halo `0 0 12px rgba(239,165,23,.25)` and inner radial gradient | The **only** use of the legendary halo outside rarity: it marks the session boundary, not an object |
@@ -809,7 +809,7 @@ The typing — the flagship — has a **double era heritage**: it is the 1920 ty
 | **10** | **Surfacing** — knowledge comes out of the fog [5.0.0] | `560 ms` · ciclo; opacity 0→1 + `blur(8px)→0` + 8 px rise; on entering the viewport, once | Velo register: archive, Summa, sheets upon opening, revelations | Functional interface; long lists (reveal 02 suffices); Diurno; corporate Umbral |
 | **11** | **Crystallization** — the glass materializes [5.0.0] | `320 ms` · ciclo; `backdrop-blur 0→12px` + border 0→50 % + opacity | Velo panels and modals (§9.8) | Outside the Velo; over backgrounds without atmosphere |
 | **12** | **Page turn** — **RETIRED in 5.1.0 (H5)** | 5.0.0 registered it "to be verified against the LAP"; verification came back empty: the codex does not animate the page turn — the only living thing in that view is the Trazo (13). The number is not reused (append-only catalogue); if someday the paper turns pages with animation, it will enter as a new piece with its own specs | — | — |
-| **13** | **Trazo** — the corners draw themselves [5.0.0 · in production] | `1.6 s` · ease · `stroke-dashoffset: 340 → 0`; four engraving frames staggered at `120 ms` | Book cover and chapter opening (§13.12) — it **is** that view's orchestrated moment | Interface; re-firing on scroll; alongside another orchestrated moment |
+| **13** | **Trazo** — the corners draw themselves [5.0.0 · in production] | `1.6 s` · ease · `stroke-dashoffset: 340 → 0`; four engraving frames staggered at `120 ms` | Book cover and chapter opening (`PRO-014` section 6.12) — it **is** that view's orchestrated moment | Interface; re-firing on scroll; alongside another orchestrated moment |
 | **14** | **Sky** — the Velo's background breathes [5.0.0 · in production] | Drift of `±0.06 px`/frame with reappearance on the opposite side + alpha oscillating between `.05` and `.85` at its own rhythm (`.002–.006`) | Background of the Velo register (§2.7.1) — **the only sanctioned exception** to the ambient-loop veto | Over long reading; with parallax; reacting to cursor or scroll |
 
 The first three 5.0.0 pieces (10–12) are **transitions, not loops** and **invent no durations**: they reuse `duration.largo` (560) and `duration.medio` (320). The **trazo** (13) arrives measured from production with its own `1.6 s` — it is the catalogue's only new duration, and it is justified because drawing four corners faster turns them into a blink. The **sky** (14) is the only sanctioned exception to §10.2's ambient-loop veto: it is authorized because it is the **register's background**, not a view's ornament — and that is why it reacts to nothing. The codex's **reading moon** is not a new animation: it is the lunar phase (06) demonstrated in production. 10–12 belong to the Velo register and the living paper; the 01–09 catalogue serves Umbral and Velo alike. The orchestrated moment remains **one per piece**. With `prefers-reduced-motion`, surfacing and crystallization appear instantly: opacity is kept, blur and displacement are removed.
@@ -974,183 +974,14 @@ const binaria = (frase, sed = 60) =>
 // binaria('Leave things better than we found them.')
 ```
 
-### 13.2 Web
+The remaining blueprints — web, presentation, document, event, product, 3D,
+email, pixel scene, deliverables, platform and living paper — are procedures,
+not obligations, and moved to `PRO-014` §6 on 2026-09-08. Second numbers are
+preserved: the seventh blueprint is still the seventh there.
 
-Nocturno, 12 col ≤1280 px, hero = the thesis with relief at the back and headline typing (the orchestrated moment); level II on home, I/III on inner pages; LCP < 2.5 s, < 1 MB initial; fonts and icons self-hosted.
-
-**Hero skeleton** (annotated; the piece's only orchestrated moment):
-
-```html
-<section class="hero"><!-- background: var(--fondo) url(assets/textura-relieve-nocturno-768.webp) center/cover -->
-  <div class="marca"><!-- isotipo del escarabajo 44px + wordmark 20px, ambos en var(--arena) --></div>
-  <h1 data-tecleo>La tesis en una frase, con <span style="color:var(--ambar)">una palabra</span> en Ámbar.</h1>
-  <p class="sub"><!-- cuerpo.l, texto-2, máx 56ch, nivel II --></p>
-  <a class="btn btn-primario" href="#"><!-- verbo exacto; ÚNICO primario de la vista --></a>
-  <div class="binaria" aria-hidden="true">0100110001100101…xxxx</div><!-- la frase del canon en 8 bits: §6.1 · binaria() del kit -->
-</section>
-```
-
-Following sections: `eyebrow` → `h2` → prose/cards with `.reveal`; at most one signal `barrido` per view.
-
-**The menu** (web and public platform): one-line top bar — wordmark on the left; **≤5 entries** in Mono `type.etiqueta` uppercase; utilities on the right (language, mode, GitHub/X) as Phosphor `regular` 20 px icons; active entry with a 2 px Ámbar underline; on mobile, a full-screen panel with the same entries and nothing else. The menu is skin, not architecture: which entries exist is each product's decision.
-
-### 13.3 Presentation
-
-1920×1080, Nocturno, 120 px margins; one idea per slide; max 4 cards; binary separators; closing = contact + steps + scarab. **Legacy guard:** the deck's display is **Geist 500** — the serif of earlier presentations (including the Presentación Numinia v0.6.0) is out-of-system legacy and MUST NOT be imitated when generating new slides.
-
-**Slide blueprints** (12-col grid; measures in canvas px):
-
-```
-PORTADA                                CONTENIDO + IMAGEN (el patrón de la casa)
-┌──────────────────────────────┐      ┌───────────────────────────────────────┐
-│         (retícula 6%)        │      │ EYEBROW MONO ÁMBAR        ┌──────────┐│
-│                              │      │ Título display.m          │ imagen   ││
-│        [wordmark]            │      │                           │ velo .72 ││
-│   Subtítulo cuerpo.l ámbar   │      │ Cuerpo cuerpo.m/l         │ [icono   ││
-│   Presentado por … texto-2   │      │ máx 58ch, texto-2         │  light   ││
-│                              │      │                           │  ≥48px]  ││
-└──────────────────────────────┘      └───────────────────────────┴──────────┘
-
-TARJETAS (máx. 4)                      CIERRE
-┌──────────────────────────────┐      ┌───────────────────────────────────────┐
-│ EYEBROW · Título display.m   │      │ EYEBROW pregunta · Título CTA         │
-│ Entradilla                   │      │ [personas: foto b/n + cargo + mono]   │
-│ ┌─────┐ ┌─────┐ ┌─────┐      │      │                                       │
-│ │icono│ │icono│ │icono│      │      │   Frase de marca con better en Ámbar  │
-│ │ h3  │ │ h3  │ │ h3  │      │      │            [escarabajo]               │
-│ └─────┘ └─────┘ └─────┘      │      └───────────────────────────────────────┘
-└──────────────────────────────┘
-```
-
-The image **always** carries the veil `rgba(20,17,15,.72)` as a minimum; the top-right ghost icon is Phosphor `light` in `texto-3` and MAY be omitted.
-
-### 13.4 Document and invoice
-
-Diurno, A4, level III, no texture; tabular Mono figures; footer `AAAA_MM · Confidencial`; the proposal closes with scope, total without VAT and three numbered steps. **Compact rhythm** [learned by producing]: on A4 the section rhythm is `s500` and the interior `s300–s400` — `s700` is screen rhythm and overflows the paper. An invoice MUST fit on one page; canonical template at `plantillas/2026_08_03-Plantilla_Factura-v1.0.0.html`, with the total as the only display figure in toasted Ámbar and `page-break-inside: avoid` on rows and footer.
-
-**Invoice block order** (the skeleton the template implements):
-
-```
-[wordmark 22px, tinta]……………………[«Factura» 19pt · nº en mono ámbar-texto]
-[EMISOR | CLIENTE]           ← dos columnas, borde superior 1px tinta
-[fecha · vencimiento · referencia]   ← banda en superficie FDF6EE
-[tabla: CONCEPTO (con detalle en 9pt) | CANT | PRECIO | IMPORTE]
-[base imponible / IVA / TOTAL]       ← derecha, 72mm; TOTAL única cifra display
-[forma de pago | IBAN]               ← banda en superficie
-[legal 8pt terciario]
-[escarabajo 26px]…………………………[id de documento en mono 8pt]
-```
-
-### 13.5 Physical event
-
-Credential in Diurno legible at 1.5 m; badges with name+symbol+color; signage legible at 10 m without depending on color; reusable supports, low-consumption inks.
-
-### 13.6 Product and interface
-
-Nocturno by default, level I, Turquesa for the interactive, Phosphor by weight (§7.1), rarity (§3.6) where objects and rewards exist.
-
-### 13.7 3D and metaverse
-
-Canonical normal map as PBR material (Three.js); Ámbar as warm key light, Turquesa as cold fill; objects carry their rarity in material + label, never emissive alone.
-
-### 13.8 Email
-
-Body in level I or III, plain text or minimal HTML; no decorative images. **Signature:** name in Sans 600 · role in tertiary · contact in Mono, each datum on its line; no logo as an attached image (the wordmark only if the email client supports it inline); a single link in color, the rest in ink.
-
-### 13.9 Production pipeline of a pixel scene [EXTENSION — validate]
-
-*The blueprint in one line:* Nocturno, level II; Píxel-16 index with neutral dominance ≥60 %; sprites on 24/12/48 grids with Noche outline; Pixelify at multiples; dialogue typed and colored by speaker; integer scaling with `pixelated`; the register is entered and left completely.
-
-1. **Declare function and level.** Write what the person must understand, discover or do; confirm that level II is justified.
-2. **Choose the grid.** Assign `12×12`, `24×24` and `48×48` modules before drawing. Inventory assets and states.
-3. **Mass thumbnail.** Compose background, play plane, foreground and focus with neutrals only. Verify the 40/40/20 dose by squinting.
-4. **Silhouettes.** Resolve characters and interactive objects in one color. Test direction, pose and hierarchy at ×1.
-5. **Values and light.** Add shadow, body and light from top-left; lock cast shadows before the details.
-6. **Assign ramps.** Choose ramps from §3.7.1, keep neutrals ≥60 % and reserve accents for function or story.
-7. **Build clusters.** Clean isolated pixels, regularize diagonals, apply selective outline and use dithering only where §3.7.2 allows it.
-8. **Add interface and text.** Integrate §9.6 components, AA contrast, visible focus and a reduced-motion alternative.
-9. **Animate from key poses.** Select 2–4 frames and a §10.4 cadence. Test the cycle at ×1 without smoothing.
-10. **Export and validate.** Export the master as indexed PNG; sprite sheets with uniform cells; check palette, transparency, integer scale, weight, names and absence of colors outside Píxel-16.
-
-### 13.10 Minimum deliverables [EXTENSION — validate]
-
-| Deliverable | Must contain |
-|---|---|
-| **Editable master** | indexed mode, ordered Píxel-16 palette, named layers or groups, labelled frames |
-| **Individual PNG** | native dimensions, binary transparency, no smoothing or rescaling |
-| **Sprite sheet** | uniform cells, same origin, documented sequence, no accidental margin between frames |
-| **Asset sheet** | function, grid, states, ramp, duration, anchor point, alt text if applicable |
-| **QA capture** | ×1 view and integer scale, real background, focus state and reduced-motion variant |
-
-**Exit criterion:** the asset is approved first at ×1. Magnification only demonstrates; it never rescues.
-
-### 13.11 Platform (web product) [CANON — direction decision]
-
-*The blueprint in one line:* Diurno by default with Nocturno toggle, level I, tool density, sidebar + content, data per §3.8 and figures in tabular Mono.
-
-**The direction decision — the Platform's primary is ink:** Noche over light, Arena over dark (16.1:1). The platform is a sober tool: the main action dresses in ink, and color stays for what informs — links and focus in turquesa-text, states with the semantic tints (§3.2), data with the §3.8 palette. The `#017C8D` fill (§9.1) remains the primary of the product-game and the web; here it would be brand noise over work. The living product already practiced it: it is canonized.
-
-**Skeleton:**
-
-```
-┌ sidebar 240px ────────┬─ contenido ────────────────────────────┐
-│ [wordmark 20px tinta] │  Título de vista (titulo.m)            │
-│ GRUPO (etiqueta)      │  pestañas: activa subrayado 2px Ámbar  │
-│ ○ Ítem  (fila 40px)   │  tarjetas en superficie + sombra §5    │
-│ ● Activo = píldora    │  tablas: cabecera etiqueta Ámbar,      │
-│   tinta/papel         │  cifras Mono tabular, filas 40px       │
-│ …                     │  [primario tinta]  [fantasma]          │
-│ [usuario · wallet]    │                                        │
-└───────────────────────┴────────────────────────────────────────┘
-```
-
-Rules: sidebar in `superficie`; items in secondary text with Phosphor `regular` 18 px icon; **active = ink pill with paper text** (`control` radius, the same piece in both modes); groups with `type.etiqueta`; density: rows 36–40 px, padding `s300/s400` (the platform is compact, marketing breathes); amounts and wallet addresses ALWAYS in Mono (truncated `0x42e6…cA26` with the full title); state empties with `light` icon 48 px + one level I sentence; rarity (§3.6) only in inventory and loot, never in billing. Migration of the living product: white → paper `#F9EBDC`/`#FDF6EE`, black → Noche `#14110F`; the structure is not touched.
-
-**The platform table (resolved, with sorting).** Header in `type.etiqueta` Ámbar (toasted in Diurno); sortable column = a button with a `bold` 12 px caret that appears on hover and stays fixed on the active column (label to primary text); `aria-sort` on the active `th`; figures in tabular Mono aligned right; 40 px rows, hover = one surface step (§10-04); selection by checkbox in the first column; state in a §9.2 pill; empty and error per §9.7. Demonstrated sorting live in the guide.
-
-### 13.12 The living paper — the codex's blueprint [EXTENSION — validate against the LAP]
-
-*The blueprint in one line:* Diurno by default (it is paper) with Nocturno toggle as real night reading; the third voice narrates the body (§4.6); the reading frame belongs to the Velo; the book can always be taken away.
-
-All long-reading paper (codex, book, digital editorial) uses these pieces, **verified in production** at `numinia.com/lap/codex`:
-
-```
-PORTADA                                CAPÍTULO
-┌──────────────────────────────┐      ┌───────────────────────────────────────┐
-│  [quien] presenta            │      │ ← título del capítulo →   ○ luna      │
-│  TÍTULO display (serif)      │      │ eyebrow de sección                    │
-│  subtítulo nivel II          │      │ Apertura literaria en cursiva (II)    │
-│  autores · edición · versión │      │ Cuerpo en la tercera voz (II/III),    │
-│  «↓ abre el códex»           │      │ enlaces de glosario en línea          │
-└──────────────────────────────┘      └───────────────────────────────────────┘
-
-ÍNDICE                                 CIERRE DE LIBRO
-┌──────────────────────────────┐      ┌───────────────────────────────────────┐
-│ I   Capítulo …    abierto    │      │ «El libro viaja libre»                │
-│ II  Capítulo …    tras el    │      │ [.md] [pdf] [epub]  ← siempre visible │
-│                    Umbral    │      │ Agradecimientos                       │
-│ ✦   Anexos        abierto    │      │ Colofón: «Compuesto en [voz] con el   │
-│                              │      │ Sistema · La fuente de verdad vive    │
-│                              │      │ en Git» · [escarabajo]                │
-└──────────────────────────────┘      └───────────────────────────────────────┘
-```
-
-**Rules of the living paper:**
-
-- **Frame and page are distinct registers.** The page (the paper) is Umbral-Diurno with the third voice; the **reading frame** (the LAP's bar, bookmark, A·A·A controls, switch) MAY live in Velo when the mode is Nocturno. The boundary is visible.
-- **The moon is the bookmark** (§10.1-06, waxing phases): reading progress is told in moon, from new to full — finishing is a full moon. The reading position is persisted.
-- **A · A · A:** the reading size belongs to the reader, not the designer — three steps over the type scale (§4.3), without breaking the grid.
-- **The access state is named in the world:** chapters `abierto` / `tras el Umbral` — the session boundary uses the canonical lexicon (§11), never "login required".
-- **"The book travels free" is a principle, not a feature:** the downloads (.md first — File Over App made interface —, Diurno pdf for printing, epub) are always one step away.
-- **The literary opening** in italics is the only level II inside a II/III body and does not blend with it.
-- **The colophon always signs:** typographic voice + System + "La fuente de verdad vive en Git" + scarab. The invoice's footer and the book's colophon are the same idea on two papers.
-- **The book has its own switch**, independent from the rest of the platform: someone can read at night without turning off the whole city. The book's Nocturno is dark paper (`#14110F` / `#1E1A17`) with the grain at half intensity, not the product Nocturno.
-- **The book's inks** [5.1.0 · H1]: the system's tertiary text (`#6E6259`/`#8A7D72`) sits at 3.7:1 over the codex's paper — below AA. Inside the paper register, the tertiary is `#75695E` (Diurno) and `#97897D` (Nocturno) — token `papel.tinta-terciaria`, verified in production. Outside the paper, the system's inks stay intact.
-- **The editions are blueprint, not courtesy** [5.1.0 · H4]: the **pdf** is produced by printing the site's CSS (`@media print`, A4 — the full codex prints like a real book, ~413 pages); the **printable sheet** ships without the action bar or controls (paper carries no buttons); the **epub** keeps the glossary links. No edition is generated with a separate typesetter: the source is one, the CSS is the same.
-- **The editorial pieces** (drop cap, reading box, plate, numbered table, margin note, fillet, seal, glossary, downloads, colophon, rating gears, Narrator) are specified in §9.9; the book's icons, in §7.5; the grain, in §6.5.
-- **The invoice inherits none of it** (§13.4): administrative paper remains pure Geist, one page, total in toasted Ámbar; neither third voice nor Velo frame.
-
----
+The kit above stays because it is not a recipe: `scripts/generate-design-kit.mjs`
+reads these very blocks to build the published kit, and the standard is the
+source of that artifact.
 
 ## 14. References and credits
 
@@ -1180,7 +1011,7 @@ PORTADA                                CAPÍTULO
 
 ## 16. What is missing · roadmap [EXTENSION]
 
-1. **Photography and illustration direction** — germinated in §6.3 with the three era patinas; it still needs validating with six real photographs and fixing framing and what not to photograph. 2. **Figma library** with Variables synced to the DTCG. 3. **Master templates** (deck, A4, proposal). 4. **`@numen/sistema-css`** on npm, CC0. 5. **Application set** (favicon, app icons, OG, social, email signature). 6. **Full 3D material** (albedo, roughness, AO + lighting guide). 7. **Sprite library** — the production guide already defines grammar, ramps, clusters, components, animation, export and QA; missing are the working set and its editable masters (24 px characters with 2–4-frame cycles, 12 px objects, 48 px scene modules), **naming the production guide inside the lore** (proposal on the table: «La Escuela del Píxel») **and fixing which Oracle signs the validation of canonical sprites** — without an owner, §2.4's closed exception cannot close. 8. **Recorded motion library** (the §10 catalogue already specifies; reference captures per medium are missing). 9. **Versioned glossary/lore**. 10. **Sound identity** (sound logo, interface SFX and their pixel variant — the typing asks for its click —, silence rule). 11. **Six-monthly audit process**. 12. **Platform theme** (shadcn/Tailwind mapped to the System's tokens) — the living store converges by neutral substitution: white→paper, black→ink; the store's low-poly assets validate the §2.6 budget; the controls, the modal, the pagination and the bar are already specified (§9.8) and the table resolved (§13.11); only the packaging remains. 13. **Editorial blueprints** (comic and book): page, gutter, balloon and lettering for the comic; type box, folio and drop cap for the book — today they inherit from §2.4/§6.3/§13.4, they lack their own blueprint. 14. **Print equivalences** (Pantone/CMYK for Ámbar, Turquesa and Arena): the physical event matches inks, not screens — a badly matched backdrop is the most expensive color error. 15. **Velo validation** — grid/relief coexistence with real pieces; packaging of the **`velo.tokens.json` theme** for the NWOS mould (§2.8.2); consecration of the third voice and of the renaming's scope by an Oracle. *(Resolved in 5.1.0: Alegreya self-hosted whole with its OFL in the kit; the page turn had no specs to extract — retired, §10.1-12.)* 16. ~~**Sky recoloring** (§2.7.1)~~ **RESOLVED** (2026-08-18, MIS-092): numinia.org's sky uses the §3.6 scale and the site's palette migrated whole to the published tokens — zero out-of-system hexes in its code.
+1. **Photography and illustration direction** — germinated in §6.3 with the three era patinas; it still needs validating with six real photographs and fixing framing and what not to photograph. 2. **Figma library** with Variables synced to the DTCG. 3. **Master templates** (deck, A4, proposal). 4. **`@numen/sistema-css`** on npm, CC0. 5. **Application set** (favicon, app icons, OG, social, email signature). 6. **Full 3D material** (albedo, roughness, AO + lighting guide). 7. **Sprite library** — the production guide already defines grammar, ramps, clusters, components, animation, export and QA; missing are the working set and its editable masters (24 px characters with 2–4-frame cycles, 12 px objects, 48 px scene modules), **naming the production guide inside the lore** (proposal on the table: «La Escuela del Píxel») **and fixing which Oracle signs the validation of canonical sprites** — without an owner, §2.4's closed exception cannot close. 8. **Recorded motion library** (the §10 catalogue already specifies; reference captures per medium are missing). 9. **Versioned glossary/lore**. 10. **Sound identity** (sound logo, interface SFX and their pixel variant — the typing asks for its click —, silence rule). 11. **Six-monthly audit process**. 12. **Platform theme** (shadcn/Tailwind mapped to the System's tokens) — the living store converges by neutral substitution: white→paper, black→ink; the store's low-poly assets validate the §2.6 budget; the controls, the modal, the pagination and the bar are already specified (§9.8) and the table resolved (`PRO-014` section 6.11); only the packaging remains. 13. **Editorial blueprints** (comic and book): page, gutter, balloon and lettering for the comic; type box, folio and drop cap for the book — today they inherit from §2.4/§6.3/`PRO-014` section 6.4, they lack their own blueprint. 14. **Print equivalences** (Pantone/CMYK for Ámbar, Turquesa and Arena): the physical event matches inks, not screens — a badly matched backdrop is the most expensive color error. 15. **Velo validation** — grid/relief coexistence with real pieces; packaging of the **`velo.tokens.json` theme** for the NWOS mould (§2.8.2); consecration of the third voice and of the renaming's scope by an Oracle. *(Resolved in 5.1.0: Alegreya self-hosted whole with its OFL in the kit; the page turn had no specs to extract — retired, §10.1-12.)* 16. ~~**Sky recoloring** (§2.7.1)~~ **RESOLVED** (2026-08-18, MIS-092): numinia.org's sky uses the §3.6 scale and the site's palette migrated whole to the published tokens — zero out-of-system hexes in its code.
 
 ---
 

@@ -893,6 +893,25 @@ references now resolve. The baseline did not grow.
 glossary holds three definitions and thirty-nine sections of registration law,
 and 82 section citations make renaming it a migration rather than an edit.
 
+### The recipes were procedure filed inside a standard
+
+`STD-008` held eleven blueprints — web, presentation, document, event, product,
+3D, email, pixel scene, deliverables, platform, living paper — under a section
+called *Application recipes*. Each is a worked example with a skeleton and a
+production order. That is how, not what: protocol, not standard.
+
+They moved to `PRO-014`, which already held the algorithm that consumed them
+and already cited them. Second numbers are preserved.
+
+The starter kit did not move. `scripts/generate-design-kit.mjs` reads those
+exact blocks to build the kit published at `web/public/diseno/kit/`, so the
+standard is the source of a real artifact there, not a recipe for one. Verified
+by running the generator after the cut.
+
+The design system standard falls from 17,767 to 15,747 words. It is still 39%
+of the series, and the two heavy sections that remain — creative direction at
+3,683 words and colour at 1,647 — are direction decisions, not procedures.
+
 ## Out of scope
 
 - **Deleting reference material.** Length is not the defect.
