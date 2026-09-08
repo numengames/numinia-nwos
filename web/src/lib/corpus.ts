@@ -233,6 +233,7 @@ const READING_ORDER: Record<string, string[]> = {
     "/corpus/standards/std-014-publishing-gates",
     "/corpus/standards/std-013-licence-allowlist-and-fields",
     "/corpus/standards/std-011-external-standards",
+    "/corpus/standards/std-012-corpus-does-not-grow",
   ],
 
   // One working day, in order: you sit down → you take a mission → you need a

@@ -1545,10 +1545,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 6555,
+  "chars": 4454,
   "apparatus": false,
   "archived": false,
-  "tokens": 1752
+  "tokens": 1219
  },
  {
   "path": "standards/STD-013-licence-allowlist-and-fields.md",
