@@ -102,7 +102,12 @@ function render(latest) {
       // historical paths would read as broken links to check-references.
       if (Array.isArray(f.value)) { lines.push(`### \`${k}\``, '', `${f.value.length} rows (${f.unit}) — in \`latest.json\`.`, ''); continue; }
       lines.push(`### \`${k}\``, '');
-      const v = f.value; const first = Object.values(v)[0];
+      const v = f.value;
+      // A null or empty table is a legitimate figure — zero findings, or a
+      // measurer with nothing to say for this tree. Render it as such instead
+      // of throwing on Object.values(null).
+      if (v === null || v === undefined || Object.keys(v).length === 0) { lines.push(`(none — 0 rows)`, ''); continue; }
+      const first = Object.values(v)[0];
       if (typeof first === 'object' && first !== null) {
         const cols = Object.keys(first);
         lines.push(`| | ${cols.join(' | ')} |`, `|---|${cols.map(() => '---').join('|')}|`);
