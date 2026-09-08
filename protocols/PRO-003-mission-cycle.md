@@ -4,11 +4,11 @@ uid: ""
 title: "Mission Protocol — briefing, cycle, coordination"
 type: protocol
 status: active
-version: "4.4.0"
+version: "4.5.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-08T13:48:37Z"
+updated: "2026-09-08T18:10:00Z"
 author: "nimrod"
 owner: "oracle"
 tags: [protocol, missions, cycle, briefing, coordination]
@@ -75,8 +75,8 @@ todo → in-progress → in-review → done → (ADR-030 four tests) → deleted
               ↑___________|  (Oracle requests changes)
 
 frozen ←— from any non-terminal state (Oracle decision)
-  ↓
-todo — when unfrozen
+  ↓                ↘
+todo — when unfrozen   (ADR-030 four tests, resolution recorded) → deleted
 ```
 
 | State | Who sets it | Stamp |
@@ -89,16 +89,20 @@ todo — when unfrozen
 
 Five values, and the vocabulary is closed. A brief the Oracle has not accepted
 is not on the board, and a cancelled mission is `frozen` with
-`freeze_reason: cancelled` — never deleted. The file is the record.
+`freeze_reason: cancelled`. The file is the record until a living document
+carries that record instead.
 
 **A `done` mission may be deleted** — `ADR-030`'s four-test process
 (no live citations, no unredirected public URL, a written resolution,
 the folder's `open` threshold met), the same one every other document
 type already answers to. `PRO-010` §5 governs the mechanics; `ADR-040`
-closes the gap this protocol left open. This is not symmetric with
-`frozen`: a cancelled mission has no successor document to carry its
-resolution into and can never pass test 3 the same way, so it stays
-permanent.
+closes the gap this protocol left open.
+
+**A `frozen` mission may be deleted too** — same four tests. Test 3 is met
+when a living document records the identifier, the title and the
+`freeze_reason` (the decision *against*, or the trigger that would reopen
+it), so the fact that the question was asked survives the card. `ADR-040`
+v1.1.0, Oracle instruction 2026-09-08.
 
 **Mission identifiers** are `MIS-NNNN`, four digits, zero-padded in the
 filename; the `id` field keeps the number as it was registered. A sub-mission
@@ -146,7 +150,8 @@ reason.
 - A `done` mission may be deleted, never edited — `ADR-030`'s four tests,
   cited in the commit that removes it.
 - Only the executor edits a mission in progress.
-- A cancelled mission keeps its file, `frozen` with the reason. Never deleted.
+- A `frozen` mission may be deleted once its reason is recorded in a living
+  document — `ADR-030`'s four tests, cited in the commit that removes it.
 - Never assign an identifier without verifying the repository first.
 - A parent mission cannot be done while a sub-mission is neither done nor
   frozen-cancelled.

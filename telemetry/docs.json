@@ -830,10 +830,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 6373,
+  "chars": 7912,
   "apparatus": false,
   "archived": false,
-  "tokens": 1719
+  "tokens": 2140
  },
  {
   "path": "guilds/alquimistas/GLD-001-charter.md",
@@ -1023,83 +1023,6 @@
   "tokens": 1115
  },
  {
-  "path": "missions/MIS-0001-numinia-mvp-definition.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 2271,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 643
- },
- {
-  "path": "missions/MIS-0002-user-map-who-pays.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 2597,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 765
- },
- {
-  "path": "missions/MIS-0003-numinia-navigable-prototype.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 1941,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 566
- },
- {
-  "path": "missions/MIS-0004-monetization-model.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 2437,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 698
- },
- {
-  "path": "missions/MIS-0005-numinia-landing-page.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 2036,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 581
- },
- {
-  "path": "missions/MIS-0006-session-experience-architecture.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 2018,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 560
- },
- {
-  "path": "missions/MIS-0007-calcom-onboarding-integration.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 2533,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 714
- },
- {
   "path": "missions/MIS-0008-north-star-metrics.md",
   "dir": "missions",
   "series": "missions",
@@ -1111,72 +1034,6 @@
   "tokens": 588
  },
  {
-  "path": "missions/MIS-0009-closed-pilot-5-users.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 2450,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 669
- },
- {
-  "path": "missions/MIS-0012-numengames-cicd.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 2000,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 537
- },
- {
-  "path": "missions/MIS-0013-monitoring-alerts-system.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 1916,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 516
- },
- {
-  "path": "missions/MIS-0014-umami-numengames.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 1910,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 532
- },
- {
-  "path": "missions/MIS-0015-document-tech-stack.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 2347,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 658
- },
- {
-  "path": "missions/MIS-0017-b2b-prospecting-pipeline.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 2577,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 739
- },
- {
   "path": "missions/MIS-0018-commercial-value-proposition.md",
   "dir": "missions",
   "series": "missions",
@@ -1186,28 +1043,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 614
- },
- {
-  "path": "missions/MIS-0019-outreach-20-prospects.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 2348,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 684
- },
- {
-  "path": "missions/MIS-0020-demo-pitch-deck.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 1898,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 530
  },
  {
   "path": "missions/MIS-0021-pricing-packages.md",
@@ -1232,39 +1067,6 @@
   "tokens": 561
  },
  {
-  "path": "missions/MIS-0023-initial-case-study.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 2294,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 627
- },
- {
-  "path": "missions/MIS-0024-post-call-follow-up-system.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 2207,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 613
- },
- {
-  "path": "missions/MIS-0025-30day-content-strategy.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 1942,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 541
- },
- {
   "path": "missions/MIS-0026-twitter-activation.md",
   "dir": "missions",
   "series": "missions",
@@ -1274,50 +1076,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 586
- },
- {
-  "path": "missions/MIS-0028-newsletter-mailing-list.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 2233,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 621
- },
- {
-  "path": "missions/MIS-0029-discord-telegram-community.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 2422,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 663
- },
- {
-  "path": "missions/MIS-0030-behind-numen-thread.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 2310,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 638
- },
- {
-  "path": "missions/MIS-0031-arbitrum-grant-review.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 2660,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 719
  },
  {
   "path": "missions/MIS-0032-ethereum-foundation-esp.md",
@@ -1331,28 +1089,6 @@
   "tokens": 565
  },
  {
-  "path": "missions/MIS-0033-sponsors-web3-gaming.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 2362,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 651
- },
- {
-  "path": "missions/MIS-0034-investor-deck.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 2311,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 647
- },
- {
   "path": "missions/MIS-0035-grants-funding-crm.md",
   "dir": "missions",
   "series": "missions",
@@ -1362,28 +1098,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 533
- },
- {
-  "path": "missions/MIS-0036-q2-funding-strategy-memo.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 1854,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 524
- },
- {
-  "path": "missions/MIS-0040-cao-kpi-dashboard.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 2446,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 699
  },
  {
   "path": "missions/MIS-0043-rpg-manual-reading.md",
@@ -1397,17 +1111,6 @@
   "tokens": 851
  },
  {
-  "path": "missions/MIS-0046-numengames-repo-readmes.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 2498,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 714
- },
- {
   "path": "missions/MIS-0048-agent-cost-tracking.md",
   "dir": "missions",
   "series": "missions",
@@ -1417,17 +1120,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 717
- },
- {
-  "path": "missions/MIS-0049-dora-metrics.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 2170,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 610
  },
  {
   "path": "missions/MIS-0050-backlog-review-ritual.md",
@@ -1441,28 +1133,6 @@
   "tokens": 662
  },
  {
-  "path": "missions/MIS-0052-pc-onpremises-ubuntu.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 3690,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1092
- },
- {
-  "path": "missions/MIS-0054-multi-oracle-telegram-access.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 4037,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1108
- },
- {
   "path": "missions/MIS-0055-dual-nomenclature-system.md",
   "dir": "missions",
   "series": "missions",
@@ -1472,39 +1142,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2261
- },
- {
-  "path": "missions/MIS-0061-nwos-web-system.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 7065,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1780
- },
- {
-  "path": "missions/MIS-0067-inspections-system-iso-15489.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 4822,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1301
- },
- {
-  "path": "missions/MIS-0068-nwos-propagation-drift-guard.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 8187,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2168
  },
  {
   "path": "missions/MIS-0069-github-independent-continuity.md",
@@ -1538,39 +1175,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2547
- },
- {
-  "path": "missions/MIS-0074-web-progressive-identity.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 7675,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2014
- },
- {
-  "path": "missions/MIS-0077-web-data-dignity.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 5816,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1552
- },
- {
-  "path": "missions/MIS-0084-store-seo-migration.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 7518,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1802
  },
  {
   "path": "missions/MIS-0085-web-codex-reader-lap.md",
@@ -1661,17 +1265,6 @@
   "tokens": 1533
  },
  {
-  "path": "missions/MIS-0106-the-mould-carries-a-retired-name.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 7277,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1919
- },
- {
   "path": "missions/MIS-0107-numen-games-speaks-spanish.md",
   "dir": "missions",
   "series": "missions",
@@ -1681,17 +1274,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1473
- },
- {
-  "path": "missions/MIS-0108-offer-the-mould-its-provenance.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "frozen",
-  "chars": 6202,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1660
  },
  {
   "path": "missions/MIS-0112-home-from-readme.md",
@@ -2007,10 +1589,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 7265,
+  "chars": 7596,
   "apparatus": false,
   "archived": false,
-  "tokens": 1737
+  "tokens": 1829
  },
  {
   "path": "protocols/PRO-005-escalation.md",
@@ -2117,10 +1699,10 @@
   "series": "reports",
   "type": "report",
   "status": "active",
-  "chars": 21907,
+  "chars": 29679,
   "apparatus": false,
   "archived": false,
-  "tokens": 6772
+  "tokens": 9102
  },
  {
   "path": "standards/STD-001-glossary.md",

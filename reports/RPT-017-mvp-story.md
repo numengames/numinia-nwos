@@ -5,11 +5,11 @@ title: "The MVP story: sixty-six missions, five arcs, one road still open to Alp
 type: report
 subtype: analysis
 status: active
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-09-08T10:27:15Z"
 created_source: "git:59f5cfa"
 created_confidence: exact
-updated: "2026-09-08T17:30:00Z"
+updated: "2026-09-08T18:10:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -17,8 +17,8 @@ tags: [mvp, narrative, missions, alpha, reset, compression]
 license: "CC-BY-4.0"
 visibility: "public"
 scope: "What `missions/` shows as `done` at the measured commit, compressed into a narrative; not an audit of quality or of what remains."
-related: ["MIS-0001", "MIS-127", "MIS-146", "ADR-005", "ADR-030", "ADR-040"]
-absorbs: ["MIS-027", "MIS-0027", "MIS-053", "MIS-0053", "MIS-058", "MIS-0058", "MIS-064", "MIS-0064", "MIS-078", "MIS-0078", "MIS-079", "MIS-0079", "MIS-080", "MIS-0080", "MIS-081", "MIS-0081", "MIS-082", "MIS-0082", "MIS-083", "MIS-0083", "MIS-087", "MIS-0087", "MIS-088", "MIS-0088", "MIS-110", "MIS-0110", "MIS-126", "MIS-0126", "MIS-130", "MIS-0130", "MIS-133", "MIS-0133", "MIS-010", "MIS-0010", "MIS-011", "MIS-0011", "MIS-016", "MIS-0016", "MIS-037", "MIS-0037", "MIS-038", "MIS-0038", "MIS-039", "MIS-0039", "MIS-041", "MIS-0041", "MIS-042", "MIS-0042", "MIS-044", "MIS-0044", "MIS-045", "MIS-0045", "MIS-047", "MIS-0047", "MIS-051", "MIS-0051", "MIS-056", "MIS-0056", "MIS-057", "MIS-0057", "MIS-059", "MIS-0059", "MIS-060", "MIS-0060", "MIS-062", "MIS-0062", "MIS-063", "MIS-0063", "MIS-065", "MIS-0065", "MIS-066", "MIS-0066", "MIS-072", "MIS-0072", "MIS-073", "MIS-0073", "MIS-075", "MIS-0075", "MIS-076", "MIS-0076", "MIS-086", "MIS-0086", "MIS-089", "MIS-0089", "MIS-090", "MIS-0090", "MIS-091", "MIS-0091", "MIS-092", "MIS-0092", "MIS-093", "MIS-0093", "MIS-094", "MIS-0094", "MIS-105", "MIS-0105", "MIS-109", "MIS-0109", "MIS-111", "MIS-0111", "MIS-114", "MIS-0114", "MIS-115", "MIS-0115", "MIS-116", "MIS-0116", "MIS-117", "MIS-0117", "MIS-118", "MIS-0118", "MIS-119", "MIS-0119", "MIS-120", "MIS-0120", "MIS-122", "MIS-0122", "MIS-125", "MIS-0125", "MIS-128", "MIS-0128", "MIS-129", "MIS-0129", "MIS-132", "MIS-0132", "MIS-136", "MIS-0136", "MIS-137", "MIS-0137", "MIS-139", "MIS-0139", "MIS-140", "MIS-0140", "MIS-143", "MIS-0143", "MIS-144", "MIS-0144", "MIS-145", "MIS-0145", "MIS-147", "MIS-0147"]
+related: ["MIS-127", "MIS-146", "ADR-005", "ADR-030", "ADR-040", "PRO-003"]
+absorbs: ["MIS-027", "MIS-0027", "MIS-053", "MIS-0053", "MIS-058", "MIS-0058", "MIS-064", "MIS-0064", "MIS-078", "MIS-0078", "MIS-079", "MIS-0079", "MIS-080", "MIS-0080", "MIS-081", "MIS-0081", "MIS-082", "MIS-0082", "MIS-083", "MIS-0083", "MIS-087", "MIS-0087", "MIS-088", "MIS-0088", "MIS-110", "MIS-0110", "MIS-126", "MIS-0126", "MIS-130", "MIS-0130", "MIS-133", "MIS-0133", "MIS-010", "MIS-0010", "MIS-011", "MIS-0011", "MIS-016", "MIS-0016", "MIS-037", "MIS-0037", "MIS-038", "MIS-0038", "MIS-039", "MIS-0039", "MIS-041", "MIS-0041", "MIS-042", "MIS-0042", "MIS-044", "MIS-0044", "MIS-045", "MIS-0045", "MIS-047", "MIS-0047", "MIS-051", "MIS-0051", "MIS-056", "MIS-0056", "MIS-057", "MIS-0057", "MIS-059", "MIS-0059", "MIS-060", "MIS-0060", "MIS-062", "MIS-0062", "MIS-063", "MIS-0063", "MIS-065", "MIS-0065", "MIS-066", "MIS-0066", "MIS-072", "MIS-0072", "MIS-073", "MIS-0073", "MIS-075", "MIS-0075", "MIS-076", "MIS-0076", "MIS-086", "MIS-0086", "MIS-089", "MIS-0089", "MIS-090", "MIS-0090", "MIS-091", "MIS-0091", "MIS-092", "MIS-0092", "MIS-093", "MIS-0093", "MIS-094", "MIS-0094", "MIS-105", "MIS-0105", "MIS-109", "MIS-0109", "MIS-111", "MIS-0111", "MIS-114", "MIS-0114", "MIS-115", "MIS-0115", "MIS-116", "MIS-0116", "MIS-117", "MIS-0117", "MIS-118", "MIS-0118", "MIS-119", "MIS-0119", "MIS-120", "MIS-0120", "MIS-122", "MIS-0122", "MIS-125", "MIS-0125", "MIS-128", "MIS-0128", "MIS-129", "MIS-0129", "MIS-132", "MIS-0132", "MIS-136", "MIS-0136", "MIS-137", "MIS-0137", "MIS-139", "MIS-0139", "MIS-140", "MIS-0140", "MIS-143", "MIS-0143", "MIS-144", "MIS-0144", "MIS-145", "MIS-0145", "MIS-147", "MIS-0147", "MIS-001", "MIS-0001", "MIS-002", "MIS-0002", "MIS-003", "MIS-0003", "MIS-004", "MIS-0004", "MIS-005", "MIS-0005", "MIS-006", "MIS-0006", "MIS-007", "MIS-0007", "MIS-009", "MIS-0009", "MIS-012", "MIS-0012", "MIS-013", "MIS-0013", "MIS-014", "MIS-0014", "MIS-015", "MIS-0015", "MIS-017", "MIS-0017", "MIS-019", "MIS-0019", "MIS-020", "MIS-0020", "MIS-023", "MIS-0023", "MIS-024", "MIS-0024", "MIS-025", "MIS-0025", "MIS-028", "MIS-0028", "MIS-029", "MIS-0029", "MIS-030", "MIS-0030", "MIS-031", "MIS-0031", "MIS-033", "MIS-0033", "MIS-034", "MIS-0034", "MIS-036", "MIS-0036", "MIS-040", "MIS-0040", "MIS-046", "MIS-0046", "MIS-049", "MIS-0049", "MIS-052", "MIS-0052", "MIS-054", "MIS-0054", "MIS-061", "MIS-0061", "MIS-067", "MIS-0067", "MIS-068", "MIS-0068", "MIS-074", "MIS-0074", "MIS-077", "MIS-0077", "MIS-084", "MIS-0084", "MIS-106", "MIS-0106", "MIS-108", "MIS-0108"]
 ---
 
 # The MVP story: sixty-six missions, five arcs, one road still open to Alpha
@@ -328,6 +328,100 @@ unchanged.
 
 ---
 
+## 2026-09-08 — The frozen shelf goes too: 38 missions that were decided against, or never got started
+
+Dated addition, v0.3.0. Nothing above is rewritten.
+
+**What was done.** On the Oracle's instruction, the 38 `status: frozen`
+missions were deleted in the PR that carries this note. `missions/` goes
+from 79 to 41; `frozen` goes to 0. What remains is live work only: `todo`,
+`in-progress`, `in-review`. Their identifiers join this report's `absorbs:`
+and their addresses 301 here, as with the `done` batches. Bodies remain in
+git history at `3a71b0b`.
+
+**Why this needed a rule change.** `PRO-003` §2 said of a cancelled
+mission: *"keeps its file, `frozen` with the reason. Never deleted."*
+`ADR-040` deliberately left that standing — a cancelled mission has no
+successor document to carry its resolution into. This section *is* that
+document: the record of what was decided against, and why, survives here
+in one table instead of thirty-eight files. `PRO-003` is amended in the
+same PR (`ADR-040` v1.1.0, dated note) so the protocol and the tree agree.
+
+**The 22 cancelled — the plan that did not ship.** Every one carries
+`freeze_reason: cancelled`; all but three were written on 2026-04-07, the
+day the company drafted its first commercial plan. They are the MVP that
+was planned and replaced by the one that was built (see *What this story
+leaves out*, above): the one-page MVP definition, the paying-user map, the
+navigable prototype, monetisation v1, a landing page with lead capture, a
+Cal.com onboarding, a 5-user pilot, a pitch deck, a content strategy, a
+funding memo. On the infrastructure side: CI/CD, monitoring, Umami, a
+stack document — replaced by the archive-first line Arc 2 to 4 describe.
+Nothing here is a loss the Alpha needs to recover; it is the record that
+the question was asked and answered *no*.
+
+| ID | Territory | Title |
+|---|---|---|
+| MIS-001 | Product | Define the Numinia MVP in one page |
+| MIS-002 | Product | User map: who pays and why |
+| MIS-003 | Product | Navigable Numinia prototype |
+| MIS-004 | Product | Define monetization model v1 |
+| MIS-005 | Product | Numinia landing page with lead capture |
+| MIS-006 | Product | Experience architecture: Numinia session |
+| MIS-007 | Product | Integrate Cal.com into Numinia onboarding |
+| MIS-009 | Product | Closed pilot with 5 beta users |
+| MIS-012 | Infrastructure | Set up CI/CD pipeline for numengames.com |
+| MIS-013 | Infrastructure | Monitoring and alerts system |
+| MIS-014 | Infrastructure | Install Umami on numengames.com |
+| MIS-015 | Infrastructure | Document Numinia's tech stack |
+| MIS-020 | Sales | Interactive Demo / Pitch Deck |
+| MIS-024 | Sales | Post-call follow-up system |
+| MIS-025 | Content | 30-day content strategy |
+| MIS-030 | Content | Weekly \ |
+| MIS-036 | Funding | Memo: Q2 2026 funding strategy |
+| MIS-046 | TBA | READMEs for numengames org repos |
+| MIS-049 | TBA | DORA Metrics for numengames-web |
+| MIS-054 | CAO | Multi-Oracle access to Nimrod via Telegram |
+| MIS-061 | Product | El Sistema — NWOS Web Visualization at pablofm.com/sistema |
+| MIS-067 | CAO | Inspections System — document type, directory and first ISO 15489 inspection |
+
+**The 16 parked — blocked on something the repository does not hold.**
+These were not decided against. Each was frozen because its next step
+lived outside this repo: a Sales owner the Oracle has not named (`MIS-017`,
+`MIS-019`, `MIS-023`), a channel decision never written (`MIS-028`,
+`MIS-029`), a grant cycle that passed (`MIS-031`), a sponsor or funding
+model never decided (`MIS-033`, `MIS-034`), a dashboard target that was
+retired (`MIS-040`), hardware in transit (`MIS-052`), numinia-web work on
+the wrong shelf or copy the Oracle has not written (`MIS-074`, `MIS-077`),
+a domain renewal date (`MIS-084`), an external repository and a CAN-005
+ruling (`MIS-106`, `MIS-108`), and one folded into `MIS-096` (`MIS-068`).
+The trigger for each is recorded in the table so that, if the Alpha meets
+it, the question can be re-opened as a new mission — not by restoring the
+card.
+
+| ID | Territory | Title | Freeze reason |
+|---|---|---|---|
+| MIS-017 | Sales | B2B Prospecting Pipeline (50 leads) | no owner and no live Sales channel; unfreeze when the Oracle names one |
+| MIS-019 | Sales | Sequential outreach to 20 prospects | waits on MIS-017 having an owner; a 3-touch sequence with no prospect list is not executable |
+| MIS-023 | Sales | Initial Case Study | no client case exists yet; unfreeze when one does |
+| MIS-028 | Content | Founding Newsletter / Mailing list | no owner and no channel decision recorded; same family as MIS-005 |
+| MIS-029 | Content | Community on Discord or Telegram | its own criterion 1 asks for a community-channel DEC that was never written; unfreeze when it is |
+| MIS-031 | Funding | Final review of the Arbitrum grant | wallet address never provided and the grant cycle passed; the Oracle decides whether the grant is still pursued |
+| MIS-033 | Funding | Identify 10 Web3/Gaming sponsors | no owner, no citer, no channel; the sponsor model was never decided |
+| MIS-034 | Funding | Angel investor deck v1.0 | no funding round open; same ruling as MIS-020 |
+| MIS-040 | CAO | CAO dashboard: KPI definition | targets the retired pablofm.com dashboard; re-brief against numinia.org/missions (which already shows mission KPIs) to unfreeze |
+| MIS-052 | Infrastructure | On-premises infrastructure — Dedicated PC | waiting on hardware delivery — the PC in transit; unfreeze when it exists |
+| MIS-068 | CAO | NWOS propagation: consumer repos never drift from the source of truth | folded into MIS-096 on 2026-09-02: its two surviving criteria (inventory of propagating artefacts; reporting guard) moved there; this file stays as the diagnosis record |
+| MIS-074 | Platform | Progressive identity (Web2→Web3) for numinia.com | numinia-web work (Session Zero ranks) parked on the wrong shelf; nothing executable from numinia-nwos |
+| MIS-077 | Platform | Data dignity: Numinia vs today's internet | numinia-web copy the Oracle has not written; nothing an agent of this repo can start |
+| MIS-084 | Platform | numinia.store → numinia.com: SEO migration and legacy shutdown | parked by Oracle order 2026-08-16; the numinia.store renewal date is the trigger |
+| MIS-106 | TBA | The mould carries a retired name: the template still calls the system Khepri | blocked on an external repository and an Oracle ruling (CAN-005 §7 on the name) |
+| MIS-108 | TBA | Offer the mould its own provenance: the template still calls itself the source | blocked with MIS-106 — same external repository, same ruling |
+
+**Measured at:** `3a71b0b` before the deletion. `missions/` 79 → 41;
+`frozen` 38 → 0; `todo` 32, `in-progress` 7, `in-review` 2 unchanged.
+
+---
+
 ## Version history
 
 - v0.1.0 (2026-09-08) — First publication. 66 `done` missions at `59f5cfa`
@@ -335,3 +429,5 @@ unchanged.
 - v0.2.0 (2026-09-08) — The reset lands: all 70 `done` missions deleted (#286
   + this PR); their identifiers absorbed here; three false closures from #284
   recorded as claimed-not-delivered.
+- v0.3.0 (2026-09-08) — The frozen shelf deleted: 22 cancelled, 16 parked,
+  each recorded here with its reason; PRO-003 amended via ADR-040 v1.1.0.
