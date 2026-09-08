@@ -139,7 +139,7 @@ Records written before 2026-08-25 cite `S-` numbers; records written between
 | `S-003` | — | `CAN-006` | Epistemic Relations. Held `S-003` until the 2026-08-25 collision with `standards/STD-003` |
 | `S-004` | `C-003` | `CAN-003` | Compendium of Attributes and Ranks |
 | `S-005` | `C-004` | `CAN-004` | Role Structure |
-| `S-006` | — | `standards/STD-003-platform-role-system.md` | Left canon 2026-08-25 (`ADR-023`). Keeps reserved regime |
+| `S-006` | — | `standards/STD-003-platform-ranks.md` | Left canon 2026-08-25 (`ADR-023`). Keeps reserved regime |
 | `S-007` | `C-006` | `numinia-lore:seminal/About_Session_Zero.md` | Left canon 2026-09-01 (this ADR) |
 | `S-008` | — | `numinia-lore:seminal/Numinia_Manual_del_juego_de_rol_v0_6_0.md` | Never lived here; pointer only |
 | `S-009` | `C-007` | merged into `CAN-003` | Rank Specifications, absorbed by this ADR |

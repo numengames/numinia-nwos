@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 22077,
+  "chars": 22080,
   "apparatus": false,
   "archived": false,
-  "tokens": 6363
+  "tokens": 6368
  },
  {
   "path": "CLAUDE.md",
@@ -764,7 +764,7 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 12004,
+  "chars": 11998,
   "apparatus": false,
   "archived": false,
   "tokens": 3672
@@ -1441,15 +1441,15 @@
   "tokens": 681
  },
  {
-  "path": "standards/STD-003-platform-role-system.md",
+  "path": "standards/STD-003-platform-ranks.md",
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 5581,
+  "chars": 4748,
   "apparatus": false,
   "archived": false,
-  "tokens": 1414
+  "tokens": 1228
  },
  {
   "path": "standards/STD-004-header-standard.md",
@@ -1578,10 +1578,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 12715,
+  "chars": 12703,
   "apparatus": false,
   "archived": false,
-  "tokens": 3488
+  "tokens": 3487
  },
  {
   "path": "templates/ADR-TEMPLATE.md",
