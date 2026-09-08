@@ -51,6 +51,7 @@ export default defineConfig({
 		// ADR-043 (2026-09-08): STD-007 renamed from plain-writing to
 		// one-page-per-document. Same identifier, same file, new slug.
 		"/corpus/standards/std-007-plain-writing": "/corpus/standards/std-007-one-page-per-document",
+		"/corpus/standards/std-006-archive-substance": "/corpus/standards/std-006-plain-text-is-sovereign",
 		"/corpus/history/2026_09_08-superseded_constitution-v200": "/decisions/adr-041",
 		"/corpus/history/2026_04_07-epistemic_relations-v100": "/decisions/adr-041",
 		"/corpus/history/2026_04_07-mission_system_v2-v100": "/decisions/adr-041",

@@ -1474,15 +1474,15 @@
   "tokens": 3620
  },
  {
-  "path": "standards/STD-006-archive-substance.md",
+  "path": "standards/STD-006-plain-text-is-sovereign.md",
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 8767,
+  "chars": 3998,
   "apparatus": false,
   "archived": false,
-  "tokens": 2110
+  "tokens": 1014
  },
  {
   "path": "standards/STD-007-one-page-per-document.md",
