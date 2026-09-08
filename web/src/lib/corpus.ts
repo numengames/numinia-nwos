@@ -230,6 +230,8 @@ const READING_ORDER: Record<string, string[]> = {
     "/corpus/standards/std-008-design-system",
     "/corpus/standards/std-009-core-rules",
     "/corpus/standards/std-010-licensing",
+    "/corpus/standards/std-014-publishing-gates",
+    "/corpus/standards/std-013-licence-allowlist-and-fields",
     "/corpus/standards/std-011-external-standards",
   ],
 
