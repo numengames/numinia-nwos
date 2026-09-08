@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // check-section-citations.mjs — a citation to a numbered section must resolve.
 //
-// The corpus cites by section: `PRO-010 §3.2`, `STD-008 §13.1`. DBT-016 measured
+// The corpus cites by section: `PRO-010 §3.2`, `STD-008 §13`. DBT-016 measured
 // 422 such citations across 107 files and called the numbers load-bearing. No
 // guard read them: check-references resolves identifiers, check-internal-links
 // resolves markdown links, and neither looks at what follows the §.
@@ -67,7 +67,7 @@ const resolveDoc = (id) => {
   return null;
 };
 
-// "PRO-010 §3.2.2", "STD-008 v5.1.0 §13.1" — the id, then a § close behind it.
+// "PRO-010 §3.2.2", "STD-008 v6.0.0 §13" — the id, then a § close behind it.
 //
 // The window is deliberately narrow and must not span another identifier. A row
 // like "`PRO-013`, `STD-001` §10.4" cites STD-001, not PRO-013; a greedy window

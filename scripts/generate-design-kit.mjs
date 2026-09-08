@@ -8,7 +8,7 @@
 // markers, sistema.tokens.json from the published kit —
 // and publishes it under a versioned path with a sha256 manifest:
 //
-//   web/public/diseno/kit/<version>/sistema.{css,js,tokens.json}
+//   web/public/diseno/kit/sistema.{css,js,tokens.json}    (no version in the path: Oracle ruling 2026-09-05)
 //   web/public/diseno/kit/manifest.json
 //
 // Run from anywhere: node scripts/generate-design-kit.mjs
@@ -74,14 +74,14 @@ const js = header("js") + block("js", "js");
 // Tokens are no longer inlined in the master: §19.3 used to carry a copy of
 // the JSON, and the copy drifted (it declared v5.0.0 under a 5.1.0 document).
 // The published file is the source; this script re-stamps and re-hashes it.
-const tokensPath = path.join(root, "web/public/diseno/kit", version, "sistema.tokens.json");
+const tokensPath = path.join(root, "web/public/diseno/kit", "sistema.tokens.json");
 if (!fs.existsSync(tokensPath))
   throw new Error(`Tokens not found for v${version}: ${path.relative(root, tokensPath)}`);
 const tokens = JSON.parse(fs.readFileSync(tokensPath, "utf-8"));
 tokens["$description"] = `Numen Games · Sistema de Diseño · v${version} · Solar 40 / Steam 40 / Cyber 20`;
 const tokensOut = JSON.stringify(tokens, null, 2) + "\n";
 
-const kitDir = path.join(root, "web/public/diseno/kit", version);
+const kitDir = path.join(root, "web/public/diseno/kit");
 fs.mkdirSync(kitDir, { recursive: true });
 const files = {
   "sistema.css": css,
@@ -90,7 +90,7 @@ const files = {
 };
 // The agent instruction fragment (§19.5) is a published artefact too: it
 // ships in the kit and is hashed like the rest, so a consumer can verify it.
-const promptPath = path.join(root, "web/public/diseno/kit", version, "sistema.prompt.txt");
+const promptPath = path.join(root, "web/public/diseno/kit", "sistema.prompt.txt");
 if (fs.existsSync(promptPath))
   files["sistema.prompt.txt"] = fs.readFileSync(promptPath, "utf-8");
 const sha = (s) => createHash("sha256").update(s).digest("hex");
@@ -106,12 +106,12 @@ const manifest = {
 };
 for (const [name, content] of Object.entries(files)) {
   fs.writeFileSync(path.join(kitDir, name), content);
-  manifest.files[`${version}/${name}`] = sha(content);
+  manifest.files[name] = sha(content);
 }
 fs.writeFileSync(
   path.join(root, "web/public/diseno/kit/manifest.json"),
   JSON.stringify(manifest, null, 2) + "\n"
 );
-console.log(`kit v${version} → web/public/diseno/kit/${version}/`);
+console.log(`kit v${version} → web/public/diseno/kit/`);
 console.log(`master sha256: ${manifest.master.sha256}`);
 for (const [f, h] of Object.entries(manifest.files)) console.log(`${h.slice(0, 12)}…  ${f}`);
