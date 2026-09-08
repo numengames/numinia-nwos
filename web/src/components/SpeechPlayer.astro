@@ -101,19 +101,68 @@ const t = useT();
     // while the screen shows Spanish. Reading the DOM at Play time needs no
     // detection and no API: whatever is on screen is what gets spoken, in
     // every browser that can translate at all.
+    //
+    // Reading marker: the walker also keeps, for every character
+    // of the spoken text, which Text node it came from and at what offset.
+    // That map is what lets the amber dot sit above the word the voice is
+    // on. Whitespace runs collapse to one space (mapped to no node); a block
+    // boundary counts as whitespace so "</p><p>" never glues two words.
     const target = document.querySelector<HTMLElement>(
       root.dataset.textSelector || "article",
     );
-    // Clone and prune non-content subtrees so the voice reads the document,
-    // not the chrome around it.
-    const readDocument = () => {
-      if (!target) return "";
-      const clone = target.cloneNode(true) as HTMLElement;
-      for (const sel of [".doc-toolbar", "nav", ".speech-player"])
-        clone.querySelectorAll(sel).forEach((n) => n.remove());
-      return (clone.innerText || "").replace(/\s+/g, " ").trim();
+    const PRUNE = [".doc-toolbar", "nav", ".speech-player"];
+    const SKIP_TAGS = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEMPLATE", "svg", "SVG"]);
+    type DocMap = { text: string; nodes: Text[]; nodeIdx: Int32Array; nodeOff: Int32Array };
+    const EMPTY_MAP: DocMap = { text: "", nodes: [], nodeIdx: new Int32Array(0), nodeOff: new Int32Array(0) };
+    const mapDocument = (): DocMap => {
+      if (!target) return EMPTY_MAP;
+      const nodes: Text[] = [];
+      const idx: number[] = [];
+      const off: number[] = [];
+      let out = "";
+      let pendingSpace = false;
+      const walk = (el: Element) => {
+        if (SKIP_TAGS.has(el.tagName)) return;
+        if (PRUNE.some((s) => el.matches(s))) return;
+        const cs = getComputedStyle(el);
+        if (cs.display === "none" || cs.visibility === "hidden") return;
+        const block = !cs.display.startsWith("inline");
+        if (block) pendingSpace = true;
+        for (const c of Array.from(el.childNodes)) {
+          if (c.nodeType === Node.ELEMENT_NODE) {
+            walk(c as Element);
+            continue;
+          }
+          if (c.nodeType !== Node.TEXT_NODE) continue;
+          const tn = c as Text;
+          const s = tn.data;
+          let ni = -1;
+          for (let i = 0; i < s.length; i++) {
+            const ch = s[i];
+            if (/\s/.test(ch)) {
+              pendingSpace = true;
+              continue;
+            }
+            if (pendingSpace && out.length) {
+              out += " ";
+              idx.push(-1);
+              off.push(0);
+            }
+            pendingSpace = false;
+            if (ni < 0) ni = nodes.push(tn) - 1;
+            out += ch;
+            idx.push(ni);
+            off.push(i);
+          }
+        }
+        if (block) pendingSpace = true;
+      };
+      walk(target);
+      return { text: out, nodes, nodeIdx: Int32Array.from(idx), nodeOff: Int32Array.from(off) };
     };
-    let text = readDocument();
+    let docMap = mapDocument();
+    const readDocument = () => mapDocument().text;
+    let text = docMap.text;
     let words = text ? text.split(" ").length : 0;
     if (!words) {
       toggle.disabled = true;
@@ -140,6 +189,19 @@ const t = useT();
       return out;
     };
     let chunks: string[] = chunkText(text);
+    // Where each chunk starts in `text` — the bridge from an utterance's
+    // charIndex back to a document position (reading marker).
+    const chunkStarts = (src: string, cs: string[]): number[] => {
+      const out: number[] = [];
+      let cursor = 0;
+      for (const c of cs) {
+        const at = src.indexOf(c, cursor);
+        out.push(at < 0 ? cursor : at);
+        cursor = (at < 0 ? cursor : at) + c.length;
+      }
+      return out;
+    };
+    let chunkAt: number[] = chunkStarts(text, chunks);
 
     // ---- voice pick (async: engines populate voices late) ----------------
     // MIS-120(e): docLang is read from the LIVE <html lang>, not baked in at
@@ -276,7 +338,137 @@ const t = useT();
       }, 5000);
     };
 
+    // ---- reading marker ----------------------------------------
+    // A small amber dot rides above the word being spoken, karaoke-style,
+    // and leaves a short trail behind it. It rests where the voice rests —
+    // the engine pauses at punctuation, so the dot does too — settles with
+    // a little squash on a stop, twinkles on an accented word, and bobs
+    // gently while the voice moves. Progressive: on engines that report
+    // word boundaries the position is exact; on the ones that do not, it
+    // follows the same elapsed-time estimate pause/resume already rely on.
+    // Under prefers-reduced-motion the dot still moves, but jumps: no
+    // trail, no bob, no twinkle.
+    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const TRAIL = reducedMotion ? 1 : 6;
+    let marker: HTMLElement | null = null;
+    let head: HTMLElement | null = null;
+    let curWord = -1;
+    let curRange: Range | null = null;
+    let lastScroll = 0;
+    let raf = 0;
+    const ensureMarker = () => {
+      if (marker) return;
+      marker = document.createElement("div");
+      marker.className = "sp-marker";
+      marker.setAttribute("aria-hidden", "true");
+      for (let i = TRAIL - 1; i >= 0; i--) {
+        const d = document.createElement("i");
+        d.className = "sp-marker-dot";
+        d.style.setProperty("--i", String(i));
+        d.appendChild(document.createElement("b"));
+        marker.appendChild(d);
+        if (i === 0) head = d.firstElementChild as HTMLElement;
+      }
+      document.body.appendChild(marker);
+    };
+    const dropMarker = () => {
+      marker?.remove();
+      marker = head = null;
+      curWord = -1;
+      curRange = null;
+    };
+    const wordAt = (a: number): [number, number] => {
+      const s0 = docMap.text;
+      let s = Math.max(0, Math.min(a, s0.length - 1));
+      while (s < s0.length && s0[s] === " ") s++;
+      if (s >= s0.length) return [-1, -1];
+      let e = s0.indexOf(" ", s);
+      if (e < 0) e = s0.length;
+      return [s, e];
+    };
+    const rangeFor = (s: number, e: number): Range | null => {
+      const { nodes, nodeIdx, nodeOff } = docMap;
+      let i = s;
+      while (i < e && nodeIdx[i] < 0) i++;
+      let j = e - 1;
+      while (j > i && nodeIdx[j] < 0) j--;
+      if (i >= e || nodeIdx[i] < 0 || !nodes[nodeIdx[i]]?.isConnected) return null;
+      const r = document.createRange();
+      r.setStart(nodes[nodeIdx[i]], nodeOff[i]);
+      r.setEnd(nodes[nodeIdx[j]], nodeOff[j] + 1);
+      return r;
+    };
+    const placeAt = (rect: DOMRect) => {
+      if (!marker) return;
+      // Document coordinates. body positioned → relative to body; static →
+      // relative to the initial containing block, i.e. add the scroll.
+      const b = document.body;
+      const positioned = getComputedStyle(b).position !== "static";
+      const bb = positioned ? b.getBoundingClientRect() : null;
+      const x = rect.left + rect.width / 2 - (bb ? bb.left : -scrollX);
+      const y = rect.top - (bb ? bb.top : -scrollY);
+      marker.style.setProperty("--x", x.toFixed(1) + "px");
+      marker.style.setProperty("--y", y.toFixed(1) + "px");
+    };
+    const showWord = (s: number, e: number) => {
+      ensureMarker();
+      const r = rangeFor(s, e);
+      if (!r) return;
+      const rects = r.getClientRects();
+      const rect = rects.length ? rects[0] : r.getBoundingClientRect();
+      if (!rect.width && !rect.height) return;
+      curRange = r;
+      placeAt(rect);
+      if (head && !reducedMotion) {
+        const w = docMap.text.slice(s, e);
+        head.classList.remove("is-rest", "is-twinkle");
+        void head.offsetWidth; // restart the one-shot animations
+        if (/[.,;:!?…)\]»”"']$/.test(w)) head.classList.add("is-rest");
+        if (/[áéíóúàèìòùâêîôûäëïöüñçãõœæÁÉÍÓÚÑÜ]/.test(w)) head.classList.add("is-twinkle");
+      }
+      // Keep the reading in view: when the word leaves the comfortable band,
+      // bring it to the upper third, at most once a second.
+      const now = performance.now();
+      if ((rect.top < 72 || rect.bottom > innerHeight - 96) && now - lastScroll > 1000) {
+        lastScroll = now;
+        scrollTo({
+          top: rect.top + scrollY - innerHeight * 0.35,
+          behavior: reducedMotion ? "auto" : "smooth",
+        });
+      }
+    };
+    const tick = () => {
+      if (state !== "speaking") {
+        raf = 0;
+        return;
+      }
+      const start = chunkAt[queueIndex] ?? 0;
+      const end = start + (chunks[queueIndex]?.length ?? 0) - 1;
+      const abs = Math.min(start + charOffset + spokenInUtterance(), end);
+      const [s, e] = wordAt(abs);
+      if (s >= 0 && s !== curWord) {
+        curWord = s;
+        showWord(s, e);
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    const markerSync = () => {
+      ensureMarker();
+      marker!.style.setProperty("--rate", String(rate));
+      marker!.classList.toggle("is-on", state !== "idle");
+      marker!.classList.toggle("is-paused", state === "paused");
+      if (state === "speaking" && !raf) raf = requestAnimationFrame(tick);
+      if (state === "idle") curWord = -1;
+    };
+    // Layout can move under a resting dot (resize, fonts, a paused reader
+    // rotating the phone): re-place from the range we already hold.
+    addEventListener("resize", () => {
+      const rects = curRange?.getClientRects();
+      if (rects && rects.length) placeAt(rects[0]);
+    });
+
     const render = () => {
+      markerSync();
       // Idle with a saved position (restored from a previous visit) is
       // presented as Resume: the reader left mid-document and comes back.
       const resumable =
@@ -360,11 +552,14 @@ const t = useT();
       // Re-chunking invalidates any saved position (the chunk boundaries
       // moved), so a language change restarts the document rather than
       // resuming at an index that no longer means the same thing.
-      const fresh = readDocument();
+      const freshMap = mapDocument();
+      const fresh = freshMap.text;
+      docMap = freshMap; // nodes may have been replaced in place (translation)
       if (fresh && fresh !== text) {
         text = fresh;
         words = text.split(" ").length;
         chunks = chunkText(text);
+        chunkAt = chunkStarts(text, chunks);
         queueIndex = 0;
         charOffset = 0;
         lastBoundary = 0;
@@ -405,6 +600,7 @@ const t = useT();
       gen++;
       stopKeepalive();
       synth.cancel();
+      dropMarker();
     };
 
     toggle.addEventListener("click", () => {
@@ -481,3 +677,80 @@ const t = useT();
     render(); // reflect a restored position (Resume) on first paint
   }
 </script>
+
+<style is:global>
+  /* Reading marker: an amber dot above the word being spoken.
+     Trail dots share the head's target position and lag behind it through
+     staggered transition durations — the "estela" is just the difference
+     between their clocks. Colour is the theme's amber token. */
+  .sp-marker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 60;
+    opacity: 0;
+    transition: opacity 320ms ease;
+  }
+  .sp-marker.is-on {
+    opacity: 1;
+  }
+  .sp-marker.is-paused {
+    opacity: 0.55;
+  }
+  .sp-marker-dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    transform: translate(var(--x, -100px), var(--y, -100px));
+    transition: transform calc(110ms + var(--i) * 65ms) cubic-bezier(0.2, 0.7, 0.3, 1);
+    will-change: transform;
+  }
+  .sp-marker-dot > b {
+    --d: calc(6px - var(--i) * 0.7px);
+    position: absolute;
+    left: calc(var(--d) / -2);
+    top: calc(var(--d) / -2 - 3px);
+    width: var(--d);
+    height: var(--d);
+    border-radius: 50%;
+    background: rgb(var(--yellow));
+    opacity: calc(1 - var(--i) * 0.16);
+    box-shadow:
+      0 0 calc(2px + 1px * (5 - var(--i))) rgb(var(--yellow) / 0.45);
+    animation: sp-bob calc(1.15s / var(--rate, 1)) ease-in-out infinite;
+    animation-delay: calc(var(--i) * -90ms);
+  }
+  .sp-marker.is-paused .sp-marker-dot > b {
+    animation-play-state: paused;
+  }
+  .sp-marker-dot > b.is-rest {
+    animation: sp-rest 420ms cubic-bezier(0.3, 1.4, 0.5, 1) 1;
+  }
+  .sp-marker-dot > b.is-twinkle {
+    animation:
+      sp-twinkle 380ms ease-out 1,
+      sp-bob calc(1.15s / var(--rate, 1)) ease-in-out 380ms infinite;
+  }
+  @keyframes sp-bob {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -2px; }
+  }
+  @keyframes sp-rest {
+    0% { scale: 1 1; }
+    35% { scale: 1.35 0.65; translate: 0 2px; }
+    70% { scale: 0.9 1.1; }
+    100% { scale: 1 1; }
+  }
+  @keyframes sp-twinkle {
+    0% { scale: 1; filter: brightness(1); }
+    40% { scale: 1.5; filter: brightness(1.8); box-shadow: 0 0 9px 2px rgb(var(--yellow) / 0.7); }
+    100% { scale: 1; filter: brightness(1); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sp-marker-dot { transition: none; }
+    .sp-marker-dot > b { animation: none; }
+  }
+</style>
