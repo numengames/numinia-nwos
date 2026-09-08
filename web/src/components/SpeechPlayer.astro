@@ -141,6 +141,75 @@ const t = useT();
     };
     let chunks: string[] = chunkText(text);
 
+    // ---- highlight: map chunks → live DOM text nodes ------------------
+    // The player reads from a clone; highlighting needs the LIVE article.
+    // Map each chunk to the text nodes it covers by walking the live DOM
+    // and matching against the concatenated normalized text.
+    interface ChunkNode {
+      node: Text;
+      start: number;
+      end: number;
+    }
+    let chunkNodeMap: ChunkNode[][] = [];
+    let activeNodes: Set<Text> = new Set();
+
+    const buildChunkNodeMap = () => {
+      chunkNodeMap = [];
+      if (!target) return;
+      const nodes: { node: Text; text: string }[] = [];
+      const walker = document.createTreeWalker(target, NodeFilter.SHOW_TEXT);
+      let n: Text | null;
+      while ((n = walker.nextNode() as Text | null)) {
+        const text = (n.textContent ?? "").replace(/\s+/g, " ").trim();
+        if (text) nodes.push({ node: n, text });
+      }
+      const fullText = nodes.map((n) => n.text).join(" ");
+      let searchFrom = 0;
+      for (const chunk of chunks) {
+        const idx = fullText.indexOf(chunk, searchFrom);
+        if (idx === -1) {
+          chunkNodeMap.push([]);
+          continue;
+        }
+        const chunkEnd = idx + chunk.length;
+        const chunkNodes: ChunkNode[] = [];
+        let offset = 0;
+        for (const { node, text } of nodes) {
+          const nodeEnd = offset + text.length;
+          if (nodeEnd > idx && offset < chunkEnd) {
+            chunkNodes.push({
+              node,
+              start: Math.max(0, idx - offset),
+              end: Math.min(text.length, chunkEnd - offset),
+            });
+          }
+          offset = nodeEnd + 1;
+        }
+        chunkNodeMap.push(chunkNodes);
+        searchFrom = chunkEnd;
+      }
+    };
+
+    const clearHighlight = () => {
+      for (const node of activeNodes) {
+        node.parentElement?.classList.remove("sp-active");
+      }
+      activeNodes.clear();
+    };
+
+    const highlightChunk = (i: number) => {
+      clearHighlight();
+      const nodes = chunkNodeMap[i];
+      if (!nodes || nodes.length === 0) return;
+      for (const { node } of nodes) {
+        node.parentElement?.classList.add("sp-active");
+        activeNodes.add(node);
+      }
+      nodes[0].node.parentElement?.scrollIntoView({ block: "nearest" });
+    };
+
+    buildChunkNodeMap();
+
     // ---- voice pick (async: engines populate voices late) ----------------
     // MIS-120(e): docLang is read from the LIVE <html lang>, not baked in at
     // build. Chrome, Edge and Safari rewrite that attribute when their own
@@ -311,6 +380,7 @@ const t = useT();
         return;
       }
       queueIndex = i;
+      highlightChunk(i);
       // Snap the offset back to a word boundary so the utterance never
       // starts mid-word; a broken offset degrades to the chunk start.
       charOffset =
@@ -368,6 +438,8 @@ const t = useT();
         queueIndex = 0;
         charOffset = 0;
         lastBoundary = 0;
+        clearHighlight();
+        buildChunkNodeMap();
         clearProgress();
         renderEst();
       }
@@ -390,6 +462,7 @@ const t = useT();
       queueIndex = 0;
       charOffset = 0;
       lastBoundary = 0;
+      clearHighlight();
       clearProgress(); // Stop is the reader saying "from the top next time"
       stopKeepalive();
       synth.cancel();
@@ -481,3 +554,16 @@ const t = useT();
     render(); // reflect a restored position (Resume) on first paint
   }
 </script>
+
+<style>
+  /* MIS-152: highlight the sentence being spoken.
+     WCAG 1.4.1 — not color alone: background + underline + weight.
+     Works on both Diurno (light) and Nocturno (dark) papers. */
+  .sp-active {
+    background-color: rgba(var(--accent) / 0.18);
+    border-bottom: 2px solid rgb(var(--accent));
+    border-radius: 2px;
+    font-weight: 600;
+    transition: background-color 0.15s ease;
+  }
+</style>
