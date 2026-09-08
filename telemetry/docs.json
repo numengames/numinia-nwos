@@ -27,10 +27,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 7416,
+  "chars": 7432,
   "apparatus": false,
   "archived": false,
-  "tokens": 1633
+  "tokens": 1645
  },
  {
   "path": "CHANGELOG.md",
@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 22089,
+  "chars": 22072,
   "apparatus": false,
   "archived": false,
-  "tokens": 6384
+  "tokens": 6363
  },
  {
   "path": "CLAUDE.md",
@@ -511,10 +511,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 11854,
+  "chars": 11839,
   "apparatus": false,
   "archived": false,
-  "tokens": 2659
+  "tokens": 2653
  },
  {
   "path": "canon/CAN-002-brand-and-culture.md",
@@ -522,10 +522,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 34536,
+  "chars": 34513,
   "apparatus": false,
   "archived": false,
-  "tokens": 7411
+  "tokens": 7403
  },
  {
   "path": "canon/CAN-003-attributes-and-ranks.md",
@@ -544,10 +544,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 13636,
+  "chars": 13598,
   "apparatus": false,
   "archived": false,
-  "tokens": 3070
+  "tokens": 3051
  },
  {
   "path": "canon/CAN-005-licensing.md",
@@ -720,10 +720,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 7949,
+  "chars": 7922,
   "apparatus": false,
   "archived": false,
-  "tokens": 2355
+  "tokens": 2335
  },
  {
   "path": "decisions/ADR-023-canon-vocabulary.md",
@@ -775,10 +775,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 4863,
+  "chars": 4857,
   "apparatus": false,
   "archived": false,
-  "tokens": 1402
+  "tokens": 1395
  },
  {
   "path": "decisions/ADR-036-canon-consolidation.md",
@@ -786,10 +786,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 11996,
+  "chars": 11998,
   "apparatus": false,
   "archived": false,
-  "tokens": 3677
+  "tokens": 3672
  },
  {
   "path": "decisions/ADR-037-accessibility-gate-single-home.md",
@@ -834,6 +834,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2140
+ },
+ {
+  "path": "decisions/ADR-041-git-is-the-archive.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "active",
+  "chars": 4480,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1250
  },
  {
   "path": "guilds/alquimistas/GLD-001-charter.md",
@@ -922,83 +933,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 344
- },
- {
-  "path": "history/2026_04_07-Epistemic_Relations-v1.0.0.md",
-  "dir": "history",
-  "series": null,
-  "type": "documentation",
-  "status": "closed",
-  "chars": 15031,
-  "apparatus": false,
-  "archived": true,
-  "tokens": 3223
- },
- {
-  "path": "history/2026_04_07-Mission_System_v2-v1.0.0.md",
-  "dir": "history",
-  "series": null,
-  "type": "documentation",
-  "status": "closed",
-  "chars": 14850,
-  "apparatus": false,
-  "archived": true,
-  "tokens": 4119
- },
- {
-  "path": "history/2026_09_07-Brand_Research_Interview-v1.0.0.md",
-  "dir": "history",
-  "series": null,
-  "type": "documentation",
-  "status": "closed",
-  "chars": 9917,
-  "apparatus": false,
-  "archived": true,
-  "tokens": 2134
- },
- {
-  "path": "history/2026_09_07-Cultural_Cartography-v1.0.0.md",
-  "dir": "history",
-  "series": null,
-  "type": "documentation",
-  "status": "closed",
-  "chars": 12275,
-  "apparatus": false,
-  "archived": true,
-  "tokens": 2772
- },
- {
-  "path": "history/2026_09_07-Financial_Projections-v1.0.0.md",
-  "dir": "history",
-  "series": null,
-  "type": "documentation",
-  "status": "closed",
-  "chars": 2521,
-  "apparatus": false,
-  "archived": true,
-  "tokens": 838
- },
- {
-  "path": "history/2026_09_07-Role_Structure_Treatise-v1.0.0.md",
-  "dir": "history",
-  "series": null,
-  "type": "documentation",
-  "status": "closed",
-  "chars": 34926,
-  "apparatus": false,
-  "archived": true,
-  "tokens": 7307
- },
- {
-  "path": "history/2026_09_08-Superseded_Constitution-v2.0.0.md",
-  "dir": "history",
-  "series": null,
-  "type": "documentation",
-  "status": "closed",
-  "chars": 4394,
-  "apparatus": false,
-  "archived": true,
-  "tokens": 1275
  },
  {
   "path": "infra/github/README.md",
@@ -1193,10 +1127,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 7749,
+  "chars": 7750,
   "apparatus": false,
   "archived": false,
-  "tokens": 2050
+  "tokens": 2045
  },
  {
   "path": "missions/MIS-0096-nwos-versioning-sovereign-adoption.md",
@@ -1303,10 +1237,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 30771,
+  "chars": 30769,
   "apparatus": false,
   "archived": false,
-  "tokens": 8646
+  "tokens": 8619
  },
  {
   "path": "missions/MIS-0123-make-adr-028-real.md",
@@ -1336,10 +1270,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 31544,
+  "chars": 31517,
   "apparatus": false,
   "archived": false,
-  "tokens": 9164
+  "tokens": 9146
  },
  {
   "path": "missions/MIS-0131-frontmatter-history-census.md",
@@ -1622,10 +1556,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 8097,
+  "chars": 8295,
   "apparatus": false,
   "archived": false,
-  "tokens": 2084
+  "tokens": 2137
  },
  {
   "path": "protocols/PRO-011-security-audit.md",
@@ -1710,10 +1644,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 39055,
+  "chars": 39150,
   "apparatus": false,
   "archived": false,
-  "tokens": 10063
+  "tokens": 10091
  },
  {
   "path": "standards/STD-002-governance.md",
@@ -1721,10 +1655,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 11509,
+  "chars": 9239,
   "apparatus": false,
   "archived": false,
-  "tokens": 2862
+  "tokens": 2295
  },
  {
   "path": "standards/STD-003-platform-role-system.md",
@@ -1798,10 +1732,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 22103,
+  "chars": 20348,
   "apparatus": false,
   "archived": false,
-  "tokens": 5568
+  "tokens": 5136
  },
  {
   "path": "standards/STD-010-licensing.md",
@@ -1820,10 +1754,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8761,
+  "chars": 8623,
   "apparatus": false,
   "archived": false,
-  "tokens": 2554
+  "tokens": 2504
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
@@ -1831,10 +1765,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 10617,
+  "chars": 10349,
   "apparatus": false,
   "archived": false,
-  "tokens": 2905
+  "tokens": 2809
  },
  {
   "path": "system/SYS-002-agent-cycle.md",
@@ -1864,10 +1798,10 @@
   "series": null,
   "type": "adr",
   "status": "draft",
-  "chars": 3684,
+  "chars": 3687,
   "apparatus": true,
   "archived": false,
-  "tokens": 929
+  "tokens": 932
  },
  {
   "path": "templates/BLU-TEMPLATE.md",
