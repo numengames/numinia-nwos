@@ -25,7 +25,7 @@ related: ["MIS-0146"]
 # DBT-016 — Section numbers are load-bearing
 
 > **Summary:** 422 citations across 107 files point at numbered sections
-> (`CAN-005 §1`, `STD-004 §7.1`), so renumbering or reordering any section of a
+> (`CAN-005 §1`, `STD-004` (`HDR-032`)), so renumbering or reordering any section of a
 > cited document silently breaks them — and 123 of those citations live in
 > executable code, not prose.
 > **Epistemic:** The corpus cannot be reorganised without a migration. Any claim
@@ -39,7 +39,7 @@ related: ["MIS-0146"]
 
 ## 1. The defect
 
-A citation of the form `STD-004 §7.1` names **a place**, not a rule. It stays
+A citation of the form `STD-004` (`HDR-032`) names **a place**, not a rule. It stays
 correct only while that place holds that content. Renumbering a section,
 inserting one above it, or splitting a document invalidates every such citation
 without producing any error — the text still reads plausibly, and points at the

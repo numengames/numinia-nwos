@@ -25,7 +25,7 @@ owner: "oracle"
 tags: [archive, frontmatter, s-004, migration, debt]
 license: "CC0-1.0"
 
-paths: [scripts/lint-frontmatter.mjs, scripts/frontmatter-baseline.json, standards/STD-004-header-standard.md, debt/, missions/, web/src/content.config.ts]
+paths: [scripts/lint-frontmatter.mjs, scripts/frontmatter-baseline.json, standards/STD-004-the-header.md, debt/, missions/, web/src/content.config.ts]
 ---
 # MIS-121 — Burn the header baseline down
 
