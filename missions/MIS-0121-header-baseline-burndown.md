@@ -3,7 +3,7 @@
 id: "MIS-121"
 uid: ""
 title: "Burn the header baseline down: 843 frozen violations to zero"
-status: in-progress
+status: done
 priority: high
 effort: XL
 guild: "Alchemists"
@@ -11,15 +11,15 @@ territory: "Archive"
 type_execution: digital
 assigned_to: "ursa"
 started: "2026-08-30"
-completed: null
+completed: "2026-09-08"
 
 # REGISTRO
 type: mission
-version: "1.3.0"
+version: "1.4.0"
 created: "2026-08-30T04:43:00Z"
 created_source: "git:fd4d045"
 created_confidence: exact
-updated: "2026-09-02T01:55:26+02:00"
+updated: "2026-09-08T20:30:00Z"
 author: "ursa"
 owner: "oracle"
 tags: [archive, frontmatter, s-004, migration, debt]
@@ -322,7 +322,8 @@ guard — all in CI, all tested in both directions (PRO-013).
       registered identifier is a filing decision (`STD-001` §5.0 already
       exempts some), and **`check-references.mjs` reads frontmatter `id`** —
       minting ids creates references that must then resolve.
-- [ ] **`H-02` missing `title` — 2**, **`H-08` missing `license` — 2.**
+- [x] **`H-02` missing `title` — 2**, **`H-08` missing `license` — 2.**
+      *Closed 2026-09-08: `lint-frontmatter` reports 0 findings, 0 baselined at `4a60735`.*
       *NOT done — these four are the fragile pair itself; they land with
       its one-by-one session, along with the 22 H-30, 9 H-31, and the rest
       of the 44.*
@@ -506,10 +507,25 @@ hides its decisions makes the next reader guess.
 
 *(Fill when the mission closes. Not before, and not with intentions.)*
 
-- **What was done:**
-- **What diverged, and why:**
-- **Evidence:**
-- **Closed:** YYYY-MM-DD · **by:**
+- **What was done:** the baseline is gone. `scripts/lint-frontmatter.mjs`
+  at `4a60735` reports **0 findings (0 baselined)** — from 843 frozen
+  violations at `fd4d045`. The mechanical classes went by script in the
+  lots recorded above; the judgement classes went one by one across the
+  missions/ normalisation (lots 1–4), the `decisions/` and `standards/`
+  consolidations, and — decisively — the four deletion batches of
+  2026-09-08 (#286, #289, #291, #293), which removed 115 mission files
+  and with them every remaining H-02/H-08/H-30/H-31 the fragile pair
+  carried.
+- **What diverged, and why:** the last 44 were budgeted as a one-by-one
+  session. They never got it: the documents holding them were deleted
+  under `ADR-040` before anyone opened them. A violation in a file that
+  no longer exists is not fixed, it is gone — the count is honest about
+  that, the mission does not claim repair work it did not do.
+- **Evidence:** `node scripts/lint-frontmatter.mjs` → `0 findings (0
+  baselined)`; `scripts/frontmatter-baseline.json` empty; CI green on
+  `main` at `4a60735`.
+- **Closed:** 2026-09-08 · **by:** Oracle (instruction "ok hacerlas"),
+  executed by Ursa.
 
 ## Status check — 2026-09-02
 
@@ -521,3 +537,4 @@ hides its decisions makes the next reader guess.
 ## Version history
 
 - v1.3.0 (2026-09-02) — import-era `---` rules removed; retired identifiers repointed: C-005→CAN-005, P-013→PRO-013; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.
+- v1.4.0 (2026-09-08) — closed: baseline at zero at `4a60735`; Closure filled; last checkbox ticked with the measurement.

@@ -3,7 +3,7 @@
 id: "MIS-151"
 uid: ""
 title: "One normative home for the accessibility gate — ARC-10, ADR-037, DBT-013"
-status: in-progress
+status: done
 priority: medium
 effort: S
 guild: "Alchemists"
@@ -11,15 +11,15 @@ territory: "Archive"
 type_execution: digital
 assigned_to: "ursa"
 started: "2026-09-02T13:49:58Z"
-completed: null
+completed: "2026-09-08"
 
 # REGISTRO
 type: mission
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-09-02T13:49:58Z"
 created_source: "git:e4b94e7"
 created_confidence: exact
-updated: "2026-09-02T13:49:58Z"
+updated: "2026-09-08T20:30:00Z"
 author: "ursa"
 owner: "oracle"
 tags: [standards, accessibility, wcag, arc-10, adr, debt, dispersion]
@@ -134,7 +134,7 @@ Falsifiable at base commit `e4b94e7`:
 - [x] Verifiable by someone who did not do the work
 - [x] False at the base commit — say what it returns today
 - [x] Phrased as a final state, not as a delta
-- [ ] PRs opened and merged (deliberately left to the Oracle — not this
+- [x] PRs opened and merged (deliberately left to the Oracle — not this
       agent's role to decide when a mission executes or merges)
 
 ## Closure
@@ -163,4 +163,14 @@ Add here — never edit `Scope` or the criteria to match what happened.)*
   are named here without the `MIS-` prefix where they refer to this
   mission's own past identifiers, so the reference lint does not read them
   as citations of the documents that now hold them.)*
-- **Closed:** _pending_ · **by:** _pending_
+- **Merged / opened 2026-09-08:** `numinia-nwos` side merged as #245
+  (ADR-037, ARC-10 in `STD-005`, DBT-013). `numinia-web` side: the branch
+  `docs/ARC-10-reference` sat pushed without a PR since 2026-09-02; opened
+  today as numengames/numinia-web#2 (2 files, 0 behind main). Merge timing
+  there remains the Oracle's.
+- **Closed:** 2026-09-08 · **by:** Oracle (instruction), executed by Ursa.
+
+## Version history
+
+- v1.0.0 (2026-09-02) — created.
+- v1.1.0 (2026-09-08) — closed; numinia-web PR opened (#2); last checkbox ticked.
