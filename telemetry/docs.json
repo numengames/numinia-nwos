@@ -1309,17 +1309,6 @@
   "tokens": 586
  },
  {
-  "path": "missions/MIS-0027-numengames-web-improvement.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "done",
-  "chars": 2624,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 744
- },
- {
   "path": "missions/MIS-0028-newsletter-mailing-list.md",
   "dir": "missions",
   "series": "missions",
@@ -1595,17 +1584,6 @@
   "tokens": 1092
  },
  {
-  "path": "missions/MIS-0053-khepri-operational-email.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "done",
-  "chars": 2624,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 737
- },
- {
   "path": "missions/MIS-0054-multi-oracle-telegram-access.md",
   "dir": "missions",
   "series": "missions",
@@ -1648,17 +1626,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1342
- },
- {
-  "path": "missions/MIS-0058-approval-brief-protocol.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "done",
-  "chars": 4793,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1318
  },
  {
   "path": "missions/MIS-0059-context-load-protocol.md",
@@ -1714,17 +1681,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 840
- },
- {
-  "path": "missions/MIS-0064-update-p001-agent-briefing.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "done",
-  "chars": 2106,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 669
  },
  {
   "path": "missions/MIS-0065-canon-at-build-narrative-out-of-code.md",
@@ -1870,72 +1826,6 @@
   "tokens": 1552
  },
  {
-  "path": "missions/MIS-0078-web-khepri-execution.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "done",
-  "chars": 8838,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2499
- },
- {
-  "path": "missions/MIS-0079-web-city-chronicle.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "done",
-  "chars": 2471,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 730
- },
- {
-  "path": "missions/MIS-0080-web-lap-platform.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "done",
-  "chars": 3228,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 924
- },
- {
-  "path": "missions/MIS-0081-web-codex-stats.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "done",
-  "chars": 4262,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1160
- },
- {
-  "path": "missions/MIS-0082-web-settings-session.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "done",
-  "chars": 3687,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 993
- },
- {
-  "path": "missions/MIS-0083-web-oracle-zone.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "done",
-  "chars": 3379,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 901
- },
- {
   "path": "missions/MIS-0084-store-seo-migration.md",
   "dir": "missions",
   "series": "missions",
@@ -1967,28 +1857,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2702
- },
- {
-  "path": "missions/MIS-0087-web-full-canon-mirror.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "done",
-  "chars": 5438,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1446
- },
- {
-  "path": "missions/MIS-0088-web-pdf-canon-docs.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "done",
-  "chars": 6587,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1748
  },
  {
   "path": "missions/MIS-0089-information-architecture.md",
@@ -2189,17 +2057,6 @@
   "tokens": 1928
  },
  {
-  "path": "missions/MIS-0110-retire-sistema-nav-entries.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "done",
-  "chars": 7108,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1941
- },
- {
   "path": "missions/MIS-0111-corpus-section-indexes.md",
   "dir": "missions",
   "series": "missions",
@@ -2365,17 +2222,6 @@
   "tokens": 10114
  },
  {
-  "path": "missions/MIS-0126-field-decision-index.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "done",
-  "chars": 5907,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1599
- },
- {
   "path": "missions/MIS-0127-entropy-reduction.md",
   "dir": "missions",
   "series": "missions",
@@ -2409,17 +2255,6 @@
   "tokens": 3156
  },
  {
-  "path": "missions/MIS-0130-fix-readme-protocol-links.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "done",
-  "chars": 5748,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1707
- },
- {
   "path": "missions/MIS-0131-frontmatter-history-census.md",
   "dir": "missions",
   "series": "missions",
@@ -2440,17 +2275,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1433
- },
- {
-  "path": "missions/MIS-0133-card-hierarchy.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "done",
-  "chars": 8883,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2449
  },
  {
   "path": "missions/MIS-0134-closure-guard.md",
