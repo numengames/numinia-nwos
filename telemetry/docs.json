@@ -434,10 +434,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 3557,
+  "chars": 3569,
   "apparatus": false,
   "archived": false,
-  "tokens": 747
+  "tokens": 752
  },
  {
   "path": "agents/ursa/OPERATOR.md",
@@ -632,7 +632,7 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 4782,
+  "chars": 4781,
   "apparatus": false,
   "archived": false,
   "tokens": 1295
@@ -1171,10 +1171,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 8282,
+  "chars": 9907,
   "apparatus": false,
   "archived": false,
-  "tokens": 2218
+  "tokens": 2593
  },
  {
   "path": "missions/MIS-0103-org-repo-inventory-adoption.md",
@@ -1424,10 +1424,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "active",
-  "chars": 7771,
+  "chars": 7804,
   "apparatus": false,
   "archived": false,
-  "tokens": 2183
+  "tokens": 2189
  },
  {
   "path": "operations/OPS-003-privacy-policy-numengames.md",
@@ -1512,10 +1512,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 6735,
+  "chars": 7404,
   "apparatus": false,
   "archived": false,
-  "tokens": 1714
+  "tokens": 1888
  },
  {
   "path": "protocols/PRO-003-mission-cycle.md",
@@ -1523,10 +1523,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 7596,
+  "chars": 8738,
   "apparatus": false,
   "archived": false,
-  "tokens": 1829
+  "tokens": 2120
  },
  {
   "path": "protocols/PRO-005-escalation.md",
@@ -1534,10 +1534,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 2232,
+  "chars": 2311,
   "apparatus": false,
   "archived": false,
-  "tokens": 585
+  "tokens": 600
  },
  {
   "path": "protocols/PRO-008-decision.md",
@@ -1654,11 +1654,11 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "active",
-  "chars": 9239,
+  "status": "superseded",
+  "chars": 2158,
   "apparatus": false,
   "archived": false,
-  "tokens": 2295
+  "tokens": 681
  },
  {
   "path": "standards/STD-003-platform-role-system.md",
@@ -1677,10 +1677,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 12014,
+  "chars": 12634,
   "apparatus": false,
   "archived": false,
-  "tokens": 3193
+  "tokens": 3339
  },
  {
   "path": "standards/STD-005-engineering-standards.md",
@@ -1688,10 +1688,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 21420,
+  "chars": 22859,
   "apparatus": false,
   "archived": false,
-  "tokens": 5518
+  "tokens": 5878
  },
  {
   "path": "standards/STD-006-archive-substance.md",
@@ -1710,10 +1710,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5271,
+  "chars": 5818,
   "apparatus": false,
   "archived": false,
-  "tokens": 1358
+  "tokens": 1500
  },
  {
   "path": "standards/STD-008-design-system.md",
@@ -1732,10 +1732,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 20348,
+  "chars": 16321,
   "apparatus": false,
   "archived": false,
-  "tokens": 5136
+  "tokens": 4180
  },
  {
   "path": "standards/STD-010-licensing.md",
@@ -1754,10 +1754,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8623,
+  "chars": 8598,
   "apparatus": false,
   "archived": false,
-  "tokens": 2504
+  "tokens": 2497
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
@@ -1765,10 +1765,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 10349,
+  "chars": 10368,
   "apparatus": false,
   "archived": false,
-  "tokens": 2809
+  "tokens": 2813
  },
  {
   "path": "system/SYS-002-agent-cycle.md",

@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-08T16:03:57Z"
+updated: "2026-09-08T16:04:12Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `58b387f`  · corpus_hash: `f3c510f5449f89d8…`  · measured_at: 2026-09-08T16:03:57Z  · root_dirty: 0
+- head: `3a5ff94`  · corpus_hash: `e9cacbb68d0e687f…`  · measured_at: 2026-09-08T16:04:12Z  · root_dirty: 0
 
 ## corpus
 
@@ -220,28 +220,28 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 365688 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 364629 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
-| `tokens.missions_share_pct` | 29.12 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.missions_share_pct` | 29.3 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
 | `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
 
 | | tokens |
 |---|---|
-| missions | 106479 |
-| standards | 68155 |
-| agents | 25317 |
+| missions | 106854 |
+| standards | 66226 |
+| agents | 25322 |
 | canon | 23425 |
-| protocols | 21488 |
-| operations | 21347 |
+| protocols | 21968 |
+| operations | 21353 |
 | decisions | 18180 |
 | reports | 18008 |
 | templates | 17886 |
 | debt | 12477 |
 |  | 12429 |
-| system | 9730 |
+| system | 9734 |
 | blueprints | 5596 |
 | guilds | 3342 |
 | infra | 1511 |
@@ -251,15 +251,15 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| active | 162993 |
-| draft | 69046 |
-| todo | 54502 |
+| active | 161334 |
+| draft | 68590 |
+| todo | 54877 |
 | in-progress | 41278 |
 | closed | 12480 |
 | (none) | 12247 |
 | in-review | 11110 |
+| superseded | 1606 |
 | done | 1107 |
-| superseded | 925 |
 
 ### `tokens.largest`
 
@@ -321,14 +321,14 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | extraction_note | 9 |
 | former_id | 9 |
 | former_id_note | 9 |
+| absorbs | 8 |
 | context | 8 |
 | detected | 8 |
 | severity_reason | 8 |
+| superseded_by | 8 |
 | visibility_reason | 8 |
-| absorbs | 7 |
 | applies_to | 7 |
 | parent_mission | 7 |
-| superseded_by | 7 |
 | human_approval_score | 6 |
 | mandatory | 6 |
 | sub_missions | 6 |
@@ -442,10 +442,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | documents |
 |---|---|
-| active | 97 |
+| active | 96 |
 | draft | 24 |
 | closed | 5 |
-| superseded | 1 |
+| superseded | 2 |
 | todo | 33 |
 | in-progress | 7 |
 | in-review | 2 |
@@ -467,16 +467,16 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | 3 |
 |---|---|
-| STD | 567 |
+| STD | 578 |
 | MIS | 874 |
 | CAN | 167 |
-| ADR | 400 |
+| ADR | 403 |
 | OPS | 37 |
 | RPT | 41 |
-| DBT | 129 |
+| DBT | 128 |
 | PRO | 263 |
 | DEC | 20 |
-| SYS | 26 |
+| SYS | 25 |
 | BLU | 30 |
 | GLD | 10 |
 
@@ -528,7 +528,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `legacy.docs_total` | 180 | documents | every tracked path ending in .md (git ls-files '*.md'), web/ included, telemetry/ excluded |
 | `legacy.docs_con_frontmatter` | 171 | documents | docs_total whose text starts with a `---` block closed by a second `---` line |
 | `legacy.docs_sin_frontmatter` | 9 | documents | docs_total − docs_con_frontmatter |
-| `legacy.referencias_textuales_total` | 1625 | mentions | occurrences of `(MIS\|ADR\|DEC\|RPT\|AUD\|P\|C\|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included) |
+| `legacy.referencias_textuales_total` | 1626 | mentions | occurrences of `(MIS\|ADR\|DEC\|RPT\|AUD\|P\|C\|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included) |
 | `legacy.referencias_top` | (table below) | mentions | the six most-mentioned identifiers as [id, count]; ties keep first-seen order (Python Counter.most_common) |
 | `legacy.matricula` | (table below) | documents | per series dir (count-evidence order, 11 dirs — `system` absent, as in the script): con = filenames matching the scheme; total = docs in the dir minus _template/, reports/evidence/, apparatus (canonical name or type: meta) and dated filenames, as the replayed tool did; pct = 100·con/total rounded to 0.1 |
 | `legacy.excluidos` | (table below) | paths | the apparatus and dated-name paths removed from the matricula denominators, in scan order |
@@ -536,7 +536,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `legacy.uid_presentes` | 15 | documents | docs with a non-empty `uid:` line in the frontmatter |
 | `legacy.uid_fabricados` | 0 | documents | uid values ending in eight or more zeros plus an optional counter (the hand-made v7 pattern) |
 | `legacy.uid_colisiones` | 14 | collisions | Σ(count − 1) over uid values held by more than one doc. Known defect reproduced: values are compared as typed, so a shared placeholder counts as collisions (MIS-122) |
-| `legacy.docs_con_relacion_declarada` | 5 | documents | docs with at least one of supersedes / superseded_by / derived_from / replaces holding a non-null value (E6) |
+| `legacy.docs_con_relacion_declarada` | 6 | documents | docs with at least one of supersedes / superseded_by / derived_from / replaces holding a non-null value (E6) |
 | `legacy.misiones_por_status` | (table below) | documents | every .md under missions/ (TEMPLATE, ANNEX, INDEX included — the "three predicates" of the brief) by raw `status:` value, most common first |
 | `legacy.guild_valores` | (table below) | documents | distinct raw `guild:` values with counts, most common first |
 | `legacy.type_execution_valores` | (table below) | documents | distinct raw `type_execution:` values with counts |

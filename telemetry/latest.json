@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "58b387f",
-  "corpus_hash": "f3c510f5449f89d85232aec3b5bf6ec4f4f4a7453362be94dee4d2e2f27d5790",
+  "head": "3a5ff94",
+  "corpus_hash": "e9cacbb68d0e687f70a5bd4dca7c8351f493d0fa1b1c2397b7002cd7f1ddd367",
   "root_dirty": 0,
-  "measured_at": "2026-09-08T16:03:57Z",
+  "measured_at": "2026-09-08T16:04:12Z",
   "families": [
     "corpus",
     "series",
@@ -348,24 +348,24 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 365688,
+      "value": 364629,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "missions": 106479,
-        "standards": 68155,
-        "agents": 25317,
+        "missions": 106854,
+        "standards": 66226,
+        "agents": 25322,
         "canon": 23425,
-        "protocols": 21488,
-        "operations": 21347,
+        "protocols": 21968,
+        "operations": 21353,
         "decisions": 18180,
         "reports": 18008,
         "templates": 17886,
         "debt": 12477,
         "": 12429,
-        "system": 9730,
+        "system": 9734,
         "blueprints": 5596,
         "guilds": 3342,
         "infra": 1511,
@@ -376,21 +376,21 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 162993,
-        "draft": 69046,
-        "todo": 54502,
+        "active": 161334,
+        "draft": 68590,
+        "todo": 54877,
         "in-progress": 41278,
         "closed": 12480,
         "(none)": 12247,
         "in-review": 11110,
-        "done": 1107,
-        "superseded": 925
+        "superseded": 1606,
+        "done": 1107
       },
       "unit": "tokens",
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 29.12,
+      "value": 29.3,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -471,14 +471,14 @@
         "extraction_note": 9,
         "former_id": 9,
         "former_id_note": 9,
+        "absorbs": 8,
         "context": 8,
         "detected": 8,
         "severity_reason": 8,
+        "superseded_by": 8,
         "visibility_reason": 8,
-        "absorbs": 7,
         "applies_to": 7,
         "parent_mission": 7,
-        "superseded_by": 7,
         "human_approval_score": 6,
         "mandatory": 6,
         "sub_missions": 6,
@@ -663,10 +663,10 @@
     },
     "contradictions.status_vocabulary_used": {
       "value": {
-        "active": 97,
+        "active": 96,
         "draft": 24,
         "closed": 5,
-        "superseded": 1,
+        "superseded": 2,
         "todo": 33,
         "in-progress": 7,
         "in-review": 2,
@@ -713,17 +713,17 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 567
+          "3": 578
         },
         "MIS": {
           "3": 874,
-          "4": 164
+          "4": 162
         },
         "CAN": {
           "3": 167
         },
         "ADR": {
-          "3": 400
+          "3": 403
         },
         "OPS": {
           "3": 37
@@ -733,7 +733,7 @@
           "4": 9
         },
         "DBT": {
-          "3": 129
+          "3": 128
         },
         "PRO": {
           "3": 263
@@ -742,7 +742,7 @@
           "3": 20
         },
         "SYS": {
-          "3": 26
+          "3": 25
         },
         "BLU": {
           "3": 30
@@ -790,7 +790,7 @@
           "id": "MIS-135#10",
           "severity": "B",
           "state": "open",
-          "where": "standards/STD-004-header-standard.md#L125",
+          "where": "standards/STD-004-header-standard.md#L135",
           "claim": "STD-004's Ring 3 registry still lists fields the corpus no longer carries as registered. Deferred → STD-004 v1.5.0. Anchor re-pointed 2026-09-03: the original quote lived in an amendment note removed when STD-004 was slimmed to v2.0.0; the registry row it denounces is unchanged, so the claim stays open."
         },
         {
@@ -870,7 +870,7 @@
       "definition": "docs_total − docs_con_frontmatter"
     },
     "legacy.referencias_textuales_total": {
-      "value": 1625,
+      "value": 1626,
       "unit": "mentions",
       "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
     },
@@ -1019,7 +1019,7 @@
       "definition": "Σ(count − 1) over uid values held by more than one doc. Known defect reproduced: values are compared as typed, so a shared placeholder counts as collisions (MIS-122)"
     },
     "legacy.docs_con_relacion_declarada": {
-      "value": 5,
+      "value": 6,
       "unit": "documents",
       "definition": "docs with at least one of supersedes / superseded_by / derived_from / replaces holding a non-null value (E6)"
     },
