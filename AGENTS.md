@@ -31,7 +31,7 @@ The principal areas of this repository:
   `numinia-lore`, not here.
 - `standards/` — the archive's own operative standards, including
   `STD-001-glossary.md` (controlled vocabularies) and
-  `STD-005-engineering-standards.md` (§6–§7: the working protocol).
+  `STD-005-engineering-standards.md` (the practices; `PRO-016` applies them).
 - `protocols/` — procedures: session close, briefing, archiving.
 - `guilds/` — guild charters and rosters; guilds reference agents, they do
   not contain them.

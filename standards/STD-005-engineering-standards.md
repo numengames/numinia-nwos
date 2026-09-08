@@ -1,14 +1,15 @@
 ---
-title: "Engineering Standards"
+title: "Engineering standards: the practices a repository follows and the machine that checks each one"
 id: "STD-005"
 uid: ""
 type: documentation
+subtype: standard
 status: draft
-version: "0.3.0"
+version: "1.0.0"
 created: "2026-08-17T21:55:38+02:00"
 created_source: "git:e3123fc"
 created_confidence: exact
-updated: "2026-09-08T19:30:00+02:00"
+updated: "2026-09-08T21:30:00+02:00"
 author: "pablofm"
 owner: "oracle"
 territory: "Platform"
@@ -21,356 +22,210 @@ SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC-BY-4.0
 -->
 
-# Engineering Standards
+# Engineering standards
 
-> **Summary:** How this organisation builds software: the roles that own each
-> decision, the practices each one follows, and the checks that verify them.
+> **Summary:** How this organisation builds software: the practices each
+> profile owns and the check that verifies each one.
 > **Epistemic:** Which engineering practices are required here, and which of
 > them a machine actually enforces.
 > **Pragmatic:** You can set up a new repository, or review an existing one,
 > without asking what the house rules are.
 > **Audience:** Agents · Oracles
 
-
-> **NOT RATIFIED — read before citing this document as a requirement.**
-> `status: draft` in the frontmatter now matches what this page has said
-> since 2026-08-17: it is a proposal, not a signed standard.
->
-> Five documents already treat it as binding regardless — `CLAUDE.md`, which
-> states that agents MUST follow its application protocol, `AGENTS.md`, the
-> pull request template, and both agent source lists. That is now on record.
-> Whether each of those citations should be softened, or this document
-> ratified so they become true, is the Oracle's decision: a draft cannot
-> resolve its own citations.
-
-**Origin:** `numengames/numinia-nwos`. Numinia is NWOS's first client: practices are proven here, in production, on real work — before they are proposed to anyone else.
-**This copy:** the operative standard of this repository. Edited here, by ADR + PR in `decisions/`. It is not downstream of anything.
-**Promotion:** what survives here is promoted to `numen-games-nwos-orgs/nwos-workspace-template` as a *starting proposal*. Whoever adopts it owns it — divergence there is adoption, not drift (G-12).
-**Change mechanism:** ADR + Pull Request against this file; the evolution section says how.
-
----
-
 ## 1. Purpose and scope
 
-This document exists because repository disparity is documentary debt. Every repository in the ecosystem MUST be able to answer: *which practices apply here, and which machine verifies each one?*
+Every repository in the ecosystem answers one question: *which practices
+apply here, and which machine verifies each one?* This standard is that
+answer. It has three layers: **principles** (change by Oracle decision),
+**practices** (change by ADR and pull request to this file, semver) and
+**checks** (change by pull request, continuously).
 
-It has three layers with three different speeds of change:
+**Golden rule:** every practice maps to an automated check or is tagged
+`[MANUAL]`. A `[MANUAL]` tag is debt; improvement is moving practices from
+`[MANUAL]` to `[AUTO]`.
 
-| Layer | Content | Changes via | Frequency |
-|---|---|---|---|
-| **1. Principles** | The manifesto. Why we work this way. | Oracle decision only | Rarely, if ever |
-| **2. Practices** | What each profile demands. Versioned (semver). | ADR + PR to this document | When evidence justifies it |
-| **3. Checks** | The machines that verify Layer 2. | PR (implementation detail) | Continuously |
+**Where it binds.** `numengames/numinia-nwos` is the operative copy and is
+edited here; it is downstream of nothing. NWOS workspaces born from
+`nwos-workspace-template` receive it as a starting proposal and own it from
+birth — updates are offered, never imposed. Personal repositories: SHOULD.
+Existing repositories migrate in order: Scorecard first, then presence checks,
+then the full pipeline. Measure, then tighten.
 
-**Golden rule:** every practice in Layer 2 maps to an automated check in Layer 3, or is explicitly tagged `[MANUAL]`. A `[MANUAL]` tag is debt. Continuous improvement means moving practices from `[MANUAL]` to `[AUTO]`.
+Licensing is governed by `STD-010` and cited here, not restated. Documents are
+governed by `STD-004` and `STD-009`. How an agent applies this standard to a
+task is `PRO-016`.
 
-**Relation to existing canon:** licensing practices are governed by the licensing canon `CAN-005` and are referenced here, not duplicated. Design output is governed by the Numen Design System. Where this document conflicts with a canon document, the canon wins.
+## 2. Principles
 
----
+1. **A rule that does not fail a build is prose, not a rule.** CI is the
+   authority; documentation is its explanation.
+2. **Automatable checks are never audited by hand.** Human attention is for
+   what machines cannot judge.
+3. **Small batches over big deliveries.** Frequent integration, small pull
+   requests, trunk kept green.
+4. **Configuration lives in the environment, never in the code.** Secrets
+   never touch the repository; publication is irreversible.
+5. **Leave the repository better than you found it.** No touch adds debt
+   silently.
+6. **Incidents produce rules, not culprits.** Blameless postmortems; an
+   incident may inject one practice via ADR.
+7. **The platform is a product and its users are developers, biological and
+   digital.** If the golden path is unclear to an agent, it is unclear.
 
-## 2. Principles (Layer 1)
+## 3. Practices by profile
 
-1. **A rule that does not fail a build is prose, not a rule.** CI is the authority; documentation is its explanation.
-2. **Automatable checks are never audited by hand.** Human attention is reserved for what machines cannot judge.
-3. **Small batches over big deliveries.** Frequent integration, small PRs, trunk kept green.
-4. **Configuration lives in the environment, never in the code.** Secrets never touch the repository; publication is irreversible.
-5. **Leave the repository better than you found it.** Every touch may reduce debt; no touch may add it silently.
-6. **Incidents produce rules, not culprits.** Blameless postmortems; each incident may inject one practice via ADR.
-7. **The platform is a product and its users are developers — biological and digital.** If the golden path is unclear to an agent, it is unclear.
+Each practice has an ID, a level (MUST / SHOULD) and a check: `[AUTO: tool]`
+or `[MANUAL]`. A `[MANUAL]` row that names `DBT-020` is declared automatic
+and executed by nobody.
 
----
-
-## 3. Practices by profile (Layer 2)
-
-Each practice has an ID, a requirement level (MUST / SHOULD), and a check tag: `[AUTO: <tool>]` or `[MANUAL]`.
-
-### 3.1 CSO — Security and credentials
-
-| ID | Practice | Level | Check |
-|---|---|---|---|
-| SEC-01 | 2FA enforced at organization level | MUST | `[AUTO: org settings + Scorecard]` |
-| SEC-02 | Secret scanning + push protection enabled on every repo | MUST | `[AUTO: GitHub settings]` |
-| SEC-03 | Dependabot alerts + security updates on; merge only on green CI | MUST | `[AUTO: Dependabot + CI]` |
-| SEC-04 | No `.env` or secret files in git history; secrets live in GitHub Environments scoped per environment (`pre`/`prod`) | MUST | `[AUTO: push protection + gitleaks in CI]` |
-| SEC-05 | Cloud deploy auth via OIDC (GitHub → Cloudflare), no long-lived tokens | MUST | `[MANUAL]` → target `[AUTO]` via Terraform policy |
-| SEC-06 | Personal access tokens: fine-grained only, minimum scope, expiry set, one token per purpose | MUST | `[MANUAL]` |
-| SEC-07 | Third-party GitHub Actions pinned by commit SHA, never by tag | MUST | `[AUTO: Scorecard Pinned-Dependencies]` |
-| SEC-08 | Workflow tokens default to read-only (`permissions: read-all`; write granted per job) | MUST | `[AUTO: Scorecard Token-Permissions]` |
-| SEC-09 | `SECURITY.md` with disclosure policy in every public repo | MUST | `[AUTO: Scorecard Security-Policy]` |
-| SEC-10 | CODEOWNERS covering sensitive paths: `LICENSE*`, `.github/workflows/`, auth packages | MUST | `[AUTO: presence check in CI]` |
-| SEC-11 | Organization base permission: read; admin granted per repo, per need | MUST | `[MANUAL]` |
-| SEC-12 | Commits to `main` verified (signed or web-verified) | SHOULD | `[AUTO: branch protection]` |
-
-### 3.2 CTO — Architecture and quality
+### 3.1 Security (CSO)
 
 | ID | Practice | Level | Check |
 |---|---|---|---|
-| ARC-01 | Identical CI pipeline in every repo: `type-check → lint → test → build`. Exceptions live in rule severity, never in pipeline steps | MUST | `[AUTO: shared workflow]` |
-| ARC-02 | Branch protection on `main`: PR required, status checks required, no force push | MUST | `[AUTO: Scorecard Branch-Protection]` |
-| ARC-03 | License per Canon C-005 trichotomy; REUSE 3.3 compliance | MUST | `[MANUAL]` — declared, not executed: `DBT-020` |
-| ARC-04 | Executable README: clone → green tests in under 5 minutes; CI and coverage badges | MUST | `[MANUAL]` → target `[AUTO]` via smoke script |
-| ARC-05 | ADRs in `docs/decisions/`, agreed format, one decision per file | MUST | `[MANUAL]` |
-| ARC-06 | Conventional commits enforced; semver tags; GitHub Releases with notes | MUST | `[MANUAL]` — no commitlint in any of the five repositories: `DBT-020` |
-| ARC-07 | Infrastructure declarative only: Terraform + containers. Nothing hand-configured in dashboards | MUST | `[MANUAL]` → target `[AUTO]` via drift detection |
-| ARC-08 | Shared base config (tsconfig / eslint / prettier) imported from one package, never copied | MUST | `[AUTO: lint rule / knip]` |
-| ARC-09 | Dependencies reviewed before adoption: maintained, licensed compatibly, Scorecard score consulted | SHOULD | `[MANUAL]` |
-| ARC-10 | WCAG 2.2 AA on every public route; keyboard tab order matches visual order and the focus ring is visible | MUST | `[AUTO: axe-core + Playwright, in the sibling repository `numinia-web`]` — 31 routes, both themes. Source and distance in `STD-011` |
+| SEC-01 | 2FA enforced at organisation level | MUST | `[AUTO: org settings + Scorecard]` |
+| SEC-02 | Secret scanning and push protection on every repository | MUST | `[AUTO: GitHub settings]` |
+| SEC-03 | Dependabot alerts and security updates on; merge only on green CI | MUST | `[AUTO: Dependabot + CI]` |
+| SEC-04 | No secret files in git history; secrets in GitHub Environments scoped `pre`/`prod` | MUST | `[AUTO: push protection + gitleaks]` |
+| SEC-05 | Cloud deploy auth via OIDC, no long-lived tokens | MUST | `[MANUAL]` → `[AUTO]` via Terraform policy |
+| SEC-06 | Personal access tokens fine-grained, minimum scope, expiring, one per purpose | MUST | `[MANUAL]` |
+| SEC-07 | Third-party Actions pinned by commit SHA | MUST | `[AUTO: Scorecard Pinned-Dependencies]` |
+| SEC-08 | Workflow tokens read-only by default; write granted per job | MUST | `[AUTO: Scorecard Token-Permissions]` |
+| SEC-09 | `SECURITY.md` with disclosure policy in every public repository | MUST | `[AUTO: Scorecard Security-Policy]` |
+| SEC-10 | CODEOWNERS covering `LICENSE*`, `.github/workflows/`, auth packages | MUST | `[AUTO: presence check]` |
+| SEC-11 | Organisation base permission read; admin per repository, per need | MUST | `[MANUAL]` |
+| SEC-12 | Commits to `main` verified | SHOULD | `[AUTO: branch protection]` |
 
-#### ARC-06 commit convention (Oracle ruling 2026-08-30)
-
-Seven types — the standard Conventional Commits set, nothing bespoke:
-
-| Type | Meaning |
-|---|---|
-| `feat` | Adds a capability or a new document that changes what the system can do |
-| `fix` | Corrects something wrong: broken behaviour, false content, a bad header |
-| `docs` | Documentation-only change — prose added or edited, behaviour untouched |
-| `chore` | Maintenance with no production effect: dependencies, config, tooling |
-| `refactor` | Restructuring without functional change — moves, renames, reorganisation |
-| `test` | Tests only |
-| `ci` | CI workflows and guard scripts |
-
-The **scope** carries the domain, lowercase, usually the folder:
-`docs(debt): register D-040` · `fix(missions): correct MIS-121 status` ·
-`docs(audit): close AUD-2026-08-26`. Retired as types (still valid in old
-history, never in new commits): `session`, `qa`, `standards`, `canon`,
-`debt`, `audit`.
-
-### 3.3 PM — Traceability and state
+### 3.2 Architecture and quality (CTO)
 
 | ID | Practice | Level | Check |
 |---|---|---|---|
-| PM-01 | Repo "About" complete: description, website, topics | MUST | `[AUTO: API check in CI]` |
-| PM-02 | Issue templates + PR template with Definition of Done checklist | MUST | `[AUTO: presence check]` |
-| PM-03 | Standardized labels across all repos (same set, same colors) | SHOULD | `[AUTO: label-sync action]` |
+| ARC-01 | Identical CI pipeline everywhere: `type-check → lint → test → build`; exceptions live in rule severity, never in steps | MUST | `[AUTO: shared workflow]` |
+| ARC-02 | Branch protection on `main`: pull request and status checks required, no force push | MUST | `[AUTO: Scorecard Branch-Protection]` |
+| ARC-03 | Licence per the `STD-010` trichotomy; REUSE 3.3 compliance | MUST | `[MANUAL]` — `DBT-020` |
+| ARC-04 | Executable README: clone to green tests in under five minutes; CI and coverage badges | MUST | `[MANUAL]` → `[AUTO]` via smoke script |
+| ARC-05 | ADRs in `docs/decisions/`, one decision per file | MUST | `[MANUAL]` |
+| ARC-06 | Conventional commits, semver tags, GitHub Releases with notes | MUST | `[MANUAL]` — no commitlint: `DBT-020` |
+| ARC-07 | Infrastructure declarative only: Terraform and containers | MUST | `[MANUAL]` → `[AUTO]` via drift detection |
+| ARC-08 | Shared base config (tsconfig, eslint, prettier) imported from one package, never copied | MUST | `[AUTO: lint rule / knip]` |
+| ARC-09 | Dependencies reviewed before adoption: maintained, compatibly licensed, Scorecard consulted | SHOULD | `[MANUAL]` |
+| ARC-10 | WCAG 2.2 AA on every public route; tab order matches visual order; focus ring visible | MUST | `[AUTO: axe-core + Playwright, in numinia-web]` — distance in `STD-011` |
+
+**ARC-06 convention.** Seven types and nothing bespoke: `feat`, `fix`,
+`docs`, `chore`, `refactor`, `test`, `ci`. The scope is the domain, lowercase,
+usually the folder: `docs(debt): register a new entry`. Retired types (`session`,
+`qa`, `standards`, `canon`, `debt`, `audit`) stay valid in old history only.
+
+### 3.3 Traceability (PM)
+
+| ID | Practice | Level | Check |
+|---|---|---|---|
+| PM-01 | Repository "About" complete: description, website, topics | MUST | `[AUTO: API check]` |
+| PM-02 | Issue templates and a pull request template with a Definition of Done | MUST | `[AUTO: presence check]` |
+| PM-03 | Labels standardised across repositories | SHOULD | `[AUTO: label-sync]` |
 | PM-04 | `CHANGELOG.md` or releases generated from conventional commits | MUST | `[AUTO: release workflow]` |
-| PM-05 | Roadmap/TODO as a file in the repo — File Over App (`STD-006`) applies to management | MUST | `[AUTO: presence check]` |
+| PM-05 | Roadmap or TODO as a file in the repository (`STD-006`) | MUST | `[AUTO: presence check]` |
 
-### 3.4 Dev team — Ergonomics
-
-| ID | Practice | Level | Check |
-|---|---|---|---|
-| DEV-01 | `.env.example` exhaustive and in sync with the Zod env schema | MUST | `[AUTO: schema-vs-example test]` |
-| DEV-02 | Identical npm scripts across repos: `dev`, `build`, `test`, `lint` mean the same everywhere | MUST | `[AUTO: template check]` |
-| DEV-03 | `.editorconfig` + shared editor settings committed | SHOULD | `[AUTO: presence check]` |
-| DEV-04 | Pre-commit hooks fast (<5s): lint-staged + commitlint. CI is the authority; the hook is courtesy | MUST | `[MANUAL]` — no husky in any of the five repositories: `DBT-020` |
-| DEV-05 | Comments in English, explaining *why*; TSDoc on every exported public API | MUST | `[MANUAL]` (review) |
-| DEV-06 | Small PRs with context: what, why, how to verify | SHOULD | `[MANUAL]` (review) |
-| DEV-07 | Code review before `main`: at least one approval | MUST | `[AUTO: branch protection]` |
-
-### 3.5 SRE / Platform
+### 3.4 Ergonomics (developers)
 
 | ID | Practice | Level | Check |
 |---|---|---|---|
-| SRE-01 | Documented rollback path for every deployable; tested at least once | MUST | `[MANUAL]` → target `[AUTO]` via rehearsal job |
-| SRE-02 | Health check endpoint on every deployed service | MUST | `[AUTO: post-deploy probe]` |
-| SRE-03 | Structured logs (JSON), no `console.log` in production code | MUST | `[AUTO: eslint no-console]` |
+| DEV-01 | `.env.example` exhaustive and in sync with the env schema | MUST | `[AUTO: schema-vs-example test]` |
+| DEV-02 | `dev`, `build`, `test`, `lint` mean the same in every repository | MUST | `[AUTO: template check]` |
+| DEV-03 | `.editorconfig` and shared editor settings committed | SHOULD | `[AUTO: presence check]` |
+| DEV-04 | Pre-commit hooks under five seconds; CI stays the authority | MUST | `[MANUAL]` — no husky: `DBT-020` |
+| DEV-05 | Comments in English explaining *why*; TSDoc on every exported API | MUST | `[MANUAL]` |
+| DEV-06 | Small pull requests with what, why and how to verify | SHOULD | `[MANUAL]` |
+| DEV-07 | At least one approval before `main` | MUST | `[AUTO: branch protection]` |
+
+### 3.5 Operations (SRE)
+
+| ID | Practice | Level | Check |
+|---|---|---|---|
+| SRE-01 | Documented, rehearsed rollback for every deployable | MUST | `[MANUAL]` → `[AUTO]` via rehearsal job |
+| SRE-02 | Health-check endpoint on every deployed service | MUST | `[AUTO: post-deploy probe]` |
+| SRE-03 | Structured JSON logs; no `console.log` in production | MUST | `[AUTO: eslint no-console]` |
 | SRE-04 | Runbook per service: deploy, rollback, common failures | MUST | `[MANUAL]` |
-| SRE-05 | Deploy reproducible from a clean clone: no snowflake state | MUST | `[AUTO: CI deploys from scratch]` |
-| SRE-06 | Blameless postmortem for every production incident; outcome may inject one rule via ADR | MUST | `[MANUAL]` |
+| SRE-05 | Deploy reproducible from a clean clone | MUST | `[AUTO: CI deploys from scratch]` |
+| SRE-06 | Blameless postmortem per production incident | MUST | `[MANUAL]` |
 
-### 3.6 OSS Maintainer / Community
+### 3.6 Community (OSS maintainer)
 
 | ID | Practice | Level | Check |
 |---|---|---|---|
-| OSS-01 | `CONTRIBUTING.md` that a stranger can follow | MUST (public repos) | `[AUTO: Scorecard Contributing]` |
-| OSS-02 | Code of Conduct present | MUST (public repos) | `[AUTO: presence check]` |
-| OSS-03 | DCO or CLA per repo license regime (Canon C-005: DCO for MIT-only, CLA for AGPL dual-licensed) | MUST | `[MANUAL]` — no bot; 0 of the last 30 commits signed: `DBT-020` |
-| OSS-04 | Issue triage cadence defined (even if the answer is "weekly, by the Oracle") | SHOULD | `[MANUAL]` |
+| OSS-01 | `CONTRIBUTING.md` a stranger can follow | MUST (public) | `[AUTO: Scorecard Contributing]` |
+| OSS-02 | Code of conduct present | MUST (public) | `[AUTO: presence check]` |
+| OSS-03 | DCO or CLA per the licence regime (`STD-010`) | MUST | `[MANUAL]` — no bot: `DBT-020` |
+| OSS-04 | Issue triage cadence declared | SHOULD | `[MANUAL]` |
 | OSS-05 | Social preview image set | SHOULD | `[MANUAL]` |
 
-### 3.7 Digital Agents
+### 3.7 Digital agents
 
 | ID | Practice | Level | Check |
 |---|---|---|---|
-| AGT-01 | `CLAUDE.md` at repo root; first instruction: audit current branch state before assuming anything | MUST | `[AUTO: presence + content check]` |
-| AGT-02 | Deterministic conventions: predictable naming and paths so agents never hallucinate structure | MUST | `[MANUAL]` (design review) |
-| AGT-03 | Everything normative exists in machine-readable form alongside prose: SPDX, DTCG, JSON Schema | MUST | `[MANUAL]` |
-| AGT-04 | CI is the agent's feedback loop: a rule that doesn't break the build does not exist for an agent | MUST | (restatement of Principle 1) |
-| AGT-05 | Mission briefs in Numinia Standard format. **A mission that produces software carries Gherkin acceptance criteria**; one that produces documents does not — a governance document has no scenarios. Source and tooling in `STD-011` | MUST | `[MANUAL]` |
-| AGT-06 | Clear AI stance per repo: what agents may do autonomously vs. what requires Oracle sign-off (cosmetic vs. irreversible) | MUST | `[MANUAL]` — documented in `CLAUDE.md` |
+| AGT-01 | `CLAUDE.md` at the root; first instruction: audit the branch before assuming anything | MUST | `[AUTO: presence + content check]` |
+| AGT-02 | Deterministic naming and paths, so an agent never invents structure | MUST | `[MANUAL]` |
+| AGT-03 | Everything normative also machine-readable: SPDX, DTCG, JSON Schema | MUST | `[MANUAL]` |
+| AGT-04 | CI is the agent's feedback loop (Principle 1) | MUST | — |
+| AGT-05 | Mission briefs in the standard format; a mission that produces software carries Gherkin acceptance criteria (`STD-011`) | MUST | `[MANUAL]` |
+| AGT-06 | AI stance per repository in `CLAUDE.md`: autonomous versus Oracle sign-off | MUST | `[MANUAL]` |
 
-### 3.8 Legal / Compliance — by reference
+### 3.8 Legal — by reference
 
-Governed entirely by **Canon C-005** (licensing trichotomy, REUSE 3.3, SPDX, dual-licensing, legal debt in `debt/` tagged `legal` — ADR-026 (formerly ADR-031), visibility gate). This document adds only one operational rule:
+Governed by `STD-010`. One operational rule here:
 
 | ID | Practice | Level | Check |
 |---|---|---|---|
-| LEG-01 | Making a repo public is a gated Oracle act. Checklist: license correct per C-005, REUSE green, no secrets in history, `SECURITY.md` present | MUST | `[MANUAL]` — gate, by design |
+| LEG-01 | Making a repository public is a gated Oracle act: licence correct, REUSE green, no secrets in history, `SECURITY.md` present | MUST | `[MANUAL]` — gate by design |
 
----
+## 4. Checks
 
-## 4. Checks (Layer 3)
+Every repository generated from the mould ships with: **OpenSSF Scorecard**
+weekly and on push to `main` (target ≥ 7 on public repositories; it measures
+process hygiene, not code quality; each `CLAUDE.md` declares which checks are
+in scope); the **shared CI workflow** with coverage thresholds as failures and
+a REUSE step; one **presence job** for `CLAUDE.md`, `SECURITY.md`,
+`CONTRIBUTING.md`, CODEOWNERS, templates, `.env.example` and About fields; and
+**local hooks** that are courtesy, skippable, never the authority.
 
-The machines. Every repo generated from the mould ships with:
-
-### 4.1 OpenSSF Scorecard
-- Scorecard GitHub Action running weekly + on push to `main`, publishing results and badge.
-- Covers automatically: branch protection, pinned dependencies, token permissions, security policy, CI tests, code review, dangerous workflow patterns.
-- **Interpretation rule:** Scorecard measures process hygiene, not code quality. It is a thermometer, not a guarantee. Score target: ≥7 for public repos.
-- **Visibility rule:** some checks lose meaning on private repos. Each repo's `CLAUDE.md` declares which checks are in scope.
-
-### 4.2 CI pipeline (shared workflow)
-- `type-check → lint → test → build`, called as a reusable workflow from one source of truth.
-- Coverage thresholds enforced in test config as failure, not report.
-- REUSE lint step on every repo with a license regime.
-
-### 4.3 Presence checks
-- One lightweight CI job verifies: `CLAUDE.md`, `SECURITY.md`, `CONTRIBUTING.md` (public), CODEOWNERS, templates, `.env.example`, About fields (via API).
-- This job is the automated answer to "are all the fields filled in?"
-
-### 4.4 Local layer
-- Husky: pre-commit (lint-staged), commit-msg (commitlint). Skippable by design (`--no-verify`); CI remains the authority.
-
-### 4.5 Guards — rules about the checks themselves
-
-Moved here from the core rules standard on 2026-09-08: how a guard is built is
-engineering, not corpus law. Identifiers are kept (`CORE-14`).
+Rules about the guards themselves (moved from `STD-009`; identifiers kept):
 
 | ID | Rule | Verified by |
 |---|---|---|
-| **CORE-31** | A rule that does not break the build does not exist for an agent. | `[MANUAL]` — this table is the check; a reader confirms every row is filled |
+| **CORE-31** | A rule that does not break the build does not exist for an agent. | `[MANUAL]` — this table is the check |
 | **CORE-32** | A guard is wired into the pipeline in the same change that writes it. | `[MANUAL]` — pending the guard register, `MIS-146` |
-| **CORE-33** | A guard register is read from the workflow file, never remembered. | `[MANUAL]` — pending the guard register, `MIS-146` |
-| **CORE-34** | A baseline records damage that predates its rule and never absorbs damage the current change caused. | `[MANUAL]` — tracing a baseline entry to its commit is archaeology |
-| **CORE-35** | A green pipeline is not a clean tree, and a change declares what it left behind. | `[MANUAL]` — residue is what nobody noticed; a guard that could see it would fail on it |
-| **CORE-66** | A guard that fails on a behaviour no axis document states is enforcing nothing, and is itself the defect: the guard is corrected or the rule is written, never the tree. | `[MANUAL]` — deciding whether a document states a behaviour is a reading, not a parse |
+| **CORE-33** | The guard register is read from the workflow file, never remembered. | `[MANUAL]` — pending the guard register |
+| **CORE-34** | A baseline records damage that predates its rule and never absorbs damage the current change caused. | `[MANUAL]` |
+| **CORE-35** | A green pipeline is not a clean tree; a change declares what it left behind. | `[MANUAL]` |
+| **CORE-66** | A guard that fails on a behaviour no axis document states is itself the defect: correct the guard or write the rule, never the tree. | `[MANUAL]` |
 
----
-
-## 5. GitHub repository checklist ("fill everything in")
-
-Every repo, at creation (the mould pre-fills what it can):
-
-- [ ] Description (one sentence, plain language)
-- [ ] Website URL
-- [ ] Topics (≥3)
-- [ ] README with badges (CI, Scorecard, coverage where applicable)
-- [ ] LICENSE per C-005 + REUSE structure
-- [ ] `SECURITY.md`
-- [ ] `CONTRIBUTING.md` (public repos)
-- [ ] `CODE_OF_CONDUCT.md` (public repos)
-- [ ] CODEOWNERS
-- [ ] Issue + PR templates
-- [ ] Labels synced from the standard set
-- [ ] Branch protection on `main`
-- [ ] Secret scanning + push protection ON
-- [ ] Dependabot ON
-- [ ] Social preview image
-- [ ] Visibility justified (private by default; public only through LEG-01 gate)
-
----
-
-## 6. Evolution mechanism
-
-This document is a system with sensors, not a PDF that ages.
-
-1. **Amendment:** any practice change enters via ADR + PR to this file. The ADR states the evidence. Version bumps per semver: new practice = minor, changed level (SHOULD→MUST) = minor, removed/breaking = major, wording = patch.
-2. **Telemetry:** weekly Scorecard runs across all repos are the perception channel. A dropping score is an incident; incidents produce rules (Principle 6).
-3. **Radar review:** monthly slot in the Dark Council: new practices classified adopt / trial / hold. Trial practices enter as SHOULD; evidence promotes them to MUST.
-4. **Debt burn-down:** each review, pick at least one `[MANUAL]` practice and evaluate moving it to `[AUTO]`.
-5. **Sunset:** a practice nobody has needed in two quarters and no check enforces is a candidate for removal — by ADR, like everything else.
-
----
-
-## 7. Adoption
-
-- **NWOS repos (`numen-games-nwos-orgs`):** *offered* via the mould. Generated workspaces inherit Layer 3 checks at birth as a starting point, and may amend or drop them once born. Nothing here is enforced on a repository we do not own: the canon propagates by pin and digest, never by copy, and a derived NWOS repository is sovereign — updates are offered, never imposed.
-- **Numinia repos (`numengames`):** adopt by reference — `CLAUDE.md` links to this document; the shared CI workflow and presence checks are added per repo. *(Scope pending Oracle confirmation.)*
-- **Personal repos (`PabloFMM`):** SHOULD, not MUST.
-
-Existing repos migrate incrementally: Scorecard first (measurement before enforcement), then presence checks, then full pipeline. Measure, then tighten.
-
----
-
-## 8. Agent application protocol
-
-This document is meant to be **executed**, not just read. Any coding agent (Claude Code or similar) operating in a repo that contains or references this document MUST follow this protocol.
-
-### 8.1 Provenance — know which copy you are reading
-
-Two repositories carry a copy of this document. **They are not the same document.**
-
-- **`numengames/numinia-nwos`** — the **operative standard**. Numinia is NWOS's first client and its proving ground. This copy binds this repository and the repositories that consume it. It is edited here.
-- **`numen-games-nwos-orgs/nwos-workspace-template`**, and every workspace born from it — a **starting proposal**. It binds nobody. Whoever adopts it owns it and governs it themselves: a derived NWOS repo is offered versions, never given law.
-
-Neither copy is downstream of the other. Identical bytes today are a coincidence of youth, not a dependency.
-
-Agent rules:
-- Read the header of the copy in front of you before concluding anything about who governs it. **Do not infer lineage from similarity**, and do not read a narrative statement elsewhere in the canon as an operative one.
-- In `numinia-nwos`: a change to this document is a local ADR + PR against this file. Do not refuse the edit and do not route it upstream — there is no upstream.
-- In an adopted workspace: the change is yours. Nobody upstream approves it, and nobody pulls it back.
-- Version differences between the two copies are **expected**. Do not report them as drift, and do not "sync" them.
-
-### 8.2 Execution order for any task
-
-1. **Audit current branch state first.** Never assume the repo matches this document, the README, or any brief. Read what is actually there.
-2. **Load the repo's `CLAUDE.md`.** It declares which Scorecard checks are in scope, the repo's AI stance (AGT-06), and any repo-specific overrides. If `CLAUDE.md` is missing, that is itself a violation of AGT-01 — report it before proceeding.
-3. **Classify the task: cosmetic or irreversible.** Cosmetic (formatting, lint fixes, doc typos, test additions) → proceed. Irreversible (visibility changes, license changes, secret handling, deleting history, publishing, force operations) → STOP and surface the decision for Oracle sign-off. When in doubt, it is irreversible.
-4. **Identify which practices (by ID) the task touches.** Reference them explicitly in commits and PR descriptions (e.g., `fix: enforce read-only workflow tokens (SEC-08)`).
-5. **Run the checks locally before pushing.** CI is the authority, but a failing local run is faster feedback (Principle 1, AGT-04).
-6. **Never weaken a check to make a task pass.** Lowering a threshold, skipping a test, adding a lint-ignore, or unpinning an action is a Layer 2/3 change and requires an ADR — it is never a side effect of a feature task.
-
-### 8.3 What agents may do autonomously vs. never
-
-**Autonomously (cosmetic tier):**
-- Fix violations of `[AUTO]` practices when the fix is mechanical (pin an action by SHA, add a missing `SECURITY.md` from template, sync labels, complete `.env.example`).
-- Add or improve tests, comments (English, *why*), and TSDoc.
-- Open PRs that reduce `[MANUAL]` → `[AUTO]` debt, as proposals.
-
-**Never without Oracle sign-off (irreversible tier):**
-- Change repo visibility (LEG-01 gate).
-- Change any LICENSE, SPDX header, or REUSE structure (Canon C-005 territory).
-- Rotate, create, or delete credentials, tokens, or secrets.
-- Edit this document in a mirror, or change Layer 1 principles anywhere.
-- Disable, weaken, or bypass any check (branch protection, coverage threshold, Scorecard, push protection).
-- Force-push, rewrite history, or delete branches/tags on `main`.
-
-### 8.4 Reporting format
-
-After completing a task, the agent reports: practices touched (IDs), checks run and their result, any `[MANUAL]` debt observed in passing (do not fix unprompted — report it), and any decision escalated to the Oracle. Observed-but-untouched debt goes to the repo's TODO file (PM-05), not into scope creep.
-
----
-
-*A rule that does not fail a build is prose. This document intends to be as little prose as possible.*
-
-
-## 9. Conformance
+## 5. Conformance
 
 | Check | Rule | Verified by |
 |---|---|---|
-| `EN-01` | Every practice in the profile tables carries an ID and an `[AUTO]`/`[MANUAL]` marker | `[MANUAL]` — a reader confirms every row is marked |
-| `EN-02` | Every `[AUTO]` practice names the job or script that runs it | `[MANUAL]` — no guard cross-checks the profile tables against `.github/workflows/` |
-| `EN-03` | The rules about guards are honoured by every script in `scripts/` | `[MANUAL]` — the guard register (`MIS-146`) will make this mechanical |
+| `EN-01` | Every practice carries an ID and an `[AUTO]`/`[MANUAL]` marker | `[MANUAL]` — a reader confirms every row |
+| `EN-02` | Every `[AUTO]` practice names the job or script that runs it | `[MANUAL]` — no guard cross-checks the tables against `.github/workflows/` |
+| `EN-03` | The guard rules are honoured by every script in `scripts/` | `[MANUAL]` — the guard register (`MIS-146`) will make this mechanical |
 
 Nothing in this standard fails a build in this repository today. It is
 enforced by reading, and by the checks it describes running elsewhere.
 
----
+## 6. What this standard does NOT do
 
-## 10. What this standard does NOT do
+It does not govern documents: naming, versioning, headers and filing are
+`STD-004` and `STD-009`. It does not license anything: `STD-010`. It does not
+adopt external frameworks: naming Scorecard or REUSE here claims nothing about
+distance — that ledger is `STD-011`. It does not say how an agent applies it
+to a task: `PRO-016`. It does not enforce itself, and it has been unratified
+since 2026-08-17 while five documents cite it as binding (`DBT-021`).
 
-It does not govern documents. How a document is named, versioned, headed, or
-filed belongs to the registration law; this standard governs software.
-
-It does not license anything. The trichotomy, the SPDX expressions, and the
-publication gates live in the licensing standard and are cited here, not
-restated.
-
-It does not adopt external frameworks. Naming a practice here neither adopts
-the standard behind it nor claims the tree implements it; that ledger is the
-external standards register, which also records the distance.
-
-It does not enforce itself. Every check in these tables is `[MANUAL]` unless a
-named script runs it, and this document has been unratified since 2026-08-17.
-
----
-
-## 11. References
+## 7. References
 
 | ID | Title | Relation |
 |---|---|---|
 | `STD-009` | Core rules | the corpus law this standard sits under; `CORE-31`–`CORE-35`, `CORE-66` came from it |
-| `STD-010` | Licensing | the regimes and gates this standard cites and does not restate |
-| `STD-011` | External standards | the register that records distance to Scorecard, OpenSSF and the rest |
+| `STD-010` | Licensing | the regimes and gates this standard cites |
+| `STD-011` | External standards | distance to Scorecard, OpenSSF and the rest |
 | `STD-004` | The header in three rings | the document law this standard leaves alone |
+| `PRO-016` | Applying the engineering standard | the procedure that lived in this file |
+| `DBT-020` | Declared automatic, executed by nobody | the `[MANUAL]` rows that claim otherwise |
+| `DBT-021` | Draft binds as hard as active | the ratification this standard still lacks |

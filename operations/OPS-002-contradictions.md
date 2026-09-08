@@ -144,7 +144,7 @@ entry moves to the "Resolved" section with the decision and its date.
   between two distinct artifacts. `STD-005-engineering-standards.md`
   **originates here**: Numinia is NWOS's first client and its proving
   ground. The mould's copy is a **starting proposal** that binds
-  nobody and becomes governed by whoever adopts it (sovereignty of derived repos, `STD-005` §7). They are
+  nobody and becomes governed by whoever adopts it (sovereignty of derived repos, `STD-005` §1 and `PRO-016`). They are
   not the same document; the identical bytes were a coincidence of
   youth, not dependency. The divergence is adoption, not drift, and it
   is not synced.

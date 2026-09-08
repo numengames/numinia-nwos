@@ -185,6 +185,7 @@ PRO-001 opening
   └─► the mission protocol (briefing, lifecycle, coordination)
         ├─► the escalation protocol (if blocked or uncertain)
         └─► the decision protocol (if Oracle approval is needed)
+  └─► PRO-016 applying the engineering standard (any task that touches code)
   └─► PRO-001 monitoring — throughout the session
 PRO-001 closing — always
 ```

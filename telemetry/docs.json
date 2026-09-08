@@ -27,10 +27,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 7432,
+  "chars": 7442,
   "apparatus": false,
   "archived": false,
-  "tokens": 1645
+  "tokens": 1646
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 8103,
+  "chars": 8123,
   "apparatus": false,
   "archived": false,
-  "tokens": 2072
+  "tokens": 2075
  },
  {
   "path": "CONTRIBUTING.md",
@@ -467,10 +467,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1191,
+  "chars": 1264,
   "apparatus": false,
   "archived": false,
-  "tokens": 330
+  "tokens": 344
  },
  {
   "path": "blueprints/BLU-002-business-metrics.md",
@@ -1171,10 +1171,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "active",
-  "chars": 7804,
+  "chars": 7818,
   "apparatus": false,
   "archived": false,
-  "tokens": 2189
+  "tokens": 2194
  },
  {
   "path": "operations/OPS-003-privacy-policy-numengames.md",
@@ -1259,10 +1259,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 7404,
+  "chars": 7481,
   "apparatus": false,
   "archived": false,
-  "tokens": 1888
+  "tokens": 1907
  },
  {
   "path": "protocols/PRO-003-mission-cycle.md",
@@ -1351,6 +1351,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2730
+ },
+ {
+  "path": "protocols/PRO-016-applying-the-engineering-standard.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "draft",
+  "chars": 4285,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1110
  },
  {
   "path": "reports/RPT-003-wardley-map.md",
@@ -1446,10 +1457,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 24045,
+  "chars": 13112,
   "apparatus": false,
   "archived": false,
-  "tokens": 6200
+  "tokens": 3613
  },
  {
   "path": "standards/STD-006-archive-substance.md",
