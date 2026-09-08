@@ -4,11 +4,11 @@ uid: ""
 title: "Welcome to Numinia"
 type: seminal
 status: active
-version: "2.0.0"
+version: "2.1.0"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-07T19:00:00+02:00"
+updated: "2026-09-08T22:00:00Z"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Exegetes"
@@ -193,7 +193,12 @@ It is skipped on Tuesdays and Fridays, as those days follow longer nightly ritua
 
 This is the weekly strategic meeting, where the group reviews:
 
-- What was accomplished during the previous week.
+- What was accomplished during the previous week — read from the weekly
+  roll-up (`PRO-017`), which has already turned every record that closed
+  into one line and removed the record. A contained system is one that
+  forgets on schedule: what it keeps is what changed a rule, opened a
+  debt, or produced something with an address; the rest is history, and
+  git holds it (`STD-012`).
 - Each member's purpose and focus for the upcoming week.
 - The collective priorities and goals of the community.
 

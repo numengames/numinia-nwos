@@ -120,8 +120,8 @@ map from type to series, strict for the registered genres and warn-only for
 the two general ones.
 
 **H-18, `subtype`:** if present, its value comes from the registered list for
-that type. Registered now: for reports, `audit` `daily` `analysis`
-`proposal`; for documentation, `standard` `guide`.
+that type. Registered now: for reports, `audit` `analysis` `proposal`
+`rollup` (`daily` retired 2026-09-08, `STD-012`); for documentation, `standard` `guide`.
 
 ## 6. Status lifecycles
 
