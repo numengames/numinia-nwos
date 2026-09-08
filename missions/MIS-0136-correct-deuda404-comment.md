@@ -2,7 +2,7 @@
 id: "MIS-136"
 uid:
 title: "Correct the DEUDA-404 comment in web/astro.config.mjs — close DBT-004 condition 4"
-status: in-progress
+status: done
 priority: low
 effort: XS
 guild: "Alchemists"
@@ -98,4 +98,7 @@ cd web && npm run build   # exit 0, page count unchanged
 
 ## Closure
 
-*(Fill when the mission closes.)*
+- **What was done:** Replaced the misreading comment at `web/astro.config.mjs:24-25` — "died in April and nobody noticed" corrected to "page weight record, URL never went live (72bff4c)".
+- **What diverged, and why:** DBT-004 no longer exists in `debt/` (resolved separately), but the comment in astro.config.mjs retained the refuted claim. Corrected the comment to match the documented reality.
+- **Evidence:** `grep -n "died in April" web/astro.config.mjs` → no output. `grep -n "never went live\|discarded before\|page weight" web/astro.config.mjs` → matches line 24.
+- **Closed:** 2026-09-08 · **by:** ursa
