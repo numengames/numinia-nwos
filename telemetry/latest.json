@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "2d1dcb1",
-  "corpus_hash": "32bb2a365a11db26898f83a8062ad19482402fced7e9a64279fdb473a1e7888d",
+  "head": "ae6f0ce+index",
+  "corpus_hash": "1c857caa2639a6c1d412363c2c8b6de8a8a985a7edb20c5aa98c6e36145007de",
   "root_dirty": 0,
-  "measured_at": "2026-09-08T22:08:46Z",
+  "measured_at": "2026-09-08T22:14:26Z",
   "families": [
     "corpus",
     "series",
@@ -342,14 +342,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 305940,
+      "value": 304901,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "missions": 52067,
-        "standards": 50488,
+        "standards": 49449,
         "canon": 30370,
         "agents": 25348,
         "protocols": 24501,
@@ -371,7 +371,7 @@
     "tokens.by_status": {
       "value": {
         "active": 160436,
-        "draft": 64469,
+        "draft": 63430,
         "todo": 25264,
         "in-progress": 15763,
         "closed": 13593,
@@ -383,7 +383,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 17.02,
+      "value": 17.08,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -714,7 +714,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 546
+          "3": 538
         },
         "MIS": {
           "3": 771,
@@ -724,7 +724,7 @@
           "3": 162
         },
         "ADR": {
-          "3": 418
+          "3": 419
         },
         "PRO": {
           "3": 255
@@ -737,7 +737,7 @@
           "4": 9
         },
         "DBT": {
-          "3": 97
+          "3": 96
         },
         "DEC": {
           "3": 17
@@ -871,7 +871,7 @@
       "definition": "docs_total − docs_con_frontmatter"
     },
     "legacy.referencias_textuales_total": {
-      "value": 1558,
+      "value": 1559,
       "unit": "mentions",
       "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
     },

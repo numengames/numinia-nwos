@@ -1534,10 +1534,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 9083,
+  "chars": 5039,
   "apparatus": false,
   "archived": false,
-  "tokens": 2625
+  "tokens": 1586
  },
  {
   "path": "standards/STD-012-corpus-does-not-grow.md",
