@@ -2446,22 +2446,22 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-progress",
-  "chars": 3424,
+  "status": "done",
+  "chars": 3994,
   "apparatus": false,
   "archived": false,
-  "tokens": 987
+  "tokens": 1155
  },
  {
   "path": "missions/MIS-0137-pin-reuse-version.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-progress",
-  "chars": 3276,
+  "status": "done",
+  "chars": 3763,
   "apparatus": false,
   "archived": false,
-  "tokens": 966
+  "tokens": 1109
  },
  {
   "path": "missions/MIS-0138-telemetry-instrument.md",
@@ -2479,22 +2479,22 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-progress",
-  "chars": 4122,
+  "status": "done",
+  "chars": 4785,
   "apparatus": false,
   "archived": false,
-  "tokens": 1222
+  "tokens": 1417
  },
  {
   "path": "missions/MIS-0140-publish-coverage-guard.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-progress",
-  "chars": 5974,
+  "status": "done",
+  "chars": 6770,
   "apparatus": false,
   "archived": false,
-  "tokens": 1615
+  "tokens": 1817
  },
  {
   "path": "missions/MIS-0141-telemetry-view.md",

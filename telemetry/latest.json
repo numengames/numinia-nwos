@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "7714dab",
-  "corpus_hash": "4ee3079b549f20f662379582c8c661fe24ea13d6567154fc7ec75ec5a1f87651",
+  "head": "3cb6949+index",
+  "corpus_hash": "8f7f364a0c887dda9fd2706986dfcafff34303cc660a60eadc4db9d7887fb8d9",
   "root_dirty": 0,
-  "measured_at": "2026-09-08T07:24:52Z",
+  "measured_at": "2026-09-08T10:16:55Z",
   "families": [
     "corpus",
     "series",
@@ -242,9 +242,9 @@
     },
     "missions.by_status": {
       "value": {
-        "done": 65,
+        "done": 69,
         "frozen": 38,
-        "in-progress": 12,
+        "in-progress": 8,
         "in-review": 2,
         "todo": 32
       },
@@ -357,13 +357,13 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 539426,
+      "value": 540134,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "missions": 271716,
+        "missions": 272424,
         "standards": 74171,
         "agents": 25317,
         "canon": 23458,
@@ -387,10 +387,10 @@
     "tokens.by_status": {
       "value": {
         "active": 145582,
-        "done": 127098,
+        "done": 132596,
         "draft": 73563,
         "todo": 54487,
-        "in-progress": 46535,
+        "in-progress": 41745,
         "frozen": 34004,
         "closed": 32805,
         "(none)": 12205,
@@ -401,7 +401,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 50.37,
+      "value": 50.44,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -674,8 +674,8 @@
     },
     "provenance.protocol_anchor": {
       "value": {
-        "anchored": 103,
-        "not-oracle-state": 46
+        "anchored": 107,
+        "not-oracle-state": 42
       },
       "unit": "missions",
       "definition": "P-003 rule as protocol-anchor.py applies it: status ∈ {done,frozen,cancelled,backlog} is Oracle-set → anchored if owner=oracle, anchored-weak if another owner, anchored-no-owner if none; other states not-oracle-state. The CYCLE_* timestamp evidence it also used lived in /tmp and is not reproducible"
@@ -688,8 +688,8 @@
         "superseded": 2,
         "frozen": 38,
         "todo": 33,
-        "done": 66,
-        "in-progress": 12,
+        "done": 70,
+        "in-progress": 8,
         "in-review": 2
       },
       "unit": "documents",
@@ -753,7 +753,7 @@
           "4": 20
         },
         "DBT": {
-          "3": 157
+          "3": 161
         },
         "PRO": {
           "3": 343
@@ -824,7 +824,7 @@
           "id": "MIS-135#19",
           "severity": "A",
           "state": "open",
-          "where": "web/astro.config.mjs#L209",
+          "where": "web/astro.config.mjs#L210",
           "claim": "Parameterised redirect that check-url-lifecycle matches literally — neither verified nor expanded. Deferred: design choice."
         },
         {
@@ -1046,10 +1046,10 @@
     },
     "legacy.misiones_por_status": {
       "value": {
-        "done": 65,
+        "done": 69,
         "frozen": 38,
         "todo": 32,
-        "in-progress": 12,
+        "in-progress": 8,
         "in-review": 2,
         "draft": 1
       },

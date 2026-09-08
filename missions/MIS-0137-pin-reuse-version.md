@@ -2,7 +2,7 @@
 id: "MIS-137"
 uid:
 title: "Pin the reuse tool to a concrete version runnable by CI — close DBT-012 D-045"
-status: in-progress
+status: done
 priority: low
 effort: XS
 guild: "Alchemists"
@@ -90,4 +90,7 @@ grep -n "reuse" .github/workflows/ci.yml                # matches (a step)
 
 ## Closure
 
-*(Fill when the mission closes.)*
+- **What was done:** Created `scripts/requirements-tools.txt` pinning `reuse==6.2.0` and added a CI step in `.github/workflows/ci.yml` that installs from it and runs `reuse lint`.
+- **What diverged, and why:** DBT-012 no longer exists in `debt/` (resolved separately). The pin requirement was still valid and implemented as specified.
+- **Evidence:** `grep -n "reuse==6.2.0" scripts/requirements-tools.txt` → matches. `grep -n "reuse" .github/workflows/ci.yml` → matches the new CI step.
+- **Closed:** 2026-09-08 · **by:** ursa
