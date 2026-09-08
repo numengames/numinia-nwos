@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "d93deba+index",
-  "corpus_hash": "13cd3f9771ef8c4a4ae60e7c73f46db4070e669eaf7ca9ac6bf9fde12fc78b04",
+  "head": "0917963+index",
+  "corpus_hash": "f93e9ff4e70c7dbd9a414b67d4492004c642dbab588e379366ba98f7a17caeec",
   "root_dirty": 0,
-  "measured_at": "2026-09-08T14:02:41Z",
+  "measured_at": "2026-09-08T14:16:14Z",
   "families": [
     "corpus",
     "series",
@@ -357,14 +357,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 549899,
+      "value": 550152,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "missions": 273764,
-        "standards": 69167,
+        "missions": 274013,
+        "standards": 69171,
         "agents": 25317,
         "canon": 23458,
         "history": 21668,
@@ -386,11 +386,11 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 157892,
+        "active": 157820,
         "done": 134539,
-        "draft": 69396,
+        "draft": 69472,
         "todo": 54504,
-        "in-progress": 41074,
+        "in-progress": 41323,
         "closed": 34148,
         "frozen": 34055,
         "(none)": 12256,
@@ -401,7 +401,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 49.78,
+      "value": 49.81,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -413,7 +413,7 @@
         ],
         [
           "missions/MIS-0146-normative-refoundation.md",
-          11831
+          12080
         ],
         [
           "missions/MIS-0125-prefix-register.md",
@@ -733,7 +733,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 680
+          "3": 683
         },
         "MIS": {
           "3": 1403,

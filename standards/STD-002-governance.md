@@ -4,7 +4,7 @@ id: "STD-002"
 uid: ""
 type: documentation
 status: active
-version: "3.1.0"
+version: "3.2.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
@@ -31,31 +31,27 @@ license: "CC0-1.0"
 
 ## Which document wins
 
-Settled by `CORE-01` through `CORE-05`, in the core rules standard. Five rules,
-in this order: the git history outranks every document; the documents outrank
-the code; between two documents the one that costs more agreement to change
-wins; at equal cost the later ruling wins and must name what it overrides; and
-no document holds authority except by those four.
+Five rules settle it: `CORE-01` through `CORE-05`, defined in the core rules
+standard, `STD-009`. Their text lives there and is not restated here.
 
-They lived here until 2026-09-05. They were also written, in different words,
-in the core rules standard — the same law in two `governed` documents, neither
-naming the other. This document keeps the thresholds that make rule three
-measurable, in §Permissions by series, and states them once.
+**They bind now, from this document.** `STD-009` is still `draft` and a draft
+binds nobody, so until it is ratified this section is what gives the five their
+force. The pointer says where they are written, not whether they apply.
 
-**These five bind now, from this document.** The core rules standard is still
-`draft`; a draft binds nobody. The pointer above names where the five will live
-once it is ratified, not a condition on their force. Until then the text in this
-section is the operative statement, and the second of the five is the one the
-system is most often asked about:
+This document keeps what makes the third of them measurable: the cost of
+changing each series, in §Permissions by series.
 
-> **The documents outrank the code.** They are the source of truth; the code
-> implements them. When the code does something the documents do not say, the
-> code is wrong — not the documents. A guard that fails on a behaviour no
-> document states is enforcing nothing, and is itself the defect.
+Two consequences of `CORE-02` are stated here because they are what the system
+is most often asked about, and because no other document states them:
 
-That last sentence is not decoration. Five guards currently enforce behaviour no
-axis document states, three of them blocking merges; the condition is recorded as
-`DBT-017`.
+> A guard that fails on a behaviour no axis document states is enforcing
+> nothing, and is itself the defect. Five guards are in that condition today,
+> three of them blocking merges; recorded as `DBT-017`.
+
+> A document that describes what the code already does and describes it wrong is
+> a broken description, and the description is fixed. The test is direction: a
+> rule the code disobeys is a bug in the code; a description the code
+> contradicts is a bug in the description.
 
 ---
 

@@ -5,7 +5,7 @@ title: "The rules of the corpus, and which one wins"
 type: documentation
 subtype: standard
 status: draft
-version: "0.9.0"
+version: "0.10.0"
 created: "2026-09-03T22:10:00Z"
 updated: "2026-09-05T22:40:00+02:00"
 author: "ursa"
@@ -17,7 +17,7 @@ tags: [standards, governance, precedence, rules, core]
 
 # STD-009 — The rules of the corpus, and which one wins
 
-> **Summary:** Sixty-two rules, one line each, every one of them able to pass
+> **Summary:** Sixty-six rules, one line each, every one of them able to pass
 > or fail; and, first, the rule that settles what happens when two of them
 > disagree.
 > **Epistemic:** Why a corpus without a precedence rule grows contradictions
@@ -96,8 +96,9 @@ a standard; it is an accident.
 ## 2. Precedence — the rule that settles the others
 
 Everything else in this corpus is a claim. These five decide whose claim wins.
-They were `STD-002` §Which document wins until 2026-09-05; that section is now
-a pointer here, and `CORE-02` was corrected in the move.
+They were governance's own section until 2026-09-05. Governance now points here
+for their text and states, until this standard is ratified, that they bind from
+there — a draft binds nobody, and these five cannot be left unbinding.
 
 | ID | Rule | Verified by |
 |---|---|---|
@@ -194,6 +195,7 @@ the one it inherits.
 | **CORE-33** | A guard register is read from the workflow file, never remembered. | `[MANUAL]` — pending the guard register, `MIS-146` |
 | **CORE-34** | A baseline records damage that predates its rule and never absorbs damage the current change caused. | `[MANUAL]` — tracing a baseline entry to its commit is archaeology |
 | **CORE-35** | A green pipeline is not a clean tree, and a change declares what it left behind. | `[MANUAL]` — residue is what nobody noticed; a guard that could see it would fail on it |
+| **CORE-66** | A guard that fails on a behaviour no axis document states is enforcing nothing, and is itself the defect: the guard is corrected or the rule is written, never the tree. | `[MANUAL]` — deciding whether a document states a behaviour is a reading, not a parse |
 ---
 
 ## 9. Work
