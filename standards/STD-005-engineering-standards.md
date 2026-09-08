@@ -176,9 +176,9 @@ history, never in new commits): `session`, `qa`, `standards`, `canon`,
 |---|---|---|---|
 | AGT-01 | `CLAUDE.md` at repo root; first instruction: audit current branch state before assuming anything | MUST | `[AUTO: presence + content check]` |
 | AGT-02 | Deterministic conventions: predictable naming and paths so agents never hallucinate structure | MUST | `[MANUAL]` (design review) |
-| AGT-03 | Everything normative exists in machine-readable form alongside prose: SPDX, DTCG, JSON Schema, Gherkin | MUST | `[MANUAL]` — no Gherkin tooling; the rule itself is contested: `DBT-020` |
+| AGT-03 | Everything normative exists in machine-readable form alongside prose: SPDX, DTCG, JSON Schema | MUST | `[MANUAL]` |
 | AGT-04 | CI is the agent's feedback loop: a rule that doesn't break the build does not exist for an agent | MUST | (restatement of Principle 1) |
-| AGT-05 | Mission briefs in Numinia Standard format with Gherkin acceptance criteria | MUST | `[MANUAL]` |
+| AGT-05 | Mission briefs in Numinia Standard format. **A mission that produces software carries Gherkin acceptance criteria**; one that produces documents does not — a governance document has no scenarios. Source and tooling in `STD-011` | MUST | `[MANUAL]` |
 | AGT-06 | Clear AI stance per repo: what agents may do autonomously vs. what requires Oracle sign-off (cosmetic vs. irreversible) | MUST | `[MANUAL]` — documented in `CLAUDE.md` |
 
 ### 2.8 Legal / Compliance — by reference

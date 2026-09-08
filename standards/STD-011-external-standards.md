@@ -104,14 +104,16 @@ nothing in the corpus applies it yet.
 | NIST SSDF · SP 800-218 | <https://csrc.nist.gov/pubs/sp/800/218/final> | 3 | — `STD-005`'s security section is a self-authored checklist with no external frame |
 | OWASP ASVS | <https://owasp.org/www-project-application-security-verification-standard/> | 3 | — |
 | DORA metrics | <https://dora.dev/research/2024/dora-report/> | 3 | **retired** by `STANDARDS.md`, 2026-08-30 |
-| Gherkin / BDD | <https://cucumber.io/docs/gherkin/> | 2 | **contradiction, see below** |
+| Gherkin / BDD | <https://cucumber.io/docs/gherkin/> | 0 | `numinia-web`: ten `.feature` files, `@cucumber/cucumber`, `test:acceptance` in CI |
 
-> **Gherkin is an open contradiction, not an adoption.** The superseded
-> constitution retired it on 2026-08-30 as aspirational. `STD-005` AGT-03 and AGT-05
-> reintroduce it as MUST. There are zero `.feature` files in the tree. The two
-> governance documents contradict each other without citing each other, and
-> `STD-005` has been `draft` since 2026-08-17 while 31 documents cite it as
-> binding. **Resolving this needs an Oracle decision, not an edit.**
+> **Gherkin applies to software, not to documents.** It runs on every pull
+> request in `numinia-web` and has since before the superseded constitution
+> declared it retired — that retirement was written without looking outside
+> this repository, and is corrected there.
+>
+> A mission that produces software carries scenarios. A governance document
+> does not: it has no scenarios to write. `STD-005` AGT-05 now says so, and
+> AGT-03 no longer demands Gherkin for everything normative.
 
 ## 6. Product
 

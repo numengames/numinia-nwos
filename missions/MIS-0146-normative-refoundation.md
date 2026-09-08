@@ -848,6 +848,27 @@ The accessibility gate was cited as incomplete against a debt closed on
 2026-09-04, pointing at a path in another repository. The citation now says
 where the test lives.
 
+### Gherkin was retired while it was running
+
+The superseded constitution retired BDD on 2026-08-30 stating that nothing in
+the corpus invoked it. `numinia-web` held ten `.feature` files, `cucumber` as a
+dependency, and an acceptance step that runs on every pull request — and had
+for months. The claim was made without looking outside this repository, and
+this session repeated it twice before checking.
+
+The rule is now scoped rather than removed: a mission that produces software
+carries scenarios, a mission that produces documents does not. The rule
+demanding Gherkin for everything normative is gone; a governance document has
+no scenarios to write.
+
+The retirement is corrected where it was written, not silently. A record that
+retires something alive is worse than no record.
+
+`DBT-021` notes what this exposed: six of eleven standards are `draft` and bind
+exactly as hard as the five that are `active`, because thirteen of the fourteen
+guards never read the field. Nothing is ratified here. The guards look; they
+do not bite.
+
 ## Out of scope
 
 - **Deleting reference material.** Length is not the defect.
