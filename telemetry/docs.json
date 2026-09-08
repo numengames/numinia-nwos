@@ -2579,10 +2579,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 46399,
+  "chars": 47394,
   "apparatus": false,
   "archived": false,
-  "tokens": 11600
+  "tokens": 11831
  },
  {
   "path": "missions/MIS-0147-document-relations.md",
@@ -2832,10 +2832,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 8430,
+  "chars": 23678,
   "apparatus": false,
   "archived": false,
-  "tokens": 2380
+  "tokens": 6612
  },
  {
   "path": "protocols/PRO-015-joining-and-leaving.md",
@@ -2964,10 +2964,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 118592,
+  "chars": 104895,
   "apparatus": false,
   "archived": false,
-  "tokens": 32822
+  "tokens": 29010
  },
  {
   "path": "standards/STD-009-core-rules.md",
