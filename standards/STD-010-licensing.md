@@ -5,9 +5,9 @@ title: "Every piece declares its licence, and the strongest copyleft sets the fl
 type: documentation
 subtype: standard
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-09-07T10:30:00+02:00"
+updated: "2026-09-08T19:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
@@ -297,7 +297,20 @@ that file forever, without anyone noticing.
 
 ---
 
-## 7. Conformance
+## 7. Fragment for `CLAUDE.md`
+
+Every repository carries a short licensing block in its `CLAUDE.md` so an agent
+reads the regime without opening this standard.
+
+**The block is not reproduced here.** This document is its source; keeping a
+second copy inside the source is how the two drift apart, and a copy that
+contradicts its own origin is worse than no copy. The canonical wording lives
+in this repository's `CLAUDE.md`, between the `REUSE-IgnoreStart` and
+`REUSE-IgnoreEnd` markers. New repositories copy it from there.
+
+If a repository's block and this standard disagree, this standard rules.
+
+## 8. Conformance
 
 | Obligation | Verified by |
 |---|---|
@@ -315,7 +328,7 @@ This standard cannot be ratified as enforced — it is enforced by reading.
 
 ---
 
-## 8. What this standard does NOT do
+## 9. What this standard does NOT do
 
 It does not state **why** the regimes are what they are, why opening is
 irreversible, or why the trademark sits outside every free licence. That is
@@ -328,19 +341,6 @@ the archived Legal Book v0.6.1.
 It is not legal advice.
 
 ---
-
-## 9. Fragment for `CLAUDE.md`
-
-Every repository carries a short licensing block in its `CLAUDE.md` so an agent
-reads the regime without opening this standard.
-
-**The block is not reproduced here.** This document is its source; keeping a
-second copy inside the source is how the two drift apart, and a copy that
-contradicts its own origin is worse than no copy. The canonical wording lives
-in this repository's `CLAUDE.md`, between the `REUSE-IgnoreStart` and
-`REUSE-IgnoreEnd` markers. New repositories copy it from there.
-
-If a repository's block and this standard disagree, this standard rules.
 
 ## 10. References
 

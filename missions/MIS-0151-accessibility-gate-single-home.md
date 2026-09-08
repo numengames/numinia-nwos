@@ -69,7 +69,7 @@ in three places with no cross-reference between them —
    confirmed no hit), so the citation was unverifiable.
 
 No `standards/` document had ever registered this as a numbered practice
-(`STD-005 §2.2` lists `ARC-01`..`ARC-09` for other code-quality practices;
+(`STD-005 §3.2` lists `ARC-01`..`ARC-09` for other code-quality practices;
 accessibility had no entry there at all).
 
 **Second finding, out of this mission's scope by the Oracle's explicit

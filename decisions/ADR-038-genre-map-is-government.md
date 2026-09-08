@@ -53,7 +53,7 @@ what it overrides. A document does not become authoritative by claiming to be.
 arguable and unrecorded. The threshold is already declared per series in
 `STD-001` §2.2, so a reader can settle a conflict without asking anyone.
 
-**4. `standards/` may declare `absorbs`.** Registered in `STD-004` §6 per
+**4. `standards/` may declare `absorbs`.** Registered in `STD-004` §7 per
 `H-30`, which requires a registry line plus this record. The field was
 previously registered for `decisions/` and `debt/` only — the case of a manual
 merging into the standard that governs it had not arisen.

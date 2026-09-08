@@ -120,17 +120,17 @@ for (const field of Object.keys(usage).sort()) {
   } else if (RING1.includes(field)) {
     entry.ring = 1;
     entry.status = 'ruled';
-    entry.decided_by = 'STD-004 §3';
+    entry.decided_by = 'STD-004 §4';
     entry.rule = 'mandatory in every document';
   } else if (RING2.includes(field)) {
     entry.ring = 2;
     entry.status = 'ruled';
-    entry.decided_by = 'STD-004 §4';
+    entry.decided_by = 'STD-004 §5';
     entry.rule = 'optional, valid anywhere';
   } else if (RING3_ALL.includes(field)) {
     entry.ring = '3-all';
     entry.status = 'ruled';
-    entry.decided_by = 'STD-004 §6';
+    entry.decided_by = 'STD-004 §7';
     entry.rule = 'registered for every series';
   } else {
     const series = Object.keys(RING3)
@@ -139,14 +139,14 @@ for (const field of Object.keys(usage).sort()) {
     if (series.length) {
       entry.ring = 3;
       entry.status = 'ruled';
-      entry.decided_by = 'STD-004 §6';
+      entry.decided_by = 'STD-004 §7';
       entry.rule = `registered for: ${series.join(', ')}`;
       entry.series = series;
     } else {
       entry.ring = null;
       entry.status = 'unruled';
       entry.decided_by = null;
-      entry.rule = 'unregistered — STD-004 §6: dies by omission unless it earns an ADR';
+      entry.rule = 'unregistered — STD-004 §7: dies by omission unless it earns an ADR';
     }
   }
 

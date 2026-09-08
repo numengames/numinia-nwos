@@ -131,7 +131,7 @@ Deliberately excluded, recorded so they are not lost:
 
 | # | Document | Verdict | Lands as | State |
 |---|---|---|---|---|
-| 1 | — | template for the series | `templates/STD-TEMPLATE.md` + `STD-004` §10 | **done** (`53b6cb5`) |
+| 1 | — | template for the series | `templates/STD-TEMPLATE.md` + `STD-004 §8.2` | **done** (`53b6cb5`) |
 | 2 | `ADR-001` | policy — substrate, format, data sovereignty | `STD-006` (draft) | **done** |
 | 3 | `ADR-004` | pending review | — | pending |
 | 4 | `ADR-005` | pending review | — | pending |

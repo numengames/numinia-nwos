@@ -6,13 +6,13 @@
  * in the standard carries a check id (H-NN); every finding this script
  * prints cites that id. If a rule cannot be expressed here, the standard
  * marks it [MANUAL] — there is no third kind. The mapping is 1:1 BY
- * CONSTRUCTION: read STD-004 §2-§7 side by side with CHECKS below.
+ * CONSTRUCTION: read STD-004 §3-§7 side by side with CHECKS below.
  *
  *   node scripts/lint-frontmatter.mjs                  # verify vs baseline
  *   node scripts/lint-frontmatter.mjs --report         # full detail, exit 0
  *   node scripts/lint-frontmatter.mjs --write-baseline # freeze current state
  *
- * Enforcement pattern (STD-004 §7): strict on the delta, baseline on the
+ * Enforcement pattern (STD-004 §9): strict on the delta, baseline on the
  * stock. Violations present at adoption are frozen in
  * scripts/frontmatter-baseline.json — allowed to exist, not to grow.
  * The baseline's size is the corpus's public entropy metric; migrations
@@ -57,25 +57,25 @@ const args = process.argv.slice(2);
 const REPORT = args.includes('--report');
 const WRITE = args.includes('--write-baseline');
 
-/* ---------------- STD-004 §1: the three rings ---------------- */
+/* ---------------- STD-004 §2: the three rings ---------------- */
 /* MIS-145 v2 (2026-09-04): the registry moved to scripts/lib/rings.mjs when
    check-templates.mjs became its second consumer. Same move, same reason as
    MIS-138 D1.1 for the vocabularies: two guards reading one registry, not two
    copies drifting apart. The comments explaining why each field is registered
    travelled with it — they are the record. */
 
-/** STD-004 §4 H-03 / H-17: type vocabulary and type ↔ series — rules.json `types`. */
+/** STD-004 §5 H-03 / H-17: type vocabulary and type ↔ series — rules.json `types`. */
 const TYPES = RULES.types.all;
 const TYPE_SERIES = RULES.types.series;
 const LAX_TYPES = RULES.types.lax;
 
-/** STD-004 §5: status lifecycles by type — rules.json `status`. */
+/** STD-004 §6: status lifecycles by type — rules.json `status`. */
 const STATUS = RULES.status;
 
-/** STD-004 §4 H-18: registered subtypes per type — rules.json `subtypes`. */
+/** STD-004 §5 H-18: registered subtypes per type — rules.json `subtypes`. */
 const SUBTYPES = RULES.subtypes;
 
-/** STD-004 §6 H-31: retired fields, each the object of a registered migration. */
+/** STD-004 §7 H-31: retired fields, each the object of a registered migration. */
 const RETIRED = {
   area: 'D-010: area → territory',
   blocked_reason: 'D-002: orphaned by the removal of status blocked',
@@ -106,7 +106,7 @@ const VOCAB = {
   guild: ['Sentinels', 'Alchemists', 'Exegetes', 'Procurators'],
   // STD-001 §7: digital = an agent can do it; biological = needs a human.
   type_execution: ['digital', 'biological', 'hybrid'],
-  // STD-004 §6: public unless a reason says otherwise.
+  // STD-004 §7: public unless a reason says otherwise.
   visibility: ['public', 'restricted-oracle'],
   // STD-001 §territory, the 8 words. TBA is legal under ADR-028 (owner MIS-124).
   territory: ['CAO', 'Product', 'Platform', 'Infrastructure',
@@ -119,8 +119,8 @@ const VOCAB = {
 const VOCAB_CHECK = { guild: 'H-33', type_execution: 'H-34', visibility: 'H-35', territory: 'H-36',
   priority: 'H-37', effort: 'H-38' };
 
-/* The corpus tree this standard governs (STD-004 §8): tracked .md outside web/. */
-const GOVERNED = new Set(RULES.governed.dirs);  // STD-004 §8 — rules.json `governed`
+/* The corpus tree this standard governs (STD-004 §10): tracked .md outside web/. */
+const GOVERNED = new Set(RULES.governed.dirs);  // STD-004 §10 — rules.json `governed`
 
 const ISO_TIME = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?(\.\d+)?(Z|[+-]\d{2}:?\d{2})$/;
 const SEMVER = /^\d+\.\d+\.\d+$/;
@@ -223,7 +223,7 @@ for (const rel of files) {
 
   /* H-03: closed type vocabulary */
   if (fm.type && !TYPES.includes(fm.type))
-    F('H-03', rel, `type "${fm.type}" not in the closed vocabulary (STD-004 §4)`);
+    F('H-03', rel, `type "${fm.type}" not in the closed vocabulary (STD-004 §5)`);
 
   /* H-19: status case; H-04: lifecycle.
      Series beats type (2026-09-03): a normative series declares its own
@@ -321,7 +321,7 @@ for (const rel of files) {
     ...(RING3[top] || []), 'subtype']);
   for (const k of Object.keys(fm))
     if (!allowed.has(k) && !RETIRED[k])
-      F('H-30', rel, `field "${k}" is in no ring and not registered for ${top}/ (STD-004 §6)`);
+      F('H-30', rel, `field "${k}" is in no ring and not registered for ${top}/ (STD-004 §7)`);
 }
 
 /* ---------------- baseline ratchet ---------------- */
@@ -330,7 +330,7 @@ const keys = findings.map((f) => `${f.check} ${f.file} :: ${f.detail}`).sort();
 
 if (WRITE) {
   writeFileSync(BASELINE, JSON.stringify({
-    _comment: 'Frontmatter violations frozen at adoption (STD-004 §7). The lint fails only on NEW ones. This list shrinks with each migration and never grows; its size is the corpus entropy metric.',
+    _comment: 'Frontmatter violations frozen at adoption (STD-004 §9). The lint fails only on NEW ones. This list shrinks with each migration and never grows; its size is the corpus entropy metric.',
     generated: new Date().toISOString(),
     count: keys.length,
     entries: keys,

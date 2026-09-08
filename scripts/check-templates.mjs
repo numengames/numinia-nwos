@@ -35,12 +35,13 @@
 //   T-03  no inline `# comment` after a scalar value — the D-009 shape
 //   T-04  `license:` matches the REUSE regime of the DESTINATION directory,
 //         not of templates/
-//   T-05  `type` matches what STD-004 §4 maps to the destination series
+//   T-05  `type` matches what STD-004 §5 maps to the destination series
 //   T-06  `status` is in the destination series' lifecycle
 //   T-07  every frontmatter key is in ring 1, 2 or the destination's ring 3
 //   T-08  version is bare SemVer and opens at 0.1.0 (STD-009 CORE-21)
 //   T-09  the context card is present, with Summary, Epistemic and Pragmatic
 //   T-10  every registered series has a template
+//   T-11  every standard in standards/ has the template's shape and no log of itself
 //
 // Run from anywhere: node scripts/check-templates.mjs
 
@@ -67,7 +68,7 @@ const EXEMPT = new Set(['README.md']);
 
 /* Ring 1, ring 2 and the per-series registry come from lib/rings.mjs — the
    same registry lint-frontmatter enforces on the documents. Lifecycles come
-   from rules.json, series before type (STD-004 §5). */
+   from rules.json, series before type (STD-004 §6). */
 
 const SEMVER = /^\d+\.\d+\.\d+$/;
 
@@ -157,18 +158,18 @@ for (const rel of files) {
   if (want && fm.license !== want)
     F('T-04', rel, `license "${fm.license}" is not the regime of ${dir}/ ("${want}") — a document copied from this mould fails check-license-frontmatter on its first commit`);
 
-  // T-05: type ↔ series, STD-004 §4.
+  // T-05: type ↔ series, STD-004 §5.
   const allowedTypes = Object.entries(RULES.types.series)
     .filter(([, d]) => d === dir).map(([t]) => t);
   if (fm.type && allowedTypes.length && !allowedTypes.includes(fm.type))
     F('T-05', rel, `type "${fm.type}" does not belong to ${dir}/ (expected ${allowedTypes.join(' | ')})`);
 
-  // T-06: status ↔ lifecycle, STD-004 §5 (series beats type).
+  // T-06: status ↔ lifecycle, STD-004 §6 (series beats type).
   const life = lifecycleFor(dir, fm.type, RULES);
   if (fm.status && !life.includes(fm.status))
     F('T-06', rel, `status "${fm.status}" is not in ${dir}/'s lifecycle [${life.join(' ')}]`);
 
-  // T-07: no field the destination does not register (STD-004 §6, H-30's rule
+  // T-07: no field the destination does not register (STD-004 §7, H-30's rule
   // applied one step earlier — at the mould instead of at its copies).
   const ring3 = RING3[dir] ?? [];
   for (const k of Object.keys(fm)) {
@@ -189,7 +190,7 @@ for (const rel of files) {
   else if (fm.version && fm.version !== '0.1.0' && dir !== 'reports')
     F('T-08', rel, `version "${fm.version}" — a new artifact opens at 0.1.0 (STD-009), and the mould is what teaches that`);
 
-  // T-09: the context card, STD-004 §9.
+  // T-09: the context card, STD-004 §8.1.
   const body = stripFM(text);
   for (const part of ['Summary', 'Epistemic', 'Pragmatic'])
     if (!new RegExp(`^>\\s\\*\\*${part}:\\*\\*`, 'm').test(body))
@@ -202,6 +203,44 @@ for (const dir of seriesDirs(RULES)) {
   if (!pfx) continue;                       // agents/ is folder-named: its scaffold is agents/_template/
   if (!files.includes(`templates/${pfx}-TEMPLATE.md`))
     F('T-10', `templates/${pfx}-TEMPLATE.md`, `absent — ${dir}/ is a registered series with no mould to copy from`);
+}
+
+/* T-11: the standards took the shape of their template (STD-004 §8.2). The
+   numbered sections run 1..N without gaps; §1 is "Purpose and scope"; the
+   last three are Conformance, "What this standard does NOT do" and
+   References, in that order. What lies between §1 and Conformance is the
+   norm — one section or several, the document decides. And no log of
+   itself: no "Version history", "Changelog" or "Amendment" heading, because
+   git is the archive (ADR-041). A superseded standard is a stub and exempt. */
+/* Standards whose shape is known debt and scheduled for a rewrite that will
+   renumber them once, not twice (DBT-016: 26 external citations pin STD-008's
+   section numbers). Remove the entry in the PR that rewrites the file. */
+const T11_BASELINE = new Set(['standards/STD-008-design-system.md']);
+const LOG = /^##+\s.*\b(version history|changelog|change log|amendment)\b/i;
+const standards = execFileSync('git', ['ls-files', 'standards/STD-*.md'], { cwd: ROOT, encoding: 'utf8' })
+  .split('\n').filter(Boolean);
+for (const rel of standards) {
+  const text = readFileSync(path.join(ROOT, rel), 'utf8');
+  const fm = parseFM(text);
+  if (fm?.status === 'superseded' || fm?.status === 'withdrawn') continue;
+  if (T11_BASELINE.has(rel)) continue;   // shape debt named, not hidden — see the set above
+  const body = stripFM(text);
+  const h2 = body.split('\n').filter((l) => /^## /.test(l));
+  const numbered = h2.filter((h) => /^## \d+\. /.test(h));
+  const titles = numbered.map((h) => h.replace(/^## \d+\. /, '').trim());
+  const nums = numbered.map((h) => Number(/^## (\d+)\./.exec(h)[1]));
+  if (h2.length !== numbered.length)
+    F('T-11', rel, `${h2.length - numbered.length} unnumbered section(s): ${h2.filter((h) => !/^## \d+\. /.test(h)).map((h) => h.slice(3)).join(' · ')}`);
+  if (nums.some((n, i) => n !== i + 1))
+    F('T-11', rel, `sections are numbered ${nums.join(',')} — the template numbers them 1..N without gaps`);
+  if (titles.length < 4) { F('T-11', rel, `has ${titles.length} numbered section(s); the template needs Purpose, the norm, Conformance, NOT do, References`); continue; }
+  if (!/^Purpose and scope$/.test(titles[0])) F('T-11', rel, `§1 is "${titles[0]}" — the template opens with "Purpose and scope"`);
+  const [conf, not, refs] = titles.slice(-3);
+  if (!/^Conformance/.test(conf)) F('T-11', rel, `third-from-last section is "${conf}" — the template puts Conformance there`);
+  if (!/^What this (standard|register) does NOT do/i.test(not)) F('T-11', rel, `second-from-last section is "${not}" — the template puts "What this standard does NOT do" there`);
+  if (!/^References$/.test(refs)) F('T-11', rel, `last section is "${refs}" — the template ends with References`);
+  for (const h of body.split('\n').filter((l) => /^##+ /.test(l)))
+    if (LOG.test(h)) F('T-11', rel, `carries a log of itself: "${h.replace(/^#+ /, '')}" — git log --follow is the history (ADR-041)`);
 }
 
 if (failures.length) {

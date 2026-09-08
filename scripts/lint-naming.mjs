@@ -15,7 +15,7 @@
  *   node scripts/lint-naming.mjs --report         # full detail, exit 0
  *   node scripts/lint-naming.mjs --write-baseline # freeze current state
  *
- * Enforcement pattern (same as lint-frontmatter.mjs, STD-004 §7): strict on
+ * Enforcement pattern (same as lint-frontmatter.mjs, STD-004 §9): strict on
  * the delta, baseline on the stock. Violations present at adoption are
  * frozen in scripts/naming-baseline.json — allowed to exist, not to grow.
  *

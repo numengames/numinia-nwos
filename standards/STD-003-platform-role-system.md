@@ -1,269 +1,109 @@
 ---
-title: "Platform Role System"
+title: "Six platform ranks, cumulative, inferred from what a member has done"
 id: "STD-003"
 uid: ""
 type: documentation
 subtype: standard
 status: active
-version: "1.0.0"
+version: "2.0.0"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-03T10:18:32Z"
+updated: "2026-09-08T19:00:00+02:00"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Alchemists"
 territory: "Archive"
-tags: [standards, ranks, permissions, digital-goods, ADR-023]
+tags: [standards, ranks, permissions, digital-goods]
 license: "CC0-1.0"
 threshold: governed
-series_change:
-  from: "canon/Platform Role System.md"
-  from_series: "canon"
-  from_id: "S-006"
-  date: "2026-08-25"
-  decision: "Oracle ruling, 2026-08-25 — genre, not filing"
-  reason: >
-    A permissions matrix for an artifact, not world vocabulary. Its sections are
-    "Matriz de permisos por rango", "Cómo se determina el rango" and "Reglas de
-    promoción y degradación": 18 table rows, zero narrative markers. What a rank
-    may do is machine-verifiable, which is the definition of a standard in
-    STD-001's section on what a standard is. Its twin C-007 Rank Specifications
-    NAMES the ranks and stayed in canon; this one REGULATES them.
-  regime_change: >
-    NONE. The file moves folder and KEEPS LicenseRef-Numen-AllRightsReserved,
-    declared explicitly here and pinned by a per-file exception in REUSE.toml.
-    Ruled by the Oracle 2026-08-25, reversing what this branch first did.
-
-    The move would otherwise have released it under CC-BY-4.0 by folder
-    inheritance — and CC-BY is irrevocable, the same mechanism as the CC0
-    incident recorded as legal debt (D-042, was LEGAL_DEBT.md LD-001; ADR-026 (formerly ADR-031)). This document is not platform
-    mechanics: NOMAD, CITIZEN, PILGRIM, VERNACULAR, ARCHON and ORACLE are
-    Numinia's own rank names, and promotion is tied to Session Zero, guilds
-    and factions — all reserved canon. A document defining how one ascends
-    through reserved rites cannot live under an open, irrevocable licence.
-    "Maximum 4 Oracles, Oracles cannot be banned" is organisational
-    governance, not technical convention.
-
-    Genre and regime are two decisions. The Oracle signed the genre; the
-    regime travelled hidden inside it and nobody approved it. See D-029.
 ---
 
-# Rank and Permission System — Numinia Digital Goods
+# STD-003 — Six platform ranks, cumulative, inferred from what a member has done
 
-> **Licence amendment, 2026-09-03 (Oracle ruling).** This document is
-> `CC0-1.0`. The 2026-08-25 ruling recorded in the `series_change` field
-> above reserved it, on the premise that rank names and promotion mechanics
-> were trade secrets. The Oracle now holds that premise false.
->
-> The reservation was also unenforceable by the time it was written. This
-> file was born 2026-04-07 under its old canon name, in a public repository
-> whose root `LICENSE` has been CC0-1.0 since the initial commit of
-> 2026-04-06 — one day earlier. It carried no `license:` field of its own
-> until 2026-08-25, so for four and a half months the only licence statement
-> covering it was CC0, and a published CC0 waiver cannot be taken back. This
-> amendment records a release that had already happened; it does not perform
-> a new one.
->
-> The waiver is irrevocable and is accepted as such — a deliberate release,
-> not a default. The August ruling is preserved above unmodified: it is the
-> record of what this repository decided then, not a statement of today's
-> regime.
-
-> **Summary:** NWOS system document — Platform Role System.
-> **Epistemic:** What you learn by reading this document.
-> **Pragmatic:** What you can do with this document.
+> **Summary:** The Numinia platform has six ranks. Each inherits the
+> permissions of the ranks below it, and a member's rank is inferred from
+> what they have done, never declared.
+> **Epistemic:** What each rank may do, what earns it, and where the platform
+> reads it from.
+> **Pragmatic:** Implement or audit a permission check without asking who is
+> allowed to do what.
 > **Audience:** Agents · Oracles
 
 ---
 
+## 1. Purpose and scope
 
-> Based on the EEM Institute's STSI framework
-> and Numinia's seminal documents.
-> v2 — April 2026
+This standard binds the Numinia digital-goods platform: its authentication,
+its character sheets, its creator panel and its administration. It defines
+the ranks, the permission each rank grants, the signal that grants the rank
+and the file the platform reads it from.
 
----
-
-## Fundamental principle
-
-**Ranks** grant permissions. They are **cumulative**: each rank inherits
-all the permissions of the ranks below it.
-
-```
-  ORACLE ──── 4 max. Full administration.
-     │
-  ARCHON ──── Moderation + global content management.
-     │
-  VERNACULAR ─ Creation and management of own content.
-     │
-  PILGRIM ──── Has purchased a digital good on Numinia.
-     │
-  CITIZEN ──── Can edit their character sheet and has loot.
-     │
-  NOMAD ────── Login with wallet/social. Read only.
-```
+It was a canon document (the sixth) until 2026-08-25, when the Oracle ruled it a standard:
+a permissions matrix is machine-verifiable, and what a rank *is* stays in
+`CAN-004`. It is `CC0-1.0` by a second Oracle ruling of 2026-09-03; the
+earlier reservation was unenforceable, the file having been published under
+the repository's CC0 waiver since its first commit.
 
 ---
 
-## Permission matrix by rank
+## 2. The norm
 
-```
-Permission                               NOM  CIT  PIL  VER  ARC  ORA
-──────────────────────────────────────── ───  ───  ───  ───  ───  ───
+**Ranks are cumulative.** Six ranks, lowest first: Nomad, Citizen, Pilgrim,
+Vernacular, Archon, Oracle. A rank MUST grant every permission of the ranks
+below it.
 
-READ
-  Browse public gallery                    x    x    x    x    x    x
-  Download CC0 assets                      x    x    x    x    x    x
-  Search and filter                        x    x    x    x    x    x
-  View own character sheet (read only)     x    x    x    x    x    x
-  View own favorites list                  x    x    x    x    x    x
-  View NFT collections                     x    x    x    x    x    x
+**Rank is inferred, not declared.** The platform MUST derive a member's rank
+from the signals below and MUST NOT accept a rank the member asserts.
 
-IDENTITY
-  Edit own character sheet                 ·    x    x    x    x    x
-  Access loot / inventory                  ·    x    x    x    x    x
-  Take part in Session Zero                ·    x    x    x    x    x
-
-COMMERCE
-  Access purchased premium content         ·    ·    x    x    x    x
-  Take part in burn ritual                 ·    ·    x    x    x    x
-  Access seasonal adventures                ·    ·    x    x    x    x
-
-CREATION (own content)
-  Upload own assets                        ·    ·    ·    x    x    x
-  Edit own assets' metadata                ·    ·    ·    x    x    x
-  Delete own assets                        ·    ·    ·    x    x    x
-  View own assets' statistics              ·    ·    ·    x    x    x
-  Access the LAP (creator panel)           ·    ·    ·    x    x    x
-
-ADMINISTRATION (global content)
-  Create/edit/delete ANY asset             ·    ·    ·    ·    x    x
-  Manage seasons                           ·    ·    ·    ·    x    x
-  View global statistics                   ·    ·    ·    ·    x    x
-  View audit log                           ·    ·    ·    ·    x    x
-  Sync to R2 / IPFS / Arweave              ·    ·    ·    ·    x    x
-
-MODERATION
-  Ban / unban users                        ·    ·    ·    ·    x    x
-  Appoint Vernaculars                      ·    ·    ·    ·    x    x
-  Manage ranks below their own             ·    ·    ·    ·    x    x
-
-SYSTEM (Oracle only — max 4)
-  Appoint / remove Archons                 ·    ·    ·    ·    ·    x
-  Edit the permission matrix               ·    ·    ·    ·    ·    x
-  System configuration                     ·    ·    ·    ·    ·    x
-  Cannot be banned                         ·    ·    ·    ·    ·    x
-```
-
----
-
-## How rank is determined
-
-Rank is **inferred** automatically from the user's actions:
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                                                             │
-│  No session ─────────────────────────────► (no access)      │
-│                                                             │
-│  Login with wallet or social account ────► NOMAD            │
-│                                                             │
-│  + Completes Session Zero (guild/faction) ► CITIZEN         │
-│                                                             │
-│  + Purchases a digital good on Numinia ──► PILGRIM          │
-│                                                             │
-│  + Manual promotion by Archon/Oracle ────► VERNACULAR       │
-│                                                             │
-│  + Manual promotion by Oracle ───────────► ARCHON           │
-│                                                             │
-│  + Defined in rank-overrides.json ───────► ORACLE (max 4)   │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
-```
-
-### Promotion and demotion rules
-
-```
-  Who promotes             To what rank       Who demotes
-  ─────────────────────── ────────────────── ──────────────────
-  System (automatic)       Nomad → Citizen    System (automatic)
-  System (automatic)       Citizen → Pilgrim  System (automatic)
-  Archon or Oracle          → Vernacular      Archon or Oracle
-  Oracle                    → Archon          Oracle
-  rank-overrides.json       → Oracle (max 4)  Manual edit only
-```
-
-**Restrictions:**
-- An Archon can only manage ranks **below** their own
-  (can promote/demote up to Vernacular, cannot touch Archons or Oracles)
-- An Oracle can manage **all** ranks except other Oracles
-- Oracles are only managed by editing `rank-overrides.json`
-- Maximum 4 simultaneous Oracles
-- Oracles **cannot be banned** (3-layer protection: storage, API, UI)
-
----
-
-## Character sheet by rank
-
-```
-  NOMAD      → Pre-filled sheet, READ ONLY
-               (generated on login, basic wallet/social data)
-
-  CITIZEN    → EDITABLE sheet
-               (completes Session Zero → chooses guild + faction)
-               Accesses loot / inventory
-
-  PILGRIM    → Editable sheet + purchase history
-               Premium loot unlocked
-
-  VERNACULAR+ → Editable sheet + portfolio of uploaded assets
-```
-
----
-
-## Technical detection of each rank
-
-| Rank | Detection signal | Storage |
+| Rank | Earned by | Read from |
 |---|---|---|
-| Nomad | `wallet_session` or `session` cookie present | Session cookie |
-| Citizen | Completed Session Zero | `data/characters/{address}.md` has guild/faction |
-| Pilgrim | Purchased a digital good | `data/seasons/*-progress.json` or future `data/purchases/` |
-| Vernacular | Manual promotion | `data/system/rank-overrides.json` |
-| Archon | Manual promotion | `data/system/rank-overrides.json` |
-| Oracle | Bootstrap / manual edit | `data/system/rank-overrides.json` (max 4 entries) |
+| Nomad | login with wallet or social account | `wallet_session` / `session` cookie |
+| Citizen | completes Session Zero (guild and faction chosen) | `data/characters/{address}.md` has guild and faction |
+| Pilgrim | purchases any digital good | `data/seasons/*-progress.json` or `data/purchases/` |
+| Vernacular | manual promotion by an Archon or Oracle | `data/system/rank-overrides.json` |
+| Archon | manual promotion by an Oracle | `data/system/rank-overrides.json` |
+| Oracle | listed in the overrides file; at most four | `data/system/rank-overrides.json` |
+
+**What each rank adds.**
+
+| Rank | Adds |
+|---|---|
+| Nomad | browse the public gallery, download CC0 assets, search, view own sheet (read only), favourites, NFT collections |
+| Citizen | edit own character sheet; loot and inventory; take part in Session Zero |
+| Pilgrim | purchased premium content; burn ritual; seasonal adventures; purchase history on the sheet |
+| Vernacular | upload, edit, delete own assets and see their statistics; the creator panel (LAP); portfolio on the sheet |
+| Archon | create, edit or delete any asset; seasons; global statistics; audit log; sync to R2 / IPFS / Arweave; ban and unban; appoint Vernaculars; manage every rank below their own |
+| Oracle | appoint and remove Archons; edit the permission matrix; system configuration; cannot be banned |
+
+**Promotion and demotion.** Nomad → Citizen and Citizen → Pilgrim move
+automatically, both ways, with the signal. An Archon MAY promote or demote up
+to Vernacular and MUST NOT touch an Archon or an Oracle. An Oracle MAY manage
+every rank except Oracle. Oracles change only by editing the overrides file,
+and there MUST NOT be more than four at once. An Oracle MUST NOT be bannable
+at any layer — storage, API or interface.
+
+> Nomad reads. Citizen edits their identity. Pilgrim buys. Vernacular
+> creates. Archon moderates. Oracle governs.
 
 ---
 
-## Differences from v1 (what changes)
+## 3. Conformance
 
-| Aspect | v1 (current) | v2 (this document) |
+| Check | Rule | Verified by |
 |---|---|---|
-| Nomad + wallet | Was citizen | Now nomad (read only) |
-| Nomad permissions | Could edit sheet and favorites | Read only + favorites |
-| Citizen trigger | Wallet connected | Session Zero completed |
-| Pilgrim trigger | Season Pass | Any digital good purchase |
-| Vernacular | 'creator' role on GitHub | Manual promotion by Archon+ |
-| Archon appoints | Could not | Can appoint Vernaculars |
-| Archon scope | All admin permissions | Only ranks below |
-| Oracle max | No limit | Maximum 4 |
+| `RK-01` | Every permission granted to rank N is granted to every rank above N | `[MANUAL]` — the matrix lives in platform code, outside this repository |
+| `RK-02` | A member's rank is computed from the signals in the rank table, never from a claimed value | `[MANUAL]` — same; the platform's tests are the check |
+| `RK-03` | `rank-overrides.json` holds at most four Oracles | `[MANUAL]` — the file lives on the platform |
+| `RK-04` | An Archon cannot act on an Archon or an Oracle; nobody can ban an Oracle | `[MANUAL]` — enforced at storage, API and UI on the platform |
+
+No guard in this repository reaches the platform. The platform's own test
+suite is where these checks execute; a platform change that alters the matrix
+MUST update this standard in the same change.
 
 ---
 
-## Summary in one sentence
-
-> **Nomad reads. Citizen edits their identity. Pilgrim buys.**
-> **Vernacular creates. Archon moderates. Oracle governs.**
-
----
-
-*Document based on the EEM Institute's STSI framework,
-Numinia's seminal documents,
-and the Numinia system's role structure.*
-
-*Numinia Digital Goods — April 2026*
-
-
-## What this standard does NOT do
+## 4. What this standard does NOT do
 
 It does not describe the product. Which surfaces exist, what they show, and
 what a member does with them belong to the design system and to the missions
@@ -273,6 +113,15 @@ It does not govern access to this repository. Repository permissions are a
 governance matter, not a platform rank; a citizen in the platform holds no
 rights over the corpus.
 
-It does not define payment, wallet custody, or identity verification. Those are
-operational and legal questions, recorded in `operations/` where they carry
-their own risk notes.
+It does not name the ranks or say what they mean in the world: that is
+`CAN-004`. It does not define payment, wallet custody or identity
+verification; those are operational and legal questions in `operations/`.
+
+---
+
+## 5. References
+
+| ID | Title | Relation |
+|---|---|---|
+| `CAN-004` | Role structure | names the ranks this standard regulates |
+| `ADR-036` | Canon consolidation | records the move from the canon to this standard |

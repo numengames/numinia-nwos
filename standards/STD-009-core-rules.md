@@ -5,9 +5,9 @@ title: "The rules of the corpus, and which one wins"
 type: documentation
 subtype: standard
 status: draft
-version: "0.12.0"
+version: "0.13.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-08T17:30:00+02:00"
+updated: "2026-09-08T19:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "CAO"
@@ -220,25 +220,40 @@ that is what `superseded` and `withdrawn` are for. Who holds which rank is
 | **CORE-60** | A permanent publication is gated on a review of ownership. | `[MANUAL]` — the review is recorded outside the corpus |
 ---
 
-## 12. What this standard does not yet enforce
+## 12. Conformance
 
-Every rule above names a verifier. There is no third kind: a rule with an
-empty verifier column would be an opinion that had learnt to look official.
+Every rule from Identity to Licences carries its verifier in the third column; there is no
+separate table. A rule whose verifier is a guard fails the build when broken.
+A rule marked `[MANUAL]` is checked by whoever reads: the check exists, the
+pipeline does not run it.
 
-`[MANUAL]` is not a synonym for unenforced. It means the check exists and a
-reader performs it; a breach is found by whoever looks, not by the pipeline.
-The share of `[MANUAL]` rules is the honest measure of how far this standard
-is from `CORE-31` in `STD-005`, and it is reported, not stated here.
+`[MANUAL]` is not a synonym for unenforced, and it is not a third kind: a
+rule with an empty verifier column would be an opinion that had learnt to
+look official. The share of `[MANUAL]` rules is the honest measure of how far
+this standard is from `CORE-31` in `STD-005`; `telemetry/` reports it, this
+document does not state it.
 
-Two rules are pending a tool rather than undecidable: `CORE-49` waits on a
+Two rules wait on a tool rather than on a decision: `CORE-49` on a
 content-hash scan and `CORE-54` on a secret scanner. `MIS-146` carries them.
 
 ---
 
-## 13. References
+## 13. What this standard does NOT do
+
+It does not explain the rules. A rule here is one line and a verifier; the
+reasoning, the history and the examples live in the standard or protocol
+the section cites in its heading.
+
+It does not govern the platform, the product or the world. Its scope is the
+archive: this repository and the corpus it holds.
+
+It does not rank itself above the canon. `CORE-01` says where it sits.
+
+---
+
+## 14. References
 
 - `STD-001` — the glossary, source of the change thresholds and of the rule that history outranks the document
-- `STD-002` — governance, source of the authority rules
 - `STD-004` — the header standard, holder of the frontmatter registry
 - `STD-005` — engineering standards, source of most rules on git and guards
 - `STD-006` — archive substance
