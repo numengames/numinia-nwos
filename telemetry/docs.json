@@ -2871,6 +2871,17 @@
   "tokens": 4242
  },
  {
+  "path": "reports/RPT-017-mvp-story.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "active",
+  "chars": 17291,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 4997
+ },
+ {
   "path": "standards/STD-001-glossary.md",
   "dir": "standards",
   "series": "standards",
