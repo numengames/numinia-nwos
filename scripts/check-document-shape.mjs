@@ -154,7 +154,17 @@ function measure(rel) {
 
   // S-06 body
   const budget = BUDGET[dir] ?? null;
-  r.body_words = register ? null : words(core.replace(/<!--[\s\S]*?-->/g, ''));
+  // S-06 body. Words inside <!-- --> comments are not prose: count line by
+  // line, skipping from a line that opens a comment to the one that closes it.
+  r.body_words = register ? null : (() => {
+    let n = 0, inComment = false;
+    for (const line of core.split('\n')) {
+      if (inComment) { if (line.includes('-->')) inComment = false; continue; }
+      if (line.includes('<!--')) { if (!line.includes('-->')) inComment = true; continue; }
+      n += words(line);
+    }
+    return n;
+  })();
   r.budget = register ? 'register' : budget;
   if (!register && budget && r.body_words > budget) {
     const over = Math.round((r.body_words / budget - 1) * 100);
