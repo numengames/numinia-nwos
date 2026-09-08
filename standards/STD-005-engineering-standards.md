@@ -192,7 +192,7 @@ Rules about the guards themselves (moved from `STD-009`; identifiers kept):
 | ID | Rule | Verified by |
 |---|---|---|
 | **CORE-31** | A rule that does not break the build does not exist for an agent. | `[MANUAL]` — this table is the check |
-| **CORE-32** | A guard is wired into the pipeline in the same change that writes it. | `[MANUAL]` — pending the guard register, `MIS-146` |
+| **CORE-32** | A guard is wired into the pipeline in the same change that writes it. | `[MANUAL]` — no guard register exists; `DBT-017` holds the nearest gap |
 | **CORE-33** | The guard register is read from the workflow file, never remembered. | `[MANUAL]` — pending the guard register |
 | **CORE-34** | A baseline records damage that predates its rule and never absorbs damage the current change caused. | `[MANUAL]` |
 | **CORE-35** | A green pipeline is not a clean tree; a change declares what it left behind. | `[MANUAL]` |
@@ -204,7 +204,7 @@ Rules about the guards themselves (moved from `STD-009`; identifiers kept):
 |---|---|---|
 | `EN-01` | Every practice carries an ID and an `[AUTO]`/`[MANUAL]` marker | `[MANUAL]` — a reader confirms every row |
 | `EN-02` | Every `[AUTO]` practice names the job or script that runs it | `[MANUAL]` — no guard cross-checks the tables against `.github/workflows/` |
-| `EN-03` | The guard rules are honoured by every script in `scripts/` | `[MANUAL]` — the guard register (`MIS-146`) will make this mechanical |
+| `EN-03` | The guard rules are honoured by every script in `scripts/` | `[MANUAL]` — a guard register would make this mechanical; none is planned |
 
 Nothing in this standard fails a build in this repository today. It is
 enforced by reading, and by the checks it describes running elsewhere.

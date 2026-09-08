@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "13d8da7",
-  "corpus_hash": "5bd1ac121c85af6adfc1bad62d7c44056fabcaa6b4ff9b27f8551e2886a36574",
+  "head": "c194c28",
+  "corpus_hash": "36059284d6769135ea427ea77230a90c573f997c300fab30e296ab40488f4227",
   "root_dirty": 0,
-  "measured_at": "2026-09-08T21:39:52Z",
+  "measured_at": "2026-09-08T21:50:04Z",
   "families": [
     "corpus",
     "series",
@@ -71,10 +71,10 @@
         "decisions": 16,
         "guilds": 8,
         "infra": 1,
-        "missions": 19,
+        "missions": 18,
         "operations": 9,
         "protocols": 11,
-        "reports": 4,
+        "reports": 5,
         "standards": 12,
         "system": 3,
         "templates": 15
@@ -92,9 +92,9 @@
         "documentation": 37,
         "legal": 2,
         "meta": 2,
-        "mission": 20,
+        "mission": 19,
         "protocol": 13,
-        "report": 5,
+        "report": 6,
         "seminal": 9
       },
       "unit": "documents",
@@ -174,8 +174,8 @@
           "pct": null
         },
         "missions": {
-          "registered": 18,
-          "total": 18,
+          "registered": 17,
+          "total": 17,
           "apparatus": 1,
           "archived": 0,
           "pct": 100
@@ -195,8 +195,8 @@
           "pct": 100
         },
         "reports": {
-          "registered": 4,
-          "total": 4,
+          "registered": 5,
+          "total": 5,
           "apparatus": 0,
           "archived": 0,
           "pct": 100
@@ -235,14 +235,14 @@
       "definition": "directories under `agents/` other than `_template` — identified by folder name, no prefix by design (ADR-005 v1.1.0)"
     },
     "missions.total": {
-      "value": 18,
+      "value": 17,
       "unit": "missions",
       "definition": "files `missions/MIS-NNNN-*.md` with a frontmatter block"
     },
     "missions.by_status": {
       "value": {
         "done": 2,
-        "in-progress": 4,
+        "in-progress": 3,
         "todo": 12
       },
       "unit": "missions",
@@ -251,7 +251,7 @@
     "missions.by_guild": {
       "value": {
         "Alchemists": 10,
-        "Exegetes": 2,
+        "Exegetes": 1,
         "Procurators": 1,
         "Sentinels": 5
       },
@@ -261,7 +261,7 @@
     "missions.by_territory": {
       "value": {
         "(none)": 4,
-        "Archive": 11,
+        "Archive": 10,
         "CAO": 1,
         "Infrastructure": 2
       },
@@ -271,7 +271,7 @@
     "missions.by_priority": {
       "value": {
         "critical": 1,
-        "high": 11,
+        "high": 10,
         "medium": 6
       },
       "unit": "missions",
@@ -282,7 +282,7 @@
         "L": 3,
         "M": 7,
         "S": 4,
-        "XL": 3,
+        "XL": 2,
         "XS": 1
       },
       "unit": "missions",
@@ -291,7 +291,7 @@
     "missions.by_assignee": {
       "value": {
         "(none)": 11,
-        "ursa": 7
+        "ursa": 6
       },
       "unit": "missions",
       "definition": "by frontmatter `assigned_to`; `(none)` = unassigned"
@@ -342,20 +342,20 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 322348,
+      "value": 305627,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "missions": 64519,
-        "standards": 55864,
+        "missions": 52054,
+        "standards": 50455,
         "canon": 30370,
         "agents": 25348,
         "protocols": 24497,
+        "reports": 21507,
         "operations": 21358,
         "decisions": 21212,
-        "reports": 20354,
         "templates": 17148,
         "": 12433,
         "system": 9734,
@@ -370,12 +370,12 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 165524,
-        "draft": 64450,
-        "in-progress": 28224,
+        "active": 160160,
+        "draft": 64445,
         "todo": 25259,
+        "in-progress": 15759,
+        "closed": 13593,
         "done": 12554,
-        "closed": 12480,
         "(none)": 12251,
         "superseded": 1606
       },
@@ -383,7 +383,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 20.02,
+      "value": 17.03,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -394,20 +394,20 @@
           20032
         ],
         [
-          "missions/MIS-0146-normative-refoundation.md",
-          12465
-        ],
-        [
           "reports/RPT-017-mvp-story.md",
           10716
         ],
         [
-          "standards/STD-001-glossary.md",
-          10470
-        ],
-        [
           "missions/MIS-0127-entropy-reduction.md",
           9146
+        ],
+        [
+          "missions/MIS-0121-header-baseline-burndown.md",
+          8999
+        ],
+        [
+          "canon/CAN-002-brand-and-culture.md",
+          7403
         ]
       ],
       "unit": "tokens",
@@ -437,25 +437,25 @@
         "tags": 145,
         "id": 118,
         "uid": 107,
-        "created_source": 84,
-        "created_confidence": 83,
+        "created_source": 83,
+        "created_confidence": 82,
         "territory": 81,
         "guild": 62,
         "registration": 42,
         "registration_reason": 38,
         "agent": 33,
-        "related": 31,
-        "subtype": 24,
-        "assigned_to": 20,
-        "completed": 20,
-        "effort": 20,
-        "priority": 20,
-        "type_execution": 19,
+        "related": 32,
+        "subtype": 25,
+        "assigned_to": 19,
+        "completed": 19,
+        "effort": 19,
+        "priority": 19,
+        "type_execution": 18,
+        "visibility": 15,
         "threshold": 14,
-        "visibility": 14,
         "paths": 11,
+        "absorbs": 10,
         "role": 10,
-        "absorbs": 9,
         "applies_to": 9,
         "extraction_note": 9,
         "former_id": 9,
@@ -475,13 +475,14 @@
         "ratified_by": 5,
         "requested_by": 4,
         "deciders": 3,
+        "evidence_script": 3,
         "parent_mission": 3,
         "scope": 3,
         "series_change": 3,
         "supersedes": 3,
         "accuracy_warning": 2,
         "decision": 2,
-        "evidence_script": 2,
+        "evidence_head": 2,
         "human_approval_score": 2,
         "provenance": 2,
         "related_missions": 2,
@@ -494,7 +495,6 @@
         "canonical_language": 1,
         "consulted": 1,
         "distributed_file": 1,
-        "evidence_head": 1,
         "fondos": 1,
         "graph": 1,
         "labels": 1,
@@ -505,6 +505,7 @@
         "normative_conventions": 1,
         "out_of_scope": 1,
         "outcome": 1,
+        "period": 1,
         "previous_name": 1,
         "previous_name_note": 1,
         "public_guide": 1,
@@ -567,7 +568,7 @@
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
     "provenance.created_ahead_of_commit": {
-      "value": 4,
+      "value": 5,
       "unit": "documents",
       "definition": "created day later than the day the file was first added to git (dates-vs-commits.py \"DISCREPA\", over the whole corpus, not the post-tag set)"
     },
@@ -592,6 +593,11 @@
           "decisions/ADR-005-prefix-ruling.md",
           "2026-08-25",
           "2026-08-24"
+        ],
+        [
+          "reports/RPT-019-2026-w37.md",
+          "2026-09-09",
+          "2026-09-08"
         ]
       ],
       "unit": "documents",
@@ -651,7 +657,7 @@
     },
     "provenance.protocol_anchor": {
       "value": {
-        "not-oracle-state": 16,
+        "not-oracle-state": 15,
         "anchored": 2
       },
       "unit": "missions",
@@ -661,11 +667,11 @@
       "value": {
         "active": 98,
         "draft": 26,
-        "closed": 5,
+        "closed": 6,
         "superseded": 2,
         "todo": 13,
         "done": 3,
-        "in-progress": 4
+        "in-progress": 3
       },
       "unit": "documents",
       "definition": "frontmatter status values in the corpus with counts"
@@ -676,7 +682,7 @@
       "definition": "status values in use that scripts/lib/rules.json does not declare (mission ∪ adr ∪ _default), with the docs carrying them — a contradiction between a document and the vocabulary"
     },
     "contradictions.ci_markers_std001": {
-      "value": 1,
+      "value": 0,
       "unit": "rows",
       "definition": "table rows of STD-001 carrying `[CI]`"
     },
@@ -708,30 +714,30 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 611
+          "3": 546
         },
         "MIS": {
-          "3": 775,
-          "4": 179
+          "3": 771,
+          "4": 177
         },
         "CAN": {
-          "3": 182
+          "3": 162
         },
         "ADR": {
-          "3": 425
+          "3": 418
         },
         "PRO": {
-          "3": 265
+          "3": 255
         },
         "OPS": {
           "3": 33
         },
         "RPT": {
-          "3": 61,
+          "3": 66,
           "4": 9
         },
         "DBT": {
-          "3": 101
+          "3": 97
         },
         "DEC": {
           "3": 17
@@ -799,7 +805,7 @@
           "id": "MIS-135#19",
           "severity": "A",
           "state": "open",
-          "where": "web/astro.config.mjs#L236",
+          "where": "web/astro.config.mjs#L239",
           "claim": "Parameterised redirect that check-url-lifecycle matches literally — neither verified nor expanded. Deferred: design choice."
         },
         {
@@ -814,14 +820,13 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 267,
+      "value": 245,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
     "figures.live_by_doc": {
       "value": {
         "missions/MIS-0127-entropy-reduction.md": 39,
-        "missions/MIS-0146-normative-refoundation.md": 22,
         "missions/MIS-0121-header-baseline-burndown.md": 19,
         "operations/OPS-005-simulations.md": 19,
         "reports/RPT-008-gaps-capability-map.md": 19,
@@ -834,7 +839,8 @@
         "operations/OPS-001-continuity.md": 7,
         "missions/MIS-0124-close-territory-vocabulary.md": 6,
         "missions/MIS-0123-make-adr-028-real.md": 5,
-        "CHANGELOG.md": 4
+        "CHANGELOG.md": 4,
+        "canon/CAN-002-brand-and-culture.md": 4
       },
       "unit": "lines",
       "definition": "the fifteen docs with most such lines"
@@ -865,7 +871,7 @@
       "definition": "docs_total − docs_con_frontmatter"
     },
     "legacy.referencias_textuales_total": {
-      "value": 1568,
+      "value": 1558,
       "unit": "mentions",
       "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
     },
@@ -880,12 +886,12 @@
           60
         ],
         [
-          "ADR-004",
-          41
-        ],
-        [
           "MIS-125",
           38
+        ],
+        [
+          "ADR-004",
+          37
         ],
         [
           "MIS-127",
@@ -903,8 +909,8 @@
       "value": {
         "missions": {
           "esquema": "MIS-NNNN",
-          "con": 18,
-          "total": 18,
+          "con": 17,
+          "total": 17,
           "aparato": 1,
           "pct": 100
         },
@@ -924,8 +930,8 @@
         },
         "reports": {
           "esquema": "RPT-NNN · RPT-YYYY-MM-DD (daily)",
-          "con": 4,
-          "total": 4,
+          "con": 5,
+          "total": 5,
           "aparato": 0,
           "pct": 100
         },
@@ -1021,7 +1027,7 @@
     "legacy.misiones_por_status": {
       "value": {
         "todo": 12,
-        "in-progress": 4,
+        "in-progress": 3,
         "done": 2,
         "draft": 1
       },
@@ -1030,8 +1036,8 @@
     },
     "legacy.guild_valores": {
       "value": {
-        "Alchemists": 43,
-        "Exegetes": 11,
+        "Alchemists": 44,
+        "Exegetes": 10,
         "Sentinels": 6,
         "Procurators": 2
       },
@@ -1040,7 +1046,7 @@
     },
     "legacy.type_execution_valores": {
       "value": {
-        "digital": 16,
+        "digital": 15,
         "hybrid": 2,
         "biological": 1
       },
