@@ -230,7 +230,7 @@ pipeline does not run it.
 `[MANUAL]` is not a synonym for unenforced, and it is not a third kind: a
 rule with an empty verifier column would be an opinion that had learnt to
 look official. The share of `[MANUAL]` rules is the honest measure of how far
-this standard is from `CORE-31` in `STD-005`; `telemetry/` reports it, this
+this standard is from `ENG-001` in `STD-005`; `telemetry/` reports it, this
 document does not state it.
 
 Two rules wait on a tool rather than on a decision: `GIT-049` on a

@@ -29,7 +29,7 @@ superseded_by: null
 
 ## Decision
 
-1. **`ARC-010` is added to `STD-005 §3.2`** as the single practice ID for
+1. **`ARC-010` is added to `STD-005` (now `STD-015`)** as the single practice ID for
    code-artifact accessibility: WCAG 2.2 AA on every public route, tab
    order matching visual order, visible focus ring. Check tag names the
    real gate (`numinia-web/apps/store/e2e/a11y.spec.ts`) and states its

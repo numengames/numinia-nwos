@@ -86,7 +86,7 @@ Code-Review and Token-Permissions are among its heaviest checks.
 - The rest of the org's repositories inherit the org settings; their per-repo
   protection is scoped by MIS-095, not here.
 
-**Out of scope:** repository visibility (LEG-01 gate), licence regimes
+**Out of scope:** repository visibility (LEG-001 gate), licence regimes
 (CAN-005), and any change to what the pipelines actually run.
 
 ## Acceptance criteria

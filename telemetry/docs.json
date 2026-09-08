@@ -16,10 +16,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 709,
+  "chars": 708,
   "apparatus": false,
   "archived": false,
-  "tokens": 190
+  "tokens": 189
  },
  {
   "path": "AGENTS.md",
@@ -27,10 +27,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 7442,
+  "chars": 7440,
   "apparatus": false,
   "archived": false,
-  "tokens": 1646
+  "tokens": 1644
  },
  {
   "path": "CHANGELOG.md",
@@ -52,7 +52,7 @@
   "chars": 8131,
   "apparatus": false,
   "archived": false,
-  "tokens": 2075
+  "tokens": 2074
  },
  {
   "path": "CONTRIBUTING.md",
@@ -203,10 +203,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1285,
+  "chars": 1284,
   "apparatus": false,
   "archived": false,
-  "tokens": 347
+  "tokens": 346
  },
  {
   "path": "agents/calliope/OPERATOR.md",
@@ -467,10 +467,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1264,
+  "chars": 1263,
   "apparatus": false,
   "archived": false,
-  "tokens": 344
+  "tokens": 343
  },
  {
   "path": "blueprints/BLU-002-business-metrics.md",
@@ -753,10 +753,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 4857,
+  "chars": 4871,
   "apparatus": false,
   "archived": false,
-  "tokens": 1395
+  "tokens": 1402
  },
  {
   "path": "decisions/ADR-036-canon-consolidation.md",
@@ -775,10 +775,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 2429,
+  "chars": 2440,
   "apparatus": false,
   "archived": false,
-  "tokens": 712
+  "tokens": 715
  },
  {
   "path": "decisions/ADR-038-genre-map-is-government.md",
@@ -962,10 +962,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 6751,
+  "chars": 6765,
   "apparatus": false,
   "archived": false,
-  "tokens": 1754
+  "tokens": 1760
  },
  {
   "path": "missions/MIS-0100-branch-protection-org-settings.md",
@@ -973,7 +973,7 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 8639,
+  "chars": 8640,
   "apparatus": false,
   "archived": false,
   "tokens": 2177
@@ -984,10 +984,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 6595,
+  "chars": 6609,
   "apparatus": false,
   "archived": false,
-  "tokens": 1877
+  "tokens": 1883
  },
  {
   "path": "missions/MIS-0112-home-from-readme.md",
@@ -1127,10 +1127,10 @@
   "series": "missions",
   "type": "mission",
   "status": "done",
-  "chars": 8545,
+  "chars": 8556,
   "apparatus": false,
   "archived": false,
-  "tokens": 2448
+  "tokens": 2451
  },
  {
   "path": "missions/MIS-0153-agent-roster-page.md",
@@ -1160,10 +1160,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "active",
-  "chars": 7818,
+  "chars": 7874,
   "apparatus": false,
   "archived": false,
-  "tokens": 2194
+  "tokens": 2219
  },
  {
   "path": "operations/OPS-003-privacy-policy-numengames.md",
@@ -1226,7 +1226,7 @@
   "series": "operations",
   "type": "documentation",
   "status": "active",
-  "chars": 4584,
+  "chars": 4585,
   "apparatus": false,
   "archived": false,
   "tokens": 1345
@@ -1347,7 +1347,7 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4288,
+  "chars": 4291,
   "apparatus": false,
   "archived": false,
   "tokens": 1111
@@ -1463,15 +1463,15 @@
   "tokens": 3525
  },
  {
-  "path": "standards/STD-005-engineering-standards.md",
+  "path": "standards/STD-005-engineering-baseline.md",
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 13176,
+  "chars": 4700,
   "apparatus": false,
   "archived": false,
-  "tokens": 3620
+  "tokens": 1275
  },
  {
   "path": "standards/STD-006-plain-text-is-sovereign.md",
@@ -1534,7 +1534,7 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5039,
+  "chars": 5041,
   "apparatus": false,
   "archived": false,
   "tokens": 1586
@@ -1571,6 +1571,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 847
+ },
+ {
+  "path": "standards/STD-015-engineering-checks.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 8095,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2219
  },
  {
   "path": "system/SYS-001-cao-architecture.md",

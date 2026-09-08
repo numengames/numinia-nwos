@@ -35,7 +35,7 @@ does not belong inside a standard. Nothing in it changed in the move.
 
 ## 2. Preconditions
 
-- The repository has a `CLAUDE.md` (practice `AGT-01`). If it is missing,
+- The repository has a `CLAUDE.md` (practice `AGT-001`). If it is missing,
   report that first: it is itself a violation.
 - `PRO-001` has been followed to open the session.
 
@@ -44,7 +44,7 @@ does not belong inside a standard. Nothing in it changed in the move.
 1. **Audit the branch first.** Never assume the tree matches the standard,
    the README or the brief. Read what is there.
 2. **Load `CLAUDE.md`.** It declares which Scorecard checks are in scope, the
-   repository's AI stance (`AGT-06`) and any local overrides.
+   repository's AI stance (`AGT-006`) and any local overrides.
 3. **Classify the task: cosmetic or irreversible.** Cosmetic — formatting,
    lint fixes, typos, added tests — proceeds. Irreversible — visibility,
    licences, secrets, deleting history, publishing, force operations — stops
@@ -64,7 +64,7 @@ comments and TSDoc; open pull requests that move `[MANUAL]` to `[AUTO]`, as
 proposals.
 
 **Never without the Oracle (irreversible tier):** change repository
-visibility (`LEG-01`); change any `LICENSE`, SPDX header or REUSE structure;
+visibility (`LEG-001`); change any `LICENSE`, SPDX header or REUSE structure;
 rotate, create or delete credentials; change the principles of `STD-005`;
 disable, weaken or bypass any check; force-push, rewrite history or delete
 branches or tags on `main`.
