@@ -12,11 +12,11 @@ assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.17.0"
+version: "1.18.0"
 created: "2026-09-03T17:46:00Z"
 created_source: "git:eb91cbb"
 created_confidence: exact
-updated: "2026-09-07T20:00:00+02:00"
+updated: "2026-09-08T23:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [standards, governance, contradictions, compression, refoundation]
@@ -932,6 +932,32 @@ thresholds that make the third rule measurable.
 One sentence did not survive the move and had to be rescued: a guard enforcing
 behaviour no document states is itself the defect. It existed only in
 governance's copy. It is now `CORE-66`.
+
+### Phase 4, opened — one page per document
+
+The Oracle's instruction of 2026-09-08: no standard should take more than
+three minutes to read aloud; each is renamed to state its rule, split
+where it holds more than one subject, and cut to a page. The measurement
+that fixes the number: 238 words a minute silent (Brysbaert 2019), 150
+aloud; one printed page; the one-pager convention. Five hundred words of
+body, as a SHOULD.
+
+`ADR-043` records the shape: rule-shaped title in five words, a card of
+three short paragraphs, a scope line, plated rules before reasons, a body
+budget per series, plates cited instead of sections, deletion when nothing
+living depends on a document normatively. Plates take the shape of every
+other identifier — three letters, three digits — and the eighty-five
+existing ones (`CORE-`, `H-`, `PW-`, `A-`, `RK-`) are renamed in one pull
+request before any standard is cut.
+
+`STD-007` is the first file in the shape and the one that prescribes it:
+433 words of body, ten plated rules, two references. `check-document-shape`
+measures every bound series and reports on each pull request without
+blocking. Its first reading, at this commit: 11 of 86 documents in shape;
+standards median body 1,973 words, maximum 9,934 (the design system, after
+its direction left for `CAN-008` in the previous pull request). The target layout —
+fifteen norms and six registers, drafted outside the tree and reviewed by
+the Oracle — is the next phase's map, not a rule.
 
 ## Out of scope
 

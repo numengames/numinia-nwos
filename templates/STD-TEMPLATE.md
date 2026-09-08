@@ -3,8 +3,9 @@
 # The filename shape is enforced: STD-NNN-slug.md, three digits, kebab-case.
 id: "STD-NNN"
 uid: ""
-title: "The rule, stated — not the topic"
+title: "The rule, in five words"
 type: documentation
+# subtype: standard — a norm, read whole · register — a table, consulted
 subtype: standard
 # status: draft | active | superseded | withdrawn — a standard opens at draft
 status: draft
@@ -24,130 +25,59 @@ tags: [area, subject]
 # series_change: "what this changes about the series itself"
 ---
 
-# STD-NNN — The rule, stated
+# The rule, in five words
 
-> **Summary:** One sentence. WHAT this standard requires.
-> **Epistemic:** What you learn by reading it.
-> **Pragmatic:** What you can do once you have read it.
-> **Audience:** Agents · Oracles
+> **Summary:** Two to three lines. WHAT this standard requires, as a
+> reader would repeat it.
+>
+> **Epistemic:** Two to three lines. What you understand after reading it
+> that you did not before.
+>
+> **Pragmatic:** Two to three lines. What you can do, or check, once you
+> have read it.
 
-<!-- Title: state the rule, not the subject. "The header in three rings" —
-     not "Headers". A reader scanning the index must know what is required
-     without opening the file. -->
-
----
-
-## 1. Purpose and scope
-
-Why this standard exists, and what it binds.
-
-Name the objects it obliges — series, folders, file kinds, roles — and the
-ones it does not. A standard whose scope is "the repository" obliges
-nothing in particular and will be ignored in particular.
-
-If the standard replaces something, say what and why, here, in one
-paragraph.
+**Binds:** the series, folders or kinds it obliges — never "the repository".
+**Does not bind:** the nearest thing it does not oblige.
 
 ---
 
-## 2. The norm
+## Rules
 
-The body. Every normative statement uses RFC 2119 language:
+<!-- Rules first, reasons later. One obligation per rule, one RFC 2119
+     verb, at most 35 words. Each rule carries a plate: three letters
+     three digits, unique across the corpus, never reused, never renamed.
+     A plate names the rule, not its position — it survives any cut. -->
 
-- **MUST** / **MUST NOT** — required. A violation is a defect.
-- **SHOULD** / **SHOULD NOT** — recommended. Departing from it requires a
-  written reason in the document that departs.
+**XXX-001 — The rule, as a title.** The obligation MUST be stated in one
+sentence a reader can obey without opening another document.
 
-Do not write "should" as a synonym for "must". If both appear with the same
-force, the reader will obey neither.
+**XXX-002 — The next rule.** What it requires.
 
-**Cite the rule, never the place.** A standard MUST NOT point at a section
-number or a heading in another document — no "see `STD-00X` §4", no "as
-described in `PRO-0XX` step 3. Sections get renumbered, headings get
-rewritten, and the pointer quietly survives the paragraph it pointed at.
+## Check
 
-A standard MUST cite a **rule identifier** instead — `CORE-03`, `H-30`,
-`SEC-07`. An identifier is stable, and a guard can verify that it still
-resolves. That is the whole difference: an address decays, a plate does not.
+<!-- Every plate, and what verifies it: a script under scripts/, a CI
+     step, a platform setting — or `manual`, said plainly. -->
 
-**Do not restate a rule that already has an identifier.** Restating it makes
-two sources for one obligation, and they drift apart on the first amendment.
-State the rules this standard owns; cite the ones it depends on. If you find
-yourself writing "as X requires, namely: ...", stop — cite X and delete the
-namely.
+| Rule | Verified by |
+|---|---|
+| XXX-001 | `check-something.mjs` |
+| XXX-002 | manual |
 
-Structural relations (`supersedes`, `ratified_by`, `absorbs`) belong in
-frontmatter, where a guard can verify them.
+## Why
 
-**One standard, one thing.** A grouping of concepts is legitimate when it is
-a single conceptual distinction. Sharing a date, a mission, or an amendment
-target is not a grouping — it is a coincidence, and produces a document
-nobody can cite precisely.
+<!-- At most 80 words. The one thing that would go wrong without this
+     standard. Longer reasoning is a decision record. -->
 
-<!-- Subsections as needed. If this section grows two independent halves
-     that could each be cited alone, they are two standards. -->
+## References
 
----
+<!-- Only documents this one depends on to oblige. At most five rows.
+     Cite plates, never sections. -->
 
-## 3. Conformance
-
-How an object is judged to comply, and how it fails.
-
-Every normative statement in §2 SHOULD carry a check identifier and a means
-of verification:
-
-| Check | Rule | Verified by |
+| ID | Name | Why cited |
 |---|---|---|
-| `X-01` | one-line restatement of the MUST | `node scripts/<guard>.mjs`, or `[MANUAL]` |
+| `STD-007` | One page per document | the shape this file takes |
 
-A worked row, from the header standard:
-
-| Check | Rule | Verified by |
-|---|---|---|
-| `H-01` | `id` is present and matches its series prefix | `node scripts/lint-frontmatter.mjs` |
-| `H-02` | `title` is present, non-empty, English | presence by `lint-frontmatter`; language `[MANUAL]` — detectors lie |
-
-A rule that cannot be checked mechanically is marked **`[MANUAL]`** and says
-why in one sentence. There is no third kind — an unverifiable rule with no
-`[MANUAL]` mark is an opinion that has learnt to look official.
-
-If no guard exists yet, state the manual criterion anyway. **A standard
-without a conformance section is not a standard**: if you cannot say how
-something fails it, nothing can comply with it.
-
----
-
-## 4. What this standard does NOT do
-
-The border. Name the adjacent things a reader will reasonably assume are
-covered and are not, and where they live instead.
-
-This section exists because the commonest failure of a standard is not being
-wrong — it is being stretched to govern what it never examined.
-
----
-
-## 5. References
-
-- [`STD-004` — The header standard](../standards/STD-004-header-standard.md)
-
-<!--
-NOTES ON USING THIS TEMPLATE — delete this block.
-
-Length: a standard that will not fit in a reading is not one standard.
-There is no hard line limit, but if §2 needs several independent
-subsections that could each be cited alone, split the document.
-
-Status: a standard opens at `draft`/0.1.0 and is promoted by the Oracle.
-`active` means it binds; `closed` means it is retired, not paused.
-
-No version history section. `git log --follow` on this file is the history,
-it cannot drift from the truth, and a hand-written changelog can. What the
-frontmatter carries is the current `version` and the structural relations
-(`supersedes`, `absorbs`, `ratified_by`) that a guard can check.
-
-Sections: 1-5 are required. Add others only when they earn their place —
-a measured problem statement (`STD-004` §0) is worth its space when the
-standard exists because something was counted; a worked example is worth
-its space when the rule is easy to misread. Nothing else is.
--->
+<!-- Body budget: 500 words from the scope line to References. It is a
+     SHOULD — over it, write one sentence here saying why. A register
+     (subtype: register) is a Summary, a table and at most one sentence;
+     it has no card and no budget. No changelog: git is the history. -->

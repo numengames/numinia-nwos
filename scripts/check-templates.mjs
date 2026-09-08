@@ -205,18 +205,23 @@ for (const dir of seriesDirs(RULES)) {
     F('T-10', `templates/${pfx}-TEMPLATE.md`, `absent — ${dir}/ is a registered series with no mould to copy from`);
 }
 
-/* T-11: the standards took the shape of their template (STD-004 §8.2). The
-   numbered sections run 1..N without gaps; §1 is "Purpose and scope"; the
-   last three are Conformance, "What this standard does NOT do" and
-   References, in that order. What lies between §1 and Conformance is the
-   norm — one section or several, the document decides. And no log of
-   itself: no "Version history", "Changelog" or "Amendment" heading, because
-   git is the archive (ADR-041). A superseded standard is a stub and exempt. */
+/* T-11: the standards took the shape of their template. Two shapes are
+   legal while the series is cut over (ADR-043):
+     OLD  §1..N numbered; §1 "Purpose and scope"; the last three are
+          Conformance, "What this standard does NOT do", References.
+     NEW  unnumbered ## Rules · ## Check · ## Why · ## References, in that
+          order (STD-007 DOC-004/005/007). A register (subtype: register)
+          is a Summary and a table, and needs none of these headings.
+   A file that is in neither shape fails. And no log of itself in either:
+   no "Version history", "Changelog" or "Amendment" heading, because git is
+   the archive (ADR-041). A superseded standard is a stub and exempt.
+   When the last standard is cut, delete the OLD branch. */
 /* Standards whose shape is known debt and scheduled for a rewrite that will
    renumber them once, not twice (DBT-016: 26 external citations pin STD-008's
    section numbers). Remove the entry in the PR that rewrites the file. */
 const T11_BASELINE = new Set(['standards/STD-008-design-system.md']);
 const LOG = /^##+\s.*\b(version history|changelog|change log|amendment)\b/i;
+const NEW_SHAPE = ['Rules', 'Check', 'Why', 'References'];
 const standards = execFileSync('git', ['ls-files', 'standards/STD-*.md'], { cwd: ROOT, encoding: 'utf8' })
   .split('\n').filter(Boolean);
 for (const rel of standards) {
@@ -226,21 +231,38 @@ for (const rel of standards) {
   if (T11_BASELINE.has(rel)) continue;   // shape debt named, not hidden — see the set above
   const body = stripFM(text);
   const h2 = body.split('\n').filter((l) => /^## /.test(l));
+  for (const h of body.split('\n').filter((l) => /^##+ /.test(l)))
+    if (LOG.test(h)) F('T-11', rel, `carries a log of itself: "${h.replace(/^#+ /, '')}" — git log --follow is the history (ADR-041)`);
+  if (fm?.subtype === 'register') {
+    if (!/^>\s*\*\*Summary:\*\*/m.test(body)) F('T-11', rel, 'register has no **Summary:** line');
+    if (!/^\|/m.test(body)) F('T-11', rel, 'register has no table — a register is a Summary and a table (DOC-009)');
+    continue;
+  }
+  const plain = h2.map((h) => h.slice(3).trim());
   const numbered = h2.filter((h) => /^## \d+\. /.test(h));
+  // NEW shape: the four headings, unnumbered, in order; nothing else at ## level.
+  if (numbered.length === 0) {
+    const idx = NEW_SHAPE.map((n) => plain.indexOf(n));
+    const missing = NEW_SHAPE.filter((_, i) => idx[i] < 0);
+    if (missing.length) F('T-11', rel, `new shape is missing ## ${missing.join(', ## ')} (STD-007)`);
+    else if (idx.some((v, i) => i > 0 && v < idx[i - 1])) F('T-11', rel, `sections are ${plain.join(' · ')} — the shape is Rules · Check · Why · References, in that order`);
+    const extra = plain.filter((p) => !NEW_SHAPE.includes(p));
+    if (extra.length) F('T-11', rel, `unexpected section(s) at ## level: ${extra.join(' · ')} — a norm has four`);
+    continue;
+  }
+  // OLD shape, until the file is cut.
   const titles = numbered.map((h) => h.replace(/^## \d+\. /, '').trim());
   const nums = numbered.map((h) => Number(/^## (\d+)\./.exec(h)[1]));
   if (h2.length !== numbered.length)
     F('T-11', rel, `${h2.length - numbered.length} unnumbered section(s): ${h2.filter((h) => !/^## \d+\. /.test(h)).map((h) => h.slice(3)).join(' · ')}`);
   if (nums.some((n, i) => n !== i + 1))
     F('T-11', rel, `sections are numbered ${nums.join(',')} — the template numbers them 1..N without gaps`);
-  if (titles.length < 4) { F('T-11', rel, `has ${titles.length} numbered section(s); the template needs Purpose, the norm, Conformance, NOT do, References`); continue; }
-  if (!/^Purpose and scope$/.test(titles[0])) F('T-11', rel, `§1 is "${titles[0]}" — the template opens with "Purpose and scope"`);
+  if (titles.length < 4) { F('T-11', rel, `has ${titles.length} numbered section(s); the old shape needs Purpose, the norm, Conformance, NOT do, References`); continue; }
+  if (!/^Purpose and scope$/.test(titles[0])) F('T-11', rel, `§1 is "${titles[0]}" — the old shape opens with "Purpose and scope"`);
   const [conf, not, refs] = titles.slice(-3);
-  if (!/^Conformance/.test(conf)) F('T-11', rel, `third-from-last section is "${conf}" — the template puts Conformance there`);
-  if (!/^What this (standard|register) does NOT do/i.test(not)) F('T-11', rel, `second-from-last section is "${not}" — the template puts "What this standard does NOT do" there`);
-  if (!/^References$/.test(refs)) F('T-11', rel, `last section is "${refs}" — the template ends with References`);
-  for (const h of body.split('\n').filter((l) => /^##+ /.test(l)))
-    if (LOG.test(h)) F('T-11', rel, `carries a log of itself: "${h.replace(/^#+ /, '')}" — git log --follow is the history (ADR-041)`);
+  if (!/^Conformance/.test(conf)) F('T-11', rel, `third-from-last section is "${conf}" — the old shape puts Conformance there`);
+  if (!/^What this (standard|register) does NOT do/i.test(not)) F('T-11', rel, `second-from-last section is "${not}" — the old shape puts "What this standard does NOT do" there`);
+  if (!/^References$/.test(refs)) F('T-11', rel, `last section is "${refs}" — the shape ends with References`);
 }
 
 if (failures.length) {

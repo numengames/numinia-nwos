@@ -36,8 +36,8 @@ vocabulary.
 
 ## Writing standard
 
-`standards/STD-007-plain-writing.md` — repository-wide requirements for clear,
-plain, understandable writing.
+`standards/STD-007-one-page-per-document.md` — the shape every document
+takes: rule-shaped title, three-part card, plated rules, a body budget.
 
 ## Current work
 
