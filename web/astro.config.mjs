@@ -55,6 +55,7 @@ export default defineConfig({
 		"/corpus/standards/std-003-platform-role-system": "/corpus/standards/std-003-platform-ranks",
 		"/corpus/standards/std-005-engineering-standards": "/corpus/standards/std-005-engineering-baseline",
 		"/corpus/standards/std-004-header-standard": "/corpus/standards/std-004-the-header",
+		"/corpus/standards/std-009-core-rules": "/corpus/standards/std-009-which-rule-wins",
 		"/corpus/history/2026_09_08-superseded_constitution-v200": "/decisions/adr-041",
 		"/corpus/history/2026_04_07-epistemic_relations-v100": "/decisions/adr-041",
 		"/corpus/history/2026_04_07-mission_system_v2-v100": "/decisions/adr-041",

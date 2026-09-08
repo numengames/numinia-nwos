@@ -5,7 +5,7 @@ title: "The header"
 type: documentation
 subtype: standard
 status: active
-version: "3.0.0"
+version: "3.1.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
@@ -16,7 +16,7 @@ owner: "oracle"
 territory: "Archive"
 license: "CC0-1.0"
 tags: [frontmatter, standard, lint, metadata]
-series_change: "3.0.0 — the standard takes the ADR-043 shape and splits: 2,108 -> 465 words of body here; every field table, vocabulary and lifecycle is the register STD-016. No HDR plate changes number. Major: §7.1, §7.2, §8.2 and §9 were cited by four documents and no longer exist; §8 (context card, standards template) is superseded by STD-007 DOC-002..006; §9 by ENG-033."
+series_change: "3.1.0 — HDR-040, HDR-041 and HDR-043 are defined here, inside HDR-000, instead of in STD-009 (ADR-043 cut of STD-009). 3.0.0 — the standard takes the ADR-043 shape and splits: 2,108 -> 465 words of body here; every field table, vocabulary and lifecycle is the register STD-016. No HDR plate changes number. Major: §7.1, §7.2, §8.2 and §9 were cited by four documents and no longer exist; §8 (context card, standards template) is superseded by STD-007 DOC-002..006; §9 by ENG-033."
 ---
 # The header
 
@@ -38,7 +38,8 @@ which is the renderer's.
 ## Rules
 
 **HDR-000 — Every governed file has a header.** Frontmatter fenced by `---`
-on its own lines (`HDR-040`), parsing as YAML (`HDR-041`).
+on its own lines (**HDR-040**), parsing as valid YAML (**HDR-041**), and
+declaring a licence (**HDR-043**; the value is HDR-008).
 
 **HDR-030 — A field in no ring is an error.** Ring 1 is mandatory for every
 document, Ring 2 for every document that makes a claim, Ring 3 as each

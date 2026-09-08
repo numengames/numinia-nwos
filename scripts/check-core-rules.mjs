@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * check-core-rules — execute the mechanically checkable rules of STD-009.
+ * check-core-rules — execute the mechanically checkable rules of the core
+ * standards (STD-004, STD-018..021; once one file, STD-009).
  *
  * STD-005 ENG-001 (once STD-009 CORE-31): "A rule that does not break the build does not exist for an
  * agent." This guard is what makes eight of the sixty-two rules exist.
@@ -12,7 +13,7 @@ import { execFileSync } from 'node:child_process';
 import { loadDocs } from './lib/corpus.mjs';
 import { ROOT } from './lib/frontmatter.mjs';
 
-/* STD-009: files addressing a reader outside the corpus follow the conventions
+/* STD-009 scope: files addressing a reader outside the corpus follow the conventions
    of the platform they serve, not the numbered series. */
 const OUTWARD =
   /^(AGENTS|CLAUDE|CONTRIBUTING|CHANGELOG|SECURITY|TRADEMARKS|README)\.md$|^\.github\/|^web\//;
@@ -123,24 +124,25 @@ const subjects = execFileSync('git', ['log', '-400', '--format=%s'], { cwd: ROOT
   .split('\n').filter(Boolean);
 for (const s of subjects) if (s.includes('\n')) record('GIT-026', 'multi-line subject', s.slice(0, 60));
 
+/* Each rule binds when the standard that holds it is `active` (PRE-006: a
+   draft binds nobody). The holder is found by plate prefix, so a rule that
+   moves between standards needs no edit here — ratification is an edit to
+   the holder's header, not to this file. */
+const HOLDER = { IDN: 'STD-018', HDR: 'STD-004', VER: 'STD-019', GIT: 'STD-020', CIT: 'STD-021' };
 const RULES = ['IDN-012', 'IDN-013', 'IDN-014', 'HDR-040', 'HDR-043', 'HDR-044', 'VER-021', 'VER-024', 'GIT-026', 'GIT-045', 'CIT-050'];
-
-/* The standard's own `status` field decides whether these rules bind. `active`
-   enforces; anything else reports and exits clean. This is the on/off switch:
-   ratification is an edit to STD-009's header, not to this file. */
-const std009 = loadDocs().find((d) => (d.rel ?? d.path) === 'standards/STD-009-core-rules.md');
-const status = std009?.fm?.status ?? 'draft';
-const enforcing = status === 'active';
+const statusOf = new Map(loadDocs().map((d) => [d.fm?.id, d.fm?.status ?? 'draft']));
+const enforced = (rule) => statusOf.get(HOLDER[rule.slice(0, 3)]) === 'active';
 
 console.log(`check-core-rules: ${docs.length} bound documents, ${RULES.length} rules executed`);
-console.log(`  STD-009 is \`${status}\` — ${enforcing ? 'ENFORCING' : 'reporting only, breaches do not fail the build'}`);
+for (const [pre, id] of Object.entries(HOLDER))
+  console.log(`  ${pre}- holds in ${id} (\`${statusOf.get(id) ?? 'missing'}\`) — ${statusOf.get(id) === 'active' ? 'ENFORCING' : 'reporting only'}`);
 
 if (failures.length) {
-  const out = enforcing ? console.error : console.log;
-  for (const f of failures) out(`  ${f.rule}  ${f.what}\n      ${f.where}`);
-  out(`\n${failures.length} breach(es).`);
-  if (enforcing) process.exit(1);
-  console.log('Not enforced: STD-009 awaits ratification.');
+  const hard = failures.filter((f) => enforced(f.rule));
+  for (const f of failures) (enforced(f.rule) ? console.error : console.log)(`  ${f.rule}  ${f.what}\n      ${f.where}`);
+  console.log(`\n${failures.length} breach(es), ${hard.length} enforced.`);
+  if (hard.length) process.exit(1);
+  console.log('Not enforced: the holding standards await ratification.');
   process.exit(0);
 }
 console.log(`  ${RULES.join(' ')} — all hold.`);
