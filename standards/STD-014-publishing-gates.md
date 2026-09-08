@@ -5,7 +5,7 @@ title: "Publishing gates"
 type: documentation
 subtype: standard
 status: draft
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-09-07T10:30:00+02:00"
 updated: "2026-09-09T01:45:00+02:00"
 author: "ursa"
@@ -14,7 +14,7 @@ territory: "Funding"
 license: "CC0-1.0"
 tags: [licensing, legal, publication, arweave, visibility]
 threshold: sealed
-series_change: "1.0.0 — new standard, split from STD-010 under ADR-043: the two gates of the old §4, as PUB-001..005. Wording kept; the checklist is the same four items."
+series_change: "1.0.1 — LIC-060 retired as a duplicate of PUB-001 (ADR-043 cut of STD-009). 1.0.0 — new standard, split from STD-010 under ADR-043: the two gates of the old §4, as PUB-001..005. Wording kept; the checklist is the same four items."
 ---
 
 # Publishing gates
@@ -60,7 +60,7 @@ build.
 
 | Plate | Verified by |
 |---|---|
-| PUB-001, PUB-002 | `[MANUAL]` — the Oracle's signature, recorded outside the corpus (`LIC-060`) |
+| PUB-001, PUB-002 | `[MANUAL]` — the Oracle's signature, recorded outside the corpus |
 | PUB-003 | `[MANUAL]` — the listing is produced by a command, its output attached to the signing |
 | PUB-004 | `[MANUAL]` — `LICENSE` present at the first commit |
 | PUB-005 | `[MANUAL]` — the guard that evaluates thresholds is described, not built (`DBT-020`) |

@@ -42,7 +42,7 @@ STEP 1 — Identity:
 
 STEP 2 — Security (every session):
   → operations/OPS-009-secrets-handling.md
-  → standards/STD-009-core-rules.md (if not read in <7 days)
+  → standards/STD-009-which-rule-wins.md, STD-017..022 (if not read in <7 days)
 
 STEP 3 — Active missions:
   → missions/ with status in-progress — do I have one assigned?

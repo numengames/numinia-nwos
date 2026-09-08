@@ -71,10 +71,10 @@
   "series": null,
   "type": "documentation",
   "status": "active",
-  "chars": 5862,
+  "chars": 5903,
   "apparatus": true,
   "archived": false,
-  "tokens": 1521
+  "tokens": 1532
  },
  {
   "path": "SECURITY.md",
@@ -434,10 +434,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 3569,
+  "chars": 3615,
   "apparatus": false,
   "archived": false,
-  "tokens": 752
+  "tokens": 770
  },
  {
   "path": "agents/ursa/OPERATOR.md",
@@ -610,10 +610,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "closed",
-  "chars": 4265,
+  "chars": 4338,
   "apparatus": false,
   "archived": false,
-  "tokens": 1158
+  "tokens": 1180
  },
  {
   "path": "debt/DBT-016-section-numbers-are-load-bearing.md",
@@ -632,10 +632,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 4790,
+  "chars": 4781,
   "apparatus": false,
   "archived": false,
-  "tokens": 1295
+  "tokens": 1294
  },
  {
   "path": "debt/DBT-020-declared-automatic-executed-by-nobody.md",
@@ -1248,10 +1248,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 7482,
+  "chars": 7501,
   "apparatus": false,
   "archived": false,
-  "tokens": 1908
+  "tokens": 1916
  },
  {
   "path": "protocols/PRO-003-mission-cycle.md",
@@ -1457,10 +1457,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 4366,
+  "chars": 4556,
   "apparatus": false,
   "archived": false,
-  "tokens": 1217
+  "tokens": 1279
  },
  {
   "path": "standards/STD-005-engineering-baseline.md",
@@ -1507,15 +1507,15 @@
   "tokens": 20032
  },
  {
-  "path": "standards/STD-009-core-rules.md",
+  "path": "standards/STD-009-which-rule-wins.md",
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 16820,
+  "chars": 3598,
   "apparatus": false,
   "archived": false,
-  "tokens": 4306
+  "tokens": 928
  },
  {
   "path": "standards/STD-010-licensing.md",
@@ -1523,10 +1523,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5317,
+  "chars": 5420,
   "apparatus": false,
   "archived": false,
-  "tokens": 1450
+  "tokens": 1473
  },
  {
   "path": "standards/STD-011-external-standards.md",
@@ -1567,10 +1567,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3193,
+  "chars": 3257,
   "apparatus": false,
   "archived": false,
-  "tokens": 847
+  "tokens": 869
  },
  {
   "path": "standards/STD-015-engineering-checks.md",
@@ -1595,15 +1595,81 @@
   "tokens": 1539
  },
  {
+  "path": "standards/STD-017-who-may-change-what.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 3389,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 902
+ },
+ {
+  "path": "standards/STD-018-one-document-one-identifier.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 2546,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 681
+ },
+ {
+  "path": "standards/STD-019-versions.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 2574,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 709
+ },
+ {
+  "path": "standards/STD-020-git-is-the-archive.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 3385,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 899
+ },
+ {
+  "path": "standards/STD-021-evidence-and-citation.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 2519,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 687
+ },
+ {
+  "path": "standards/STD-022-secrets.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 2128,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 564
+ },
+ {
   "path": "system/SYS-001-cao-architecture.md",
   "dir": "system",
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 10368,
+  "chars": 10426,
   "apparatus": false,
   "archived": false,
-  "tokens": 2813
+  "tokens": 2838
  },
  {
   "path": "system/SYS-002-agent-cycle.md",

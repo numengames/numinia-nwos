@@ -143,7 +143,7 @@ performs is the failure mode this repository exists to avoid.
 
 ## Contributing
 
-Read [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`standards/STD-009-core-rules.md`](standards/STD-009-core-rules.md).
+Read [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`standards/STD-009-which-rule-wins.md`](standards/STD-009-which-rule-wins.md) and the standards it points at.
 Work enters through pull requests; the Oracle signs what changes the shape of
 the archive. The repository is written in English
 ([`ADR-023`](decisions/ADR-023-canon-vocabulary.md)).

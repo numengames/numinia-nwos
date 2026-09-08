@@ -38,7 +38,7 @@
 //   T-05  `type` matches what STD-004 §5 maps to the destination series
 //   T-06  `status` is in the destination series' lifecycle
 //   T-07  every frontmatter key is in ring 1, 2 or the destination's ring 3
-//   T-08  version is bare SemVer and opens at 0.1.0 (STD-009 VER-021)
+//   T-08  version is bare SemVer and opens at 0.1.0 (STD-019 VER-021)
 //   T-09  the context card is present, with Summary, Epistemic and Pragmatic
 //   T-10  every registered series has a template
 //   T-11  every standard in standards/ has the template's shape and no log of itself
@@ -184,11 +184,11 @@ for (const rel of files) {
     if (!(k in fm) || fm[k] === '')
       F('T-01', rel, `missing mandatory field "${k}" — the mould must carry the whole ring 1`);
 
-  // T-08: SemVer, opening at 0.1.0 (STD-009 VER-021: every artifact starts there).
+  // T-08: SemVer, opening at 0.1.0 (STD-019 VER-021: every artifact starts there).
   if (fm.version && !SEMVER.test(fm.version))
     F('T-08', rel, `version "${fm.version}" is not bare SemVer`);
   else if (fm.version && fm.version !== '0.1.0' && dir !== 'reports')
-    F('T-08', rel, `version "${fm.version}" — a new artifact opens at 0.1.0 (STD-009), and the mould is what teaches that`);
+    F('T-08', rel, `version "${fm.version}" — a new artifact opens at 0.1.0 (VER-021), and the mould is what teaches that`);
 
   // T-09: the context card, STD-004 §8.1.
   const body = stripFM(text);

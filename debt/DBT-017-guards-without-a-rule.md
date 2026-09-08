@@ -94,7 +94,7 @@ absence, because nothing referenced it.
 $ ls scripts/check-*.mjs scripts/lint-*.mjs | grep -v test | wc -l
 15
 
-$ grep -oE '`(check|lint)-[a-z-]+\.mjs`' standards/STD-009-core-rules.md | sort -u | wc -l
+$ grep -oE '`(check|lint)-[a-z-]+\.mjs`' standards/STD-009-*.md | sort -u | wc -l
 8
 
 $ for g in check-deletable check-internal-links check-orphan-content check-responsive lint-frontmatter; do

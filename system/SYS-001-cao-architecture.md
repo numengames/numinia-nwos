@@ -261,7 +261,7 @@ CEO visits pablofm.com/velo → Fills DeployForm
 
 - [BP-cao.md](BP-cao.md) — CAO status and objectives
 - [BLU-002-business-metrics.md](../blueprints/BLU-002-business-metrics.md) — KPI framework
-- [STD-009-core-rules.md](../standards/STD-009-core-rules.md) — Rules, precedence, roles and permissions
+- [STD-009-which-rule-wins.md](../standards/STD-009-which-rule-wins.md) — precedence; [STD-017](../standards/STD-017-who-may-change-what.md) — who may change what
 - [agents/INDEX.md](../agents/INDEX.md) — Agent registry
 
 ---

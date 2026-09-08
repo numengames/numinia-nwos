@@ -105,7 +105,7 @@ Recorded here, not decided.
 
 ## References
 
-- [`STD-009` — Core rules](../standards/STD-009-core-rules.md) `VER-023`, `GIT-045`
+- [`STD-019` — Versions](../standards/STD-019-versions.md) `VER-023`; [`STD-020` — Git is the archive](../standards/STD-020-git-is-the-archive.md) `GIT-045`
 - [`STD-002` — Governance](../standards/STD-002-governance.md)
 - [`MIS-146` — Normative refoundation](../missions/MIS-0146-normative-refoundation.md)
 - `scripts/check-core-rules.mjs`
