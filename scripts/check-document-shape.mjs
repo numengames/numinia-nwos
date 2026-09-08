@@ -61,9 +61,20 @@ const only = args.find((a) => !a.startsWith('--'));
 
 const words = (s) => (s.trim() ? s.trim().split(/\s+/).length : 0);
 
-function cardPart(body, name) {
-  const m = new RegExp(`^>\\s*\\*\\*${name}:\\*\\*([\\s\\S]*?)(?=^>\\s*\\*\\*\\w+:\\*\\*|^(?!>)\\S|^\\s*$)`, 'm').exec(body);
-  return m ? m[1].replace(/^>\s?/gm, '') : null;
+// Card parts are consecutive `> ` lines; a part runs from its `**Name:**`
+// line to the next `**Other:**` line or the end of the blockquote. Parsed
+// line by line — no backtracking regex over the whole body (CodeQL ReDoS).
+function cardParts(body) {
+  const parts = {};
+  let current = null;
+  for (const raw of body.split('\n')) {
+    if (!raw.startsWith('>')) { if (current) break; continue; }
+    const line = raw.replace(/^>\s?/, '');
+    const head = /^\*\*(\w+):\*\*\s*(.*)$/.exec(line);
+    if (head) { current = head[1]; parts[current] = head[2]; continue; }
+    if (current) parts[current] += ' ' + line;
+  }
+  return parts;
 }
 
 function measure(rel) {
@@ -85,8 +96,9 @@ function measure(rel) {
 
   // S-02 card
   r.card = {};
+  const cp = cardParts(body);
   for (const part of ['Summary', 'Epistemic', 'Pragmatic']) {
-    const p = cardPart(body, part);
+    const p = cp[part] ?? null;
     if (p === null) {
       r.card[part] = null;
       if (!(register && part !== 'Summary')) findings.push(`S-02 card has no **${part}:**`);
@@ -127,9 +139,17 @@ function measure(rel) {
   if (!register && NEEDS_PLATES.has(dir) && plates.length + legacy.length === 0)
     findings.push('S-04 no plated rule (**AAA-NNN — …**)');
 
-  // S-05 why
-  const why = /^##\s+(\d+\.\s+)?Why\b[^\n]*\n([\s\S]*?)(?=^##\s|\s*$)/m.exec(core);
-  r.why_words = why ? words(why[2]) : null;
+  // S-05 why — the section from `## Why` to the next `## `, scanned by line.
+  let why = null;
+  {
+    const lines = core.split('\n');
+    const at = lines.findIndex((l) => /^##\s+(\d+\.\s+)?Why\b/.test(l));
+    if (at >= 0) {
+      const end = lines.findIndex((l, i) => i > at && /^##\s/.test(l));
+      why = lines.slice(at + 1, end < 0 ? undefined : end).join('\n');
+    }
+  }
+  r.why_words = why === null ? null : words(why);
   if (why && r.why_words > CAP.why) findings.push(`S-05 Why is ${r.why_words} words (≤ ${CAP.why})`);
 
   // S-06 body
