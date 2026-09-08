@@ -369,6 +369,44 @@ export default defineConfig({
 		// English page, not through /misiones/[id] — one hop.
 		"/misiones/mis-115a": "/missions/mis-132",
 		"/misiones/mis-115b": "/missions/mis-133",
+		// ADR-040 first batch: 16 done missions deleted, each passing all four
+		// ADR-030 tests (no live citers besides RPT-017 itself, a written
+		// resolution in RPT-017's narrative, this redirect closing test 2, the
+		// missions/ `open` threshold). check-url-lifecycle.mjs matches
+		// [id]-shaped rules literally (documented blind spot), so the Spanish
+		// alias needs its own line too, same as MIS-115a/b above.
+		"/missions/mis-027": "/reports/rpt-017-mvp-story",
+		"/missions/mis-053": "/reports/rpt-017-mvp-story",
+		"/missions/mis-058": "/reports/rpt-017-mvp-story",
+		"/missions/mis-064": "/reports/rpt-017-mvp-story",
+		"/missions/mis-078": "/reports/rpt-017-mvp-story",
+		"/missions/mis-079": "/reports/rpt-017-mvp-story",
+		"/missions/mis-080": "/reports/rpt-017-mvp-story",
+		"/missions/mis-081": "/reports/rpt-017-mvp-story",
+		"/missions/mis-082": "/reports/rpt-017-mvp-story",
+		"/missions/mis-083": "/reports/rpt-017-mvp-story",
+		"/missions/mis-087": "/reports/rpt-017-mvp-story",
+		"/missions/mis-088": "/reports/rpt-017-mvp-story",
+		"/missions/mis-110": "/reports/rpt-017-mvp-story",
+		"/missions/mis-126": "/reports/rpt-017-mvp-story",
+		"/missions/mis-130": "/reports/rpt-017-mvp-story",
+		"/missions/mis-133": "/reports/rpt-017-mvp-story",
+		"/misiones/mis-027": "/reports/rpt-017-mvp-story",
+		"/misiones/mis-053": "/reports/rpt-017-mvp-story",
+		"/misiones/mis-058": "/reports/rpt-017-mvp-story",
+		"/misiones/mis-064": "/reports/rpt-017-mvp-story",
+		"/misiones/mis-078": "/reports/rpt-017-mvp-story",
+		"/misiones/mis-079": "/reports/rpt-017-mvp-story",
+		"/misiones/mis-080": "/reports/rpt-017-mvp-story",
+		"/misiones/mis-081": "/reports/rpt-017-mvp-story",
+		"/misiones/mis-082": "/reports/rpt-017-mvp-story",
+		"/misiones/mis-083": "/reports/rpt-017-mvp-story",
+		"/misiones/mis-087": "/reports/rpt-017-mvp-story",
+		"/misiones/mis-088": "/reports/rpt-017-mvp-story",
+		"/misiones/mis-110": "/reports/rpt-017-mvp-story",
+		"/misiones/mis-126": "/reports/rpt-017-mvp-story",
+		"/misiones/mis-130": "/reports/rpt-017-mvp-story",
+		"/misiones/mis-133": "/reports/rpt-017-mvp-story",
 		"/corpus/missions/proposal-closure-guard": "/missions/mis-134",
 		// reports/ normalisation, 2026-09-01 (ADR-005 v1.2.0). AUD- is retired:
 		// the eleven audits took RPT-NNN numbers by created date and the folder
