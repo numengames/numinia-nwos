@@ -1,12 +1,12 @@
 ---
 id: "ADR-040"
 uid: ""
-title: "A done mission can be deleted too: PRO-003 gets the exit ADR-030 already gave every other document"
+title: "A done mission can be deleted too — and, since v1.1.0, a frozen one: PRO-003 gets the exit ADR-030 already gave every other document"
 type: adr
 status: active
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-09-08T13:48:37Z"
-updated: "2026-09-08T13:48:37Z"
+updated: "2026-09-08T18:10:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -116,3 +116,30 @@ deliberately asymmetric: `done` acquires an exit, `frozen` does not.
 
 `active` — this PR is the Oracle's approval (`STD-001` §2.1: `governed`
 = "An ADR, or a PR the Oracle approves").
+
+## 6. Amendment, 2026-09-08 (v1.1.0) — `frozen` acquires the same exit
+
+v1.0.0 kept `frozen` permanent on one argument: a cancelled mission has no
+successor document to carry its resolution into, so test 3 could never be
+met. The Oracle's instruction of 2026-09-08, after the 70 `done` missions
+had been deleted into `RPT-017`, was to delete the 38 `frozen` ones too.
+That instruction is also the answer to the argument: the successor
+document exists as soon as someone writes it. `RPT-017` v0.3.0 records
+every frozen mission's identifier, title and `freeze_reason` — for the 22
+cancelled, the decision against; for the 16 parked, the trigger that
+would reopen the question. That is the written resolution test 3 asks for.
+
+**Decision.** A `frozen` mission may be deleted under `ADR-030`'s four
+tests, where test 3 is met by a living document that records its
+identifier, title and `freeze_reason`. `PRO-003` §2 is amended
+accordingly (v4.5.0): the diagram gains the exit, the "never deleted"
+line is replaced, and the asymmetry §2 above described is withdrawn.
+
+**What this does not change.** The four tests still run per file. A
+frozen mission whose reason is *not* carried into the resolving document
+fails test 3 and stays. Restoring a deleted card is not the way to reopen
+a parked question — a new mission is, citing the record.
+
+**Reversal.** As in §4: if a deleted `frozen` mission's absence is later
+shown to have lost a decision the corpus needed, that is grounds to
+supersede this amendment.
