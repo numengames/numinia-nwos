@@ -81,7 +81,12 @@ for (const rel of files) {
   const ids = new Set([base]);
   const declared = field('id');
   if (declared) ids.add(declared);
+  // `absorbs:` — the identifiers this document is the written resolution
+  // for (ADR-030 §absorption; check-references.mjs resolves them here).
+  const absorbsRaw = fm && fm[1].match(/^absorbs:\s*\[(.*?)\]/m);
+  const absorbs = new Set(absorbsRaw ? absorbsRaw[1].split(',').map((s) => s.trim().replace(/^["']|["']$/g, '')).filter(Boolean) : []);
   doc.set(rel, {
+    absorbs,
     text,
     status: field('status').toLowerCase(),
     threshold: field('threshold').toLowerCase(),
@@ -97,7 +102,12 @@ function citersOf(rel) {
   for (const [other, o] of doc) {
     if (other === rel) continue;
     const hit = d.ids.some((id) => o.text.includes(id)) || o.text.includes(path.basename(rel));
-    if (hit) out.push({ file: other, live: !CLOSED.has(o.status) });
+    if (!hit) continue;
+    // A document that ABSORBS `rel` is its written resolution (test 3), not
+    // a citer that blocks test 1 — otherwise every deletion batch that
+    // records what it deletes would block itself on its own record.
+    if (d.ids.some((id) => o.absorbs.has(id))) continue;
+    out.push({ file: other, live: !CLOSED.has(o.status) });
   }
   return out;
 }

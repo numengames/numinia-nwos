@@ -1016,11 +1016,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-progress",
-  "chars": 30769,
+  "status": "done",
+  "chars": 32055,
   "apparatus": false,
   "archived": false,
-  "tokens": 8619
+  "tokens": 8999
  },
  {
   "path": "missions/MIS-0123-make-adr-028-real.md",
@@ -1137,11 +1137,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-progress",
-  "chars": 8039,
+  "status": "done",
+  "chars": 8530,
   "apparatus": false,
   "archived": false,
-  "tokens": 2266
+  "tokens": 2448
  },
  {
   "path": "missions/MIS-0153-agent-roster-page.md",
@@ -1380,10 +1380,21 @@
   "series": "reports",
   "type": "report",
   "status": "active",
-  "chars": 34674,
+  "chars": 35201,
   "apparatus": false,
   "archived": false,
-  "tokens": 10564
+  "tokens": 10716
+ },
+ {
+  "path": "reports/RPT-018-alpha-story.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "active",
+  "chars": 2242,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 666
  },
  {
   "path": "standards/STD-001-glossary.md",
