@@ -47,7 +47,7 @@ reduces:
   `reports/` corrected only by a new report.
 - `PRO-010` — lifecycle ending in an *archive fund*.
 - `PRO-003` — a cancelled mission *never deleted*.
-- `STD-009` — `CORE-40`, a restatement of `CORE-08`.
+- `STD-009` — `CORE-40`, a restatement of `AUT-008`.
 - Two standards carrying *Amendment* sections (647 words of log) that the
   standards template itself forbids.
 
@@ -69,12 +69,12 @@ corrected where it stands, with a dated note and a version bump — not by a
 successor document. Dated evidence under `reports/evidence/` is the one
 exception: it describes a moment and is not edited.
 
-**A standard carries no log of itself.** `CORE-04` — a later ruling names
+**A standard carries no log of itself.** `PRE-004` — a later ruling names
 what it overrides — is satisfied by the commit message and, when the change
 is a major, by the decision record. Amendment sections inside a normative
 document are removed and not written again.
 
-**A broken reference inside a closed record is a photograph (`CORE-53`).**
+**A broken reference inside a closed record is a photograph (`CIT-053`).**
 `check-references.mjs` no longer walks `done`, `closed`, `superseded`,
 `withdrawn` or `frozen` documents as citers. They remain indexed, so a living
 document citing them still resolves.
@@ -92,12 +92,12 @@ Binding from merge. Amends `STD-001`, `STD-002`, `STD-009`, `PRO-003`,
   baseline entry. The baseline is for living documents.
 - Canon pointers to `history/` (`CAN-001`, `CAN-002`, `CAN-004`) are
   rewritten to cite this record. Canon is sealed; this decision is the record
-  `CORE-06` requires.
+  `AUT-006` requires.
 
 ## 4. Alternatives
 
 - **Keep `history/` with a deletion exit.** Rejected: a second archive next
-  to git is a copy, and `CORE-49` forbids copies.
+  to git is a copy, and `GIT-049` forbids copies.
 - **Supersede, never delete** (the instruction under which `MIS-146` ran).
   Rejected by measurement: it produced growth in every batch.
 

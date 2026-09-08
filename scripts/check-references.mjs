@@ -216,7 +216,7 @@ const PLACEHOLDER_RE = /(^|[^A-Za-z])(N{3,}|X{3,}|YYYY|MM|DD|PREFIX|SLUG|TITLE|v
 const isPlaceholder = (cited) =>
   PLACEHOLDER_RE.test(cited) || /[<>{}]/.test(cited) || /\bslug\b/.test(cited);
 
-/* CORE-53 (ADR-041): a broken link inside a closed record is a photograph,
+/* CIT-053 (ADR-041): a broken link inside a closed record is a photograph,
  * not a defect. A `done` mission or a `superseded` standard describes what
  * was true then; forcing it to keep resolving would make every deletion
  * either rewrite closed records or grow the baseline forever. Closed records

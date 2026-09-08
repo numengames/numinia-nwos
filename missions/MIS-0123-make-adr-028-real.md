@@ -51,8 +51,8 @@ This mission is the difference between deciding and enforcing.
 
 | Field | Declared closed | Value check | Invalid values in the corpus |
 |---|---|---|---|
-| `type` | yes | **yes** (H-03) | — |
-| `status` | yes | **yes** (H-04) | — |
+| `type` | yes | **yes** (HDR-003) | — |
+| `status` | yes | **yes** (HDR-004) | — |
 | `guild` | yes | **no** | **14** |
 | `territory` | yes | **no** | **15** |
 | `type_execution` | yes | **no** | **5** |
@@ -155,7 +155,7 @@ and only `draft` was mapped into a column (line 71, into `backlog`).
 
 `MIS-121`, `MIS-122` and this mission were therefore **absent from the mission
 board on numinia.org** while being perfectly valid documents. The alternative
-— writing `backlog` — is a retired status and adds an `H-04` finding.
+— writing `backlog` — is a retired status and adds an `HDR-004` finding.
 
 This was `D-009` seen from the other side: the board was built around the
 vocabulary the standard retired, so conformance and visibility pointed in
@@ -173,7 +173,7 @@ open.
 
 *Read against `203267c` during the missions/ normalisation (lot 4). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
 
-- **Evidence:** Its first criterion is done by reality: H-33…H-36 vocabulary checks are live in lint-frontmatter.mjs (VOCAB_CHECK) and H-32 checks TBA ownership. Remaining: visibility vocabulary in STD-001 §7, TBA counter in the summary line, baseline re-bank. Depends on ADR-027 (resolves).
+- **Evidence:** Its first criterion is done by reality: HDR-033…HDR-036 vocabulary checks are live in lint-frontmatter.mjs (VOCAB_CHECK) and HDR-032 checks TBA ownership. Remaining: visibility vocabulary in STD-001 §7, TBA counter in the summary line, baseline re-bank. Depends on ADR-027 (resolves).
 - **Recommendation:** Keep todo, re-scope to the three remaining criteria; tick the first two from the guard's own source (form). Small.
 
 ## Version history

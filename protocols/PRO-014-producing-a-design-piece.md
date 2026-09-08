@@ -38,7 +38,7 @@ must hold rather than **how** to do it.
 
 **It defines nothing.** Every value, threshold and constraint it names lives in
 `STD-008`, and a reference here that disagrees with the standard is wrong by
-`CORE-01`..`05`: the standard is the rule, this document is the order in which
+`PRE-001`..`05`: the standard is the rule, this document is the order in which
 the rule is applied. Where this checklist is silent and the standard is not,
 the standard still binds.
 

@@ -79,7 +79,7 @@ not as an intention.
 > without re-reading this document.
 
 "Closes when the docs are improved" closes nothing. "Closes when
-`node scripts/lint-frontmatter.mjs` reports zero H-31 findings" closes.
+`node scripts/lint-frontmatter.mjs` reports zero HDR-031 findings" closes.
 
 ---
 

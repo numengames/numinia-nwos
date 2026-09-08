@@ -24,7 +24,7 @@
  *
  * WHAT THIS GUARD DOES NOT CHECK (D-025 — declare your blindness):
  *
- *  - **Whether a deferral is honest.** H-32 checks that a `TBA` names a
+ *  - **Whether a deferral is honest.** HDR-032 checks that a `TBA` names a
  *    mission that will resolve it. It cannot check that the mission is
  *    alive, funded, or ever worked on. A `TBA` owned by an abandoned
  *    mission passes this guard and is exactly the parking space ADR-028
@@ -64,7 +64,7 @@ const WRITE = args.includes('--write-baseline');
    copies drifting apart. The comments explaining why each field is registered
    travelled with it — they are the record. */
 
-/** STD-004 §5 H-03 / H-17: type vocabulary and type ↔ series — rules.json `types`. */
+/** STD-004 §5 HDR-003 / HDR-017: type vocabulary and type ↔ series — rules.json `types`. */
 const TYPES = RULES.types.all;
 const TYPE_SERIES = RULES.types.series;
 const LAX_TYPES = RULES.types.lax;
@@ -72,10 +72,10 @@ const LAX_TYPES = RULES.types.lax;
 /** STD-004 §6: status lifecycles by type — rules.json `status`. */
 const STATUS = RULES.status;
 
-/** STD-004 §5 H-18: registered subtypes per type — rules.json `subtypes`. */
+/** STD-004 §5 HDR-018: registered subtypes per type — rules.json `subtypes`. */
 const SUBTYPES = RULES.subtypes;
 
-/** STD-004 §7 H-31: retired fields, each the object of a registered migration. */
+/** STD-004 §7 HDR-031: retired fields, each the object of a registered migration. */
 const RETIRED = {
   area: 'D-010: area → territory',
   blocked_reason: 'D-002: orphaned by the removal of status blocked',
@@ -98,8 +98,8 @@ const PREFIX = Object.fromEntries(Object.entries(RULES.series)
  * which is why each drifted in the same three ways: an untranslated Spanish
  * value, a lowercase variant, and a template comment left glued to the value.
  *
- * H-33 guild · H-34 type_execution · H-35 visibility · H-36 territory
- * H-37 priority · H-38 effort
+ * HDR-033 guild · HDR-034 type_execution · HDR-035 visibility · HDR-036 territory
+ * HDR-037 priority · HDR-038 effort
  */
 const VOCAB = {
   // STD-001 §6.3: "English, plural."
@@ -116,8 +116,8 @@ const VOCAB = {
   priority: ['critical', 'high', 'medium', 'low'],
   effort: ['XS', 'S', 'M', 'L', 'XL'],
 };
-const VOCAB_CHECK = { guild: 'H-33', type_execution: 'H-34', visibility: 'H-35', territory: 'H-36',
-  priority: 'H-37', effort: 'H-38' };
+const VOCAB_CHECK = { guild: 'HDR-033', type_execution: 'HDR-034', visibility: 'HDR-035', territory: 'HDR-036',
+  priority: 'HDR-037', effort: 'HDR-038' };
 
 /* The corpus tree this standard governs (STD-004 §10): tracked .md outside web/. */
 const GOVERNED = new Set(RULES.governed.dirs);  // STD-004 §10 — rules.json `governed`
@@ -165,26 +165,26 @@ for (const rel of files) {
   const text = readFileSync(path.join(ROOT, rel), 'utf8');
   const fm = parseFM(text);
 
-  if (fm === null) { F('H-00', rel, 'no frontmatter — invisible to every instrument'); continue; }
+  if (fm === null) { F('HDR-000', rel, 'no frontmatter — invisible to every instrument'); continue; }
 
   /* Deferred values (ADR-028). Counted, never flagged — see DEFERRAL_OWNER. */
   for (const [k, v] of Object.entries(fm)) {
     if (v !== DEFERRED) continue;
     deferrals.push({ file: rel, field: k, owner: DEFERRAL_OWNER[k] || null });
     if (!DEFERRAL_OWNER[k])
-      F('H-32', rel, `"${k}: ${DEFERRED}" defers a value with no mission to resolve it — ADR-028 forbids a parking space`);
+      F('HDR-032', rel, `"${k}: ${DEFERRED}" defers a value with no mission to resolve it — ADR-028 forbids a parking space`);
   }
 
-  /* H-09: empty is absent.
+  /* HDR-009: empty is absent.
      `uid` is the one exception: STD-001 §6.2 requires it declared and left
      empty ("Oracle decision, non-negotiable") until the UID system exists.
      Flagging it here punished 65 documents for obeying the standard and
      advised the opposite of what the standard says (MIS-122). */
   for (const [k, v] of Object.entries(fm))
     if (v === '' && k !== 'uid')
-      F('H-09', rel, `empty value written for "${k}" — omit the field instead`);
+      F('HDR-009', rel, `empty value written for "${k}" — omit the field instead`);
 
-  /* H-33…H-36: closed vocabularies (STD-001 §6.3, §7, §territory).
+  /* HDR-033…HDR-036: closed vocabularies (STD-001 §6.3, §7, §territory).
      Declared in the canon since the glossary was written, enforced by nobody
      until now — which is exactly why `Procuradores`, `híbrido` and a stray
      template comment all survived in the corpus. A DEFERRED value is legal
@@ -205,34 +205,34 @@ for (const rel of files) {
   /* Ring 1 presence */
   for (const k of RING1)
     if (!(k in fm) || fm[k] === '') {
-      const map = { id: 'H-01', title: 'H-02', type: 'H-03', status: 'H-04',
-        version: 'H-05', created: 'H-06', updated: 'H-07', license: 'H-08' };
+      const map = { id: 'HDR-001', title: 'HDR-002', type: 'HDR-003', status: 'HDR-004',
+        version: 'HDR-005', created: 'HDR-006', updated: 'HDR-007', license: 'HDR-008' };
       if (k === 'id' && fm.registration === 'exempt') continue; // STD-001 §5.0
       F(map[k], rel, `missing mandatory field "${k}"`);
     }
 
-  /* H-01: id shape + series prefix */
+  /* HDR-001: id shape + series prefix */
   if (fm.id && fm.registration !== 'exempt') {
     const pfx = fm.id.match(/^([A-Z]+)-/)?.[1];
-    if (!pfx) F('H-01', rel, `id "${fm.id}" does not match <PREFIX>-<NNN>`);
+    if (!pfx) F('HDR-001', rel, `id "${fm.id}" does not match <PREFIX>-<NNN>`);
     else if (PREFIX[top]) {
       const ok = [].concat(PREFIX[top]).includes(pfx);
-      if (!ok) F('H-01', rel, `id prefix "${pfx}" does not belong to ${top}/ (ADR-005)`);
+      if (!ok) F('HDR-001', rel, `id prefix "${pfx}" does not belong to ${top}/ (ADR-005)`);
     }
   }
 
-  /* H-03: closed type vocabulary */
+  /* HDR-003: closed type vocabulary */
   if (fm.type && !TYPES.includes(fm.type))
-    F('H-03', rel, `type "${fm.type}" not in the closed vocabulary (STD-004 §5)`);
+    F('HDR-003', rel, `type "${fm.type}" not in the closed vocabulary (STD-004 §5)`);
 
-  /* H-19: status case; H-04: lifecycle.
+  /* HDR-019: status case; HDR-004: lifecycle.
      Series beats type (2026-09-03): a normative series declares its own
      lifecycle in rules.json `status._bySeries`, because `closed` cannot serve
      as an off switch there — it already means "published, still standing" in
      reports/. Everything else keeps the type lifecycle. */
   if (fm.status) {
     if (fm.status !== fm.status.toLowerCase())
-      F('H-19', rel, `status "${fm.status}" must be lowercase`);
+      F('HDR-019', rel, `status "${fm.status}" must be lowercase`);
     /* The filename is not a state (2026-09-03, Oracle ruling). An earlier
        version of this guard read a dated filename as "frozen artifact" and
        withheld the series off switch from it. That inverted the rule it
@@ -247,40 +247,40 @@ for (const rel of files) {
     const seriesLife = STATUS._bySeries?.[top];
     const life = seriesLife || STATUS[fm.type] || STATUS._default;
     if (!life.includes(fm.status.toLowerCase()))
-      F('H-04', rel, `status "${fm.status}" not in the ${seriesLife ? `${top}/ series` : (fm.type || 'default')} lifecycle [${life.join(' ')}]`);
+      F('HDR-004', rel, `status "${fm.status}" not in the ${seriesLife ? `${top}/ series` : (fm.type || 'default')} lifecycle [${life.join(' ')}]`);
   }
 
-  /* H-05: semver, no v prefix */
+  /* HDR-005: semver, no v prefix */
   if (fm.version && !SEMVER.test(fm.version))
-    F('H-05', rel, `version "${fm.version}" is not bare SemVer (no v prefix)`);
+    F('HDR-005', rel, `version "${fm.version}" is not bare SemVer (no v prefix)`);
 
-  /* H-06 / H-07: dates.
+  /* HDR-006 / HDR-007: dates.
      Templates are exempt: their placeholder dates ({YYYY-MM-DD}, YYYY-MM-DD)
      ARE the template's content — the instruction to the future writer.
      Same reasoning as A TEMPLATE.md's inline vocabulary comments. */
   const IS_TEMPLATE = isTemplate(rel);  // rules.json `apparatus.templatePatterns`
   if (fm.created && !IS_TEMPLATE) {
     if (!ISO_TIME.test(fm.created))
-      F('H-06', rel, `created "${fm.created}" lacks a real time (ISO 8601 with time)`);
+      F('HDR-006', rel, `created "${fm.created}" lacks a real time (ISO 8601 with time)`);
     else if (/T00:00:00(\.0+)?Z?$/.test(fm.created))
-      F('H-06', rel, `created "${fm.created}" carries the midnight nobody wrote at (STD-001 §8)`);
+      F('HDR-006', rel, `created "${fm.created}" carries the midnight nobody wrote at (STD-001 §8)`);
   }
   if (fm.updated && !IS_TEMPLATE) {
     if (!ISO_TIME.test(fm.updated))
-      F('H-07', rel, `updated "${fm.updated}" lacks a real time`);
+      F('HDR-007', rel, `updated "${fm.updated}" lacks a real time`);
     else if (fm.created && ISO_TIME.test(fm.created) && fm.updated < fm.created)
-      F('H-07', rel, `updated ${fm.updated} < created ${fm.created}`);
+      F('HDR-007', rel, `updated ${fm.updated} < created ${fm.created}`);
   }
 
-  /* H-12..H-14: ring 2 vocabularies */
+  /* HDR-012..HDR-014: ring 2 vocabularies */
   if (fm.provenance && !['human', 'ai-assisted', 'ai-generated'].includes(fm.provenance))
-    F('H-12', rel, `provenance "${fm.provenance}" invalid`);
+    F('HDR-012', rel, `provenance "${fm.provenance}" invalid`);
   if (fm.created_source && !/^(git:[0-9a-f]{7,40}|declared)$/.test(fm.created_source))
-    F('H-13', rel, `created_source "${fm.created_source}" is neither git:<sha> nor declared`);
+    F('HDR-013', rel, `created_source "${fm.created_source}" is neither git:<sha> nor declared`);
   if (fm.created_confidence && !['exact', 'inferred'].includes(fm.created_confidence))
-    F('H-14', rel, `created_confidence "${fm.created_confidence}" invalid`);
+    F('HDR-014', rel, `created_confidence "${fm.created_confidence}" invalid`);
 
-  /* H-17: type ↔ series.
+  /* HDR-017: type ↔ series.
      SETTLED_ELSEWHERE: documents whose type is honest but whose home is
      historical — moving them breaks live references (ADR-005 cites the
      AUDIT files by path; 12+ files link them). The mismatch is registered
@@ -299,29 +299,29 @@ for (const rel of files) {
   };
   if (fm.type && TYPE_SERIES[fm.type] && TYPE_SERIES[fm.type] !== top && !LAX_TYPES.includes(fm.type)
       && !SETTLED_ELSEWHERE[rel])
-    F('H-17', rel, `type "${fm.type}" belongs in ${TYPE_SERIES[fm.type]}/, found in ${top}/`);
+    F('HDR-017', rel, `type "${fm.type}" belongs in ${TYPE_SERIES[fm.type]}/, found in ${top}/`);
 
-  /* H-18: registered subtype */
+  /* HDR-018: registered subtype */
   if (fm.subtype && SUBTYPES[fm.type] && !SUBTYPES[fm.type].includes(fm.subtype))
-    F('H-18', rel, `subtype "${fm.subtype}" not registered for type ${fm.type}`);
+    F('HDR-018', rel, `subtype "${fm.subtype}" not registered for type ${fm.type}`);
 
-  /* H-20: uid carries a hand-authored value.
+  /* HDR-020: uid carries a hand-authored value.
      STD-001 §6.2: the 32 legacy values "are removed, not preserved: they were
      never identifiers". The fix is to empty the field, not to delete it —
-     emptying is what the standard asks for, and H-09 no longer punishes it. */
+     emptying is what the standard asks for, and HDR-009 no longer punishes it. */
   if (fm.uid && fm.uid !== '')
-    F('H-20', rel, `uid carries a hand-authored value — empty the field, keep it declared (STD-001 §6.2)`);
+    F('HDR-020', rel, `uid carries a hand-authored value — empty the field, keep it declared (STD-001 §6.2)`);
 
-  /* H-31: retired fields */
+  /* HDR-031: retired fields */
   for (const k of Object.keys(fm))
-    if (RETIRED[k]) F('H-31', rel, `retired field "${k}" (${RETIRED[k]})`);
+    if (RETIRED[k]) F('HDR-031', rel, `retired field "${k}" (${RETIRED[k]})`);
 
-  /* H-30: the anti-entropy rule — a field in no ring is invalid */
+  /* HDR-030: the anti-entropy rule — a field in no ring is invalid */
   const allowed = new Set([...RING1, ...RING2, ...RING3_ALL,
     ...(RING3[top] || []), 'subtype']);
   for (const k of Object.keys(fm))
     if (!allowed.has(k) && !RETIRED[k])
-      F('H-30', rel, `field "${k}" is in no ring and not registered for ${top}/ (STD-004 §7)`);
+      F('HDR-030', rel, `field "${k}" is in no ring and not registered for ${top}/ (STD-004 §7)`);
 }
 
 /* ---------------- baseline ratchet ---------------- */

@@ -5,7 +5,7 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 472,
+  "chars": 474,
   "apparatus": false,
   "archived": false,
   "tokens": 128
@@ -16,7 +16,7 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 707,
+  "chars": 709,
   "apparatus": false,
   "archived": false,
   "tokens": 190
@@ -38,7 +38,7 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 22072,
+  "chars": 22077,
   "apparatus": false,
   "archived": false,
   "tokens": 6363
@@ -49,7 +49,7 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 8123,
+  "chars": 8131,
   "apparatus": false,
   "archived": false,
   "tokens": 2075
@@ -599,7 +599,7 @@
   "series": "debt",
   "type": "documentation",
   "status": "closed",
-  "chars": 5417,
+  "chars": 5418,
   "apparatus": false,
   "archived": false,
   "tokens": 1431
@@ -632,7 +632,7 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 4781,
+  "chars": 4790,
   "apparatus": false,
   "archived": false,
   "tokens": 1295
@@ -643,7 +643,7 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 5287,
+  "chars": 5294,
   "apparatus": false,
   "archived": false,
   "tokens": 1443
@@ -764,7 +764,7 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 11998,
+  "chars": 12004,
   "apparatus": false,
   "archived": false,
   "tokens": 3672
@@ -775,7 +775,7 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 2423,
+  "chars": 2429,
   "apparatus": false,
   "archived": false,
   "tokens": 712
@@ -786,7 +786,7 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 4329,
+  "chars": 4335,
   "apparatus": false,
   "archived": false,
   "tokens": 1158
@@ -822,7 +822,7 @@
   "chars": 4480,
   "apparatus": false,
   "archived": false,
-  "tokens": 1250
+  "tokens": 1251
  },
  {
   "path": "decisions/ADR-042-corpus-rolls-up-by-period.md",
@@ -830,7 +830,7 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 5283,
+  "chars": 5284,
   "apparatus": false,
   "archived": false,
   "tokens": 1463
@@ -841,10 +841,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 5749,
+  "chars": 6341,
   "apparatus": false,
   "archived": false,
-  "tokens": 1515
+  "tokens": 1777
  },
  {
   "path": "guilds/alquimistas/GLD-001-charter.md",
@@ -973,7 +973,7 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 8626,
+  "chars": 8639,
   "apparatus": false,
   "archived": false,
   "tokens": 2177
@@ -984,10 +984,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 6585,
+  "chars": 6595,
   "apparatus": false,
   "archived": false,
-  "tokens": 1875
+  "tokens": 1877
  },
  {
   "path": "missions/MIS-0112-home-from-readme.md",
@@ -1017,10 +1017,10 @@
   "series": "missions",
   "type": "mission",
   "status": "done",
-  "chars": 32055,
+  "chars": 32280,
   "apparatus": false,
   "archived": false,
-  "tokens": 8999
+  "tokens": 9003
  },
  {
   "path": "missions/MIS-0123-make-adr-028-real.md",
@@ -1028,7 +1028,7 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 8259,
+  "chars": 8277,
   "apparatus": false,
   "archived": false,
   "tokens": 2334
@@ -1050,10 +1050,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 31517,
+  "chars": 31557,
   "apparatus": false,
   "archived": false,
-  "tokens": 9146
+  "tokens": 9150
  },
  {
   "path": "missions/MIS-0131-frontmatter-history-census.md",
@@ -1083,7 +1083,7 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 14824,
+  "chars": 14833,
   "apparatus": false,
   "archived": false,
   "tokens": 4485
@@ -1127,7 +1127,7 @@
   "series": "missions",
   "type": "mission",
   "status": "done",
-  "chars": 8530,
+  "chars": 8545,
   "apparatus": false,
   "archived": false,
   "tokens": 2448
@@ -1141,7 +1141,7 @@
   "chars": 4615,
   "apparatus": false,
   "archived": false,
-  "tokens": 1115
+  "tokens": 1118
  },
  {
   "path": "operations/OPS-001-continuity.md",
@@ -1248,10 +1248,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 7481,
+  "chars": 7482,
   "apparatus": false,
   "archived": false,
-  "tokens": 1907
+  "tokens": 1908
  },
  {
   "path": "protocols/PRO-003-mission-cycle.md",
@@ -1262,7 +1262,7 @@
   "chars": 8738,
   "apparatus": false,
   "archived": false,
-  "tokens": 2120
+  "tokens": 2121
  },
  {
   "path": "protocols/PRO-005-escalation.md",
@@ -1295,7 +1295,7 @@
   "chars": 8295,
   "apparatus": false,
   "archived": false,
-  "tokens": 2137
+  "tokens": 2138
  },
  {
   "path": "protocols/PRO-011-security-audit.md",
@@ -1347,10 +1347,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4285,
+  "chars": 4288,
   "apparatus": false,
   "archived": false,
-  "tokens": 1110
+  "tokens": 1111
  },
  {
   "path": "protocols/PRO-017-rolling-up-the-week.md",
@@ -1358,7 +1358,7 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 4517,
+  "chars": 4521,
   "apparatus": false,
   "archived": false,
   "tokens": 1279
@@ -1391,7 +1391,7 @@
   "series": "reports",
   "type": "report",
   "status": "active",
-  "chars": 35201,
+  "chars": 35204,
   "apparatus": false,
   "archived": false,
   "tokens": 10716
@@ -1402,7 +1402,7 @@
   "series": "reports",
   "type": "report",
   "status": "active",
-  "chars": 2430,
+  "chars": 2431,
   "apparatus": false,
   "archived": false,
   "tokens": 772
@@ -1413,7 +1413,7 @@
   "series": "reports",
   "type": "report",
   "status": "closed",
-  "chars": 3663,
+  "chars": 3664,
   "apparatus": false,
   "archived": false,
   "tokens": 1113
@@ -1424,10 +1424,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 18591,
+  "chars": 18594,
   "apparatus": false,
   "archived": false,
-  "tokens": 5066
+  "tokens": 5070
  },
  {
   "path": "standards/STD-002-governance.md",
@@ -1446,10 +1446,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 5573,
+  "chars": 5581,
   "apparatus": false,
   "archived": false,
-  "tokens": 1410
+  "tokens": 1414
  },
  {
   "path": "standards/STD-004-header-standard.md",
@@ -1457,7 +1457,7 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 13340,
+  "chars": 13433,
   "apparatus": false,
   "archived": false,
   "tokens": 3525
@@ -1468,10 +1468,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 13136,
+  "chars": 13176,
   "apparatus": false,
   "archived": false,
-  "tokens": 3615
+  "tokens": 3620
  },
  {
   "path": "standards/STD-006-archive-substance.md",
@@ -1479,7 +1479,7 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 8734,
+  "chars": 8767,
   "apparatus": false,
   "archived": false,
   "tokens": 2110
@@ -1501,7 +1501,7 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 69999,
+  "chars": 70000,
   "apparatus": false,
   "archived": false,
   "tokens": 20032
@@ -1512,10 +1512,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 16817,
+  "chars": 16820,
   "apparatus": false,
   "archived": false,
-  "tokens": 4292
+  "tokens": 4306
  },
  {
   "path": "standards/STD-010-licensing.md",
@@ -1526,7 +1526,7 @@
   "chars": 16541,
   "apparatus": false,
   "archived": false,
-  "tokens": 4242
+  "tokens": 4245
  },
  {
   "path": "standards/STD-011-external-standards.md",
@@ -1534,7 +1534,7 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 9069,
+  "chars": 9083,
   "apparatus": false,
   "archived": false,
   "tokens": 2625
@@ -1545,10 +1545,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 6536,
+  "chars": 6555,
   "apparatus": false,
   "archived": false,
-  "tokens": 1749
+  "tokens": 1752
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
@@ -1622,7 +1622,7 @@
   "series": null,
   "type": "documentation",
   "status": "active",
-  "chars": 3627,
+  "chars": 3630,
   "apparatus": true,
   "archived": false,
   "tokens": 937

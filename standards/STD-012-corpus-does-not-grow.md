@@ -5,9 +5,9 @@ title: "The corpus does not grow: every record has an exit, and records roll up 
 type: documentation
 subtype: standard
 status: active
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-09-08T22:00:00Z"
+updated: "2026-09-09T00:10:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC0-1.0"
@@ -51,18 +51,18 @@ roll-up, because an ADR is immutable and a summary of an ADR is not an ADR.
 
 ## 2. The norm
 
-**DEF-01 — Git is the daily record.** No document MUST be written whose
+**DEF-001 — Git is the daily record.** No document MUST be written whose
 only purpose is to say what happened today. The commit log is the daily
 record; `git log --since` is the daily report. A document that exists in
 order to be compressed later is inflation with a deadline.
 
-**DEF-02 — Three levels, not more.** Records roll up into a **weekly**
+**DEF-002 — Three levels, not more.** Records roll up into a **weekly**
 report, weekly reports into a **quarterly** report, quarterly reports into
 an **annual** report. There is no monthly level: a fourth rewriting adds
 loss without adding a decision boundary. Each level is one document in
 `reports/`, `subtype: rollup`, with a `period` field naming its span.
 
-**DEF-03 — What survives a roll-up.** A line from a lower level MUST be
+**DEF-003 — What survives a roll-up.** A line from a lower level MUST be
 carried up if, and only if, it records one of:
 
 - a rule that changed — a standard, protocol or canon amended, ratified or
@@ -75,13 +75,13 @@ Everything else falls at the first roll-up. This criterion is the same one
 `RPT-017` applied without stating it. A line that meets none of the three
 is work that had no consequence the corpus can point at; git remembers it.
 
-**DEF-04 — The record dies when its line lands.** A mission that closes
+**DEF-004 — The record dies when its line lands.** A mission that closes
 (`done`, or `frozen` with its reason) gets its line in the current weekly
 report and is deleted in the same PR, under `ADR-030`'s four tests. The
 weekly report is the written resolution (test 3). A resolved debt does the
 same. A blueprint that becomes a mission or is abandoned does the same.
 
-**DEF-05 — The identifier resolves to the highest living level.** A deleted
+**DEF-005 — The identifier resolves to the highest living level.** A deleted
 record's identifier goes into the `absorbs:` of the report that carries its
 line. When that report is itself rolled up and deleted, its `absorbs:` list
 MUST move whole into the report above it, and every public redirect MUST be
@@ -89,14 +89,14 @@ repointed there in the same PR. A reader following `MIS-121` always lands
 on the highest living document that holds its line, never on a 404 and
 never on a dead intermediate.
 
-**DEF-06 — Phase is an index, not a level.** A phase report (`RPT-017` for
+**DEF-006 — Phase is an index, not a level.** A phase report (`RPT-017` for
 the MVP, `RPT-018` for the alpha) is a pointer to the periods that compose
 the phase and to what those periods concluded. It MUST NOT restate the
 weekly lines; it cites them. Two documents that narrate the same closure
 are the inflation this standard exists to prevent.
 
-**DEF-07 — The roll-up is delegable; the criterion is not.** Any agent MAY
-execute a roll-up following `PRO-017`. What counts as surviving is DEF-03
+**DEF-007 — The roll-up is delegable; the criterion is not.** Any agent MAY
+execute a roll-up following `PRO-017`. What counts as surviving is DEF-003
 and is not the executing agent's judgement; a line the agent is unsure
 about is carried up and marked for the Oracle, not dropped.
 
@@ -106,12 +106,12 @@ about is carried up and marked for the Oracle, not dropped.
 
 | Check | Rule | Verified by |
 |---|---|---|
-| `DEF-01` | no document in `reports/` has `subtype: daily` or a one-day `period` | `node scripts/lint-frontmatter.mjs` (field vocabulary) · `[MANUAL]` for prose that is a daily in disguise |
-| `DEF-02` | `period` on a rollup is a week, a quarter or a year | `[MANUAL]` — no guard reads `period` yet; declared as debt in `ADR-042` |
-| `DEF-03` | every line carried up cites a rule, a debt or an address | `[MANUAL]` — a judgement about content; `PRO-017` makes the executor state which of the three |
-| `DEF-04` | a closed mission or resolved debt is absent from its folder at the next roll-up | `node scripts/check-deletable.mjs --candidates` (lists closed records with no living citer) |
-| `DEF-05` | every identifier in a deleted report's `absorbs:` appears in a living report's `absorbs:`; every redirect resolves | `node scripts/check-references.mjs` · `node scripts/check-url-lifecycle.mjs` |
-| `DEF-06` | a phase report contains no line that a weekly report also contains | `[MANUAL]` |
+| `DEF-001` | no document in `reports/` has `subtype: daily` or a one-day `period` | `node scripts/lint-frontmatter.mjs` (field vocabulary) · `[MANUAL]` for prose that is a daily in disguise |
+| `DEF-002` | `period` on a rollup is a week, a quarter or a year | `[MANUAL]` — no guard reads `period` yet; declared as debt in `ADR-042` |
+| `DEF-003` | every line carried up cites a rule, a debt or an address | `[MANUAL]` — a judgement about content; `PRO-017` makes the executor state which of the three |
+| `DEF-004` | a closed mission or resolved debt is absent from its folder at the next roll-up | `node scripts/check-deletable.mjs --candidates` (lists closed records with no living citer) |
+| `DEF-005` | every identifier in a deleted report's `absorbs:` appears in a living report's `absorbs:`; every redirect resolves | `node scripts/check-references.mjs` · `node scripts/check-url-lifecycle.mjs` |
+| `DEF-006` | a phase report contains no line that a weekly report also contains | `[MANUAL]` |
 
 ---
 

@@ -39,7 +39,7 @@ absorbs: []
 *Amended 2026-09-08 (`ADR-042`):* this report is an **index**, not a
 ledger. Closures land as one line each in the **weekly roll-up** report
 (`PRO-017`); this report cites the week, not the line (`STD-012`,
-`DEF-06`). The two lines already below — `MIS-121`, `MIS-151` — stay as
+`DEF-006`). The two lines already below — `MIS-121`, `MIS-151` — stay as
 written and move to week 37's report at the first roll-up, Monday
 2026-09-14. When the Oracle declares the alpha shipped, this report is
 versioned as its record and the next phase opens its own report.

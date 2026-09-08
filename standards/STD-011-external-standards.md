@@ -57,7 +57,7 @@ column says how far the tree actually is, and `3` is a legitimate value.
 | **2** | named only — appears in prose, nothing executes |
 | **3** | not considered yet — no rule in the corpus |
 
-**Territory** uses the closed vocabulary of `STD-001` (`territory`, guard rule H-36): `CAO · Product · Platform · Infrastructure · Content · Sales ·
+**Territory** uses the closed vocabulary of `STD-001` (`territory`, guard rule HDR-036): `CAO · Product · Platform · Infrastructure · Content · Sales ·
 Funding · Archive`.
 
 **Applied in** names the document that carries the obligation, or `—` when
@@ -67,9 +67,9 @@ nothing in the corpus applies it yet.
 
 | Standard | Source | Distance | Applied in |
 |---|---|---|---|
-| SPDX | <https://spdx.dev/> | 0 | `STD-010` · `STD-004` H-08 |
+| SPDX | <https://spdx.dev/> | 0 | `STD-010` · `STD-004` HDR-008 |
 | REUSE 3.3 | <https://reuse.software/spec-3.3/> | 1 | `STD-010` · `REUSE.toml` — compliant, verified by hand |
-| ISO 8601 | <https://www.iso.org/iso-8601-date-and-time-format.html> | 0 | `STD-004` H-06, H-07 |
+| ISO 8601 | <https://www.iso.org/iso-8601-date-and-time-format.html> | 0 | `STD-004` HDR-006, HDR-007 |
 | Keep a Changelog | <https://keepachangelog.com/> | 2 | `CHANGELOG.md` (practised, unnamed) |
 | ISO 15489 · records management | <https://www.iso.org/standard/62542.html> | 3 | — overlaps `STD-004` / `PRO-010`, unreconciled |
 | W3C PROV-O | <https://www.w3.org/TR/prov-o/> | 3 | — `STD-004` ring 2 may be a conceptual subset |
@@ -89,7 +89,7 @@ nothing in the corpus applies it yet.
 | Standard | Source | Distance | Applied in |
 |---|---|---|---|
 | RFC 2119 | <https://www.rfc-editor.org/rfc/rfc2119> | 0 | `STD-004` · used corpus-wide |
-| Semantic Versioning 2.0.0 | <https://semver.org/> | 1 | `STD-009` CORE-21 · CORE-64 |
+| Semantic Versioning 2.0.0 | <https://semver.org/> | 1 | `STD-009` VER-021 · VER-064 |
 | Blameless postmortem | <https://sre.google/sre-book/postmortem-culture/> | 2 | `STD-005` (practised, unnamed) |
 | NIST AI RMF | <https://www.nist.gov/itl/ai-risk-management-framework> | 3 | — |
 | ISO/IEC 42001 · AI management | <https://www.iso.org/standard/42001> | 3 | — `STD-005` AGT-06 asks by hand for part of what it formalises |
@@ -108,7 +108,7 @@ nothing in the corpus applies it yet.
 | OpenSSF Scorecard | <https://scorecard.dev/> | 0 | `.github/workflows/scorecard.yml`, weekly |
 | Trunk-Based Development | <https://trunkbaseddevelopment.com/> | 2 | practised: one live PR at a time onto `main`, unnamed |
 | The Twelve-Factor App · III | <https://12factor.net/config> | 2 | practised: config in the environment, unnamed |
-| Conventional Commits | <https://www.conventionalcommits.org/> | 1 | `STD-005` ARC-06 — **declared `[AUTO: commitlint]`, no commitlint in the tree** |
+| Conventional Commits | <https://www.conventionalcommits.org/> | 1 | `STD-005` ARC-006 — **declared `[AUTO: commitlint]`, no commitlint in the tree** |
 | DCO | <https://developercertificate.org/> | 1 | `STD-010` — **declared `[AUTO]`, no bot; 0 of the last 30 commits signed** |
 | SLSA | <https://slsa.dev/> | 3 | — cheap extension of Scorecard, same parent project |
 | NIST SSDF · SP 800-218 | <https://csrc.nist.gov/pubs/sp/800/218/final> | 3 | — `STD-005`'s security section is a self-authored checklist with no external frame |
@@ -133,7 +133,7 @@ nothing in the corpus applies it yet.
 | W3C DTCG · design tokens | <https://www.designtokens.org/tr/drafts/format/> | 1 | `STD-008` — **the spec is a DRAFT; conformance to a moving target** |
 | C2PA | <https://c2pa.org/> | 3 | — relevant only if `/web` serves AI media at public volume |
 
-> **WCAG is distance 0 and cited wrong.** `STD-005` ARC-10 says «coverage
+> **WCAG is distance 0 and cited wrong.** `STD-005` ARC-010 says «coverage
 > incomplete, `DBT-013`» and points at a path that does not exist in this
 > repository. `DBT-013` has been `closed` since 2026-09-04; the gate lives in
 > the sibling repository and measures both themes.

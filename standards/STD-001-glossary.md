@@ -60,7 +60,7 @@ series form the **axis** and only the axis obliges: `canon/` says why,
 `standards/` say what, `protocols/` say how. Everything else **registers** —
 decisions, debt, missions, reports, blueprints — and a register cannot put a
 reader in breach. An obligation written outside the axis is a plan until a
-standard carries it (`CORE-63`). A rule inside the axis binds whether or not a
+standard carries it (`AUT-063`). A rule inside the axis binds whether or not a
 guard checks it.
 
 ### 2.0 Nothing here is immutable
@@ -169,7 +169,7 @@ says which part is which, or is split.
 
 An identifier is **opaque and permanent**: it encodes nothing that can change,
 because the references that name it are plain text nobody can rewrite
-(`ADR-004`). It never changes (`CORE-11`) and is never reused (`CORE-14`).
+(`ADR-004`). It never changes (`IDN-011`) and is never reused (`IDN-014`).
 
 ### 4.1 Prefix per series `[MANUAL]`
 
@@ -308,7 +308,7 @@ Withdrawn: `audit` → `report` + `subtype: audit` · `decision` → `adr` ·
 | `frozen` | Deliberately paused; returns to any state | `freeze_reason` |
 
 Withdrawn: `backlog` · `draft` → `todo` · `active` · `queue` · `blocked` ·
-`freeze` · `cancelled`. `blocked_reason` is retired; `H-31` guards it.
+`freeze` · `cancelled`. `blocked_reason` is retired; `HDR-031` guards it.
 
 **`guild`** — `Sentinels` · `Alchemists` · `Exegetes` · `Procurators`.
 **`territory`** — `CAO` · `Product` · `Platform` · `Infrastructure` ·
@@ -341,8 +341,8 @@ trail when a file is renamed and heavily edited in one commit.
 ## 9. Naming `[MANUAL]`
 
 Series documents: `<ID>-<slug-in-english-kebab-case>.md`. Root documents:
-`UPPERCASE.md`. A filename carries no version and no state (`CORE-13`,
-`CORE-12`); dated legacy names reserve nothing.
+`UPPERCASE.md`. A filename carries no version and no state (`IDN-013`,
+`IDN-012`); dated legacy names reserve nothing.
 
 **Citing vs mentioning as data.** A bare identifier in prose is a citation and
 must resolve. An identifier inside a code span, in a table cell, list item or

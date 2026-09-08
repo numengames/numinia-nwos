@@ -213,6 +213,6 @@ The conformance table in `STD-010` §7 states what this canon never did — that
 of its seven obligations have no guard, and that the AGPL-import lint rule §2
 describes does not exist.
 
-**Version.** Major, per `CORE-23`: obligations were withdrawn from this document.
+**Version.** Major, per `VER-023`: obligations were withdrawn from this document.
 They survive in `STD-010`, but a reader who complied with this canon alone would
 now be under-informed.

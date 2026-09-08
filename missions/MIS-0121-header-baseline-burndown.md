@@ -40,8 +40,8 @@ paths: [scripts/lint-frontmatter.mjs, scripts/frontmatter-baseline.json, standar
 > rather than the counts showed that **798 of the 843 are blocked on a
 > decision, not on effort**, and only **45 are mechanical**: `territory` has
 > no working vocabulary to migrate into (blocker 4), `uid` cannot be emptied
-> until `MIS-122` fixes the rule (blocker 1), `H-30` is 62 separate
-> judgements wearing one number, and `H-04` is four unrelated lifecycles.
+> until `MIS-122` fixes the rule (blocker 1), `HDR-030` is 62 separate
+> judgements wearing one number, and `HDR-004` is four unrelated lifecycles.
 > The arithmetic is in *Sizing* below. This mission is mostly a decision
 > queue with a script attached, and scheduling it as a cleanup sprint would
 > fail in its first week.
@@ -62,12 +62,12 @@ The frontmatter of every tracked `.md` file that `scripts/lint-frontmatter.mjs`
 inspects, and the standards, decisions and web schema that a header migration
 forces to move with it.
 
-**In scope:** the sixteen check classes `H-00`…`H-31`; the baseline file; the
+**In scope:** the sixteen check classes `HDR-000`…`HDR-031`; the baseline file; the
 debt entries that already register individual classes (`D-002`, `D-008`,
 `D-009`, `D-010`, `D-012`); the Astro content schema where a field rename
 would otherwise break the board.
 
-**Out of scope:** changing what `STD-004` *says* — the `H-09` rule that
+**Out of scope:** changing what `STD-004` *says* — the `HDR-009` rule that
 punishes the conforming empty `uid` is a normative fix and lives in
 `MIS-122`. Emptying the 34 written `uid` values is **in** scope (blocker 1).
 Also out of scope: the *content* of any document. This mission moves keys
@@ -108,7 +108,7 @@ Order is deliberate: mechanically safe first, contested last.
 ### Ruled 2026-08-30 — these go first, and in this order
 
 - [x] **A · The template family stops emitting defects — 9.** *Done (#139,
-      #143): templates fixed at source, then exempted from H-06/H-07 for
+      #143): templates fixed at source, then exempted from HDR-006/HDR-007 for
       their placeholder dates — the placeholder IS the template's content.
       Today they emit 0.*
       `templates/MIS-TEMPLATE`, `templates/MIS-TEMPLATE-EXAMPLE`, `templates/MIS-TEMPLATE-CHANGES`. First
@@ -137,7 +137,7 @@ finding *counts*, not from finding *values*. Measuring the values killed the
 claim: **only one of the five is a rename.** The rest are decisions wearing a
 rename's clothes, and the numbers below say how many decisions each is.
 
-- [x] **`H-31` retired fields — 158, of which `area → territory` is 142 and
+- [x] **`HDR-031` retired fields — 158, of which `area → territory` is 142 and
       only 66 are a rename.** *Done (#139, #141, #143) except 9 findings in
       the two fragile documents. ADR-027 (formerly ADR-028) unblocked the migration: 66 mapped
       1:1, 76 took `"TBA"`; the Astro schema moved with the rename.* The other keys (`blocked_reason` ×7, five
@@ -165,7 +165,7 @@ rename's clothes, and the numbers below say how many decisions each is.
       **`Canon`, `Legal`, `Governance` and `Standards` are not in the
       declared vocabulary; `CAO`, `Product`, `Platform`, `Content`, `Sales`
       and `Funding` are used by nobody.** The field the migration targets is
-      itself undeclared, and the guard never checks the value — `H-31` only
+      itself undeclared, and the guard never checks the value — `HDR-031` only
       checks the key. Migrating `area` into `territory` today pours 142
       documents into a vocabulary that does not exist as written. **The
       vocabulary must be settled before this check starts.**
@@ -174,11 +174,11 @@ rename's clothes, and the numbers below say how many decisions each is.
       collections; the rename lands with the schema or the build drops the
       field.
 
-- [x] **`H-09` empty values — 74.** *Done: `uid` exempted by rule (#129),
+- [x] **`HDR-009` empty values — 74.** *Done: `uid` exempted by rule (#129),
       real empties dropped in #142 — 5 of 10 turned out to be keys with
       nested children, preserved; `parseFM` fixed in #143 so it can tell
       the difference. Today: 0.*
-- [x] **`H-30` unregistered fields — 111 across 62 distinct field names.**
+- [x] **`HDR-030` unregistered fields — 111 across 62 distinct field names.**
       *Done (#141, #143) except 22 findings in the two fragile documents —
       the Spanish-era keys (`iconografia`, `presupuesto_lectura`…) that were
       predicted to "belong with `CAN-005`". Web layer checked BEFORE each
@@ -191,7 +191,7 @@ rename's clothes, and the numbers below say how many decisions each is.
       is a call per field, and roughly a dozen are Spanish-era leftovers
       (`iconografia`, `presupuesto_lectura`, `edicion_razonada`) that belong
       with `CAN-005`, not here. **Sequence this last, or split it out.**
-- [x] **`H-04` status vocabularies — 118, in four independent groups.**
+- [x] **`HDR-004` status vocabularies — 118, in four independent groups.**
       *Done (#140, #143) except 2 findings in the fragile pair (the two
       documents missing `status` entirely). `draft → todo` ruled by the
       Oracle 2026-08-30 ("draft = backlog"); `MissionsView.astro` moved
@@ -206,7 +206,7 @@ rename's clothes, and the numbers below say how many decisions each is.
       **Coupled to the web:** `MissionsView.astro` keys its columns off
       `backlog` and maps `draft → backlog` explicitly; renaming the value
       without moving that map empties a column on the live board.
-- [x] **`H-03` types outside the closed vocabulary — 24.** *Done (#142,
+- [x] **`HDR-003` types outside the closed vocabulary — 24.** *Done (#142,
       #143) except 2 in the fragile pair. The 22 resolvable ones had answers
       in the corpus itself; `DEC-001..006 → type: adr` with ids intact
       (Oracle, 2026-08-30 — renumbering would break 154 references and
@@ -216,12 +216,12 @@ rename's clothes, and the numbers below say how many decisions each is.
       outright. `roster` ×4 is what `guilds/` calls itself; whether the
       closed vocabulary is wrong or the documents are is a decision, not a
       substitution.
-- [x] **`H-05` `v`-prefixed SemVer — 7, `H-17` type/folder mismatch — 4,
-      `H-13` `git:pending` — 3, `H-18` unregistered subtype — 1.**
-      *Done across #130, #139, #143. The H-17 that were honest mismatches
+- [x] **`HDR-005` `v`-prefixed SemVer — 7, `HDR-017` type/folder mismatch — 4,
+      `HDR-013` `git:pending` — 3, `HDR-018` unregistered subtype — 1.**
+      *Done across #130, #139, #143. The HDR-017 that were honest mismatches
       are registered in `SETTLED_ELSEWHERE` with reasons.*
       *These* are mechanical. 15 findings, no judgement.
-- [x] **`H-20` non-empty `uid` — 34.** *Done (post-#129 batches): all 34
+- [x] **`HDR-020` non-empty `uid` — 34.** *Done (post-#129 batches): all 34
       hand-authored values emptied per STD-001 §6.2. The only `uid` values
       left in the repo are examples inside document bodies (the superseded constitution and the mission-system
       blueprint, both deleted 2026-09-08, `ADR-041`) — prose, not headers.* The hand-authored pseudo-UUIDv7
@@ -229,14 +229,14 @@ rename's clothes, and the numbers below say how many decisions each is.
       already states the disposal: *"the 32 legacy values are removed, not
       preserved: they were never identifiers."*
       **Ordering constraint (`MIS-122` first), measured not assumed:**
-      emptying one of them today produces `H-09 :: empty value written for
+      emptying one of them today produces `HDR-009 :: empty value written for
       "uid" — omit the field instead`, a **new** violation the ratchet
       rejects. Verified on `blueprints/AUDIT-numengames-2026-04-08.md`, then
-      reverted. So this check **cannot start until `MIS-122` fixes the `H-09`
-      rule** — not a preference, a mechanical block. Trading 34 `H-20` for 34
-      `H-09` would also leave the count unchanged.
+      reverted. So this check **cannot start until `MIS-122` fixes the `HDR-009`
+      rule** — not a preference, a mechanical block. Trading 34 `HDR-020` for 34
+      `HDR-009` would also leave the count unchanged.
 
-      **Unblocked 2026-08-30 (`ec4c968`, PR #129).** `MIS-122` closed: `H-09`
+      **Unblocked 2026-08-30 (`ec4c968`, PR #129).** `MIS-122` closed: `HDR-009`
       now exempts `uid`, so emptying a value no longer trades one violation
       for another. The census that gates this work, remeasured at `7fae24f`:
       **99** files declare the field — **34** with a hand-authored value,
@@ -249,7 +249,7 @@ rename's clothes, and the numbers below say how many decisions each is.
 | Commit | What changed | Baseline |
 |---|---|---|
 | `baf188b` | starting point, before any of this | **844** |
-| `ec4c968` (#129) | `H-09` exempts `uid`; `H-20`'s message corrected; `todo` column restored to the web | **779** |
+| `ec4c968` (#129) | `HDR-009` exempts `uid`; `HDR-020`'s message corrected; `todo` column restored to the web | **779** |
 | `7fae24f` (#130) | `created`/`updated` backfilled from git with provenance; `git:pending` redeemed; `created_confidence` settled on one spelling | **543** |
 | `0499b8c` (#139) | `area → territory` (66 mapped, 76 took `TBA` per ADR-027); guild/type_execution/visibility vocabularies enforced; ring-table transcription errors; single-cycle statuses; `AG-`/singular ids resolved with `registration: exempt` | **304** |
 | `9d3afaa` (#140) | status lifecycles (60 out-of-cycle values); 42 non-series documents exempted instead of renumbered | **207** |
@@ -280,14 +280,14 @@ guard — all in CI, all tested in both directions (PRO-013).
 
 ### Judgement classes — no script decides these
 
-- [x] **`H-06`/`H-07` invented dates — 252. DONE 2026-08-30, baseline
+- [x] **`HDR-006`/`HDR-007` invented dates — 252. DONE 2026-08-30, baseline
       779 → 546.** `created` with a midnight nobody wrote at (182) and
       `updated` with no time at all (70). `STD-001`
       §8 governs: backfill from git, report the commit each date comes from,
       mark inferred ones, **never invent a date to fill the field**.
 
       **Measured, and the news is better than expected — with a catch.**
-      All 182 `H-06` files have a first-commit timestamp in git; none is
+      All 182 `HDR-006` files have a first-commit timestamp in git; none is
       unrecoverable. But those 182 files resolve to only **42 distinct
       timestamps**, the largest bucket being 49 files sharing
       `2026-08-17T14:12:00Z`. That is the signature of bulk imports, not of
@@ -312,8 +312,8 @@ guard — all in CI, all tested in both directions (PRO-013).
       `exact`, 69 `inferred`. Idempotent: a second run changes nothing.
       Templates were excluded — backfilling `{YYYY-MM-DD}` would propagate a
       false date into every document copied from them.
-- [x] **`H-00` no frontmatter — 12** and **`H-01` missing `id` — 41.**
-      *Done (#139, #143) except 1 H-01 in the fragile pair. The 12 headers
+- [x] **`HDR-000` no frontmatter — 12** and **`HDR-001` missing `id` — 41.**
+      *Done (#139, #143) except 1 HDR-001 in the fragile pair. The 12 headers
       were built from git history (`created_source: git:<sha>`), nothing
       invented; apparatus resolved with `registration: exempt` instead of
       minting ids that `check-references.mjs` would then have to resolve.*
@@ -322,10 +322,10 @@ guard — all in CI, all tested in both directions (PRO-013).
       registered identifier is a filing decision (`STD-001` §5.0 already
       exempts some), and **`check-references.mjs` reads frontmatter `id`** —
       minting ids creates references that must then resolve.
-- [x] **`H-02` missing `title` — 2**, **`H-08` missing `license` — 2.**
+- [x] **`HDR-002` missing `title` — 2**, **`HDR-008` missing `license` — 2.**
       *Closed 2026-09-08: `lint-frontmatter` reports 0 findings, 0 baselined at `4a60735`.*
       *NOT done — these four are the fragile pair itself; they land with
-      its one-by-one session, along with the 22 H-30, 9 H-31, and the rest
+      its one-by-one session, along with the 22 HDR-030, 9 HDR-031, and the rest
       of the 44.*
 
 Every criterion above is falsifiable by:
@@ -341,21 +341,21 @@ Every number below was read from `lint-frontmatter.mjs --report` at
 
 | Class | Blocked on a decision | Mechanical | What the decision is |
 |---|---:|---:|---|
-| `H-06`/`H-07` dates | **252** | — | git gives a date for all 182 `H-06` files, but they collapse to **42 distinct timestamps** (49 share one). Commit date ≠ authoring date; the convention for marking inferred dates is the decision |
-| `H-04` status | **118** | — | four unrelated lifecycles (missions, debt, reports, tail) |
-| `H-30` unregistered | **111** | — | 62 distinct fields, 44 appearing once — register or remove, per field |
-| `H-31` `area` | **142** | — | 66 renames blocked on the vocabulary, 43 compounds, 33 orphans |
-| `H-09` `uid` | **64** | — | clears with `MIS-122`'s rule fix, no edit |
-| `H-01` ids | **41** | — | which apparatus gets a registered identifier |
-| `H-20` `uid` | **34** | — | ordered behind `MIS-122` |
-| `H-03` types | **24** | — | is the closed vocabulary wrong, or the 24 documents? |
-| `H-00` no frontmatter | **12** | — | same filing question as `H-01` |
-| `H-31` other retired keys | — | **16** | `blocked_reason` ×7 + 5 Spanish-era keys ×9 — deletions |
-| `H-09` non-`uid` | — | **10** | drop the empty key |
-| `H-05` `v`-prefix | — | **7** | strip one character |
-| `H-17` type/folder | — | **4** | |
-| `H-13` `git:pending` | — | **3** | |
-| `H-02`, `H-08`, `H-18` | — | **5** | |
+| `HDR-006`/`HDR-007` dates | **252** | — | git gives a date for all 182 `HDR-006` files, but they collapse to **42 distinct timestamps** (49 share one). Commit date ≠ authoring date; the convention for marking inferred dates is the decision |
+| `HDR-004` status | **118** | — | four unrelated lifecycles (missions, debt, reports, tail) |
+| `HDR-030` unregistered | **111** | — | 62 distinct fields, 44 appearing once — register or remove, per field |
+| `HDR-031` `area` | **142** | — | 66 renames blocked on the vocabulary, 43 compounds, 33 orphans |
+| `HDR-009` `uid` | **64** | — | clears with `MIS-122`'s rule fix, no edit |
+| `HDR-001` ids | **41** | — | which apparatus gets a registered identifier |
+| `HDR-020` `uid` | **34** | — | ordered behind `MIS-122` |
+| `HDR-003` types | **24** | — | is the closed vocabulary wrong, or the 24 documents? |
+| `HDR-000` no frontmatter | **12** | — | same filing question as `HDR-001` |
+| `HDR-031` other retired keys | — | **16** | `blocked_reason` ×7 + 5 Spanish-era keys ×9 — deletions |
+| `HDR-009` non-`uid` | — | **10** | drop the empty key |
+| `HDR-005` `v`-prefix | — | **7** | strip one character |
+| `HDR-017` type/folder | — | **4** | |
+| `HDR-013` `git:pending` | — | **3** | |
+| `HDR-002`, `HDR-008`, `HDR-018` | — | **5** | |
 | **Total** | **798** | **45** | |
 
 **The ratio is the finding.** 95% of this baseline is not cleanup work. The
@@ -377,12 +377,12 @@ outside `missions/`; the other fourteen are text-only.**
 
 | Consumer | Reads | Breaks on |
 |---|---|---|
-| `web/src/content.config.ts` | `area` in 3 collections (`missions`, `blueprints`, `decisions`) | **`H-31`** — rename `area → territory` without the schema and the build drops the field |
-| `web/src/views/MissionsView.astro` | `status`, maps `draft → backlog`, four columns | **`H-04`** — rename `backlog` and a live column empties |
+| `web/src/content.config.ts` | `area` in 3 collections (`missions`, `blueprints`, `decisions`) | **`HDR-031`** — rename `area → territory` without the schema and the build drops the field |
+| `web/src/views/MissionsView.astro` | `status`, maps `draft → backlog`, four columns | **`HDR-004`** — rename `backlog` and a live column empties |
 | `web/src/lib/corpus.ts` | `visibility` in `debt/` only | nothing here — it never reads `status` |
 | `scripts/count-evidence.py` | `area`, `status`, `uid`, `created` | reports the old names; it measures, so it degrades quietly rather than failing |
-| `scripts/check-references.mjs` | frontmatter `id` | **`H-01`** — inventing ids creates references that must then resolve |
-| `scripts/check-license-frontmatter.mjs` | `license` vs `REUSE.toml` | **`H-08`** — 2 findings, already at the edge of this guard |
+| `scripts/check-references.mjs` | frontmatter `id` | **`HDR-001`** — inventing ids creates references that must then resolve |
+| `scripts/check-license-frontmatter.mjs` | `license` vs `REUSE.toml` | **`HDR-008`** — 2 findings, already at the edge of this guard |
 | `scripts/lint-frontmatter.mjs` | everything | itself; the baseline is the ledger |
 
 **300 files carry at least one finding**, out of 322 tracked `.md`. By
@@ -417,8 +417,8 @@ hides its decisions makes the next reader guess.
 > them; until it lands, `"TBA"` is legal prose that no instrument counts.
 
 1. **`uid` — the values are debt, the rule is broken. Ruled 2026-08-30.**
-   **FIXED the same day (`MIS-122`, baseline 843 → 779).** `H-09` no longer
-   flags an empty `uid`, and `H-20` now advises emptying the field rather than
+   **FIXED the same day (`MIS-122`, baseline 843 → 779).** `HDR-009` no longer
+   flags an empty `uid`, and `HDR-020` now advises emptying the field rather than
    the opposite. The 64 documents that were being counted as debt for obeying
    `STD-001` §6.2 are gone from the baseline, and **emptying the 34 written
    values no longer trades one violation for another** — that work is
@@ -430,20 +430,20 @@ hides its decisions makes the next reader guess.
    so nothing new is being decided; what is new is that the guard does not
    agree with it.
 
-   **The guard punishes the conforming form.** `H-09` fires on `uid:` written
+   **The guard punishes the conforming form.** `HDR-009` fires on `uid:` written
    empty and says *"omit the field instead"*, which is the opposite of what
    the standard requires. **64 of those findings are documents doing exactly
-   what `STD-001` §6.2 mandates.** The remaining 34 (`H-20`) are the real
+   what `STD-001` §6.2 mandates.** The remaining 34 (`HDR-020`) are the real
    defect: hand-authored pseudo-UUIDv7 values, 2 of them colliding.
 
    **Measured, not assumed — and it sets the order.** Emptying a written
-   `uid` today converts an `H-20` into a **new** `H-09` the ratchet rejects.
+   `uid` today converts an `HDR-020` into a **new** `HDR-009` the ratchet rejects.
    Verified on `blueprints/AUDIT-numengames-2026-04-08.md` and reverted. The
    work is therefore blocked mechanically, not by preference:
 
    | | |
    |---|---|
-   | `MIS-122` | fixes the `H-09` rule so the empty form conforms. **Must go first.** 64 findings vanish with the rule, not with any edit. |
+   | `MIS-122` | fixes the `HDR-009` rule so the empty form conforms. **Must go first.** 64 findings vanish with the rule, not with any edit. |
    | This mission | empties the 34 values. Cannot start before that. |
 
    The split is not about who owns `uid` — it is that changing a rule and
@@ -481,7 +481,7 @@ hides its decisions makes the next reader guess.
 
    **Four values in use are undeclared. Six declared values are used by
    nobody.** The overlap between the declared vocabulary and the practised
-   one is two entries out of eight. Nothing catches this: `H-31` checks that
+   one is two entries out of eight. Nothing catches this: `HDR-031` checks that
    the *key* `area` is retired, and no check reads the *value* of
    `territory` at all. §7 says *"a value not listed here is not valid.
    Adding one requires an ADR"* — so 19 documents are invalid by a rule
@@ -491,7 +491,7 @@ hides its decisions makes the next reader guess.
    declared `territory`, 43 are compound (`Platform / numinia-web`) and 33
    are orphans (`web` ×12, `Documentation` ×9, `Operations` ×5).
 
-   **The consequence for scheduling is hard.** `H-31` is the largest single
+   **The consequence for scheduling is hard.** `HDR-031` is the largest single
    class (158) and the one that looked most mechanical, and it is blocked:
    migrating `area` into `territory` today pours 142 documents into a
    vocabulary that does not describe what the repository actually files. The
@@ -514,7 +514,7 @@ hides its decisions makes the next reader guess.
   missions/ normalisation (lots 1–4), the `decisions/` and `standards/`
   consolidations, and — decisively — the four deletion batches of
   2026-09-08 (#286, #289, #291, #293), which removed 115 mission files
-  and with them every remaining H-02/H-08/H-30/H-31 the fragile pair
+  and with them every remaining HDR-002/HDR-008/HDR-030/HDR-031 the fragile pair
   carried.
 - **What diverged, and why:** the last 44 were budgeted as a one-by-one
   session. They never got it: the documents holding them were deleted
@@ -531,7 +531,7 @@ hides its decisions makes the next reader guess.
 
 *Read against `203267c` during the missions/ normalisation (lot 4). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
 
-- **Evidence:** Header baseline 844 → 44 (2026-08-30) → 21 today (frontmatter-baseline count). The 21 survivors: 12 H-30 + 4 H-31 + the Spanish-era pair (CAN-005, Sistema de Diseño). Closure block blank. in-progress, no started date.
+- **Evidence:** Header baseline 844 → 44 (2026-08-30) → 21 today (frontmatter-baseline count). The 21 survivors: 12 HDR-030 + 4 HDR-031 + the Spanish-era pair (CAN-005, Sistema de Diseño). Closure block blank. in-progress, no started date.
 - **Recommendation:** Keep in-progress; it is the live burndown and its Progress table is exact. Set started: 2026-08-30 (its own first commit) and add today's row (21). Closes when MIS-124 rules territory and the two Spanish headers are translated.
 
 ## Version history

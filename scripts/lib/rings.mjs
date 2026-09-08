@@ -3,7 +3,7 @@
  *
  * MIS-145 v2 (2026-09-04). Until now this registry lived inside
  * lint-frontmatter.mjs, which was correct while that guard was its only
- * consumer. check-templates.mjs is the second: it applies H-30's rule one step
+ * consumer. check-templates.mjs is the second: it applies HDR-030's rule one step
  * earlier — at the mould instead of at the documents copied from it — and a
  * second private copy of the registry is exactly the drift MIS-138 D1.1 moved
  * the vocabularies into rules.json to stop.
@@ -20,7 +20,7 @@ export const RING1 = ['id', 'title', 'type', 'status', 'version', 'created', 'up
 export const RING2 = ['author', 'owner', 'provenance', 'created_source', 'created_confidence',
   'requested_by', 'supersedes', 'superseded_by', 'derived_from'];
 
-/** STD-004 §7: the per-series extension registry. A field in no ring is H-30. */
+/** STD-004 §7: the per-series extension registry. A field in no ring is HDR-030. */
 export const RING3 = {
   'missions': ['priority', 'effort', 'assigned_to', 'started',
     // mission_id retired 2026-09-02 (missions/ normalisation): it duplicated
@@ -114,7 +114,7 @@ export const RING3 = {
   'history': ['former_id', 'former_id_note', 'supersedes_version'],
   // MIS-145 v2 (2026-09-04): infra/ is the repository's own machinery. It
   // holds one document today and had no registry line, so any field beyond
-  // ring 1 and 2 was H-30 by silence rather than by ruling. Registered with
+  // ring 1 and 2 was HDR-030 by silence rather than by ruling. Registered with
   // the two the shelf actually needs: what configured it, and what it
   // documents. `subtype: reference` is already registered in rules.json.
   'infra': ['mission', 'subtype', 'extraction_note'],

@@ -5,11 +5,11 @@ uid: ""
 type: documentation
 subtype: standard
 status: draft
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-17T21:55:38+02:00"
 created_source: "git:e3123fc"
 created_confidence: exact
-updated: "2026-09-08T21:30:00+02:00"
+updated: "2026-09-09T00:10:00+02:00"
 author: "pablofm"
 owner: "oracle"
 territory: "Platform"
@@ -82,35 +82,35 @@ and executed by nobody.
 
 | ID | Practice | Level | Check |
 |---|---|---|---|
-| SEC-01 | 2FA enforced at organisation level | MUST | `[AUTO: org settings + Scorecard]` |
-| SEC-02 | Secret scanning and push protection on every repository | MUST | `[AUTO: GitHub settings]` |
-| SEC-03 | Dependabot alerts and security updates on; merge only on green CI | MUST | `[AUTO: Dependabot + CI]` |
-| SEC-04 | No secret files in git history; secrets in GitHub Environments scoped `pre`/`prod` | MUST | `[AUTO: push protection + gitleaks]` |
-| SEC-05 | Cloud deploy auth via OIDC, no long-lived tokens | MUST | `[MANUAL]` → `[AUTO]` via Terraform policy |
-| SEC-06 | Personal access tokens fine-grained, minimum scope, expiring, one per purpose | MUST | `[MANUAL]` |
-| SEC-07 | Third-party Actions pinned by commit SHA | MUST | `[AUTO: Scorecard Pinned-Dependencies]` |
-| SEC-08 | Workflow tokens read-only by default; write granted per job | MUST | `[AUTO: Scorecard Token-Permissions]` |
-| SEC-09 | `SECURITY.md` with disclosure policy in every public repository | MUST | `[AUTO: Scorecard Security-Policy]` |
-| SEC-10 | CODEOWNERS covering `LICENSE*`, `.github/workflows/`, auth packages | MUST | `[AUTO: presence check]` |
-| SEC-11 | Organisation base permission read; admin per repository, per need | MUST | `[MANUAL]` |
-| SEC-12 | Commits to `main` verified | SHOULD | `[AUTO: branch protection]` |
+| SEC-001 | 2FA enforced at organisation level | MUST | `[AUTO: org settings + Scorecard]` |
+| SEC-002 | Secret scanning and push protection on every repository | MUST | `[AUTO: GitHub settings]` |
+| SEC-003 | Dependabot alerts and security updates on; merge only on green CI | MUST | `[AUTO: Dependabot + CI]` |
+| SEC-004 | No secret files in git history; secrets in GitHub Environments scoped `pre`/`prod` | MUST | `[AUTO: push protection + gitleaks]` |
+| SEC-005 | Cloud deploy auth via OIDC, no long-lived tokens | MUST | `[MANUAL]` → `[AUTO]` via Terraform policy |
+| SEC-006 | Personal access tokens fine-grained, minimum scope, expiring, one per purpose | MUST | `[MANUAL]` |
+| SEC-007 | Third-party Actions pinned by commit SHA | MUST | `[AUTO: Scorecard Pinned-Dependencies]` |
+| SEC-008 | Workflow tokens read-only by default; write granted per job | MUST | `[AUTO: Scorecard Token-Permissions]` |
+| SEC-009 | `SECURITY.md` with disclosure policy in every public repository | MUST | `[AUTO: Scorecard Security-Policy]` |
+| SEC-010 | CODEOWNERS covering `LICENSE*`, `.github/workflows/`, auth packages | MUST | `[AUTO: presence check]` |
+| SEC-011 | Organisation base permission read; admin per repository, per need | MUST | `[MANUAL]` |
+| SEC-012 | Commits to `main` verified | SHOULD | `[AUTO: branch protection]` |
 
 ### 3.2 Architecture and quality (CTO)
 
 | ID | Practice | Level | Check |
 |---|---|---|---|
-| ARC-01 | Identical CI pipeline everywhere: `type-check → lint → test → build`; exceptions live in rule severity, never in steps | MUST | `[AUTO: shared workflow]` |
-| ARC-02 | Branch protection on `main`: pull request and status checks required, no force push | MUST | `[AUTO: Scorecard Branch-Protection]` |
-| ARC-03 | Licence per the `STD-010` trichotomy; REUSE 3.3 compliance | MUST | `[MANUAL]` — `DBT-020` |
-| ARC-04 | Executable README: clone to green tests in under five minutes; CI and coverage badges | MUST | `[MANUAL]` → `[AUTO]` via smoke script |
-| ARC-05 | ADRs in `docs/decisions/`, one decision per file | MUST | `[MANUAL]` |
-| ARC-06 | Conventional commits, semver tags, GitHub Releases with notes | MUST | `[MANUAL]` — no commitlint: `DBT-020` |
-| ARC-07 | Infrastructure declarative only: Terraform and containers | MUST | `[MANUAL]` → `[AUTO]` via drift detection |
-| ARC-08 | Shared base config (tsconfig, eslint, prettier) imported from one package, never copied | MUST | `[AUTO: lint rule / knip]` |
-| ARC-09 | Dependencies reviewed before adoption: maintained, compatibly licensed, Scorecard consulted | SHOULD | `[MANUAL]` |
-| ARC-10 | WCAG 2.2 AA on every public route; tab order matches visual order; focus ring visible | MUST | `[AUTO: axe-core + Playwright, in numinia-web]` — distance in `STD-011` |
+| ARC-001 | Identical CI pipeline everywhere: `type-check → lint → test → build`; exceptions live in rule severity, never in steps | MUST | `[AUTO: shared workflow]` |
+| ARC-002 | Branch protection on `main`: pull request and status checks required, no force push | MUST | `[AUTO: Scorecard Branch-Protection]` |
+| ARC-003 | Licence per the `STD-010` trichotomy; REUSE 3.3 compliance | MUST | `[MANUAL]` — `DBT-020` |
+| ARC-004 | Executable README: clone to green tests in under five minutes; CI and coverage badges | MUST | `[MANUAL]` → `[AUTO]` via smoke script |
+| ARC-005 | ADRs in `docs/decisions/`, one decision per file | MUST | `[MANUAL]` |
+| ARC-006 | Conventional commits, semver tags, GitHub Releases with notes | MUST | `[MANUAL]` — no commitlint: `DBT-020` |
+| ARC-007 | Infrastructure declarative only: Terraform and containers | MUST | `[MANUAL]` → `[AUTO]` via drift detection |
+| ARC-008 | Shared base config (tsconfig, eslint, prettier) imported from one package, never copied | MUST | `[AUTO: lint rule / knip]` |
+| ARC-009 | Dependencies reviewed before adoption: maintained, compatibly licensed, Scorecard consulted | SHOULD | `[MANUAL]` |
+| ARC-010 | WCAG 2.2 AA on every public route; tab order matches visual order; focus ring visible | MUST | `[AUTO: axe-core + Playwright, in numinia-web]` — distance in `STD-011` |
 
-**ARC-06 convention.** Seven types and nothing bespoke: `feat`, `fix`,
+**ARC-006 convention.** Seven types and nothing bespoke: `feat`, `fix`,
 `docs`, `chore`, `refactor`, `test`, `ci`. The scope is the domain, lowercase,
 usually the folder: `docs(debt): register a new entry`. Retired types (`session`,
 `qa`, `standards`, `canon`, `debt`, `audit`) stay valid in old history only.
@@ -119,23 +119,23 @@ usually the folder: `docs(debt): register a new entry`. Retired types (`session`
 
 | ID | Practice | Level | Check |
 |---|---|---|---|
-| PM-01 | Repository "About" complete: description, website, topics | MUST | `[AUTO: API check]` |
-| PM-02 | Issue templates and a pull request template with a Definition of Done | MUST | `[AUTO: presence check]` |
-| PM-03 | Labels standardised across repositories | SHOULD | `[AUTO: label-sync]` |
-| PM-04 | `CHANGELOG.md` or releases generated from conventional commits | MUST | `[AUTO: release workflow]` |
-| PM-05 | Roadmap or TODO as a file in the repository (`STD-006`) | MUST | `[AUTO: presence check]` |
+| TRC-001 | Repository "About" complete: description, website, topics | MUST | `[AUTO: API check]` |
+| TRC-002 | Issue templates and a pull request template with a Definition of Done | MUST | `[AUTO: presence check]` |
+| TRC-003 | Labels standardised across repositories | SHOULD | `[AUTO: label-sync]` |
+| TRC-004 | `CHANGELOG.md` or releases generated from conventional commits | MUST | `[AUTO: release workflow]` |
+| TRC-005 | Roadmap or TODO as a file in the repository (`STD-006`) | MUST | `[AUTO: presence check]` |
 
 ### 3.4 Ergonomics (developers)
 
 | ID | Practice | Level | Check |
 |---|---|---|---|
-| DEV-01 | `.env.example` exhaustive and in sync with the env schema | MUST | `[AUTO: schema-vs-example test]` |
-| DEV-02 | `dev`, `build`, `test`, `lint` mean the same in every repository | MUST | `[AUTO: template check]` |
-| DEV-03 | `.editorconfig` and shared editor settings committed | SHOULD | `[AUTO: presence check]` |
-| DEV-04 | Pre-commit hooks under five seconds; CI stays the authority | MUST | `[MANUAL]` — no husky: `DBT-020` |
-| DEV-05 | Comments in English explaining *why*; TSDoc on every exported API | MUST | `[MANUAL]` |
-| DEV-06 | Small pull requests with what, why and how to verify | SHOULD | `[MANUAL]` |
-| DEV-07 | At least one approval before `main` | MUST | `[AUTO: branch protection]` |
+| DEV-001 | `.env.example` exhaustive and in sync with the env schema | MUST | `[AUTO: schema-vs-example test]` |
+| DEV-002 | `dev`, `build`, `test`, `lint` mean the same in every repository | MUST | `[AUTO: template check]` |
+| DEV-003 | `.editorconfig` and shared editor settings committed | SHOULD | `[AUTO: presence check]` |
+| DEV-004 | Pre-commit hooks under five seconds; CI stays the authority | MUST | `[MANUAL]` — no husky: `DBT-020` |
+| DEV-005 | Comments in English explaining *why*; TSDoc on every exported API | MUST | `[MANUAL]` |
+| DEV-006 | Small pull requests with what, why and how to verify | SHOULD | `[MANUAL]` |
+| DEV-007 | At least one approval before `main` | MUST | `[AUTO: branch protection]` |
 
 ### 3.5 Operations (SRE)
 

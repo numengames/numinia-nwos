@@ -99,7 +99,7 @@ acceptable after all.
 | Severity | medium — cosmetic/naming, not a correctness or security defect |
 | Owner | Oracle |
 | Opened | 2026-09-02, during the accessibility-documentation pass (`ADR-037`) |
-| Blocks | nothing — `ARC-10`/`STD-005` work proceeded independently |
+| Blocks | nothing — `ARC-010`/`STD-005` work proceeded independently |
 | Closes when | Oracle's dedicated naming pass resolves it |
 
 ## Resolution

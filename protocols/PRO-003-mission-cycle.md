@@ -146,7 +146,7 @@ reason.
 ### The rules that do not bend
 
 Five of them carry a `CORE` identifier: they were rules of the corpus until
-2026-09-08 and are now executed here, number kept (`CORE-14`).
+2026-09-08 and are now executed here, number kept (`IDN-014`).
 
 | ID | Rule | Verified by |
 | **CORE-36** | Work is registered before it is executed. | `[MANUAL]` — comparing a mission's date to work that may predate its branch |

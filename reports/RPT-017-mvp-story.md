@@ -244,7 +244,7 @@ Alpha. When the Oracle judges that transit complete, this report closes
 | 35 | MIS-118 | 2026-08-28 | TBA | Replace the agent roster with the operative agent definitions |
 | 36 | MIS-120 | 2026-08-29 | TBA | Multi-language numinia.org: es-ES first |
 | 37 | MIS-128 | 2026-08-30 | Archive | Link hygiene after the English renames: canonicals, raw-md, OG image, and a 404 that helps |
-| 38 | MIS-122 | 2026-08-30 | Archive | The uid rule contradicts its standard: fix H-09 before anyone obeys it |
+| 38 | MIS-122 | 2026-08-30 | Archive | The uid rule contradicts its standard: fix HDR-009 before anyone obeys it |
 | 39 | MIS-126 | 2026-08-30 | Archive | The field decision index — ask the canon before asking the Oracle |
 | 40 | MIS-130 | 2026-09-01 | Archive | Fix the four dead links in README.md — the entry point resolves |
 | 41 | MIS-058 | 2026-09-02 | TBA | Approval Brief Protocol: Structured communication for human-machine approvals |

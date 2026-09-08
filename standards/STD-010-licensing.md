@@ -314,9 +314,9 @@ If a repository's block and this standard disagree, this standard rules.
 
 | Obligation | Verified by |
 |---|---|
-| Every directory declares the licence of what it holds | `check-license-frontmatter.mjs` (`CORE-58`) |
-| The licence in a document and the licence in the manifest agree | `check-license-frontmatter.mjs` (`CORE-59`) |
-| A permanent publication is gated on a review of ownership | `[MANUAL]` — recorded outside the corpus (`CORE-60`) |
+| Every directory declares the licence of what it holds | `check-license-frontmatter.mjs` (`LIC-058`) |
+| The licence in a document and the licence in the manifest agree | `check-license-frontmatter.mjs` (`LIC-059`) |
+| A permanent publication is gated on a review of ownership | `[MANUAL]` — recorded outside the corpus (`LIC-060`) |
 | Dependency SPDX resolved before adding | `[MANUAL]` — no guard exists |
 | Direction of dependencies: AGPL MUST NOT be imported by MIT | `[MANUAL]` — the lint rule this standard describes is **not implemented** |
 | Floor rule respected in the distributed tree | `[MANUAL]` — no guard inspects bundle contents |

@@ -682,7 +682,7 @@ source of that artifact.
 |---|---|---|
 | `DS-01` | The starter kit is generated from this file, never edited in place | `[AUTO: scripts/generate-design-kit.mjs]` — extracts by the `kit:` markers |
 | `DS-02` | A value used in a piece exists in the published token file | `[MANUAL]` — `PRO-014` step 3 |
-| `DS-03` | Every public route meets WCAG 2.2 AA (§12) | `[AUTO: axe-core + Playwright, in numinia-web]` — `ARC-10` |
+| `DS-03` | Every public route meets WCAG 2.2 AA (§12) | `[AUTO: axe-core + Playwright, in numinia-web]` — `ARC-010` |
 | `DS-04` | Motion is one of the catalogued animations (§9.1) | `[MANUAL]` — `PRO-014` checklist |
 
 ## 16. What this standard does NOT do

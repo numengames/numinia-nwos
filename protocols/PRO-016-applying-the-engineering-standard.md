@@ -50,7 +50,7 @@ does not belong inside a standard. Nothing in it changed in the move.
    licences, secrets, deleting history, publishing, force operations — stops
    and surfaces the decision to the Oracle. In doubt, it is irreversible.
 4. **Name the practices the task touches**, by ID, in commits and in the pull
-   request (`fix: enforce read-only workflow tokens (SEC-08)`).
+   request (`fix: enforce read-only workflow tokens (SEC-008)`).
 5. **Run the checks locally before pushing.** CI is the authority; the local
    run is faster feedback.
 6. **Never weaken a check to make a task pass.** Lowering a threshold,
@@ -81,7 +81,7 @@ not reported as drift.
 The closing report names: practices touched (IDs); checks run and their
 result; `[MANUAL]` debt observed in passing — reported, not fixed unprompted —
 and any decision escalated. Observed-but-untouched debt goes to the
-repository's TODO file (`PM-05`), not into the task.
+repository's TODO file (`TRC-005`), not into the task.
 
 ## 5. Escalation
 

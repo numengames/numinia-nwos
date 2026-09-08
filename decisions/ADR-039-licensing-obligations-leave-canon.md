@@ -56,7 +56,7 @@ grant over `canon/`, that opening is an act and closing is impossible, and the
 trademark boundary.
 
 **A new registration, not a rename.** `STD-010` is a new document at `0.1.0` and
-`draft`. `CAN-005` goes to `2.0.0` — major, per `CORE-23`, because obligations
+`draft`. `CAN-005` goes to `2.0.0` — major, per `VER-023`, because obligations
 were withdrawn from it even though they survive elsewhere.
 
 **Section numbers stay.** Every emptied heading keeps its number and holds a

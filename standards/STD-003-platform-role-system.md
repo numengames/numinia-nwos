@@ -5,11 +5,11 @@ uid: ""
 type: documentation
 subtype: standard
 status: active
-version: "2.0.0"
+version: "2.1.0"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-08T19:00:00+02:00"
+updated: "2026-09-09T00:10:00+02:00"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Alchemists"
@@ -92,10 +92,10 @@ at any layer — storage, API or interface.
 
 | Check | Rule | Verified by |
 |---|---|---|
-| `RK-01` | Every permission granted to rank N is granted to every rank above N | `[MANUAL]` — the matrix lives in platform code, outside this repository |
-| `RK-02` | A member's rank is computed from the signals in the rank table, never from a claimed value | `[MANUAL]` — same; the platform's tests are the check |
-| `RK-03` | `rank-overrides.json` holds at most four Oracles | `[MANUAL]` — the file lives on the platform |
-| `RK-04` | An Archon cannot act on an Archon or an Oracle; nobody can ban an Oracle | `[MANUAL]` — enforced at storage, API and UI on the platform |
+| `RNK-001` | Every permission granted to rank N is granted to every rank above N | `[MANUAL]` — the matrix lives in platform code, outside this repository |
+| `RNK-002` | A member's rank is computed from the signals in the rank table, never from a claimed value | `[MANUAL]` — same; the platform's tests are the check |
+| `RNK-003` | `rank-overrides.json` holds at most four Oracles | `[MANUAL]` — the file lives on the platform |
+| `RNK-004` | An Archon cannot act on an Archon or an Oracle; nobody can ban an Oracle | `[MANUAL]` — enforced at storage, API and UI on the platform |
 
 No guard in this repository reaches the platform. The platform's own test
 suite is where these checks execute; a platform change that alters the matrix

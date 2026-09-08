@@ -4,9 +4,9 @@ uid: ""
 title: "One page per document: a rule-shaped title, a three-part card, plated rules, and a body budget per series"
 type: adr
 status: active
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-09-08T22:30:00+02:00"
-updated: "2026-09-08T22:30:00+02:00"
+updated: "2026-09-09T00:15:00+02:00"
 author: "ursa"
 owner: "oracle"
 deciders: ["oracle"]
@@ -85,9 +85,17 @@ position — `STD-001 §5` — so every cut moved a target.
 - `STD-007` becomes *One page per document* and is the first file in the
   new shape; it applies to every series, not to standards alone.
 - The 85 existing plates (`CORE-NN`, `H-NN`, `PW-NN`, `A-NN`, `RK-NN`) do
-  not meet rule 3. They are renamed in one pull request, with an
-  equivalence table, before any standard is cut: 1,700 citations move
-  once. Until then the old plates remain valid.
+  not meet rule 3. They were renamed in one pull request, before any
+  standard is cut, by `scripts/rename-plates.mjs`, which holds the
+  equivalence table: 134 plates, 499 occurrences, 61 files. The number is
+  kept and the prefix follows the subject: `CORE-01..05` → `PRE-`,
+  `06..10, 63, 65, 67` → `AUT-`, `11..15` → `IDN-`, `16..20` → `HDR-040..044`
+  (the header checks already hold `HDR-016..020`), `21..24, 64` → `VER-`,
+  `25..30, 45..49` → `GIT-`, `50..53` → `CIT-`, `54..56` → `KEY-`, `57` →
+  `EVI-`, `58..60` → `LIC-`; `H-NN` → `HDR-0NN`; `A-NN` → `TXT-`; `RK-` →
+  `RNK-`; `PM-` → `TRC-`; `SEC-`, `ARC-`, `DEV-`, `DEF-` keep their letters
+  and gain a digit. Retired plates (`CORE-31..44`, `CORE-66`) stay as
+  written where history mentions them (decision 8).
 - The twelve standards are cut to the shape in order of incoming citations,
   fewest first, one pull request each. The target layout is fifteen norms
   and six registers; it is a plan, not a rule, and the index records it.

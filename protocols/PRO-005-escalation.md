@@ -30,7 +30,7 @@ license: "CC0-1.0"
 ## When to escalate
 
 Escalate when:
-- A mission contradicts the canon: the mission is wrong (`CORE-03`)
+- A mission contradicts the canon: the mission is wrong (`PRE-003`)
 - A decision exceeds my authority level
 - I am blocked and cannot continue
 - I detect a potential security issue
