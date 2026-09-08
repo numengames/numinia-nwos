@@ -4,11 +4,11 @@ uid: ""
 title: "Mission Protocol — briefing, cycle, coordination"
 type: protocol
 status: active
-version: "4.3.0"
+version: "4.4.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-04T00:35:00+02:00"
+updated: "2026-09-08T13:48:37Z"
 author: "nimrod"
 owner: "oracle"
 tags: [protocol, missions, cycle, briefing, coordination]
@@ -71,7 +71,7 @@ only state surface** — there are no status directories and no index file; the
 public board is built from the folder on every deploy.
 
 ```
-todo → in-progress → in-review → done
+todo → in-progress → in-review → done → (ADR-030 four tests) → deleted
               ↑___________|  (Oracle requests changes)
 
 frozen ←— from any non-terminal state (Oracle decision)
@@ -90,6 +90,15 @@ todo — when unfrozen
 Five values, and the vocabulary is closed. A brief the Oracle has not accepted
 is not on the board, and a cancelled mission is `frozen` with
 `freeze_reason: cancelled` — never deleted. The file is the record.
+
+**A `done` mission may be deleted** — `ADR-030`'s four-test process
+(no live citations, no unredirected public URL, a written resolution,
+the folder's `open` threshold met), the same one every other document
+type already answers to. `PRO-010` §5 governs the mechanics; `ADR-040`
+closes the gap this protocol left open. This is not symmetric with
+`frozen`: a cancelled mission has no successor document to carry its
+resolution into and can never pass test 3 the same way, so it stays
+permanent.
 
 **Mission identifiers** are `MIS-NNNN`, four digits, zero-padded in the
 filename; the `id` field keeps the number as it was registered. A sub-mission
@@ -134,6 +143,8 @@ reason.
 
 - A `done` mission is immutable once merged. An Oracle-authorised exception is
   recorded as one.
+- A `done` mission may be deleted, never edited — `ADR-030`'s four tests,
+  cited in the commit that removes it.
 - Only the executor edits a mission in progress.
 - A cancelled mission keeps its file, `frozen` with the reason. Never deleted.
 - Never assign an identifier without verifying the repository first.
