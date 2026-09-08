@@ -35,7 +35,16 @@ export default defineConfig({
 		// Oracle instruction. It kept its content and its heading numbers, so the
 		// old address points at the same text under its archive name, not at an
 		// index that would answer nothing.
-		"/corpus/standards/standards": "/corpus/history/2026_09_08-superseded_constitution-v200",
+		// ADR-041 (2026-09-08): history/ is deleted; git is the archive. The
+		// seven archived addresses land on the decision that removed them.
+		"/corpus/standards/standards": "/decisions/adr-041",
+		"/corpus/history/2026_09_08-superseded_constitution-v200": "/decisions/adr-041",
+		"/corpus/history/2026_04_07-epistemic_relations-v100": "/decisions/adr-041",
+		"/corpus/history/2026_04_07-mission_system_v2-v100": "/decisions/adr-041",
+		"/corpus/history/2026_09_07-brand_research_interview-v100": "/decisions/adr-041",
+		"/corpus/history/2026_09_07-cultural_cartography-v100": "/decisions/adr-041",
+		"/corpus/history/2026_09_07-financial_projections-v100": "/decisions/adr-041",
+		"/corpus/history/2026_09_07-role_structure_treatise-v100": "/decisions/adr-041",
 		"/corpus/standards/s-001-glossary": "/corpus/standards/std-001-glossary",
 		"/corpus/standards/governance": "/corpus/standards/std-002-governance",
 		"/corpus/standards/s-003-platform-role-system": "/corpus/standards/std-003-platform-role-system",
@@ -342,10 +351,10 @@ export default defineConfig({
 		// history/ (ADR-035): it is a self-declared superseded design, not a
 		// plan. Both the versioned and unversioned addresses now land on the
 		// frozen record — one hop, no chain.
-		"/blueprints/mission-system-v2": "/corpus/history/2026_04_07-mission_system_v2-v100",
-		"/planos/mission-system-v2": "/corpus/history/2026_04_07-mission_system_v2-v100",
-		"/blueprints/mission-system": "/corpus/history/2026_04_07-mission_system_v2-v100",
-		"/planos/mission-system": "/corpus/history/2026_04_07-mission_system_v2-v100",
+		"/blueprints/mission-system-v2": "/decisions/adr-041",
+		"/planos/mission-system-v2": "/decisions/adr-041",
+		"/blueprints/mission-system": "/decisions/adr-041",
+		"/planos/mission-system": "/decisions/adr-041",
 		// MIS-127 step 1 (ADR-033): two closed daily reports deleted after passing
 		// P-010 §5's four consumer tests — zero inbound citations, no living
 		// reader. Their addresses answered at /corpus/reports — the page Astro

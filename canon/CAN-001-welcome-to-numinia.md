@@ -226,8 +226,8 @@ checklist item. That is a path somebody walks, and a path is a protocol:
 
 **The cultural cartography** — the literary, philosophical and academic works
 behind the system — is a reading list. Nothing consults it to decide anything,
-and nothing in it can be complied with or violated. It is a register:
-`history/2026_09_07-Cultural_Cartography-v1.0.0.md`.
+and nothing in it can be complied with or violated. It was retired on
+2026-09-07; git holds it (`ADR-041`).
 
 **Scrum's Definition of Done** was a generic description of an industry
 practice, written in the third person about what such a definition "typically

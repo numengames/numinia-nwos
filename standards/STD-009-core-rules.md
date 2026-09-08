@@ -5,9 +5,9 @@ title: "The rules of the corpus, and which one wins"
 type: documentation
 subtype: standard
 status: draft
-version: "0.10.0"
+version: "0.11.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-05T22:40:00+02:00"
+updated: "2026-09-08T17:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "CAO"
@@ -17,7 +17,7 @@ tags: [standards, governance, precedence, rules, core]
 
 # STD-009 — The rules of the corpus, and which one wins
 
-> **Summary:** Sixty-six rules, one line each, every one of them able to pass
+> **Summary:** Sixty-five rules, one line each, every one of them able to pass
 > or fail; and, first, the rule that settles what happens when two of them
 > disagree.
 > **Epistemic:** Why a corpus without a precedence rule grows contradictions
@@ -206,7 +206,6 @@ the one it inherits.
 | **CORE-37** | A mission states what would count as done before work starts. | `[MANUAL]` — the section is checkable, whether it states a test is not |
 | **CORE-38** | A parent mission is not finished while any of its children is open. | `[MANUAL]` — parent and child are declared in prose, not in a field |
 | **CORE-39** | A paused mission declares why it is paused. | `[MANUAL]` — the reason is prose |
-| **CORE-40** | A finished mission is not rewritten to match later doctrine. | `[MANUAL]` — same judgement as CORE-08 |
 | **CORE-41** | An agent reads the whole mission before acting, never the title alone. | `[MANUAL]` — no trace distinguishes a full read from a skim |
 ---
 
@@ -272,7 +271,7 @@ the one it inherits.
 Stating this is a requirement of the corpus, not a courtesy.
 
 Every rule above names a verifier. 23 are decided by a script or by a
-GitHub setting; 42 are marked `[MANUAL]` and say in one line why no
+GitHub setting; 41 are marked `[MANUAL]` and say in one line why no
 parser can decide them. There is no third kind: a rule with an empty verifier
 column would be an opinion that had learnt to look official.
 
@@ -296,37 +295,7 @@ is not a measurement, and the corpus reserves that decision to the Oracle.
 
 ---
 
-## 17. Amendment, 2026-09-05
-
-`CORE-02` was reversed in batch 1 of this document's ratification: the
-documents outrank the code, where before the tree outranked the prose. Section
-1 was not revisited in that move and went on delegating its own boundary to
-the classifier — "the classifier is right and this sentence is the defect" —
-which is the rule `CORE-02` had just abolished. A standard cannot hold both.
-`rules.json` already agreed with the corrected rule: its own comment says each
-block *transcribes* a ruling. The transcription is not the ruling.
-
-Two figures were removed rather than updated. Section 1 said eight rules
-execute and named them; eleven do, and the list was stale within a day of
-being written. `CORE-62` forbids a normative document from stating a figure
-its own subject will age, so the count is not corrected here — it is deleted,
-and the `Verified by` column of each rule carries the answer instead.
-
-`CORE-45` was reworded the same day and the guard behind it corrected: it
-demanded an heir from `withdrawn` documents, which by definition have none, and
-tested `retired`, a value in no series' status vocabulary. The check is now
-symmetric — `superseded` without an heir is a breach, `withdrawn` with one is
-a breach — and `DBT-015` closed.
-
-The ratification paragraph of section 1 claimed that setting `status` to
-`active` makes the executed rules fail the build. It does not: the guard is not
-a step in the workflow file, so the rules bind the reader and not the pipeline.
-The sentence now names both switches. An agent cannot write
-`.github/workflows/`, so the second one is the Oracle's to throw.
-
----
-
-## 18. References
+## 17. References
 
 - `STD-001` — the glossary, source of the change thresholds and of the rule that history outranks the document
 - `STD-002` — governance, source of the authority rules

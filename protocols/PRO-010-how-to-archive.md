@@ -4,7 +4,7 @@ uid: ""
 title: "How to Archive — the NWOS archival protocol"
 type: protocol
 status: draft
-version: "0.9.0"
+version: "0.10.0"
 created: "2026-08-18T10:51:09Z"
 created_source: "git:9f25053"
 created_confidence: exact
@@ -112,9 +112,11 @@ pattern:
    audit reports, licence dedications, and everything under
    `reports/evidence/`. These describe a moment; editing them makes them
    describe a moment that never happened.
-2. **A closed record is never rewritten.** `done`, `closed` and `superseded`
-   documents are accounts of what was true then, not indexes of what is true
-   now.
+2. **A closed record is not rewritten by a rename.** `done`, `closed` and
+   `superseded` documents are accounts of what was true then, not indexes of
+   what is true now. A broken reference inside one is a photograph, not a
+   defect (`CORE-53`); a correction of substance is made in place with a
+   dated note (`ADR-041`).
 3. **Everything else is rewritten, and the diff is read.** Not the exit code
    — the diff. `scripts/rename-series.mjs` enforces rules 1 and 2 and prints
    every refusal. It cannot detect an identifier used as its own
@@ -131,7 +133,7 @@ guards are.
 
 ## 5. Lifecycle
 
-`draft → active → superseded → archive fund`
+`draft → active → superseded → deleted` (`ADR-041`: git is the archive)
 
 **A document may be deleted when its consumers are zero or redirected**, not
 when its folder has been granted permission. Four tests, in the order a
@@ -152,9 +154,9 @@ deletion must pass them:
 Passing all four, **a deletion needs no decision record.** The guards are the
 authority.
 
-A superseded document that still has living citers is not deleted: it names
-its successor and, once no longer consulted, moves to the fund. Supersession
-is the right move whenever the first test fails.
+A superseded document that still has living citers is not deleted yet: it
+names its successor and goes when the last living citer stops citing it.
+Supersession is the right move whenever the first test fails.
 
 **Execution plans are scratch, not memory.** A plan under `.hermes/plans/`
 lives only as long as the execution it governs. When that mission closes, its

@@ -4,11 +4,11 @@ id: "STD-002"
 uid: ""
 type: documentation
 status: active
-version: "3.2.0"
+version: "4.0.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-07T12:10:00+02:00"
+updated: "2026-09-08T17:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 territory: "CAO"
@@ -97,10 +97,9 @@ it, and no series overrides it.** The four states — `open`, `closed`,
 `governed`, `sealed` — and what each costs are defined in the glossary,
 `STD-001` §The series. Their order of precedence is `CORE-03`.
 
-Two exceptions, both deliberate. Any agent may open a debt entry without
-approval, because naming a gap is not a change to the system, and requiring
-permission to admit a problem is how a corpus learns to stay quiet. And nothing
-in `history/` is ever deleted, by anyone, at any state.
+One exception, deliberate. Any agent may open a debt entry without approval,
+because naming a gap is not a change to the system, and requiring permission
+to admit a problem is how a corpus learns to stay quiet.
 
 ### What each series answers
 
@@ -121,8 +120,9 @@ waiting on approval (G-10).
 
 **On who writes what.** An active mission has exactly one executor, and only
 that executor edits it; collaboration is declared (G-02, G-03). Agents never
-modify their own `SOUL.md` or `OPERATOR.md` (G-04). Nobody deletes a done
-mission or a decision (G-05).
+modify their own `SOUL.md` or `OPERATOR.md` (G-04). A retired document of any
+series is deleted by the four tests of `PRO-010`, never kept for its own sake
+(G-05, reversed by `ADR-041`).
 
 **On doubt.** When unsure whether something is sensitive, do not commit —
 escalate first (G-07). A mission sitting in `todo` for more than 90 days without
@@ -221,54 +221,3 @@ acting — how much human approval an action needs.
 - `SYS-004` — Document relations. Absorbed into this document; the identifier
   resolves here.
 
----
-
----
-
-## Amendment, 2026-09-05
-
-Two sections were emptied on the day this document reached v4.0.0.
-
-§Which document wins stated the same law as `CORE-01`..`CORE-05`, and
-§Changing a standard restated `CORE-07`, `CORE-22`, `CORE-23` and `CORE-45`.
-The law was written twice, in two `governed` documents, and neither named the
-other. Both sections are now pointers.
-
-Four formulations were better here than there, and moved rather than being
-deleted: the worked example of cost (`CORE-03`), "a document does not become
-authoritative by saying it is" (`CORE-05`), the `superseded`/`withdrawn`
-distinction (`CORE-45`), and "a `draft` binds nobody". One had no rule at all
-and became `CORE-63`: the change lands in the document it governs.
-
-`CORE-02` was corrected in the move. It said the code outranks the documents;
-the Oracle settled on 2026-09-05 that the documents are the source of truth and
-the code implements them, and this document already said so. The core rules
-standard did not.
-
-This is a removal of obligations from this document, which `CORE-23` makes a
-major. The obligations are not gone — they are stated once, where they can be
-cited by number.
-
-## Amendment, 2026-09-05 (second)
-
-Four more sections were emptied, in the same operation as the first two.
-
-§Versioning authority restated Semantic Versioning and named who moves which
-number. The adoption and the numbers are `CORE-21`, `CORE-22` and `CORE-23`;
-who may move them had no rule anywhere and became `CORE-64`.
-
-§Permissions by series listed the four change thresholds. The glossary defines
-them in more detail — including the reason they are thresholds and not
-properties of a file — so the definition stays there and this document points
-at it. The two exceptions are not stated anywhere else and stay here: a debt
-entry needs no approval, and nothing in `history/` is deleted.
-
-§What each series answers listed twelve folders in two lines. The glossary
-gives each one an **IS / IS NOT** test, which is the part that settles an
-argument.
-
-§Roles said what each rank may do to a document. That became `CORE-65`. Who
-holds a rank was already the canon's, and this document said so.
-
-Three thresholds tables existed in this corpus — here, in the glossary, and in
-the core rules. Two are now pointers.

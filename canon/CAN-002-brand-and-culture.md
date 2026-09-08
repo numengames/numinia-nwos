@@ -808,8 +808,7 @@ Leveling Up Mechanics, Digital Badges and Titles, Interactive Career Pathways
 
 This document used to end with a brand research interview: a blank
 questionnaire of sixteen questions, and the Oracle's answers to it in two
-rounds. It is recorded, unchanged, in
-`2026_09_07-Brand_Research_Interview-v1.0.0.md`.
+rounds. It was retired on 2026-09-07; git holds it (`ADR-041`).
 
 It was removed on 2026-09-07 because the section said so itself: it was titled
 *research phase* and announced that its content would *later be included* in
