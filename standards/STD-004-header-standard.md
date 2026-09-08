@@ -5,11 +5,11 @@ title: "The header in three rings: identity, provenance, extension"
 type: documentation
 subtype: standard
 status: active
-version: "2.3.0"
+version: "2.4.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-09-05T22:40:00+02:00"
+updated: "2026-09-09T00:10:00+02:00"
 ratified_by: "ADR-027 (formerly ADR-029)"
 author: "ursa"
 owner: "oracle"
@@ -67,36 +67,36 @@ growing without limit.
 
 | Field | Rule | Check |
 |---|---|---|
-| `id` | present; matches its series prefix, or `registration: exempt` with a reason | **H-01** |
-| `title` | present, non-empty, English | **H-02** (presence; language `[MANUAL]` — detectors lie) |
-| `type` | present; value in the vocabulary of section 4 | **H-03** |
-| `status` | present; value in the lifecycle of its type | **H-04** |
-| `version` | present; semantic version, no `v` prefix | **H-05** |
-| `created` | present; ISO 8601 with time; midnight rejected for new documents | **H-06** |
-| `updated` | present; ISO 8601 with time; not earlier than `created` | **H-07** |
-| `license` | present; SPDX identifier; agrees with the licence manifest | **H-08** |
+| `id` | present; matches its series prefix, or `registration: exempt` with a reason | **HDR-001** |
+| `title` | present, non-empty, English | **HDR-002** (presence; language `[MANUAL]` — detectors lie) |
+| `type` | present; value in the vocabulary of section 4 | **HDR-003** |
+| `status` | present; value in the lifecycle of its type | **HDR-004** |
+| `version` | present; semantic version, no `v` prefix | **HDR-005** |
+| `created` | present; ISO 8601 with time; midnight rejected for new documents | **HDR-006** |
+| `updated` | present; ISO 8601 with time; not earlier than `created` | **HDR-007** |
+| `license` | present; SPDX identifier; agrees with the licence manifest | **HDR-008** |
 
-**H-00, the gate:** every Markdown file under a governed series carries
+**HDR-000, the gate:** every Markdown file under a governed series carries
 frontmatter. Its shape — three dashes on their own lines, and valid YAML
-between them — is `CORE-16` and `CORE-17`, and adding a field to this registry
-also requires a decision record, which is `CORE-18`.
+between them — is `HDR-040` and `HDR-041`, and adding a field to this registry
+also requires a decision record, which is `HDR-042`.
 
-**H-09, empty is absent:** a field with an empty value is an error. Absence is
+**HDR-009, empty is absent:** a field with an empty value is an error. Absence is
 declared, not left blank — omit the field, write `null`, or write `TBA`,
-whichever tells the truth about the gap. `CORE-20` forbids the other failure:
+whichever tells the truth about the gap. `HDR-044` forbids the other failure:
 filling it with a guess.
 
 ## 4. Ring 2 — provenance
 
 | Field | Rule | Check |
 |---|---|---|
-| `author` | who wrote it, person or agent | **H-10** |
-| `owner` | who answers for it now | **H-11** |
-| `provenance` | `human` · `ai-assisted` · `ai-generated` | **H-12** |
-| `created_source` | `git:<sha>` or `declared` — where the date came from | **H-13** |
-| `created_confidence` | `exact` · `inferred` — never invented | **H-14** |
-| `requested_by` | optional; who commissioned it | **H-15** |
-| `supersedes` · `superseded_by` · `derived_from` | resolvable identifiers | **H-16** |
+| `author` | who wrote it, person or agent | **HDR-010** |
+| `owner` | who answers for it now | **HDR-011** |
+| `provenance` | `human` · `ai-assisted` · `ai-generated` | **HDR-012** |
+| `created_source` | `git:<sha>` or `declared` — where the date came from | **HDR-013** |
+| `created_confidence` | `exact` · `inferred` — never invented | **HDR-014** |
+| `requested_by` | optional; who commissioned it | **HDR-015** |
+| `supersedes` · `superseded_by` · `derived_from` | resolvable identifiers | **HDR-016** |
 
 Ring 2 admits `declared` where git cannot testify. The point is that a reader
 can always tell evidence from claim: a date derived from a commit is
@@ -115,24 +115,24 @@ subject.
 ## 5. The `type` vocabulary
 
 `type` takes its value from the closed list in the glossary, plus `agent` for
-the agents series. **H-03** enforces the closed list; **H-17** enforces the
+the agents series. **HDR-003** enforces the closed list; **HDR-017** enforces the
 map from type to series, strict for the registered genres and warn-only for
 the two general ones.
 
-**H-18, `subtype`:** if present, its value comes from the registered list for
+**HDR-018, `subtype`:** if present, its value comes from the registered list for
 that type. Registered now: for reports, `audit` `analysis` `proposal`
 `rollup` (`daily` retired 2026-09-08, `STD-012`); for documentation, `standard` `guide`.
 
 ## 6. Status lifecycles
 
-- **missions:** `todo → in-progress → in-review → done`, plus `frozen` (**H-04**)
-- **decisions:** `draft → active → superseded`, lowercase (**H-19**)
+- **missions:** `todo → in-progress → in-review → done`, plus `frozen` (**HDR-004**)
+- **decisions:** `draft → active → superseded`, lowercase (**HDR-019**)
 - **everything else:** `draft → active → closed`, unless its series registers
   otherwise in Ring 3
 
 ## 7. Ring 3 — extension by series
 
-**H-30, the anti-entropy rule:** a field that is not in Ring 1, Ring 2, or the
+**HDR-030, the anti-entropy rule:** a field that is not in Ring 1, Ring 2, or the
 registry below is an error. Adding a field costs one line in this table plus
 the decision record that justifies it. The registry is the standard; there is
 no out-of-band extension.
@@ -150,16 +150,16 @@ no out-of-band extension.
 | `protocols/` | `applies_to` `mandatory` |
 | `standards/` `canon/` | `threshold` |
 | `standards/` `canon/` `protocols/` | `supersedes_version` `ratified_by` |
-| all | `tags` `visibility` `guild` `territory` · `registration` `registration_reason` `registration_exemption` · `evidence_script` `evidence_head` · `related` · `uid` (reserved empty — **H-20**: a non-empty `uid` is an error until the identifier system exists) |
+| all | `tags` `visibility` `guild` `territory` · `registration` `registration_reason` `registration_exemption` · `evidence_script` `evidence_head` · `related` · `uid` (reserved empty — **HDR-020**: a non-empty `uid` is an error until the identifier system exists) |
 
 Rare fields not registered here die by omission: the lint flags them, and
 their carriers either migrate or the field earns its decision record.
 
-**Retirements the lint inherits (H-31):** `area` becomes `territory`;
+**Retirements the lint inherits (HDR-031):** `area` becomes `territory`;
 `blocked_reason` is retired; the Spanish-era keys are retired. Each is a wave
 with its own baseline entry until its migration lands.
 
-### 7.1 Deferred values — `TBA` (H-32)
+### 7.1 Deferred values — `TBA` (HDR-032)
 
 A field can be required, present, and not yet decided. This is permitted under
 exactly one condition:
@@ -167,7 +167,7 @@ exactly one condition:
 > A `TBA` without a mission that will resolve it is a parking space.
 
 The lint does not treat `TBA` as a violation. It counts it and names the
-mission that owns it. **H-32 fails when a `TBA` is written into a field no
+mission that owns it. **HDR-032 fails when a `TBA` is written into a field no
 mission owns.** To defer a new field, register it with its owning mission in
 the lint, or the guard rejects it as unowned.
 
@@ -182,10 +182,10 @@ space this rule forbids. Only a person reading the board catches that.
 
 | Check | Field | Vocabulary |
 |---|---|---|
-| **H-33** | `guild` | `Sentinels` · `Alchemists` · `Exegetes` · `Procurators` |
-| **H-34** | `type_execution` | `digital` · `biological` · `hybrid` |
-| **H-35** | `visibility` | `public` · `restricted-oracle` |
-| **H-36** | `territory` | the eight registered words |
+| **HDR-033** | `guild` | `Sentinels` · `Alchemists` · `Exegetes` · `Procurators` |
+| **HDR-034** | `type_execution` | `digital` · `biological` · `hybrid` |
+| **HDR-035** | `visibility` | `public` · `restricted-oracle` |
+| **HDR-036** | `territory` | the eight registered words |
 
 A vocabulary nobody checks is not a vocabulary. It is a suggestion.
 

@@ -124,7 +124,7 @@
       "blind_to": [
         {
           "spot": "whether the parsed VALUES are right — a well-formed header full of wrong dates or invented sources parses clean",
-          "covered_by": "lint-frontmatter (H-00…H-31), partially",
+          "covered_by": "lint-frontmatter (HDR-000…HDR-031), partially",
           "debt": null
         }
       ]
@@ -142,10 +142,10 @@
     },
     "lint-frontmatter": {
       "script": "scripts/lint-frontmatter.mjs",
-      "sees": "header fields H-00…H-31",
+      "sees": "header fields HDR-000…HDR-031",
       "blind_to": [
         {
-          "spot": "whether a deferral is honest — H-32 checks a TBA names a mission, not that the mission is alive, funded, or ever worked on",
+          "spot": "whether a deferral is honest — HDR-032 checks a TBA names a mission, not that the mission is alive, funded, or ever worked on",
           "covered_by": null,
           "debt": null
         },

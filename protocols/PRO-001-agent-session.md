@@ -77,7 +77,7 @@ same ten questions.
 | Does it need a context card? | `STD-004` | §9 The context card |
 | Which licence? | `CAN-005` | §2 Which license each piece gets |
 | How is it versioned? | `PRO-010` | §4 Documentary semantic versioning |
-| How is the commit written? | `STD-005` | ARC-06 commit convention |
+| How is the commit written? | `STD-005` | ARC-006 commit convention |
 
 Sections are named as well as numbered on purpose: a number moves, a
 title survives the move.
@@ -169,7 +169,7 @@ is total loss.
 ## The rules of a session
 
 Three rules carry a `CORE` identifier: they were rules of the corpus until
-2026-09-08 and are now executed here, number kept (`CORE-14`).
+2026-09-08 and are now executed here, number kept (`IDN-014`).
 
 | ID | Rule | Verified by |
 | **CORE-42** | A session begins by syncing the corpus, before any read or write. | `[MANUAL]` — the sync is a local act with no artefact |

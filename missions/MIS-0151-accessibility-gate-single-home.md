@@ -2,7 +2,7 @@
 # CORE — the ten fields the build verifies (web/src/content.config.ts).
 id: "MIS-151"
 uid: ""
-title: "One normative home for the accessibility gate — ARC-10, ADR-037, DBT-013"
+title: "One normative home for the accessibility gate — ARC-010, ADR-037, DBT-013"
 status: done
 priority: medium
 effort: S
@@ -35,7 +35,7 @@ paths:
 > **Summary:** the same code-accessibility rule (WCAG AA) was asserted in
 > three places — `numinia-web/CLAUDE.md`, the Design System §1.2, and an
 > unattributed comment in `a11y.spec.ts` — with none citing the others.
-> This mission gives it one ID, `ARC-10` in `STD-005`, ratified by
+> This mission gives it one ID, `ARC-010` in `STD-005`, ratified by
 > `ADR-037`, and points the two code-facing documents at it.
 > **Epistemic:** the Oracle asked where accessibility is documented and
 > found it scattered without a single point of truth — this mission is the
@@ -69,7 +69,7 @@ in three places with no cross-reference between them —
    confirmed no hit), so the citation was unverifiable.
 
 No `standards/` document had ever registered this as a numbered practice
-(`STD-005 §3.2` lists `ARC-01`..`ARC-09` for other code-quality practices;
+(`STD-005 §3.2` lists `ARC-001`..`ARC-009` for other code-quality practices;
 accessibility had no entry there at all).
 
 **Second finding, out of this mission's scope by the Oracle's explicit
@@ -85,26 +85,26 @@ to be resolved in the Oracle's own dedicated pass. **Not executed here.**
 
 ## Scope
 
-- `standards/STD-005-engineering-standards.md` §2.2 — add `ARC-10`: WCAG
+- `standards/STD-005-engineering-standards.md` §2.2 — add `ARC-010`: WCAG
   2.2 AA on every public route, tab order matches visual order, focus ring
   visible. `Check` column names the real gate
   (`numinia-web/apps/store/e2e/a11y.spec.ts`) and its real, partial
   coverage (platform chrome, not `/corpus/**` document routes).
 - `decisions/ADR-037-accessibility-gate-single-home.md` — new ADR
-  ratifying `ARC-10` as the single normative anchor; records why the
+  ratifying `ARC-010` as the single normative anchor; records why the
   Design System §12 is left untouched (different subject); records the
   Oracle's instruction to treat the filename question as deferred, not
   resolved, here.
 - `debt/DBT-013-design-system-filename-not-frozen.md` — new debt entry
   registering the naming defect, owner Oracle, not executed.
 - `numinia-web/CLAUDE.md` — new "Accessibility" subsection under Code
-  standards, citing `ARC-10` instead of independent prose.
+  standards, citing `ARC-010` instead of independent prose.
 - `numinia-web/apps/store/e2e/a11y.spec.ts` — header comment corrected to
-  cite `ARC-10`/`ADR-037` instead of the unattributed "constitution" quote.
+  cite `ARC-010`/`ADR-037` instead of the unattributed "constitution" quote.
 
 **Out of scope:** renaming the Design System document (`DBT-013`);
 amending or reversing `PRO-010` (legacy dated names) / `MIS-125`; closing the corpus
-tab-order coverage gap itself (`ARC-10`'s check column states it, closing
+tab-order coverage gap itself (`ARC-010`'s check column states it, closing
 it is future audit work, tracked loosely against `MIS-152`); any change to
 `STD-005`'s own `Status: Proposal` vs. `status: active` frontmatter
 mismatch, noticed in passing and not part of this mission.
@@ -114,13 +114,13 @@ mismatch, noticed in passing and not part of this mission.
 Falsifiable at base commit `e4b94e7`:
 
 ```
-✓  grep -n "ARC-10" standards/STD-005-engineering-standards.md
+✓  grep -n "ARC-010" standards/STD-005-engineering-standards.md
    matches                                   (today, pre-mission: 0 matches)
 ✓  test -f decisions/ADR-037-accessibility-gate-single-home.md
 ✓  test -f debt/DBT-013-design-system-filename-not-frozen.md
-✓  grep -n "ARC-10" numinia-web/CLAUDE.md
+✓  grep -n "ARC-010" numinia-web/CLAUDE.md
    matches
-✓  grep -n "ARC-10\|ADR-037" numinia-web/apps/store/e2e/a11y.spec.ts
+✓  grep -n "ARC-010\|ADR-037" numinia-web/apps/store/e2e/a11y.spec.ts
    matches
 ✓  grep -n "the constitution's" numinia-web/apps/store/e2e/a11y.spec.ts
    no matches                                (today, pre-mission: 1 match)
@@ -142,9 +142,9 @@ Falsifiable at base commit `e4b94e7`:
 *(Fill when the mission closes. Not before, and not with intentions.
 Add here — never edit `Scope` or the criteria to match what happened.)*
 
-- **What was done:** `ARC-10` added to `STD-005`; `ADR-037` and `DBT-013`
+- **What was done:** `ARC-010` added to `STD-005`; `ADR-037` and `DBT-013`
   written; `numinia-web/CLAUDE.md` and `a11y.spec.ts` updated to cite
-  `ARC-10`. Committed on `decision/ADR-037-a11y-single-home`
+  `ARC-010`. Committed on `decision/ADR-037-a11y-single-home`
   (`numinia-nwos`) and `docs/ARC-10-reference` (`numinia-web`), both
   pushed, neither PR opened — Oracle decides merge timing.
 - **What diverged, and why:** none yet — mission written after the work
@@ -164,7 +164,7 @@ Add here — never edit `Scope` or the criteria to match what happened.)*
   mission's own past identifiers, so the reference lint does not read them
   as citations of the documents that now hold them.)*
 - **Merged / opened 2026-09-08:** `numinia-nwos` side merged as #245
-  (ADR-037, ARC-10 in `STD-005`, DBT-013). `numinia-web` side: the branch
+  (ADR-037, ARC-010 in `STD-005`, DBT-013). `numinia-web` side: the branch
   `docs/ARC-10-reference` sat pushed without a PR since 2026-09-02; opened
   today as numengames/numinia-web#2 (2 files, 0 behind main). Merge timing
   there remains the Oracle's.

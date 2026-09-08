@@ -36,49 +36,49 @@ for (const d of docs) {
   /* A negation is not a state claim: `-not-frozen.md` describes a defect about
      another document, it does not encode this one's state. */
   if (/-(draft|final|frozen|old|new|deprecated)\.md$/.test(r) && !/-not-[a-z]+\.md$/.test(r))
-    record('CORE-12', 'filename encodes state', r);
+    record('IDN-012', 'filename encodes state', r);
 
   if (/-v\d+(\.\d+)*\.md$/.test(r) && !r.startsWith('history/'))
-    record('CORE-13', 'filename carries a version', r);
+    record('IDN-013', 'filename carries a version', r);
 
   if (!body(d).startsWith('---\n'))
-    record('CORE-16', 'no frontmatter', r);
+    record('HDR-040', 'no frontmatter', r);
 
   if (!f.license)
-    record('CORE-19', 'no licence declared', r);
+    record('HDR-043', 'no licence declared', r);
 
   if (f.version && !/^\d+\.\d+\.\d+$/.test(String(f.version)))
-    record('CORE-21', `version "${f.version}" is not semantic`, r);
+    record('VER-021', `version "${f.version}" is not semantic`, r);
 
-  /* CORE-45: `superseded` names its heir; `withdrawn` is the state where the
+  /* GIT-045: `superseded` names its heir; `withdrawn` is the state where the
      rule left and nothing replaced it, so naming an heir there is the error.
      The check is symmetric on purpose: a silent allowance would let a
      `withdrawn` document carry a stale `superseded_by` for ever. `retired` is
      not in the status vocabulary of any series — see rules.json — so it is not
      tested here; lint-frontmatter rejects unknown values. */
   if (f.status === 'superseded' && !f.superseded_by)
-    record('CORE-45', 'status superseded with no heir', r);
+    record('GIT-045', 'status superseded with no heir', r);
 
   if (f.status === 'withdrawn' && f.superseded_by)
-    record('CORE-45', `status withdrawn names an heir "${f.superseded_by}" — a withdrawn rule has none; use superseded`, r);
+    record('GIT-045', `status withdrawn names an heir "${f.superseded_by}" — a withdrawn rule has none; use superseded`, r);
 
   if (r.startsWith('standards/')) {
     const prose = body(d).replace(/```[\s\S]*?```/g, '').replace(/`[^`]*`/g, '');
     const m = prose.match(/\b[A-Z]{2,4}-\d+\s+§\d[\d.]*/g);
-    if (m) record('CORE-50', `cites a section by number: ${m.join(', ')}`, r);
+    if (m) record('CIT-050', `cites a section by number: ${m.join(', ')}`, r);
   }
 
-  /* CORE-20: an unknown value is left empty, never guessed. These are the
+  /* HDR-044: an unknown value is left empty, never guessed. These are the
      shapes a guess takes in this corpus — a template marker left in place,
      or a word standing in for a value nobody looked up. `todo` is excluded:
      it is a legitimate mission status in rules.json, not a placeholder. */
   for (const [k, v] of Object.entries(f)) {
     if (typeof v !== 'string' || k === 'status') continue;
     if (/^(TBD|TODO|XXX|N\/A|\?+|<.*>|YYYY-MM-DD|unknown|placeholder)$/i.test(v.trim()))
-      record('CORE-20', `${k} holds a placeholder: "${v}"`, r);
+      record('HDR-044', `${k} holds a placeholder: "${v}"`, r);
   }
 
-  /* CORE-24: when a document keeps its own changelog, its newest entry must be
+  /* VER-024: when a document keeps its own changelog, its newest entry must be
      the version in the header. Two places, one fact, and they drift.
 
      The heading must BE a changelog, not mention one — `## Version history`,
@@ -100,30 +100,30 @@ for (const d of docs) {
     if (entries.length) {
       const newest = entries[entries.length - 1];
       if (cmp(newest, String(f.version)) !== 0)
-        record('CORE-24', `header says ${f.version}, newest log entry is ${newest}`, r);
+        record('VER-024', `header says ${f.version}, newest log entry is ${newest}`, r);
       for (let i = 1; i < entries.length; i += 1)
         if (cmp(entries[i], entries[i - 1]) < 0)
-          record('CORE-21', `change log goes backwards: ${entries[i - 1]} then ${entries[i]}`, r);
+          record('VER-021', `change log goes backwards: ${entries[i - 1]} then ${entries[i]}`, r);
     }
   }
 }
 
-/* CORE-14: an identifier is never reused. Two documents holding one id means
+/* IDN-014: an identifier is never reused. Two documents holding one id means
    one of them is unreachable by citation — the reference resolver picks one. */
 const seen = new Map();
 for (const d of docs) {
   const id = fm(d).id;
   if (!id) continue;
-  if (seen.has(id)) record('CORE-14', `id ${id} is held by two documents`, `${seen.get(id)} + ${rel(d)}`);
+  if (seen.has(id)) record('IDN-014', `id ${id} is held by two documents`, `${seen.get(id)} + ${rel(d)}`);
   else seen.set(id, rel(d));
 }
 
-/* CORE-26: a commit subject is one line. */
+/* GIT-026: a commit subject is one line. */
 const subjects = execFileSync('git', ['log', '-400', '--format=%s'], { cwd: ROOT, encoding: 'utf8' })
   .split('\n').filter(Boolean);
-for (const s of subjects) if (s.includes('\n')) record('CORE-26', 'multi-line subject', s.slice(0, 60));
+for (const s of subjects) if (s.includes('\n')) record('GIT-026', 'multi-line subject', s.slice(0, 60));
 
-const RULES = ['CORE-12', 'CORE-13', 'CORE-14', 'CORE-16', 'CORE-19', 'CORE-20', 'CORE-21', 'CORE-24', 'CORE-26', 'CORE-45', 'CORE-50'];
+const RULES = ['IDN-012', 'IDN-013', 'IDN-014', 'HDR-040', 'HDR-043', 'HDR-044', 'VER-021', 'VER-024', 'GIT-026', 'GIT-045', 'CIT-050'];
 
 /* The standard's own `status` field decides whether these rules bind. `active`
    enforces; anything else reports and exits clean. This is the on/off switch:

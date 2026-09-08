@@ -5,9 +5,9 @@ title: "The rules of the corpus, and which one wins"
 type: documentation
 subtype: standard
 status: draft
-version: "0.13.0"
+version: "0.14.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-08T19:30:00+02:00"
+updated: "2026-09-09T00:10:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "CAO"
@@ -57,7 +57,7 @@ registered document of the corpus. It does not mean every markdown file in the
 repository. The boundary is *apparatus* — scaffolding around a series rather
 than a member of it; `scripts/lib/rules.json` transcribes that boundary and
 `scripts/lib/frontmatter.mjs` computes it. Where this standard and the
-classifier disagree, `CORE-02` settles it: the classifier is corrected.
+classifier disagree, `PRE-002` settles it: the classifier is corrected.
 
 A second class sits outside these rules without being apparatus: the files that
 address a reader outside the corpus — the repository's own `README`, its
@@ -76,7 +76,7 @@ field, and setting it back suspends every rule at once.
 
 **Identifiers are stable.** A rule keeps its `CORE-NN` for life. A rule that
 leaves this document leaves a gap, never a renumbering: the number is an
-address, and addresses do not move (`CORE-14`).
+address, and addresses do not move (`IDN-014`).
 
 ---
 
@@ -86,11 +86,11 @@ Everything else in this corpus is a claim. These five decide whose claim wins.
 
 | ID | Rule | Verified by |
 |---|---|---|
-| **CORE-01** | Git history outranks every document; when a document and the history disagree, the history is the record and the document is the claim. | `[MANUAL]` — a claim about history is checked by reading `git log`, and no parser knows which claim to check |
-| **CORE-02** | The documents outrank the code: they are the source of truth and the code implements them. When the code does something the documents do not say, the code is corrected. The exception is a document that describes what the code already does and describes it wrong — that is a broken description, and the description is fixed. The test is direction: a rule the code disobeys is a bug in the code; a description the code contradicts is a bug in the description. | `[MANUAL]` — deciding which of the two is the claim requires understanding both |
-| **CORE-03** | Between two documents, the one that costs more agreement to change wins: `sealed`, then `governed`, then `closed`, then `open`. What each threshold costs is defined in the glossary, `STD-001`, and is not restated here. | `[MANUAL]` — the thresholds are declared, but recognising that two documents conflict is a judgement |
-| **CORE-04** | At equal cost, the later ruling wins, and a later ruling names what it overrides. | `[MANUAL]` — a guard cannot tell a ruling from a mention |
-| **CORE-05** | A document does not become authoritative by saying it is. No document holds authority over another except by `CORE-01`..`CORE-04`, and a claim of precedence written inside a document is void unless it rests on one of them. | `[MANUAL]` — an authority claim is a sentence, and no parser recognises one |
+| **PRE-001** | Git history outranks every document; when a document and the history disagree, the history is the record and the document is the claim. | `[MANUAL]` — a claim about history is checked by reading `git log`, and no parser knows which claim to check |
+| **PRE-002** | The documents outrank the code: they are the source of truth and the code implements them. When the code does something the documents do not say, the code is corrected. The exception is a document that describes what the code already does and describes it wrong — that is a broken description, and the description is fixed. The test is direction: a rule the code disobeys is a bug in the code; a description the code contradicts is a bug in the description. | `[MANUAL]` — deciding which of the two is the claim requires understanding both |
+| **PRE-003** | Between two documents, the one that costs more agreement to change wins: `sealed`, then `governed`, then `closed`, then `open`. What each threshold costs is defined in the glossary, `STD-001`, and is not restated here. | `[MANUAL]` — the thresholds are declared, but recognising that two documents conflict is a judgement |
+| **PRE-004** | At equal cost, the later ruling wins, and a later ruling names what it overrides. | `[MANUAL]` — a guard cannot tell a ruling from a mention |
+| **PRE-005** | A document does not become authoritative by saying it is. No document holds authority over another except by `PRE-001`..`PRE-004`, and a claim of precedence written inside a document is void unless it rests on one of them. | `[MANUAL]` — an authority claim is a sentence, and no parser recognises one |
 **Why cost of change and not rank.** A hierarchy by importance invites argument
 about what is important. A hierarchy by cost of change is already recorded: it
 is how much agreement each series demands before it may be edited. It is also
@@ -116,14 +116,14 @@ the one it inherits.
 
 | ID | Rule | Verified by |
 |---|---|---|
-| **CORE-06** | Canon changes only with the Oracle's signature and a decision record giving the reason. | `[MANUAL]` — the decision record is verifiable, its adequacy is not |
-| **CORE-07** | Standards, protocols and decisions change by a decision record, or by a pull request the Oracle approves. | `[MANUAL]` — GitHub records the approval; matching it to the change is judgement |
-| **CORE-63** | The change lands in the document it governs. A rule written in a decision, a mission or a commit message is not a rule yet: the document is where a reader looks, so that is where the sentence goes. | `[MANUAL]` — recognising an obligation outside its document is the judgement |
-| **CORE-08** | A finished mission or a published report keeps its claims; its form may be corrected and the commit says so. | `[MANUAL]` — separating a claim from its form needs a reader |
-| **CORE-09** | Everything else changes by an ordinary pull request. | branch protection, GitHub settings |
-| **CORE-67** | An agent never edits its own `SOUL.md` or `OPERATOR.md`; both are Oracle-approved. | `[MANUAL]` — CODEOWNERS could decide it; not wired |
-| **CORE-10** | Facing an irreversible act in doubt, an agent does not act and escalates instead. | `[MANUAL]` — an act not taken leaves no trace to check |
-| **CORE-65** | What each rank may do to a document: an Oracle approves structural change, seals canon, and alone promotes an artefact to stable or breaks it; an Archon authorises iterations below the stable line; a digital agent writes its own files and its assigned missions; a custodian maintains documents, indexes and changelogs; automation writes reports only. Which rank an actor holds is defined in the canon of roles, not here. | `[MANUAL]` — mapping an author to a rank needs the roster |
+| **AUT-006** | Canon changes only with the Oracle's signature and a decision record giving the reason. | `[MANUAL]` — the decision record is verifiable, its adequacy is not |
+| **AUT-007** | Standards, protocols and decisions change by a decision record, or by a pull request the Oracle approves. | `[MANUAL]` — GitHub records the approval; matching it to the change is judgement |
+| **AUT-063** | The change lands in the document it governs. A rule written in a decision, a mission or a commit message is not a rule yet: the document is where a reader looks, so that is where the sentence goes. | `[MANUAL]` — recognising an obligation outside its document is the judgement |
+| **AUT-008** | A finished mission or a published report keeps its claims; its form may be corrected and the commit says so. | `[MANUAL]` — separating a claim from its form needs a reader |
+| **AUT-009** | Everything else changes by an ordinary pull request. | branch protection, GitHub settings |
+| **AUT-067** | An agent never edits its own `SOUL.md` or `OPERATOR.md`; both are Oracle-approved. | `[MANUAL]` — CODEOWNERS could decide it; not wired |
+| **AUT-010** | Facing an irreversible act in doubt, an agent does not act and escalates instead. | `[MANUAL]` — an act not taken leaves no trace to check |
+| **AUT-065** | What each rank may do to a document: an Oracle approves structural change, seals canon, and alone promotes an artefact to stable or breaks it; an Archon authorises iterations below the stable line; a digital agent writes its own files and its assigned missions; a custodian maintains documents, indexes and changelogs; automation writes reports only. Which rank an actor holds is defined in the canon of roles, not here. | `[MANUAL]` — mapping an author to a rank needs the roster |
 
 **States.** A normative document — canon, standard or protocol — is `draft`
 (binds nobody), `active` (binds), `superseded` (replaced by the document it
@@ -139,85 +139,85 @@ that is what `superseded` and `withdrawn` are for. Who holds which rank is
 
 | ID | Rule | Verified by |
 |---|---|---|
-| **CORE-11** | Every document carries the identifier of its series, and that identifier never changes. | `lint-naming.mjs` |
-| **CORE-12** | A filename carries no state; state lives in a declared field. | `check-core-rules.mjs` |
-| **CORE-13** | A filename carries no version; the version lives in a declared field. | `check-core-rules.mjs` |
-| **CORE-14** | An identifier once used is never reused, not even after the document is deleted. | `check-core-rules.mjs` |
-| **CORE-15** | When two agents claim one identifier, whoever committed first keeps it and the second renumbers. | `[MANUAL]` — resolved by commit order at the moment of collision, not by a later scan |
+| **IDN-011** | Every document carries the identifier of its series, and that identifier never changes. | `lint-naming.mjs` |
+| **IDN-012** | A filename carries no state; state lives in a declared field. | `check-core-rules.mjs` |
+| **IDN-013** | A filename carries no version; the version lives in a declared field. | `check-core-rules.mjs` |
+| **IDN-014** | An identifier once used is never reused, not even after the document is deleted. | `check-core-rules.mjs` |
+| **IDN-015** | When two agents claim one identifier, whoever committed first keeps it and the second renumbers. | `[MANUAL]` — resolved by commit order at the moment of collision, not by a later scan |
 ---
 
 ## 5. The header
 
 | ID | Rule | Verified by |
 |---|---|---|
-| **CORE-16** | Every document opens with frontmatter fenced by three dashes on their own lines. | `check-frontmatter-delimiter.mjs` |
-| **CORE-17** | Frontmatter parses as valid YAML. | `check-frontmatter-yaml.mjs` |
-| **CORE-18** | A new frontmatter field requires both a line in the header standard's registry and a decision record. | `[MANUAL]` — the registry line is checkable; that the decision justifies it is not |
-| **CORE-19** | Every document declares its licence. What the value must be — an SPDX identifier that agrees with the licence manifest — is `H-08` in the header standard. | `check-license-frontmatter.mjs` |
-| **CORE-20** | A field whose value is unknown is never filled with a guess. An empty value is not the way to say so: absence is declared, in one of the three forms the glossary distinguishes — the field omitted, `null`, or `TBA` with the mission that resolves it. | `check-core-rules.mjs` |
+| **HDR-040** | Every document opens with frontmatter fenced by three dashes on their own lines. | `check-frontmatter-delimiter.mjs` |
+| **HDR-041** | Frontmatter parses as valid YAML. | `check-frontmatter-yaml.mjs` |
+| **HDR-042** | A new frontmatter field requires both a line in the header standard's registry and a decision record. | `[MANUAL]` — the registry line is checkable; that the decision justifies it is not |
+| **HDR-043** | Every document declares its licence. What the value must be — an SPDX identifier that agrees with the licence manifest — is `HDR-008` in the header standard. | `check-license-frontmatter.mjs` |
+| **HDR-044** | A field whose value is unknown is never filled with a guess. An empty value is not the way to say so: absence is declared, in one of the three forms the glossary distinguishes — the field omitted, `null`, or `TBA` with the mission that resolves it. | `check-core-rules.mjs` |
 ---
 
 ## 6. Versions
 
 | ID | Rule | Verified by |
 |---|---|---|
-| **CORE-21** | Versions are semantic, as defined by Semantic Versioning 2.0.0 (https://semver.org). Adopted as published, not redefined here. Every artefact starts at `0.1.0`. | `check-core-rules.mjs` |
-| **CORE-64** | Who may move a number is set by which number it is: a digital agent moves the patch, an Archon moves the minor, and only an Oracle moves the major. Promotion to `1.0.0` is a major move. | `[MANUAL]` — matching an author to the number they moved is judgement |
-| **CORE-22** | Changing what a document requires raises at least the middle number. | `[MANUAL]` — classifying a diff as a changed obligation is the judgement itself |
-| **CORE-23** | Reversing what a document requires raises the first number. | `[MANUAL]` — same as CORE-22, and see `DBT-015` for the escalation it triggers |
-| **CORE-24** | The version in the header and the version at the top of the document's own change log agree. | `check-core-rules.mjs` |
+| **VER-021** | Versions are semantic, as defined by Semantic Versioning 2.0.0 (https://semver.org). Adopted as published, not redefined here. Every artefact starts at `0.1.0`. | `check-core-rules.mjs` |
+| **VER-064** | Who may move a number is set by which number it is: a digital agent moves the patch, an Archon moves the minor, and only an Oracle moves the major. Promotion to `1.0.0` is a major move. | `[MANUAL]` — matching an author to the number they moved is judgement |
+| **VER-022** | Changing what a document requires raises at least the middle number. | `[MANUAL]` — classifying a diff as a changed obligation is the judgement itself |
+| **VER-023** | Reversing what a document requires raises the first number. | `[MANUAL]` — same as VER-022, and see `DBT-015` for the escalation it triggers |
+| **VER-024** | The version in the header and the version at the top of the document's own change log agree. | `check-core-rules.mjs` |
 ---
 
 ## 7. Git
 
 | ID | Rule | Verified by |
 |---|---|---|
-| **CORE-25** | Work reaches the main branch through a pull request, never by direct push. | branch protection, GitHub settings |
-| **CORE-26** | A commit's first line says what changed and why, and stays on one line. | `check-core-rules.mjs` |
-| **CORE-27** | A generated file is regenerated, never edited by hand. | `generate-design-kit.mjs`, `telemetry.mjs --check` |
-| **CORE-28** | Telemetry is regenerated after the commit it measures, never before. | `telemetry.mjs --check` |
-| **CORE-29** | A conflict inside a generated file is resolved by regenerating it, not by choosing sides. | `[MANUAL]` — a resolved conflict looks like any other commit |
-| **CORE-30** | History on a shared branch is never rewritten. | branch protection, GitHub settings |
+| **GIT-025** | Work reaches the main branch through a pull request, never by direct push. | branch protection, GitHub settings |
+| **GIT-026** | A commit's first line says what changed and why, and stays on one line. | `check-core-rules.mjs` |
+| **GIT-027** | A generated file is regenerated, never edited by hand. | `generate-design-kit.mjs`, `telemetry.mjs --check` |
+| **GIT-028** | Telemetry is regenerated after the commit it measures, never before. | `telemetry.mjs --check` |
+| **GIT-029** | A conflict inside a generated file is resolved by regenerating it, not by choosing sides. | `[MANUAL]` — a resolved conflict looks like any other commit |
+| **GIT-030** | History on a shared branch is never rewritten. | branch protection, GitHub settings |
 ---
 
 ## 8. Archiving
 
 | ID | Rule | Verified by |
 |---|---|---|
-| **CORE-45** | A `superseded` document names its heir. A document is `withdrawn` when the rule left and nothing replaced it: that state names no heir, and the check is symmetric — `superseded` without an heir is a breach, `withdrawn` with one is a breach. | `check-core-rules.mjs` |
-| **CORE-46** | A retired document stays reachable at the address where it was published. | `check-url-lifecycle.mjs` |
-| **CORE-47** | A redirect points at the destination that replaced the document, never at an index. | `[MANUAL]` — a redirect resolves; whether its target is the right heir does not |
-| **CORE-48** | Nothing is deleted while something still cites it. | `check-references.mjs` |
-| **CORE-49** | A document is copied nowhere; it is linked, and a derived copy declares its master. | `[MANUAL]` — pending; a content-hash scan would catch this and does not exist |
+| **GIT-045** | A `superseded` document names its heir. A document is `withdrawn` when the rule left and nothing replaced it: that state names no heir, and the check is symmetric — `superseded` without an heir is a breach, `withdrawn` with one is a breach. | `check-core-rules.mjs` |
+| **GIT-046** | A retired document stays reachable at the address where it was published. | `check-url-lifecycle.mjs` |
+| **GIT-047** | A redirect points at the destination that replaced the document, never at an index. | `[MANUAL]` — a redirect resolves; whether its target is the right heir does not |
+| **GIT-048** | Nothing is deleted while something still cites it. | `check-references.mjs` |
+| **GIT-049** | A document is copied nowhere; it is linked, and a derived copy declares its master. | `[MANUAL]` — pending; a content-hash scan would catch this and does not exist |
 ---
 
 ## 9. Citation
 
 | ID | Rule | Verified by |
 |---|---|---|
-| **CORE-50** | A citation names the document, not one of its section numbers. | `check-core-rules.mjs` |
-| **CORE-51** | Structural references live in one list at the end of the document. | `[MANUAL]` — gathering is a layout property, and layout has no schema here |
-| **CORE-52** | A claim about the codebase names the file that proves it, and that file exists. | `[MANUAL]` — the named file is checkable, that it proves the claim is not |
-| **CORE-53** | A broken link inside a closed document is a photograph, not a defect. | `[MANUAL]` — an exemption, not an obligation; nothing to check |
+| **CIT-050** | A citation names the document, not one of its section numbers. | `check-core-rules.mjs` |
+| **CIT-051** | Structural references live in one list at the end of the document. | `[MANUAL]` — gathering is a layout property, and layout has no schema here |
+| **CIT-052** | A claim about the codebase names the file that proves it, and that file exists. | `[MANUAL]` — the named file is checkable, that it proves the claim is not |
+| **CIT-053** | A broken link inside a closed document is a photograph, not a defect. | `[MANUAL]` — an exemption, not an obligation; nothing to check |
 ---
 
 ## 10. Secrets
 
 | ID | Rule | Verified by |
 |---|---|---|
-| **CORE-54** | No credential, token or key is ever written into the corpus. | `[MANUAL]` — no secret scanner is wired |
-| **CORE-55** | An exposed credential is rotated before the exposure is written down. | `[MANUAL]` — rotation happens outside this repository |
-| **CORE-56** | A live finding is reported out of band, not committed to this repository. | `[MANUAL]` — the absence of a report is not observable from inside |
-| **CORE-57** | An audit declares how many things it examined out of how many exist. | `[MANUAL]` — the denominator is prose |
+| **KEY-054** | No credential, token or key is ever written into the corpus. | `[MANUAL]` — no secret scanner is wired |
+| **KEY-055** | An exposed credential is rotated before the exposure is written down. | `[MANUAL]` — rotation happens outside this repository |
+| **KEY-056** | A live finding is reported out of band, not committed to this repository. | `[MANUAL]` — the absence of a report is not observable from inside |
+| **EVI-057** | An audit declares how many things it examined out of how many exist. | `[MANUAL]` — the denominator is prose |
 ---
 
 ## 11. Licences
 
 | ID | Rule | Verified by |
 |---|---|---|
-| **CORE-58** | Every directory declares the licence of what it holds. | `check-license-frontmatter.mjs` |
-| **CORE-59** | The licence in a document and the licence in the manifest agree. | `check-license-frontmatter.mjs` |
-| **CORE-60** | A permanent publication is gated on a review of ownership. | `[MANUAL]` — the review is recorded outside the corpus |
+| **LIC-058** | Every directory declares the licence of what it holds. | `check-license-frontmatter.mjs` |
+| **LIC-059** | The licence in a document and the licence in the manifest agree. | `check-license-frontmatter.mjs` |
+| **LIC-060** | A permanent publication is gated on a review of ownership. | `[MANUAL]` — the review is recorded outside the corpus |
 ---
 
 ## 12. Conformance
@@ -233,8 +233,8 @@ look official. The share of `[MANUAL]` rules is the honest measure of how far
 this standard is from `CORE-31` in `STD-005`; `telemetry/` reports it, this
 document does not state it.
 
-Two rules wait on a tool rather than on a decision: `CORE-49` on a
-content-hash scan and `CORE-54` on a secret scanner. Neither is planned in a living document.
+Two rules wait on a tool rather than on a decision: `GIT-049` on a
+content-hash scan and `KEY-054` on a secret scanner. Neither is planned in a living document.
 
 ---
 
@@ -247,7 +247,7 @@ the section cites in its heading.
 It does not govern the platform, the product or the world. Its scope is the
 archive: this repository and the corpus it holds.
 
-It does not rank itself above the canon. `CORE-01` says where it sits.
+It does not rank itself above the canon. `PRE-001` says where it sits.
 
 ---
 

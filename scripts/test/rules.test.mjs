@@ -61,7 +61,7 @@ check('prefixToDir: retired D resolves to debt', () => prefixToDir(rules).D === 
 check('isApparatus: type meta, canonical basenames, template family', () =>
   isApparatus('standards/STANDARDS.md') && isApparatus('missions/TEMPLATE-EXAMPLE.md') && isApparatus('x/INDEX.md')
   && isApparatus('missions/ANNEX-x.md', { type: 'meta' }) && !isApparatus('missions/MIS-0138-x.md', { type: 'mission' }));
-check('isTemplate: the two families lint-frontmatter exempted from H-06', () =>
+check('isTemplate: the two families lint-frontmatter exempted from HDR-006', () =>
   isTemplate('agents/_template/README.md') && isTemplate('missions/TEMPLATE.md') && isTemplate('missions/TEMPLATE-CHANGES.md') && !isTemplate('missions/MIS-0001-x.md'));
 
 const failed = results.filter((r) => !r.ok);

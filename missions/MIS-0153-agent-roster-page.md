@@ -96,13 +96,13 @@ When a Chromium-compatible browser is available, additionally verify `/agent/`, 
 ## Renumbering note, 2026-09-05
 
 This mission was created as `MIS-149`. So was the Ursa cold-start bootstrap
-mission, three hours earlier on the same day. `CORE-14` forbids two documents
-holding one identifier, and `CORE-15` settles the collision by commit order:
+mission, three hours earlier on the same day. `IDN-014` forbids two documents
+holding one identifier, and `IDN-015` settles the collision by commit order:
 the earlier commit keeps the number. This document takes `MIS-153`, the next
 free identifier.
 
 `MIS-149` is not reused for anything else. Nothing outside these two files
 cited either of them, so no reference was broken by the change.
 
-Found by `check-core-rules.mjs` when `CORE-14` was implemented (`MIS-146`,
+Found by `check-core-rules.mjs` when `IDN-014` was implemented (`MIS-146`,
 batch 0). No reader had noticed in the intervening day.

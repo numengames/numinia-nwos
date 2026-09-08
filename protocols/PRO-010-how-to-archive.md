@@ -115,7 +115,7 @@ pattern:
 2. **A closed record is not rewritten by a rename.** `done`, `closed` and
    `superseded` documents are accounts of what was true then, not indexes of
    what is true now. A broken reference inside one is a photograph, not a
-   defect (`CORE-53`); a correction of substance is made in place with a
+   defect (`CIT-053`); a correction of substance is made in place with a
    dated note (`ADR-041`).
 3. **Everything else is rewritten, and the diff is read.** Not the exit code
    — the diff. `scripts/rename-series.mjs` enforces rules 1 and 2 and prints

@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "c194c28",
-  "corpus_hash": "36059284d6769135ea427ea77230a90c573f997c300fab30e296ab40488f4227",
+  "head": "e13b89b+index",
+  "corpus_hash": "06c5fcc8748b51425060cbbca01b00047144f3225bef7a50e28aabe292e64321",
   "root_dirty": 0,
-  "measured_at": "2026-09-08T21:50:04Z",
+  "measured_at": "2026-09-08T22:00:59Z",
   "families": [
     "corpus",
     "series",
@@ -17,7 +17,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 471,
+      "value": 472,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -33,7 +33,7 @@
         ".js": 1,
         ".json": 18,
         ".md": 161,
-        ".mjs": 44,
+        ".mjs": 45,
         ".png": 36,
         ".py": 7,
         ".sh": 2,
@@ -111,13 +111,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 49,
+      "value": 50,
       "unit": "files",
       "definition": "files under `scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 40,
+        "node": 41,
         "python": 7,
         "shell": 2
       },
@@ -342,20 +342,20 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 305627,
+      "value": 305940,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "missions": 52054,
-        "standards": 50455,
+        "missions": 52067,
+        "standards": 50488,
         "canon": 30370,
         "agents": 25348,
-        "protocols": 24497,
+        "protocols": 24501,
         "reports": 21507,
+        "decisions": 21475,
         "operations": 21358,
-        "decisions": 21212,
         "templates": 17148,
         "": 12433,
         "system": 9734,
@@ -370,12 +370,12 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 160160,
-        "draft": 64445,
-        "todo": 25259,
-        "in-progress": 15759,
+        "active": 160436,
+        "draft": 64469,
+        "todo": 25264,
+        "in-progress": 15763,
         "closed": 13593,
-        "done": 12554,
+        "done": 12558,
         "(none)": 12251,
         "superseded": 1606
       },
@@ -383,7 +383,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 17.03,
+      "value": 17.02,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -399,11 +399,11 @@
         ],
         [
           "missions/MIS-0127-entropy-reduction.md",
-          9146
+          9150
         ],
         [
           "missions/MIS-0121-header-baseline-burndown.md",
-          8999
+          9003
         ],
         [
           "canon/CAN-002-brand-and-culture.md",
@@ -820,7 +820,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 245,
+      "value": 246,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },

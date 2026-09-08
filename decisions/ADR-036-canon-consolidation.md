@@ -62,7 +62,7 @@ same change, and the two de-frozen documents take their numbers.
 hidden.** The reasoning: rule 4 protects the identifier as *a promise about
 the past*, and that promise is what `uid` is supposed to carry — a stable
 identity that survives renames. `uid` is declared but empty across the entire
-corpus (`S-004` §6, `H-20`), so today the number is doing a job it was not
+corpus (`S-004` §6, `HDR-020`), so today the number is doing a job it was not
 designed to do alone. **The rule is suspended for this folder until `uid` is
 populated repo-wide**, at which point the number becomes a display label and
 this exception becomes harmless. Until then, a reader who finds `C-006` in a
@@ -196,7 +196,7 @@ than they did before 2026-09-01. Suspension of `ADR-004` rule 4, lifted when
 
 ⚠️ **`ADR-004` rule 8 contradicts `S-004` §6.** Rule 8 requires `uid` to
 carry a UUIDv7 and cites `STANDARDS §2` as its basis; the superseded constitution (retired 2026-08-30, in git) marks
-that section *superseded — was wrong*, and `lint-frontmatter.mjs` `H-20`
+that section *superseded — was wrong*, and `lint-frontmatter.mjs` `HDR-020`
 **fails any file whose `uid` is non-empty**. An active ADR founds itself on a
 retired section. Not resolved here — recorded so the next reader does not
 rediscover it. It is what makes §3's suspension necessary rather than

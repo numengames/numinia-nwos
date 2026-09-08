@@ -54,7 +54,7 @@ arguable and unrecorded. The threshold is already declared per series in
 `STD-001` §2.2, so a reader can settle a conflict without asking anyone.
 
 **4. `standards/` may declare `absorbs`.** Registered in `STD-004` §7 per
-`H-30`, which requires a registry line plus this record. The field was
+`HDR-030`, which requires a registry line plus this record. The field was
 previously registered for `decisions/` and `debt/` only — the case of a manual
 merging into the standard that governs it had not arisen.
 
@@ -83,7 +83,7 @@ own title.
 | `ADR-035` | A folder is a genre | Established that the shelf declares the genre; this record draws the consequence for documents that govern rather than describe. |
 | `ADR-004` | Identifier convention | Rule 4 never frees an identifier, which is why `absorbs` is required rather than optional. |
 | `STD-002` | Governance | The absorbing document. |
-| `STD-004` | Header standard | `H-30` requires the registry line and this record. |
+| `STD-004` | Header standard | `HDR-030` requires the registry line and this record. |
 
 ---
 

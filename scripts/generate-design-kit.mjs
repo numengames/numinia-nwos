@@ -22,7 +22,7 @@ const standards = path.join(root, "standards");
 
 // The master is the registered Design System standard. Its version comes
 // from the `version:` frontmatter field, not from the filename — a filename
-// carries no version (CORE-13), which is why STD-008 was renamed off the
+// carries no version (IDN-013), which is why STD-008 was renamed off the
 // dated `Sistema_de_Diseno-vN.N.N.md` shape in the first place.
 const masterFile = "STD-008-design-system.md";
 const masterPath = path.join(standards, masterFile);

@@ -66,13 +66,13 @@ them failing today:
 
 | ID | Practice | Where it is set |
 |---|---|---|
-| ARC-02 | Branch protection on `main`: PR required, status checks required, no force push | Per repo |
-| DEV-07 | At least one approving review before `main` | Per repo |
-| SEC-12 | Commits to `main` verified (signed or web-verified) | Per repo |
-| SEC-02 | Secret scanning + push protection on every repo | Org + per repo |
-| SEC-03 | Dependabot alerts and security updates on | Org + per repo |
-| SEC-01 | 2FA enforced at organization level | Org |
-| SEC-11 | Organization base permission: read | Org |
+| ARC-002 | Branch protection on `main`: PR required, status checks required, no force push | Per repo |
+| DEV-007 | At least one approving review before `main` | Per repo |
+| SEC-012 | Commits to `main` verified (signed or web-verified) | Per repo |
+| SEC-002 | Secret scanning + push protection on every repo | Org + per repo |
+| SEC-003 | Dependabot alerts and security updates on | Org + per repo |
+| SEC-001 | 2FA enforced at organization level | Org |
+| SEC-011 | Organization base permission: read | Org |
 
 This is the mission that makes the Scorecard number move: Branch-Protection,
 Code-Review and Token-Permissions are among its heaviest checks.
@@ -123,14 +123,14 @@ Feature: main refuses what CI rejects
 
 - [ ] Branch protection on `main` in the three active repos, with required
       status checks named explicitly
-- [ ] One approving review required (DEV-07)
+- [ ] One approving review required (DEV-007)
 - [ ] Force push and branch deletion disabled on `main`
 - [ ] Verified commits required, or the exception recorded with its reason
-      (SEC-12 is SHOULD, not MUST)
-- [ ] Secret scanning + push protection enabled (SEC-02)
-- [ ] Dependabot alerts + security updates enabled (SEC-03)
-- [ ] 2FA enforced org-wide (SEC-01)
-- [ ] Base permission set to read (SEC-11)
+      (SEC-012 is SHOULD, not MUST)
+- [ ] Secret scanning + push protection enabled (SEC-002)
+- [ ] Dependabot alerts + security updates enabled (SEC-003)
+- [ ] 2FA enforced org-wide (SEC-001)
+- [ ] Base permission set to read (SEC-011)
 - [ ] The settings are recorded in this file as the evidence — screenshots or
       a written statement per repo. A setting nobody can verify later is a
       setting that will drift.

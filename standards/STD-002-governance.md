@@ -35,15 +35,15 @@ license: "CC0-1.0"
 
 | Was here | Is now |
 |---|---|
-| Which document wins | `STD-009`, *Precedence* (`CORE-01`..`05`) |
+| Which document wins | `STD-009`, *Precedence* (`PRE-001`..`05`) |
 | Changing a standard, roles, versioning authority | `STD-009`, *Authority* and *Versions* |
 | What a document can be (states) | `STD-009`, *Authority · States* |
-| Permissions by series, what each series answers | `STD-001`, *The series*; `CORE-03` |
+| Permissions by series, what each series answers | `STD-001`, *The series*; `PRE-003` |
 | G-01 canon wins · G-06 escalation · G-10 48 h | `PRO-005` |
 | G-02, G-03 one executor · G-07 doubt · G-08 stale | `PRO-003`, *The rules that do not bend* |
-| G-04 `SOUL.md` / `OPERATOR.md` | `CORE-67` |
+| G-04 `SOUL.md` / `OPERATOR.md` | `AUT-067` |
 | G-05 nobody deletes | reversed by `ADR-041` |
-| G-09 canon change needs the Oracle | `CORE-06` |
+| G-09 canon change needs the Oracle | `AUT-006` |
 | G-11, G-12 pin, never copy; sovereignty | `STD-005`, *Adoption* |
 | Canon emission — not yet in force | `MIS-102` (it was a target, not a rule) |
 | Relation vocabulary | `STD-004`, *Ring 2* |

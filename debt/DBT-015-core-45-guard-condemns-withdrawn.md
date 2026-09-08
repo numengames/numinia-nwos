@@ -1,7 +1,7 @@
 ---
 id: "DBT-015"
 uid: ""
-title: "The CORE-45 guard demands an heir from withdrawn documents, which by definition have none"
+title: "The GIT-045 guard demands an heir from withdrawn documents, which by definition have none"
 type: documentation
 status: closed
 version: "2.0.0"
@@ -20,7 +20,7 @@ guild: "Exegetes"
 territory: "Archive"
 ---
 
-# The `CORE-45` guard demands an heir from withdrawn documents, which by definition have none
+# The `GIT-045` guard demands an heir from withdrawn documents, which by definition have none
 
 ## Summary
 
@@ -35,10 +35,10 @@ condemns the correct use of the field.
 
 ```js
 if (['superseded', 'retired', 'withdrawn'].includes(f.status) && !f.superseded_by)
-  record('CORE-45', `status ${f.status} with no heir`, r);
+  record('GIT-045', `status ${f.status} with no heir`, r);
 ```
 
-`CORE-45` reads: *"A superseded document names its heir."* It says nothing
+`GIT-045` reads: *"A superseded document names its heir."* It says nothing
 about `withdrawn`. The rule is about supersession; the guard applies it to
 three statuses.
 
@@ -70,13 +70,13 @@ stale `superseded_by` unchallenged.
 
 `retired` left the array as well: it is in no series' status vocabulary in
 `rules.json`, so the guard was testing a value `lint-frontmatter` already
-rejects. `CORE-45` was reworded in the same movement and names this record.
+rejects. `GIT-045` was reworded in the same movement and names this record.
 
 Verified by breaking it four ways: superseded without heir fails, withdrawn
 with heir fails, withdrawn without heir passes, and the clean tree reports 243
 documents with all eleven rules holding.
 
-The second defect below — the `CORE-23` / `STD-002` escalation gap — is **not**
+The second defect below — the `VER-023` / `STD-002` escalation gap — is **not**
 resolved. It needs a sentence only the Oracle can authorise, and it survives
 this record's closure.
 
@@ -92,7 +92,7 @@ check — but it is a design decision for the guard redesign, not a patch.
 
 ## A second defect in the same neighbourhood
 
-`CORE-23` requires the first number to rise when a document reverses an
+`VER-023` requires the first number to rise when a document reverses an
 obligation. `STD-002` reserves the `v1.X.0 → v2.0.0` move to the Oracle.
 
 An agent that reverses an obligation is therefore required by one rule to do
@@ -105,7 +105,7 @@ Recorded here, not decided.
 
 ## References
 
-- [`STD-009` — Core rules](../standards/STD-009-core-rules.md) `CORE-23`, `CORE-45`
+- [`STD-009` — Core rules](../standards/STD-009-core-rules.md) `VER-023`, `GIT-045`
 - [`STD-002` — Governance](../standards/STD-002-governance.md)
 - [`MIS-146` — Normative refoundation](../missions/MIS-0146-normative-refoundation.md)
 - `scripts/check-core-rules.mjs`

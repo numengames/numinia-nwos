@@ -43,7 +43,7 @@ const rows: Row[] = (await getCollection("reports")).map((e) => {
 const groups = SUBTYPES.map((s) => ({ ...s, rows: rows.filter((r) => r.subtype === s.key) }));
 const known = new Set(SUBTYPES.map((s) => s.key));
 const other = rows.filter((r) => !known.has(r.subtype));
-if (other.length) groups.push({ key: "other", label: "Unclassified", blurb: "subtype missing or outside the registered vocabulary (STD-004 H-18).", rows: other });
+if (other.length) groups.push({ key: "other", label: "Unclassified", blurb: "subtype missing or outside the registered vocabulary (STD-004 HDR-018).", rows: other });
 for (const g of groups) g.rows.sort((a, b) => b.created.localeCompare(a.created));
 ---
 

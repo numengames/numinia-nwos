@@ -38,7 +38,7 @@
 //   T-05  `type` matches what STD-004 §5 maps to the destination series
 //   T-06  `status` is in the destination series' lifecycle
 //   T-07  every frontmatter key is in ring 1, 2 or the destination's ring 3
-//   T-08  version is bare SemVer and opens at 0.1.0 (STD-009 CORE-21)
+//   T-08  version is bare SemVer and opens at 0.1.0 (STD-009 VER-021)
 //   T-09  the context card is present, with Summary, Epistemic and Pragmatic
 //   T-10  every registered series has a template
 //   T-11  every standard in standards/ has the template's shape and no log of itself
@@ -169,14 +169,14 @@ for (const rel of files) {
   if (fm.status && !life.includes(fm.status))
     F('T-06', rel, `status "${fm.status}" is not in ${dir}/'s lifecycle [${life.join(' ')}]`);
 
-  // T-07: no field the destination does not register (STD-004 §7, H-30's rule
+  // T-07: no field the destination does not register (STD-004 §7, HDR-030's rule
   // applied one step earlier — at the mould instead of at its copies).
   const ring3 = RING3[dir] ?? [];
   for (const k of Object.keys(fm)) {
     if (RING1.includes(k) || RING2.includes(k) || RING3_ALL.includes(k)) continue;
     if (ring3.includes(k)) continue;
     if (k === 'subtype') continue;                 // lint-frontmatter allows it corpus-wide
-    F('T-07', rel, `field "${k}" is registered for no ring of ${dir}/ — a document copied from this mould fails H-30`);
+    F('T-07', rel, `field "${k}" is registered for no ring of ${dir}/ — a document copied from this mould fails HDR-030`);
   }
 
   // T-01 ring 1 presence: a mould that omits a mandatory field teaches its absence.
@@ -184,7 +184,7 @@ for (const rel of files) {
     if (!(k in fm) || fm[k] === '')
       F('T-01', rel, `missing mandatory field "${k}" — the mould must carry the whole ring 1`);
 
-  // T-08: SemVer, opening at 0.1.0 (STD-009 CORE-21: every artifact starts there).
+  // T-08: SemVer, opening at 0.1.0 (STD-009 VER-021: every artifact starts there).
   if (fm.version && !SEMVER.test(fm.version))
     F('T-08', rel, `version "${fm.version}" is not bare SemVer`);
   else if (fm.version && fm.version !== '0.1.0' && dir !== 'reports')

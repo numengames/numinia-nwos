@@ -25,7 +25,7 @@ export default defineConfig({
 	// before push (72bff4c): the URL never went live, and the entry is about
 	// page weight, not a broken link. See DBT-004.
 	redirects: {
-		// MIS-146 closed 2026-09-09; its line is in the week-37 roll-up (STD-012 DEF-05)
+		// MIS-146 closed 2026-09-09; its line is in the week-37 roll-up (STD-012 DEF-005)
 		"/missions/mis-146": "/reports/rpt-019-2026-w37",
 		"/misiones/mis-146": "/reports/rpt-019-2026-w37",
 		// design kit, 2026-09-08 (Oracle ruling 2026-09-05): the version left the

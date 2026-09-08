@@ -1,7 +1,7 @@
 ---
 id: "ADR-037"
 uid: ""
-title: "Accessibility gate has one normative home: ARC-10 in STD-005, not repeated in three places"
+title: "Accessibility gate has one normative home: ARC-010 in STD-005, not repeated in three places"
 type: adr
 status: active
 version: "1.0.0"
@@ -21,7 +21,7 @@ superseded_by: null
 
 # ADR-037 · Accessibility gate has one normative home
 
-> **Summary:** WCAG AA conformance for code artifacts is now `ARC-10` in
+> **Summary:** WCAG AA conformance for code artifacts is now `ARC-010` in
 > `STD-005`, the single point a reader or a guard consults for "what does
 > this repo require, and what actually checks it." Design-subject
 > accessibility (contrast tokens, focus-ring color, tap targets) stays in
@@ -29,7 +29,7 @@ superseded_by: null
 
 ## Decision
 
-1. **`ARC-10` is added to `STD-005 §3.2`** as the single practice ID for
+1. **`ARC-010` is added to `STD-005 §3.2`** as the single practice ID for
    code-artifact accessibility: WCAG 2.2 AA on every public route, tab
    order matching visual order, visible focus ring. Check tag names the
    real gate (`numinia-web/apps/store/e2e/a11y.spec.ts`) and states its
@@ -38,10 +38,10 @@ superseded_by: null
    (tokens, contrast values, principle) — not code compliance. This is not
    the dispersion; it is two documents correctly discussing the same value
    from different subjects, per `STD-001 §3`'s `type`-vs-folder test.
-3. **`a11y.spec.ts`'s header comment is corrected** to cite `ARC-10`
+3. **`a11y.spec.ts`'s header comment is corrected** to cite `ARC-010`
    explicitly instead of an unnamed, unverifiable "constitution" quote.
 4. **`numinia-web/CLAUDE.md`'s code-standards line is corrected** to
-   reference `ARC-10` instead of repeating the prose independently.
+   reference `ARC-010` instead of repeating the prose independently.
 5. **The Design System rename question is deferred and registered as
    `DBT-013`**, not decided here.
 
@@ -51,5 +51,5 @@ superseded_by: null
 - `PRO-010` (legacy dated names) / `MIS-125` is not amended or reversed.
 - The corpus toolbar's own tab-order coverage gap (only the platform home
   nav is tested, not `/corpus/**` documents with `SpeechPlayer`) is
-  described in `ARC-10`'s check column but not closed — that is `MIS-152`
+  described in `ARC-010`'s check column but not closed — that is `MIS-152`
   and future audit work, not this ADR.

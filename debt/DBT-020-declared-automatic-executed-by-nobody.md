@@ -39,11 +39,11 @@ related: ["MIS-0146", "STD-005", "STD-010", "STD-011"]
 
 | Declaration | Where | Reality in the tree |
 |---|---|---|
-| `[AUTO: reuse lint in CI]` | `STD-005` ARC-03 | **`reuse` runs in no workflow.** The fifteen steps of `ci.yml` do not include it; the package is not installed locally |
-| `[AUTO: commitlint]` | `STD-005` ARC-06 | **No commitlint, no husky, no config** anywhere in the tree |
+| `[AUTO: reuse lint in CI]` | `STD-005` ARC-003 | **`reuse` runs in no workflow.** The fifteen steps of `ci.yml` do not include it; the package is not installed locally |
+| `[AUTO: commitlint]` | `STD-005` ARC-006 | **No commitlint, no husky, no config** anywhere in the tree |
 | `[AUTO]` for DCO | `STD-010` | **No bot. 0 of the last 30 commits carry `Signed-off-by`** |
-| `[AUTO: axe-core + Playwright, numinia-web/apps/store/e2e/a11y.spec.ts]` | `STD-005` ARC-10 | **The test is real** — 31 routes, both themes — but that path does not exist in *this* repository, and the citation reads as if it did |
-| «coverage incomplete, `DBT-013`» | `STD-005` ARC-10 | **`DBT-013` has been `closed` since 2026-09-04.** The standard cites an open debt that is shut |
+| `[AUTO: axe-core + Playwright, numinia-web/apps/store/e2e/a11y.spec.ts]` | `STD-005` ARC-010 | **The test is real** — 31 routes, both themes — but that path does not exist in *this* repository, and the citation reads as if it did |
+| «coverage incomplete, `DBT-013`» | `STD-005` ARC-010 | **`DBT-013` has been `closed` since 2026-09-04.** The standard cites an open debt that is shut |
 
 ## 2. Why this is worse than a missing guard
 
@@ -106,7 +106,7 @@ what it verifies and one that assumes it.
 
 ## 6. References
 
-- `STD-005` ARC-03, ARC-06, ARC-10 — the declarations
+- `STD-005` ARC-003, ARC-006, ARC-010 — the declarations
 - `STD-010` — the DCO rule
 - `STD-011` — the register that measures the distance
 - `DBT-013` — closed 2026-09-04, still cited as open

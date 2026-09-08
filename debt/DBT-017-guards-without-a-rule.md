@@ -60,8 +60,8 @@ The five unnamed: `check-deletable`, `check-internal-links`, `check-orphan-conte
 The three that block a merge: **`check-internal-links`**, **`check-orphan-content`**,
 **`lint-frontmatter`**.
 
-`lint-frontmatter` is the sharpest case. It fails builds on `H-03`, `H-04` and
-`H-30` — rule identifiers from `STD-004` — and it maintains a baseline of accepted
+`lint-frontmatter` is the sharpest case. It fails builds on `HDR-003`, `HDR-004` and
+`HDR-030` — rule identifiers from `STD-004` — and it maintains a baseline of accepted
 violations. `STD-004` defines those rules. No document says that this script is
 what enforces them, which the corpus needs stated in the direction *rule → guard*,
 not only inferred from an error message.

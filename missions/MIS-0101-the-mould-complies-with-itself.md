@@ -61,19 +61,19 @@ Audited today against §4 of `standards/STD-005-engineering-standards.md`:
 | `SECURITY.md` | ✅ | ✅ | ✅ |
 | `CONTRIBUTING.md` | ✅ | ✅ | ✅ |
 | `CODE_OF_CONDUCT.md` | ❌ | ✅ | ✅ |
-| `TODO.md` (PM-05) | ❌ | ✅ | ✅ |
-| `.editorconfig` (DEV-03) | ❌ | ✅ | ✅ |
-| `.env.example` (DEV-01) | ❌ | ✅ | ✅ |
-| `dependabot.yml` (SEC-03) | ❌ | ✅ | ✅ |
+| `TODO.md` (TRC-005) | ❌ | ✅ | ✅ |
+| `.editorconfig` (DEV-003) | ❌ | ✅ | ✅ |
+| `.env.example` (DEV-001) | ❌ | ✅ | ✅ |
+| `dependabot.yml` (SEC-003) | ❌ | ✅ | ✅ |
 | CODEOWNERS, templates | ✅ | ✅ | ✅ |
-| Pipeline ARC-01 | ❌ | ✅ | ✅ |
+| Pipeline ARC-001 | ❌ | ✅ | ✅ |
 
 Its own `CLAUDE.md` states it: *"No tests or lint yet (MIS-070)."* CI runs the
 licence-frontmatter guard and the web build — two good checks, but not the
 pipeline every other repo is now required to run.
 
 `.env.example` deserves its own note: the repo genuinely has no environment
-variables. DEV-01 asks for an exhaustive example file, and "there are none" is
+variables. DEV-001 asks for an exhaustive example file, and "there are none" is
 an answer that has to be written down, not assumed — otherwise the next
 contributor cannot tell "no variables" from "nobody documented them".
 
@@ -83,9 +83,9 @@ contributor cannot tell "no variables" from "nobody documented them".
   two. A `CODE_OF_CONDUCT.md` in a governance repository is not the same
   document as in a marketing site.
 - `TODO.md` collects the debt this repo already tracks in prose across
-  `CLAUDE.md`, `GAPS.md` and mission bodies. It is a roadmap file (PM-05), not
+  `CLAUDE.md`, `GAPS.md` and mission bodies. It is a roadmap file (TRC-005), not
   a second gap map: `GAPS.md` stays strategic.
-- The ARC-01 pipeline for `web/`: `type-check → lint → test → build`, added to
+- The ARC-001 pipeline for `web/`: `type-check → lint → test → build`, added to
   the existing `ci.yml` beside the licence guard, with third-party actions
   already pinned (they are) and read-only tokens (they are).
 - Whatever `lint` and `type-check` uncover is part of this mission. On

@@ -46,7 +46,7 @@ to run it; the Oracle reviews the PR.
 
 - `main` is green.
 - `git log --since=<monday-of-the-week>` is at hand: it is the daily record
-  (`DEF-01`) and the only input besides the closed files themselves.
+  (`DEF-001`) and the only input besides the closed files themselves.
 - `node scripts/check-deletable.mjs --candidates` lists what closed.
 
 ---
@@ -61,7 +61,7 @@ to run it; the Oracle reviews the PR.
    title, one sentence of what was done or decided, the commit or PR that
    proves it. The line is written from the record's own Closure, not
    rewritten.
-3. **Mark what survives.** For each line, state which of `DEF-03`'s three
+3. **Mark what survives.** For each line, state which of `DEF-003`'s three
    it meets — `rule`, `debt`, `address` — or `none`. `none` lines stay in
    the weekly report and fall at the quarterly. A line the executor cannot
    classify is marked `oracle` and stays until the Oracle rules.
@@ -72,7 +72,7 @@ to run it; the Oracle reviews the PR.
 6. **Delete the records.** `git rm` every file from step 2.
 7. **Point the phase report.** Add one line to the open phase report
    (`RPT-018` today) citing this week's report — *not* its lines
-   (`DEF-06`).
+   (`DEF-006`).
 8. **Verify and measure.** Run every guard in `ci.yml`; run `npm run
    build`; then `node scripts/telemetry.mjs` **as the last action before
    the commit**, commit, re-run `--check`, amend if a figure moved.
@@ -82,7 +82,7 @@ to run it; the Oracle reviews the PR.
 **Quarterly and annual.** Same steps, where the "closed records" are the
 weekly (or quarterly) reports of the period. Only lines marked `rule`,
 `debt` or `address` are carried up; the `absorbs:` lists move whole
-(`DEF-05`); redirects are repointed; the lower reports are deleted.
+(`DEF-005`); redirects are repointed; the lower reports are deleted.
 
 ---
 

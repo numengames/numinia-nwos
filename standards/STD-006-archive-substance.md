@@ -5,9 +5,9 @@ title: "The archive is plain text, versioned, and sovereign"
 type: documentation
 subtype: standard
 status: active
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-09-03T06:27:46Z"
-updated: "2026-09-08T19:30:00+02:00"
+updated: "2026-09-09T00:10:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Archive"
@@ -148,29 +148,29 @@ requires.
 
 | Check | Rule | Verified by |
 |---|---|---|
-| `A-01` | Every corpus document is a `.md` file under a series folder | `node scripts/lint-naming.mjs` |
-| `A-02` | Frontmatter is well-formed plain-text YAML with correct delimiters | `node scripts/check-frontmatter-yaml.mjs`, `node scripts/check-frontmatter-delimiter.mjs` |
-| `A-03` | No document's content exists only outside the corpus tree | `node scripts/check-prose-in-code.mjs` (partial: covers prose living in components) |
-| `A-04` | One document per file | `[MANUAL]` |
-| `A-05` | No binary artifact is the authoritative copy of a corpus assertion | `[MANUAL]` |
-| `A-06` | The corpus is fully reconstructible from a single clone | `[MANUAL]` |
-| `A-07` | Every external dependency satisfies the three conditions of §2.3 | `[MANUAL]` |
+| `TXT-001` | Every corpus document is a `.md` file under a series folder | `node scripts/lint-naming.mjs` |
+| `TXT-002` | Frontmatter is well-formed plain-text YAML with correct delimiters | `node scripts/check-frontmatter-yaml.mjs`, `node scripts/check-frontmatter-delimiter.mjs` |
+| `TXT-003` | No document's content exists only outside the corpus tree | `node scripts/check-prose-in-code.mjs` (partial: covers prose living in components) |
+| `TXT-004` | One document per file | `[MANUAL]` |
+| `TXT-005` | No binary artifact is the authoritative copy of a corpus assertion | `[MANUAL]` |
+| `TXT-006` | The corpus is fully reconstructible from a single clone | `[MANUAL]` |
+| `TXT-007` | Every external dependency satisfies the three conditions of §2.3 | `[MANUAL]` |
 
-`A-04` is `[MANUAL]` because a file containing two documents is
+`TXT-004` is `[MANUAL]` because a file containing two documents is
 syntactically indistinguishable from one containing a document with two
 sections. The distinction is whether either half could be cited or retired
 alone — a judgment about meaning.
 
-`A-05` is `[MANUAL]` because authority is not a file property. The same
+`TXT-005` is `[MANUAL]` because authority is not a file property. The same
 image is an illustration in one document and the sole record of a decision
 in another; only a reader can tell which.
 
-`A-06` is `[MANUAL]` because verifying it means clone, disconnect, and read.
+`TXT-006` is `[MANUAL]` because verifying it means clone, disconnect, and read.
 The criterion to apply: take a fresh clone with no network, and ask whether
 any document is missing, truncated, or unreadable. If the answer requires
 fetching anything, this standard is failed.
 
-`A-07` is `[MANUAL]` and is a **gate**, applied before a dependency is
+`TXT-007` is `[MANUAL]` and is a **gate**, applied before a dependency is
 adopted, not audited afterwards. The criterion is the three numbered
 conditions of §2.3, answered in writing in the document that proposes the
 dependency. A dependency adopted without that answer is unassessed, not

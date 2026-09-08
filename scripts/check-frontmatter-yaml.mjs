@@ -55,7 +55,7 @@ let checked = 0;
 for (const rel of files) {
   const txt = readFileSync(`${root}/${rel}`, 'utf8');
   const m = txt.match(/^---\s*\n([\s\S]*?)\n---[ \t]*(\r?\n|$)/);
-  if (!m) continue;              // sin frontmatter: es cosa de H-00
+  if (!m) continue;              // sin frontmatter: es cosa de HDR-000
   checked++;
 
   const lines = m[1].split('\n');

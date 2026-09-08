@@ -100,7 +100,7 @@ executor filters differently. The Oracle agreed on each point.
 
 - The first weekly roll-up is due Monday 2026-09-14 for week 37; the two
   missions closed on 2026-09-08 (`MIS-121`, `MIS-151`) are its first lines.
-- `DEF-02` has no guard: `period` is not read by any script. Recorded as
+- `DEF-002` has no guard: `period` is not read by any script. Recorded as
   debt here, not in a new `DBT-` file, per the spirit of this decision —
   it closes when a guard reads it, in the same PR.
 - `PRO-003` needs no further amendment: a closed mission's exit is already

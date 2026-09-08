@@ -81,7 +81,7 @@ def main():
             if CITA.fullmatch(v):
                 existen.setdefault(v, rel)
         # Identificadores de SECCIÓN dentro de un documento: filas de tabla o
-        # epígrafes numerados. SEC-10 es una fila de engineering-standards.md,
+        # epígrafes numerados. SEC-010 es una fila de engineering-standards.md,
         # P-01…P-12 son principios de archive-summa. No son documentos y no
         # deben resolverse como tales — pero existen y están gobernados.
         for mm in re.finditer(rf'^\|\s*`?({PREFIJOS}-\d{{2,4}})`?\s*\|', txt, re.M):

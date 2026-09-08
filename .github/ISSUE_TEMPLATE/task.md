@@ -10,7 +10,7 @@ SPDX-License-Identifier: CC0-1.0
 
 Note: substantive work in this repo is tracked as missions
 (missions/MIS-*.md, protocol P-003), not issues — File over App
-(PM-05). Use an issue only for quick reports from outside the mission
+(TRC-005). Use an issue only for quick reports from outside the mission
 flow.
 -->
 

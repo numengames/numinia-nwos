@@ -81,7 +81,7 @@ export function isApparatus(rel, fm = null, rules = loadRules()) {
   return !!(fm && fm.type === 'meta');
 }
 
-/** lint-frontmatter's IS_TEMPLATE: template files whose dates are not held to H-06. */
+/** lint-frontmatter's IS_TEMPLATE: template files whose dates are not held to HDR-006. */
 export function isTemplate(rel, rules = loadRules()) {
   return rules.apparatus.templatePatterns.some((p) => new RegExp(p).test(rel));
 }
