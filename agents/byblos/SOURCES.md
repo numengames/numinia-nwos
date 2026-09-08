@@ -27,7 +27,7 @@ standards/STD-001-glossary.md — controlled vocabularies, header rules
 
 ## Engineering standard
 
-standards/STD-005-engineering-standards.md — the operative standard of this repository
+standards/STD-005-engineering-baseline.md — the operative standard of this repository
 
 ## Procedures
 

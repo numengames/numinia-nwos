@@ -28,7 +28,7 @@ license: "CC-BY-4.0"
 **Usage rule:** this document is rewritten at the close of every
 session — no history accumulates here (that is what `CHANGELOG.md` and
 the board are for). First step of any session: `git pull` and audit
-(AGT-01); what is written below was true at close, not necessarily now.
+(AGT-001); what is written below was true at close, not necessarily now.
 
 ---
 

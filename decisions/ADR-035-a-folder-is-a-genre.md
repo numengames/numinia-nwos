@@ -37,7 +37,7 @@ the system works *today*. Distinct from `standards/` (how documents must
 be written), `protocols/` (steps to follow) and `blueprints/` (what does
 not exist yet). Verified collision-free against the whole corpus before
 assignment, per `ADR-005`'s own procedure. `ARC` was rejected: it already
-names the eight architecture rules in `STD-005-engineering-standards.md`.
+names the eight architecture rules in `STD-005` (then `STD-005-engineering-standards`).
 
 **2. `history/` opens, no series.** Genre: superseded design records —
 documents whose direction was abandoned but whose text is evidence of

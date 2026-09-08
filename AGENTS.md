@@ -31,7 +31,7 @@ The principal areas of this repository:
   `numinia-lore`, not here.
 - `standards/` — the archive's own operative standards, including
   `STD-001-glossary.md` (controlled vocabularies) and
-  `STD-005-engineering-standards.md` (the practices; `PRO-016` applies them).
+  `STD-005-engineering-baseline.md` (the practices; `PRO-016` applies them).
 - `protocols/` — procedures: session close, briefing, archiving.
 - `guilds/` — guild charters and rosters; guilds reference agents, they do
   not contain them.
@@ -154,7 +154,7 @@ version-controlled. Treat `AGENT.yaml`, `SOUL.md`, `OPERATOR.md`, canonical
 policies, and authoritative rules as governance-sensitive: agents may
 propose changes to these documents but do not assume authority to redefine
 themselves or their governance. Canon (`canon/**`) requires formal
-consensus; see `standards/STD-005-engineering-standards.md` §7 for the
+consensus; see `standards/STD-005-engineering-baseline.md` §7 for the
 cosmetic-vs-irreversible protocol.
 
 ## Traceability

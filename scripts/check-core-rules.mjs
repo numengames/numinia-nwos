@@ -2,7 +2,7 @@
 /**
  * check-core-rules — execute the mechanically checkable rules of STD-009.
  *
- * STD-009 CORE-31: "A rule that does not break the build does not exist for an
+ * STD-005 ENG-001 (once STD-009 CORE-31): "A rule that does not break the build does not exist for an
  * agent." This guard is what makes eight of the sixty-two rules exist.
  *
  * Scope comes from the corpus classifier, never from a list kept here.
