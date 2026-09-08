@@ -4,7 +4,7 @@ id: "STD-005"
 uid: ""
 type: documentation
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-08-17T21:55:38+02:00"
 created_source: "git:e3123fc"
 created_confidence: exact
@@ -222,6 +222,19 @@ The machines. Every repo generated from the mould ships with:
 ### 3.4 Local layer
 - Husky: pre-commit (lint-staged), commit-msg (commitlint). Skippable by design (`--no-verify`); CI remains the authority.
 
+### 3.5 Guards — rules about the checks themselves
+
+Moved here from the core rules standard on 2026-09-08: how a guard is built is
+engineering, not corpus law. Identifiers are kept (`CORE-14`).
+
+| ID | Rule | Verified by |
+| **CORE-31** | A rule that does not break the build does not exist for an agent. | `[MANUAL]` — this table is the check; a reader confirms every row is filled |
+| **CORE-32** | A guard is wired into the pipeline in the same change that writes it. | `[MANUAL]` — pending the guard register, `MIS-146` |
+| **CORE-33** | A guard register is read from the workflow file, never remembered. | `[MANUAL]` — pending the guard register, `MIS-146` |
+| **CORE-34** | A baseline records damage that predates its rule and never absorbs damage the current change caused. | `[MANUAL]` — tracing a baseline entry to its commit is archaeology |
+| **CORE-35** | A green pipeline is not a clean tree, and a change declares what it left behind. | `[MANUAL]` — residue is what nobody noticed; a guard that could see it would fail on it |
+| **CORE-66** | A guard that fails on a behaviour no axis document states is enforcing nothing, and is itself the defect: the guard is corrected or the rule is written, never the tree. | `[MANUAL]` — deciding whether a document states a behaviour is a reading, not a parse |
+
 ---
 
 ## 4. GitHub repository checklist ("fill everything in")
@@ -261,7 +274,7 @@ This document is a system with sensors, not a PDF that ages.
 
 ## 6. Adoption
 
-- **NWOS repos (`numen-games-nwos-orgs`):** *offered* via the mould. Generated workspaces inherit Layer 3 checks at birth as a starting point, and may amend or drop them once born (G-12). Nothing here is enforced on a repository we do not own.
+- **NWOS repos (`numen-games-nwos-orgs`):** *offered* via the mould. Generated workspaces inherit Layer 3 checks at birth as a starting point, and may amend or drop them once born. Nothing here is enforced on a repository we do not own: the canon propagates by pin and digest, never by copy, and a derived NWOS repository is sovereign — updates are offered, never imposed.
 - **Numinia repos (`numengames`):** adopt by reference — `CLAUDE.md` links to this document; the shared CI workflow and presence checks are added per repo. *(Scope pending Oracle confirmation.)*
 - **Personal repos (`PabloFMM`):** SHOULD, not MUST.
 
@@ -278,7 +291,7 @@ This document is meant to be **executed**, not just read. Any coding agent (Clau
 Two repositories carry a copy of this document. **They are not the same document.**
 
 - **`numengames/numinia-nwos`** — the **operative standard**. Numinia is NWOS's first client and its proving ground. This copy binds this repository and the repositories that consume it. It is edited here.
-- **`numen-games-nwos-orgs/nwos-workspace-template`**, and every workspace born from it — a **starting proposal**. It binds nobody. Whoever adopts it owns it and governs it themselves (G-12: a derived NWOS repo is offered versions, never given law).
+- **`numen-games-nwos-orgs/nwos-workspace-template`**, and every workspace born from it — a **starting proposal**. It binds nobody. Whoever adopts it owns it and governs it themselves: a derived NWOS repo is offered versions, never given law.
 
 Neither copy is downstream of the other. Identical bytes today are a coincidence of youth, not a dependency.
 

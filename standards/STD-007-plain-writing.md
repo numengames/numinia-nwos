@@ -5,7 +5,7 @@ title: "Standards read as prose, not as pointers"
 type: documentation
 subtype: standard
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-03T10:30:00Z"
 updated: "2026-09-03T10:30:00Z"
 author: "ursa"
@@ -82,8 +82,11 @@ because this document points at it.
 | `PW-02` | No `§N` / `§N.N` section-pointer token anywhere in the document | `scripts/check-plain-writing.mjs` |
 | `PW-03` | Every ID that does appear in the document is listed once in `## References` | `scripts/check-plain-writing.mjs` |
 | `PW-04` | Document is readable start to finish without needing to open another document mid-read | `[MANUAL]` — a human editorial judgment, not mechanizable |
+| `CORE-61` | A rule is one sentence that can be answered yes or no. | `check-plain-writing.mjs` |
+| `CORE-62` | A normative document states no figure that its own subject will age: counts of the corpus, coverage and progress live in reports. A value the document itself defines — a token, a ratio, a threshold it sets — is specification, not measurement. | `[MANUAL]` — deciding whether a figure will age is the judgement the rule asks for |
 
-The first three are mechanically checkable and ship with a guard,
+`CORE-61` and `CORE-62` moved here from the core rules standard on
+2026-09-08, number kept. The first three `PW` checks are mechanically checkable and ship with a guard,
 `scripts/check-plain-writing.mjs`, as a ratchet: the standards written before
 this one do not conform, and this document does not ask them to until each is
 next reopened. Their current violations are frozen in a baseline, so the guard

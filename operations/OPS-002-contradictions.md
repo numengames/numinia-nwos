@@ -100,7 +100,7 @@ entry moves to the "Resolved" section with the decision and its date.
   proposed writing a practice upstream «so it applies to all the
   webs». Corrected there. It pairs with **CON-003** (provenance: the
   document says numinia-nwos is a fork of the mould when it is the
-  source) and with the **G-11** doctrine (the canon is not copied: it
+  source) and with the doctrine that the canon is not copied (it
   is pinned) — which had already resolved this pattern for the Design
   System and had not been applied to the standards themselves.
 - **What is missing:** version the original NWOS and define the
@@ -144,7 +144,7 @@ entry moves to the "Resolved" section with the decision and its date.
   between two distinct artifacts. `STD-005-engineering-standards.md`
   **originates here**: Numinia is NWOS's first client and its proving
   ground. The mould's copy is a **starting proposal** that binds
-  nobody and becomes governed by whoever adopts it (G-12). They are
+  nobody and becomes governed by whoever adopts it (sovereignty of derived repos, `STD-005` §6). They are
   not the same document; the identical bytes were a coincidence of
   youth, not dependency. The divergence is adoption, not drift, and it
   is not synced.

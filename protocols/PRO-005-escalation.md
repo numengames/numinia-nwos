@@ -4,7 +4,7 @@ uid: ""
 title: "Escalation Protocol"
 type: protocol
 status: active
-version: "1.2.0"
+version: "1.3.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
@@ -30,7 +30,7 @@ license: "CC0-1.0"
 ## When to escalate
 
 Escalate when:
-- A mission contradicts the canon (G-01)
+- A mission contradicts the canon: the mission is wrong (`CORE-03`)
 - A decision exceeds my authority level
 - I am blocked and cannot continue
 - I detect a potential security issue
@@ -73,7 +73,7 @@ a judgement moves the work to the Oracle rather than the decision.
 ## What NOT to do
 
 - Do not act when in doubt — wait for resolution
-- Do not block indefinitely — if there is no response in 48h, document it and proceed with the reversible option, recording the assumption
+- Do not block indefinitely — an Oracle has 48h to answer a mission waiting on approval; if there is no response, document it and proceed with the reversible option, recording the assumption
 - Do not escalate a preference as if it were a blocker
 
 ---

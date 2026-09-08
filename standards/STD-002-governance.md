@@ -3,12 +3,13 @@ title: "Governance — who may change what, and at what cost"
 id: "STD-002"
 uid: ""
 type: documentation
-status: active
-version: "4.0.0"
+status: superseded
+superseded_by: "STD-009"
+version: "5.0.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-08T17:30:00+02:00"
+updated: "2026-09-08T18:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 territory: "CAO"
@@ -19,205 +20,38 @@ license: "CC0-1.0"
 
 # Governance — who may change what, and at what cost
 
-> **Summary:** Which document wins, who may change what, at what cost, and who
-> must approve it.
-> **Epistemic:** Roles, permissions per series, change thresholds, versioning
-> authority, approval scale.
-> **Pragmatic:** Before creating, modifying or deleting any document, find your
-> row here.
+> **Summary:** Superseded by `STD-009` on 2026-09-08. Every rule this document
+> held now lives in the core rules standard or in the protocol that executes
+> it. This file stays only while a living document cites it (`ADR-041`).
+> **Epistemic:** A governance document that pointed elsewhere for every rule
+> was a table of contents, not a standard.
+> **Pragmatic:** Read `STD-009`. If you came here for a specific thing, the
+> map below says where it went.
 > **Audience:** Agents · Oracles
 
 ---
 
-## Which document wins
+## Where each part went
 
-Five rules settle it: `CORE-01` through `CORE-05`, defined in the core rules
-standard, `STD-009`. Their text lives there and is not restated here.
-
-**They bind now, from this document.** `STD-009` is still `draft` and a draft
-binds nobody, so until it is ratified this section is what gives the five their
-force. The pointer says where they are written, not whether they apply.
-
-This document keeps what makes the third of them measurable: the cost of
-changing each series, in §Permissions by series.
-
-Two consequences of `CORE-02` are stated here because they are what the system
-is most often asked about, and because no other document states them:
-
-> A guard that fails on a behaviour no axis document states is enforcing
-> nothing, and is itself the defect. Five guards are in that condition today,
-> three of them blocking merges; recorded as `DBT-017`.
-
-> A document that describes what the code already does and describes it wrong is
-> a broken description, and the description is fixed. The test is direction: a
-> rule the code disobeys is a bug in the code; a description the code
-> contradicts is a bug in the description.
-
----
-
-## Changing a standard
-
-Who may approve is `CORE-07`; where the rule lands is `CORE-63`; retiring a
-rule is `CORE-45`; which number moves is `CORE-22` and `CORE-23`; and a `draft`
-binding nobody is stated with the precedence rules. All in the core rules
-standard.
-
-What this document adds: the same five steps govern a protocol. The difference
-is what the document says, not how it changes.
-
----
-
-## Roles
-
-What each rank may do to a document is `CORE-65`. Who holds which rank is the
-canon of roles, `CAN-004`. Neither is restated here.
-
-
-## What a document can be
-
-A normative document — canon, standard or protocol — has four states:
-
-- **draft** — written, not yet binding on anyone
-- **active** — in force; you must comply with it
-- **superseded** — replaced by a newer document, which it names
-- **withdrawn** — retired without replacement; the rule is gone
-
-Everything else uses three: **draft**, **active**, **closed** — closed meaning
-finished, kept for the record, not reopened.
-
-A rule that binds must be switchable off without lying about why it stopped
-binding. That is what `superseded` and `withdrawn` are for.
-
----
-
-## Permissions by series
-
-One rule covers every series: **a document's change state says who may touch
-it, and no series overrides it.** The four states — `open`, `closed`,
-`governed`, `sealed` — and what each costs are defined in the glossary,
-`STD-001` §The series. Their order of precedence is `CORE-03`.
-
-One exception, deliberate. Any agent may open a debt entry without approval,
-because naming a gap is not a change to the system, and requiring permission
-to admit a problem is how a corpus learns to stay quiet.
-
-### What each series answers
-
-Every folder answers one question, and if a document does not answer that
-folder's question it belongs in another folder. Which question each folder
-answers is defined in the glossary, `STD-001` §The series, with the **IS / IS
-NOT** test for each — including the `standards` ⟷ `protocols` boundary, which
-is the mechanism and not the topic.
-
-
-## The rules
-
-**On authority.** When a mission contradicts the canon, the mission is wrong;
-escalate (G-01). Any change to `canon/` needs the canon-change label and an
-Oracle's explicit approval (G-09). Escalation runs from agent to Oracle, per the
-escalation protocol (G-06), and an Oracle has 48 hours to answer a mission
-waiting on approval (G-10).
-
-**On who writes what.** An active mission has exactly one executor, and only
-that executor edits it; collaboration is declared (G-02, G-03). Agents never
-modify their own `SOUL.md` or `OPERATOR.md` (G-04). A retired document of any
-series is deleted by the four tests of `PRO-010`, never kept for its own sake
-(G-05, reversed by `ADR-041`).
-
-**On doubt.** When unsure whether something is sensitive, do not commit —
-escalate first (G-07). A mission sitting in `todo` for more than 90 days without
-activity is stale (G-08).
-
-**On distribution.** The canon propagates by pin and digest, never by copy
-(G-11). A derived NWOS repository is sovereign: updates are offered, never
-imposed (G-12).
-
-### Canon emission and sovereignty — not yet in force
-
-**Status: green.** This describes where we are going, not where we are. Three
-consumer repositories still keep local copies of the design kit; `MIS-102` is
-the mission that ends that, and it has not started. Treat the rest of this
-section as a target, not as a rule you can be measured against today.
-
-**Emission.** The repository that governs a law writes it, versions it,
-generates its derived artifacts and publishes them. Consumers keep no copy:
-they pin a version and a digest, check for drift in their own pipeline, and
-report upstream instead of patching. A local copy is a fork waiting to happen.
-
-The emitter publishes at a stable public address, versions the artifact in the
-path so a new version never overwrites an old address, ships a manifest with a
-digest per file, generates derived artifacts by script rather than by hand, and
-notifies known consumers of each new version.
-
-**Sovereignty.** Once an organization has created its own NWOS repository, it
-is sovereign. We publish; they adopt. Nothing written here becomes law inside
-their repository by inheritance, fork relationship or template lineage. They
-pin a version; a new one is announced, and adopting it is their decision.
-Staying on an old version forever is legitimate, and is not debt on their side.
-Drifting silently while claiming to be current is the thing that is not.
-
-The emitter's authority ends at notification. Watch for any artifact that
-assumes authority over a repository it does not own — a requirement aimed
-downstream, a mandatory sync, a guard that fails someone else's build for not
-being current.
-
----
-
-## Relation vocabulary
-
-Declare a relation when it matters for retrieval, audit, or a future change.
-
-**related** — relevant to one another, no stronger direction known.
-**supersedes** / **superseded_by** — a later record replaces an earlier one,
-which stays reachable. **absorbs** — a later record carries the earlier
-reasoning into itself, and the old identifier keeps resolving. **ratified_by** —
-an authority promoted or confirmed the record. **parent_mission** — a bounded
-child of a larger mission. **former_id** — the identifier this record carried
-before a governed move.
-
-Do not use `related` when a stronger relation is known, and do not infer a
-relation from a shared folder, author, or subject.
-
----
-
-## Versioning authority
-
-Which number moves is `CORE-22` and `CORE-23`. Who may move it is `CORE-64`: a
-digital agent moves the patch, an Archon moves the minor, an Oracle moves the
-major. All in the core rules standard, which also records that we adopt
-Semantic Versioning 2.0.0 as published.
-
-## Human approval scale
-
-This is the definition of `human_approval_score`: a **gate**, scored before
-acting — how much human approval an action needs.
-
-| Score | Category | Description | Response time |
-|---|---|---|---|
-| 1–2 | routine | no risk, instantly reversible | none required |
-| 3–4 | operational | limited impact, reversible | 24h |
-| 5–6 | tactical | moderate impact, partially reversible | 24h |
-| 7–8 | strategic | affects multiple systems or agents | 12h |
-| 9 | systemic | modifies canon, operator, security | immediate |
-| 10 | foundational | irreversible, reputation, real money | immediate, and a meeting |
-
----
+| Was here | Is now |
+|---|---|
+| Which document wins | `STD-009`, *Precedence* (`CORE-01`..`05`) |
+| Changing a standard, roles, versioning authority | `STD-009`, *Authority* and *Versions* |
+| What a document can be (states) | `STD-009`, *Authority · States* |
+| Permissions by series, what each series answers | `STD-001`, *The series*; `CORE-03` |
+| G-01 canon wins · G-06 escalation · G-10 48 h | `PRO-005` |
+| G-02, G-03 one executor · G-07 doubt · G-08 stale | `PRO-003`, *The rules that do not bend* |
+| G-04 `SOUL.md` / `OPERATOR.md` | `CORE-67` |
+| G-05 nobody deletes | reversed by `ADR-041` |
+| G-09 canon change needs the Oracle | `CORE-06` |
+| G-11, G-12 pin, never copy; sovereignty | `STD-005`, *Adoption* |
+| Canon emission — not yet in force | `MIS-102` (it was a target, not a rule) |
+| Relation vocabulary | `STD-004`, *Ring 2* |
+| Human approval scale | `PRO-008`, *The score scale* |
 
 ## References
 
-- [`STD-001` — The glossary](STD-001-glossary.md). Defines the change
-  thresholds this document is read against.
-- [`STD-009` — Core rules](STD-009-core-rules.md). Holds the precedence rules
-  and the rules for changing a document. This document points at them by
-  identifier and does not restate them.
-- [`PRO-005` — Escalation](../protocols/PRO-005-escalation.md). The path rule
-  G-06 names.
-- [`PRO-008` — Decision](../protocols/PRO-008-decision.md). The request format
-  the approval scale is scored in.
-- [`MIS-0102` — Consumers pin the emitted kit](../missions/MIS-0102-consumers-pin-the-emitted-kit.md).
-  The mission that puts canon emission into force. Still `todo`.
-- [Semantic Versioning 2.0.0](https://semver.org). Adopted as-is, not
-  redefined here.
-- `SYS-004` — Document relations. Absorbed into this document; the identifier
-  resolves here.
-
+| ID | Title | Relation |
+|---|---|---|
+| `STD-009` | The rules of the corpus, and which one wins | superseded_by |
+| `ADR-041` | Git is the archive | why this file is deleted, not kept |

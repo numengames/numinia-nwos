@@ -89,14 +89,14 @@ nothing in the corpus applies it yet.
 | Standard | Source | Distance | Applied in |
 |---|---|---|---|
 | RFC 2119 | <https://www.rfc-editor.org/rfc/rfc2119> | 0 | `STD-004` · used corpus-wide |
-| Semantic Versioning 2.0.0 | <https://semver.org/> | 1 | `STD-002` «Versioning authority» · `STD-009` CORE-21 |
+| Semantic Versioning 2.0.0 | <https://semver.org/> | 1 | `STD-009` CORE-21 · CORE-64 |
 | Blameless postmortem | <https://sre.google/sre-book/postmortem-culture/> | 2 | `STD-005` (practised, unnamed) |
 | NIST AI RMF | <https://www.nist.gov/itl/ai-risk-management-framework> | 3 | — |
 | ISO/IEC 42001 · AI management | <https://www.iso.org/standard/42001> | 3 | — `STD-005` AGT-06 asks by hand for part of what it formalises |
 | ISO 22301 · continuity | <https://www.iso.org/standard/75106.html> | 3 | — overlaps `PRO-001`, unreconciled |
 | ISO 9001 · quality | <https://www.iso.org/iso-9001-quality-management.html> | 3 | — **no anchor in any operating document** |
 
-> **SemVer is adapted, not adopted as published.** `STD-002` versions
+> **SemVer is adapted, not adopted as published.** `STD-009` versions
 > documents, where there is no API to break. The rule the system applies —
 > digital agents `patch`, archons `minor`, Oracles `major` — is authority-based,
 > not compatibility-based. Unverified whether the two diverge in practice.

@@ -13,7 +13,7 @@ started: null
 completed: null
 
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-18T14:47:39Z"
 created_source: "git:b91848e"
 created_confidence: exact
@@ -94,6 +94,34 @@ Errata E2 is worth recording as a near miss: the 5.0.0 fragment said `marco
 the value from the tokens, so both sites are correct by construction. Had the
 agent worked from the fragment instead, two production sites would carry the
 wrong radius today. **Pinning tokens beats reading prose.**
+
+## The target, as governance stated it
+
+Moved here from `STD-002` on 2026-09-08: it described where we are going, not
+a rule anyone could be measured against, so it belongs to the mission that
+gets us there.
+
+**Emission.** The repository that governs a law writes it, versions it,
+generates its derived artifacts and publishes them. Consumers keep no copy:
+they pin a version and a digest, check for drift in their own pipeline, and
+report upstream instead of patching. A local copy is a fork waiting to happen.
+
+The emitter publishes at a stable public address, versions the artifact in the
+path so a new version never overwrites an old address, ships a manifest with a
+digest per file, generates derived artifacts by script rather than by hand, and
+notifies known consumers of each new version.
+
+**Sovereignty.** Once an organization has created its own NWOS repository, it
+is sovereign. We publish; they adopt. Nothing written here becomes law inside
+their repository by inheritance, fork relationship or template lineage. They
+pin a version; a new one is announced, and adopting it is their decision.
+Staying on an old version forever is legitimate, and is not debt on their side.
+Drifting silently while claiming to be current is the thing that is not.
+
+The emitter's authority ends at notification. Watch for any artifact that
+assumes authority over a repository it does not own — a requirement aimed
+downstream, a mandatory sync, a guard that fails someone else's build for not
+being current.
 
 ## Scope
 
@@ -195,3 +223,4 @@ one emission.
 ## Version history
 
 - v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.
+- v1.2.0 (2026-09-08) — the emission-and-sovereignty target moved here from `STD-002` (superseded by `STD-009`, `ADR-041`).
