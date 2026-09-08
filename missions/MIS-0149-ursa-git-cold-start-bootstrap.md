@@ -432,7 +432,7 @@ Add here — never edit `Scope` or the criteria to match what happened.)*
   execution, no canonical changes.
 - 2026-09-02 — **Renumbered MIS-137 → 143** (PRO-003 §4, ID
   collision). `MIS-137` was already assigned in `origin/main`
-  (`missions/MIS-0137-pin-reuse-version.md`, merged after this draft was
+  (`MIS-137` (now in `RPT-017`), merged after this draft was
   created); the surviving equivalent `todo` state and all content were
   carried over. Next free number that did not collide with an existing
   branch claim: 143 (MIS-140 was claimed by

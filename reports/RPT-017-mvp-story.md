@@ -5,11 +5,11 @@ title: "The MVP story: sixty-six missions, five arcs, one road still open to Alp
 type: report
 subtype: analysis
 status: active
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-08T10:27:15Z"
 created_source: "git:59f5cfa"
 created_confidence: exact
-updated: "2026-09-08T10:27:15Z"
+updated: "2026-09-08T17:30:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -17,7 +17,8 @@ tags: [mvp, narrative, missions, alpha, reset, compression]
 license: "CC-BY-4.0"
 visibility: "public"
 scope: "What `missions/` shows as `done` at the measured commit, compressed into a narrative; not an audit of quality or of what remains."
-related: ["MIS-0001", "MIS-127", "MIS-146", "ADR-005"]
+related: ["MIS-0001", "MIS-127", "MIS-146", "ADR-005", "ADR-030", "ADR-040"]
+absorbs: ["MIS-027", "MIS-0027", "MIS-053", "MIS-0053", "MIS-058", "MIS-0058", "MIS-064", "MIS-0064", "MIS-078", "MIS-0078", "MIS-079", "MIS-0079", "MIS-080", "MIS-0080", "MIS-081", "MIS-0081", "MIS-082", "MIS-0082", "MIS-083", "MIS-0083", "MIS-087", "MIS-0087", "MIS-088", "MIS-0088", "MIS-110", "MIS-0110", "MIS-126", "MIS-0126", "MIS-130", "MIS-0130", "MIS-133", "MIS-0133", "MIS-010", "MIS-0010", "MIS-011", "MIS-0011", "MIS-016", "MIS-0016", "MIS-037", "MIS-0037", "MIS-038", "MIS-0038", "MIS-039", "MIS-0039", "MIS-041", "MIS-0041", "MIS-042", "MIS-0042", "MIS-044", "MIS-0044", "MIS-045", "MIS-0045", "MIS-047", "MIS-0047", "MIS-051", "MIS-0051", "MIS-056", "MIS-0056", "MIS-057", "MIS-0057", "MIS-059", "MIS-0059", "MIS-060", "MIS-0060", "MIS-062", "MIS-0062", "MIS-063", "MIS-0063", "MIS-065", "MIS-0065", "MIS-066", "MIS-0066", "MIS-072", "MIS-0072", "MIS-073", "MIS-0073", "MIS-075", "MIS-0075", "MIS-076", "MIS-0076", "MIS-086", "MIS-0086", "MIS-089", "MIS-0089", "MIS-090", "MIS-0090", "MIS-091", "MIS-0091", "MIS-092", "MIS-0092", "MIS-093", "MIS-0093", "MIS-094", "MIS-0094", "MIS-105", "MIS-0105", "MIS-109", "MIS-0109", "MIS-111", "MIS-0111", "MIS-114", "MIS-0114", "MIS-115", "MIS-0115", "MIS-116", "MIS-0116", "MIS-117", "MIS-0117", "MIS-118", "MIS-0118", "MIS-119", "MIS-0119", "MIS-120", "MIS-0120", "MIS-122", "MIS-0122", "MIS-125", "MIS-0125", "MIS-128", "MIS-0128", "MIS-129", "MIS-0129", "MIS-132", "MIS-0132", "MIS-136", "MIS-0136", "MIS-137", "MIS-0137", "MIS-139", "MIS-0139", "MIS-140", "MIS-0140", "MIS-143", "MIS-0143", "MIS-144", "MIS-0144", "MIS-145", "MIS-0145", "MIS-147", "MIS-0147"]
 ---
 
 # The MVP story: sixty-six missions, five arcs, one road still open to Alpha
@@ -275,7 +276,62 @@ Alpha. When the Oracle judges that transit complete, this report closes
 
 ---
 
+## 2026-09-08 — The reset lands: 70 `done` missions deleted, this report is their record
+
+Dated addition, v0.2.0. Nothing above is rewritten.
+
+**What was done.** Under `ADR-040` (a `done` mission may be deleted) and
+`ADR-030` (four tests), every `status: done` mission in `missions/` was
+deleted in two batches: 16 in PR #286, and the remaining 54 in the PR that
+carries this note. `missions/` goes from 133 files to 79; `done` goes to 0.
+Each deleted identifier is listed in this report's `absorbs:` front matter,
+so `scripts/check-references.mjs` resolves any citation of it to this
+document, and each public address (`/missions/mis-NNNN` and its `/misiones/`
+alias) 301s here from `web/astro.config.mjs`. The mission bodies remain in
+git history at `2677f01` and earlier.
+
+**Oracle instruction.** The Oracle ruled on 2026-09-08 that the reset takes
+priority over per-citation rewriting: all `done` missions are removed, and
+the places that mention them keep their mentions, resolved by `absorbs:`.
+That is `ADR-030`'s reachability clause served by the resolver rather than by
+editing 65 living files — a reader following `MIS-056` lands on the text
+that now contains its story. Where a living document carried a markdown
+*link* to a deleted file (a path, not an identifier), the link was replaced
+with a plain identifier, because a path cannot be absorbed.
+
+**Four missions this narrative did not cover.** `MIS-136`, `MIS-137`,
+`MIS-139` and `MIS-140` were closed in PR #284, *after* v0.1.0 of this
+report was written. They are deleted with the rest. Their closures, checked
+against the tree before deletion:
+
+- `MIS-136` — corrected the DEUDA-404 comment in `web/astro.config.mjs`.
+  **Verified true** (the comment at line 24–25 reads as claimed).
+- `MIS-137` — claims `scripts/requirements-tools.txt` pinning `reuse==6.2.0`
+  and a CI step. **Neither exists** in `main`, in any branch, or in any
+  commit (`git log --all -S`).
+- `MIS-139` — claims two legacy manual references repointed in
+  `numinia-web`. **Not done**: the decisions log (line 111) and
+  the onboarding report (line 23) in `numengames/numinia-web` still carry the
+  retired name.
+- `MIS-140` — claims `scripts/check-published-coverage.mjs` and a CI step.
+  **Neither exists** anywhere in the repository's history.
+
+Three of the four `done` closures in #284 assert evidence the tree does not
+hold. They are recorded here as *claimed, not delivered*, so that the debt is
+not lost with the cards: the `reuse` pin, the publish-coverage guard and the
+`numinia-web` repoint remain open work for the Alpha, unowned by any mission
+file until one is written.
+
+**Measured at:** `2677f01` before the deletion. `missions/` 133 → 79;
+`done` 54 → 0; `todo` 32, `in-progress` 7, `in-review` 2, `frozen` 38
+unchanged.
+
+---
+
 ## Version history
 
 - v0.1.0 (2026-09-08) — First publication. 66 `done` missions at `59f5cfa`
   compressed into five narrative arcs, ahead of the planned corpus reset.
+- v0.2.0 (2026-09-08) — The reset lands: all 70 `done` missions deleted (#286
+  + this PR); their identifiers absorbed here; three false closures from #284
+  recorded as claimed-not-delivered.
