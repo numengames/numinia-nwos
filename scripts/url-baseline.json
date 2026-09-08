@@ -281,6 +281,8 @@
     "/corpus/standards/std-010-licensing",
     "/corpus/standards/std-011-external-standards",
     "/corpus/standards/std-012-corpus-does-not-grow",
+    "/corpus/standards/std-013-licence-allowlist-and-fields",
+    "/corpus/standards/std-014-publishing-gates",
     "/corpus/system",
     "/corpus/system/sys-001-cao-architecture",
     "/corpus/system/sys-002-agent-cycle",

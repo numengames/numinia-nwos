@@ -1523,10 +1523,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 16541,
+  "chars": 5317,
   "apparatus": false,
   "archived": false,
-  "tokens": 4245
+  "tokens": 1450
  },
  {
   "path": "standards/STD-011-external-standards.md",
@@ -1549,6 +1549,28 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1752
+ },
+ {
+  "path": "standards/STD-013-licence-allowlist-and-fields.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 3343,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1118
+ },
+ {
+  "path": "standards/STD-014-publishing-gates.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 3193,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 847
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
