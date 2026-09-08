@@ -583,6 +583,17 @@
   "tokens": 2389
  },
  {
+  "path": "canon/CAN-008-visual-identity.md",
+  "dir": "canon",
+  "series": "canon",
+  "type": "seminal",
+  "status": "draft",
+  "chars": 26350,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 6864
+ },
+ {
   "path": "debt/DBT-013-design-system-filename-not-frozen.md",
   "dir": "debt",
   "series": "debt",
@@ -592,17 +603,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1431
- },
- {
-  "path": "debt/DBT-014-design-kit-version-path-coupling.md",
-  "dir": "debt",
-  "series": "debt",
-  "type": "documentation",
-  "status": "active",
-  "chars": 4108,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1127
  },
  {
   "path": "debt/DBT-015-core-45-guard-condemns-withdrawn.md",
@@ -636,28 +636,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1295
- },
- {
-  "path": "debt/DBT-018-design-system-is-four-documents.md",
-  "dir": "debt",
-  "series": "debt",
-  "type": "documentation",
-  "status": "active",
-  "chars": 4905,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1322
- },
- {
-  "path": "debt/DBT-019-canon-marks-name-a-canon-that-does-not-hold-them.md",
-  "dir": "debt",
-  "series": "debt",
-  "type": "documentation",
-  "status": "active",
-  "chars": 4416,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1284
  },
  {
   "path": "debt/DBT-020-declared-automatic-executed-by-nobody.md",
@@ -1116,10 +1094,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 48468,
+  "chars": 48513,
   "apparatus": false,
   "archived": false,
-  "tokens": 12080
+  "tokens": 12097
  },
  {
   "path": "missions/MIS-0149-ursa-git-cold-start-bootstrap.md",
@@ -1347,10 +1325,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 23678,
+  "chars": 23935,
   "apparatus": false,
   "archived": false,
-  "tokens": 6612
+  "tokens": 6733
  },
  {
   "path": "protocols/PRO-015-joining-and-leaving.md",
@@ -1512,10 +1490,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 104895,
+  "chars": 69999,
   "apparatus": false,
   "archived": false,
-  "tokens": 29010
+  "tokens": 20032
  },
  {
   "path": "standards/STD-009-core-rules.md",

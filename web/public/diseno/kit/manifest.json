@@ -1,15 +1,15 @@
 {
   "sistema": "Numen Games · Sistema de Diseño",
-  "version": "5.1.0",
+  "version": "6.0.0",
   "master": {
     "path": "standards/STD-008-design-system.md",
     "url": "https://numinia.org/corpus/standards/std-008-design-system.md",
-    "sha256": "bab86c97f94f1ad213c623be7e1610b94d3182cfd172ef06e0840e9353aa1e4d"
+    "sha256": "50d71c1e798dcb01221f096be2bfe829f3224410b36c429b5b07ed17ed0f46ba"
   },
   "files": {
-    "5.1.0/sistema.css": "edaa5ff426149bdd2098b708a4189cafb30dc72a14f366aa93d333da83c2790a",
-    "5.1.0/sistema.js": "46c1f525e4ff848ee9b9bcac963b73d0a383ac5a89584c227fa7eb16dfb5641b",
-    "5.1.0/sistema.tokens.json": "9dc529b7d75987e69aefb405ea6e86be56abe8cbab95d8cec046b07c37aa7056",
-    "5.1.0/sistema.prompt.txt": "b1b2003ef7e6442cfa109b958cb83c1360f8f4a62438ea979c20647a86ff762f"
+    "sistema.css": "c0a111bc1e29895be8f29744af943de4b2852f4a0446aa313ae36df4f1ba3d94",
+    "sistema.js": "9fff18b8c1e4f299794173802cef48249f028bf00a8037588ffb7d57914c1180",
+    "sistema.tokens.json": "acd7f465431afc187fcdf1cd0cda5c0d4ca29df54a36f0cd8b8d9a9b159ed658",
+    "sistema.prompt.txt": "b1b2003ef7e6442cfa109b958cb83c1360f8f4a62438ea979c20647a86ff762f"
   }
 }

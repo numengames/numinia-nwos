@@ -1,4 +1,4 @@
-/* GENERADO de STD-008-design-system.md — Sistema de Diseño · v5.1.0 — no editar aquí: la fuente es el .md */
+/* GENERADO de STD-008-design-system.md — Sistema de Diseño · v6.0.0 — no editar aquí: la fuente es el .md */
 /* Sistema de Diseño v5.0.0 · kit de arranque */
 @font-face{font-family:'Geist';src:url('assets/fonts/Geist-Variable.woff2') format('woff2');font-weight:100 900;font-display:swap}
 @font-face{font-family:'Geist Mono';src:url('assets/fonts/GeistMono-Variable.woff2') format('woff2');font-weight:100 900;font-display:swap}
@@ -37,7 +37,7 @@ h1{font-size:2.986rem;font-weight:500}
 .btn-silencioso{background:transparent;color:var(--verdemar);padding-inline:var(--s2)}
 .btn-destructivo{background:#D33440;color:#fff}.btn-destructivo:hover{background:#B02330}
 .btn:disabled{background:var(--superficie);border-color:var(--linea);color:var(--texto-2);cursor:not-allowed}
-/* Mensajes §9.7 */
+/* Mensajes §8.7 */
 .aviso{position:fixed;right:var(--s5);bottom:var(--s5);max-width:360px;background:var(--elevada);border:1px solid var(--linea);border-left:2px solid var(--turquesa);border-radius:var(--radio-marco);padding:var(--s3) var(--s4);box-shadow:0 1px 2px rgba(20,17,15,.08),0 8px 24px rgba(20,17,15,.06)}
 .aviso[data-tono="exito"]{border-left-color:var(--verdemar)}
 .aviso[data-tono="aviso"]{border-left-color:#F35059}

@@ -1,7 +1,7 @@
 {
   "$comment": "URL manifest — D-028/ADR-033. Every public address the site published at the last accepted build. check-url-lifecycle.mjs fails when one of these stops being built without a redirect in web/astro.config.mjs. Regenerate deliberately with --write-baseline, in the same PR as the deletion that changed it, never to silence a failure.",
   "generated": "2026-09-08",
-  "count": 703,
+  "count": 708,
   "urls": [
     "/",
     "/agent",
@@ -109,6 +109,7 @@
     "/corpus/canon/can-005-licensing",
     "/corpus/canon/can-006-epistemic-relations",
     "/corpus/canon/can-007-pragmatic-numen-system",
+    "/corpus/canon/can-008-visual-identity",
     "/corpus/canon/compendium-of-attributes-and-ranks-in-numinia",
     "/corpus/canon/index",
     "/corpus/canon/numinia-brand-and-culture",
@@ -334,6 +335,10 @@
     "/decisions/adr-042",
     "/decisions/dec-001",
     "/diseno",
+    "/diseno/kit/5.1.0/sistema.css",
+    "/diseno/kit/5.1.0/sistema.js",
+    "/diseno/kit/5.1.0/sistema.prompt.txt",
+    "/diseno/kit/5.1.0/sistema.tokens.json",
     "/es",
     "/es/agent",
     "/es/continuity",

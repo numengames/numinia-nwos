@@ -589,7 +589,7 @@ number. It is registered as `DBT-018`.
 
 ### The first cut into the design system: the protocol leaves
 
-`STD-008` §19 was called *Agent contract*. It held a precedence list, a numbered
+The last section of `STD-008` (v5.1.0) was called *Agent contract*. It held a precedence list, a numbered
 algorithm an agent executes step by step, a rule about which tokens may be used,
 a pre-delivery checklist and a reusable instruction fragment.
 
@@ -625,7 +625,7 @@ version field, not merely annoyed an editor.
 The plan was to separate art direction from standard inside `STD-008`. Measuring
 first stopped it, and the measurement is the finding.
 
-`STD-008` §0.2 defines its provenance marks. `[CANON]` means *stated in the Brand
+`STD-008` (v5.1.0) defined its provenance marks in its preamble. `[CANON]` means *stated in the Brand
 & Culture or a direction decision already taken; **changed there***. The mark is
 a pointer plus an instruction: this is not mine, go change it upstream.
 

@@ -25,6 +25,13 @@ export default defineConfig({
 	// before push (72bff4c): the URL never went live, and the entry is about
 	// page weight, not a broken link. See DBT-004.
 	redirects: {
+		// design kit, 2026-09-08 (Oracle ruling 2026-09-05): the version left the
+		// path. kit/<semver>/ was a nomenclature used nowhere else in the corpus;
+		// the version now lives in manifest.json and the standard's header.
+		'/diseno/kit/5.1.0/sistema.css': '/diseno/kit/sistema.css',
+		'/diseno/kit/5.1.0/sistema.js': '/diseno/kit/sistema.js',
+		'/diseno/kit/5.1.0/sistema.tokens.json': '/diseno/kit/sistema.tokens.json',
+		'/diseno/kit/5.1.0/sistema.prompt.txt': '/diseno/kit/sistema.prompt.txt',
 		// standards/ registration, 2026-08-31 (MIS-127, ADR-005 v1.1.0). The
 		// shelf entered the STD-NNN series: S-001 kept its number as STD-001,
 		// and governance/engineering-standards — which never had one — were
@@ -69,6 +76,8 @@ export default defineConfig({
 		// point at the document that now CONTAINS their reasoning, not at a
 		// section index — check-url-lifecycle.mjs warns that a redirect to a page
 		// which does not answer the question is 'a 200 that lies'.
+		// DBT-014 closed 2026-09-08: the version left the kit path (ADR-041: closed = deleted)
+		"/corpus/debt/dbt-014-design-kit-version-path-coupling": "/corpus/debt",
 		"/corpus/debt/d-008-series-prefixes-not-applied": "/corpus/debt",
 		"/corpus/debt/d-011-thresholds-unenforced": "/corpus/debt",
 		"/corpus/debt/d-019-signatures-not-third-party-verifiable": "/corpus/debt",
