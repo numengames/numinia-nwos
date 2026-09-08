@@ -912,6 +912,27 @@ The design system standard falls from 17,767 to 15,747 words. It is still 39%
 of the series, and the two heavy sections that remain — creative direction at
 3,683 words and colour at 1,647 — are direction decisions, not procedures.
 
+### One text for the rule that decides
+
+The five precedence rules were written twice, in different words, in two
+`governed` documents. Governance said so out loud and left both alive, waiting
+for a ratification that has not come.
+
+The two texts had drifted. `CORE-02` in the core rules standard carries a
+correction governance never received: a document that describes what the code
+already does and describes it wrong is a broken *description*, and the
+description is fixed — not the code. Without that exception, the rule as
+governance stated it would have obliged us to change `numinia-web` to match a
+document that was simply wrong about it. We in fact fixed the document, twice.
+
+Governance now points to `STD-009` for the text and keeps what only it can
+give: that the five bind from there while `STD-009` is draft, and the cost
+thresholds that make the third rule measurable.
+
+One sentence did not survive the move and had to be rescued: a guard enforcing
+behaviour no document states is itself the defect. It existed only in
+governance's copy. It is now `CORE-66`.
+
 ## Out of scope
 
 - **Deleting reference material.** Length is not the defect.
