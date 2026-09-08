@@ -24,7 +24,7 @@ owner: "oracle"
 tags: [standards, frontmatter, guard, vocabulary, adr-028, tba]
 license: "CC0-1.0"
 
-paths: [scripts/lint-frontmatter.mjs, standards/STD-001-glossary.md, standards/STD-004-header-standard.md]
+paths: [scripts/lint-frontmatter.mjs, standards/STD-001-glossary.md, standards/STD-004-the-header.md]
 depends_on: [ADR-027, ADR-027 (formerly ADR-029)]
 blocked_by: null
 ---

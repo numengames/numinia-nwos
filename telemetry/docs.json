@@ -621,10 +621,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 5901,
+  "chars": 5915,
   "apparatus": false,
   "archived": false,
-  "tokens": 1590
+  "tokens": 1592
  },
  {
   "path": "debt/DBT-017-guards-without-a-rule.md",
@@ -1017,7 +1017,7 @@
   "series": "missions",
   "type": "mission",
   "status": "done",
-  "chars": 32280,
+  "chars": 32275,
   "apparatus": false,
   "archived": false,
   "tokens": 9003
@@ -1028,7 +1028,7 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 8277,
+  "chars": 8272,
   "apparatus": false,
   "archived": false,
   "tokens": 2334
@@ -1083,10 +1083,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 14833,
+  "chars": 14861,
   "apparatus": false,
   "archived": false,
-  "tokens": 4485
+  "tokens": 4497
  },
  {
   "path": "missions/MIS-0142-decisions-to-standards.md",
@@ -1094,10 +1094,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 7709,
+  "chars": 7740,
   "apparatus": false,
   "archived": false,
-  "tokens": 2128
+  "tokens": 2143
  },
  {
   "path": "missions/MIS-0149-ursa-git-cold-start-bootstrap.md",
@@ -1452,15 +1452,15 @@
   "tokens": 1228
  },
  {
-  "path": "standards/STD-004-header-standard.md",
+  "path": "standards/STD-004-the-header.md",
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 13433,
+  "chars": 4366,
   "apparatus": false,
   "archived": false,
-  "tokens": 3525
+  "tokens": 1217
  },
  {
   "path": "standards/STD-005-engineering-baseline.md",
@@ -1582,6 +1582,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2219
+ },
+ {
+  "path": "standards/STD-016-header-fields.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "active",
+  "chars": 5040,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1539
  },
  {
   "path": "system/SYS-001-cao-architecture.md",

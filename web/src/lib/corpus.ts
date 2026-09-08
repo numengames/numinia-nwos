@@ -222,7 +222,8 @@ const READING_ORDER: Record<string, string[]> = {
   standards: [
     "/corpus/standards/std-001-glossary",
     "/corpus/standards/std-002-governance",
-    "/corpus/standards/std-004-header-standard",
+    "/corpus/standards/std-004-the-header",
+    "/corpus/standards/std-016-header-fields",
     "/corpus/standards/std-003-platform-ranks",
     "/corpus/standards/std-005-engineering-baseline",
     "/corpus/standards/std-015-engineering-checks",

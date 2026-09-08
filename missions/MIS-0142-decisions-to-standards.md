@@ -81,7 +81,7 @@ Oracle ruling, 2026-09-02/03:
 - `templates/STD-TEMPLATE.md` — the standard series template. Does not
   exist today; the five current `STD-` documents share no section
   structure at all.
-- `standards/STD-004-header-standard.md` — one normative section making the
+- `STD-004` (then `standards/STD-004-header-standard`) — one normative section making the
   template mandatory for new `STD-` documents.
 - `decisions/` — the nine records, one at a time, each with the Oracle.
 - `standards/` — receives whatever is policy.
@@ -115,7 +115,7 @@ Deliberately excluded, recorded so they are not lost:
 ✓  node scripts/lint-naming.mjs exits 0                     (today: 0 — must stay)
 ✓  node scripts/lint-frontmatter.mjs exits 0                (today: 0 — must stay)
 ✓  node scripts/check-references.mjs reports 0 NEW breaks   (today: 0 — must stay)
-✓  grep -c 'STD-TEMPLATE' standards/STD-004-header-standard.md > 0   (today: 0)
+✓  grep -c 'STD-TEMPLATE' standards/STD-004-the-header.md > 0   (today: 0)
 ```
 
 - [ ] `templates/` is registered as apparatus in `scripts/lib/rules.json`,
@@ -131,7 +131,7 @@ Deliberately excluded, recorded so they are not lost:
 
 | # | Document | Verdict | Lands as | State |
 |---|---|---|---|---|
-| 1 | — | template for the series | `templates/STD-TEMPLATE.md` + `STD-004 §8.2` | **done** (`53b6cb5`) |
+| 1 | — | template for the series | `templates/STD-TEMPLATE.md` + `STD-004` (then §8.2, now `STD-007`) | **done** (`53b6cb5`) |
 | 2 | `ADR-001` | policy — substrate, format, data sovereignty | `STD-006` (draft) | **done** |
 | 3 | `ADR-004` | pending review | — | pending |
 | 4 | `ADR-005` | pending review | — | pending |

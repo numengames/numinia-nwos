@@ -14,13 +14,13 @@
  * the record; JSON would drop them.
  */
 
-/* ---------------- STD-004 §2: the three rings ---------------- */
+/* ---------------- STD-004 HDR-030: the three rings ---------------- */
 
 export const RING1 = ['id', 'title', 'type', 'status', 'version', 'created', 'updated', 'license'];
 export const RING2 = ['author', 'owner', 'provenance', 'created_source', 'created_confidence',
   'requested_by', 'supersedes', 'superseded_by', 'derived_from'];
 
-/** STD-004 §7: the per-series extension registry. A field in no ring is HDR-030. */
+/** STD-016 Ring 3: the per-series extension registry. A field in no ring is HDR-030. */
 export const RING3 = {
   'missions': ['priority', 'effort', 'assigned_to', 'started',
     // mission_id retired 2026-09-02 (missions/ normalisation): it duplicated
@@ -30,7 +30,7 @@ export const RING3 = {
     'requires_oracle_approval', 'human_approval_score', 'paths', 'context',
     'divergence_log',
     // registered 2026-08-30 (final sweep): provenance notes and series
-    // metadata that were always written, never registered (STD-004 §7)
+    // metadata that were always written, never registered (STD-016 Ring 3)
     'phase', 'updated_note', 'executor', 'blocks', 'mission_mode',
     // MIS-132/133/134 (2026-09-02): a letter-suffixed sub-mission or an
     // unregistered proposal that entered the series keeps its old identifier
@@ -130,7 +130,7 @@ export function inSomeRing(field, dir) {
     || (RING3[dir] ?? []).includes(field);
 }
 
-/** STD-004 §6: the lifecycle a document in `dir` of `type` may declare.
+/** STD-016: the lifecycle a document in `dir` of `type` may declare.
  *  Series beats type (2026-09-03, Oracle): a normative series declares its own
  *  in rules.json `status._bySeries`, because `closed` already means "published,
  *  still standing" in reports/ and cannot also mean "no longer binding". */

@@ -1,0 +1,100 @@
+---
+id: "STD-016"
+uid: ""
+title: "Header fields"
+type: documentation
+subtype: register
+status: active
+version: "1.0.0"
+created: "2026-08-28T15:10:00Z"
+updated: "2026-09-09T03:10:00+02:00"
+author: "ursa"
+owner: "oracle"
+territory: "Platform"
+tags: [frontmatter, register, lint, metadata]
+license: "CC0-1.0"
+series_change: "1.0.0 — new register, split from STD-004 under ADR-043: the field tables of the three rings (old §3, §4, §7), the type and subtype vocabularies (§5), the status lifecycles (§6), the closed vocabularies (§7.2) and the meaning of each relation (§4). Rows and plates unchanged."
+---
+
+# Header fields
+
+> **Summary:** Every frontmatter field the corpus accepts, by ring: its
+> value, the plate `lint-frontmatter.mjs` cites when it fails, and which
+> series may carry it. A field not here fails `HDR-030`.
+
+## Ring 1 — identity, every document
+
+| Field | Rule | Plate |
+|---|---|---|
+| `id` | present; matches its series prefix, or `registration: exempt` with a reason | HDR-001 |
+| `title` | present, non-empty, English (language `[MANUAL]`) | HDR-002 |
+| `type` | present; in the vocabulary below | HDR-003 |
+| `status` | present; in the lifecycle of its type | HDR-004 |
+| `version` | present; semantic version, no `v` prefix | HDR-005 |
+| `created` | present; ISO 8601 with time; midnight rejected for new documents | HDR-006 |
+| `updated` | present; ISO 8601 with time; not earlier than `created` | HDR-007 |
+| `license` | present; SPDX identifier; agrees with the licence manifest (`HDR-043` when absent) | HDR-008 |
+
+## Ring 2 — provenance, every document that makes a claim
+
+| Field | Rule | Plate |
+|---|---|---|
+| `author` | who wrote it, person or agent | HDR-010 |
+| `owner` | who answers for it now | HDR-011 |
+| `provenance` | `human` · `ai-assisted` · `ai-generated` | HDR-012 |
+| `created_source` | `git:<sha>` or `declared` — where the date came from | HDR-013 |
+| `created_confidence` | `exact` · `inferred` — never invented | HDR-014 |
+| `requested_by` | optional; who commissioned it | HDR-015 |
+| `supersedes` · `superseded_by` · `derived_from` · `absorbs` · `ratified_by` · `related` · `parent_mission` · `former_id` | resolvable identifiers | HDR-016 |
+
+| Relation | Means |
+|---|---|
+| `related` | relevant; no stronger direction known |
+| `supersedes` / `superseded_by` | a later record replaces an earlier one |
+| `absorbs` | a later record carries the earlier reasoning; the old identifier keeps resolving |
+| `ratified_by` | an authority promoted or confirmed the record |
+| `parent_mission` | a bounded child of a larger mission |
+| `former_id` | the identifier before a governed move |
+
+## Ring 3 — extension by series (`HDR-030`)
+
+| Series | Registered fields |
+|---|---|
+| `missions/` | `priority` (HDR-037) `effort` (HDR-038) `assigned_to` `started` `completed` `type_execution` `freeze_reason` `in_review_at` `depends_on` `parent_mission` `sub_missions` `blocked_by` `requires_oracle_approval` `human_approval_score` `paths` `context` `divergence_log` |
+| `reports/` | `severity` `period` `subtype` `model` `agent` `week` `scope` `former_id` `former_id_note` `absorbs` |
+| `decisions/` | `deciders` `consulted` `outcome` `decision` `absorbs` `amends` |
+| `standards/` | `absorbs` `series_change` |
+| `agents/` | `role` `platform` `model` `soul` `agent` |
+| `debt/` | `severity` `severity_reason` `detected` `refuted` `source_audit` `opened_by` `visibility_reason` |
+| `blueprints/` `operations/` | `extraction_note` `restoration_note` |
+| `blueprints/` | `semaforo` |
+| `protocols/` | `applies_to` `mandatory` |
+| `standards/` `canon/` | `threshold` |
+| `standards/` `canon/` `protocols/` | `supersedes_version` `ratified_by` |
+| all | `tags` `visibility` `guild` `territory` · `registration` `registration_reason` `registration_exemption` · `evidence_script` `evidence_head` · `related` · `uid` (reserved empty, HDR-020) |
+
+Retired (`HDR-031`): `area` → `territory`; `blocked_reason`; the Spanish-era
+keys.
+
+## Vocabularies
+
+| Field | Values | Plate |
+|---|---|---|
+| `type` | the closed list in `STD-001`, plus `agent` for `agents/` | HDR-003 |
+| `type` → series | strict for registered genres; warn-only for the two general ones | HDR-017 |
+| `subtype` | reports: `audit` `analysis` `proposal` `rollup` (`daily` retired, `STD-012`) · documentation: `standard` `register` `guide` | HDR-018 |
+| `guild` | `Sentinels` · `Alchemists` · `Exegetes` · `Procurators` | HDR-033 |
+| `type_execution` | `digital` · `biological` · `hybrid` | HDR-034 |
+| `visibility` | `public` · `restricted-oracle` | HDR-035 |
+| `territory` | the eight registered words | HDR-036 |
+
+`TBA` is legal in a vocabulary field and is not double-reported; a template's
+trailing comment is stripped before judging.
+
+## Status lifecycles
+
+| Type | Lifecycle | Plate |
+|---|---|---|
+| mission | `todo → in-progress → in-review → done`, plus `frozen` | HDR-004 |
+| decision | `draft → active → superseded`, lowercase | HDR-019 |
+| everything else | `draft → active → closed`, unless its series registers otherwise | HDR-004 |
