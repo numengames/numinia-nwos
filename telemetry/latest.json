@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "c9d9b74",
-  "corpus_hash": "b2a9578eed64539976af1583a1672ffc17185aba8614dd014f78eaf700c7febb",
+  "head": "c3416a0",
+  "corpus_hash": "d21c35e7cfe04bfef8dabad05eaad8f11f7c6eaee7cbe680946a6f19db257cf2",
   "root_dirty": 0,
-  "measured_at": "2026-09-08T09:49:50Z",
+  "measured_at": "2026-09-08T09:55:32Z",
   "families": [
     "corpus",
     "series",
@@ -824,7 +824,7 @@
           "id": "MIS-135#19",
           "severity": "A",
           "state": "open",
-          "where": "web/astro.config.mjs#L209",
+          "where": "web/astro.config.mjs#L214",
           "claim": "Parameterised redirect that check-url-lifecycle matches literally — neither verified nor expanded. Deferred: design choice."
         },
         {

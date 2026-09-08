@@ -30,6 +30,11 @@ export default defineConfig({
 		// numbered by age. Five published addresses died in the rename. Each
 		// points at the same document under its new address; nothing merged,
 		// so there is no "200 that lies" here.
+		// The superseded constitution was archived to history/ on 2026-09-08 by
+		// Oracle instruction. It kept its content and its heading numbers, so the
+		// old address points at the same text under its archive name, not at an
+		// index that would answer nothing.
+		"/corpus/standards/standards": "/corpus/history/2026_09_08-superseded_constitution-v200",
 		"/corpus/standards/s-001-glossary": "/corpus/standards/std-001-glossary",
 		"/corpus/standards/governance": "/corpus/standards/std-002-governance",
 		"/corpus/standards/s-003-platform-role-system": "/corpus/standards/std-003-platform-role-system",

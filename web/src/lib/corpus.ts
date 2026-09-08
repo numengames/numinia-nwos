@@ -228,7 +228,9 @@ const READING_ORDER: Record<string, string[]> = {
     "/corpus/standards/std-006-archive-substance",
     "/corpus/standards/std-007-plain-writing",
     "/corpus/standards/std-008-design-system",
-    "/corpus/standards/standards",
+    "/corpus/standards/std-009-core-rules",
+    "/corpus/standards/std-010-licensing",
+    "/corpus/standards/std-011-external-standards",
   ],
 
   // One working day, in order: you sit down → you take a mission → you need a
