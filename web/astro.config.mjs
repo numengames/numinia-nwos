@@ -80,7 +80,9 @@ export default defineConfig({
 		//     vocabulary, so it was MERGED into CAN-004 — where the role
 		//     structure it names already lived. The target holds its content;
 		//     it is not a section index.
-		"/corpus/standards/2026_08_18-sistema_de_diseno-v510": "/corpus/standards/std-008-design-system",
+		"/corpus/standards/2026_08_18-sistema_de_diseno-v510": "/corpus/standards/std-008-design-tokens",
+		// ADR-043 cut 10 / ADR-044: the design system is Design tokens; values in STD-023, recipes in BLU-009..011.
+		"/corpus/standards/std-008-design-system": "/corpus/standards/std-008-design-tokens",
 		"/corpus/standards/2026_04_14-analogous_terminology_numina-v020": "/corpus/canon/can-004-role-structure",
 		// Debt renumbering, 2026-08-31 (RPT-001 §12). The D- series was closed
 		// and renumbered to DBT-NNN; 30 published addresses died. Merged entries
