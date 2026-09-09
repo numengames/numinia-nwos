@@ -946,17 +946,6 @@
   "tokens": 1115
  },
  {
-  "path": "missions/MIS-0096-nwos-versioning-sovereign-adoption.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 6765,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1760
- },
- {
   "path": "missions/MIS-0100-branch-protection-org-settings.md",
   "dir": "missions",
   "series": "missions",
@@ -973,32 +962,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 6609,
+  "chars": 6613,
   "apparatus": false,
   "archived": false,
-  "tokens": 1883
- },
- {
-  "path": "missions/MIS-0112-home-from-readme.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 4600,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1251
- },
- {
-  "path": "missions/MIS-0113-readme-generated-index.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 3887,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1024
+  "tokens": 1882
  },
  {
   "path": "missions/MIS-0121-header-baseline-burndown.md",
@@ -1016,55 +983,22 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 8288,
+  "status": "done",
+  "chars": 10117,
   "apparatus": false,
   "archived": false,
-  "tokens": 2337
- },
- {
-  "path": "missions/MIS-0124-close-territory-vocabulary.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 4298,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1179
+  "tokens": 2859
  },
  {
   "path": "missions/MIS-0127-entropy-reduction.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-progress",
-  "chars": 31557,
+  "status": "done",
+  "chars": 32564,
   "apparatus": false,
   "archived": false,
-  "tokens": 9150
- },
- {
-  "path": "missions/MIS-0131-frontmatter-history-census.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 4705,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1244
- },
- {
-  "path": "missions/MIS-0134-closure-guard.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "todo",
-  "chars": 6670,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1784
+  "tokens": 9440
  },
  {
   "path": "missions/MIS-0135-normalisation-residue-register.md",
@@ -1072,21 +1006,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 14861,
+  "chars": 15337,
   "apparatus": false,
   "archived": false,
-  "tokens": 4497
- },
- {
-  "path": "missions/MIS-0142-decisions-to-standards.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "in-progress",
-  "chars": 7740,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2143
+  "tokens": 4612
  },
  {
   "path": "missions/MIS-0149-ursa-git-cold-start-bootstrap.md",
@@ -1126,11 +1049,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 4615,
+  "status": "done",
+  "chars": 5913,
   "apparatus": false,
   "archived": false,
-  "tokens": 1118
+  "tokens": 1459
  },
  {
   "path": "operations/OPS-001-continuity.md",
@@ -1402,10 +1325,10 @@
   "series": "reports",
   "type": "report",
   "status": "closed",
-  "chars": 5879,
+  "chars": 7832,
   "apparatus": false,
   "archived": false,
-  "tokens": 1828
+  "tokens": 2473
  },
  {
   "path": "standards/STD-001-the-series.md",

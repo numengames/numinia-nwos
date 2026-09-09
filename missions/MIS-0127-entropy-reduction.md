@@ -2,14 +2,14 @@
 id: "MIS-127"
 uid: ""
 title: "Entropy reduction: fewer documents, one vocabulary, registers that die"
-status: in-progress
+status: done
 priority: high
 effort: XL
 guild: "Alchemists"
 territory: "Archive"
 assigned_to: null
 started: "2026-08-30"
-completed: null
+completed: "2026-09-09"
 
 type: mission
 version: "0.10.0"
@@ -275,6 +275,21 @@ Full text of the closed entry is in git history: run
 
 The Oracle declares the reduction line closed. Each PR in the ledger
 records its own token delta; this mission is the sum.
+
+**Closed 2026-09-09, by Oracle instruction** (mission-purge audit). Twelve
+ledger rows executed across `standards/`, `decisions/`, `canon/`,
+`operations/`, `reports/`, `missions/` and `debt/` (rows 1–11 merged; row 12
+open as PR #249 at close time). Cumulative measured reduction: **−33,616
+tokens, −21 files net** against the 575,958-token re-measured baseline
+(rows 1–4, 6, 7 — the only rows carrying a same-method token delta).
+Non-numeric structural wins (rows 8, 9) and non-reduction closures are
+recorded in the ledger, not summed into that figure — see the ledger's own
+per-row caveats. The open decision queue (April missions, blueprint
+review, single status vocabulary, `protocols/`↔`standards/` merge, the
+remaining `operations/` rename) is **not resolved** by this closure —
+closing the mandate ends the umbrella, not the individual open items,
+several of which now have their own tracking (or were purged in the same
+audit — see MIS-142, MIS-131, MIS-134, MIS-124, MIS-096, MIS-112, MIS-113).
 
 ## Status check — 2026-09-02
 

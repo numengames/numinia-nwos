@@ -28,6 +28,22 @@ export default defineConfig({
 		// MIS-146 closed 2026-09-09; its line is in the week-37 roll-up (STD-012 DEF-005)
 		"/missions/mis-146": "/reports/rpt-019-2026-w37",
 		"/misiones/mis-146": "/reports/rpt-019-2026-w37",
+		// Mission purge 2026-09-09 (Oracle-approved, seven cancelled with no live
+		// value): each line is in the week-37 roll-up (PRO-017 RUP-003). Bodies in git.
+		"/missions/mis-096": "/reports/rpt-019-2026-w37",
+		"/misiones/mis-096": "/reports/rpt-019-2026-w37",
+		"/missions/mis-112": "/reports/rpt-019-2026-w37",
+		"/misiones/mis-112": "/reports/rpt-019-2026-w37",
+		"/missions/mis-113": "/reports/rpt-019-2026-w37",
+		"/misiones/mis-113": "/reports/rpt-019-2026-w37",
+		"/missions/mis-124": "/reports/rpt-019-2026-w37",
+		"/misiones/mis-124": "/reports/rpt-019-2026-w37",
+		"/missions/mis-131": "/reports/rpt-019-2026-w37",
+		"/misiones/mis-131": "/reports/rpt-019-2026-w37",
+		"/missions/mis-134": "/reports/rpt-019-2026-w37",
+		"/misiones/mis-134": "/reports/rpt-019-2026-w37",
+		"/missions/mis-142": "/reports/rpt-019-2026-w37",
+		"/misiones/mis-142": "/reports/rpt-019-2026-w37",
 		// design kit, 2026-09-08 (Oracle ruling 2026-09-05): the version left the
 		// path. kit/<semver>/ was a nomenclature used nowhere else in the corpus;
 		// the version now lives in manifest.json and the standard's header.
@@ -696,7 +712,7 @@ export default defineConfig({
 		"/misiones/mis-126": "/reports/rpt-017-mvp-story",
 		"/misiones/mis-130": "/reports/rpt-017-mvp-story",
 		"/misiones/mis-133": "/reports/rpt-017-mvp-story",
-		"/corpus/missions/proposal-closure-guard": "/missions/mis-134",
+		"/corpus/missions/proposal-closure-guard": "/reports/rpt-019-2026-w37",
 		// reports/ normalisation, 2026-09-01 (ADR-005 v1.2.0). AUD- is retired:
 		// the eleven audits took RPT-NNN numbers by created date and the folder
 		// flattened. Same document, new address — one hop each. /audits itself

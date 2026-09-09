@@ -25,7 +25,7 @@ export function measure({ docs }) {
     by_priority: { value: tally(ms, (d) => val(d, 'priority')), unit: 'missions', definition: 'by frontmatter `priority`' },
     by_effort: { value: tally(ms, (d) => val(d, 'effort')), unit: 'missions', definition: 'by frontmatter `effort`' },
     by_assignee: { value: tally(ms, (d) => val(d, 'assigned_to')), unit: 'missions', definition: 'by frontmatter `assigned_to`; `(none)` = unassigned' },
-    territory_tba: { value: ms.filter((d) => (d.fm.territory ?? '').trim().toUpperCase() === 'TBA').length, unit: 'missions', definition: '`territory: TBA` (ADR-028 deferral, owner MIS-124)' },
+    territory_tba: { value: ms.filter((d) => (d.fm.territory ?? '').trim().toUpperCase() === 'TBA').length, unit: 'missions', definition: '`territory: TBA` (ADR-028 deferral; owner MIS-124 closed 2026-09-09, zero territory TBA remains)' },
     unassigned: { value: ms.filter((d) => val(d, 'assigned_to') === null).length, unit: 'missions', definition: '`assigned_to` absent or null-like' },
     in_progress_unassigned: { value: ms.filter((d) => d.status === 'in-progress' && val(d, 'assigned_to') === null).length, unit: 'missions', definition: '`status: in-progress` with no `assigned_to`' },
     done_without_closure: { value: done.filter((d) => !STRICT.test(d.text)).length, unit: 'missions', definition: '`status: done` with no `## Closure` heading (MIS-134 strict form)' },
