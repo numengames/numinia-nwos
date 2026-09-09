@@ -24,11 +24,6 @@ version = 1
 # cut. The grant is irrevocable, so the reservation never took effect on
 # them; keeping it would have been the second time this repository declared
 # a regime it did not have.
-[[annotations]]
-path = ["guilds/**"]
-SPDX-FileCopyrightText = "2026 Numen Games S.L."
-SPDX-License-Identifier = "LicenseRef-Numen-AllRightsReserved"
-
 # --- Canon corpus → CC0-1.0 (ADR-036, pre-cut publication) ---------------
 [[annotations]]
 path = ["canon/**"]
@@ -225,11 +220,10 @@ SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC0-1.0"
 
 # --- Code and declared configuration → MIT (C-005 §2: borde) -------------
-# infra/** holds declarative exports of platform configuration (GitHub
-# rulesets today, Terraform when it exists). It is configuration, not corpus:
-# same regime as the code that consumes it. Regime assigned 2026-08-25, when
-# the licence guard refused the folder's first commit.
+# .github/rulesets/** holds declarative exports of platform configuration.
+# It is configuration, not corpus: same regime as the code that consumes it
+# (ADR-045; regime first assigned 2026-08-25 as infra/**).
 [[annotations]]
-path = ["web/**", "scripts/**", "infra/**", "packages/**"]
+path = ["web/**", "scripts/**", "packages/**", ".github/rulesets/**"]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "MIT"

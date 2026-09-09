@@ -33,8 +33,6 @@ The principal areas of this repository:
   `STD-001-the-series.md` (the series) · `STD-016-header-fields.md` (the fields) and
   `STD-005-engineering-baseline.md` (the practices; `PRO-016` applies them).
 - `protocols/` — procedures: session close, briefing, archiving.
-- `guilds/` — guild charters and rosters; guilds reference agents, they do
-  not contain them.
 - `missions/` — the unit of work; `templates/MIS-TEMPLATE` defines the contract.
 - `decisions/` — ADRs; `debt/` — the register of what is known
   to be wrong; `reports/` — audits and evidence.

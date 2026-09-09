@@ -5,9 +5,9 @@ uid: ""
 type: documentation
 subtype: register
 status: active
-version: "5.0.1"
+version: "5.1.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-09-09T17:00:00+02:00"
+updated: "2026-09-09T15:10:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -45,10 +45,8 @@ fields of the header — `STD-016`; the identifier — `STD-018`.
 | `reports/` | what was observed on a date; `reports/evidence/` is never edited | `RPT-NNN` · `RPT-YYYY-MM-DD` (`daily`, retired) | `closed` | 1000 | `RPT-TEMPLATE.md` |
 | `blueprints/` | what could be; not a report of what happened | `BLU-NNN` | `open` | 1000 | `BLU-TEMPLATE.md` |
 | `debt/` | what is known to be missing; deleted once nothing living cites it | `DBT-NNN` | `open` | 300 | `DBT-TEMPLATE.md` |
-| `guilds/` | how actors group | `GLD-NNN` | `governed` | 300 | `GLD-TEMPLATE.md` |
 | `operations/` | what sustains the business: legal, strategy | `OPS-NNN` | `open` | — | `OPS-TEMPLATE.md` |
 | `system/` | how the machine is wired | `SYS-NNN` | `governed` | — | `SYS-TEMPLATE.md` |
-| `infra/` | what runs it | `INF-NNN` | `open` | — | `INF-TEMPLATE.md` |
 | `agents/` | who acts: `SOUL` · `OPERATOR` · `STATUS` · `MEMORY` per agent | — | `live` (memory) | — | `agents/_template/` |
 
 `canon/`, `standards/` and `protocols/` are the **axis**; the rest are
@@ -69,7 +67,6 @@ never published, CC0-1.0.
 | `blueprint` | `blueprints/` | yes |
 | `report` | `reports/` | yes |
 | `legal` | `operations/legal/` | yes |
-| `charter` | `guilds/` | yes |
 | `agent` | `agents/` | yes |
 | `meta` | anywhere — apparatus accompanies its series | no |
 

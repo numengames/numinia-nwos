@@ -5,6 +5,7 @@ name: Talos
 version: "0.1.0"
 status: designed
 activated: null
+guild: "Sentinels"
 
 role:
   primary: repository-assurance

@@ -14,6 +14,11 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Removed — 2026-09-09 (guilds/ and infra/: two series without a consumer, ADR-045)
+- `guilds/` deleted (8 files: GLD-001..004 charters, GLD-005..008 rosters). Nothing read them — `corpus.ts` excluded the folder, `lint-frontmatter.mjs` validates `guild:` against a typed list — and the charters' branch tables contradicted `CAN-004` on every guild. The one live fact, agent → guild, now lives in `agents/<id>/AGENT.yaml` as `guild:` (Ursa → Alchemists, Talos → Sentinels, Byblos/Senet/Calliope → Exegetes; the five agents in no roster carry `null` for the Oracle). Eight `/corpus/guilds/...` URLs redirect to `CAN-004`.
+- `infra/` deleted; `ruleset-protect-main.json` moved to `.github/rulesets/protect-main.json` with a short README carrying the re-export command. The `INF` series (0 documents in 15 days) leaves the register; `MIS-0135` row 7 records the ruling.
+- Registers updated in the same change: `STD-001` 5.1.0 (rows `guilds/`, `infra/`, genre `charter`), `rules.json`, `content.config.ts`, `REUSE.toml`, `LICENSE`, `SYS-003`, `templates/README.md`, `rings.mjs`, `README.md`, `AGENTS.md`, `CLAUDE.md`, three `SOURCES.md`. The two moulds (GLD, INF) deleted from `templates/`. `legacy.mjs` keeps both prefixes: it reproduces a frozen golden at `6a97fbf` and is historical by contract.
+
 ### Removed — 2026-09-09 (scripts/: eight dead files, tests gathered under scripts/test/)
 - Deleted, criterion 0 citations from living documents ∧ 0 invocations from CI, `web/package.json` or another script: `verify-orphan-guard.sh` (absolute path to one machine), `verify-declaration-rule.sh`, `translate-corpus.mjs` (MIS-120d, Ollama; cache untracked), `measuring_root.py` (its importers left with `count-evidence.py`, #198), `field-decisions.{mjs,json}` (MIS-126, JSON read by nobody), `rename-plates.mjs` (one-shot, ran in #301; ADR-043 v1.1.3 now points at `9645477`), `experiments/` (four August censuses cited only by closed missions). ~2,600 lines. All remain in git (STD-020).
 - `lint-naming.test.mjs` and `rename-series.test.mjs` moved to `scripts/test/`, beside the other tests. `lint-naming.test.mjs` was already 4/9 before the move (dated-id cases the guard stopped enforcing) — moved as-is, not repaired here; the failure is pre-existing and recorded so nobody reads it as caused by the move.

@@ -22,15 +22,26 @@
   "tokens": 189
  },
  {
+  "path": ".github/rulesets/README.md",
+  "dir": ".github",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 1005,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 260
+ },
+ {
   "path": "AGENTS.md",
   "dir": "",
   "series": null,
   "type": null,
   "status": null,
-  "chars": 7471,
+  "chars": 7376,
   "apparatus": false,
   "archived": false,
-  "tokens": 1654
+  "tokens": 1627
  },
  {
   "path": "CHANGELOG.md",
@@ -38,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 23161,
+  "chars": 24458,
   "apparatus": false,
   "archived": false,
-  "tokens": 6674
+  "tokens": 7068
  },
  {
   "path": "CLAUDE.md",
@@ -49,10 +60,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 8079,
+  "chars": 8060,
   "apparatus": false,
   "archived": false,
-  "tokens": 2062
+  "tokens": 2054
  },
  {
   "path": "CONTRIBUTING.md",
@@ -71,10 +82,10 @@
   "series": null,
   "type": "documentation",
   "status": "active",
-  "chars": 5923,
+  "chars": 5875,
   "apparatus": true,
   "archived": false,
-  "tokens": 1531
+  "tokens": 1515
  },
  {
   "path": "SECURITY.md",
@@ -401,10 +412,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1197,
+  "chars": 1238,
   "apparatus": false,
   "archived": false,
-  "tokens": 324
+  "tokens": 335
  },
  {
   "path": "agents/talos/OPERATOR.md",
@@ -434,10 +445,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 3615,
+  "chars": 3623,
   "apparatus": false,
   "archived": false,
-  "tokens": 770
+  "tokens": 772
  },
  {
   "path": "agents/ursa/OPERATOR.md",
@@ -467,10 +478,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1263,
+  "chars": 1255,
   "apparatus": false,
   "archived": false,
-  "tokens": 343
+  "tokens": 342
  },
  {
   "path": "blueprints/BLU-002-business-metrics.md",
@@ -770,103 +781,15 @@
   "tokens": 863
  },
  {
-  "path": "guilds/alquimistas/GLD-001-charter.md",
-  "dir": "guilds",
-  "series": "guilds",
-  "type": "charter",
-  "status": "active",
-  "chars": 1533,
+  "path": "decisions/ADR-045-series-without-consumers-retired.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 5499,
   "apparatus": false,
   "archived": false,
-  "tokens": 435
- },
- {
-  "path": "guilds/alquimistas/GLD-005-roster.md",
-  "dir": "guilds",
-  "series": "guilds",
-  "type": "charter",
-  "status": "active",
-  "chars": 968,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 321
- },
- {
-  "path": "guilds/centinelas/GLD-004-charter.md",
-  "dir": "guilds",
-  "series": "guilds",
-  "type": "charter",
-  "status": "active",
-  "chars": 1631,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 461
- },
- {
-  "path": "guilds/centinelas/GLD-006-roster.md",
-  "dir": "guilds",
-  "series": "guilds",
-  "type": "charter",
-  "status": "active",
-  "chars": 1198,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 403
- },
- {
-  "path": "guilds/exegetas/GLD-002-charter.md",
-  "dir": "guilds",
-  "series": "guilds",
-  "type": "charter",
-  "status": "active",
-  "chars": 1599,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 477
- },
- {
-  "path": "guilds/exegetas/GLD-007-roster.md",
-  "dir": "guilds",
-  "series": "guilds",
-  "type": "charter",
-  "status": "active",
-  "chars": 1405,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 476
- },
- {
-  "path": "guilds/procuradores/GLD-003-charter.md",
-  "dir": "guilds",
-  "series": "guilds",
-  "type": "charter",
-  "status": "active",
-  "chars": 1448,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 425
- },
- {
-  "path": "guilds/procuradores/GLD-008-roster.md",
-  "dir": "guilds",
-  "series": "guilds",
-  "type": "charter",
-  "status": "active",
-  "chars": 1096,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 344
- },
- {
-  "path": "infra/github/README.md",
-  "dir": "infra",
-  "series": "infra",
-  "type": "documentation",
-  "status": "active",
-  "chars": 5857,
-  "apparatus": true,
-  "archived": false,
-  "tokens": 1511
+  "tokens": 1562
  },
  {
   "path": "missions/ANNEX-mission-selection-draft.md",
@@ -940,10 +863,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 15337,
+  "chars": 15429,
   "apparatus": false,
   "archived": false,
-  "tokens": 4612
+  "tokens": 4642
  },
  {
   "path": "missions/MIS-0149-ursa-git-cold-start-bootstrap.md",
@@ -1270,10 +1193,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 4816,
+  "chars": 4627,
   "apparatus": false,
   "archived": false,
-  "tokens": 1559
+  "tokens": 1479
  },
  {
   "path": "standards/STD-003-platform-ranks.md",
@@ -1556,10 +1479,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 12703,
+  "chars": 12382,
   "apparatus": false,
   "archived": false,
-  "tokens": 3487
+  "tokens": 3387
  },
  {
   "path": "templates/ADR-TEMPLATE.md",
@@ -1604,28 +1527,6 @@
   "apparatus": true,
   "archived": false,
   "tokens": 937
- },
- {
-  "path": "templates/GLD-TEMPLATE.md",
-  "dir": "templates",
-  "series": null,
-  "type": "charter",
-  "status": "active",
-  "chars": 3240,
-  "apparatus": true,
-  "archived": false,
-  "tokens": 848
- },
- {
-  "path": "templates/INF-TEMPLATE.md",
-  "dir": "templates",
-  "series": null,
-  "type": "documentation",
-  "status": "active",
-  "chars": 2538,
-  "apparatus": true,
-  "archived": false,
-  "tokens": 643
  },
  {
   "path": "templates/MIS-TEMPLATE-CHANGES.md",
@@ -1688,10 +1589,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 4777,
+  "chars": 4631,
   "apparatus": true,
   "archived": false,
-  "tokens": 1333
+  "tokens": 1280
  },
  {
   "path": "templates/RPT-TEMPLATE.md",

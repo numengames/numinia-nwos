@@ -9,6 +9,7 @@ name: Procyon
 version: "1.0.0"
 status: active
 activated: "2026-08-28"
+guild: null            # not in any roster at retirement (ADR-045); assigned by the Oracle
 
 role:
   primary: ambassador

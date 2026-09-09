@@ -9,6 +9,7 @@ name: Calliope
 version: "0.1.0"
 status: designed
 activated: null
+guild: "Exegetes"
 
 role:
   primary: copywriter

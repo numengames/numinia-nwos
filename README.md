@@ -4,9 +4,9 @@ uid:
 title: "numinia-nwos"
 type: documentation
 status: active
-version: "2.0.1"
+version: "2.0.2"
 created: "2026-04-07T22:30:00Z"
-updated: "2026-09-02T01:30:00+02:00"
+updated: "2026-09-09T15:10:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC-BY-4.0"
@@ -49,7 +49,6 @@ full definition; this is only the map.
 | [`standards/`](standards/) | What an artifact must **comply with** |
 | [`protocols/`](protocols/) | What an actor **executes**, step by step |
 | [`agents/`](agents/) | **Who** acts — one folder per digital agent |
-| [`guilds/`](guilds/) | How actors **group** |
 | [`missions/`](missions/) | The **work**: promised, done, and with what evidence |
 | [`decisions/`](decisions/) | **Why** something was chosen |
 | [`blueprints/`](blueprints/) | What **could** be — designs not yet executed |

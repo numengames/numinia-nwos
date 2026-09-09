@@ -9,6 +9,7 @@ name: Ursa
 version: "1.0.0"
 status: active
 activated: "2026-08-28"
+guild: "Alchemists"
 
 role:
   primary: technical-architect
