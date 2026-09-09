@@ -42,7 +42,7 @@ related: ["ADR-037", "MIS-151", "PRO-010", "MIS-125", "STD-001"]
 The Design System standard, then filed under standards/ with the name
 2026_08_18-Sistema_de_Diseno-v5.1.0, carries the dated
 frozen-artifact filename shape described in `PRO-010 §3.2` (a date, an
-underscored title, and a semver suffix) — the convention `STD-001 §2.1.1`
+underscored title, and a semver suffix) — the convention `STD-020`
 describes as *"a photograph: it is not edited because a new version is a
 new file."*
 

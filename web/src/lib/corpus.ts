@@ -220,7 +220,8 @@ const READING_ORDER: Record<string, string[]> = {
   // vocabulary. It was merged into CAN-004 on 2026-09-03: it translated names,
   // it never bound anything, and the canon already held the structure it named.
   standards: [
-    "/corpus/standards/std-001-glossary",
+    "/corpus/standards/std-001-the-series",
+    "/corpus/standards/std-024-a-series-is-a-function",
     "/corpus/standards/std-004-the-header",
     "/corpus/standards/std-016-header-fields",
     "/corpus/standards/std-003-platform-ranks",

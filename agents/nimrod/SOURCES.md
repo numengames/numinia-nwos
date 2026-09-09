@@ -34,8 +34,9 @@ relationships among its documentary areas.
 
 ## Controlled terminology and documentary classes
 
-`standards/STD-001-glossary.md` — canonical vocabulary, identifiers, naming,
-and controlled terms.
+`standards/STD-001-the-series.md` — the series; `standards/STD-016-header-fields.md`
+— fields and controlled terms; `standards/STD-018-one-document-one-identifier.md`
+— identifiers and naming.
 
 `standards/` — operative standards governing repository artefacts and working
 conventions. Consult the relevant standard before explaining a formal process

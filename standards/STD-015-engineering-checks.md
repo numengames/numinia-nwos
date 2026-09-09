@@ -5,9 +5,9 @@ title: "Engineering checks"
 type: documentation
 subtype: register
 status: draft
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-17T21:55:38+02:00"
-updated: "2026-09-09T02:40:00+02:00"
+updated: "2026-09-09T12:30:00+02:00"
 author: "pablofm"
 owner: "oracle"
 territory: "Platform"
@@ -51,6 +51,8 @@ series_change: "1.0.0 — new register, split from STD-005 under ADR-043: the ei
 | Traceability | TRC-003 | Labels standardised across repositories | SHOULD | `[AUTO: label-sync]` |
 | Traceability | TRC-004 | `CHANGELOG.md` or releases generated from conventional commits | MUST | `[AUTO: release workflow]` |
 | Traceability | TRC-005 | Roadmap or TODO as a file in the repository (`STD-006`) | MUST | `[AUTO: presence check]` |
+| Traceability | TRC-006 | A guard is verified by its step in the job, never by the run's colour: a green run and a workflow missing the guard are indistinguishable from the conclusion | MUST | `[MANUAL]` |
+| Traceability | TRC-007 | Every guard declares what it does not look at, on success as on failure (`scripts/blind-spots.json`); a guard that validates what is present cannot detect what is missing | MUST | `[AUTO: blindness.test.mjs]` |
 | Ergonomics | DEV-001 | `.env.example` exhaustive and in sync with the env schema | MUST | `[AUTO: schema-vs-example test]` |
 | Ergonomics | DEV-002 | `dev`, `build`, `test`, `lint` mean the same in every repository | MUST | `[AUTO: template check]` |
 | Ergonomics | DEV-003 | `.editorconfig` and shared editor settings committed | SHOULD | `[AUTO: presence check]` |

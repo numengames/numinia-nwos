@@ -1,0 +1,97 @@
+---
+title: "The series"
+id: "STD-001"
+uid: ""
+type: documentation
+subtype: register
+status: active
+version: "5.0.0"
+created: "2026-08-24T16:00:00Z"
+updated: "2026-09-09T12:30:00+02:00"
+author: "ursa"
+owner: "oracle"
+guild: "Alchemists"
+territory: "Archive"
+tags: [standards, series, register, archive]
+license: "CC0-1.0"
+ratified_by: "ADR-027"
+threshold: governed
+related: ["STD-024", "STD-016", "STD-018", "STD-007"]
+series_change: "5.0.0 — cut eleven under ADR-043. The glossary that was not a glossary becomes the register it always was: what series exist, what each holds, its prefix, its threshold, its budget, its mould. The rules moved to STD-024 (a series is a function), STD-021 (citing vs data), STD-015 (guard checks); the field vocabularies were already in STD-016. Section-numbered citations resolve in git."
+---
+
+# The series
+
+> **Summary:** The folders of the corpus, one row each: what the folder holds,
+> its identifier prefix, its change threshold, its body budget and its mould.
+> **Epistemic:** Which series exist, and what each one is for.
+> **Pragmatic:** Look up where a document goes and what it is called before
+> creating it. An unlisted folder is unregistered until a row is added here.
+> **Audience:** Agents · Oracles
+
+**Binds:** every tracked document of the corpus.
+**Does not bind:** what a series is and what it obliges — `STD-024`; the
+fields of the header — `STD-016`; the identifier — `STD-018`.
+
+## Series
+
+| Series | Holds | Prefix | Threshold | Budget | Mould |
+|---|---|---|---|---|---|
+| `canon/` | what the system **is**: foundational, not operating policy | `CAN-NNN` | `sealed` | 1500 | `CAN-TEMPLATE.md` |
+| `standards/` | what an **artifact** must comply with | `STD-NNN` | `governed` | 500 (norm) · none (register) | `STD-TEMPLATE.md` |
+| `protocols/` | what an **actor** executes in a repeated situation | `PRO-NNN` | `governed` | 500 | `PRO-TEMPLATE.md` |
+| `decisions/` | why something was chosen; superseded by the next | `ADR-NNN` · `DEC-NNN` | `governed` | 500 | `ADR-TEMPLATE.md` |
+| `missions/` | the work; state lives in `status:`, never in the path | `MIS-NNNN` | `closed` when `done` | 500 | `MIS-TEMPLATE.md` |
+| `reports/` | what was observed on a date; `reports/evidence/` is never edited | `RPT-NNN` · `RPT-YYYY-MM-DD` (`daily`, retired) | `closed` | 1000 | `RPT-TEMPLATE.md` |
+| `blueprints/` | what could be; not a report of what happened | `BLU-NNN` | `open` | 1000 | `BLU-TEMPLATE.md` |
+| `debt/` | what is known to be missing; deleted once nothing living cites it | `DBT-NNN` | `open` | 300 | `DBT-TEMPLATE.md` |
+| `guilds/` | how actors group | `GLD-NNN` | `governed` | 300 | `GLD-TEMPLATE.md` |
+| `operations/` | what sustains the business: legal, strategy | `OPS-NNN` | `open` | — | `OPS-TEMPLATE.md` |
+| `system/` | how the machine is wired | `SYS-NNN` | `governed` | — | `SYS-TEMPLATE.md` |
+| `infra/` | what runs it | `INF-NNN` | `open` | — | `INF-TEMPLATE.md` |
+| `agents/` | who acts: `SOUL` · `OPERATOR` · `STATUS` · `MEMORY` per agent | — | `live` (memory) | — | `agents/_template/` |
+
+`canon/`, `standards/` and `protocols/` are the **axis**; the rest are
+**registers** (`STD-024`). Budgets are the body word counts `STD-007` measures.
+Moulds live in `templates/`, which is apparatus: never a member of a series,
+never published, CC0-1.0.
+
+## Genre and folder
+
+| `type` | Series | Guard strict |
+|---|---|---|
+| `seminal` | `canon/` | yes |
+| `documentation` (`subtype: standard` · `register`) | `standards/` | no |
+| `documentation` (`subtype: guide`) | the series it explains | no |
+| `protocol` | `protocols/` | yes |
+| `mission` | `missions/` | yes |
+| `adr` | `decisions/` | yes |
+| `blueprint` | `blueprints/` | yes |
+| `report` | `reports/` | yes |
+| `legal` | `operations/legal/` | yes |
+| `charter` | `guilds/` | yes |
+| `agent` | `agents/` | yes |
+| `meta` | anywhere — apparatus accompanies its series | no |
+
+Withdrawn `type` values: `audit` → `report` + `subtype: audit` · `decision` →
+`adr` · `roster` → `meta`.
+
+## Mission status
+
+| Value | Meaning | Stamp |
+|---|---|---|
+| `todo` | accepted, not started | — |
+| `in-progress` | being executed now | `started` |
+| `in-review` | executed, awaiting the Oracle | `in_review_at` |
+| `done` | closed with documented evidence | `completed` |
+| `frozen` | deliberately paused; returns to any state | `freeze_reason` |
+
+Withdrawn: `backlog` · `draft` → `todo` · `active` · `queue` · `blocked` ·
+`freeze` · `cancelled`. Other lifecycles: `STD-016`.
+
+## Earlier schemes
+
+`P-NNN` · `S-NNN` · `D-NNN` · `C-NNN` · `O-NNN` · `AUD-YYYY-MM-DD` · `AG-NNN`.
+Nothing is renumbered: a document that cites one keeps the citation as a
+promise about the past, and `check-references.mjs` resolves it against git.
+Across repositories the identifier is qualified: `nwos:ADR-006` · `web:ADR-006`.

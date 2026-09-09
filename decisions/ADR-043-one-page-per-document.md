@@ -47,7 +47,7 @@ enough to be read whole. Agents searched the series; nobody read it.
 Three properties of the text explained this. The apparatus came before the
 content: a card of four paragraphs, then purpose, then scope, then the
 norm. The reason came before the rule. And rules were referred to by
-position — `STD-001 §5` — so every cut moved a target.
+position — `STD-024` — so every cut moved a target.
 
 ## 2. Decision
 

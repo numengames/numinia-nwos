@@ -3,10 +3,10 @@ id: "DBT-022"
 uid: ""
 title: "The glossary holds three definitions and thirty-nine sections of registration law"
 type: documentation
-status: active
-version: "0.1.0"
+status: closed
+version: "0.2.0"
 created: "2026-09-08T11:30:00+02:00"
-updated: "2026-09-08T11:30:00+02:00"
+updated: "2026-09-09T12:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -74,6 +74,13 @@ citation-breaking acts. They need a migration, not an edit.
    expensive: the split renumbers everything.
 
 No exit is chosen here. The measurement is the deliverable.
+
+**Closed 2026-09-09 by cut eleven of ADR-043**, exit 1 and 3 together: the
+file became `STD-001` *The series*, a register of tables, and its rules went
+to `STD-024` *A series is a function* (seven plates), `STD-021` (`CIT-054`)
+and `STD-015` (`TRC-006`, `TRC-007`). The three definitions were not kept: a
+glossary of terms is not owed by this corpus — the Oracle ruled it another
+business. Nothing was renumbered; section-numbered citations resolve in git.
 
 ## 4. References
 
