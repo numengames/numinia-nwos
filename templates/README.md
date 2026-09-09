@@ -26,8 +26,6 @@ member of any series, never published, never counted in the corpus figures.
 | `CAN-TEMPLATE.md` | a canon text | `canon/CAN-NNN-slug.md` |
 | `BLU-TEMPLATE.md` | a blueprint | `blueprints/BLU-NNN-slug.md` |
 | `SYS-TEMPLATE.md` | a system reference | `system/SYS-NNN-slug.md` |
-| `INF-TEMPLATE.md` | an infra reference | `infra/INF-NNN-slug.md` |
-| `GLD-TEMPLATE.md` | a guild charter | `guilds/<slug>/GLD-NNN-charter.md` |
 
 Two companions of the mission mould, which are records rather than moulds:
 

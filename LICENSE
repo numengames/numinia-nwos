@@ -8,8 +8,7 @@ REUSE.toml with full texts in LICENSES/ (Numinia canon CAN-005):
   - Repo metadata (.gitignore)                      CC0-1.0
   - The canon (canon/**), the standards (standards/**)
     and the agent definitions (agents/**)           CC0-1.0
-  - Lore, narrative, brand (guilds/**) and
-    enforceable legal texts (operations/legal/**)   All rights reserved
+  - Enforceable legal texts (operations/legal/**)   All rights reserved
                                                     (LicenseRef-Numen-AllRightsReserved)
 
 The canon is CC0 because it was first published that way: every canon/

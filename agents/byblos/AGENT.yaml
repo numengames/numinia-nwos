@@ -9,6 +9,7 @@ name: Byblos
 version: "1.0.0"
 status: active
 activated: "2026-08-28"
+guild: "Exegetes"
 
 previous_names:
   - name: adonaz

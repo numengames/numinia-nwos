@@ -10,7 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository layout
 
-This is the Numinia NWOS workspace: canon, lore, guilds, missions, protocols and operations live in the root directories (`canon/`, `missions/`, `guilds/`, `protocols/`, `operations/`, …). The public viewer for that canon is an Astro app in `web/`, extracted from `numinia-nwos-viewer`.
+This is the Numinia NWOS workspace: canon, lore, missions, protocols and operations live in the root directories (`canon/`, `missions/`, `protocols/`, `operations/`, …). The public viewer for that canon is an Astro app in `web/`, extracted from `numinia-nwos-viewer`.
 
 ## Commands (run inside `web/`)
 

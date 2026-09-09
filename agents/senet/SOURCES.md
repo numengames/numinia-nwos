@@ -35,7 +35,7 @@ canon/CAN-001…CAN-004 — reserved lore; read, never republish
 
 ## Guild context
 
-guilds/ — who plays which role in the system
+canon/CAN-004 — the guild hierarchy; agents/*/AGENT.yaml `guild:` — who belongs where
 
 ---
 

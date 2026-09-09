@@ -36,7 +36,7 @@ check('rules.json: types.series targets are registered series', () =>
 check('rules.json: lax types are in types.all', () => rules.types.lax.every((t) => rules.types.all.includes(t)));
 check('rules.json: status keys are types or _default', () =>
   Object.keys(rules.status).filter((k) => !k.startsWith('_')).every((t) => rules.types.all.includes(t)));
-check('rules.json: governed dirs exist in the tracked tree (or are the registered-empty infra/)', () => {
+check('rules.json: governed dirs exist in the tracked tree', () => {
   const tracked = new Set(execFileSync('git', ['-C', ROOT, 'ls-files'], { encoding: 'utf8' }).split('\n').map((f) => f.split('/')[0]));
   const missing = rules.governed.dirs.filter((d) => !tracked.has(d));
   return missing.length === 0 || `missing: ${missing.join(', ')}`;

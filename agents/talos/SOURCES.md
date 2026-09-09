@@ -54,9 +54,9 @@ locked dependency state when dependency or build assurance is relevant.
 
 ## GitHub configuration
 
-`infra/github/` — repository configuration exported as reviewable files.
+`.github/rulesets/` — repository configuration exported as reviewable files.
 
-Where `infra/github/README.md` identifies an export as a manual snapshot, the
+Where `.github/rulesets/README.md` identifies an export as a manual snapshot, the
 live GitHub configuration remains authoritative. Re-verify live state before
 treating the snapshot as current.
 

@@ -112,12 +112,6 @@ export const RING3 = {
   'system': ['extraction_note', 'restoration_note', 'mission',
     'fondos', 'graph', 'former_id', 'former_id_note', 'accuracy_warning'],
   'history': ['former_id', 'former_id_note', 'supersedes_version'],
-  // MIS-145 v2 (2026-09-04): infra/ is the repository's own machinery. It
-  // holds one document today and had no registry line, so any field beyond
-  // ring 1 and 2 was HDR-030 by silence rather than by ruling. Registered with
-  // the two the shelf actually needs: what configured it, and what it
-  // documents. `subtype: reference` is already registered in rules.json.
-  'infra': ['mission', 'subtype', 'extraction_note'],
 };
 
 export const RING3_ALL = ['tags', 'visibility', 'guild', 'territory', 'registration',
