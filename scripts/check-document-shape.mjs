@@ -29,13 +29,21 @@
  *   Whether a rule is one obligation, or a title is a rule — editorial.
  *
  * Usage:
- *   node scripts/check-document-shape.mjs               # report, exit 0
+ *   node scripts/check-document-shape.mjs               # report sizes; block on NEW form failures
  *   node scripts/check-document-shape.mjs --json        # machine output
  *   node scripts/check-document-shape.mjs standards/    # one folder
+ *   node scripts/check-document-shape.mjs --write-baseline
+ *
+ * Form failures present when blocking switched on (ADR-043: "when the last
+ * standard is cut") are frozen in scripts/document-shape-baseline.json, one
+ * `file finding` per line. The guard fails only on a form failure NOT in that
+ * file, so the list can shrink and never grow — the same ratchet as
+ * check-references and check-plain-writing. A baselined document loses its
+ * exemption the moment it is edited into shape.
  */
 
 import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { ROOT, parseFM, stripFM, isApparatus, isTemplate } from './lib/frontmatter.mjs';
 
@@ -54,8 +62,10 @@ const NEEDS_PLATES = new Set(['standards', 'protocols']);
 
 // ADR-043: form is MUST. Flipped when the tenth cut merged (MIS-146 phase 4).
 const BLOCK_ON_FORM = true;
+const BASELINE = path.join(ROOT, 'scripts', 'document-shape-baseline.json');
 
 const args = process.argv.slice(2);
+const WRITE = args.includes('--write-baseline');
 const JSON_OUT = args.includes('--json');
 const only = args.find((a) => !a.startsWith('--'));
 
@@ -220,8 +230,20 @@ if (only || process.env.SHAPE_VERBOSE) {
     for (const f of r.findings) console.log(`    ${f}`);
   }
 }
-const formFails = results.filter((r) => r.findings.some((f) => /^S-0[234] (no|card has no)/.test(f)));
-if (BLOCK_ON_FORM && formFails.length) {
-  console.error(`\n${formFails.length} document(s) fail on FORM (card, scope or plates). ADR-043: form is MUST.`);
-  process.exit(1);
+const FORM_RE = /^S-0[234] (no|card has no)/;
+const formKeys = results.flatMap((r) => r.findings.filter((f) => FORM_RE.test(f)).map((f) => `${r.file} ${f}`)).sort();
+if (WRITE) {
+  writeFileSync(BASELINE, JSON.stringify(formKeys, null, 2) + '\n');
+  console.log(`document-shape: baseline written — ${formKeys.length} known form failure(s) frozen.`);
+  process.exit(0);
+}
+const baseline = existsSync(BASELINE) ? new Set(JSON.parse(readFileSync(BASELINE, 'utf8'))) : new Set();
+const fresh = formKeys.filter((k) => !baseline.has(k));
+if (BLOCK_ON_FORM && !only) {
+  console.log(`\nform: ${formKeys.length} failure(s) · ${baseline.size} baselined · ${fresh.length} new`);
+  if (fresh.length) {
+    console.error(`\n✗ ${fresh.length} NEW form failure(s). ADR-043: form is MUST — card, scope and plates before merge.`);
+    for (const k of fresh) console.error(`    ${k}`);
+    process.exit(1);
+  }
 }

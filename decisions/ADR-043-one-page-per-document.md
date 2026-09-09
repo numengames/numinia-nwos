@@ -4,9 +4,9 @@ uid: ""
 title: "One page per document: a rule-shaped title, a three-part card, plated rules, and a body budget per series"
 type: adr
 status: active
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-09-08T22:30:00+02:00"
-updated: "2026-09-09T00:15:00+02:00"
+updated: "2026-09-09T11:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 deciders: ["oracle"]
@@ -99,9 +99,11 @@ position — `STD-001 §5` — so every cut moved a target.
 - The twelve standards are cut to the shape in order of incoming citations,
   fewest first, one pull request each. The target layout is fifteen norms
   and six registers; it is a plan, not a rule, and the index records it.
-- `check-document-shape.mjs` runs on every pull request in report mode.
-  It becomes blocking for form — never for size — when the last standard
-  is cut.
+- `check-document-shape.mjs` runs on every pull request. Since the tenth
+  cut it blocks on form — never on size — for NEW failures: the form
+  failures outside `standards/` on that day are frozen in
+  `scripts/document-shape-baseline.json`, a list that shrinks and never
+  grows.
 - `STD-004 §9–10` and `STD-009 §9` describe the old shape and are
   superseded in part by this decision; they are removed when those files
   are cut.

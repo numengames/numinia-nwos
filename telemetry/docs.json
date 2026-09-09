@@ -918,10 +918,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 6341,
+  "chars": 6467,
   "apparatus": false,
   "archived": false,
-  "tokens": 1777
+  "tokens": 1812
  },
  {
   "path": "decisions/ADR-044-consumers-install-packages.md",
@@ -1516,17 +1516,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 5070
- },
- {
-  "path": "standards/STD-002-governance.md",
-  "dir": "standards",
-  "series": "standards",
-  "type": "documentation",
-  "status": "superseded",
-  "chars": 2158,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 681
  },
  {
   "path": "standards/STD-003-platform-ranks.md",
