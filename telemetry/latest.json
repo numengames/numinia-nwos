@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "9bb512b",
-  "corpus_hash": "77d288272fff97c7a39053bca74cc6abab154e74fa37e0a53d15c258e52ec01f",
+  "head": "6d9757d",
+  "corpus_hash": "24660193fed5781f247e973863ca89150d67d9fb2a302efe9e520ab0f6ce3066",
   "root_dirty": 0,
-  "measured_at": "2026-09-09T12:25:14Z",
+  "measured_at": "2026-09-09T12:38:34Z",
   "families": [
     "corpus",
     "series",
@@ -336,7 +336,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 268546,
+      "value": 268607,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -344,7 +344,7 @@
       "value": {
         "missions": 43032,
         "standards": 35017,
-        "canon": 29352,
+        "canon": 29413,
         "agents": 25431,
         "reports": 23474,
         "blueprints": 22838,
@@ -364,7 +364,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 157026,
+        "active": 157087,
         "draft": 41297,
         "done": 26350,
         "todo": 13588,
@@ -454,8 +454,8 @@
         "related_missions": 9,
         "former_id": 8,
         "paths": 8,
-        "former_id_note": 7,
         "depends_on": 6,
+        "former_id_note": 6,
         "started": 6,
         "absorbs": 5,
         "amends": 5,
@@ -703,10 +703,10 @@
           "4": 182
         },
         "CAN": {
-          "3": 130
+          "3": 138
         },
         "ADR": {
-          "3": 331
+          "3": 330
         },
         "PRO": {
           "3": 212
@@ -853,7 +853,7 @@
       "definition": "docs_total − docs_con_frontmatter"
     },
     "legacy.referencias_textuales_total": {
-      "value": 1345,
+      "value": 1343,
       "unit": "mentions",
       "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
     },

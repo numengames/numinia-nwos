@@ -654,10 +654,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 12152,
+  "chars": 12246,
   "apparatus": false,
   "archived": false,
-  "tokens": 2384
+  "tokens": 2445
  },
  {
   "path": "canon/CAN-008-visual-identity.md",
