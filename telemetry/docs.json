@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 7376,
+  "chars": 7445,
   "apparatus": false,
   "archived": false,
-  "tokens": 1627
+  "tokens": 1644
  },
  {
   "path": "CHANGELOG.md",
@@ -418,6 +418,17 @@
   "tokens": 335
  },
  {
+  "path": "agents/skills/numinia-nwos-pr/SKILL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 4354,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1229
+ },
+ {
   "path": "agents/talos/OPERATOR.md",
   "dir": "agents",
   "series": "agents",
@@ -478,10 +489,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1255,
+  "chars": 1463,
   "apparatus": false,
   "archived": false,
-  "tokens": 342
+  "tokens": 394
  },
  {
   "path": "blueprints/BLU-002-business-metrics.md",
@@ -1347,10 +1358,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 5040,
+  "chars": 5116,
   "apparatus": false,
   "archived": false,
-  "tokens": 1539
+  "tokens": 1563
  },
  {
   "path": "standards/STD-017-who-may-change-what.md",

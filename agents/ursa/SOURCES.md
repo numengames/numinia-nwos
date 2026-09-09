@@ -3,11 +3,11 @@ agent: ursa
 title: "SOURCES — Ursa"
 type: agent
 status: active
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-28T09:54:16Z"
 created_source: "git:eba0b00"
 created_confidence: exact
-updated: "2026-08-28T09:54:16Z"
+updated: "2026-09-10T08:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [agents, ursa]
@@ -43,3 +43,7 @@ decisions/ — ADRs that constrain technical choices; debt/ — known defects
 When a needed fact is not in these sources: say what is missing, consult the
 relevant specialist (`agents/INDEX.md`), or ask the operator. Do not invent
 project-specific facts (AGENTS.md, Source Authority).
+
+## Skills
+
+../skills/numinia-nwos-pr/SKILL.md — how a pull request is opened in this repository: one at a time, guards before push, telemetry last, fixed reviewers; canon is discussed before any branch

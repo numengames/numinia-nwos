@@ -140,6 +140,7 @@ retrieve the relevant source when needed (`SOURCES.md` says where).
 ## Skills
 
 Skills represent reusable procedures, not general knowledge repositories.
+Skills every agent uses live under `agents/skills/<skill>/SKILL.md`.
 Agent-specific portable skills may live under `agents/<agent>/skills/`.
 Do not convert bodies of reference knowledge into skills solely to make
 them accessible.

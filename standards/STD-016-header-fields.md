@@ -5,9 +5,9 @@ title: "Header fields"
 type: documentation
 subtype: register
 status: active
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-28T15:10:00Z"
-updated: "2026-09-09T03:10:00+02:00"
+updated: "2026-09-10T08:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
@@ -64,7 +64,7 @@ series_change: "1.0.0 — new register, split from STD-004 under ADR-043: the fi
 | `reports/` | `severity` `period` `subtype` `model` `agent` `week` `scope` `former_id` `former_id_note` `absorbs` |
 | `decisions/` | `deciders` `consulted` `outcome` `decision` `absorbs` `amends` |
 | `standards/` | `absorbs` `series_change` |
-| `agents/` | `role` `platform` `model` `soul` `agent` |
+| `agents/` | `role` `platform` `model` `soul` `agent` · `name` `description` (portable `SKILL.md` under `agents/<agent>/skills/`) |
 | `debt/` | `severity` `severity_reason` `detected` `refuted` `source_audit` `opened_by` `visibility_reason` |
 | `blueprints/` `operations/` | `extraction_note` `restoration_note` |
 | `blueprints/` | `semaforo` |
