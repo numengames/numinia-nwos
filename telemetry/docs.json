@@ -1335,11 +1335,11 @@
   "dir": "protocols",
   "series": "protocols",
   "type": "protocol",
-  "status": "draft",
-  "chars": 4291,
+  "status": "active",
+  "chars": 4064,
   "apparatus": false,
   "archived": false,
-  "tokens": 1111
+  "tokens": 1104
  },
  {
   "path": "protocols/PRO-017-rolling-up-the-week.md",
