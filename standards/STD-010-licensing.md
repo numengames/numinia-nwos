@@ -5,9 +5,9 @@ title: "Licensing"
 type: documentation
 subtype: standard
 status: draft
-version: "1.0.1"
+version: "1.0.2"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-09-09T01:45:00+02:00"
+updated: "2026-09-10T01:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
@@ -36,31 +36,29 @@ third-party material, which keeps its licence of origin.
 ## Rules
 
 **LIC-001 — Ours, or not published.** Without demonstrable ownership —
-contract, commission, assignment or a compatible licence of origin — a piece
-MUST NOT be published.
+contract, commission, assignment or compatible origin — a piece MUST NOT be
+published.
 
 **LIC-002 — Licence by kind.** Application that decides (`apps/*`)
 `AGPL-3.0-only`. Package, SDK, tokens, script, CI (`packages/*`) `MIT`.
 Public assets, data, design system `CC0-1.0`. Documentation `CC-BY-4.0`.
-Lore, brand, undecided prototypes: reserved. `canon/` is `CC0-1.0` by
-irrevocable grant.
+Lore, brand, prototypes: reserved. `canon/` is `CC0-1.0`, irrevocably.
 
 **LIC-003 — Copyleft flows down, never up.** AGPL MUST NOT be imported by
 MIT. The strongest copyleft in the *distributed* tree sets the floor;
-`devDependencies` do not count. Two processes over HTTP are two works; two
-modules importing each other are one.
+`devDependencies` do not count. Two processes over HTTP are two works.
 
 **LIC-004 — Inherited copyleft is isolated.** A third party's copyleft engine
-lives in a separate repository. Our own copyleft is declared per directory.
+lives in its own repository; ours is declared per directory.
 
 **LIC-005 — Allowed inputs only.** A dependency's licence MUST be on the
-allowlist (`STD-013`), resolved against the registry before adding. Absent
-or unknown licence blocks until its `LICENSE` is read.
+allowlist (`STD-013`), resolved before adding. Absent or unknown blocks
+until its `LICENSE` is read.
 
 **LIC-006 — Present is not distributed.** A forbidden dependency that stays
 out of the artifact MAY be tolerated only with a `debt/` entry tagged `legal`,
-an exit condition, and a guard that reads the artifact's contents. If the
-artifact is AGPL and the licence adds restrictions, no exception exists.
+an exit condition, and a guard that reads the artifact. An AGPL artifact
+with added restrictions has no exception.
 
 **LIC-007 — Every repository declares.** `LICENSE`, `LICENSES/`, `REUSE.toml`,
 `TRADEMARKS.md`; `NOTICE` if any Apache-2.0 ships; exact SPDX in every

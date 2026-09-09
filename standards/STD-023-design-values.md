@@ -5,9 +5,9 @@ title: "Design values"
 type: documentation
 subtype: register
 status: active
-version: "1.0.1"
+version: "1.0.2"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-09T12:00:00+02:00"
+updated: "2026-09-10T01:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -24,11 +24,10 @@ SPDX-License-Identifier: CC0-1.0
 
 # Design values
 
-> **Summary:** Every closed list of the design system, as values: the
-> sixteen colours and their contrasts, the type scale, the space scale, the
-> icon subset, the brand inventory, the fourteen animations, the sky and the
-> pixel grids. The kit `packages/design-kit/` carries the same values as
-> tokens; where they differ, the generator fails.
+> **Summary:** Every closed list of the design system, as values: colours
+> and contrasts, type and space scales, icon subset, brand inventory,
+> animations, sky and pixel grids. `packages/design-kit/` carries the same
+> values as tokens; where they differ, the generator fails.
 > **Epistemic:** What the values are. Why they are what they are is
 > `CAN-008`; what a builder must do with them is `STD-008`.
 > **Pragmatic:** Look a value up here or in the tokens file; never in a

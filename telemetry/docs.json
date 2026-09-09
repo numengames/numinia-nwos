@@ -1347,10 +1347,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 4748,
+  "chars": 4621,
   "apparatus": false,
   "archived": false,
-  "tokens": 1228
+  "tokens": 1196
  },
  {
   "path": "standards/STD-004-the-header.md",
@@ -1380,10 +1380,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 3998,
+  "chars": 3906,
   "apparatus": false,
   "archived": false,
-  "tokens": 1014
+  "tokens": 994
  },
  {
   "path": "standards/STD-007-one-page-per-document.md",
@@ -1402,10 +1402,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 5181,
+  "chars": 5127,
   "apparatus": false,
   "archived": false,
-  "tokens": 1432
+  "tokens": 1423
  },
  {
   "path": "standards/STD-009-which-rule-wins.md",
@@ -1424,10 +1424,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5422,
+  "chars": 5273,
   "apparatus": false,
   "archived": false,
-  "tokens": 1473
+  "tokens": 1442
  },
  {
   "path": "standards/STD-011-external-standards.md",
@@ -1567,10 +1567,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 24886,
+  "chars": 24819,
   "apparatus": false,
   "archived": false,
-  "tokens": 8056
+  "tokens": 8039
  },
  {
   "path": "standards/STD-024-a-series-is-a-function.md",
