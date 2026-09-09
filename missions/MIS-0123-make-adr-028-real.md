@@ -173,7 +173,7 @@ open.
 
 *Read against `203267c` during the missions/ normalisation (lot 4). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
 
-- **Evidence:** Its first criterion is done by reality: HDR-033…HDR-036 vocabulary checks are live in lint-frontmatter.mjs (VOCAB_CHECK) and HDR-032 checks TBA ownership. Remaining: visibility vocabulary in STD-001 §7, TBA counter in the summary line, baseline re-bank. Depends on ADR-027 (resolves).
+- **Evidence:** Its first criterion is done by reality: HDR-033…HDR-036 vocabulary checks are live in lint-frontmatter.mjs (VOCAB_CHECK) and HDR-032 checks TBA ownership. Remaining: visibility vocabulary in `STD-001` (mission status), TBA counter in the summary line, baseline re-bank. Depends on ADR-027 (resolves).
 - **Recommendation:** Keep todo, re-scope to the three remaining criteria; tick the first two from the guard's own source (form). Small.
 
 ## Version history

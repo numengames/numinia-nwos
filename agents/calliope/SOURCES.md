@@ -31,8 +31,9 @@ understood when a text depends on project identity or scope.
 
 ## Terminology
 
-`standards/STD-001-glossary.md` — canonical terminology, naming, and controlled
-vocabulary.
+`standards/STD-001-the-series.md` — the series; `standards/STD-016-header-fields.md`
+— fields and controlled vocabulary; `standards/STD-018-one-document-one-identifier.md`
+— naming.
 
 ## Writing standard
 

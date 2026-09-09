@@ -63,7 +63,8 @@ export default defineConfig({
 		"/corpus/history/2026_09_07-cultural_cartography-v100": "/decisions/adr-041",
 		"/corpus/history/2026_09_07-financial_projections-v100": "/decisions/adr-041",
 		"/corpus/history/2026_09_07-role_structure_treatise-v100": "/decisions/adr-041",
-		"/corpus/standards/s-001-glossary": "/corpus/standards/std-001-glossary",
+		"/corpus/standards/s-001-glossary": "/corpus/standards/std-001-the-series",
+		"/corpus/standards/std-001-glossary": "/corpus/standards/std-001-the-series",
 		"/corpus/standards/governance": "/corpus/standards/std-009-which-rule-wins",
 		// STD-002 deleted under ADR-043 rule 8: STD-009 absorbs it. The map of
 		// where each part went is in git (standards/STD-002-governance.md, v5.0.0).
@@ -367,9 +368,9 @@ export default defineConfig({
 		// so they land on the standard that now carries the series → template
 		// map (STD-001 §2.3) — the question "which template do I copy?" is
 		// answered there. The templates themselves stay reachable on GitHub.
-		"/corpus/missions/template": "/corpus/standards/std-001-glossary",
-		"/corpus/missions/template-changes": "/corpus/standards/std-001-glossary",
-		"/corpus/missions/template-example": "/corpus/standards/std-001-glossary",
+		"/corpus/missions/template": "/corpus/standards/std-001-the-series",
+		"/corpus/missions/template-changes": "/corpus/standards/std-001-the-series",
+		"/corpus/missions/template-example": "/corpus/standards/std-001-the-series",
 		// MIS-127: BLU-003 dropped the "-v2" version suffix from its filename
 		// (STD-001 §9 — the version lives in frontmatter, not the name).
 		// MIS-129 then moved the document itself out of blueprints/ into

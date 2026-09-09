@@ -27,10 +27,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 7440,
+  "chars": 7471,
   "apparatus": false,
   "archived": false,
-  "tokens": 1644
+  "tokens": 1654
  },
  {
   "path": "CHANGELOG.md",
@@ -71,10 +71,10 @@
   "series": null,
   "type": "documentation",
   "status": "active",
-  "chars": 5903,
+  "chars": 5923,
   "apparatus": true,
   "archived": false,
-  "tokens": 1532
+  "tokens": 1531
  },
  {
   "path": "SECURITY.md",
@@ -203,10 +203,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1284,
+  "chars": 1341,
   "apparatus": false,
   "archived": false,
-  "tokens": 346
+  "tokens": 361
  },
  {
   "path": "agents/calliope/OPERATOR.md",
@@ -236,10 +236,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 1833,
+  "chars": 1923,
   "apparatus": false,
   "archived": false,
-  "tokens": 452
+  "tokens": 477
  },
  {
   "path": "agents/doulos/OPERATOR.md",
@@ -335,10 +335,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 3312,
+  "chars": 3406,
   "apparatus": false,
   "archived": false,
-  "tokens": 755
+  "tokens": 782
  },
  {
   "path": "agents/procyon/OPERATOR.md",
@@ -676,10 +676,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "closed",
-  "chars": 5446,
+  "chars": 5439,
   "apparatus": false,
   "archived": false,
-  "tokens": 1443
+  "tokens": 1437
  },
  {
   "path": "debt/DBT-015-core-45-guard-condemns-withdrawn.md",
@@ -741,11 +741,11 @@
   "dir": "debt",
   "series": "debt",
   "type": "documentation",
-  "status": "active",
-  "chars": 3246,
+  "status": "closed",
+  "chars": 3704,
   "apparatus": false,
   "archived": false,
-  "tokens": 842
+  "tokens": 980
  },
  {
   "path": "decisions/ADR-001-the-archive.md",
@@ -852,10 +852,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 2440,
+  "chars": 2437,
   "apparatus": false,
   "archived": false,
-  "tokens": 715
+  "tokens": 713
  },
  {
   "path": "decisions/ADR-038-genre-map-is-government.md",
@@ -918,10 +918,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 6467,
+  "chars": 6464,
   "apparatus": false,
   "archived": false,
-  "tokens": 1812
+  "tokens": 1810
  },
  {
   "path": "decisions/ADR-044-consumers-install-packages.md",
@@ -1116,10 +1116,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 8272,
+  "chars": 8288,
   "apparatus": false,
   "archived": false,
-  "tokens": 2334
+  "tokens": 2337
  },
  {
   "path": "missions/MIS-0124-close-territory-vocabulary.md",
@@ -1193,10 +1193,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 21793,
+  "chars": 21823,
   "apparatus": false,
   "archived": false,
-  "tokens": 5182
+  "tokens": 5188
  },
  {
   "path": "missions/MIS-0150-dependabot-advisories-triage.md",
@@ -1204,10 +1204,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 10586,
+  "chars": 10601,
   "apparatus": false,
   "archived": false,
-  "tokens": 2814
+  "tokens": 2815
  },
  {
   "path": "missions/MIS-0151-accessibility-gate-single-home.md",
@@ -1507,15 +1507,15 @@
   "tokens": 1113
  },
  {
-  "path": "standards/STD-001-glossary.md",
+  "path": "standards/STD-001-the-series.md",
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 18594,
+  "chars": 4814,
   "apparatus": false,
   "archived": false,
-  "tokens": 5070
+  "tokens": 1557
  },
  {
   "path": "standards/STD-003-platform-ranks.md",
@@ -1655,10 +1655,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8095,
+  "chars": 8540,
   "apparatus": false,
   "archived": false,
-  "tokens": 2219
+  "tokens": 2329
  },
  {
   "path": "standards/STD-016-header-fields.md",
@@ -1721,10 +1721,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 2519,
+  "chars": 2839,
   "apparatus": false,
   "archived": false,
-  "tokens": 687
+  "tokens": 773
  },
  {
   "path": "standards/STD-022-secrets.md",
@@ -1747,6 +1747,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 8056
+ },
+ {
+  "path": "standards/STD-024-a-series-is-a-function.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 4217,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1116
  },
  {
   "path": "system/SYS-001-cao-architecture.md",

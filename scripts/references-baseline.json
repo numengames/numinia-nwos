@@ -1,7 +1,7 @@
 {
   "_comment": "Known-broken references frozen at adoption time. The lint fails only on NEW breakage. This list should shrink over time and never grow. Regenerate only when fixing entries.",
   "generated": "2026-09-09T08:30:28.996Z",
-  "count": 120,
+  "count": 115,
   "entries": [
     "FILE AGENTS.md -> MEMORY.md",
     "FILE CHANGELOG.md -> APPROVAL-REQUEST-template.md",
@@ -37,10 +37,6 @@
     "FILE protocols/PRO-001-agent-session.md -> STATUS.md",
     "FILE protocols/PRO-003-mission-cycle.md -> STATUS.md",
     "FILE reports/RPT-017-mvp-story.md -> GAPS.md",
-    "FILE standards/STD-001-glossary.md -> UPPERCASE.md",
-    "FILE standards/STD-001-glossary.md -> canon/X.md",
-    "FILE standards/STD-001-glossary.md -> conceptual-glossary.md",
-    "FILE standards/STD-001-glossary.md -> glossary.md",
     "FILE system/SYS-001-cao-architecture.md -> GOVERNANCE.md",
     "FILE system/SYS-001-cao-architecture.md -> MEMORY.md",
     "FILE system/SYS-001-cao-architecture.md -> STATUS.md",
@@ -116,7 +112,6 @@
     "ID   reports/RPT-017-mvp-story.md -> D-033",
     "ID   reports/RPT-017-mvp-story.md -> P-001",
     "ID   reports/RPT-017-mvp-story.md -> P-007",
-    "ID   standards/STD-001-glossary.md -> D-011",
     "ID   system/SYS-001-cao-architecture.md -> P-001",
     "ID   system/SYS-001-cao-architecture.md -> P-009",
     "ID   telemetry/latest.md -> P-003",

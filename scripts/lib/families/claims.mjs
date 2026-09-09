@@ -26,14 +26,15 @@ export const contradictions = {
     const declared = new Set([...(rules.status.mission ?? []), ...(rules.status.adr ?? []), ...(rules.status._default ?? [])]);
     const used = {}; const undeclared = {};
     for (const d of docs) { if (d.status == null) continue; count(used, d.status); if (!declared.has(d.status)) (undeclared[d.status] ??= []).push(d.path); }
-    // ci_guards_vs_ci_markers: scripts in ci.yml steps vs scripts named on [CI] rows of STD-001
+    // ci_guards_vs_ci_markers: scripts in ci.yml steps vs scripts named in the Check tables of standards/
     const ci = path.join(ROOT, '.github/workflows/ci.yml');
     const inCi = existsSync(ci) ? [...readFileSync(ci, 'utf8').matchAll(/run:\s*node\s+(scripts\/\S+)/g)].map((m) => m[1]) : [];
-    const std = docs.find((d) => d.path === 'standards/STD-001-glossary.md');
     const marked = []; const markedScripts = new Set();
-    if (std) for (const m of std.text.matchAll(/^\|.*\[CI\].*$/gm)) {
-      const scripts = [...m[0].matchAll(/`(scripts\/[^`]+\.mjs)`/g)].map((x) => x[1]);
-      marked.push({ line: lineOf(std.text, m.index), scripts }); scripts.forEach((s) => markedScripts.add(s));
+    for (const std of docs.filter((d) => d.path.startsWith('standards/'))) {
+      for (const m of std.text.matchAll(/^\|.*`([a-z-]+\.mjs)`.*$/gm)) {
+        const scripts = [...m[0].matchAll(/`((?:scripts\/)?[a-z-]+\.mjs)`/g)].map((x) => x[1].startsWith('scripts/') ? x[1] : `scripts/${x[1]}`);
+        marked.push({ file: std.path, line: lineOf(std.text, m.index), scripts }); scripts.forEach((s) => markedScripts.add(s));
+      }
     }
     const markedNotInCi = [...markedScripts].filter((s) => !inCi.includes(s));
     const inCiNotMarked = inCi.filter((s) => !markedScripts.has(s));

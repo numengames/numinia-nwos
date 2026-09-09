@@ -5,7 +5,7 @@ uid: ""
 title: "Ursa's canonical definition carries the full cold-start context — one instruction, no repeated prompts"
 status: todo
 # ^ todo — the board's state for a mission awaiting assignment. (The Oracle
-#   asked for "backlog"; STD-001 §7 retired that value on 2026-08-30 — the
+#   asked for "backlog"; `STD-001` (mission status) retired that value on 2026-08-30 — the
 #   surviving equivalent is `todo`, per MIS-135 row 1. Decided by the Oracle
 #   2026-09-02.)
 priority: high
@@ -17,7 +17,7 @@ assigned_to: null
 completed: null
 
 # REGISTRO — not consumed by the build, but every document in this archive
-# carries them (STD-001 §5).
+# carries them (`STD-024`).
 type: mission
 version: "2.0.0"
 created: "2026-09-02T09:40:00Z"
@@ -443,7 +443,7 @@ Add here — never edit `Scope` or the criteria to match what happened.)*
   a different mission entirely, since #240 — and fails. The fact recorded is
   unchanged.)*
 - 2026-09-02 — **Moved to `todo`** (the board's backlog equivalent) by the
-  Oracle (PRO-003 §2). The Oracle asked for `backlog`; STD-001 §7 retired
+  Oracle (PRO-003 §2). The Oracle asked for `backlog`; `STD-001` (mission status) retired
   that value on 2026-08-30, so the surviving equivalent `todo` was applied,
   recorded here, and the PRO-003/STD-001 conflict re-registered in this
   mission's context (MIS-135 row 1). Branch rebased onto `main` `b9ed412`.
@@ -458,4 +458,4 @@ Add here — never edit `Scope` or the criteria to match what happened.)*
   moves. `MIS-149` is the first free number: 144…148 are held by `main` or by
   live branches. Content unchanged; only the identifier, the filename and the
   H1 move. The entries above keep the numbers they were written with — an
-  out-of-date record is history (STD-001 §8).
+  out-of-date record is history (`STD-024`).

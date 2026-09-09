@@ -33,14 +33,14 @@ of everything this archive knows it is missing.
 **Agents** open with [`PRO-001`](protocols/PRO-001-agent-session.md), then read
 [`CLAUDE.md`](CLAUDE.md). One path, no menu.
 
-**Humans** read [`STD-001`](standards/STD-001-glossary.md) — what each folder holds
+**Humans** read [`STD-001`](standards/STD-001-the-series.md) — what each folder holds
 and what every field means — then whichever series they came for.
 
 ---
 
 ## Where things live
 
-Each folder answers one question. [`STD-001`](standards/STD-001-glossary.md) is the
+Each folder answers one question. [`STD-001`](standards/STD-001-the-series.md) is the
 full definition; this is only the map.
 
 | Series | Answers |
@@ -92,7 +92,7 @@ folders was tried and deliberately undone.
 
 The live board is [numinia.org/missions](https://numinia.org/missions), built
 from `missions/` on every deploy. States and lifecycle are defined in
-[`STD-001`](standards/STD-001-glossary.md) §7 and
+[`STD-001`](standards/STD-001-the-series.md) (mission status) and
 [`PRO-003`](protocols/PRO-003-mission-cycle.md).
 
 ---

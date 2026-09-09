@@ -4,7 +4,7 @@ id: "MIS-150"
 uid: ""
 title: "Triage the open Dependabot advisories on main and close DBT-007"
 status: todo
-# ^ todo — the board's state for a mission awaiting assignment (STD-001 §7;
+# ^ todo — the board's state for a mission awaiting assignment (`STD-001` (mission status);
 #   the retired 'backlog' value maps to this).
 priority: high
 effort: S
@@ -15,7 +15,7 @@ assigned_to: null
 completed: null
 
 # REGISTRO — not consumed by the build, but every document in this archive
-# carries them (STD-001 §5).
+# carries them (`STD-024`).
 type: mission
 version: "1.0.0"
 created: "2026-09-02T15:10:00Z"

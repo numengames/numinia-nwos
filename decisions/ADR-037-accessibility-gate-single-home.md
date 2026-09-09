@@ -37,7 +37,7 @@ superseded_by: null
 2. **The Design System keeps §12 and §1.2 as-is.** Its subject is design
    (tokens, contrast values, principle) — not code compliance. This is not
    the dispersion; it is two documents correctly discussing the same value
-   from different subjects, per `STD-001 §3`'s `type`-vs-folder test.
+   from different subjects, per `STD-024`'s `type`-vs-folder test.
 3. **`a11y.spec.ts`'s header comment is corrected** to cite `ARC-010`
    explicitly instead of an unnamed, unverifiable "constitution" quote.
 4. **`numinia-web/CLAUDE.md`'s code-standards line is corrected** to

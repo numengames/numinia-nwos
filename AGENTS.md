@@ -30,7 +30,7 @@ The principal areas of this repository:
   under CC0-1.0 since the April grant (ADR-036); the reserved lore lives in
   `numinia-lore`, not here.
 - `standards/` — the archive's own operative standards, including
-  `STD-001-glossary.md` (controlled vocabularies) and
+  `STD-001-the-series.md` (the series) · `STD-016-header-fields.md` (the fields) and
   `STD-005-engineering-baseline.md` (the practices; `PRO-016` applies them).
 - `protocols/` — procedures: session close, briefing, archiving.
 - `guilds/` — guild charters and rosters; guilds reference agents, they do

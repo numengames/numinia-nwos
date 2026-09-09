@@ -5,9 +5,9 @@ title: "Evidence and citation"
 type: documentation
 subtype: standard
 status: draft
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-09T03:50:00+02:00"
+updated: "2026-09-09T12:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
@@ -48,12 +48,18 @@ examined out of how many exist.
 **CIT-053 — A closed record is a photograph.** A broken link inside a closed
 document is not a defect.
 
+**CIT-054 — Bare is a citation; enclosed is data.** An identifier in prose
+cites, and must resolve. Inside a code span, a table cell, a list item or a
+fenced block it is data and is not checked — a report about broken citations
+can name them without an ignore list.
+
 ## Check
 
 | Plate | Verified by |
 |---|---|
 | CIT-050 | `check-core-rules.mjs`, `check-section-citations.mjs` |
 | CIT-053 | `check-references.mjs` exempts closed documents |
+| CIT-054 | `check-references.mjs` (what it skips) |
 | CIT-051, CIT-052, EVI-057 | `[MANUAL]` — the layout, the proof and the denominator are prose |
 
 ## Why
