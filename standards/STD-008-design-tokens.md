@@ -5,9 +5,9 @@ title: "Design tokens"
 type: documentation
 subtype: standard
 status: active
-version: "7.0.0"
+version: "7.0.1"
 created: "2026-08-18T13:41:01Z"
-updated: "2026-09-09T11:00:00+02:00"
+updated: "2026-09-10T01:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -25,10 +25,9 @@ SPDX-License-Identifier: CC0-1.0
 # Design tokens
 
 > **Summary:** Sixteen colours and no new hexes; three self-hosted
-> typefaces; a 4 px spacing scale; two radii; one icon family; fourteen
-> animations; AA contrast everywhere and nothing conveyed by colour alone.
-> The values are the register `STD-023` and the kit; this standard says
-> which of them are rules.
+> typefaces; a 4 px scale; two radii; one icon family; fourteen animations;
+> AA contrast, nothing by colour alone. The values are `STD-023` and the
+> kit; this standard says which are rules.
 > **Epistemic:** Which parts of the design system answer yes or no — and
 > are therefore checkable — as opposed to direction, which is judged.
 > **Pragmatic:** What an audit of any Numen Games surface can fail on.

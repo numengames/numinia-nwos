@@ -5,11 +5,11 @@ uid: ""
 type: documentation
 subtype: standard
 status: active
-version: "3.0.0"
+version: "3.0.1"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-09T01:20:00+02:00"
+updated: "2026-09-10T01:30:00+02:00"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Alchemists"
@@ -79,12 +79,11 @@ alters the matrix MUST update this standard in the same change.
 ## Why
 
 A rank the member declares is a permission the member grants themselves.
-Reading rank from evidence — a cookie, a sheet, a purchase, a file only
-Oracles edit — makes every permission traceable to an act. Cumulative ranks
-keep the matrix one column, not six. The Oracle ceiling and the ban immunity
-exist so that governance cannot be captured from inside the product. This was
-the sixth canon until 2026-08-25; the Oracle ruled a permissions matrix is a
-standard, and what a rank *is* stays in `CAN-004`.
+Reading rank from evidence — a cookie, a sheet, a purchase, an Oracle-only
+file — makes every permission traceable to an act. Cumulative ranks
+keep the matrix one column. The Oracle ceiling and the ban immunity keep
+governance from being captured inside the product. What a rank *is* stays
+in `CAN-004`.
 
 > Nomad reads. Citizen edits their identity. Pilgrim buys. Vernacular creates.
 > Archon moderates. Oracle governs.

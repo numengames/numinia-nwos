@@ -5,9 +5,9 @@ title: "Plain text is sovereign"
 type: documentation
 subtype: standard
 status: active
-version: "2.0.0"
+version: "2.0.1"
 created: "2026-09-03T06:27:46Z"
-updated: "2026-09-09T01:00:00+02:00"
+updated: "2026-09-10T01:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Archive"
@@ -77,9 +77,8 @@ document that proposes the dependency, before adoption.
 application — this site, an editor, a future viewer — reads that file and
 never owns it. When the application disappears the file is unharmed; when
 the file exists only inside the application, it does not exist. The rules
-above are what that costs. `ADR-001` mixed them with authority and claimed a
-self-hosting that was false when written; sovereignty here is a capability,
-not a claim about today's vendors.
+above are what that costs. Sovereignty here is a capability, not a claim
+about today's vendors.
 
 ## References
 
