@@ -1347,10 +1347,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 4521,
+  "chars": 4148,
   "apparatus": false,
   "archived": false,
-  "tokens": 1279
+  "tokens": 1188
  },
  {
   "path": "reports/RPT-003-wardley-map.md",

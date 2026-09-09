@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "a57ac35",
-  "corpus_hash": "a4fa27653195faea323c3943a97766e5f8e1f0f8f3ea8109204e0fc016d16066",
+  "head": "f62a4e2",
+  "corpus_hash": "0f38f1f48ea3f6d7a9b9ba52e4a27e5b30394edc64bd17c3a2b28b55b35c14a3",
   "root_dirty": 0,
-  "measured_at": "2026-09-09T09:47:48Z",
+  "measured_at": "2026-09-09T09:53:04Z",
   "families": [
     "corpus",
     "series",
@@ -342,7 +342,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 292663,
+      "value": 292572,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -355,7 +355,7 @@
         "blueprints": 22838,
         "reports": 22222,
         "operations": 21381,
-        "protocols": 18917,
+        "protocols": 18826,
         "decisions": 17495,
         "templates": 17125,
         "": 12455,
@@ -370,7 +370,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 170131,
+        "active": 170040,
         "draft": 44883,
         "todo": 25286,
         "in-progress": 15790,
@@ -710,17 +710,17 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 573
+          "3": 574
         },
         "MIS": {
-          "3": 745,
+          "3": 742,
           "4": 175
         },
         "CAN": {
-          "3": 162
+          "3": 160
         },
         "ADR": {
-          "3": 425
+          "3": 426
         },
         "PRO": {
           "3": 225
@@ -867,7 +867,7 @@
       "definition": "docs_total − docs_con_frontmatter"
     },
     "legacy.referencias_textuales_total": {
-      "value": 1524,
+      "value": 1522,
       "unit": "mentions",
       "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
     },
@@ -879,7 +879,7 @@
         ],
         [
           "ADR-030",
-          56
+          58
         ],
         [
           "ADR-043",
