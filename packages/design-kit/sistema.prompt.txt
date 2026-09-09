@@ -1,0 +1,86 @@
+Diseña con el Sistema de Diseño de Numen Games v5.1.0.
+Registro antes que medio (§2.8): 1 Umbral (general: web, deck, documento, factura,
+interfaz) · 2 Velo (archivo, Summa, visores — la profundidad) · 3 Low-poly (3D) ·
+4 Píxel (2D). Los registros no se apilan: se enmarcan, con frontera visible.
+Kit de arranque CSS/JS y planos por medio: §13.1–13.10 — cópialos, no los reescribas.
+Dirección: Solarpunk 40 / Steampunk 40 / Cyberpunk 20. La luz domina, la máquina
+estructura, la señal parpadea. Ni Blade Runner ni catálogo de jardinería. El
+escarabajo cierra toda pieza; nunca la abre.
+Paleta: verdemar #A6DAD5, turquesa #018EA1 (interactivo), ámbar #EFA517 (énfasis/logro),
+arena #F9EBDC (neutral), coral #F35059 (aviso), grana #D33440 (crítico). Máx. 3 por
+composición; coral y grana no coexisten. Texto sobre claro: #016E7D #B02330 #7A5100.
+Nocturno: fondo #14110F, superficies #1E1A17/#292420, texto #F9EBDC/#C4B5A6, líneas
+#241F1B/#3A332D. Diurno: papel #F9EBDC, tinta #14110F. Sin sombras en oscuro salvo el
+halo legendario 0 0 12px rgba(239,165,23,.25).
+Rareza (solo juego, borde progresivo + nombre escrito): pobre #F9EBDC, común #8A7D72,
+poco común #8FC46B, raro #5D9BD6, épico #A98BE0, legendario #EFA517.
+Tipografía: solo Geist y Geist Mono (Vercel, autoalojadas). Sans afirma, Mono mide;
+etiquetas Mono versales +0.10em; cifras tabulares.
+Iconos: Phosphor. regular defecto, fill activo, bold <16px, light ≥48px; thin y duotone
+prohibidos; etiqueta en primer uso; el escarabajo y la Luna no son iconos.
+Materia: relieve de circuito solo en fondos Nocturno ≤6% cover sin repeat; binaria
+10100→xxx como separador; superficies elevadas lisas; nada de textura en Diurno.
+El Velo (§2.7) no añade hexes, añade alfa: rejilla rgba(166,218,213,.025) a 40px,
+niebla rgba(1,142,161,.06) abajo-izquierda, cristal rgba(30,26,23,.65)+blur 12px con
+borde rgba(58,51,45,.5); atmósfera DETRÁS del contenido, techos 3%/8%, solo Nocturno;
+cristal solo con atmósfera detrás y texto ≥ secundario; rejilla y relieve no conviven.
+El cielo del Velo (§2.7.1) es la rareza hecha cosmos: 175 estrellas con pesos
+60/25/10/4/1 y los colores de la escala §3.6, deriva lenta y alfa .05–.85, sin
+parallax; lo velado tras el Umbral se ve y no se lee (blur 2.2px + máscara, inerte).
+Tercera voz Alegreya SOLO libro/códex (§4.6, §13.12) y entera: redonda para el cuerpo,
+itálica para lore, small caps para capitular y títulos — nunca versalitas sintéticas.
+El papel lleva grano (§6.5: ruido fractal ≤5%, fondo, mitad en Nocturno), nunca
+relieve. El libro es Diurno con conmutador propio, la luna es el marcapáginas, estados
+«abierto / tras el Umbral», descargas .md/pdf/epub visibles, colofón con escarabajo;
+la factura no hereda nada de esto. Piezas editoriales en §9.9; iconos del libro en §7.5
+(rejilla 16, trazo 1.5) — fuera del libro manda Phosphor, subconjunto de §7.3, y el
+conmutador de modo muestra el modo AL QUE LLEVA un toque, no el actual.
+Animación, solo estas trece: tecleo 22ms/car con cursor de bloque (titulares hero, lore,
+cargas — la bandera, herencia de aventuras gráficas); revelado 320ms al entrar en
+viewport; barrido de señal 8s máx. uno; elevación 120ms sin desplazamiento; pulso
+legendario 2.4s ×2 solo al obtener; fase lunar 560ms/paso en cargas largas; puntos de
+espera 900ms en botones; cursor 1s; momento orquestado (tecleo + escalonado 80ms), uno
+por pieza. Del Velo y el papel vivo (nunca en Umbral corporativo): afloramiento
+560ms (opacidad + blur 8→0 + 8px de ascenso, al descubrirse), cristalización 320ms
+(blur 0→12 + borde), trazo 1.6s (marcos de grabado que se dibujan, portada y capítulo),
+cielo (deriva ±0.06px + alfa .05–.85 — única excepción al veto de loops, solo fondo
+del Velo). La 12 está retirada: el códex no anima el paso de hoja. Prohibido: parallax,
+glitch, loops ambientales, animar foco o color de texto.
+prefers-reduced-motion: todo instantáneo, y el cielo se detiene a alfa media.
+Botones: relleno de acción #017C8D con blanco (uno por vista) y estados que OSCURECEN
+(hover #016E7D, active #015866; destructivo grana con hover #B02330, con confirmación y
+lejos del primario), fantasma, silencioso; radio 6px; etiquetas = verbos, sin versales.
+Enlaces: Verdemar en oscuro, #016E7D en claro. Éxito sobre claro: #1F6B5F. Datos: solo
+la paleta §3.8, máx 6 series. Época: tres décadas de una historia (1920 máquina · 2020
+señal · 2120 jardín); sello «1920 · 2020 · 2120» junto al cierre en piezas expresivas;
+pátina de imagen única (§6.3); la época es sabor, no skin. El registro píxel no tiene
+Diurno: sus escenas permanecen Nocturno aunque la pieza que las enmarca sea clara.
+La binaria habla: codifica «Leave things better than we found them.» en 8 bits +
+sedimento x — cópiala de tokens binaria.bits o usa binaria() del kit; no inventes ruido.
+Forma: dos radios — control 6px, marco 8px; el registro píxel conserva cantos rectos.
+Mensajes (§9.7): qué pasó + qué hacer, nivel I; el error mudo está prohibido; tooltip
+habla en el modo contrario; aviso 6s máx 3; destructivo nunca preenfocado.
+Entregable: el kit zip (readme en raíz); kit/sistema.{css,js,tokens.json} generados —
+enlázalos, no los reescribas. Sin kit no hay marca: los wordmarks solo viven ahí.
+Controles (§9.8): lo activo se viste de tinta — casilla 18 marcada, interruptor 36×20
+encendido, opción del selector, página actual y fila: todos píldora/relleno tinta-papel.
+Modal = velo canónico .72 + panel elevado, foco atrapado, Esc cierra. Barra 4px cápsula
+tinta + cifra Mono, solo determinate — indeterminada prohibida (luna o puntos).
+Superficies: mapa en §2.5. Plataforma = Diurno por defecto, primario de TINTA
+(Noche/papel), sidebar 240, filas 40, wallets en Mono truncado. 3D = registro low-poly
+(§2.6): malla honesta, color plano de paleta, GLB/glTF, sin texturas fotográficas.
+Copy: cultivada, llana y clara; declara nivel I/II/III y mantenlo.
+Registro píxel (solo cuando la narrativa lo pide, nivel II): paleta cerrada Píxel-16,
+neutrales ≥60%, Grana solo relleno; silueta primero y validación a ×1; luz
+arriba-izquierda; contorno Noche solo en silueta; 2–4 colores por material de rampas
+compartidas; sin pillow shading, antialias ni píxeles sueltos; tramado solo entre
+adyacentes; escalado entero pixelated y coordenadas enteras; Pixelify a múltiplos solo
+para diálogo/HUD; sprites de 2–4 fotogramas a 120/200/320ms sin tweening; PNG indexado y
+alpha binaria. El detalle normativo completo vive en §2.4, §3.7, §4.5.1, §5.1, §9.6,
+§10.4 y §13.9 — ante duda, esas secciones mandan sobre este resumen. El sprite del
+escarabajo es el entregado, no se redibuja. Herencia: Monkey Island, DOTT, La Abadía — citada,
+nunca copiada.
+Marca: wordmark horizontal firma por defecto; Arena/Noche; nunca recolorear, rotar,
+sombrear ni deformar; Numinia solo para el mundo. El color sobre la marca existe solo
+en el juego (§8.5): glifos space·people·connect, mosaico de escarabajos y wordmark en
+pares de paleta — registro expresivo, jamás facturas, propuestas ni cabeceras. WCAG 2.2 AA. Nada solo por color.

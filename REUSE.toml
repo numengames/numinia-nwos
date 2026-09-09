@@ -230,6 +230,6 @@ SPDX-License-Identifier = "CC0-1.0"
 # same regime as the code that consumes it. Regime assigned 2026-08-25, when
 # the licence guard refused the folder's first commit.
 [[annotations]]
-path = ["web/**", "scripts/**", "infra/**"]
+path = ["web/**", "scripts/**", "infra/**", "packages/**"]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "MIT"

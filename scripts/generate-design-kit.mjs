@@ -2,116 +2,101 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// Design System kit generator (MIS-068 first case: the emitter publishes).
-// Extracts the canonical kit from the CURRENT master in standards/ —
-// sistema.css and sistema.js from the <!-- kit:css --> and <!-- kit:js -->
-// markers, sistema.tokens.json from the published kit —
-// and publishes it under a versioned path with a sha256 manifest:
+// Design System kit publisher (MIS-068 first case: the emitter publishes).
 //
-//   web/public/diseno/kit/sistema.{css,js,tokens.json}    (no version in the path: Oracle ruling 2026-09-05)
+// The source is the package `packages/design-kit/` — sistema.css, sistema.js,
+// sistema.tokens.json, sistema.prompt.txt — versioned by its own
+// package.json. This script publishes it under the public path with a
+// sha256 manifest:
+//
+//   web/public/diseno/kit/sistema.{css,js,tokens.json,prompt.txt}
 //   web/public/diseno/kit/manifest.json
 //
+// The path carries no version (Oracle ruling 2026-09-05); the manifest does.
+//
+// Until ADR-044 the CSS and JS lived as fenced blocks inside the design
+// standard and were extracted by `<!-- kit:css -->` markers. A stylesheet in
+// a Markdown file cannot be installed by another repository, so nwos-deploy
+// and numinia-web kept hand copies that drifted (v5.0.0 under a v6.0.0
+// master). The package is the source; every consumer, this site included,
+// takes the file from it.
+//
 // Run from anywhere: node scripts/generate-design-kit.mjs
+//   --check   verify the published kit is byte-identical to the source
+//             (exit 1 on drift) instead of writing it.
 import { createHash } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const standards = path.join(root, "standards");
+const pkgDir = path.join(root, "packages", "design-kit");
+const kitDir = path.join(root, "web", "public", "diseno", "kit");
+const check = process.argv.includes("--check");
 
-// The master is the registered Design System standard. Its version comes
-// from the `version:` frontmatter field, not from the filename — a filename
-// carries no version (IDN-013), which is why STD-008 was renamed off the
-// dated `Sistema_de_Diseno-vN.N.N.md` shape in the first place.
-const masterFile = "STD-008-design-system.md";
-const masterPath = path.join(standards, masterFile);
-if (!fs.existsSync(masterPath))
-  throw new Error(`Design System master not found: standards/${masterFile}`);
-const doc = fs.readFileSync(masterPath, "utf-8");
-const fm = doc.match(/^---\n([\s\S]*?)\n---\n/);
-const vMatch = fm && fm[1].match(/^version:\s*"?(\d+\.\d+\.\d+)"?\s*$/m);
-if (!vMatch)
-  throw new Error(`No version: field in standards/${masterFile} frontmatter`);
-const version = vMatch[1];
+const pkgPath = path.join(pkgDir, "package.json");
+if (!fs.existsSync(pkgPath))
+  throw new Error(`Design kit package not found: packages/design-kit/package.json`);
+const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf-8"));
+const version = pkg.version;
+if (!/^\d+\.\d+\.\d+$/.test(version))
+  throw new Error(`packages/design-kit/package.json version is not semver: ${version}`);
 
-// Fenced-block extraction, by explicit marker rather than by section number.
-//
-// This used to search for the literal string "### 13.1". That pinned a
-// published build artefact to a heading number in a Markdown document: moving
-// the section broke the kit, and renumbering it broke the kit *silently*,
-// because indexOf returned −1 and the failure named a heading rather than the
-// cause (DBT-016, DBT-018).
-//
-// The master now carries `<!-- kit:css -->` and `<!-- kit:js -->` immediately
-// before the blocks it publishes. A marker survives renumbering, moving the
-// section to another document, and rewriting the prose around it.
-function block(marker, lang) {
-  const tag = `<!-- kit:${marker} -->`;
-  const start = doc.indexOf(tag);
-  if (start < 0)
-    throw new Error(
-      `Marker not found in standards/${masterFile}: ${tag}\n` +
-        `The kit is extracted by marker, not by section number. Put the marker ` +
-        `on its own line immediately before the \`\`\`${lang} block.`
-    );
-  if (doc.indexOf(tag, start + tag.length) >= 0)
-    throw new Error(`Marker appears more than once, so extraction is ambiguous: ${tag}`);
-  const fence = doc.indexOf("```" + lang + "\n", start);
-  if (fence < 0) throw new Error(`No \`\`\`${lang} block after ${tag}`);
-  const bodyStart = fence + lang.length + 4;
-  const end = doc.indexOf("\n```", bodyStart);
-  return doc.slice(bodyStart, end + 1);
-}
-
-const header = (ext) =>
-  ext === "json"
-    ? ""
-    : `/* GENERADO de ${masterFile} — Sistema de Diseño · v${version} — no editar aquí: la fuente es el .md */\n`;
-
-const css = header("css") + block("css", "css");
-const js = header("js") + block("js", "js");
-// Tokens are no longer inlined in the master: §19.3 used to carry a copy of
-// the JSON, and the copy drifted (it declared v5.0.0 under a 5.1.0 document).
-// The published file is the source; this script re-stamps and re-hashes it.
-const tokensPath = path.join(root, "web/public/diseno/kit", "sistema.tokens.json");
-if (!fs.existsSync(tokensPath))
-  throw new Error(`Tokens not found for v${version}: ${path.relative(root, tokensPath)}`);
-const tokens = JSON.parse(fs.readFileSync(tokensPath, "utf-8"));
-tokens["$description"] = `Numen Games · Sistema de Diseño · v${version} · Solar 40 / Steam 40 / Cyber 20`;
-const tokensOut = JSON.stringify(tokens, null, 2) + "\n";
-
-const kitDir = path.join(root, "web/public/diseno/kit");
-fs.mkdirSync(kitDir, { recursive: true });
-const files = {
-  "sistema.css": css,
-  "sistema.js": js,
-  "sistema.tokens.json": tokensOut,
+const read = (name) => {
+  const p = path.join(pkgDir, name);
+  if (!fs.existsSync(p)) throw new Error(`Missing in the package: packages/design-kit/${name}`);
+  return fs.readFileSync(p, "utf-8");
 };
-// The agent instruction fragment (§19.5) is a published artefact too: it
-// ships in the kit and is hashed like the rest, so a consumer can verify it.
-const promptPath = path.join(root, "web/public/diseno/kit", "sistema.prompt.txt");
-if (fs.existsSync(promptPath))
-  files["sistema.prompt.txt"] = fs.readFileSync(promptPath, "utf-8");
+
+const stamp = `/* GENERADO de packages/design-kit (@numengames/design-kit v${version}) — no editar aquí: la fuente es el paquete */\n`;
+
+// The tokens are re-stamped with the package version so a consumer reading
+// only the JSON knows which kit it holds.
+const tokens = JSON.parse(read("sistema.tokens.json"));
+tokens["$description"] = `Numen Games · Sistema de Diseño · v${version} · Solar 40 / Steam 40 / Cyber 20`;
+
+const files = {
+  "sistema.css": stamp + read("sistema.css"),
+  "sistema.js": stamp + read("sistema.js"),
+  "sistema.tokens.json": JSON.stringify(tokens, null, 2) + "\n",
+  "sistema.prompt.txt": read("sistema.prompt.txt"),
+};
+
 const sha = (s) => createHash("sha256").update(s).digest("hex");
 const manifest = {
   sistema: "Numen Games · Sistema de Diseño",
   version,
-  master: {
-    path: `standards/${masterFile}`,
-    url: `https://numinia.org/corpus/standards/${masterFile.replace(/\.md$/, "").toLowerCase().replace(/\./g, "")}.md`,
-    sha256: sha(doc),
+  source: {
+    package: pkg.name,
+    path: "packages/design-kit",
+    url: "https://github.com/numengames/numinia-nwos/tree/main/packages/design-kit",
+  },
+  rules: {
+    id: "STD-008",
+    url: "https://numinia.org/corpus/standards/std-008-design-tokens",
   },
   files: {},
 };
-for (const [name, content] of Object.entries(files)) {
-  fs.writeFileSync(path.join(kitDir, name), content);
-  manifest.files[name] = sha(content);
+for (const [name, content] of Object.entries(files)) manifest.files[name] = sha(content);
+const manifestOut = JSON.stringify(manifest, null, 2) + "\n";
+
+if (check) {
+  const drift = [];
+  for (const [name, content] of Object.entries({ ...files, "manifest.json": manifestOut })) {
+    const p = path.join(kitDir, name);
+    if (!fs.existsSync(p) || fs.readFileSync(p, "utf-8") !== content) drift.push(name);
+  }
+  if (drift.length) {
+    console.error(`generate-design-kit --check: published kit differs from packages/design-kit for: ${drift.join(", ")}`);
+    console.error("Run `node scripts/generate-design-kit.mjs` and commit the result (GIT-027).");
+    process.exit(1);
+  }
+  console.log(`generate-design-kit --check: kit v${version} is byte-identical to the package.`);
+  process.exit(0);
 }
-fs.writeFileSync(
-  path.join(root, "web/public/diseno/kit/manifest.json"),
-  JSON.stringify(manifest, null, 2) + "\n"
-);
+
+fs.mkdirSync(kitDir, { recursive: true });
+for (const [name, content] of Object.entries(files)) fs.writeFileSync(path.join(kitDir, name), content);
+fs.writeFileSync(path.join(kitDir, "manifest.json"), manifestOut);
 console.log(`kit v${version} → web/public/diseno/kit/`);
-console.log(`master sha256: ${manifest.master.sha256}`);
 for (const [f, h] of Object.entries(manifest.files)) console.log(`${h.slice(0, 12)}…  ${f}`);
