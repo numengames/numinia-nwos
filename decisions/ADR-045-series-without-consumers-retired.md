@@ -1,12 +1,12 @@
 ---
 id: "ADR-045"
 uid: ""
-title: "A series with no consumer is retired: guilds/ and infra/ close"
+title: "A series needs a reader"
 type: adr
-status: draft
-version: "0.1.0"
+status: active
+version: "1.0.0"
 created: "2026-09-09T14:30:00+02:00"
-updated: "2026-09-09T14:30:00+02:00"
+updated: "2026-09-10T09:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 deciders: ["oracle"]
@@ -14,7 +14,7 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [decisions, adr, series, guilds, infra, entropy]
 license: "CC-BY-4.0"
-related: ["ADR-005", "ADR-036", "ADR-041", "CAN-004", "STD-001", "MIS-0135"]
+related: ["ADR-005", "ADR-030", "ADR-036", "ADR-043", "CAN-004", "STD-001", "MIS-0135"]
 ---
 
 <!--
@@ -22,100 +22,72 @@ SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC-BY-4.0
 -->
 
-# ADR-045 — A series with no consumer is retired: guilds/ and infra/ close
+# ADR-045 — A series needs a reader
 
-> **Summary:** The `GLD` and `INF` series are withdrawn from the register.
-> `guilds/` is deleted; its one live fact — which guild an agent belongs to —
-> moves to `agents/<id>/AGENT.yaml`. `infra/` is deleted; its one file moves
-> to `.github/rulesets/`.
-> **Epistemic:** A series earns its row by having a reader. Neither of these
-> had one, and one of them contradicted the canon it claimed to serve.
+> **Summary:** `GLD` and `INF` leave the register. `guilds/` is deleted; the
+> one live fact it held — which guild an agent belongs to — is now `guild:` in
+> `agents/<id>/AGENT.yaml`. `infra/` is deleted; its one file is now
+> `.github/rulesets/protect-main.json`.
+> **Epistemic:** A series earns its row by having a reader. Neither had one;
+> the charters also contradicted `CAN-004` on the only thing they added.
 > **Pragmatic:** Two rows fewer in `STD-001`, two moulds fewer, eight
-> addresses redirected, one field added to the agent card.
+> addresses redirected, one field on the agent card.
 > **Audience:** Agents · Oracles
 
----
-
-## 1. Context
-
-Measured at `f242434`, 2026-09-09.
-
-**`guilds/`** held 8 files, 375 lines: four charters, four rosters. Consumers
-that *read* them: none. `web/src/lib/corpus.ts` excludes the folder from
-browsing by design; `lint-frontmatter.mjs` validates the `guild:` field of
-49 documents against a list typed into the script, not against the charters;
-no `AGENT.yaml` carries a guild. The folder was cited only by registers —
-`STD-001`, `rules.json`, `REUSE.toml`, `SYS-003`, the content glob — and by
-the seven agents' `SOURCES.md` as "where to look", which nobody had.
-
-The charters also disagreed with `CAN-004`, the canon text that defines the
-guild hierarchy, on the one thing they added. Each charter listed two
-branches; `CAN-004` lists six per guild, with different names. The Exegetes
-roster assigned Senet to *Scholars* (not in canon) and Calliope to *Erudites*
-(in canon) in the same table. The root `LICENSE` already stated that
-reserved lore "lives in the numinia-lore repository", and `ADR-036` left the
-`guilds/**` reservation as the last unresolved regime.
-
-**`infra/`** held one file and its README: the exported GitHub ruleset that
-protects `main` (`MIS-0100`). The `INF-NNN` series was opened for it in
-`STD-001` with a mould and a `rules.json` line, and registered zero documents
-in fifteen days. `MIS-0135` row 7 left the closure of `DBT-001` "pending the
-`infra/` ruling". Deployment infrastructure has its own repository,
-`nwos-deploy`; nothing more was going to arrive here.
+**Binds:** every register that lists series (`STD-001`, `rules.json`,
+`REUSE.toml`, the content glob); every `agents/<id>/AGENT.yaml`.
+**Does not bind:** `CAN-004`, which keeps the guild hierarchy as canon.
 
 ---
 
-## 2. Decision
+## 1. Decision
 
-**A series stays in the register only while something reads it. `GLD` and
-`INF` are withdrawn.** From this decision:
+**A series stays in the register only while something reads it.**
 
-- `guilds/` is deleted. The guild an agent belongs to is a field of its
-  card: `guild:` in `agents/<id>/AGENT.yaml`, one of the four names in
-  `CAN-004`. Branches are not recorded until a consumer needs them.
-  Agents that were in no roster carry `guild: null` until the Oracle assigns
-  one.
+- `guilds/` is deleted. An agent's guild is `guild:` in its `AGENT.yaml`, one
+  of the four names in `CAN-004`. Branches are not recorded until a consumer
+  needs them. Agents in no roster carry `guild: null` until the Oracle rules.
 - `infra/` is deleted. `infra/github/ruleset-protect-main.json` becomes
-  `.github/rulesets/protect-main.json`, beside CODEOWNERS and the workflows,
-  which are the same kind of thing. The re-export command travels with it.
-- `STD-001` loses the `guilds/` and `infra/` rows and the `charter` genre;
-  `rules.json` loses both series and the `charter` type; the two moulds go.
-- The eight `/corpus/guilds/...` addresses redirect to
-  `/corpus/canon/can-004-role-structure`, the document that holds what the
-  charters claimed to hold.
+  `.github/rulesets/protect-main.json`, beside CODEOWNERS and the workflows.
+- `STD-001` and `rules.json` lose both series and the `charter` genre; the two
+  moulds go; the eight `/corpus/guilds/...` addresses redirect to `CAN-004`.
 
-Binds every register that lists series, from merge.
+## 2. Evidence
 
----
+Measured at `f242434`. `guilds/`: 8 files, 375 lines, read by nothing —
+`corpus.ts` excluded it from browsing, `lint-frontmatter.mjs` checked `guild:`
+against a typed list, no `AGENT.yaml` carried a guild. The charters listed two
+branches each; `CAN-004` lists six per guild under other names.
+`infra/`: one file, one README, zero `INF-NNN` documents in fifteen days;
+deployment lives in `nwos-deploy`.
 
-## 3. Alternatives considered
+Rosters at `f242434` placed Ursa (Alchemists), Byblos, Senet, Calliope
+(Exegetes), Talos and Nimrod (Sentinels). Antunj, Doulos, Lexa and Procyon
+were in no roster.
+
+## 3. Licence
+
+`REUSE.toml` declared `guilds/**` reserved from 2026-08-16. The files were
+created on 2026-04-07 under the root `LICENSE`, `CC0-1.0`, and published — the
+same situation `ADR-036` records for `canon/`. Deleting them changes nothing:
+the text was CC0 in fact, reserved in name. The reservation goes with the
+folder.
+
+## 4. Alternatives
 
 | Alternative | Why not |
 |---|---|
-| Repair the charters to match `CAN-004` and keep the folder | Repairs a document nobody reads. The branch tables would be a second copy of `CAN-004` §Guilds, and the second copy is what drifted. |
-| Move `guilds/` to `numinia-lore` | The charters contain no lore; they contain a mission line, two branch names and a roster. The lore is in `CAN-001` and `CAN-004`, already CC0. |
-| Keep `infra/` and wait for Terraform | `REUSE.toml` and the README both say "when Terraform exists". Fifteen days, zero files; a folder held open for a future is a row in every register meanwhile. If an applier arrives, it arrives with its own decision. |
-| Record `guild` in `SOUL.md` prose | `AGENT.yaml` exists so that tooling reads a card, not prose (`ADR-026`). A field a router can filter on belongs there. |
+| Repair the charters to match `CAN-004` | Repairs a second copy of `CAN-004`; the second copy is what drifted. |
+| Move `guilds/` to `numinia-lore` | No lore in them: a mission line, two branch names, a roster. |
+| Keep `infra/` for Terraform | Fifteen days, zero files. An applier arrives with its own decision. |
+| Record `guild` in `SOUL.md` prose | `AGENT.yaml` is the card tooling reads (`ADR-026`). |
 
----
+## 5. Consequences
 
-## 4. Consequences
-
-- **Obliges:** an agent's guild is set in its `AGENT.yaml`, nowhere else.
-  A series proposed in future states who will read it before it gets a row.
-- **Costs:** five agents carry `guild: null` until the Oracle rules; the
-  `guild:` vocabulary in `lint-frontmatter.mjs` stays a typed list, now with
-  no document to point at other than `CAN-004`. Four `SOURCES.md` files
-  lose a line they never used. `MIS-0100`, done, keeps its old path as a
-  historical citation.
-- **Reversal:** a consumer that needs a per-guild document — a router that
-  reads charters, a page that renders them — and cannot be served by
-  `CAN-004` plus the agent cards.
-
----
-
-## 5. Status
-
-`draft` — proposed by Ursa. Becomes `active` when the Oracle merges the
-pull request that executes it; the execution and the decision are one
-change, so the record cannot describe a state the tree does not have.
+- **Obliges:** an agent's guild is set in its `AGENT.yaml`, nowhere else. A
+  series proposed in future names its reader before it gets a row.
+- **Costs:** four agents carry `guild: null`; the `guild:` vocabulary in
+  `lint-frontmatter.mjs` stays a typed list with `CAN-004` as its only source.
+- **Reversal:** a consumer that needs a per-guild document and cannot be
+  served by `CAN-004` plus the agent cards.
+- **Deletion:** `ADR-030` test 1 — the rule lives here and in `STD-001`.

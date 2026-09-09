@@ -3,9 +3,9 @@ agent: nimrod
 title: "SOURCES — Nimrod"
 type: agent
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-09-04T08:23:00Z"
-updated: "2026-09-04T08:23:00Z"
+updated: "2026-09-10T09:00:00+02:00"
 author: "antunj"
 owner: "oracle"
 tags: [agents, nimrod, repository, navigation, provenance]
@@ -83,7 +83,6 @@ Consult the relevant top-level area according to the question:
 - `operations/` — business and operational records;
 - `reports/` — observed evidence and audits;
 - `debt/` — known unresolved problems;
-- `guilds/` — guild charters and rosters;
 - `web/` — public viewer and presentation layer;
 - `scripts/` — repository automation and guards.
 
