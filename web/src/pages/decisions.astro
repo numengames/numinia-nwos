@@ -9,8 +9,8 @@ import { getCollection } from "astro:content";
 
 const STATUS_COLOR: Record<string, string> = {
   active: "text-green",
-  provisional: "text-yellow",
-  superseded: "text-dim",
+  draft: "text-yellow",
+  withdrawn: "text-dim",
 };
 
 const decisions = (await getCollection("decisions")).sort((a, b) =>

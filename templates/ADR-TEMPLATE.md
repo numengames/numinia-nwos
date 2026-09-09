@@ -5,7 +5,7 @@ id: "ADR-NNN"
 uid: ""
 title: "The choice, stated — not the topic"
 type: adr
-# decisions lifecycle: draft -> active -> superseded
+# status: opens at draft — the lifecycle is declared once, in STD-016
 status: draft
 version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"
@@ -25,7 +25,7 @@ license: "CC-BY-4.0"
 # absorbs: ["ADR-NNN"]              # identifiers this record inherits, kept resolving
 # amends: "STD-NNN"                 # a standard this narrows without superseding
 # supersedes: "ADR-NNN"             # the decision this replaces
-# superseded_by: "ADR-NNN"          # filled by the decision that replaces THIS one
+# superseded_by: "ADR-NNN"          # only on a `withdrawn` record: the decision that replaced it (GIT-045)
 # related: ["MIS-NNNN"]
 ---
 
@@ -90,15 +90,15 @@ a consequences section with no cost in it was written by the advocate.
 
 Where this record stands today, and by what.
 
-`draft` — proposed, not binding. `active` — binding. `superseded` — replaced
-(`superseded_by` names its replacement); deleted once nothing living cites it
-(`ADR-041`).
+The states and what each means: `STD-016`. A withdrawn record with a
+replacement names it in `superseded_by`; it is deleted once nothing living
+cites it (`ADR-041`).
 
 <!--
 NOTES ON USING THIS TEMPLATE — delete this block.
 
 Correcting a decision means writing the next one and pointing `superseded_by`
-at it, not editing what this one claimed. The superseded record is deleted
+at it, not editing what this one claimed. The withdrawn record is deleted
 when nothing living cites it; git keeps what was believed, and when.
 
 `absorbs` is load-bearing, not a note: the reference guard reads it to keep

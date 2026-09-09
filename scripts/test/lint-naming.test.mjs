@@ -61,7 +61,7 @@ try {
     const abs = path.join(dir, rel);
     mkdirSync(path.dirname(abs), { recursive: true });
     const id = path.basename(rel, '.md');
-    writeFileSync(abs, `---\nid: "${id}"\ntype: report\n${sub}\nstatus: closed\n---\n# ${id}\n`);
+    writeFileSync(abs, `---\nid: "${id}"\ntype: report\n${sub}\nstatus: active\n---\n# ${id}\n`);
   }
 
   const git = (...a) => execFileSync('git', ['-C', dir, ...a], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });

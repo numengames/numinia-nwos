@@ -51,6 +51,9 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadRules } from './lib/frontmatter.mjs';
+import { isTerminalStatus } from './lib/rings.mjs';
+const RULES = loadRules();
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -356,7 +359,7 @@ function refusalReason(rel) {
   if (!existsSync(abs)) return null;
   const head = readFileSync(abs, 'utf8').slice(0, 4000);
   const m = head.match(/^status:\s*["']?(\w[\w-]*)/m);
-  if (m && ['closed', 'done', 'superseded', 'archived'].includes(m[1])) {
+  if (m && isTerminalStatus(m[1], RULES)) {
     return `status: ${m[1]} — a closed record states what was true when written`;
   }
   return null;

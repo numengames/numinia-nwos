@@ -6,7 +6,7 @@ former_id_note: "Renumbered 2026-09-01 by ADR-005 v1.2.0. The old id collided wi
 title: "GAPS.md — Numen Games' map of blind spots"
 type: report
 subtype: analysis
-status: closed
+status: active
 version: "1.1.0"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"

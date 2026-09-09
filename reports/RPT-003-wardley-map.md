@@ -4,7 +4,7 @@ uid: ""
 title: "Wardley Map — Narrative Work OS"
 type: report
 subtype: analysis
-status: closed
+status: active
 version: "0.3.0"
 created: "2026-04-07T12:29:23Z"
 created_source: "git:df48b24"

@@ -127,10 +127,25 @@ export function inSomeRing(field, dir) {
     || (RING3[dir] ?? []).includes(field);
 }
 
-/** STD-016: the lifecycle a document in `dir` of `type` may declare.
- *  Series beats type (2026-09-03, Oracle): a normative series declares its own
- *  in rules.json `status._bySeries`, because `closed` already means "published,
- *  still standing" in reports/ and cannot also mean "no longer binding". */
+/** STD-016: the lifecycle a document of `type` may declare. Two exist — a
+ *  mission's and everyone else's; `rules.json status` mirrors the table.
+ *  `dir` is kept in the signature for callers; it no longer decides. */
 export function lifecycleFor(dir, type, rules) {
-  return rules.status._bySeries?.[dir] ?? rules.status[type] ?? rules.status._default;
+  return rules.status[type] ?? rules.status._default;
+}
+
+/** STD-016 / CIT-053: a record in a terminal state is a photograph — its
+ *  citations are not walked, its shape is not judged. One set, read here. */
+export function isTerminalStatus(status, rules) {
+  return rules.status._terminal.includes(String(status ?? '').toLowerCase());
+}
+
+/** CIT-053: a photograph is a record whose claims are not rewritten — either
+ *  because its status is terminal (STD-016) or because its series' threshold
+ *  is `closed` from publication (STD-001: reports/). A mission's threshold is
+ *  `closed` only when `done`, which its status already says. */
+export function isPhotograph(rel, status, rules) {
+  if (isTerminalStatus(status, rules)) return true;
+  const top = String(rel).split('/')[0];
+  return rules.series[top]?.threshold === 'closed' && top !== 'missions';
 }

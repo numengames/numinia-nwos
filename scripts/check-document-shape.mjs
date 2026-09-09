@@ -45,7 +45,9 @@
 import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
-import { ROOT, parseFM, stripFM, isApparatus, isTemplate } from './lib/frontmatter.mjs';
+import { ROOT, parseFM, stripFM, isApparatus, isTemplate, loadRules } from './lib/frontmatter.mjs';
+import { isTerminalStatus } from './lib/rings.mjs';
+const RULES = loadRules();
 
 // ADR-043 rule 6. Moves to the Series register when that file exists.
 const BUDGET = {
@@ -198,7 +200,7 @@ const files = execFileSync('git', ['-C', ROOT, 'ls-files', '*.md'], { encoding: 
   .filter((f) => !/\/(INDEX|README)\.md$/.test(f));
 
 const results = files.map(measure).filter(Boolean)
-  .filter((r) => !['superseded', 'withdrawn'].includes(r.status));
+  .filter((r) => !(r.status === 'withdrawn'));   // a withdrawn standard is a stub (STD-016); missions are not in BUDGET
 
 if (JSON_OUT) {
   console.log(JSON.stringify(results, null, 2));

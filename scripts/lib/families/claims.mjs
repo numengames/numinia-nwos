@@ -22,8 +22,8 @@ const lineOf = (text, idx) => text.slice(0, idx).split('\n').length;
 
 export const contradictions = {
   measure({ docs, rules }) {
-    // status_vocabulary: values used in frontmatter vs rules.json vocabulary (mission/adr/_default)
-    const declared = new Set([...(rules.status.mission ?? []), ...(rules.status.adr ?? []), ...(rules.status._default ?? [])]);
+    // status_vocabulary: values used in frontmatter vs rules.json `status` (mirror of STD-016): every lifecycle list
+    const declared = new Set(Object.entries(rules.status).filter(([k]) => !k.startsWith('_') || k === '_default').flatMap(([, v]) => v));
     const used = {}; const undeclared = {};
     for (const d of docs) { if (d.status == null) continue; count(used, d.status); if (!declared.has(d.status)) (undeclared[d.status] ??= []).push(d.path); }
     // ci_guards_vs_ci_markers: scripts in ci.yml steps vs scripts named in the Check tables of standards/
@@ -60,7 +60,7 @@ export const contradictions = {
     }
     return {
       status_vocabulary_used: fig(used, 'documents', 'frontmatter status values in the corpus with counts'),
-      status_vocabulary_undeclared: fig(undeclared, 'documents', 'status values in use that scripts/lib/rules.json does not declare (mission ∪ adr ∪ _default), with the docs carrying them — a contradiction between a document and the vocabulary'),
+      status_vocabulary_undeclared: fig(undeclared, 'documents', 'status values in use that scripts/lib/rules.json does not declare (STD-016 lifecycles), with the docs carrying them — a contradiction between a document and the vocabulary'),
       ci_markers_std001: fig(marked.length, 'rows', 'table rows of STD-001 carrying `[CI]`'),
       ci_marked_scripts_not_in_ci: fig(markedNotInCi, 'scripts', 'scripts a `[CI]` row names that ci.yml runs in no `run: node` step — a norm claiming a machine check that does not happen'),
       ci_scripts_not_marked: fig(inCiNotMarked, 'scripts', 'scripts ci.yml runs that no `[CI]` row of STD-001 names — a check the norm does not claim'),

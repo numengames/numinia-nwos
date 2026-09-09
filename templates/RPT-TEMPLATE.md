@@ -9,8 +9,8 @@ title: "What was observed — not the area it was observed in"
 type: report
 # subtype: audit | daily | analysis | proposal
 subtype: audit
-# a report is `closed` from publication: its claims are not rewritten
-status: closed
+# a report is `active` from publication; its claims are not rewritten — that is the series threshold (STD-001), not a status
+status: active
 version: "1.0.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"
 updated: "YYYY-MM-DDTHH:MM:SSZ"

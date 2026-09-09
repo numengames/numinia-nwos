@@ -124,7 +124,7 @@ for (const rel of files) {
      license itself. The exemption is now what the frontmatter declares, and
      the legacy dated shape is tolerated only where it is still on disk. */
   /* Any declared exemption counts, whatever word it uses. Two documents in
-     history/ still say `frozen-artifact`; they are `status: closed` and are
+     history/ still say `frozen-artifact`; they are photographs and are
      not rewritten to chase new vocabulary. What matters is that the exemption
      is declared in the frontmatter, not inferred from the name. */
   const declaredArchive = typeof exemption === 'string' && exemption.length > 0;

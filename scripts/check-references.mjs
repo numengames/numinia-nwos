@@ -35,7 +35,8 @@
  */
 import { execFileSync } from 'node:child_process';
 import { declareBlindSpots } from './lib/blindness.mjs';
-import { loadRules, prefixToDir, stripFM } from './lib/frontmatter.mjs';
+import { loadRules, prefixToDir, stripFM, parseFM } from './lib/frontmatter.mjs';
+import { isPhotograph } from './lib/rings.mjs';
 declareBlindSpots('check-references');
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
@@ -57,7 +58,8 @@ const WRITE = args.includes('--write-baseline');
    map shared with lint-naming, lint-frontmatter and the telemetry instrument.
    `prefixToDir` includes the retired D- prefix (rules.json `retiredPrefixes`),
    which this guard must keep resolving — see the ID_RE note below. */
-const PREFIX_DIR = prefixToDir(loadRules());
+const RULES = loadRules();
+const PREFIX_DIR = prefixToDir(RULES);
 
 /* RETIRED IDENTIFIERS (ADR-043 rule 8, ADR-041). A document is deleted when
    no living document depends on it normatively; the historical mentions that
@@ -232,22 +234,21 @@ const isPlaceholder = (cited) =>
   PLACEHOLDER_RE.test(cited) || /[<>{}]/.test(cited) || /\bslug\b/.test(cited);
 
 /* CIT-053 (ADR-041): a broken link inside a closed record is a photograph,
- * not a defect. A `done` mission or a `superseded` standard describes what
+ * not a defect. A `done` mission or a `withdrawn` standard describes what
  * was true then; forcing it to keep resolving would make every deletion
  * either rewrite closed records or grow the baseline forever. Closed records
  * are therefore not walked as citers. They ARE still indexed above, so a
- * living document citing them keeps resolving. */
-const CLOSED_STATUS = /^status:\s*["']?(done|closed|superseded|withdrawn|frozen)\b/m;
-const isClosedRecord = (text) => {
-  const fm = text.match(/^---\s*\n([\s\S]*?)\n---/);
-  return !!(fm && CLOSED_STATUS.test(fm[1]));
-};
+ * living document citing them keeps resolving. What counts as closed is one
+ * predicate — isPhotograph: a terminal status (STD-016 `_terminal`), or a
+ * series whose threshold is `closed` (STD-001: every report is one from the
+ * day it is published, whatever its status says). */
+const isClosedRecord = (rel, text) => isPhotograph(rel, parseFM(text)?.status, RULES);
 let skippedClosed = 0;
 
 for (const rel of files) {
   const abs = path.join(ROOT, rel);
   const text = readFileSync(abs, 'utf8');
-  if (isClosedRecord(text)) { skippedClosed++; continue; }
+  if (isClosedRecord(rel, text)) { skippedClosed++; continue; }
   const body = stripFM(text);
   const ownBase = path.basename(rel);
 
