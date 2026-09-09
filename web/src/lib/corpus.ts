@@ -254,6 +254,7 @@ const READING_ORDER: Record<string, string[]> = {
     "/corpus/protocols/pro-005-escalation",
     "/corpus/protocols/pro-011-security-audit",
     "/corpus/protocols/pro-013-handing-a-guard-to-ci",
+    "/corpus/protocols/pro-018-publishing-a-repository",
   ],
 
   // Three manuals, read outside in: the shape of the whole machine → the
