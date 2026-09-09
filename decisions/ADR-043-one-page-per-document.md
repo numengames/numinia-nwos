@@ -4,9 +4,9 @@ uid: ""
 title: "One page per document: a rule-shaped title, a three-part card, plated rules, and a body budget per series"
 type: adr
 status: active
-version: "1.1.2"
+version: "1.1.3"
 created: "2026-09-08T22:30:00+02:00"
-updated: "2026-09-09T15:30:00+02:00"
+updated: "2026-09-09T16:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 deciders: ["oracle"]
@@ -86,7 +86,8 @@ position — `STD-024` — so every cut moved a target.
   new shape; it applies to every series, not to standards alone.
 - The 85 existing plates (`CORE-NN`, `H-NN`, `PW-NN`, `A-NN`, `RK-NN`) do
   not meet rule 3. They were renamed in one pull request, before any
-  standard is cut, by `scripts/rename-plates.mjs`, which holds the
+  standard is cut, by `scripts/rename-plates.mjs` (one-shot; retired after the run,
+  the table lives in git at `9645477`), which holds the
   equivalence table: 134 plates, 499 occurrences, 61 files. The number is
   kept and the prefix follows the subject: `CORE-01..05` → `PRE-`,
   `06..10, 63, 65, 67` → `AUT-`, `11..15` → `IDN-`, `16..20` → `HDR-040..044`

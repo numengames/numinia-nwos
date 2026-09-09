@@ -14,6 +14,11 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Removed — 2026-09-09 (scripts/: eight dead files, tests gathered under scripts/test/)
+- Deleted, criterion 0 citations from living documents ∧ 0 invocations from CI, `web/package.json` or another script: `verify-orphan-guard.sh` (absolute path to one machine), `verify-declaration-rule.sh`, `translate-corpus.mjs` (MIS-120d, Ollama; cache untracked), `measuring_root.py` (its importers left with `count-evidence.py`, #198), `field-decisions.{mjs,json}` (MIS-126, JSON read by nobody), `rename-plates.mjs` (one-shot, ran in #301; ADR-043 v1.1.3 now points at `9645477`), `experiments/` (four August censuses cited only by closed missions). ~2,600 lines. All remain in git (STD-020).
+- `lint-naming.test.mjs` and `rename-series.test.mjs` moved to `scripts/test/`, beside the other tests. `lint-naming.test.mjs` was already 4/9 before the move (dated-id cases the guard stopped enforcing) — moved as-is, not repaired here; the failure is pre-existing and recorded so nobody reads it as caused by the move.
+- `CLAUDE.md` test line corrected: only `telemetry.test.mjs` runs in CI.
+
 ### Removed — 2026-09-04 (reports/ series extinction, Oracle instruction)
 - 22 of 24 `reports/RPT-*.md` deleted: none post-dates 2026-08-26, no report series has produced anything since, register judged obsolete noise. `RPT-003-wardley-map.md` and `RPT-008-gaps-capability-map.md` kept — `web/src/lib/wardley.ts` and `gaps.ts` parse them at build time as the data source for `/wardley` and `/gaps`; they are live inputs, not archive prose.
 - `reports/evidence/` removed in full (`RPT-011` licensing-audit annex — SBOM, `reuse lint` transcript, seven `robots.txt` captures; `RPT-2026-08-25` forensic note on the 2026-04-15 canon deletion), overriding ADR-005 v1.2.0 rule 5's "never rewritten" guarantee by explicit dated Oracle authority — see `decisions/ADR-005-prefix-ruling.md` §Note, 2026-09-04. Both remain reachable in git history.

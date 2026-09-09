@@ -418,7 +418,7 @@ for (const p of plan) {
   //   base — only where the basename stands alone: as a path segment, in a
   //          link, in backticks, or as a frontmatter value.
   //
-  // Cases are asserted in scripts/rename-series.test.mjs, including every one
+  // Cases are asserted in scripts/test/rename-series.test.mjs, including every one
   // that broke above. Run it after touching any of this.
   const reEsc = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   // A series id: letters, a hyphen, digits. "governance" is not one.

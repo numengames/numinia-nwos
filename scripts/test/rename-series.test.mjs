@@ -13,7 +13,7 @@
 // check-references caught it and nothing was committed, but a tool whose whole
 // job is "rename safely" has to be tested against the cases that broke it.
 //
-// Run: node scripts/rename-series.test.mjs
+// Run: node scripts/test/rename-series.test.mjs
 
 const reEsc = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
@@ -57,7 +57,7 @@ const cases = [
     () => { const m = 'PROP-C005-5.2-third-party.md'.match(/^PROP-(?:\d{4}-\d{2}-\d{2}-)?(.+)\.md$/); return m ? m[1] : null; },
     'C005-5.2-third-party'],
   ['refuse: a test file is never rewritten by the tool (it rewrote this one, 2026-09-01)',
-    () => /\.test\.mjs$/.test('scripts/rename-series.test.mjs'),
+    () => /\.test\.mjs$/.test('scripts/test/rename-series.test.mjs'),
     true],
   ['refuse: a ratchet baseline is never rewritten by the tool',
     () => /^scripts\/[a-z-]+-baseline\.json$/.test('scripts/url-baseline.json'),
