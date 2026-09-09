@@ -205,24 +205,42 @@ export default defineConfig({
 		// index. A 301 to /decisiones would satisfy the guard and lose the
 		// answer — the failure mode check-url-lifecycle declares it is blind
 		// to (D-028). ADR-030 test 2.
-		"/decisiones/adr-002": "/decisiones/adr-001",
-		"/decisiones/adr-003": "/decisiones/adr-001",
-		"/decisiones/dec-001": "/decisiones/adr-001",
+		"/decisiones/adr-002": "/corpus/standards/std-006-plain-text-is-sovereign",
+		"/decisiones/adr-003": "/corpus/standards/std-006-plain-text-is-sovereign",
+		"/decisiones/dec-001": "/corpus/standards/std-006-plain-text-is-sovereign",
 		"/decisiones/adr-024": "/decisiones/adr-023",
 		"/decisiones/adr-031": "/decisiones/adr-026",
 		"/decisiones/adr-028": "/decisiones/adr-027",
 		"/decisiones/adr-029": "/decisiones/adr-027",
 		"/decisiones/adr-032": "/decisiones/adr-030",
 		"/decisiones/adr-033": "/decisiones/adr-030",
-		"/decisions/adr-002": "/decisions/adr-001",
-		"/decisions/adr-003": "/decisions/adr-001",
-		"/decisions/dec-001": "/decisions/adr-001",
+		"/decisions/adr-002": "/corpus/standards/std-006-plain-text-is-sovereign",
+		"/decisions/adr-003": "/corpus/standards/std-006-plain-text-is-sovereign",
+		"/decisions/dec-001": "/corpus/standards/std-006-plain-text-is-sovereign",
 		"/decisions/adr-024": "/decisions/adr-023",
 		"/decisions/adr-031": "/decisions/adr-026",
 		"/decisions/adr-028": "/decisions/adr-027",
 		"/decisions/adr-029": "/decisions/adr-027",
 		"/decisions/adr-032": "/decisions/adr-030",
 		"/decisions/adr-033": "/decisions/adr-030",
+		// 2026-09-09 registers census (ADR-043 rule 8, ADR-041): four decisions
+		// deleted, each address points at the standard that now holds the rule.
+		// ADR-001 was superseded by STD-006; ADR-035 (a folder is a genre) is
+		// SER-004 in STD-024; ADR-037 (ARC-010's single home) is the register
+		// STD-015; ADR-038 (the genre map is government) went with STD-002 into
+		// STD-009. Bodies in git.
+		"/decisiones/adr-001": "/corpus/standards/std-006-plain-text-is-sovereign",
+		"/decisions/adr-001": "/corpus/standards/std-006-plain-text-is-sovereign",
+		"/decisiones/adr-035": "/corpus/standards/std-024-a-series-is-a-function",
+		"/decisions/adr-035": "/corpus/standards/std-024-a-series-is-a-function",
+		"/decisiones/adr-037": "/corpus/standards/std-015-engineering-checks",
+		"/decisions/adr-037": "/corpus/standards/std-015-engineering-checks",
+		"/decisiones/adr-038": "/corpus/standards/std-009-which-rule-wins",
+		"/decisions/adr-038": "/corpus/standards/std-009-which-rule-wins",
+		// Two closed debts deleted the same day; their line is in the week's
+		// report (DEF-005).
+		"/corpus/debt/dbt-013-design-system-filename-not-frozen": "/reports/rpt-019-2026-w37",
+		"/corpus/debt/dbt-015-core-45-guard-condemns-withdrawn": "/reports/rpt-019-2026-w37",
 		// /corpus/decisions.md and /print/corpus/decisions/ die with
 		// decisions/INDEX.md. The section index /corpus/decisions survives —
 		// it is derived from the collection (web/src/lib/corpus.ts), which is

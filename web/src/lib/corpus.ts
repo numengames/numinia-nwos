@@ -203,7 +203,6 @@ const READING_ORDER: Record<string, string[]> = {
   // words mean → what its header must declare → who owns it and where debt
   // is kept → how it dies.
   decisions: [
-    "/decisiones/adr-001",
     "/decisiones/adr-004",
     "/decisiones/adr-005",
     "/decisiones/adr-023",

@@ -1,12 +1,12 @@
 ---
 id: "ADR-030"
 uid:
-title: "Lifecycle: debt extinguishes on close, and deletion is decided by consumers"
+title: "Lifecycle: debt closes into a line, and deletion is decided by consumers"
 type: adr
 status: active
-version: "3.1.0"
+version: "3.2.0"
 created: "2026-08-30T16:00:00+02:00"
-updated: "2026-09-08T22:00:00Z"
+updated: "2026-09-09T15:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -26,9 +26,10 @@ related: ["P-010", "D-028", "D-025", "STD-001", "MIS-127"]
 
 ## Decision
 
-**Debt extinguishes on close.** A `D-NNN` entry closes when its closure
-condition is met; it is not deleted. The register keeps the record — the
-system's knowledge of what was once wrong is the point.
+**Debt closes into a line.** A `DBT-NNN` entry closes when its closure
+condition is met; its line goes into the weekly report and the file is
+deleted under the four tests below (`DEF-004`, `ADR-041`). The knowledge of
+what was once wrong survives as the line, and git holds the body.
 
 **Deletion is decided by consumers, not by folder.** A document may be
 deleted when four tests pass. Absorbed from ADR-033, which dissolved the

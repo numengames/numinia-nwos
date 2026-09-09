@@ -5,9 +5,9 @@ title: "Evidence and citation"
 type: documentation
 subtype: standard
 status: draft
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-09T12:30:00+02:00"
+updated: "2026-09-09T15:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
@@ -75,4 +75,3 @@ closed, and repairing its links would falsify the photograph.
 | ID | Title | Relation |
 |---|---|---|
 | `STD-007` | One page per document | where citations sit and how many |
-| `DBT-016` | Section numbers are load-bearing | the debt CIT-050 retires |

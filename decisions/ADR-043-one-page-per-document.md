@@ -4,9 +4,9 @@ uid: ""
 title: "One page per document: a rule-shaped title, a three-part card, plated rules, and a body budget per series"
 type: adr
 status: active
-version: "1.1.1"
+version: "1.1.2"
 created: "2026-09-08T22:30:00+02:00"
-updated: "2026-09-09T11:30:00+02:00"
+updated: "2026-09-09T15:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 deciders: ["oracle"]
@@ -14,7 +14,7 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [standards, form, readability, plates, budget, deletion]
 amends: ["STD-004", "STD-007", "STD-009"]
-related: ["ADR-041", "MIS-146", "DBT-016"]
+related: ["ADR-041", "MIS-146"]
 license: "CC-BY-4.0"
 ---
 
@@ -99,7 +99,8 @@ position — `STD-024` — so every cut moved a target.
 - The twelve standards are cut to the shape in order of incoming citations,
   fewest first, one pull request each. The target layout is fifteen norms
   and six registers; it is a plan, not a rule, and the index records it.
-- `check-document-shape.mjs` runs on every pull request. Since the tenth
+- `check-document-shape.mjs` is run by hand before a pull request; it enters
+  `ci.yml` when the guards are wired, after the axis is cut. Since the tenth
   cut it blocks on form — never on size — for NEW failures: the form
   failures outside `standards/` on that day are frozen in
   `scripts/document-shape-baseline.json`, a list that shrinks and never
