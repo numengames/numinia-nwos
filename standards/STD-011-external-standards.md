@@ -36,7 +36,7 @@ series_change: "1.0.0 — the register takes the ADR-043 shape: one table, no pr
 | Archive | REUSE 3.3 | <https://reuse.software/spec-3.3/> | 1 | `STD-010` · `REUSE.toml` | `reuse lint` passes 593/593 by hand; no workflow runs it |
 | Archive | ISO 8601 | <https://www.iso.org/iso-8601-date-and-time-format.html> | 0 | `STD-004` HDR-006 · HDR-007 | |
 | Archive | Keep a Changelog | <https://keepachangelog.com/> | 2 | `CHANGELOG.md` | practised, unnamed |
-| Archive | ISO 15489 · records management | <https://www.iso.org/standard/62542.html> | 3 | — | overlaps `STD-004` / `PRO-010`, unreconciled |
+| Archive | ISO 15489 · records management | <https://www.iso.org/standard/62542.html> | 3 | — | overlaps `STD-024` (`SER-005/006`) / `ADR-030`, unreconciled |
 | Archive | W3C PROV-O | <https://www.w3.org/TR/prov-o/> | 3 | — | `STD-004` ring 2 may be a conceptual subset; RDF not proposed |
 | Platform | OpenSSF Scorecard | <https://scorecard.dev/> | 0 | `.github/workflows/scorecard.yml`, weekly | |
 | Platform | Trunk-Based Development | <https://trunkbaseddevelopment.com/> | 2 | one live PR at a time onto `main` | practised, unnamed |

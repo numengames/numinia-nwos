@@ -141,7 +141,6 @@ numinia-digital-agents/
 | **PRO-003** | Mission Cycle | Create, execute, review, close missions |
 | **PRO-005** | Escalation | When blocked, uncertain, or decision exceeds authority |
 | **PRO-008** | Decision | Recording a decision and requesting approval |
-| **PRO-010** | How to Archive | Moving, superseding and retiring documents |
 | **PRO-011** | Security Audit | Auditing the repository for exposed material |
 | **PRO-013** | Handing a Guard to CI | Turning a verified rule into an enforced check |
 
@@ -152,7 +151,6 @@ PRO-001 (opening)
   └─► PRO-003 (mission lifecycle)
         ├─► PRO-005 (if blocked or beyond authority)
         └─► PRO-008 (if a decision must be recorded)
-  └─► PRO-010 (if a document moves or is retired)
 PRO-001 (closing — always)
 ```
 

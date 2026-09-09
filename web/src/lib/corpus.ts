@@ -252,7 +252,6 @@ const READING_ORDER: Record<string, string[]> = {
     "/corpus/protocols/pro-003-mission-cycle",
     "/corpus/protocols/pro-008-decision",
     "/corpus/protocols/pro-005-escalation",
-    "/corpus/protocols/pro-010-how-to-archive",
     "/corpus/protocols/pro-011-security-audit",
     "/corpus/protocols/pro-013-handing-a-guard-to-ci",
   ],
