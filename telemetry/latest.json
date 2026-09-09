@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "b5d7c0d",
-  "corpus_hash": "8d906f77edd0ce9e18ec263057eb9ec923c7247ffdcc942cad45f70ae5cbb365",
+  "head": "0d8c46f",
+  "corpus_hash": "7de631ad86c8fec14dbbe55bb705a06b27292c57721be9ac96894c2c675fcd99",
   "root_dirty": 0,
-  "measured_at": "2026-09-09T13:08:51Z",
+  "measured_at": "2026-09-09T13:24:49Z",
   "families": [
     "corpus",
     "series",
@@ -228,7 +228,7 @@
       "definition": "sum of `registration[*].total`"
     },
     "series.agents_folder_named": {
-      "value": 10,
+      "value": 11,
       "unit": "directories",
       "definition": "directories under `agents/` other than `_template` — identified by folder name, no prefix by design (ADR-005 v1.1.0)"
     },
@@ -336,7 +336,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 269853,
+      "value": 269868,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -345,13 +345,13 @@
         "missions": 43032,
         "standards": 35041,
         "canon": 29352,
-        "agents": 26714,
+        "agents": 26712,
         "reports": 23474,
         "blueprints": 22838,
         "operations": 21323,
         "templates": 17276,
         "protocols": 14390,
-        "": 12749,
+        "": 12766,
         "system": 9752,
         "decisions": 5020,
         "debt": 3722,
@@ -364,12 +364,12 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 158333,
+        "active": 158331,
         "draft": 41297,
         "done": 26350,
         "todo": 13588,
         "closed": 13117,
-        "(none)": 12556,
+        "(none)": 12573,
         "in-progress": 4612
       },
       "unit": "tokens",
@@ -438,7 +438,7 @@
         "registration_reason": 39,
         "related": 38,
         "subtype": 38,
-        "agent": 34,
+        "agent": 33,
         "threshold": 25,
         "series_change": 24,
         "extraction_note": 16,
@@ -576,7 +576,7 @@
           "2026-04-07"
         ],
         [
-          "agents/ursa/skills/numinia-nwos-pr/SKILL.md",
+          "agents/skills/numinia-nwos-pr/SKILL.md",
           "2026-09-10",
           "2026-09-09"
         ],
@@ -988,7 +988,7 @@
       "definition": "the apparatus and dated-name paths removed from the matricula denominators, in scan order"
     },
     "legacy.agents_sin_prefijo_por_diseno": {
-      "value": 10,
+      "value": 11,
       "unit": "directories",
       "definition": "subdirectories of agents/ other than _template (ADR-005 v1.1.0: agents are named, not numbered)"
     },

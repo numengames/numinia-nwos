@@ -27,10 +27,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 7471,
+  "chars": 7540,
   "apparatus": false,
   "archived": false,
-  "tokens": 1654
+  "tokens": 1671
  },
  {
   "path": "CHANGELOG.md",
@@ -407,6 +407,17 @@
   "tokens": 324
  },
  {
+  "path": "agents/skills/numinia-nwos-pr/SKILL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 4354,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1229
+ },
+ {
   "path": "agents/talos/OPERATOR.md",
   "dir": "agents",
   "series": "agents",
@@ -467,21 +478,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1468,
+  "chars": 1471,
   "apparatus": false,
   "archived": false,
-  "tokens": 394
- },
- {
-  "path": "agents/ursa/skills/numinia-nwos-pr/SKILL.md",
-  "dir": "agents",
-  "series": "agents",
-  "type": "agent",
-  "status": "active",
-  "chars": 4338,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1232
+  "tokens": 395
  },
  {
   "path": "blueprints/BLU-002-business-metrics.md",

@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-09T13:08:51Z"
+updated: "2026-09-09T13:24:49Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `b5d7c0d`  · corpus_hash: `8d906f77edd0ce9e…`  · measured_at: 2026-09-09T13:08:51Z  · root_dirty: 0
+- head: `0d8c46f`  · corpus_hash: `7de631ad86c8fec1…`  · measured_at: 2026-09-09T13:24:49Z  · root_dirty: 0
 
 ## corpus
 
@@ -117,7 +117,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `series.registration` | (table below) | documents | per series with a naming scheme (rules.json): documents whose filename matches `<PREFIX>-<NNN>-` (or the daily `RPT-<date>` form in reports/) over documents in the series — excluding `_template/`, `reports/evidence/`, apparatus and frozen artefacts (by filename shape). Same predicate as `count-evidence.py matricula`. |
 | `series.registered_total` | 97 | documents | sum of `registration[*].registered` |
 | `series.registrable_total` | 97 | documents | sum of `registration[*].total` |
-| `series.agents_folder_named` | 10 | directories | directories under `agents/` other than `_template` — identified by folder name, no prefix by design (ADR-005 v1.1.0) |
+| `series.agents_folder_named` | 11 | directories | directories under `agents/` other than `_template` — identified by folder name, no prefix by design (ADR-005 v1.1.0) |
 
 ### `series.registration`
 
@@ -208,7 +208,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 269853 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 269868 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
 | `tokens.missions_share_pct` | 15.95 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
@@ -221,13 +221,13 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | missions | 43032 |
 | standards | 35041 |
 | canon | 29352 |
-| agents | 26714 |
+| agents | 26712 |
 | reports | 23474 |
 | blueprints | 22838 |
 | operations | 21323 |
 | templates | 17276 |
 | protocols | 14390 |
-|  | 12749 |
+|  | 12766 |
 | system | 9752 |
 | decisions | 5020 |
 | debt | 3722 |
@@ -239,12 +239,12 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| active | 158333 |
+| active | 158331 |
 | draft | 41297 |
 | done | 26350 |
 | todo | 13588 |
 | closed | 13117 |
-| (none) | 12556 |
+| (none) | 12573 |
 | in-progress | 4612 |
 
 ### `tokens.largest`
@@ -288,7 +288,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | registration_reason | 39 |
 | related | 38 |
 | subtype | 38 |
-| agent | 34 |
+| agent | 33 |
 | threshold | 25 |
 | series_change | 24 |
 | extraction_note | 16 |
@@ -513,7 +513,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `legacy.referencias_top` | (table below) | mentions | the six most-mentioned identifiers as [id, count]; ties keep first-seen order (Python Counter.most_common) |
 | `legacy.matricula` | (table below) | documents | per series dir (count-evidence order, 11 dirs — `system` absent, as in the script): con = filenames matching the scheme; total = docs in the dir minus _template/, reports/evidence/, apparatus (canonical name or type: meta) and dated filenames, as the replayed tool did; pct = 100·con/total rounded to 0.1 |
 | `legacy.excluidos` | (table below) | paths | the apparatus and dated-name paths removed from the matricula denominators, in scan order |
-| `legacy.agents_sin_prefijo_por_diseno` | 10 | directories | subdirectories of agents/ other than _template (ADR-005 v1.1.0: agents are named, not numbered) |
+| `legacy.agents_sin_prefijo_por_diseno` | 11 | directories | subdirectories of agents/ other than _template (ADR-005 v1.1.0: agents are named, not numbered) |
 | `legacy.uid_presentes` | 2 | documents | docs with a non-empty `uid:` line in the frontmatter |
 | `legacy.uid_fabricados` | 0 | documents | uid values ending in eight or more zeros plus an optional counter (the hand-made v7 pattern) |
 | `legacy.uid_colisiones` | 1 | collisions | Σ(count − 1) over uid values held by more than one doc. Known defect reproduced: values are compared as typed, so a shared placeholder counts as collisions (MIS-122) |
