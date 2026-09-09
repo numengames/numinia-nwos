@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-09T13:30:24Z"
+updated: "2026-09-09T13:32:47Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `fa89b19`  · corpus_hash: `f6f23a54fd0349e0…`  · measured_at: 2026-09-09T13:30:24Z  · root_dirty: 0
+- head: `32108a5`  · corpus_hash: `f6f23a54fd0349e0…`  · measured_at: 2026-09-09T13:32:47Z  · root_dirty: 0
 
 ## corpus
 
@@ -202,36 +202,47 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `tokens.tokenizer` | (table below) | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test — rank file absent: scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-| `tokens.total` | (table below) | tokens | unavailable: rank file absent: scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-| `tokens.by_dir` | (table below) | tokens | unavailable: rank file absent: scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-| `tokens.by_status` | (table below) | tokens | unavailable: rank file absent: scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-| `tokens.missions_share_pct` | (table below) | tokens | unavailable: rank file absent: scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-| `tokens.largest` | (table below) | tokens | unavailable: rank file absent: scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-
-### `tokens.tokenizer`
-
-(none — 0 rows)
-
-### `tokens.total`
-
-(none — 0 rows)
+| `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
+| `tokens.total` | 265498 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
+| `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
+| `tokens.missions_share_pct` | 16.22 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
 
-(none — 0 rows)
+| | tokens |
+|---|---|
+| missions | 43062 |
+| standards | 34961 |
+| canon | 29352 |
+| agents | 26724 |
+| reports | 23474 |
+| blueprints | 22838 |
+| operations | 21323 |
+| templates | 15732 |
+| protocols | 14390 |
+|  | 13109 |
+| system | 9652 |
+| decisions | 6582 |
+| debt | 3722 |
+| .github | 577 |
 
 ### `tokens.by_status`
 
-(none — 0 rows)
-
-### `tokens.missions_share_pct`
-
-(none — 0 rows)
+| | tokens |
+|---|---|
+| active | 151801 |
+| draft | 42861 |
+| done | 26350 |
+| todo | 13588 |
+| (none) | 13139 |
+| closed | 13117 |
+| in-progress | 4642 |
 
 ### `tokens.largest`
 
-(none — 0 rows)
+5 rows (tokens) — in `latest.json`.
 
 ## headers
 
