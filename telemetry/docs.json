@@ -346,10 +346,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 3406,
+  "chars": 3369,
   "apparatus": false,
   "archived": false,
-  "tokens": 782
+  "tokens": 771
  },
  {
   "path": "agents/procyon/OPERATOR.md",
@@ -379,10 +379,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1150,
+  "chars": 1197,
   "apparatus": false,
   "archived": false,
-  "tokens": 320
+  "tokens": 335
  },
  {
   "path": "agents/senet/OPERATOR.md",
@@ -796,11 +796,11 @@
   "dir": "decisions",
   "series": "decisions",
   "type": "adr",
-  "status": "draft",
-  "chars": 5499,
+  "status": "active",
+  "chars": 3858,
   "apparatus": false,
   "archived": false,
-  "tokens": 1562
+  "tokens": 1169
  },
  {
   "path": "missions/ANNEX-mission-selection-draft.md",
@@ -1193,10 +1193,10 @@
   "series": "reports",
   "type": "report",
   "status": "closed",
-  "chars": 9657,
+  "chars": 9745,
   "apparatus": false,
   "archived": false,
-  "tokens": 3075
+  "tokens": 3123
  },
  {
   "path": "standards/STD-001-the-series.md",

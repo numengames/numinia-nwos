@@ -3,11 +3,11 @@ agent: procyon
 title: "SOURCES — Procyon"
 type: agent
 status: active
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-08-28T09:54:16Z"
 created_source: "git:eba0b00"
 created_confidence: exact
-updated: "2026-08-28T09:54:16Z"
+updated: "2026-09-10T09:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [agents, procyon]
@@ -31,7 +31,7 @@ web/ — numinia.org, the archive as visitors experience it
 
 ## Who is who
 
-agents/INDEX.md and guilds/ — the roster and its structure
+agents/INDEX.md and `guild:` in each agents/<id>/AGENT.yaml — the roster and its structure (ADR-045)
 
 ## The map
 

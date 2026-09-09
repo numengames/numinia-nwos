@@ -9,7 +9,7 @@ name: Nimrod
 version: "0.1.0"
 status: designed
 activated: null
-guild: null            # not in any roster at retirement (ADR-045); assigned by the Oracle
+guild: "Sentinels"    # GLD-006 roster at f242434, the day before ADR-045 retired it
 
 role:
   primary: repository-guide
