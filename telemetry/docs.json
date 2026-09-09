@@ -467,10 +467,21 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1263,
+  "chars": 1468,
   "apparatus": false,
   "archived": false,
-  "tokens": 343
+  "tokens": 394
+ },
+ {
+  "path": "agents/ursa/skills/numinia-nwos-pr/SKILL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 4338,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1232
  },
  {
   "path": "blueprints/BLU-002-business-metrics.md",
@@ -1424,10 +1435,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 5040,
+  "chars": 5116,
   "apparatus": false,
   "archived": false,
-  "tokens": 1539
+  "tokens": 1563
  },
  {
   "path": "standards/STD-017-who-may-change-what.md",

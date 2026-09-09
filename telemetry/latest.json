@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "9bb512b",
-  "corpus_hash": "77d288272fff97c7a39053bca74cc6abab154e74fa37e0a53d15c258e52ec01f",
+  "head": "b5d7c0d",
+  "corpus_hash": "8d906f77edd0ce9e18ec263057eb9ec923c7247ffdcc942cad45f70ae5cbb365",
   "root_dirty": 0,
-  "measured_at": "2026-09-09T12:25:14Z",
+  "measured_at": "2026-09-09T13:08:51Z",
   "families": [
     "corpus",
     "series",
@@ -17,7 +17,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 464,
+      "value": 465,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -32,7 +32,7 @@
         ".jpg": 1,
         ".js": 2,
         ".json": 20,
-        ".md": 159,
+        ".md": 160,
         ".mjs": 42,
         ".png": 36,
         ".py": 1,
@@ -50,12 +50,12 @@
       "definition": "tracked files by lowercase extension; `(none)` when no extension"
     },
     "corpus.md_total": {
-      "value": 159,
+      "value": 160,
       "unit": "files",
       "definition": "tracked `.md` anywhere, including `web/`"
     },
     "corpus.docs_total": {
-      "value": 157,
+      "value": 158,
       "unit": "documents",
       "definition": "tracked `.md` outside `web/` — the corpus every other family measures"
     },
@@ -63,7 +63,7 @@
       "value": {
         "(root)": 7,
         ".github": 2,
-        "agents": 34,
+        "agents": 35,
         "blueprints": 10,
         "canon": 8,
         "debt": 3,
@@ -85,7 +85,7 @@
       "value": {
         "(none)": 8,
         "adr": 7,
-        "agent": 33,
+        "agent": 34,
         "blueprint": 11,
         "charter": 9,
         "documentation": 45,
@@ -336,16 +336,16 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 268546,
+      "value": 269853,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "missions": 43032,
-        "standards": 35017,
+        "standards": 35041,
         "canon": 29352,
-        "agents": 25431,
+        "agents": 26714,
         "reports": 23474,
         "blueprints": 22838,
         "operations": 21323,
@@ -364,7 +364,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 157026,
+        "active": 158333,
         "draft": 41297,
         "done": 26350,
         "todo": 13588,
@@ -376,7 +376,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 16.02,
+      "value": 15.95,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -407,7 +407,7 @@
       "definition": "the five largest documents as [path, tokens]"
     },
     "headers.docs_with_frontmatter": {
-      "value": 150,
+      "value": 151,
       "unit": "documents",
       "definition": "docs whose text opens with a --- block the shared reader parses"
     },
@@ -418,27 +418,27 @@
     },
     "headers.field_usage": {
       "value": {
-        "author": 149,
-        "created": 149,
-        "license": 149,
-        "status": 149,
-        "title": 149,
-        "type": 149,
-        "updated": 149,
-        "version": 149,
-        "owner": 145,
-        "tags": 143,
+        "author": 150,
+        "created": 150,
+        "license": 150,
+        "status": 150,
+        "title": 150,
+        "type": 150,
+        "updated": 150,
+        "version": 150,
+        "owner": 146,
+        "tags": 144,
         "id": 116,
         "uid": 105,
         "territory": 80,
         "created_source": 71,
         "created_confidence": 70,
         "guild": 44,
-        "registration": 42,
-        "registration_reason": 38,
+        "registration": 43,
+        "registration_reason": 39,
         "related": 38,
         "subtype": 38,
-        "agent": 33,
+        "agent": 34,
         "threshold": 25,
         "series_change": 24,
         "extraction_note": 16,
@@ -472,6 +472,7 @@
         "requested_by": 3,
         "accuracy_warning": 2,
         "human_approval_score": 2,
+        "name": 2,
         "provenance": 2,
         "restoration_note": 2,
         "scope": 2,
@@ -482,6 +483,7 @@
         "blocked_by": 1,
         "consulted": 1,
         "decision": 1,
+        "description": 1,
         "evidence_head": 1,
         "evidence_script": 1,
         "fondos": 1,
@@ -490,7 +492,6 @@
         "language": 1,
         "language_note": 1,
         "mission": 1,
-        "name": 1,
         "outcome": 1,
         "period": 1,
         "previous_name": 1,
@@ -537,7 +538,7 @@
     },
     "provenance.authorship": {
       "value": {
-        "ai-persona": 106,
+        "ai-persona": 107,
         "other": 26,
         "human": 9,
         "ai-model": 8,
@@ -548,12 +549,12 @@
       "definition": "nature of author: per doc, `author:` normalised → human (Oracle aliases) · ai-persona (agents whose SOUL.md declares a model, list of 2026-08-26) · ai-model (name matches claude|gpt|opus|sonnet|fable|gemini|llm) · other · no-author · no-frontmatter"
     },
     "provenance.dates_vs_commits_compared": {
-      "value": 134,
+      "value": 135,
       "unit": "documents",
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
     "provenance.created_ahead_of_commit": {
-      "value": 5,
+      "value": 6,
       "unit": "documents",
       "definition": "created day later than the day the file was first added to git (dates-vs-commits.py \"DISCREPA\", over the whole corpus, not the post-tag set)"
     },
@@ -573,6 +574,11 @@
           "agents/nimrod/SOUL.md",
           "2026-09-04",
           "2026-04-07"
+        ],
+        [
+          "agents/ursa/skills/numinia-nwos-pr/SKILL.md",
+          "2026-09-10",
+          "2026-09-09"
         ],
         [
           "protocols/PRO-018-publishing-a-repository.md",
@@ -650,7 +656,7 @@
     },
     "contradictions.status_vocabulary_used": {
       "value": {
-        "active": 99,
+        "active": 100,
         "draft": 34,
         "todo": 5,
         "done": 6,
@@ -706,7 +712,7 @@
           "3": 130
         },
         "ADR": {
-          "3": 331
+          "3": 332
         },
         "PRO": {
           "3": 212
@@ -715,7 +721,7 @@
           "3": 38
         },
         "RPT": {
-          "3": 42,
+          "3": 43,
           "4": 9
         },
         "DBT": {
@@ -838,12 +844,12 @@
       "definition": "cited `key = value @ head` whose value in latest.json at this HEAD differs from the cited value: [where, key, cited, current]. A stale citation is not an error — the head beside it says when it was true"
     },
     "legacy.docs_total": {
-      "value": 159,
+      "value": 160,
       "unit": "documents",
       "definition": "every tracked path ending in .md (git ls-files '*.md'), web/ included, telemetry/ excluded"
     },
     "legacy.docs_con_frontmatter": {
-      "value": 150,
+      "value": 151,
       "unit": "documents",
       "definition": "docs_total whose text starts with a `---` block closed by a second `---` line"
     },
@@ -853,7 +859,7 @@
       "definition": "docs_total − docs_con_frontmatter"
     },
     "legacy.referencias_textuales_total": {
-      "value": 1345,
+      "value": 1347,
       "unit": "mentions",
       "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
     },
@@ -861,7 +867,7 @@
       "value": [
         [
           "ADR-005",
-          55
+          56
         ],
         [
           "ADR-043",
@@ -1046,7 +1052,7 @@
       "definition": "`created:` lines whose value carries the midnight-UTC placeholder time"
     },
     "legacy.created_total": {
-      "value": 149,
+      "value": 150,
       "unit": "documents",
       "definition": "docs with a `created:` line"
     },
