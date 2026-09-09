@@ -5,9 +5,9 @@ title: "Versions"
 type: documentation
 subtype: standard
 status: draft
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-09T03:50:00+02:00"
+updated: "2026-09-09T15:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
@@ -54,7 +54,7 @@ version in the header and the newest entry are the same number.
 | Plate | Verified by |
 |---|---|
 | VER-021, VER-024 | `check-core-rules.mjs`; `check-templates.mjs` T-08 for the opening value |
-| VER-022, 023 | `[MANUAL]` — classifying a diff as a changed obligation is the judgement itself; `DBT-015` for the escalation a major triggers |
+| VER-022, 023 | `[MANUAL]` — classifying a diff as a changed obligation is the judgement itself |
 | VER-064 | `[MANUAL]` — matching an author to the digit they moved |
 
 ## Why
@@ -70,4 +70,3 @@ accident on a patch.
 | ID | Title | Relation |
 |---|---|---|
 | `STD-017` | Who may change what | the ranks VER-064 names |
-| `DBT-015` | Majors escalate | what a major move triggers |

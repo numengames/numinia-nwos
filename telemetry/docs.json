@@ -671,39 +671,6 @@
   "tokens": 6861
  },
  {
-  "path": "debt/DBT-013-design-system-filename-not-frozen.md",
-  "dir": "debt",
-  "series": "debt",
-  "type": "documentation",
-  "status": "closed",
-  "chars": 5439,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1437
- },
- {
-  "path": "debt/DBT-015-core-45-guard-condemns-withdrawn.md",
-  "dir": "debt",
-  "series": "debt",
-  "type": "documentation",
-  "status": "closed",
-  "chars": 4338,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1180
- },
- {
-  "path": "debt/DBT-016-section-numbers-are-load-bearing.md",
-  "dir": "debt",
-  "series": "debt",
-  "type": "documentation",
-  "status": "active",
-  "chars": 5915,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1592
- },
- {
   "path": "debt/DBT-017-guards-without-a-rule.md",
   "dir": "debt",
   "series": "debt",
@@ -735,28 +702,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 985
- },
- {
-  "path": "debt/DBT-022-a-glossary-with-three-definitions.md",
-  "dir": "debt",
-  "series": "debt",
-  "type": "documentation",
-  "status": "closed",
-  "chars": 3704,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 980
- },
- {
-  "path": "decisions/ADR-001-the-archive.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "superseded",
-  "chars": 3539,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 925
  },
  {
   "path": "decisions/ADR-004-identifier-convention.md",
@@ -819,21 +764,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 2896,
+  "chars": 2981,
   "apparatus": false,
   "archived": false,
-  "tokens": 796
- },
- {
-  "path": "decisions/ADR-035-a-folder-is-a-genre.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "active",
-  "chars": 4871,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1402
+  "tokens": 822
  },
  {
   "path": "decisions/ADR-036-canon-consolidation.md",
@@ -845,28 +779,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 3672
- },
- {
-  "path": "decisions/ADR-037-accessibility-gate-single-home.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "active",
-  "chars": 2437,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 713
- },
- {
-  "path": "decisions/ADR-038-genre-map-is-government.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "active",
-  "chars": 4335,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1158
  },
  {
   "path": "decisions/ADR-039-licensing-obligations-leave-canon.md",
@@ -918,10 +830,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 6464,
+  "chars": 6534,
   "apparatus": false,
   "archived": false,
-  "tokens": 1810
+  "tokens": 1827
  },
  {
   "path": "decisions/ADR-044-consumers-install-packages.md",
@@ -1501,10 +1413,10 @@
   "series": "reports",
   "type": "report",
   "status": "closed",
-  "chars": 3664,
+  "chars": 5407,
   "apparatus": false,
   "archived": false,
-  "tokens": 1113
+  "tokens": 1681
  },
  {
   "path": "standards/STD-001-the-series.md",
@@ -1699,10 +1611,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 2574,
+  "chars": 2466,
   "apparatus": false,
   "archived": false,
-  "tokens": 709
+  "tokens": 678
  },
  {
   "path": "standards/STD-020-git-is-the-archive.md",
@@ -1721,10 +1633,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 2839,
+  "chars": 2763,
   "apparatus": false,
   "archived": false,
-  "tokens": 773
+  "tokens": 751
  },
  {
   "path": "standards/STD-022-secrets.md",

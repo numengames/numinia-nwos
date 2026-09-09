@@ -1,7 +1,7 @@
 {
   "_comment": "Known-broken references frozen at adoption time. The lint fails only on NEW breakage. This list should shrink over time and never grow. Regenerate only when fixing entries.",
-  "generated": "2026-09-09T08:30:28.996Z",
-  "count": 115,
+  "generated": "2026-09-09T09:35:11.412Z",
+  "count": 114,
   "entries": [
     "FILE AGENTS.md -> MEMORY.md",
     "FILE CHANGELOG.md -> APPROVAL-REQUEST-template.md",
@@ -64,7 +64,6 @@
     "ID   decisions/ADR-004-identifier-convention.md -> S-010",
     "ID   decisions/ADR-005-prefix-ruling.md -> D-008",
     "ID   decisions/ADR-026-agent-licensing-and-debt-register.md -> D-033",
-    "ID   decisions/ADR-035-a-folder-is-a-genre.md -> S-005",
     "ID   decisions/ADR-036-canon-consolidation.md -> P-010",
     "ID   decisions/ADR-036-canon-consolidation.md -> S-001",
     "ID   decisions/ADR-036-canon-consolidation.md -> S-002",
