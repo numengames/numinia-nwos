@@ -216,10 +216,10 @@ for (const dir of seriesDirs(RULES)) {
    no "Version history", "Changelog" or "Amendment" heading, because git is
    the archive (ADR-041). A superseded standard is a stub and exempt.
    When the last standard is cut, delete the OLD branch. */
-/* Standards whose shape is known debt and scheduled for a rewrite that will
-   renumber them once, not twice (DBT-016: 26 external citations pin STD-008's
-   section numbers). Remove the entry in the PR that rewrites the file. */
-const T11_BASELINE = new Set(['standards/STD-008-design-system.md']);
+/* Standards whose shape is known debt and scheduled for a rewrite. Emptied
+   2026-09-09 when STD-008, the last entry, took the ADR-043 shape. Kept as a
+   hook: add a path here only with the PR that schedules its rewrite. */
+const T11_BASELINE = new Set();
 const LOG = /^##+\s.*\b(version history|changelog|change log|amendment)\b/i;
 const NEW_SHAPE = ['Rules', 'Check', 'Why', 'References'];
 const standards = execFileSync('git', ['ls-files', 'standards/STD-*.md'], { cwd: ROOT, encoding: 'utf8' })

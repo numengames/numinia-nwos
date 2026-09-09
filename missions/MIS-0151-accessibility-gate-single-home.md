@@ -58,7 +58,7 @@ Verified against the repo: the WCAG AA / accessibility requirement existed
 in three places with no cross-reference between them —
 
 1. `numinia-web/CLAUDE.md` — prose in "Code standards", no rule ID.
-2. `standards/STD-008-design-system.md` §1.2/§12 — correctly
+2. `STD-008` (then `standards/STD-008-design-system`, its §1.2/§12; now DSN-005, DSN-011) — correctly
    scoped to design (contrast, focus color, tap targets), not the same
    sujeto as the code gate, but read as duplication before closer reading.
 3. `numinia-web/apps/store/e2e/a11y.spec.ts` — the actual CI gate

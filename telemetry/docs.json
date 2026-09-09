@@ -506,6 +506,39 @@
   "tokens": 1977
  },
  {
+  "path": "blueprints/BLU-009-web-pieces.md",
+  "dir": "blueprints",
+  "series": "blueprints",
+  "type": "blueprint",
+  "status": "active",
+  "chars": 18530,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 5078
+ },
+ {
+  "path": "blueprints/BLU-010-pixel-register.md",
+  "dir": "blueprints",
+  "series": "blueprints",
+  "type": "blueprint",
+  "status": "active",
+  "chars": 12183,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2810
+ },
+ {
+  "path": "blueprints/BLU-011-book-and-velo.md",
+  "dir": "blueprints",
+  "series": "blueprints",
+  "type": "blueprint",
+  "status": "active",
+  "chars": 9594,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2594
+ },
+ {
   "path": "canon/CAN-001-welcome-to-numinia.md",
   "dir": "canon",
   "series": "canon",
@@ -588,10 +621,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 26350,
+  "chars": 26450,
   "apparatus": false,
   "archived": false,
-  "tokens": 6864
+  "tokens": 6900
  },
  {
   "path": "debt/DBT-013-design-system-filename-not-frozen.md",
@@ -599,10 +632,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "closed",
-  "chars": 5418,
+  "chars": 5446,
   "apparatus": false,
   "archived": false,
-  "tokens": 1431
+  "tokens": 1443
  },
  {
   "path": "debt/DBT-015-core-45-guard-condemns-withdrawn.md",
@@ -1028,10 +1061,10 @@
   "series": "missions",
   "type": "mission",
   "status": "done",
-  "chars": 32275,
+  "chars": 32302,
   "apparatus": false,
   "archived": false,
-  "tokens": 9003
+  "tokens": 9015
  },
  {
   "path": "missions/MIS-0123-make-adr-028-real.md",
@@ -1138,10 +1171,10 @@
   "series": "missions",
   "type": "mission",
   "status": "done",
-  "chars": 8556,
+  "chars": 8597,
   "apparatus": false,
   "archived": false,
-  "tokens": 2451
+  "tokens": 2470
  },
  {
   "path": "missions/MIS-0153-agent-roster-page.md",
@@ -1237,10 +1270,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "active",
-  "chars": 4585,
+  "chars": 4587,
   "apparatus": false,
   "archived": false,
-  "tokens": 1345
+  "tokens": 1343
  },
  {
   "path": "operations/OPS-009-secrets-handling.md",
@@ -1336,10 +1369,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 23896,
+  "chars": 23822,
   "apparatus": false,
   "archived": false,
-  "tokens": 6728
+  "tokens": 6663
  },
  {
   "path": "protocols/PRO-015-joining-and-leaving.md",
@@ -1507,15 +1540,15 @@
   "tokens": 1108
  },
  {
-  "path": "standards/STD-008-design-system.md",
+  "path": "standards/STD-008-design-tokens.md",
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "draft",
-  "chars": 63043,
+  "status": "active",
+  "chars": 5181,
   "apparatus": false,
   "archived": false,
-  "tokens": 17759
+  "tokens": 1432
  },
  {
   "path": "standards/STD-009-which-rule-wins.md",
@@ -1670,6 +1703,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 564
+ },
+ {
+  "path": "standards/STD-023-design-values.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "active",
+  "chars": 24882,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 8060
  },
  {
   "path": "system/SYS-001-cao-architecture.md",

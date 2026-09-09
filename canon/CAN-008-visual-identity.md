@@ -4,9 +4,9 @@ uid: ""
 title: "The visual identity is one system in four registers, and the direction is decided here"
 type: seminal
 status: draft
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-09-08T22:30:00+02:00"
-updated: "2026-09-08T22:30:00+02:00"
+updated: "2026-09-09T11:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -14,7 +14,7 @@ territory: "Archive"
 tags: [canon, seminal, brand, design, direction]
 license: "CC0-1.0"
 threshold: sealed
-related: ["CAN-002", "STD-008", "PRO-014"]
+related: ["CAN-002", "STD-008", "STD-023", "PRO-014", "ADR-044"]
 ---
 
 <!--
@@ -56,7 +56,7 @@ Purpose: *Leveling up organizations to build better relationships.* Mission: *Bu
 
 ### 1.3 The three pillars
 
-**Craft** — art as the engine. **Learn** — humans play to learn. **Remix** — copy it and make it better → this system is published under CC0 (STD-008 §14).
+**Craft** — art as the engine. **Learn** — humans play to learn. **Remix** — copy it and make it better → this system is published under CC0 (`STD-010`).
 
 ---
 
@@ -67,7 +67,7 @@ The Brand & Culture's *SolarSteamCyberPunk*, with the dosage fixed:
 | Thread | Dose | **Era** | What it is | What it brings to the system |
 |---|---|---|---|---|
 | **Solarpunk** | **40 %** | **2120** | Mediterranean optimism: technology in the service of life, light, community, sustainability | Arena, Verdemar and the sun-Ámbar; the entire Diurno mode; compositional serenity; sustainability as a technical requirement (§1.2). Nocturno is **its warm garden night** — brown blacks, sand under moonlight — not the acid neon night |
-| **Steampunk** | **40 %** | **1920** | The machine: bronze, mechanism, measure, the Second Industrial Revolution | The Nocturno bronze neutrals; Geist Mono; the mechanical grid; the circuit relief (STD-008 §5); the instruments in the iconography |
+| **Steampunk** | **40 %** | **1920** | The machine: bronze, mechanism, measure, the Second Industrial Revolution | The Nocturno bronze neutrals; Geist Mono; the mechanical grid; the circuit relief (`BLU-009` §3); the instruments in the iconography |
 | **Cyberpunk** | **20 %** | **2020** | The signal: the flash that cuts through | Coral and Turquesa as **dosed** neon; the binary texture; the terminal typing (§3.9). At 20 %, cyber is accent, never ambience |
 
 **Mixing rule.** Light dominates, the machine structures, the signal blinks. **Dose test** (squinting): does it look like a Mediterranean garden with bronze machinery where a signal blinks? Correct. Does it look like Blade Runner? Too much cyber. Like a gardening catalogue? Not enough machine.
@@ -76,7 +76,7 @@ The Brand & Culture's *SolarSteamCyberPunk*, with the dosage fixed:
 
 **The three-decades seal.** The era becomes visible through a microcomponent: `1920 · 2020 · 2120` in `type.etiqueta` (Mono, not small caps — they are figures), separated by middle dots, always in chronological order. It accompanies the scarab's closing on expressive pieces and covers; a piece's **dominant** decade MAY go in Ámbar. It does not replace real dates and does not appear in level III documents.
 
-**Guardrail: the era is flavour, not skin.** A piece is not "set" in 1920 or 2120: the 40/40/20 dose holds always, and the era is only emphasized through the sanctioned devices — the seal, the image patina (STD-008 §5.3) and the era lexicon (§3.10). Test: remove the seal and the photography, and the piece must still be unmistakably the System's.
+**Guardrail: the era is flavour, not skin.** A piece is not "set" in 1920 or 2120: the 40/40/20 dose holds always, and the era is only emphasized through the sanctioned devices — the seal, the image patina (`BLU-009` §4) and the era lexicon (§3.10). Test: remove the seal and the photography, and the piece must still be unmistakably the System's.
 
 **The scarab** — Khepri, the solar scarab: creation, cycle, rebirth; the only place where the old name survives, as the brand's origin — crosses the three threads and sets the closing of every piece.
 
@@ -96,7 +96,7 @@ Oracle.
 
 ### 3.1 The signature repertoire
 
-Five elements, and no more; everything else is typography, space and color. (1) **The lunar cycle** as sequence and progress marker — the Moon is a canonical symbol and a phase truly is a sequence; only where real sequence or progress exists, including a long document's reading progress. (2) **The binary texture** as separator: signal becoming sediment — and it also **speaks**: it encodes canon phrases in 8 bits (STD-008 §5.1). (3) **The circuit relief** (STD-008 §5): matter. (4) **The scarab** as closing mark: it closes, never opens. (5) **The brand play** (§3.8): the three glyphs *space · people · connect* and color over the brand — expressive register only, never the signature.
+Five elements, and no more; everything else is typography, space and color. (1) **The lunar cycle** as sequence and progress marker — the Moon is a canonical symbol and a phase truly is a sequence; only where real sequence or progress exists, including a long document's reading progress. (2) **The binary texture** as separator: signal becoming sediment — and it also **speaks**: it encodes canon phrases in 8 bits (`BLU-009` §3). (3) **The circuit relief** (`BLU-009` §3): matter. (4) **The scarab** as closing mark: it closes, never opens. (5) **The brand play** (§3.8): the three glyphs *space · people · connect* and color over the brand — expressive register only, never the signature.
 
 ### 3.2 Brand architecture
 
@@ -111,13 +111,13 @@ When the narrative calls for it, Numen speaks in pixels: the heritage of **Monke
 
 **The register's rules, at a glance** (each developed where indicated; this block is an index, not a duplicate):
 
-- **You enter and leave completely.** A scene is pixel or it is not; mixed densities are forbidden. A sprite MAY live as framed content inside a system piece, never blended with vector or photography. Interface boundary → STD-008 §4.1.
-- **Closed Píxel-16 palette** with neutral dominance ≥ 60 % → STD-008 §2.7; ramps, clusters and dithering → STD-008 §2.7.1–3.7.2.
-- **Drawing grammar** — silhouette first, single top-left light, deliberate steps → STD-008 §11.1; scales and consistency → STD-008 §11.2; depth → STD-008 §11.3.
-- **Outline**: Noche separates the **silhouette** from the active background (SCUMM legibility and our veil are the same idea); **inside** the figure, divisions are resolved with the ramp, never with a uniform outline (STD-008 §11.1). In sprites ≤ 12 px the outline MAY close completely: at that size the silhouette is all there is.
-- **Integer scaling only** with `image-rendering: pixelated` → STD-008 §4.1.
-- **Dialogue colors by speaker** with the approved subset (STD-008 §2.7) and inherits the **typing** (STD-008 §9.1-01): the pixel register is the natural habitat of the system's flagship. Text composition → STD-008 §3.5.1; sprite animation → STD-008 §9.4.
-- **Canonical scarab sprite**: there is a single pixel translation of the brand (`assets/pixel/khepri-sprite-24.png`), demonstrated in the guide, as a closed exception to the no-redraw rule (STD-008 §7.3). Its status is [EXTENSION — validate]: the consecration of any pixel translation of the brand is signed by an Oracle (the Oracle (`STD-008` governance)); until then, it is the only authorized draft and nobody pixels another.
+- **You enter and leave completely.** A scene is pixel or it is not; mixed densities are forbidden. A sprite MAY live as framed content inside a system piece, never blended with vector or photography. Interface boundary → `BLU-010` §3.
+- **Closed Píxel-16 palette** with neutral dominance ≥ 60 % → `STD-023` §5; ramps, clusters and dithering → `STD-023` §6–3.7.2.
+- **Drawing grammar** — silhouette first, single top-left light, deliberate steps → `BLU-010` §6; scales and consistency → `STD-023` §16; depth → `BLU-010` §6.
+- **Outline**: Noche separates the **silhouette** from the active background (SCUMM legibility and our veil are the same idea); **inside** the figure, divisions are resolved with the ramp, never with a uniform outline (`BLU-010` §6). In sprites ≤ 12 px the outline MAY close completely: at that size the silhouette is all there is.
+- **Integer scaling only** with `image-rendering: pixelated` → `BLU-010` §3.
+- **Dialogue colors by speaker** with the approved subset (`STD-023` §5) and inherits the **typing** (`STD-023` §14-01): the pixel register is the natural habitat of the system's flagship. Text composition → `BLU-010` §2; sprite animation → `BLU-010` §5.
+- **Canonical scarab sprite**: there is a single pixel translation of the brand (`assets/pixel/khepri-sprite-24.png`), demonstrated in the guide, as a closed exception to the no-redraw rule (`BLU-009` §6). Its status is [EXTENSION — validate]: the consecration of any pixel translation of the brand is signed by an Oracle (the Oracle (`STD-008` governance)); until then, it is the only authorized draft and nobody pixels another.
 - The register must still pass the **dose test** (§1.4): the pixel changes the resolution, not the mix.
 - **The pixel register has no Diurno mode.** The Píxel-16 index is born of the Night: a pixel scene inside a light piece keeps its Nocturno canvas, framed — it is never recolored to light.
 
@@ -137,24 +137,24 @@ Where the system lives, at a glance. Every surface has its default mode, its lan
 | Pixel register | **Nocturno always** | II | Píxel | §3.3, `PRO-014` section 6.9 |
 | Low-poly register (3D) | its host surface's | — | Low-poly | §3.5, `PRO-014` section 6.7 |
 | Email | client's light | I/III | Umbral | `PRO-014` section 6.8 |
-| Comic / graphic novel | Nocturno | II | Píxel (inherits) | pending — inherits pixel register, patinas STD-008 §5.3 and voice §3.10 |
+| Comic / graphic novel | Nocturno | II | Píxel (inherits) | pending — inherits pixel register, patinas `BLU-009` §4 and voice §3.10 |
 
-The Platform is the **only emitted surface where Diurno rules**: it is a tool for prolonged work over data, and paper tires less than night. The "emits = Nocturno" rule of STD-008 §4 is thereby qualified by this table.
+The Platform is the **only emitted surface where Diurno rules**: it is a tool for prolonged work over data, and paper tires less than night. The "emits = Nocturno" rule of `STD-023` §9 is thereby qualified by this table.
 
 ### 3.5 The low-poly register
 
 The pixel register's 3D sibling, for environments, props and web characters (Platform viewer, portals, metaverse). **The mesh is honest as the pixel is honest**: the faceted geometry is shown, not disguised.
 
-- **Economy of masses.** Silhouette first, facets after — cluster theory (STD-008 §11.1) in three dimensions: continuous masses legible at usage distance; detail that does not read is removed.
-- **Flat palette color.** Materials in flat color (*flat shading* or *vertex colors*) taken from the canonicals and their ramps (STD-008 §2.7 as family guide); no photographic textures. The only photorealistic map allowed remains the canonical normal (STD-008 §5).
+- **Economy of masses.** Silhouette first, facets after — cluster theory (`BLU-010` §6) in three dimensions: continuous masses legible at usage distance; detail that does not read is removed.
+- **Flat palette color.** Materials in flat color (*flat shading* or *vertex colors*) taken from the canonicals and their ramps (`STD-023` §5 as family guide); no photographic textures. The only photorealistic map allowed remains the canonical normal (`BLU-009` §3).
 - **Orientative budget** [EXTENSION — validate]: character 2,000–10,000 tris; prop 200–2,000; modular environment by pieces. The budget is validated against the store's real assets.
-- **House lighting**: warm Ámbar key + cold Turquesa fill (`PRO-014` section 6.7); the era enters through temperature and materials (patinas STD-008 §5.3), not through skins.
+- **House lighting**: warm Ámbar key + cold Turquesa fill (`PRO-014` section 6.7); the era enters through temperature and materials (patinas `BLU-009` §4), not through skins.
 - **Formats**: GLB/glTF, the standards the Platform already publishes.
 - Relationship between registers: **the pixel is the world's 2D memory; the low-poly is its 3D body** — same economy of means, different dimension. Neither mixes with photorealism in the same scene.
 
 ### 3.6 The Velo register
 
-**What it is.** In the world, the Velo is the symbolic skin that sustains the city: the zone of the Akasha where the Summa lives and where knowledge **orders itself upon being discovered** (manual v0.6.0). In the system, the Velo is the **register of depth**: the atmosphere seen behind and through things. It already lived here unnamed — the image veil `rgba(20,17,15,.72)` that protects the brand (STD-008 §7.2) and founds the modal (STD-008 §8.8) was always its first piece. 5.0.0 gives it the rest of its body.
+**What it is.** In the world, the Velo is the symbolic skin that sustains the city: the zone of the Akasha where the Summa lives and where knowledge **orders itself upon being discovered** (manual v0.6.0). In the system, the Velo is the **register of depth**: the atmosphere seen behind and through things. It already lived here unnamed — the image veil `rgba(20,17,15,.72)` that protects the brand (`BLU-009` §6) and founds the modal (`BLU-009` §9) was always its first piece. 5.0.0 gives it the rest of its body.
 
 **Where it lives.** Archive Summa and NWOS viewers (`numinia.org`), the LAP's reading frame outside the paper, discovery surfaces (files upon opening, revelations of the Akashic Registry). And, by direction decision, it is the **seed of the default flavour** for organizations without a system of their own (§3.7.1).
 
@@ -164,26 +164,26 @@ The pixel register's 3D sibling, for environments, props and web characters (Pla
 |---|---|---|---|
 | `velo.rejilla` | `rgba(166,218,213,.025)` · **40 px** cell | Verdemar at 2.5 % | The Akasha's grid, barely visible; the cell matches the Platform row (40 px) — archive and tool share the same beat `[DERIVED — verified in production, pablofm-web]` |
 | `velo.niebla` | `rgba(1,142,161,.06)` · radial from bottom-left | Turquesa at 6 % | The corridors' fog: the diffuse signal of the background `[DERIVED — verified in production]` |
-| `velo.imagen` | `rgba(20,17,15,.72)` | Noche at 72 % | The foundational veil (STD-008 §7.2, STD-008 §8.8, `PRO-014` section 6.3) — unchanged; Jardín may lighten to `.60` (STD-008 §5.3) |
+| `velo.imagen` | `rgba(20,17,15,.72)` | Noche at 72 % | The foundational veil (`BLU-009` §6, `BLU-009` §9, `PRO-014` section 6.3) — unchanged; Jardín may lighten to `.60` (`BLU-009` §4) |
 | `velo.cristal` | `rgba(30,26,23,.65)` + `backdrop-filter: blur(12px)` | Basalto at 65 % | Glass surface: read through `[EXTENSION — validate]` |
 | `velo.cristal-borde` | `rgba(58,51,45,.5)` | Strong line at 50 % | The glass's edge `[EXTENSION — validate]` |
-| `velo.cielo` | 175 stars · weights `60/25/10/4/1` | **Rarity scale STD-008 §2.6** | The Velo's sky (STD-008 §10.1) — verified in production, numinia.org |
-| `velo.lectura` | `blur(2.2px)` + mask `0→90 %` | — | What lies beyond the Umbral is seen and not read (STD-008 §10.2) |
+| `velo.cielo` | 175 stars · weights `60/25/10/4/1` | **Rarity scale `STD-023` §4** | The Velo's sky (`STD-023` §15) — verified in production, numinia.org |
+| `velo.lectura` | `blur(2.2px)` + mask `0→90 %` | — | What lies beyond the Umbral is seen and not read (`BLU-011` §5) |
 
 **Hard rules of the Velo:**
 
-- **Nocturno only.** Paper is paper: in Diurno the Velo does not exist (same logic as the relief, STD-008 §5.2).
+- **Nocturno only.** Paper is paper: in Diurno the Velo does not exist (same logic as the relief, `BLU-009` §3).
 - **Intensity ceilings:** grid ≤ 3 % alpha, fog ≤ 8 %. More is scenery; the Velo is felt, not looked at.
-- **Behind, never on top.** Grid and fog are background layers; never over reading text nor inside cards and elevated surfaces — those stay flat (STD-008 §5.2).
+- **Behind, never on top.** Grid and fog are background layers; never over reading text nor inside cards and elevated surfaces — those stay flat (`BLU-009` §3).
 - **Glass demands atmosphere.** `velo.cristal` only over backgrounds with grid, fog or veiled image behind: blurring nothing is smoke. Text over glass: secondary minimum; AA verified against the worst possible background.
-- **Matter and atmosphere do not compete.** The circuit relief (STD-008 §5.2) is the machine; the Velo is the Akasha. In one view one SHOULD dominate. Fog MAY settle over the relief at half its alpha; **grid and relief do not coexist** — two meshes fight `[EXTENSION — validate]`.
+- **Matter and atmosphere do not compete.** The circuit relief (`BLU-009` §3) is the machine; the Velo is the Akasha. In one view one SHOULD dominate. Fog MAY settle over the relief at half its alpha; **grid and relief do not coexist** — two meshes fight `[EXTENSION — validate]`.
 - Contrast, focus and `prefers-reduced-motion`: the general rules govern; the Velo does not qualify them.
 
 ### 3.7 The four registers — hierarchy and values
 
 The System speaks in four registers, ordered by importance. Every piece declares its own **before its medium**, as `PRO-014` orders. Like every NWOS mission, each register answers for its **epistemic value** (what it teaches) and its **pragmatic value** (what it produces).
 
-**1 · The Umbral** — the general register. The name comes from the world: the Umbral is the border anyone can cross. It is the entire base system (STD-008 §2–`STD-008` §3–STD-008 §8): websites, presentations, documents, **invoices** (`PRO-014` section 6.4; real piece 2026-A-014), interface, event and email.
+**1 · The Umbral** — the general register. The name comes from the world: the Umbral is the border anyone can cross. It is the entire base system (`STD-023`, `BLU-009`): websites, presentations, documents, **invoices** (`PRO-014` section 6.4; real piece 2026-A-014), interface, event and email.
 *Epistemic:* it sets the priors of whoever arrives from outside — first contact teaches what Numen is without needing the world.
 *Pragmatic:* it produces every corporate and product piece **without new decisions**; it is the register that invoices.
 
@@ -255,7 +255,8 @@ The typing — the flagship — has a **double era heritage**: it is the 1920 ty
 ## 4. What this canon does NOT define
 
 It does not give a single hex, size, curve or class name: every value is in
-`STD-008`, and a value quoted here would drift. It does not say how a piece
+the kit `packages/design-kit/` and the register `STD-023`, the rules about
+them are `STD-008`, and a value quoted here would drift (ADR-044). It does not say how a piece
 is produced: `PRO-014`. It does not license the assets: `STD-010`. It does not
 settle the world's narrative — `CAN-002` is brand and culture, and this canon
 sits under it: where they disagree, `CAN-002` holds.

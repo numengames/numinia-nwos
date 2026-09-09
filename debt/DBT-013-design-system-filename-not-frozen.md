@@ -25,7 +25,7 @@ related: ["ADR-037", "MIS-151", "PRO-010", "MIS-125", "STD-001"]
 
 > **Closed before this document reached `main`.** Opened 2026-09-02 against
 > the dated Design System filename. On 2026-09-03, PR #229 — *"A filename is
-> not a state"* — registered that document as `standards/STD-008-design-system.md`
+> not a state"* — registered that document as `STD-008` (then `standards/STD-008-design-system`)
 > and merged its terminology into `CAN-004`. The dated name survives only in
 > the `supersedes:` field, which is a historical pointer, not a live path.
 >
@@ -106,7 +106,7 @@ acceptable after all.
 
 **Closed 2026-09-03 by PR #229**, one day after this entry was written and
 before it reached `main`. The Oracle's pass took option 1: the file was
-renamed to `standards/STD-008-design-system.md` and its terminology merged
+renamed to `STD-008` (then `standards/STD-008-design-system`) and its terminology merged
 into `CAN-004`. The dated name is retained only as a `supersedes:` value,
 which records what the document used to be rather than pointing at a live
 file.

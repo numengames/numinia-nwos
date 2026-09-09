@@ -4,9 +4,9 @@ uid: ""
 title: "Producing a design piece: the order of decisions and the checklist before delivering"
 type: protocol
 status: active
-version: "1.0.1"
+version: "1.1.0"
 created: "2026-09-07T14:00:00+02:00"
-updated: "2026-09-09T10:30:00+02:00"
+updated: "2026-09-09T11:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -49,10 +49,10 @@ the standard still binds.
 ## 2. The algorithm
 
 ```
-1 Medio (`STD-008` §13) → 1b Registro (`CAN-008` §3.7): Umbral | Velo | Low-poly | Píxel — el Velo solo en Nocturno → 2 Modo (emite=Nocturno | imprime=Diurno; el registro píxel no tiene Diurno) → 3 Nivel de lengua (`CAN-008` §3.10)
-→ 4 Tokens (§3) → 5 Retícula (`STD-008` §4) → 6 Escala tipo (`STD-008` §3.3) → 7 Iconos Phosphor (`STD-008` §6.1) → 7b ¿Gráficas? paleta de datos (`STD-008` §2.8)
-→ 8 ¿Juego? rareza (`STD-008` §2.6) → 8b ¿3D? registro low-poly (`CAN-008` §3.5) → 9 ¿Registro píxel? producción (`CAN-008` §3.3; `STD-008` §2.7, §3.5, §4.1, §8.6, §9.4, §11)
-→ 10 ¿Movimiento? solo del catálogo (`STD-008` §9.1) → 11 Copy en el nivel fijado → 12 Checklist (§4)
+1 Medio (`ADR-044`) → 1b Registro (`CAN-008` §3.7): Umbral | Velo | Low-poly | Píxel — el Velo solo en Nocturno → 2 Modo (emite=Nocturno | imprime=Diurno; el registro píxel no tiene Diurno) → 3 Nivel de lengua (`CAN-008` §3.10)
+→ 4 Tokens (§3) → 5 Retícula (`STD-023` §9) → 6 Escala tipo (`STD-023` §8) → 7 Iconos Phosphor (`STD-023` §10) → 7b ¿Gráficas? paleta de datos (`STD-023` §7)
+→ 8 ¿Juego? rareza (`STD-023` §4) → 8b ¿3D? registro low-poly (`CAN-008` §3.5) → 9 ¿Registro píxel? producción (`CAN-008` §3.3; `STD-023` §5, §3.5, §4.1, §8.6, §9.4, §11)
+→ 10 ¿Movimiento? solo del catálogo (`STD-023` §14) → 11 Copy en el nivel fijado → 12 Checklist (§4)
 ```
 
 A value outside §3 MUST NOT be invented.
@@ -78,16 +78,16 @@ document declaring `5.1.0`.
 - [ ] Colors only from §3; max three per composition; Coral and Grana do not coexist; text variants over light.
 - [ ] Spacing on the 4-scale; only self-hosted Geist Sans/Mono; one display level; tabular Mono figures.
 - [ ] Phosphor icons by weight; never thin/duotone; label on first use; no mixing weights in a row; the scarab and the Moon never as icons.
-- [ ] Fills with light text: `#017C8D` background and states that **darken** (hover turquesa-text, active `#015866`; destructive hover grana-text). Tertiary only over the base background. Data with the `STD-008` §2.8 palette and never with rarity.
-- [ ] `STD-008` §8.8 controls: the active in ink; label always; modal with the canonical veil and trapped focus; table with `aria-sort`; bar only with a real percentage.
-- [ ] Shape: `control` radius on controls, `marco` on cards and dialogs; straight edges only in pixel and printed tables. Messages per `STD-008` §8.7: cause + way out, never mute.
+- [ ] Fills with light text: `#017C8D` background and states that **darken** (hover turquesa-text, active `#015866`; destructive hover grana-text). Tertiary only over the base background. Data with the `STD-023` §7 palette and never with rarity.
+- [ ] `BLU-009` §9 controls: the active in ink; label always; modal with the canonical veil and trapped focus; table with `aria-sort`; bar only with a real percentage.
+- [ ] Shape: `control` radius on controls, `marco` on cards and dialogs; straight edges only in pixel and printed tables. Messages per `BLU-009` §8: cause + way out, never mute.
 - [ ] Surface identified on the `CAN-008` §3.4 map; if Platform: Diurno by default, ink primary, compact density, wallets and amounts in Mono. If 3D: low-poly register `CAN-008` §3.5, flat palette color, no photographic textures.
-- [ ] Era only through sanctioned devices: `1920 · 2020 · 2120` seal, single patina (`STD-008` §5.3), lexicon as spice; with them removed, the piece is still the System's.
+- [ ] Era only through sanctioned devices: `1920 · 2020 · 2120` seal, single patina (`BLU-009` §4), lexicon as spice; with them removed, the piece is still the System's.
 - [ ] Correct brand register: monochrome signature on the corporate; color, glyphs and mosaic only in play (`CAN-008` §3.8), with a label on first use and ≥3:1 if the brand is the only identifier.
-- [ ] Brand per `STD-008` §7: correct lockup, Arena/Noche, respect, calm zone over texture; no recoloring/rotating/shadowing/deforming; the scarab is the `STD-008` §7.4 path.
+- [ ] Brand per `STD-023` §12: correct lockup, Arena/Noche, respect, calm zone over texture; no recoloring/rotating/shadowing/deforming; the scarab is the `STD-023` §13 path.
 - [ ] Texture only on Nocturno backgrounds ≤6 %, `cover`, elevated surfaces flat, never in Diurno.
 - [ ] If there is game: full rarity with progressive treatment and name; never in the corporate.
-- [ ] Motion only from the `STD-008` §9.1 catalogue; one orchestrated moment; one sweep maximum; pulse only on obtaining; no parallax/glitch; `prefers-reduced-motion` respected; focus not animated.
+- [ ] Motion only from the `STD-023` §14 catalogue; one orchestrated moment; one sweep maximum; pulse only on obtaining; no parallax/glitch; `prefers-reduced-motion` respected; focus not animated.
 - [ ] Buttons: one primary per view; destructive with confirmation and far from the primary; labels = verbs, no all-caps.
 - [ ] AA contrasts; nothing by color alone; measure ≤90; lunar-phase sequences only where a real sequence exists; closing with the scarab on a major piece; file name `CAN-008` §3.10.
 - [ ] If pixel register: Píxel-16 only, neutrals ≥60 %, Grana without dialogue, 12/24/48 grid, integer scaling with `pixelated`, Noche outline, Pixelify at multiples, the scarab sprite the canonical one, full register entry/exit, and never in level III.
@@ -95,8 +95,8 @@ document declaring `5.1.0`.
 - [ ] Sprites: stable cells and anchors, 2–4 frames, 120/200/320 ms durations, no interpolation or subpixel; reduced motion shows the most informative pose.
 - [ ] Export: indexed PNG, binary transparency, Píxel-16 palette verified, uniform sprite sheet, ×1 test + integer scale + minimum viewport.
 - [ ] If Velo register: only alphas over canonicals (zero new hexes); grid ≤3 % and fog ≤8 %; atmosphere behind the content, never on cards or elevated surfaces; glass only with atmosphere behind and text ≥ secondary; no Velo in Diurno; one dominant matter per view (grid and relief do not coexist); animations 10–11 only here; the orchestrated moment is still one.
-- [ ] If there is sky (`STD-008` §10.1): weights 60/25/10/4/1 with the `STD-008` §2.6 colors, no parallax or cursor reaction, stopped with reduced motion; the grain (`STD-008` §5.5) only on paper, ≤5 %, never with relief or grid.
-- [ ] Icons from the `STD-008` §6.3 subset; mode switch showing the **destination** mode; the book's icons only inside the paper register.
+- [ ] If there is sky (`STD-023` §15): weights 60/25/10/4/1 with the `STD-023` §4 colors, no parallax or cursor reaction, stopped with reduced motion; the grain (`BLU-011` §2) only on paper, ≤5 %, never with relief or grid.
+- [ ] Icons from the `STD-023` §11 subset; mode switch showing the **destination** mode; the book's icons only inside the paper register.
 - [ ] If living paper (§6.12): third voice only in the book (roman body, SC drop cap and titles, italic lore, no synthetic small caps); bar that yields but does not disappear; glossary with a source per definition; moon as bookmark (waxing phases); `abierto / tras el Umbral` states; .md/pdf/epub downloads visible; literary opening separated from the body; full colophon with the scarab; the invoice inherits none of this.
 - [ ] One element has been removed before delivering.
 
@@ -138,7 +138,7 @@ Nocturno, 12 col ≤1280 px, hero = the thesis with relief at the back and headl
   <h1 data-tecleo>La tesis en una frase, con <span style="color:var(--ambar)">una palabra</span> en Ámbar.</h1>
   <p class="sub"><!-- cuerpo.l, texto-2, máx 56ch, nivel II --></p>
   <a class="btn btn-primario" href="#"><!-- verbo exacto; ÚNICO primario de la vista --></a>
-  <div class="binaria" aria-hidden="true">0100110001100101…xxxx</div><!-- la frase del canon en 8 bits: `STD-008` §5.1 · binaria() del kit -->
+  <div class="binaria" aria-hidden="true">0100110001100101…xxxx</div><!-- la frase del canon en 8 bits: `BLU-009` §3 · binaria() del kit -->
 </section>
 ```
 
@@ -199,7 +199,7 @@ Credential in Diurno legible at 1.5 m; badges with name+symbol+color; signage le
 
 ### 6.6 Product and interface
 
-Nocturno by default, level I, Turquesa for the interactive, Phosphor by weight (`STD-008` §6.1), rarity (`STD-008` §2.6) where objects and rewards exist.
+Nocturno by default, level I, Turquesa for the interactive, Phosphor by weight (`STD-023` §10), rarity (`STD-023` §4) where objects and rewards exist.
 
 ### 6.7 3D and metaverse
 
@@ -218,10 +218,10 @@ Body in level I or III, plain text or minimal HTML; no decorative images. **Sign
 3. **Mass thumbnail.** Compose background, play plane, foreground and focus with neutrals only. Verify the 40/40/20 dose by squinting.
 4. **Silhouettes.** Resolve characters and interactive objects in one color. Test direction, pose and hierarchy at ×1.
 5. **Values and light.** Add shadow, body and light from top-left; lock cast shadows before the details.
-6. **Assign ramps.** Choose ramps from `STD-008` §2.7.1, keep neutrals ≥60 % and reserve accents for function or story.
-7. **Build clusters.** Clean isolated pixels, regularize diagonals, apply selective outline and use dithering only where `STD-008` §2.7.2 allows it.
-8. **Add interface and text.** Integrate `STD-008` §8.6 components, AA contrast, visible focus and a reduced-motion alternative.
-9. **Animate from key poses.** Select 2–4 frames and a `STD-008` §9.4 cadence. Test the cycle at ×1 without smoothing.
+6. **Assign ramps.** Choose ramps from `STD-023` §6, keep neutrals ≥60 % and reserve accents for function or story.
+7. **Build clusters.** Clean isolated pixels, regularize diagonals, apply selective outline and use dithering only where `BLU-010` §1 allows it.
+8. **Add interface and text.** Integrate `BLU-010` §4 components, AA contrast, visible focus and a reduced-motion alternative.
+9. **Animate from key poses.** Select 2–4 frames and a `BLU-010` §5 cadence. Test the cycle at ×1 without smoothing.
 10. **Export and validate.** Export the master as indexed PNG; sprite sheets with uniform cells; check palette, transparency, integer scale, weight, names and absence of colors outside Píxel-16.
 
 ### 6.10 Minimum deliverables [EXTENSION — validate]
@@ -238,9 +238,9 @@ Body in level I or III, plain text or minimal HTML; no decorative images. **Sign
 
 ### 6.11 Platform (web product) [CANON — direction decision]
 
-*The blueprint in one line:* Diurno by default with Nocturno toggle, level I, tool density, sidebar + content, data per `STD-008` §2.8 and figures in tabular Mono.
+*The blueprint in one line:* Diurno by default with Nocturno toggle, level I, tool density, sidebar + content, data per `STD-023` §7 and figures in tabular Mono.
 
-**The direction decision — the Platform's primary is ink:** Noche over light, Arena over dark (16.1:1). The platform is a sober tool: the main action dresses in ink, and color stays for what informs — links and focus in turquesa-text, states with the semantic tints (`STD-008` §2.2), data with the `STD-008` §2.8 palette. The `#017C8D` fill (`STD-008` §8.1) remains the primary of the product-game and the web; here it would be brand noise over work. The living product already practiced it: it is canonized.
+**The direction decision — the Platform's primary is ink:** Noche over light, Arena over dark (16.1:1). The platform is a sober tool: the main action dresses in ink, and color stays for what informs — links and focus in turquesa-text, states with the semantic tints (`STD-023` §2), data with the `STD-023` §7 palette. The `#017C8D` fill (`BLU-009` §7) remains the primary of the product-game and the web; here it would be brand noise over work. The living product already practiced it: it is canonized.
 
 **Skeleton:**
 
@@ -248,7 +248,7 @@ Body in level I or III, plain text or minimal HTML; no decorative images. **Sign
 ┌ sidebar 240px ────────┬─ contenido ────────────────────────────┐
 │ [wordmark 20px tinta] │  Título de vista (titulo.m)            │
 │ GRUPO (etiqueta)      │  pestañas: activa subrayado 2px Ámbar  │
-│ ○ Ítem  (fila 40px)   │  tarjetas en superficie + sombra `STD-008` §4    │
+│ ○ Ítem  (fila 40px)   │  tarjetas en superficie + sombra `STD-023` §9    │
 │ ● Activo = píldora    │  tablas: cabecera etiqueta Ámbar,      │
 │   tinta/papel         │  cifras Mono tabular, filas 40px       │
 │ …                     │  [primario tinta]  [fantasma]          │
@@ -256,13 +256,13 @@ Body in level I or III, plain text or minimal HTML; no decorative images. **Sign
 └───────────────────────┴────────────────────────────────────────┘
 ```
 
-Rules: sidebar in `superficie`; items in secondary text with Phosphor `regular` 18 px icon; **active = ink pill with paper text** (`control` radius, the same piece in both modes); groups with `type.etiqueta`; density: rows 36–40 px, padding `s300/s400` (the platform is compact, marketing breathes); amounts and wallet addresses ALWAYS in Mono (truncated `0x42e6…cA26` with the full title); state empties with `light` icon 48 px + one level I sentence; rarity (`STD-008` §2.6) only in inventory and loot, never in billing. Migration of the living product: white → paper `#F9EBDC`/`#FDF6EE`, black → Noche `#14110F`; the structure is not touched.
+Rules: sidebar in `superficie`; items in secondary text with Phosphor `regular` 18 px icon; **active = ink pill with paper text** (`control` radius, the same piece in both modes); groups with `type.etiqueta`; density: rows 36–40 px, padding `s300/s400` (the platform is compact, marketing breathes); amounts and wallet addresses ALWAYS in Mono (truncated `0x42e6…cA26` with the full title); state empties with `light` icon 48 px + one level I sentence; rarity (`STD-023` §4) only in inventory and loot, never in billing. Migration of the living product: white → paper `#F9EBDC`/`#FDF6EE`, black → Noche `#14110F`; the structure is not touched.
 
-**The platform table (resolved, with sorting).** Header in `type.etiqueta` Ámbar (toasted in Diurno); sortable column = a button with a `bold` 12 px caret that appears on hover and stays fixed on the active column (label to primary text); `aria-sort` on the active `th`; figures in tabular Mono aligned right; 40 px rows, hover = one surface step (`CAN-008` §3.9-04); selection by checkbox in the first column; state in a `STD-008` §8.2 pill; empty and error per `STD-008` §8.7. Demonstrated sorting live in the guide.
+**The platform table (resolved, with sorting).** Header in `type.etiqueta` Ámbar (toasted in Diurno); sortable column = a button with a `bold` 12 px caret that appears on hover and stays fixed on the active column (label to primary text); `aria-sort` on the active `th`; figures in tabular Mono aligned right; 40 px rows, hover = one surface step (`CAN-008` §3.9-04); selection by checkbox in the first column; state in a `BLU-009` §7 pill; empty and error per `BLU-009` §8. Demonstrated sorting live in the guide.
 
 ### 6.12 The living paper — the codex's blueprint [EXTENSION — validate against the LAP]
 
-*The blueprint in one line:* Diurno by default (it is paper) with Nocturno toggle as real night reading; the third voice narrates the body (`STD-008` §3.6); the reading frame belongs to the Velo; the book can always be taken away.
+*The blueprint in one line:* Diurno by default (it is paper) with Nocturno toggle as real night reading; the third voice narrates the body (`BLU-011` §1); the reading frame belongs to the Velo; the book can always be taken away.
 
 All long-reading paper (codex, book, digital editorial) uses these pieces, **verified in production** at `numinia.com/lap/codex`:
 
@@ -290,8 +290,8 @@ PORTADA                                CAPÍTULO
 **Rules of the living paper:**
 
 - **Frame and page are distinct registers.** The page (the paper) is Umbral-Diurno with the third voice; the **reading frame** (the LAP's bar, bookmark, A·A·A controls, switch) MAY live in Velo when the mode is Nocturno. The boundary is visible.
-- **The moon is the bookmark** (`STD-008` §9.1-06, waxing phases): reading progress is told in moon, from new to full — finishing is a full moon. The reading position is persisted.
-- **A · A · A:** the reading size belongs to the reader, not the designer — three steps over the type scale (`STD-008` §3.3), without breaking the grid.
+- **The moon is the bookmark** (`STD-023` §14-06, waxing phases): reading progress is told in moon, from new to full — finishing is a full moon. The reading position is persisted.
+- **A · A · A:** the reading size belongs to the reader, not the designer — three steps over the type scale (`STD-023` §8), without breaking the grid.
 - **The access state is named in the world:** chapters `abierto` / `tras el Umbral` — the session boundary uses the canonical lexicon (`CAN-008` §3.10), never "login required".
 - **"The book travels free" is a principle, not a feature:** the downloads (.md first — File Over App made interface —, Diurno pdf for printing, epub) are always one step away.
 - **The literary opening** in italics is the only level II inside a II/III body and does not blend with it.
@@ -299,7 +299,7 @@ PORTADA                                CAPÍTULO
 - **The book has its own switch**, independent from the rest of the platform: someone can read at night without turning off the whole city. The book's Nocturno is dark paper (`#14110F` / `#1E1A17`) with the grain at half intensity, not the product Nocturno.
 - **The book's inks** [5.1.0 · H1]: the system's tertiary text (`#6E6259`/`#8A7D72`) sits at 3.7:1 over the codex's paper — below AA. Inside the paper register, the tertiary is `#75695E` (Diurno) and `#97897D` (Nocturno) — token `papel.tinta-terciaria`, verified in production. Outside the paper, the system's inks stay intact.
 - **The editions are blueprint, not courtesy** [5.1.0 · H4]: the **pdf** is produced by printing the site's CSS (`@media print`, A4 — the full codex prints like a real book, ~413 pages); the **printable sheet** ships without the action bar or controls (paper carries no buttons); the **epub** keeps the glossary links. No edition is generated with a separate typesetter: the source is one, the CSS is the same.
-- **The editorial pieces** (drop cap, reading box, plate, numbered table, margin note, fillet, seal, glossary, downloads, colophon, rating gears, Narrator) are specified in `STD-008` §8.9; the book's icons, in `STD-008` §6.5; the grain, in `STD-008` §5.5.
-- **The invoice inherits none of it** (`STD-008` §5.4): administrative paper remains pure Geist, one page, total in toasted Ámbar; neither third voice nor Velo frame.
+- **The editorial pieces** (drop cap, reading box, plate, numbered table, margin note, fillet, seal, glossary, downloads, colophon, rating gears, Narrator) are specified in `BLU-011` §4; the book's icons, in `BLU-011` §3; the grain, in `BLU-011` §2.
+- **The invoice inherits none of it** (`BLU-011` §2): administrative paper remains pure Geist, one page, total in toasted Ámbar; neither third voice nor Velo frame.
 
 ---
