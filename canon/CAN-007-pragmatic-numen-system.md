@@ -4,11 +4,11 @@ uid: ""
 title: "Pragmatic Numen System"
 type: seminal
 status: active
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-04-15T16:40:18Z"
 created_source: "git:b8f31d1"
 created_confidence: exact
-updated: "2026-04-15T16:40:18Z"
+updated: "2026-09-10T06:00:00+02:00"
 author: "Christian Numinia"
 owner: "oracle"
 guild: "Exegetes"
@@ -17,11 +17,25 @@ tags: [canon, seminal, function, structure]
 license: "CC0-1.0"
 registration: registered
 former_id: "canon-pragmatic-numen-system-v020"
-former_id_note: "Renumbered by ADR-036 (2026-09-01). The dated filename declared this a frozen artifact under P-010 §3.2; the Oracle ruled that classification wrong — these two are living canon, not photographs, and they enter the CAN series like the rest of the folder. Former filename: 2026_04_15-Pragmatic_Numen_System-v0.2.0.md"
 threshold: governed
 ---
 
-# Pragmatic Numen System
+# CAN-007 — Pragmatic Numen System
+
+> **Summary:** An organization is two inseparable planes — function (what
+> each element is) and structure (how elements relate). Numen names their
+> operators Interpreter and Architect; experience comes from the first,
+> paradigm shift only from the second.
+> **Epistemic:** Why guilds, factions and mechanics alone change nothing,
+> and why NWOS begins in function and converges in structure.
+> **Pragmatic:** Before judging whether a change is transformation or
+> decoration, locate it on a plane. Before designing a rollout, read §7.
+> **Audience:** Agents · Oracles
+
+*Binds:* every reading of what NWOS is and how it is introduced into an
+organization.
+*Does not bind:* the ranks, roles and rituals themselves (`CAN-003`,
+`CAN-004`, `CAN-001`) nor any procedure.
 
 ## 1. Foundational Principle
 
@@ -30,7 +44,7 @@ Any organization can be understood from two simultaneous and inseparable planes:
 - The plane of function  
 - The plane of structure  
 
-These planes are not independent layers, since they cannot be dissociated without losing understanding of the system, but they are not equivalent either; each responds to a different dimension of the organization.
+Not independent layers, not equivalent either: each responds to a different dimension of the organization (§2.3).
 
 ---
 
@@ -48,9 +62,7 @@ It includes:
 - Incentives  
 - Dynamics  
 
-It is the plane where the organization is recognized from the conventional perspective, because, ultimately, it works with universal semantic fields and archetypal elements.
-
-Here live the elements as they have been historically and culturally defined:
+It is the plane where the organization recognizes itself, because it works with universal semantic fields and archetypal elements, as historically and culturally defined:
 
 - Hierarchies (boss, manager, team)  
 - Specializations (design, technology, business)  
@@ -71,8 +83,6 @@ It includes:
 - How decisions are made  
 - How authority is distributed  
 - How areas interact  
-
-Structure no longer defines what each element is, but rather stipulates how they exist among each other, how they relate.
 
 Structure answers the question: **How do the elements relate and how does the system operate?**
 
@@ -98,9 +108,7 @@ This generates apparent transformation, but not a paradigm shift. Real change oc
 
 ## 3. Numen Terminology
 
-Numen introduces an operational analogy for these two planes: the Interpreter and the Architect.
-
----
+Numen names the operators of these two planes the Interpreter and the Architect.
 
 ### 3.1 The Interpreter (Functional Plane)
 
@@ -183,7 +191,7 @@ Numen operates through three transversal elements:
 - Gamification  
 - Autonomy  
 
-These elements are not layers; they are operators that act on both planes.
+Not layers: operators that act on both planes.
 
 ---
 
@@ -235,29 +243,10 @@ These elements are not layers; they are operators that act on both planes.
 
 ## 5. Experience vs Paradigm
 
-Fundamental difference:
-
-- Experience is given by the Interpreter plane  
-- Paradigm is given by the Architect plane  
-
-### Superficial implementation
-
-- High Interpreter  
-- Low Architect  
-
-Result:
-
-- Transformed experience  
-- Intact system  
-
-### Real transformation
-
-- Active Interpreter  
-- Dominant Architect  
-
-Result:
-
-- Transformed system  
+Experience is given by the Interpreter plane; paradigm by the Architect
+plane. High Interpreter with low Architect transforms the experience and
+leaves the system intact. Active Interpreter with dominant Architect
+transforms the system.
 
 ---
 
@@ -397,7 +386,7 @@ At that point:
 - Structure becomes dominant  
 - Function remains as interface  
 
-The organization not only understands the system; it also operates under a different logic. Transformation is gradual, but not linear: while the Interpreter prepares the system, the Architect transforms it.
+Transformation is gradual, but not linear: while the Interpreter prepares the system, the Architect transforms it.
 
 ---
 
@@ -411,10 +400,6 @@ Numen does not introduce new elements with NWOS (Narrative Work Operative System
 
 Therefore, what NWOS does introduce is a paradigm shift.
 
-This document defines the pragmatic basis of the Numen system for its understanding, implementation and internal evolution.
-
----
-
 ## System Diagram (Tabular Representation)
 
 | Element        | Plane       | Function                          | Structural Role                         | Result                          |
@@ -426,3 +411,12 @@ This document defines the pragmatic basis of the Numen system for its understand
 | Autonomy       | Both       | Enables agency                    | Redistributes power                      | Decentralization                |
 | Germinal Action| Function   | Activation of system              | Entry point for change                   | Adoption                        |
 | Structural Act | Structure  | Reconfiguration of relationships  | Enables transformation                   | Systemic change                 |
+
+## 9. What this canon does NOT define
+
+- **Which guilds, factions, ranks and rituals exist** — `CAN-003`,
+  `CAN-004`, `CAN-001`. This text says why they are reinterpretations, not
+  what they are.
+- **How an agent works** — the standards and protocols. Nothing here is a
+  procedure.
+- **The design language of NWOS** — `CAN-008`.
