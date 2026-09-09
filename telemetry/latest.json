@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "0623ca7",
-  "corpus_hash": "b0d32eddfed15c6738a21410386cd9f907107a20134355d8d8411f6b57e4cef7",
+  "head": "d63ab48",
+  "corpus_hash": "8297973d0f5d53a6fea2fea39f157044658038b58bf1a620527bc56df1a93250",
   "root_dirty": 0,
-  "measured_at": "2026-09-09T10:19:51Z",
+  "measured_at": "2026-09-09T10:25:22Z",
   "families": [
     "corpus",
     "series",
@@ -342,7 +342,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 292565,
+      "value": 292889,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -355,7 +355,7 @@
         "blueprints": 22838,
         "reports": 22222,
         "operations": 21381,
-        "protocols": 18819,
+        "protocols": 19143,
         "decisions": 17495,
         "templates": 17125,
         "": 12455,
@@ -370,7 +370,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 171144,
+        "active": 171468,
         "draft": 43772,
         "todo": 25286,
         "in-progress": 15790,
@@ -382,7 +382,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 17.83,
+      "value": 17.81,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -442,8 +442,8 @@
         "guild": 55,
         "registration": 42,
         "registration_reason": 38,
+        "related": 37,
         "subtype": 37,
-        "related": 36,
         "agent": 33,
         "threshold": 24,
         "series_change": 23,
@@ -710,7 +710,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 579
+          "3": 581
         },
         "MIS": {
           "3": 742,
@@ -723,7 +723,7 @@
           "3": 426
         },
         "PRO": {
-          "3": 225
+          "3": 229
         },
         "OPS": {
           "3": 32
