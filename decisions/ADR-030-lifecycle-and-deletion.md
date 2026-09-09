@@ -1,72 +1,68 @@
 ---
 id: "ADR-030"
 uid:
-title: "Lifecycle: debt closes into a line, and deletion is decided by consumers"
+title: "The four tests before deletion"
 type: adr
 status: active
-version: "3.2.0"
+version: "4.0.0"
 created: "2026-08-30T16:00:00+02:00"
-updated: "2026-09-09T15:30:00+02:00"
+updated: "2026-09-10T03:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
 territory: "Archive"
-tags: [lifecycle, deletion, debt, urls, p-010, governance, entropy, d-028]
+tags: [lifecycle, deletion, debt, urls, governance]
 absorbs: ["ADR-032", "ADR-033"]
-amends: ["STD-001"]
+amends: []
 superseded_by: null
 license: "CC-BY-4.0"
-related: ["P-010", "D-028", "D-025", "STD-001", "MIS-127"]
+related: ["ADR-041", "ADR-042", "STD-012", "STD-001"]
 ---
 
-# Lifecycle: closing debt and deleting documents
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC-BY-4.0
+-->
+# ADR-030 — The four tests before deletion
 
-> **Summary:** When a debt entry stops being live, and when a document may
-> be removed. Two ends of one lifecycle, corrected three times in six days.
+> **Summary:** A document may be deleted when four tests pass: no living
+> citer, no address dies unredirected, a written resolution, the folder's
+> threshold. A debt entry closes into one line of the weekly report and is
+> deleted the same way.
+> **Epistemic:** Deletion is decided by consumers, not by folder: the
+> directory does not know whether a file is the only record of something;
+> the citers do.
+> **Pragmatic:** Run the two guards, write the line, check the threshold.
+> Passing 1–4, deletion needs no decision record of its own.
+> **Audience:** Agents · Oracles
 
-## Decision
+## 2. Decision
 
-**Debt closes into a line.** A `DBT-NNN` entry closes when its closure
-condition is met; its line goes into the weekly report and the file is
-deleted under the four tests below (`DEF-004`, `ADR-041`). The knowledge of
-what was once wrong survives as the line, and git holds the body.
+**The four tests.**
 
-**Deletion is decided by consumers, not by folder.** A document may be
-deleted when four tests pass. Absorbed from ADR-033, which dissolved the
-"operational series" category ADR-032 created.
-
-1. **No live citations.** No document points at it. Text-only mentions
-   count — `scripts/check-references.mjs`.
-2. **No public URL dies unredirected.** `scripts/check-url-lifecycle.mjs`
+1. **No living citer.** No living document depends on it normatively
+   (`ADR-043` rule 8). Text-only mentions count; `check-references.mjs`.
+2. **No public address dies unredirected.** `check-url-lifecycle.mjs`
    against `scripts/url-baseline.json`.
-3. **A written resolution exists.** The only test no machine performs.
-   *Amended 2026-09-08 by `ADR-042`:* a period roll-up report (`STD-012`)
-   that carries the record's line is a written resolution. The test is
-   unchanged; the set of documents that satisfy it gained one kind.
-4. **The folder's threshold is met** (`STD-001` §2.1). `decisions/` is
-   `governed`: an ADR, or a PR the Oracle approves.
+3. **A written resolution exists.** The one test no machine performs. A
+   period roll-up report (`STD-012`) that carries the record's line is a
+   written resolution (`ADR-042`).
+4. **The folder's threshold is met.** For `governed` folders: a decision
+   record or a pull request the Oracle approves.
 
-Passing 1–4, deletion needs no ADR of its own. **Merging does**, because it
-extinguishes identifiers.
+**Debt closes into a line.** A `DBT-` entry closes when its condition is
+met; its line goes into the weekly report and the file is deleted under the
+tests above (`DEF-004`). What was once wrong survives as the line; git
+holds the body.
 
-**Merging is permitted in `decisions/`, and this amends STD-001.** STD-001
-§`decisions/` reads *"append-only: a decision is superseded, never deleted…
-the superseded one stays reachable"*. That clause assumed superseding — a
-new record replacing an old one — and had no case for **absorption**, where
-the reasoning is carried forward rather than replaced.
+**Absorption is permitted where reachability is preserved**: the absorbed
+reasoning survives in the absorbing record, every citation is rewritten in
+the same change, every public address redirects to it. A reader following
+the old identifier lands on the text that now contains it — never on a stub
+or a 404.
 
-Absorption is permitted when reachability is preserved by all three:
-
-- the absorbed reasoning survives in the absorbing record;
-- every citation is rewritten in the same change (test 1);
-- every public URL redirects to the absorbing record (test 2).
-
-Reachability is the clause's purpose; the file is only one way to serve it.
-A reader following `ADR-002` must land on the text that now contains it —
-not on a stub, and not on a 404.
-
-## Why
+## 3. Why
 
 The folder was never the right unit. `debt/` holds entries safe to delete
-and entries that are the only record of a defect; `decisions/` holds both
-live rules and superseded ones. The consumer knows; the directory does not.
+and entries that are the only record of a defect; `decisions/` holds live
+rules and superseded ones. The consumer knows; the directory does not.
