@@ -143,6 +143,7 @@ numinia-digital-agents/
 | **PRO-008** | Decision | Recording a decision and requesting approval |
 | **PRO-011** | Security Audit | Auditing the repository for exposed material |
 | **PRO-013** | Handing a Guard to CI | Turning a verified rule into an enforced check |
+| **PRO-018** | Publishing a Repository | Taking a repository public or a work to a permanent store, under `STD-014` |
 
 ### Protocol dependency chain
 

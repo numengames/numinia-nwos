@@ -1,7 +1,7 @@
 {
   "$comment": "URL manifest — D-028/ADR-033. Every public address the site published at the last accepted build. check-url-lifecycle.mjs fails when one of these stops being built without a redirect in web/astro.config.mjs. Regenerate deliberately with --write-baseline, in the same PR as the deletion that changed it, never to silence a failure.",
   "generated": "2026-09-09",
-  "count": 748,
+  "count": 749,
   "urls": [
     "/",
     "/agent",
@@ -248,6 +248,7 @@
     "/corpus/protocols/pro-015-joining-and-leaving",
     "/corpus/protocols/pro-016-applying-the-engineering-standard",
     "/corpus/protocols/pro-017-rolling-up-the-week",
+    "/corpus/protocols/pro-018-publishing-a-repository",
     "/corpus/readme",
     "/corpus/reports",
     "/corpus/reports/daily/rpt-2026-04-02",
