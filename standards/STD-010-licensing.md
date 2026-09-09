@@ -5,9 +5,9 @@ title: "Licensing"
 type: documentation
 subtype: standard
 status: draft
-version: "1.0.2"
+version: "1.1.0"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-09-10T01:30:00+02:00"
+updated: "2026-09-10T02:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
@@ -41,8 +41,9 @@ published.
 
 **LIC-002 — Licence by kind.** Application that decides (`apps/*`)
 `AGPL-3.0-only`. Package, SDK, tokens, script, CI (`packages/*`) `MIT`.
-Public assets, data, design system `CC0-1.0`. Documentation `CC-BY-4.0`.
-Lore, brand, prototypes: reserved. `canon/` is `CC0-1.0`, irrevocably.
+Public assets, data, design `CC0-1.0`. Documentation `CC-BY-4.0`.
+Agent definitions (`agents/*`) and `canon/` `CC0-1.0`, irrevocably. Lore,
+brand, prototypes: reserved.
 
 **LIC-003 — Copyleft flows down, never up.** AGPL MUST NOT be imported by
 MIT. The strongest copyleft in the *distributed* tree sets the floor;

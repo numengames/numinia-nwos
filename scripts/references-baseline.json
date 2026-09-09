@@ -1,7 +1,7 @@
 {
   "_comment": "Known-broken references frozen at adoption time. The lint fails only on NEW breakage. This list should shrink over time and never grow. Regenerate only when fixing entries.",
-  "generated": "2026-09-09T10:30:24.656Z",
-  "count": 89,
+  "generated": "2026-09-09T11:53:24.787Z",
+  "count": 82,
   "entries": [
     "FILE AGENTS.md -> MEMORY.md",
     "FILE CHANGELOG.md -> APPROVAL-REQUEST-template.md",
@@ -29,9 +29,6 @@
     "FILE operations/OPS-002-contradictions.md -> blueprints/BP-cao-overview.md",
     "FILE operations/OPS-002-contradictions.md -> blueprints/BP-cao.md",
     "FILE operations/OPS-008-session-state.md -> GOVERNANCE.md",
-    "FILE protocols/PRO-001-agent-session.md -> MEMORY.md",
-    "FILE protocols/PRO-001-agent-session.md -> STATUS.md",
-    "FILE protocols/PRO-003-mission-cycle.md -> STATUS.md",
     "FILE reports/RPT-017-mvp-story.md -> GAPS.md",
     "FILE system/SYS-001-cao-architecture.md -> GOVERNANCE.md",
     "FILE system/SYS-001-cao-architecture.md -> MEMORY.md",
@@ -56,10 +53,6 @@
     "ID   CONTRIBUTING.md -> P-001",
     "ID   README.md -> D-001",
     "ID   agents/INDEX.md -> D-027",
-    "ID   decisions/ADR-004-identifier-convention.md -> S-002",
-    "ID   decisions/ADR-004-identifier-convention.md -> S-010",
-    "ID   decisions/ADR-005-prefix-ruling.md -> D-008",
-    "ID   decisions/ADR-026-agent-licensing-and-debt-register.md -> D-033",
     "ID   decisions/ADR-036-canon-consolidation.md -> P-010",
     "ID   decisions/ADR-036-canon-consolidation.md -> S-001",
     "ID   decisions/ADR-036-canon-consolidation.md -> S-002",
@@ -82,7 +75,6 @@
     "ID   operations/OPS-008-session-state.md -> P-010",
     "ID   operations/OPS-009-secrets-handling.md -> D-032",
     "ID   operations/OPS-009-secrets-handling.md -> D-033",
-    "ID   protocols/PRO-013-handing-a-guard-to-ci.md -> P-013",
     "ID   reports/RPT-017-mvp-story.md -> D-033",
     "ID   reports/RPT-017-mvp-story.md -> P-001",
     "ID   reports/RPT-017-mvp-story.md -> P-007",
@@ -91,6 +83,7 @@
     "ID   telemetry/latest.md -> P-003",
     "ID   templates/MIS-TEMPLATE-CHANGES.md -> D-017",
     "ID   templates/MIS-TEMPLATE-CHANGES.md -> D-032",
+    "LINK README.md -> decisions/ADR-023-canon-vocabulary.md",
     "LINK system/SYS-001-cao-architecture.md -> BP-cao.md"
   ]
 }

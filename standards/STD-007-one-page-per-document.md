@@ -5,9 +5,9 @@ title: "One page per document"
 type: documentation
 subtype: standard
 status: draft
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-09-03T10:30:00Z"
-updated: "2026-09-08T22:30:00+02:00"
+updated: "2026-09-10T02:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Content"
@@ -77,6 +77,10 @@ sentence of prose.
 
 **DOC-010 — No history inside.** No changelog, amendment section or "what
 changed" text. Git is the history.
+
+**DOC-011 — Written in English.** New and rewritten documents are written
+in English. A document that departs from the default declares `lang:`; a
+Spanish document is not invalid, it is mid-migration.
 
 ## Check
 

@@ -13,7 +13,7 @@ author: "Christian Numinia"
 owner: "oracle"
 guild: "Exegetes"
 territory: "Archive"
-tags: [canon, seminal, function, structure, ADR-023]
+tags: [canon, seminal, function, structure]
 license: "CC0-1.0"
 registration: registered
 former_id: "canon-pragmatic-numen-system-v020"

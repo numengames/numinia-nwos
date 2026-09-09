@@ -86,7 +86,7 @@ This structure is not linear, but cyclical: what is narrated affects the model, 
 > Regulatory Structure"*. That is why line 45 above, and the missions heading
 > below, use it for the system one operates **within**.
 >
-> Ruled in `ADR-023`, 2026-08-25.
+> Ruled 2026-08-25; the vocabulary is `STD-001`'s glossary, the language `DOC-011`.
 
 ---
 

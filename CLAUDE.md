@@ -62,7 +62,7 @@ proprietary, CC-NC, CC-ND. Resolve every dependency's SPDX from the registry BEF
 adding it — never from memory.
 
 **Present is not distributed.** A forbidden transitive dependency that tree-shaking
-keeps out of the artifact does NOT block work, but MUST be logged as a `debt/` entry tagged `legal` (ADR-026)
+keeps out of the artifact does NOT block work, but MUST be logged as a `debt/` entry tagged `legal` (`LIC-006`, `STD-010`)
 with an **exit threshold** (a condition, not a date, evaluated by CI on every build)
 and guarded by a check that inspects the artifact's **contents** — bundler metafile or
 module paths, never comment strings, which minifiers strip. Hard limit: **if that
