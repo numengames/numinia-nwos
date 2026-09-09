@@ -8,7 +8,7 @@ id: "OPS-NNN"
 uid: ""
 title: "The operational fact — named by what it sustains"
 type: documentation
-# default lifecycle: draft -> active -> closed
+# status: opens at draft — the lifecycle is declared once, in STD-016
 status: active
 version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"

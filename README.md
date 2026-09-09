@@ -90,8 +90,8 @@ that says where a mission stands. Signalling state by moving files between
 folders was tried and deliberately undone.
 
 The live board is [numinia.org/missions](https://numinia.org/missions), built
-from `missions/` on every deploy. States and lifecycle are defined in
-[`STD-001`](standards/STD-001-the-series.md) (mission status) and
+from `missions/` on every deploy. The states a mission may hold are declared in
+[`STD-016`](standards/STD-016-header-fields.md); the cycle that moves them, in
 [`PRO-003`](protocols/PRO-003-mission-cycle.md).
 
 ---

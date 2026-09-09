@@ -5,9 +5,9 @@ uid: ""
 type: documentation
 subtype: register
 status: active
-version: "5.1.0"
+version: "5.2.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-09-09T15:10:00+02:00"
+updated: "2026-09-09T16:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -40,7 +40,7 @@ fields of the header — `STD-016`; the identifier — `STD-018`.
 | `canon/` | what the system **is**: foundational, not operating policy | `CAN-NNN` | `governed` | 1500 | `CAN-TEMPLATE.md` |
 | `standards/` | what an **artifact** must comply with | `STD-NNN` | `governed` | 500 (norm) · none (register) | `STD-TEMPLATE.md` |
 | `protocols/` | what an **actor** executes in a repeated situation | `PRO-NNN` | `governed` | 500 | `PRO-TEMPLATE.md` |
-| `decisions/` | why something was chosen; superseded by the next | `ADR-NNN` · `DEC-NNN` | `governed` | 500 | `ADR-TEMPLATE.md` |
+| `decisions/` | why something was chosen; withdrawn by the next | `ADR-NNN` · `DEC-NNN` | `governed` | 500 | `ADR-TEMPLATE.md` |
 | `missions/` | the work; state lives in `status:`, never in the path | `MIS-NNNN` | `closed` when `done` | 500 | `MIS-TEMPLATE.md` |
 | `reports/` | what was observed on a date; `reports/evidence/` is never edited | `RPT-NNN` · `RPT-YYYY-MM-DD` (`daily`, retired) | `closed` | 1000 | `RPT-TEMPLATE.md` |
 | `blueprints/` | what could be; not a report of what happened | `BLU-NNN` | `open` | 1000 | `BLU-TEMPLATE.md` |
@@ -73,18 +73,11 @@ never published, CC0-1.0.
 Withdrawn `type` values: `audit` → `report` + `subtype: audit` · `decision` →
 `adr` · `roster` → `meta`.
 
-## Mission status
+## Status
 
-| Value | Meaning | Stamp |
-|---|---|---|
-| `todo` | accepted, not started | — |
-| `in-progress` | being executed now | `started` |
-| `in-review` | executed, awaiting the Oracle | `in_review_at` |
-| `done` | closed with documented evidence | `completed` |
-| `frozen` | deliberately paused; returns to any state | `freeze_reason` |
-
-Withdrawn: `backlog` · `draft` → `todo` · `active` · `queue` · `blocked` ·
-`freeze` · `cancelled`. Other lifecycles: `STD-016`.
+The states a document may hold, for every series, are declared once in
+`STD-016`. A mission's stamps (`started` · `in_review_at` · `completed` ·
+`freeze_reason`) are its Ring 3 fields, also in `STD-016`.
 
 ## Earlier schemes
 

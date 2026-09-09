@@ -5,9 +5,9 @@ title: "Who may change what"
 type: documentation
 subtype: standard
 status: draft
-version: "2.0.0"
+version: "2.0.1"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-09T17:00:00+02:00"
+updated: "2026-09-09T16:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
@@ -76,8 +76,8 @@ agent does not act and escalates.
 ## Why
 
 A normative document must be switchable off without lying about why it
-stopped: `superseded` names an heir, `withdrawn` names none (`STD-016`). The
-same honesty applies to who may switch it: the cost of a change is the
+stopped (`STD-016`, `GIT-045`). The same honesty applies to who may switch
+it: the cost of a change is the
 record it leaves, and rank is what decides which records an actor may leave.
 
 ## References

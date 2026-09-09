@@ -5,7 +5,7 @@ id: "PRO-NNN"
 uid: ""
 title: "The procedure, named by what it makes repeatable"
 type: protocol
-# default lifecycle: draft -> active -> closed
+# status: opens at draft — the lifecycle is declared once, in STD-016
 status: draft
 version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"

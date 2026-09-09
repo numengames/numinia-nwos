@@ -6,7 +6,7 @@ id: "CAN-NNN"
 uid: ""
 title: "What the system IS — stated, not described"
 type: seminal
-# default lifecycle: draft -> active -> closed
+# status: opens at draft — the lifecycle is declared once, in STD-016
 status: draft
 version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"

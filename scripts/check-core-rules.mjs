@@ -51,17 +51,12 @@ for (const d of docs) {
   if (f.version && !/^\d+\.\d+\.\d+$/.test(String(f.version)))
     record('VER-021', `version "${f.version}" is not semantic`, r);
 
-  /* GIT-045: `superseded` names its heir; `withdrawn` is the state where the
-     rule left and nothing replaced it, so naming an heir there is the error.
-     The check is symmetric on purpose: a silent allowance would let a
-     `withdrawn` document carry a stale `superseded_by` for ever. `retired` is
-     not in the status vocabulary of any series — see rules.json — so it is not
-     tested here; lint-frontmatter rejects unknown values. */
-  if (f.status === 'superseded' && !f.superseded_by)
-    record('GIT-045', 'status superseded with no heir', r);
-
-  if (f.status === 'withdrawn' && f.superseded_by)
-    record('GIT-045', `status withdrawn names an heir "${f.superseded_by}" — a withdrawn rule has none; use superseded`, r);
+  /* GIT-045: the heir is a field. `withdrawn` is the one terminal state
+     (STD-016); whether a replacement exists is said by `superseded_by`,
+     present or absent. A record still in force names no heir: that would
+     be a document pointing past itself while claiming to bind. */
+  if (f.superseded_by && f.status !== 'withdrawn')
+    record('GIT-045', `status ${f.status} names an heir "${f.superseded_by}" — only a withdrawn record has one`, r);
 
   if (r.startsWith('standards/')) {
     const prose = body(d).replace(/```[\s\S]*?```/g, '').replace(/`[^`]*`/g, '');

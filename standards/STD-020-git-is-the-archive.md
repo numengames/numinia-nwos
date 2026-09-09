@@ -5,9 +5,9 @@ title: "Git is the archive"
 type: documentation
 subtype: standard
 status: draft
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-09T03:50:00+02:00"
+updated: "2026-09-09T16:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
@@ -53,8 +53,9 @@ the commit it measures, never before.
 **GIT-029 — Conflicts in generated files are regenerated.** Never resolved by
 choosing sides.
 
-**GIT-045 — Superseded names its heir.** A `superseded` document names what
-replaced it; a `withdrawn` document names nothing. The check is symmetric.
+**GIT-045 — The heir is a field.** A `withdrawn` document that has a
+replacement names it in `superseded_by`; one that has none carries no
+`superseded_by`. A document still `active` or `draft` names no heir.
 
 **GIT-046 — The address survives.** A retired document stays reachable where
 it was published.

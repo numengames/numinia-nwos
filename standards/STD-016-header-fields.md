@@ -4,16 +4,16 @@ uid: ""
 title: "Header fields"
 type: documentation
 subtype: register
-status: active
-version: "1.1.0"
+status: draft
+version: "2.0.0"
 created: "2026-08-28T15:10:00Z"
-updated: "2026-09-10T08:00:00+02:00"
+updated: "2026-09-09T16:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
 tags: [frontmatter, register, lint, metadata]
 license: "CC0-1.0"
-series_change: "1.0.0 — new register, split from STD-004 under ADR-043: the field tables of the three rings (old §3, §4, §7), the type and subtype vocabularies (§5), the status lifecycles (§6), the closed vocabularies (§7.2) and the meaning of each relation (§4). Rows and plates unchanged."
+series_change: "2.0.0 — one lifecycle for everything that is not a mission: `draft → active → withdrawn`. `closed` and `superseded` leave the status vocabulary; an heir is the field `superseded_by`, never a state (the relation model of ISO stage codes, RFC 2026 `Obsoletes:` and NIST CSRC, verified 2026-09-09). This table is the only declaration; `rules.json` mirrors it under test. Earlier: 1.0.0 — new register, split from STD-004 under ADR-043: the field tables of the three rings (old §3, §4, §7), the type and subtype vocabularies (§5), the status lifecycles (§6), the closed vocabularies (§7.2) and the meaning of each relation (§4). Rows and plates unchanged."
 ---
 
 # Header fields
@@ -93,8 +93,21 @@ trailing comment is stripped before judging.
 
 ## Status lifecycles
 
+The only declaration of the states a document may hold. `rules.json`
+`status` mirrors this table and `rules.test.mjs` fails when they differ.
+
 | Type | Lifecycle | Plate |
 |---|---|---|
-| mission | `todo → in-progress → in-review → done`, plus `frozen` | HDR-004 |
-| decision | `draft → active → superseded`, lowercase | HDR-019 |
-| everything else | `draft → active → closed`, unless its series registers otherwise | HDR-004 |
+| mission | `todo → in-progress → in-review → done`, plus `frozen` (paused; returns to any state) | HDR-004 |
+| everything else | `draft → active → withdrawn` | HDR-004 |
+
+| State | Means |
+|---|---|
+| `draft` | written, not yet in force; binds nobody (`PRE-006`) |
+| `active` | in force, or — for a report or a closed mission's evidence — published and standing |
+| `withdrawn` | no longer in force. The one terminal state: whether an heir exists is said by `superseded_by`, present or absent, never by a second state (`GIT-045`) |
+
+Retired values (`HDR-004` rejects them): `closed` — it meant "published" in
+`reports/` and would have had to mean "no longer binding" in `standards/`;
+`superseded` — an heir is a relation, not a state. Whether a record's body
+may still change is the series' **threshold** (`STD-001`), not its status.

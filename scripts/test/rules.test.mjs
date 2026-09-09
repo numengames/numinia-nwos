@@ -36,6 +36,35 @@ check('rules.json: types.series targets are registered series', () =>
 check('rules.json: lax types are in types.all', () => rules.types.lax.every((t) => rules.types.all.includes(t)));
 check('rules.json: status keys are types or _default', () =>
   Object.keys(rules.status).filter((k) => !k.startsWith('_')).every((t) => rules.types.all.includes(t)));
+check('rules.json: status mirrors the STD-016 lifecycle table', () => {
+  /* STD-016 is the declaration; rules.json is its mirror. Read the table's
+     `Lifecycle` column: `a → b → c`, plus `x` — and compare to the lists here.
+     Row "mission" ↔ status.mission; row "everything else" ↔ status._default. */
+  const std = readFileSync(path.join(ROOT, 'standards/STD-016-header-fields.md'), 'utf8');
+  const sect = std.slice(std.indexOf('## Status lifecycles'));
+  const rows = [...sect.matchAll(/^\| (mission|everything else) \| (.+?) \| HDR-\d+ \|$/gm)];
+  if (rows.length !== 2) return `expected 2 lifecycle rows in STD-016, found ${rows.length}`;
+  const parse = (cell) => [...cell.matchAll(/`([^`]+)`/g)].flatMap((m) => m[1].split('→').map((s) => s.trim()));
+  const want = { mission: parse(rows.find((r) => r[1] === 'mission')[2]), _default: parse(rows.find((r) => r[1] === 'everything else')[2]) };
+  const same = (a, b) => a.length === b.length && a.every((x, i) => x === b[i]);
+  if (!same(want.mission, rules.status.mission)) return `mission: STD-016 [${want.mission}] vs rules.json [${rules.status.mission}]`;
+  if (!same(want._default, rules.status._default)) return `default: STD-016 [${want._default}] vs rules.json [${rules.status._default}]`;
+  const terminal = rules.status._terminal;
+  const last = [want.mission.at(-1), want._default.at(-1)];
+  if (!last.every((s) => terminal.includes(s))) return `_terminal must contain the last state of each lifecycle: [${last}]`;
+  if (!terminal.every((s) => want.mission.includes(s) || want._default.includes(s))) return `_terminal names a state no lifecycle declares: [${terminal}]`;
+  return true;
+});
+check('rules.json: series thresholds mirror the STD-001 Series table', () => {
+  const std = readFileSync(path.join(ROOT, 'standards/STD-001-the-series.md'), 'utf8');
+  const sect = std.slice(std.indexOf('## Series'), std.indexOf('## Genre'));
+  const want = {};
+  for (const m of sect.matchAll(/^\| `([a-z]+)\/` \|(?:[^|]*\|){2}\s*`?([a-z]+)`?[^|]*\|/gm)) want[m[1]] = m[2];
+  const diff = seriesDirs(rules).filter((d) => want[d] !== rules.series[d].threshold).map((d) => `${d}: STD-001 ${want[d]} vs rules.json ${rules.series[d].threshold}`);
+  return diff.length === 0 || diff.join('; ');
+});
+check('rules.json: no lifecycle list carries a retired state', () =>
+  !['closed', 'superseded'].some((s) => Object.entries(rules.status).some(([k, v]) => Array.isArray(v) && v.includes(s))));
 check('rules.json: governed dirs exist in the tracked tree', () => {
   const tracked = new Set(execFileSync('git', ['-C', ROOT, 'ls-files'], { encoding: 'utf8' }).split('\n').map((f) => f.split('/')[0]));
   const missing = rules.governed.dirs.filter((d) => !tracked.has(d));

@@ -13,7 +13,7 @@
  * ADR-033 replaces it with a consumer test. A document may be deleted when:
  *
  *   1. INBOUND CITATIONS — zero, or every citing document is itself a
- *      closed record (status: closed/done/superseded/frozen). A live
+ *      closed record (a terminal status, STD-016). A live
  *      document pointing at it is a real reader; a closed one is history
  *      describing history.
  *   2. PUBLIC URLS — every address it publishes is redirected in the same
@@ -45,10 +45,13 @@ import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { declareBlindSpots } from './lib/blindness.mjs';
+import { loadRules } from './lib/frontmatter.mjs';
+import { isTerminalStatus } from './lib/rings.mjs';
 declareBlindSpots('check-deletable');
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const CLOSED = new Set(['closed', 'done', 'superseded', 'frozen']);
+const RULES = loadRules();
+const CLOSED = { has: (s) => isTerminalStatus(s, RULES) };   // STD-016 `_terminal`, one set for every guard
 
 const argv = process.argv.slice(2);
 const LIST_CANDIDATES = argv.includes('--candidates');
