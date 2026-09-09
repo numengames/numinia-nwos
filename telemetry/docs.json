@@ -1214,11 +1214,11 @@
   "dir": "protocols",
   "series": "protocols",
   "type": "protocol",
-  "status": "draft",
-  "chars": 13738,
+  "status": "active",
+  "chars": 4921,
   "apparatus": false,
   "archived": false,
-  "tokens": 3134
+  "tokens": 1236
  },
  {
   "path": "protocols/PRO-013-handing-a-guard-to-ci.md",
@@ -1765,10 +1765,10 @@
   "series": null,
   "type": "report",
   "status": "closed",
-  "chars": 3863,
+  "chars": 4473,
   "apparatus": true,
   "archived": false,
-  "tokens": 985
+  "tokens": 1136
  },
  {
   "path": "templates/STD-TEMPLATE.md",
