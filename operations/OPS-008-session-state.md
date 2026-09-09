@@ -37,7 +37,6 @@ the board are for). First step of any session: `git pull` and audit
 | What | Where | Pending decision |
 |---|---|---|
 | **Design System v5.1.0** | `STD-008` (then `standards/STD-008-design-system`) · [web](https://numinia.org/corpus/standards/std-008-design-tokens) | State still «proposed»; sign it or send it back |
-| **PRO-010 How to Archive v0.3.0** | [web](https://numinia.org/corpus/protocols/p-010-how-to-archive) | It is MIS-089's **F0**: without a signature not one file of the archive moves |
 | **MIS-089** information architecture | [web](https://numinia.org/missions/mis-089) | D1–D8 register of duplicates: approve dispositions |
 | **MIS-095** Updates practice (PM-06) | [web](https://numinia.org/missions/mis-095) | 3 decisions: numinia.org versioning, language, SHOULD/MUST level |
 | **MIS-096** sovereign versioning of NWOS | [web](https://numinia.org/missions/mis-096) | 5 open questions; the key one: what is the «NWOS core» |

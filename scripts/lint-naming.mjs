@@ -141,7 +141,7 @@ for (const rel of files) {
   if (!scheme) continue; // series with no registered naming scheme (e.g. history/)
 
   /* reports/evidence/<RPT-id>/…: an annex, moved as an opaque block, never
-     authored (ADR-005 v1.2.0 rule 5, PRO-010 §3.4 rule 1). Its .md files are
+     authored (ADR-005 v1.2.0 rule 5; STD-018 IDN-011, formerly PRO-010 §3.4 rule 1). Its .md files are
      captured artefacts, not documents of the series. */
   if (top === 'reports' && parts[1] === 'evidence') continue;
 

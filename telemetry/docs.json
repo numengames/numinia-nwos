@@ -1138,10 +1138,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "active",
-  "chars": 4587,
+  "chars": 4402,
   "apparatus": false,
   "archived": false,
-  "tokens": 1343
+  "tokens": 1285
  },
  {
   "path": "operations/OPS-009-secrets-handling.md",
@@ -1197,17 +1197,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1163
- },
- {
-  "path": "protocols/PRO-010-how-to-archive.md",
-  "dir": "protocols",
-  "series": "protocols",
-  "type": "protocol",
-  "status": "draft",
-  "chars": 8295,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2138
  },
  {
   "path": "protocols/PRO-011-security-audit.md",
@@ -1325,10 +1314,10 @@
   "series": "reports",
   "type": "report",
   "status": "closed",
-  "chars": 7832,
+  "chars": 8207,
   "apparatus": false,
   "archived": false,
-  "tokens": 2473
+  "tokens": 2590
  },
  {
   "path": "standards/STD-001-the-series.md",
@@ -1435,10 +1424,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5043,
+  "chars": 5059,
   "apparatus": false,
   "archived": false,
-  "tokens": 1586
+  "tokens": 1593
  },
  {
   "path": "standards/STD-012-corpus-does-not-grow.md",
@@ -1600,10 +1589,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 10426,
+  "chars": 10298,
   "apparatus": false,
   "archived": false,
-  "tokens": 2838
+  "tokens": 2802
  },
  {
   "path": "system/SYS-002-agent-cycle.md",

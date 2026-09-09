@@ -209,12 +209,13 @@ export default defineConfig({
 		"/corpus/protocols/p-007-context-load-v1": "/corpus/protocols/pro-001-agent-session",
 		"/corpus/protocols/p-008-approval-brief-v1": "/corpus/protocols/pro-008-decision",
 		"/corpus/protocols/p-009-mission-briefing": "/corpus/protocols/pro-003-mission-cycle",
-		"/corpus/protocols/p-010-how-to-archive": "/corpus/protocols/pro-010-how-to-archive",
+		"/corpus/protocols/pro-010-how-to-archive": "/corpus/standards/std-024-a-series-is-a-function",
+		"/corpus/protocols/p-010-how-to-archive": "/corpus/standards/std-024-a-series-is-a-function",
 		"/corpus/protocols/p-011-security-audit": "/corpus/protocols/pro-011-security-audit",
 		"/corpus/protocols/p-012-ruling-with-a-condition": "/corpus/protocols/pro-008-decision",
 		"/corpus/protocols/p-013-handing-a-guard-to-ci": "/corpus/protocols/pro-013-handing-a-guard-to-ci",
 		"/corpus/protocols/approval-request-template": "/corpus/protocols/pro-008-decision",
-		"/corpus/protocols/2026_04_14-read_me_how_to_archive-v020": "/corpus/protocols/pro-010-how-to-archive",
+		"/corpus/protocols/2026_04_14-read_me_how_to_archive-v020": "/corpus/standards/std-024-a-series-is-a-function",
 		// 2026-08-31 MIS-127: decisions consolidated 16 -> 7 by theme.
 		// Nine identifiers were ABSORBED, not deleted: each address points at
 		// the record that now contains that reasoning, never at the section
