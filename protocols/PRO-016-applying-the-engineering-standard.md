@@ -1,12 +1,12 @@
 ---
 id: "PRO-016"
 uid: ""
-title: "Applying the engineering standard to a task: audit, classify, name the practice, run the checks"
+title: "Applying the engineering standard"
 type: protocol
-status: draft
-version: "1.0.0"
+status: active
+version: "2.0.0"
 created: "2026-09-08T21:30:00Z"
-updated: "2026-09-08T21:30:00Z"
+updated: "2026-09-09T19:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, engineering, agents]
@@ -14,9 +14,15 @@ license: "CC0-1.0"
 applies_to: [all-agents]
 mandatory: true
 territory: "Platform"
-related: ["STD-005", "PRO-001", "PRO-013"]
+related: ["STD-005", "STD-015", "PRO-005", "PRO-013"]
 ---
-# PRO-016 — Applying the engineering standard to a task
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
+# PRO-016 — Applying the engineering standard
 
 > **Summary:** The order a coding agent follows on any task in a repository
 > that carries `STD-005`, and the line between what it does alone and what
@@ -27,73 +33,75 @@ related: ["STD-005", "PRO-001", "PRO-013"]
 > report shape.
 > **Audience:** Agents · Oracle
 
-## 1. Purpose and trigger
+**Binds:** any agent executing a task in a repository that carries `STD-005`.
+**Does not bind:** the practices themselves (`STD-005`, `STD-015`) nor which
+copy of the standard a repository owns (`STD-005`).
 
-Runs on every task in a repository that contains or cites `STD-005`. It was the
-agent application protocol inside `STD-005` until 2026-09-08; a procedure
-does not belong inside a standard. Nothing in it changed in the move.
+## 1. Trigger
 
-## 2. Preconditions
+Every task in a repository that contains or cites `STD-005`. Executor: the
+agent on `PRO-001` session. The Oracle enters only at the irreversible tier.
 
-- The repository has a `CLAUDE.md` (practice `AGT-001`). If it is missing,
-  report that first: it is itself a violation.
-- `PRO-001` has been followed to open the session.
+## 2. Rules
+
+**TSK-001 — The tree is audited before it is trusted.** The agent MUST read
+the branch before assuming it matches the standard, the README or the brief.
+
+**TSK-002 — Every task is classified before it starts.** Cosmetic —
+formatting, lint fixes, typos, added tests — proceeds. Irreversible —
+visibility, licences, secrets, history, publishing, force operations — MUST
+stop and reach the Oracle. In doubt, it is irreversible.
+
+**TSK-003 — Practices are named by plate.** Commits and pull requests MUST
+cite the practices they touch by identifier (`fix: read-only workflow tokens
+(SEC-008)`).
+
+**TSK-004 — A check is never weakened to pass.** Lowering a threshold,
+skipping a test, adding an ignore or unpinning an action is a change to the
+standard: it MUST come as a decision record, never as a side effect.
+
+**TSK-005 — Debt seen in passing is reported, not fixed.** `[MANUAL]`
+violations the task did not touch MUST go to the closing report and the
+repository's TODO (`TRC-005`), not into the task.
 
 ## 3. Procedure
 
-1. **Audit the branch first.** Never assume the tree matches the standard,
-   the README or the brief. Read what is there.
-2. **Load `CLAUDE.md`.** It declares which Scorecard checks are in scope, the
-   repository's AI stance (`AGT-006`) and any local overrides.
-3. **Classify the task: cosmetic or irreversible.** Cosmetic — formatting,
-   lint fixes, typos, added tests — proceeds. Irreversible — visibility,
-   licences, secrets, deleting history, publishing, force operations — stops
-   and surfaces the decision to the Oracle. In doubt, it is irreversible.
-4. **Name the practices the task touches**, by ID, in commits and in the pull
-   request (`fix: enforce read-only workflow tokens (SEC-008)`).
-5. **Run the checks locally before pushing.** CI is the authority; the local
-   run is faster feedback.
-6. **Never weaken a check to make a task pass.** Lowering a threshold,
-   skipping a test, adding a lint-ignore or unpinning an action is a change
-   to the standard and needs an ADR; it is never a side effect of a feature.
+1. Audit the branch (`TSK-001`).
+2. Load `CLAUDE.md` (`AGT-001`): Scorecard scope, AI stance (`AGT-006`),
+   local overrides. If it is missing, that is the first finding.
+3. Classify the task (`TSK-002`).
+4. Do the work, naming practices (`TSK-003`).
+5. Run the checks locally; CI remains the authority (`ENG-001`).
+6. Report (§4). If the task is a guard, continue in `PRO-013`.
 
-**Autonomous (cosmetic tier):** fix `[AUTO]` violations when the fix is
-mechanical — pin an action by SHA, add a missing `SECURITY.md` from the
-template, sync labels, complete `.env.example`; add or improve tests,
-comments and TSDoc; open pull requests that move `[MANUAL]` to `[AUTO]`, as
-proposals.
+**Autonomous tier.** Mechanical `[AUTO]` fixes — pin an action by SHA, add
+`SECURITY.md` from the template, sync labels, complete `.env.example`;
+tests, comments, TSDoc; proposals moving `[MANUAL]` to `[AUTO]`.
 
-**Never without the Oracle (irreversible tier):** change repository
-visibility (`LEG-001`); change any `LICENSE`, SPDX header or REUSE structure;
-rotate, create or delete credentials; change the principles of `STD-005`;
-disable, weaken or bypass any check; force-push, rewrite history or delete
-branches or tags on `main`.
-
-**Which copy binds.** `numengames/numinia-nwos` carries the operative
-standard. `nwos-workspace-template` and every workspace born from it carry a
-starting proposal that binds nobody and is owned by whoever adopts it. Neither
-is downstream of the other: a change here is a local ADR and pull request,
-never routed upstream; a version difference between copies is expected and is
-not reported as drift.
+**Oracle tier.** Repository visibility (`LEG-001`); any `LICENSE`, SPDX
+header or REUSE structure; credentials; the principles of `STD-005`; any
+check (`TSK-004`); force-push, history rewrite, deleting branches or tags on
+`main`.
 
 ## 4. Verification
 
-The closing report names: practices touched (IDs); checks run and their
-result; `[MANUAL]` debt observed in passing — reported, not fixed unprompted —
-and any decision escalated. Observed-but-untouched debt goes to the
-repository's TODO file (`TRC-005`), not into the task.
+| Check | Evidence |
+|---|---|
+| Practices named | plates in the commit messages and the PR body |
+| Checks ran | local run recorded in the closing report; CI green on the PR |
+| Nothing weakened | the diff touches no threshold, ignore, pin or workflow |
+| Debt reported | `[MANUAL]` seen in passing listed in the report and the TODO |
 
 ## 5. Escalation
 
-Step 3 is the escalation: anything irreversible waits for the Oracle through
-`PRO-005`. A check that would have to be weakened to pass is escalated the
-same way, with the ADR drafted.
+The irreversible tier and any check that would have to be weakened go to
+the Oracle through `PRO-005`, with the decision record drafted.
 
 ## References
 
-| ID | Title | Relation |
+| Document | Title | Why it obliges here |
 |---|---|---|
-| `STD-005` | Engineering standards | the practices this protocol applies |
-| `PRO-001` | Agent session | opens and closes the session this runs inside |
-| `PRO-005` | Escalation | how the irreversible tier reaches the Oracle |
-| `PRO-013` | Handing a guard to CI | when the task is a guard |
+| `STD-005` | Engineering baseline | the principles this protocol applies |
+| `STD-015` | Engineering checks | the practice register the plates come from |
+| `PRO-005` | Escalation | how the Oracle tier is reached |
+| `PRO-013` | Handing a guard to CI | continues this when the task is a guard |
