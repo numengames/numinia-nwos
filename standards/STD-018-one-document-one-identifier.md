@@ -5,9 +5,9 @@ title: "One document, one identifier"
 type: documentation
 subtype: standard
 status: draft
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-09T03:50:00+02:00"
+updated: "2026-09-10T02:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
@@ -47,6 +47,14 @@ leaves a gap, never a renumbering.
 
 **IDN-015 — First commit keeps the number.** When two agents claim one
 identifier, whoever committed first keeps it and the second renumbers.
+
+**IDN-016 — The next number is read from the trunk.** The next free
+identifier is computed over what is committed after `git pull`, never over
+the working tree.
+
+**IDN-017 — Across repositories, qualify.** An identifier cited across a
+repository boundary carries the repository: `nwos:ADR-006`, `web:ADR-006`.
+Within a repository the bare identifier is correct.
 
 ## Check
 

@@ -10,7 +10,7 @@ created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
 updated: "2026-09-09T03:10:00+02:00"
-ratified_by: "ADR-027 (formerly ADR-029)"
+ratified_by: "ADR-043"
 author: "ursa"
 owner: "oracle"
 territory: "Archive"
@@ -99,4 +99,3 @@ the others.
 | `STD-016` | Header fields | every field, its shape, its plate |
 | `STD-007` | One page per document | the body that follows the header |
 | `STD-001` | Vocabulary | the words the fields draw on |
-| `ADR-027` | Header standard ratified | the decision that made this binding |

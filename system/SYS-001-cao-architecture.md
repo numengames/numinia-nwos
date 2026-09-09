@@ -15,7 +15,7 @@ territory: "CAO"
 license: "CC0-1.0"
 mission: "MIS-045"
 former_id: "BLU-004"
-former_id_note: "Renumbered by MIS-129 under ADR-035: this is a reference manual of how the CAO is wired today, not a plan for a future state. ADR-004 rule 4 conditions recorded in ADR-035."
+former_id_note: "Renumbered by MIS-129 under ADR-035: this is a reference manual of how the CAO is wired today, not a plan for a future state. STD-018 IDN-014 conditions recorded in ADR-035."
 accuracy_warning: "Content is from 2026-04-08 and is known stale — the canon repo is named numinia-nwos, Adonaz is now Byblos, Ursa is active. Tracked as debt, not corrected by MIS-129 (move only, no prose edits)."
 ---
 # BP — CAO Architecture

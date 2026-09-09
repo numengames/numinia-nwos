@@ -13,7 +13,7 @@ owner: "oracle"
 license: "CC0-1.0"
 tags: [deflation, lifecycle, reports, missions, debt, compression]
 ratified_by: "ADR-042"
-related: ["ADR-030", "ADR-040", "ADR-042", "PRO-017", "STD-001", "CAN-001"]
+related: ["ADR-030", "STD-025", "ADR-042", "PRO-017", "STD-001", "CAN-001"]
 series_change: "1.2.0 — the standard takes the ADR-043 shape: 868 -> 455 words of body. DEF-001..007 keep their text and their checks; the history that motivated the standard is one sentence in the Why. Minor: no rule changed, and no section number was cited by any document."
 ---
 # The corpus does not grow

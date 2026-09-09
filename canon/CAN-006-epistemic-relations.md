@@ -13,7 +13,7 @@ author: "Christian Numinia"
 owner: "oracle"
 guild: "Exegetes"
 territory: "Archive"
-tags: [canon, seminal, peirce, semiotics, ADR-023]
+tags: [canon, seminal, peirce, semiotics]
 license: "CC0-1.0"
 registration: registered
 former_id: "canon-epistemic-relations-v020"

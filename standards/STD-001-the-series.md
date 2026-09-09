@@ -14,7 +14,7 @@ guild: "Alchemists"
 territory: "Archive"
 tags: [standards, series, register, archive]
 license: "CC0-1.0"
-ratified_by: "ADR-027"
+ratified_by: "ADR-043"
 threshold: governed
 related: ["STD-024", "STD-016", "STD-018", "STD-007"]
 series_change: "5.0.0 — cut eleven under ADR-043. The glossary that was not a glossary becomes the register it always was: what series exist, what each holds, its prefix, its threshold, its budget, its mould. The rules moved to STD-024 (a series is a function), STD-021 (citing vs data), STD-015 (guard checks); the field vocabularies were already in STD-016. Section-numbered citations resolve in git."
