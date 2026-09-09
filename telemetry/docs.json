@@ -1193,10 +1193,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 6411,
+  "chars": 4357,
   "apparatus": false,
   "archived": false,
-  "tokens": 1523
+  "tokens": 1163
  },
  {
   "path": "protocols/PRO-010-how-to-archive.md",

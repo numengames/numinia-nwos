@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "bc4a4a8",
-  "corpus_hash": "c676748c277ffd2823745ab498f6d6578ebc1cd9a390e6abc4a93290a84eff1d",
+  "head": "0574e01",
+  "corpus_hash": "36ffeacdad5339a3235d8a9f2bc8ff09d4da5b263abb498b06666dddad4f5804",
   "root_dirty": 0,
-  "measured_at": "2026-09-09T10:35:35Z",
+  "measured_at": "2026-09-09T10:42:54Z",
   "families": [
     "corpus",
     "series",
@@ -338,7 +338,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 284336,
+      "value": 283976,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -351,7 +351,7 @@
         "reports": 22867,
         "blueprints": 22838,
         "operations": 21381,
-        "protocols": 19063,
+        "protocols": 18703,
         "decisions": 17495,
         "templates": 17125,
         "": 12455,
@@ -366,7 +366,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 171388,
+        "active": 171028,
         "draft": 43772,
         "done": 26350,
         "todo": 13588,
@@ -378,7 +378,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 15.13,
+      "value": 15.15,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -450,13 +450,13 @@
         "priority": 12,
         "type_execution": 11,
         "visibility": 11,
+        "applies_to": 10,
         "role": 10,
-        "applies_to": 9,
+        "mandatory": 9,
         "related_missions": 9,
         "absorbs": 8,
         "former_id": 8,
         "former_id_note": 8,
-        "mandatory": 8,
         "paths": 8,
         "amends": 6,
         "depends_on": 6,
@@ -706,7 +706,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 574
+          "3": 575
         },
         "MIS": {
           "3": 728,
@@ -716,10 +716,10 @@
           "3": 159
         },
         "ADR": {
-          "3": 403
+          "3": 401
         },
         "PRO": {
-          "3": 224
+          "3": 226
         },
         "OPS": {
           "3": 32
@@ -863,7 +863,7 @@
       "definition": "docs_total − docs_con_frontmatter"
     },
     "legacy.referencias_textuales_total": {
-      "value": 1492,
+      "value": 1490,
       "unit": "mentions",
       "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
     },
@@ -871,7 +871,7 @@
       "value": [
         [
           "ADR-005",
-          60
+          59
         ],
         [
           "ADR-030",
@@ -891,7 +891,7 @@
         ],
         [
           "ADR-004",
-          25
+          24
         ]
       ],
       "unit": "mentions",
