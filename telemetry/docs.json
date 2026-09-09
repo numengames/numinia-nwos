@@ -1171,10 +1171,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 8738,
+  "chars": 8105,
   "apparatus": false,
   "archived": false,
-  "tokens": 2121
+  "tokens": 1956
  },
  {
   "path": "protocols/PRO-005-escalation.md",
@@ -1582,6 +1582,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1116
+ },
+ {
+  "path": "standards/STD-025-a-mission-is-a-card.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 5008,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1373
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
