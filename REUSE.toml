@@ -9,7 +9,7 @@ version = 1
 # Ordering matters: when several annotations match a file, the LAST one in
 # this file wins. Specific overrides therefore come after their directory.
 
-# --- Lore, narrative, brand → reserved (CAN-005 §2) ----------------------
+# --- Lore, narrative, brand → reserved (CAN-005, the fourth regime) ----------------------
 # agents/** left this annotation on 2026-08-28 (ADR-026): an agent's
 # operational definition is documentation, not lore, and CC0 was already
 # granted over agents/ through commit 0157be9 (LEGAL_DEBT.md LD-001) —

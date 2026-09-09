@@ -5,11 +5,11 @@ title: "The MVP story: sixty-six missions, five arcs, one road still open to Alp
 type: report
 subtype: analysis
 status: active
-version: "0.5.0"
+version: "0.5.1"
 created: "2026-09-08T10:27:15Z"
 created_source: "git:59f5cfa"
 created_confidence: exact
-updated: "2026-09-08T20:30:00Z"
+updated: "2026-09-10T05:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -414,7 +414,7 @@ card.
 | MIS-074 | Platform | Progressive identity (Web2→Web3) for numinia.com | numinia-web work (Session Zero ranks) parked on the wrong shelf; nothing executable from numinia-nwos |
 | MIS-077 | Platform | Data dignity: Numinia vs today's internet | numinia-web copy the Oracle has not written; nothing an agent of this repo can start |
 | MIS-084 | Platform | numinia.store → numinia.com: SEO migration and legacy shutdown | parked by Oracle order 2026-08-16; the numinia.store renewal date is the trigger |
-| MIS-106 | TBA | The mould carries a retired name: the template still calls the system Khepri | blocked on an external repository and an Oracle ruling (CAN-005 §7 on the name) |
+| MIS-106 | TBA | The mould carries a retired name: the template still calls the system Khepri | blocked on an external repository and an Oracle ruling (CAN-005, *the name is never opened*) |
 | MIS-108 | TBA | Offer the mould its own provenance: the template still calls itself the source | blocked with MIS-106 — same external repository, same ruling |
 
 **Measured at:** `3a71b0b` before the deletion. `missions/` 79 → 41;
