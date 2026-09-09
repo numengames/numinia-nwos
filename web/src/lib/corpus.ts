@@ -139,7 +139,6 @@ export const SECTIONS: Section[] = [
 //
 //   agents/     Per-agent state files (MEMORY, STATUS, SOUL). Infrastructure.
 //   operations/ Live operational records, not a reading family.
-//   guilds/     Definitions referenced from canon rather than browsed.
 //   reports/    Dated dailies; chronological, and /reportes already serves them.
 //
 // A folder can graduate to a section later. Each addition is a decision, made

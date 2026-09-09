@@ -5,11 +5,11 @@ title: "The Archive's Fondos"
 type: documentation
 subtype: reference
 status: active
-version: "1.1.1"
+version: "1.1.2"
 created: "2026-08-17T19:10:09Z"
 created_source: "git:715cc53"
 created_confidence: exact
-updated: "2026-09-02T01:20:00+02:00"
+updated: "2026-09-09T15:10:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [system, archive, fondos, taxonomy]
@@ -51,8 +51,6 @@ fondos:
       - { nombre: "Agents — Index", desc: "The operative roster: seven agents, their routing, and the authorship archaeology.", file: "agents/INDEX.md" }
       - { nombre: "Ursa — SOUL.md", desc: "Technical Architect & Orchestrator. Identity, function, limits.", file: "agents/ursa/SOUL.md" }
       - { nombre: "Byblos — SOUL.md", desc: "Records Manager & Information Governance. The custodian of the archive (formerly Adonaz).", file: "agents/byblos/SOUL.md" }
-      - { nombre: "Charter — Centinelas", desc: "Common rules of the Centinelas guild. Security, watch, gates.", file: "guilds/centinelas/GLD-004-charter.md" }
-      - { nombre: "Charter — Exégetas", desc: "Common rules of the Exégetas guild. Knowledge, archive, narrative.", file: "guilds/exegetas/GLD-002-charter.md" }
   - id: missions
     lore: "Una misión no termina cuando se cierra. Termina cuando se entiende por qué divergió del plan."
     titulo: "Missions"
