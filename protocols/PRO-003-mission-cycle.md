@@ -4,11 +4,11 @@ uid: ""
 title: "Mission Protocol — briefing, cycle, coordination"
 type: protocol
 status: active
-version: "4.6.0"
+version: "4.7.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-08T18:10:00Z"
+updated: "2026-09-09T23:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [protocol, missions, cycle, briefing, coordination]
@@ -145,16 +145,10 @@ reason.
 
 ### The rules that do not bend
 
-Five of them carry a `CORE` identifier: they were rules of the corpus until
-2026-09-08 and are now executed here, number kept (`IDN-014`).
-
-| ID | Rule | Verified by |
-| **CORE-36** | Work is registered before it is executed. | `[MANUAL]` — comparing a mission's date to work that may predate its branch |
-| **CORE-37** | A mission states what would count as done before work starts. | `[MANUAL]` — the section is checkable, whether it states a test is not |
-| **CORE-38** | A parent mission is not finished while any of its children is open. | `[MANUAL]` — parent and child are declared in prose, not in a field |
-| **CORE-39** | A paused mission declares why it is paused. | `[MANUAL]` — the reason is prose |
-| **CORE-41** | An agent reads the whole mission before acting, never the title alone. | `[MANUAL]` — no trace distinguishes a full read from a skim |
-
+The obligations on the card itself — states, stamps, one executor, parent
+and child, immutability, the exit — are `STD-025` (`MSN-001..004`,
+`MSN-036..039`, `MSN-041`). This protocol executes them; it no longer
+restates them.
 
 - A `done` mission is immutable once merged. An Oracle-authorised exception is
   recorded as one.
