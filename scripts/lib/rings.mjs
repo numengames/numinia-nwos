@@ -64,7 +64,10 @@ export const RING3 = {
     // an INDEX.md auditable instead of merely tidy.
     'absorbs', 'amends', 'threshold', 'supersedes_record_of'],
   'agents': ['role', 'platform', 'model', 'soul', 'agent',
-    'previous_name', 'previous_name_note', 'translation_note'],
+    'previous_name', 'previous_name_note', 'translation_note',
+    // agents/<agent>/skills/*/SKILL.md (AGENTS.md): the portable skill
+    // format every agent platform reads. Both fields are required there.
+    'name', 'description'],
   'debt': ['severity', 'severity_reason', 'detected', 'refuted', 'source_audit', 'opened_by',
     'visibility_reason',
     // registered 2026-08-31 (RPT-001 §12, the debt renumbering). Same
