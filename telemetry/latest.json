@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "3b00a08",
-  "corpus_hash": "a581648a916943fd79c23822eea7d2395d90b41ba88b35e9bcb9469e5547deb7",
+  "head": "bc4a4a8",
+  "corpus_hash": "c676748c277ffd2823745ab498f6d6578ebc1cd9a390e6abc4a93290a84eff1d",
   "root_dirty": 0,
-  "measured_at": "2026-09-09T10:30:48Z",
+  "measured_at": "2026-09-09T10:35:35Z",
   "families": [
     "corpus",
     "series",
@@ -338,7 +338,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 284416,
+      "value": 284336,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -351,7 +351,7 @@
         "reports": 22867,
         "blueprints": 22838,
         "operations": 21381,
-        "protocols": 19143,
+        "protocols": 19063,
         "decisions": 17495,
         "templates": 17125,
         "": 12455,
@@ -366,7 +366,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 171468,
+        "active": 171388,
         "draft": 43772,
         "done": 26350,
         "todo": 13588,
@@ -438,7 +438,7 @@
         "guild": 48,
         "registration": 42,
         "registration_reason": 38,
-        "related": 37,
+        "related": 38,
         "subtype": 37,
         "agent": 33,
         "threshold": 24,
@@ -706,7 +706,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 569
+          "3": 574
         },
         "MIS": {
           "3": 728,
@@ -719,7 +719,7 @@
           "3": 403
         },
         "PRO": {
-          "3": 220
+          "3": 224
         },
         "OPS": {
           "3": 32
@@ -863,7 +863,7 @@
       "definition": "docs_total − docs_con_frontmatter"
     },
     "legacy.referencias_textuales_total": {
-      "value": 1493,
+      "value": 1492,
       "unit": "mentions",
       "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
     },
