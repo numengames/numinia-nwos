@@ -709,10 +709,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 2981,
+  "chars": 2525,
   "apparatus": false,
   "archived": false,
-  "tokens": 822
+  "tokens": 704
  },
  {
   "path": "decisions/ADR-036-canon-consolidation.md",
@@ -720,10 +720,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 12000,
+  "chars": 3716,
   "apparatus": false,
   "archived": false,
-  "tokens": 3672
+  "tokens": 1193
  },
  {
   "path": "decisions/ADR-041-git-is-the-archive.md",
@@ -731,10 +731,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 4480,
+  "chars": 2562,
   "apparatus": false,
   "archived": false,
-  "tokens": 1251
+  "tokens": 703
  },
  {
   "path": "decisions/ADR-042-corpus-rolls-up-by-period.md",
@@ -742,10 +742,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 5284,
+  "chars": 2257,
   "apparatus": false,
   "archived": false,
-  "tokens": 1463
+  "tokens": 669
  },
  {
   "path": "decisions/ADR-043-one-page-per-document.md",
@@ -753,10 +753,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 6607,
+  "chars": 3254,
   "apparatus": false,
   "archived": false,
-  "tokens": 1849
+  "tokens": 888
  },
  {
   "path": "decisions/ADR-044-consumers-install-packages.md",
@@ -764,10 +764,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 5493,
+  "chars": 3138,
   "apparatus": false,
   "archived": false,
-  "tokens": 1464
+  "tokens": 863
  },
  {
   "path": "guilds/alquimistas/GLD-001-charter.md",
