@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 8066,
+  "chars": 8079,
   "apparatus": false,
   "archived": false,
-  "tokens": 2056
+  "tokens": 2062
  },
  {
   "path": "CONTRIBUTING.md",
@@ -588,10 +588,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 12172,
+  "chars": 12222,
   "apparatus": false,
   "archived": false,
-  "tokens": 2734
+  "tokens": 2748
  },
  {
   "path": "canon/CAN-002-brand-and-culture.md",
@@ -632,10 +632,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 9039,
+  "chars": 9047,
   "apparatus": false,
   "archived": false,
-  "tokens": 2366
+  "tokens": 2368
  },
  {
   "path": "canon/CAN-006-epistemic-relations.md",
@@ -643,10 +643,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 16447,
+  "chars": 16438,
   "apparatus": false,
   "archived": false,
-  "tokens": 3360
+  "tokens": 3355
  },
  {
   "path": "canon/CAN-007-pragmatic-numen-system.md",
@@ -654,10 +654,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 12161,
+  "chars": 12152,
   "apparatus": false,
   "archived": false,
-  "tokens": 2389
+  "tokens": 2384
  },
  {
   "path": "canon/CAN-008-visual-identity.md",
@@ -704,61 +704,6 @@
   "tokens": 985
  },
  {
-  "path": "decisions/ADR-004-identifier-convention.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "active",
-  "chars": 5034,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1315
- },
- {
-  "path": "decisions/ADR-005-prefix-ruling.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "active",
-  "chars": 7922,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2335
- },
- {
-  "path": "decisions/ADR-023-canon-vocabulary.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "active",
-  "chars": 1483,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 408
- },
- {
-  "path": "decisions/ADR-026-agent-licensing-and-debt-register.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "active",
-  "chars": 1287,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 391
- },
- {
-  "path": "decisions/ADR-027-header-apparatus-ratified.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "active",
-  "chars": 1420,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 407
- },
- {
   "path": "decisions/ADR-030-lifecycle-and-deletion.md",
   "dir": "decisions",
   "series": "decisions",
@@ -779,17 +724,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 3672
- },
- {
-  "path": "decisions/ADR-040-done-mission-deletion.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "active",
-  "chars": 7912,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2140
  },
  {
   "path": "decisions/ADR-041-git-is-the-archive.md",
@@ -1325,10 +1259,10 @@
   "series": "reports",
   "type": "report",
   "status": "closed",
-  "chars": 8207,
+  "chars": 9657,
   "apparatus": false,
   "archived": false,
-  "tokens": 2590
+  "tokens": 3075
  },
  {
   "path": "standards/STD-001-the-series.md",
@@ -1358,10 +1292,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 4556,
+  "chars": 4458,
   "apparatus": false,
   "archived": false,
-  "tokens": 1279
+  "tokens": 1255
  },
  {
   "path": "standards/STD-005-engineering-baseline.md",
@@ -1391,10 +1325,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4189,
+  "chars": 4391,
   "apparatus": false,
   "archived": false,
-  "tokens": 1108
+  "tokens": 1155
  },
  {
   "path": "standards/STD-008-design-tokens.md",
@@ -1424,10 +1358,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5273,
+  "chars": 5298,
   "apparatus": false,
   "archived": false,
-  "tokens": 1442
+  "tokens": 1446
  },
  {
   "path": "standards/STD-011-external-standards.md",
@@ -1512,10 +1446,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 2548,
+  "chars": 2911,
   "apparatus": false,
   "archived": false,
-  "tokens": 681
+  "tokens": 768
  },
  {
   "path": "standards/STD-019-versions.md",
@@ -1600,7 +1534,7 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 10417,
+  "chars": 10418,
   "apparatus": false,
   "archived": false,
   "tokens": 2832
