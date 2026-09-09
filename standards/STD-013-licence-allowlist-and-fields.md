@@ -13,7 +13,7 @@ owner: "oracle"
 territory: "Funding"
 license: "CC0-1.0"
 tags: [licensing, legal, SPDX, register, allowlist]
-threshold: sealed
+threshold: governed
 series_change: "1.0.0 — new register, split from STD-010 under ADR-043: the allowlist (old §3), the in-file metadata fields (old §5) and the licence texts (old §10). Rows unchanged."
 ---
 

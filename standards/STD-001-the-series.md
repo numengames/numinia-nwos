@@ -5,9 +5,9 @@ uid: ""
 type: documentation
 subtype: register
 status: active
-version: "5.0.0"
+version: "5.0.1"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-09-09T12:30:00+02:00"
+updated: "2026-09-09T17:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -37,7 +37,7 @@ fields of the header — `STD-016`; the identifier — `STD-018`.
 
 | Series | Holds | Prefix | Threshold | Budget | Mould |
 |---|---|---|---|---|---|
-| `canon/` | what the system **is**: foundational, not operating policy | `CAN-NNN` | `sealed` | 1500 | `CAN-TEMPLATE.md` |
+| `canon/` | what the system **is**: foundational, not operating policy | `CAN-NNN` | `governed` | 1500 | `CAN-TEMPLATE.md` |
 | `standards/` | what an **artifact** must comply with | `STD-NNN` | `governed` | 500 (norm) · none (register) | `STD-TEMPLATE.md` |
 | `protocols/` | what an **actor** executes in a repeated situation | `PRO-NNN` | `governed` | 500 | `PRO-TEMPLATE.md` |
 | `decisions/` | why something was chosen; superseded by the next | `ADR-NNN` · `DEC-NNN` | `governed` | 500 | `ADR-TEMPLATE.md` |

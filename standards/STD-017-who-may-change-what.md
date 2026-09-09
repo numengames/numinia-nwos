@@ -5,22 +5,22 @@ title: "Who may change what"
 type: documentation
 subtype: standard
 status: draft
-version: "1.0.0"
+version: "2.0.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-09T03:50:00+02:00"
+updated: "2026-09-09T17:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, governance, authority, ranks]
-threshold: sealed
+threshold: governed
 series_change: "1.0.0 — new standard, split from STD-009 under ADR-043. Rules keep their plates and their verifiers; the prose around them is the Why."
 ---
 
 # Who may change what
 
-> **Summary:** Canon moves with the Oracle's signature; the axis by a decision
-> or an approved pull request; everything else by a pull request. Rank sets
+> **Summary:** Canon and the axis move by a decision record or a pull request
+> the Oracle approves; everything else by a pull request. Rank sets
 > an actor's reach, a change lands where it governs, and in doubt an agent
 > stops.
 > **Epistemic:** The cost of each kind of change and who can pay it.
@@ -32,8 +32,9 @@ series_change: "1.0.0 — new standard, split from STD-009 under ADR-043. Rules 
 
 ## Rules
 
-**AUT-006 — Canon needs the Oracle and a reason.** `canon/` changes only with
-the Oracle's signature and a decision record giving the reason.
+**AUT-006 — Canon needs the Oracle's approval.** `canon/` changes by a
+decision record, or by a pull request the Oracle approves. Nothing is sealed:
+the Oracle's approval on the pull request is the signature.
 
 **AUT-007 — The axis needs a record or an approval.** Standards, protocols
 and decisions change by a decision record, or by a pull request the Oracle

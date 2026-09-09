@@ -15,7 +15,7 @@ guild: "Exegetes"
 territory: "Archive"
 tags: [canon, seminal, attributes, ranks, vocabulary]
 license: "CC0-1.0"
-threshold: sealed
+threshold: governed
 ---
 
 # Agent Attributes

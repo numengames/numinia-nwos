@@ -18,7 +18,7 @@ export const navItems: NavItem[] = [
   // One entry per top-level folder of the repository that publishes documents,
   // ORDERED BY AUTHORITY: what binds the rest first, what is bound by
   // everything last. Not invented here — it mirrors the change-threshold table
-  // in S-001 §2.1 (sealed → governed → open), and @/lib/corpus SECTIONS holds
+  // in S-001 §2.1 (governed → open, canon first), and @/lib/corpus SECTIONS holds
   // the same order with the reasoning written out.
   { label: "Canon", href: "/corpus/canon/", id: "canon", section: "canon" },
   { label: "Decisions", href: "/corpus/decisions/", id: "decisiones", section: "decisions" },

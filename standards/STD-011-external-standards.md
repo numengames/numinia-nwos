@@ -13,7 +13,7 @@ owner: "oracle"
 territory: "CAO"
 license: "CC0-1.0"
 tags: [standards, adoption, provenance, external, register]
-threshold: sealed
+threshold: governed
 series_change: "1.0.0 — the register takes the ADR-043 shape: one table, no prose. Twenty-eight rows kept, sources kept; the reading notes that carried facts become a Notes column; the three sections that explained the table are gone. Distance 0 · 1 · 2 · 3 = enforced by a tool · written, unchecked · practised, unnamed · not considered."
 ---
 

@@ -27,7 +27,7 @@ canonical_language: "en"
 normative_conventions: "RFC 2119 (MUST / SHOULD / MAY)"
 authority: "Brand & Culture > CAN-001…CAN-004 > this canon > any Numen Games repository"
 revision_policy: "by formal consensus, not by calendar"
-threshold: sealed
+threshold: governed
 ---
 
 # CAN-005 · Licensing Canon

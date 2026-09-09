@@ -15,7 +15,7 @@ guild: "Exegetes"
 territory: "Archive"
 tags: [canon, seminal, roles, prototype-theory, semantics]
 license: "CC0-1.0"
-threshold: sealed
+threshold: governed
 ---
 # Role Structure in the Numinia System
 

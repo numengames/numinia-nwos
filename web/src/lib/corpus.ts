@@ -73,8 +73,8 @@ export async function getPublicCorpus(): Promise<Entry[]> {
 // last. The order is not invented here — it is the change-threshold table in
 // S-001 §2.1, which is the only place the archive ranks its own series:
 //
-//   sealed    canon/                              Oracle's signature + an ADR
-//   governed  decisions/ · standards/ · protocols/  an ADR, or an approved PR
+//   governed  canon/ · decisions/ · standards/ · protocols/  an ADR, or an approved PR
+//             (canon first: STD-009 PRE-003, nothing is sealed since 2026-09-09)
 //   open      blueprints/ · debt/                 a normal PR
 //
 // Inside `governed` the tie is broken by which one can change which: an ADR

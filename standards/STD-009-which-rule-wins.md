@@ -5,15 +5,15 @@ title: "Which rule wins"
 type: documentation
 subtype: standard
 status: draft
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-09T03:50:00+02:00"
+updated: "2026-09-09T17:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, governance, precedence, rules]
-threshold: sealed
+threshold: governed
 absorbs: ["STD-002"]
 series_change: "1.0.0 — STD-009 stops being the whole normative layer and keeps precedence only: 2,887 -> 300 words of body. Its other sections are STD-017 (authority), STD-018 (identity), STD-019 (versions), STD-020 (git and archiving), STD-021 (evidence and citation), STD-022 (secrets); HDR-040/041/043 go to STD-004; LIC-058..060 are retired as duplicates of LIC-007, HDR-008 and PUB-001. Every plate keeps its number. Major: fourteen sections no longer exist."
 ---
@@ -44,8 +44,9 @@ corrected. A document that describes what code does, and describes it wrong,
 is a broken description and is fixed. The test is direction.
 
 **PRE-003 — The costlier document wins.** Between two documents, the one that
-costs more agreement to change: `sealed`, then `governed`, `closed`, `open`
-(`STD-001`).
+costs more agreement to change: `governed`, then `closed`, `open`
+(`STD-001`). Between two governed documents the canon outranks the axis, and
+the axis outranks the rest.
 
 **PRE-004 — The later ruling wins.** At equal cost the later ruling prevails,
 and a later ruling names what it overrides.

@@ -15,7 +15,7 @@ guild: "Exegetes"
 territory: "Archive"
 tags: [canon, seminal, gamification, guilds, factions]
 license: "CC0-1.0"
-threshold: sealed
+threshold: governed
 ---
 
 # Introduction to the Gamified System

@@ -15,7 +15,7 @@ guild: "Exegetes"
 territory: "Archive"
 tags: [canon, seminal, brand, culture, narrative]
 license: "CC0-1.0"
-threshold: sealed
+threshold: governed
 ---
 
 # Numinia Brand & Culture
