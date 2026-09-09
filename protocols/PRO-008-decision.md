@@ -1,162 +1,118 @@
 ---
 id: "PRO-008"
 uid: ""
-title: "Decision Protocol — requesting approval, issuing rulings"
+title: "Requesting approval, issuing rulings"
 type: protocol
 status: active
-version: "3.0.0"
+version: "4.0.0"
 created: "2026-04-07T15:00:00Z"
-updated: "2026-09-03T23:45:00Z"
+updated: "2026-09-09T22:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 guild: "Alchemists"
 territory: "Archive"
 tags: [approval, human-in-the-loop, security, protocol, rulings, falsifiability]
 license: "CC0-1.0"
-related: ["ADR-004", "ADR-005", "STD-001"]
+applies_to: [all-agents]
+mandatory: true
+related: ["STD-017", "PRO-005"]
 ---
-# PRO-008 — Decision Protocol
 
-> **Summary:** The two directions of the human-machine decision interface:
-> how an agent requests approval, and how the Oracle issues a ruling that can
-> be caught when wrong.
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
+# PRO-008 — Requesting approval, issuing rulings
+
+> **Summary:** The two directions of the decision interface: how an agent
+> requests approval, and how the Oracle issues a ruling that can be caught
+> when wrong.
 > **Epistemic:** What makes a decision checkable rather than merely obeyed.
 > **Pragmatic:** Before any action needing human approval, and when issuing
 > or executing a ruling.
 > **Audience:** Agents · Oracles
 
----
+**Binds:** any agent requesting approval; any Oracle issuing a ruling; any
+agent executing one.
+**Does not bind:** when an agent must ask (`PRO-005`) nor who may approve
+what (`AUT-065`).
 
-# Part one · Requesting approval
+## 1. Trigger
 
-Every approval request is a complete unit of information: the person deciding
-knows exactly what will be done, why, and how carefully they need to think
-about it. Without that structure the request becomes noise, and noise is
-approved without understanding or refused out of fear.
+An action the agent may not take alone (`PRO-005`, `TSK-002`); or a ruling
+the Oracle issues that asserts a fact about the repository. Executor: the
+agent for the request, the Oracle for the ruling, the agent again for its
+execution.
 
-## Approval types
+## 2. Rules
 
-| Type | When | Carries a command |
+**APV-001 — A request is a complete unit.** Every approval request MUST
+carry agent, mission, context, exact action, epistemic and pragmatic
+effect, what happens without an answer, and a score.
+
+**APV-002 — Every artefact carries its web address.** Anything presented
+for a decision MUST link its canonical address, next to its first mention.
+Never a filesystem path.
+
+**APV-003 — The score guides attention, not responsibility.** The agent
+proposes; the person decides, at any score. No agent MAY modify the scale.
+
+**APV-004 — Seven and above is a document.** A request scored 7+ MUST be a
+document, adding the discarded alternatives, what a good and a bad outcome
+would reveal, the impact at a day and a week, and reversibility.
+
+**APV-005 — A ruling states what would make it wrong.** The issuer MUST
+name the facts the ruling depends on, in checkable form, and what to do if
+one is false; the default is stop and report. *Use this prefix, it is
+unused in the corpus* can be checked; *use this prefix* cannot.
+
+**APV-006 — The executor verifies before executing.** Every stated fact
+MUST be measured, the command in the report. If one is false, the executor
+MUST stop before any file changes.
+
+**APV-007 — The correction lives with the decision.** A ruling caught by
+its condition MUST be recorded where it was issued: fact asserted,
+measurement, outcome.
+
+**APV-008 — Facts, not reasoning.** The executor checks the stated facts,
+not the priorities. If the facts hold, it executes — including when it
+disagrees. Rulings of preference carry no condition.
+
+## 3. Procedure
+
+**Request.** Execution (carries the command) or design (carries a
+proposal). Header `APPROVAL REQUEST — Score {X}/10`, then the `APV-001`
+fields, then `Approve? Yes / No / Defer / Modify`.
+
+| Score | Level | Answer within |
 |---|---|---|
-| **Execution** | before running a command with real effect | yes |
-| **Design** | before implementing a visual or interaction change | no — a descriptive proposal |
-
-## The request
-
-```
-APPROVAL REQUEST — Score {X}/10
-Agent: {name} | Mission: {MIS-NNNN}      ← both mandatory
-Context:     [two sentences: current state, why it arises now]
-Action:      [what will be executed, exactly]
-Epistemic:   [what we learn if executed]
-Pragmatic:   [immediate impact and reversibility]
-No decision: [what happens if no answer arrives]
-Links:       [canonical web address of every document under review]
-Score {X}/10 — [one sentence of justification]
-[the exact command, if there is one]
-Approve? Yes / No / Defer / Modify
-```
-
-A design request replaces *Action* with a proposal — a text mockup, a
-description of the behaviour, or both — and *No decision* with the audience
-that interacts with the element.
-
-**Every artefact presented for a decision carries its canonical web address.**
-Every document in the repository is navigable, so there is no excuse for
-pointing a person at a filesystem path. One address per document, next to its
-first mention. This applies to approval requests, review handoffs, mission
-briefs awaiting signature, and any "look at this" moment. A review request
-without its address forces the reader to reconstruct the agent's context,
-which is the noise this protocol exists to remove.
-
-## The score scale
-
-| Score | Level | Expected response |
-|---|---|---|
-| 1–2 | routine — no approval required | — |
-| 3–4 | operational — limited impact, reversible | 24h |
-| 5–6 | tactical — moderate impact | 24h |
-| 7–8 | strategic — affects architecture | 12h |
+| 1–2 | routine — no approval | — |
+| 3–6 | operational, tactical — reversible | 24h |
+| 7–8 | strategic — architecture | 12h |
 | 9 | systemic — canon, operator, security | immediate |
 | 10 | foundational — irreversible, reputation, money | immediate, and a meeting |
 
-**The score guides attention. It does not transfer responsibility.** The
-agent informs and proposes; the person decides, always. A score 3 approved is
-as much their decision as a score 9. The difference is how much thought it
-deserves, not who makes it. No agent may modify this rule.
+**Ruling.** Issuer states facts and fallback (`APV-005`); executor measures
+(`APV-006`); if false, reports which fact and what was measured; correction
+recorded (`APV-007`).
 
-At score 7 or above the request is written as a document rather than a chat
-message, and adds: the alternatives that were discarded and why, what a good
-and a bad outcome would each reveal, the deferred impact at a day and a week,
-and whether the action is reversible.
+## 4. Verification
 
----
+| Check | Evidence |
+|---|---|
+| Request complete | every `APV-001` field present; addresses resolve |
+| Ruling checkable | at least one falsifiable fact stated, or *preference* declared |
+| Ruling verified | the measuring command in the executor's report |
 
-# Part two · Issuing a ruling that can be caught when wrong
+## 5. Escalation
 
-> Every ruling states what would make it wrong, and the executor verifies that
-> before executing.
-
-A ruling asserts facts about the repository — what exists, what is unused,
-what a file contains, what a figure measures. Those facts can be false, and a
-ruling built on a false fact executes perfectly and produces the wrong result.
-
-## The procedure
-
-**1 · The issuer states the ruling's factual dependencies.** Not the
-reasoning — the facts, in a form that can be checked. What would have to be
-true in the repository for this to be the right call?
-
-Weak: *use this prefix for agents.*
-Strong: *use this prefix for agents; that prefix is unused in the corpus.*
-
-The second names its own failure condition. The first cannot be checked at
-all.
-
-**2 · The issuer states what to do if a dependency is false.** Stop and report
-is the default. Not "use your judgement" — the executor's judgement is what
-the ruling replaced. An unverifiable ruling executed on the executor's
-judgement is two decisions pretending to be one.
-
-**3 · The executor verifies before executing, and shows the command.** Every
-stated fact is measured, with the command that measured it in the report. A
-fact accepted because it was asserted has not been verified.
-
-**4 · If a dependency is false, stop before any file changes.** Report which
-fact failed, what was measured instead, and whether it changes the ruling. It
-often does not. Stopping is not a rejection of the ruling; it is the ruling
-working.
-
-**5 · The correction is recorded where the decision lives.** Both the original
-ruling and the correction. A decision that hides what it cost is worth less
-than one that shows it.
-
-## What this is not
-
-**Not a licence to relitigate.** The executor checks the ruling's stated
-facts, not its reasoning or its priorities. If the facts hold, it executes —
-including when it disagrees.
-
-**Not a delay.** The verification budget is proportional to what the ruling
-asserts, not to its importance. Most checks are a single search.
-
-## When it applies
-
-To any ruling that asserts a fact about the repository, which is nearly all of
-them: this archive's decisions are almost always about its own state.
-
-It does not apply to preference — one branch at a time, write in English, a
-written summary before each pull request. Those assert nothing checkable and
-need no condition.
-
-## Record
-
-Rulings that carried a condition and were caught by it are recorded in the
-decision that issued them, with the fact asserted, the measurement that
-contradicted it, and the outcome. A protocol that never fires is either
-perfect or unused, and the difference matters.
+No answer within the score's window: `ESC-003`. A ruling that asserts a
+repository fact without stating it: returned to the issuer before execution.
 
 ## References
 
-- `PRO-005` — escalation, when approval does not arrive in the expected time.
-- `PRO-001` — session protocol.
+| Document | Title | Why it obliges here |
+|---|---|---|
+| `STD-017` | Who may change what | `AUT-065`: rank sets who may approve |
+| `PRO-005` | Escalating to the Oracle | the request's other half: when to ask, how long to wait |
