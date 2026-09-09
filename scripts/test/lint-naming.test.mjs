@@ -16,7 +16,7 @@
 //   - reports/evidence/** is not held to the series scheme
 //   - AUD- is no longer a shape reports/ accepts
 //
-// Run: node scripts/lint-naming.test.mjs
+// Run: node scripts/test/lint-naming.test.mjs
 
 import { mkdtempSync, mkdirSync, writeFileSync, copyFileSync, rmSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
@@ -24,7 +24,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const HERE = path.dirname(fileURLToPath(import.meta.url));
+const HERE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'); // scripts/
 
 const fixtures = {
   'reports/RPT-2026-01-01.md':               'subtype: daily',

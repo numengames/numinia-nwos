@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 22080,
+  "chars": 23161,
   "apparatus": false,
   "archived": false,
-  "tokens": 6368
+  "tokens": 6674
  },
  {
   "path": "CLAUDE.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 8131,
+  "chars": 8066,
   "apparatus": false,
   "archived": false,
-  "tokens": 2074
+  "tokens": 2056
  },
  {
   "path": "CONTRIBUTING.md",
@@ -819,10 +819,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 6534,
+  "chars": 6607,
   "apparatus": false,
   "archived": false,
-  "tokens": 1827
+  "tokens": 1849
  },
  {
   "path": "decisions/ADR-044-consumers-install-packages.md",

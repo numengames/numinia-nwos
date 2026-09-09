@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "6f1139c",
-  "corpus_hash": "742e0ad875b1d867a5f357d798bec275537b1d1b0b835f0462225e7afc869e32",
-  "root_dirty": 0,
-  "measured_at": "2026-09-09T11:37:53Z",
+  "head": "7c20384+index",
+  "corpus_hash": "a336295cda30e64d8acebc2c97925dfcb81068e7ae6f8895958cf2b4e09dcef2",
+  "root_dirty": 1,
+  "measured_at": "2026-09-09T11:43:52Z",
   "families": [
     "corpus",
     "series",
@@ -17,7 +17,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 481,
+      "value": 470,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -31,12 +31,11 @@
         ".ico": 1,
         ".jpg": 1,
         ".js": 2,
-        ".json": 21,
+        ".json": 20,
         ".md": 165,
-        ".mjs": 45,
+        ".mjs": 42,
         ".png": 36,
-        ".py": 6,
-        ".sh": 2,
+        ".py": 1,
         ".svg": 69,
         ".toml": 4,
         ".ts": 17,
@@ -111,15 +110,14 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 49,
+      "value": 39,
       "unit": "files",
       "definition": "files under `scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 41,
-        "python": 6,
-        "shell": 2
+        "node": 38,
+        "python": 1
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
@@ -338,7 +336,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 281138,
+      "value": 281448,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -351,10 +349,10 @@
         "reports": 22984,
         "blueprints": 22838,
         "operations": 21323,
-        "decisions": 17495,
+        "decisions": 17517,
         "templates": 17276,
         "protocols": 14390,
-        "": 12455,
+        "": 12743,
         "system": 9752,
         "debt": 3722,
         "guilds": 3342,
@@ -366,19 +364,19 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 170535,
+        "active": 170557,
         "draft": 41159,
         "done": 26350,
         "todo": 13588,
         "closed": 12632,
-        "(none)": 12262,
+        "(none)": 12550,
         "in-progress": 4612
       },
       "unit": "tokens",
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 15.31,
+      "value": 15.29,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -711,7 +709,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 604
+          "3": 605
         },
         "MIS": {
           "3": 725,
@@ -721,7 +719,7 @@
           "3": 158
         },
         "ADR": {
-          "3": 397
+          "3": 398
         },
         "PRO": {
           "3": 254
@@ -817,7 +815,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 237,
+      "value": 238,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
@@ -836,8 +834,8 @@
         "standards/STD-023-design-values.md": 7,
         "blueprints/BLU-009-web-pieces.md": 6,
         "blueprints/BLU-011-book-and-velo.md": 6,
-        "blueprints/BLU-010-pixel-register.md": 5,
-        "missions/MIS-0123-make-adr-028-real.md": 5
+        "CHANGELOG.md": 5,
+        "blueprints/BLU-010-pixel-register.md": 5
       },
       "unit": "lines",
       "definition": "the fifteen docs with most such lines"
@@ -868,7 +866,7 @@
       "definition": "docs_total − docs_con_frontmatter"
     },
     "legacy.referencias_textuales_total": {
-      "value": 1483,
+      "value": 1484,
       "unit": "mentions",
       "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
     },
@@ -884,7 +882,7 @@
         ],
         [
           "ADR-043",
-          40
+          41
         ],
         [
           "MIS-125",
