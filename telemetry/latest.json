@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "2df4a70",
-  "corpus_hash": "081724d13e0a336a000391e9f3c9d5f4c2a0088013409215420460509d27ebdf",
+  "head": "9bb512b",
+  "corpus_hash": "77d288272fff97c7a39053bca74cc6abab154e74fa37e0a53d15c258e52ec01f",
   "root_dirty": 0,
-  "measured_at": "2026-09-09T12:12:03Z",
+  "measured_at": "2026-09-09T12:25:14Z",
   "families": [
     "corpus",
     "series",
@@ -336,7 +336,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 269562,
+      "value": 268546,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -344,9 +344,9 @@
       "value": {
         "missions": 43032,
         "standards": 35017,
-        "canon": 30373,
+        "canon": 29352,
         "agents": 25431,
-        "reports": 23469,
+        "reports": 23474,
         "blueprints": 22838,
         "operations": 21323,
         "templates": 17276,
@@ -364,7 +364,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 158042,
+        "active": 157026,
         "draft": 41297,
         "done": 26350,
         "todo": 13588,
@@ -376,7 +376,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 15.96,
+      "value": 16.02,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -384,7 +384,7 @@
       "value": [
         [
           "reports/RPT-017-mvp-story.md",
-          10716
+          10721
         ],
         [
           "missions/MIS-0127-entropy-reduction.md",
@@ -453,8 +453,8 @@
         "role": 10,
         "related_missions": 9,
         "former_id": 8,
-        "former_id_note": 8,
         "paths": 8,
+        "former_id_note": 7,
         "depends_on": 6,
         "started": 6,
         "absorbs": 5,
@@ -470,21 +470,18 @@
         "opened_by": 3,
         "parent_mission": 3,
         "requested_by": 3,
-        "scope": 3,
         "accuracy_warning": 2,
         "human_approval_score": 2,
         "provenance": 2,
         "restoration_note": 2,
+        "scope": 2,
         "sub_missions": 2,
         "supersedes": 2,
         "supersedes_version": 2,
         "about": 1,
-        "authority": 1,
         "blocked_by": 1,
-        "canonical_language": 1,
         "consulted": 1,
         "decision": 1,
-        "distributed_file": 1,
         "evidence_head": 1,
         "evidence_script": 1,
         "fondos": 1,
@@ -494,17 +491,12 @@
         "language_note": 1,
         "mission": 1,
         "name": 1,
-        "normative_conventions": 1,
-        "out_of_scope": 1,
         "outcome": 1,
         "period": 1,
         "previous_name": 1,
         "previous_name_note": 1,
-        "public_guide": 1,
-        "reasoned_edition": 1,
         "review_flags": 1,
         "review_next": 1,
-        "revision_policy": 1,
         "source_title": 1,
         "superseded_by": 1,
         "supersedes_record_of": 1,
@@ -704,20 +696,20 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 585
+          "3": 579
         },
         "MIS": {
           "3": 693,
-          "4": 183
+          "4": 182
         },
         "CAN": {
-          "3": 132
+          "3": 130
         },
         "ADR": {
-          "3": 332
+          "3": 331
         },
         "PRO": {
-          "3": 211
+          "3": 212
         },
         "OPS": {
           "3": 38
@@ -727,7 +719,7 @@
           "4": 9
         },
         "DBT": {
-          "3": 76
+          "3": 75
         },
         "DEC": {
           "3": 13
@@ -861,7 +853,7 @@
       "definition": "docs_total − docs_con_frontmatter"
     },
     "legacy.referencias_textuales_total": {
-      "value": 1347,
+      "value": 1345,
       "unit": "mentions",
       "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
     },
@@ -888,7 +880,7 @@
           19
         ],
         [
-          "ADR-036",
+          "ADR-044",
           17
         ]
       ],
