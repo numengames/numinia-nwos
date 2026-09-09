@@ -108,7 +108,10 @@ const VOCAB = {
   type_execution: ['digital', 'biological', 'hybrid'],
   // STD-016 Ring 3: public unless a reason says otherwise.
   visibility: ['public', 'restricted-oracle'],
-  // STD-001 §territory, the 8 words. TBA is legal under ADR-028 (owner MIS-124).
+  // STD-001 §territory, the 8 words. TBA is legal under ADR-028; MIS-124
+  // (the field's former owner) was closed by the 2026-09-09 mission purge
+  // once the corpus reached zero undeclared territory values — see the
+  // audit report. No mission currently owns unassigned territory debt.
   territory: ['CAO', 'Product', 'Platform', 'Infrastructure',
     'Content', 'Sales', 'Funding', 'Archive'],
   // STD-001 §7: priority/effort, missions/ only (RING3) — debt/ uses `severity`
@@ -142,7 +145,9 @@ const SEMVER = /^\d+\.\d+\.\d+$/;
 const DEFERRED = 'TBA';
 /* NESTED: scripts/lib/frontmatter.mjs. */
 const DEFERRAL_OWNER = {
-  territory: 'MIS-124',
+  // territory's owner (MIS-124) closed 2026-09-09 — zero territory TBA
+  // remains in the corpus. Left empty rather than removed: the mechanism
+  // stays live for any field that defers again.
 };
 
 /* ---------------- frontmatter parse: scripts/lib/frontmatter.mjs (shared) ---------------- */

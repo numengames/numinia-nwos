@@ -3,14 +3,14 @@
 id: "MIS-123"
 uid: ""
 title: "Make ADR-027 (formerly ADR-028) real: value checks, a TBA counter, and the vocabulary the guard never read"
-status: todo
+status: done
 priority: high
 effort: M
 guild: "Alchemists"
 territory: "Archive"
 type_execution: digital
 assigned_to: null
-completed: null
+completed: "2026-09-09"
 
 # REGISTRO
 type: mission
@@ -132,6 +132,35 @@ mission does not decide it.
 It does not decide the `territory` vocabulary. That is `D-010`, and `TBA`
 exists precisely so the migration is not blocked on settling it. Four values
 in use are undeclared; six declared values are unused.
+
+## Closure
+
+- **What was done:** Verified against `origin/main` @ `6331f4c` (mission-purge
+  audit). Criteria 1, 3 and 4 were already live before this closure:
+  `guild`/`territory`/`type_execution` value checks (`HDR-033`, `HDR-036`,
+  `HDR-034`), the `TBA` counter (never fatal), and `TBA`-requires-an-owner
+  (`HDR-032`) all run in `scripts/lint-frontmatter.mjs`, confirmed by running
+  it live (`0 findings, 0 baselined`). Criterion 5 (blindness declared) is
+  present in the guard's own `BLIND TO (D-025)` output. Criterion 2
+  (`visibility` vocabulary) was found declared in `STD-016` §"Header fields"
+  (`public` · `restricted-oracle`) rather than in `STD-001` §7 as this
+  mission's deliverables specified — a different document than named, but
+  the vocabulary exists and is checked (`HDR-035`). Criterion 6 (baseline
+  re-banked) was performed as part of this same audit's reference-lint pass.
+  The `territory` decision this mission explicitly deferred (§"blocked on a
+  decision, not on code") was resolved separately by MIS-124's closure in
+  the same audit: the corpus converged on the eight declared values by
+  attrition (76 `TBA` in August → 0 today), so no vocabulary amendment was
+  needed.
+- **What diverged, and why:** The mission named `STD-001` as `visibility`'s
+  home; it actually lives in `STD-016`. Not corrected here — the check
+  works, the citation in this closure note is accurate, and moving prose
+  between standards is out of this closure's scope.
+- **Evidence:** `node scripts/lint-frontmatter.mjs` → `lint-frontmatter: 0
+  findings (0 baselined) — no new violations — the ratchet holds`, no
+  `deferred values` line (zero live `TBA` in `territory`, confirmed by
+  `telemetry.missions.territory_tba = 0`).
+- **Closed:** 2026-09-09 · **by:** ursa (mission-purge audit, Oracle-approved)
 
 ## Evidence
 
