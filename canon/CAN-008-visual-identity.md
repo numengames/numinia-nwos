@@ -4,9 +4,9 @@ uid: ""
 title: "The visual identity is one system in four registers, and the direction is decided here"
 type: seminal
 status: draft
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-09-08T22:30:00+02:00"
-updated: "2026-09-09T11:00:00+02:00"
+updated: "2026-09-09T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -127,16 +127,16 @@ Where the system lives, at a glance. Every surface has its default mode, its lan
 
 | Surface | Default mode | Level | Register | Blueprint |
 |---|---|---|---|---|
-| Narrative web (numen.games, numinia.com) | Nocturno | II on home, I/III on inner pages | Umbral | `PRO-014` section 6.2 |
-| **Platform** (panels, store) | **Diurno, with Nocturno toggle** | I | Umbral | `PRO-014` section 6.11 |
-| Document and invoice | Diurno | III | Umbral | `PRO-014` section 6.4 |
-| Presentation | Nocturno | II/III | Umbral | `PRO-014` section 6.3 |
-| Physical event | Diurno (supports) | I/II | Umbral | `PRO-014` section 6.5 |
+| Narrative web (numen.games, numinia.com) | Nocturno | II on home, I/III on inner pages | Umbral | `BLU-009` §12 |
+| **Platform** (panels, store) | **Diurno, with Nocturno toggle** | I | Umbral | `BLU-014` |
+| Document and invoice | Diurno | III | Umbral | `BLU-013` |
+| Presentation | Nocturno | II/III | Umbral | `BLU-012` |
+| Physical event | Diurno (supports) | I/II | Umbral | `BLU-015` §1 |
 | **Archive · Summa (numinia.org, NWOS viewers)** | **Nocturno** | I/III | **Velo** | §3.6 |
-| **Book · digital codex (the LAP)** | **Diurno** (paper), Nocturno toggle | II/III | Umbral-paper; its reading frame, Velo | `PRO-014` section 6.12 |
-| Pixel register | **Nocturno always** | II | Píxel | §3.3, `PRO-014` section 6.9 |
-| Low-poly register (3D) | its host surface's | — | Low-poly | §3.5, `PRO-014` section 6.7 |
-| Email | client's light | I/III | Umbral | `PRO-014` section 6.8 |
+| **Book · digital codex (the LAP)** | **Diurno** (paper), Nocturno toggle | II/III | Umbral-paper; its reading frame, Velo | `BLU-011` §6 |
+| Pixel register | **Nocturno always** | II | Píxel | §3.3, `BLU-010` §7 |
+| Low-poly register (3D) | its host surface's | — | Low-poly | §3.5, `BLU-015` §2 |
+| Email | client's light | I/III | Umbral | `BLU-015` §3 |
 | Comic / graphic novel | Nocturno | II | Píxel (inherits) | pending — inherits pixel register, patinas `BLU-009` §4 and voice §3.10 |
 
 The Platform is the **only emitted surface where Diurno rules**: it is a tool for prolonged work over data, and paper tires less than night. The "emits = Nocturno" rule of `STD-023` §9 is thereby qualified by this table.
@@ -148,7 +148,7 @@ The pixel register's 3D sibling, for environments, props and web characters (Pla
 - **Economy of masses.** Silhouette first, facets after — cluster theory (`BLU-010` §6) in three dimensions: continuous masses legible at usage distance; detail that does not read is removed.
 - **Flat palette color.** Materials in flat color (*flat shading* or *vertex colors*) taken from the canonicals and their ramps (`STD-023` §5 as family guide); no photographic textures. The only photorealistic map allowed remains the canonical normal (`BLU-009` §3).
 - **Orientative budget** [EXTENSION — validate]: character 2,000–10,000 tris; prop 200–2,000; modular environment by pieces. The budget is validated against the store's real assets.
-- **House lighting**: warm Ámbar key + cold Turquesa fill (`PRO-014` section 6.7); the era enters through temperature and materials (patinas `BLU-009` §4), not through skins.
+- **House lighting**: warm Ámbar key + cold Turquesa fill (`BLU-015` §2); the era enters through temperature and materials (patinas `BLU-009` §4), not through skins.
 - **Formats**: GLB/glTF, the standards the Platform already publishes.
 - Relationship between registers: **the pixel is the world's 2D memory; the low-poly is its 3D body** — same economy of means, different dimension. Neither mixes with photorealism in the same scene.
 
@@ -164,7 +164,7 @@ The pixel register's 3D sibling, for environments, props and web characters (Pla
 |---|---|---|---|
 | `velo.rejilla` | `rgba(166,218,213,.025)` · **40 px** cell | Verdemar at 2.5 % | The Akasha's grid, barely visible; the cell matches the Platform row (40 px) — archive and tool share the same beat `[DERIVED — verified in production, pablofm-web]` |
 | `velo.niebla` | `rgba(1,142,161,.06)` · radial from bottom-left | Turquesa at 6 % | The corridors' fog: the diffuse signal of the background `[DERIVED — verified in production]` |
-| `velo.imagen` | `rgba(20,17,15,.72)` | Noche at 72 % | The foundational veil (`BLU-009` §6, `BLU-009` §9, `PRO-014` section 6.3) — unchanged; Jardín may lighten to `.60` (`BLU-009` §4) |
+| `velo.imagen` | `rgba(20,17,15,.72)` | Noche at 72 % | The foundational veil (`BLU-009` §6, `BLU-009` §9, `BLU-012`) — unchanged; Jardín may lighten to `.60` (`BLU-009` §4) |
 | `velo.cristal` | `rgba(30,26,23,.65)` + `backdrop-filter: blur(12px)` | Basalto at 65 % | Glass surface: read through `[EXTENSION — validate]` |
 | `velo.cristal-borde` | `rgba(58,51,45,.5)` | Strong line at 50 % | The glass's edge `[EXTENSION — validate]` |
 | `velo.cielo` | 175 stars · weights `60/25/10/4/1` | **Rarity scale `STD-023` §4** | The Velo's sky (`STD-023` §15) — verified in production, numinia.org |
@@ -183,7 +183,7 @@ The pixel register's 3D sibling, for environments, props and web characters (Pla
 
 The System speaks in four registers, ordered by importance. Every piece declares its own **before its medium**, as `PRO-014` orders. Like every NWOS mission, each register answers for its **epistemic value** (what it teaches) and its **pragmatic value** (what it produces).
 
-**1 · The Umbral** — the general register. The name comes from the world: the Umbral is the border anyone can cross. It is the entire base system (`STD-023`, `BLU-009`): websites, presentations, documents, **invoices** (`PRO-014` section 6.4; real piece 2026-A-014), interface, event and email.
+**1 · The Umbral** — the general register. The name comes from the world: the Umbral is the border anyone can cross. It is the entire base system (`STD-023`, `BLU-009`): websites, presentations, documents, **invoices** (`BLU-013`; real piece 2026-A-014), interface, event and email.
 *Epistemic:* it sets the priors of whoever arrives from outside — first contact teaches what Numen is without needing the world.
 *Pragmatic:* it produces every corporate and product piece **without new decisions**; it is the register that invoices.
 
@@ -197,7 +197,7 @@ The System speaks in four registers, ordered by importance. Every piece declares
 
 **4 · Píxel** — the world's 2D memory (§3.3). Arcade adventures, minigames, playable lore.
 *Epistemic:* *Learn* given form — the heritage of the graphic adventures, cited and never copied.
-*Pragmatic:* scenes, achievements and sprites with closed pipeline and QA (`PRO-014` section 6.9–13.10).
+*Pragmatic:* scenes, achievements and sprites with closed pipeline and QA (`BLU-010` §7–§8).
 
 **Fusion rule.** Registers do not stack: a piece lives in one and MAY **frame** content from another (a sprite inside an Umbral website; a Velo viewer showing a low-poly GLB). The boundary between registers MUST be visible — the same discipline that governs the pixel's entry and exit (§3.3).
 

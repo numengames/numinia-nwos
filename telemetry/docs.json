@@ -511,10 +511,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "active",
-  "chars": 18530,
+  "chars": 20989,
   "apparatus": false,
   "archived": false,
-  "tokens": 5078
+  "tokens": 5808
  },
  {
   "path": "blueprints/BLU-010-pixel-register.md",
@@ -522,10 +522,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "active",
-  "chars": 12183,
+  "chars": 15429,
   "apparatus": false,
   "archived": false,
-  "tokens": 2810
+  "tokens": 3632
  },
  {
   "path": "blueprints/BLU-011-book-and-velo.md",
@@ -533,10 +533,54 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "active",
-  "chars": 9594,
+  "chars": 14960,
   "apparatus": false,
   "archived": false,
-  "tokens": 2594
+  "tokens": 4077
+ },
+ {
+  "path": "blueprints/BLU-012-presentation-deck.md",
+  "dir": "blueprints",
+  "series": "blueprints",
+  "type": "blueprint",
+  "status": "active",
+  "chars": 3355,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1037
+ },
+ {
+  "path": "blueprints/BLU-013-document-and-invoice.md",
+  "dir": "blueprints",
+  "series": "blueprints",
+  "type": "blueprint",
+  "status": "active",
+  "chars": 2727,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 826
+ },
+ {
+  "path": "blueprints/BLU-014-platform.md",
+  "dir": "blueprints",
+  "series": "blueprints",
+  "type": "blueprint",
+  "status": "active",
+  "chars": 4181,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1225
+ },
+ {
+  "path": "blueprints/BLU-015-event-3d-and-email.md",
+  "dir": "blueprints",
+  "series": "blueprints",
+  "type": "blueprint",
+  "status": "active",
+  "chars": 2153,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 637
  },
  {
   "path": "canon/CAN-001-welcome-to-numinia.md",
@@ -621,10 +665,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 26450,
+  "chars": 26314,
   "apparatus": false,
   "archived": false,
-  "tokens": 6900
+  "tokens": 6861
  },
  {
   "path": "debt/DBT-013-design-system-filename-not-frozen.md",
@@ -1369,10 +1413,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 23822,
+  "chars": 4099,
   "apparatus": false,
   "archived": false,
-  "tokens": 6663
+  "tokens": 1141
  },
  {
   "path": "protocols/PRO-015-joining-and-leaving.md",
@@ -1710,10 +1754,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 24882,
+  "chars": 24886,
   "apparatus": false,
   "archived": false,
-  "tokens": 8060
+  "tokens": 8056
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
