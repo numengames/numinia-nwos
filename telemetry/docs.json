@@ -1259,10 +1259,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 2311,
+  "chars": 3432,
   "apparatus": false,
   "archived": false,
-  "tokens": 600
+  "tokens": 924
  },
  {
   "path": "protocols/PRO-008-decision.md",
