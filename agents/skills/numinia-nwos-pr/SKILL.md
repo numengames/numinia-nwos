@@ -1,7 +1,6 @@
 ---
 name: numinia-nwos-pr
 description: "Use when opening a pull request in numengames/numinia-nwos. One PR at a time, guards before push, telemetry last, fixed reviewers; canon is discussed before any branch."
-agent: ursa
 title: "SKILL — numinia-nwos-pr"
 type: agent
 status: active
@@ -10,10 +9,10 @@ created: "2026-09-10T08:00:00+02:00"
 updated: "2026-09-10T08:00:00+02:00"
 author: "ursa"
 owner: "oracle"
-tags: [agents, ursa, skill, pull-request]
+tags: [agents, skill, pull-request]
 license: "CC0-1.0"
 registration: exempt
-registration_reason: "agent parts are identified by `agent:` and their filename, not by a series number (ADR-005)"
+registration_reason: "a cross-agent skill is identified by its folder name, not by a series number (ADR-005)"
 ---
 
 <!--
@@ -56,8 +55,9 @@ before acting (`git fetch && git log -1 origin/main`, `gh pr list --state open`)
    `lint-naming`, `check-section-citations`, `check-license-frontmatter`,
    `check-templates`; then `cd web && npm run build` and
    `node scripts/check-url-lifecycle.mjs`.
-6. Commit with `-c user.name=Ursa -c user.email=ursa@numinia.org` and a long
-   message that says what went out and where it now lives.
+6. Commit as the agent that did the work (`-c user.name=<Agent>
+   -c user.email=<agent>@numinia.org`), with a long message that says what
+   went out and where it now lives.
 7. **Telemetry last**: `node scripts/telemetry.mjs && git add telemetry` in its
    own commit; `node scripts/telemetry.mjs --check` must report OK on HEAD.
    Never regenerate before an amend (`RUP-005`).

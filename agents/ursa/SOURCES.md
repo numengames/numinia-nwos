@@ -46,4 +46,4 @@ project-specific facts (AGENTS.md, Source Authority).
 
 ## Skills
 
-skills/numinia-nwos-pr/SKILL.md — how a pull request is opened in this repository: one at a time, guards before push, telemetry last, fixed reviewers; canon is discussed before any branch
+../skills/numinia-nwos-pr/SKILL.md — how a pull request is opened in this repository: one at a time, guards before push, telemetry last, fixed reviewers; canon is discussed before any branch
