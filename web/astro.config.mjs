@@ -64,7 +64,10 @@ export default defineConfig({
 		"/corpus/history/2026_09_07-financial_projections-v100": "/decisions/adr-041",
 		"/corpus/history/2026_09_07-role_structure_treatise-v100": "/decisions/adr-041",
 		"/corpus/standards/s-001-glossary": "/corpus/standards/std-001-glossary",
-		"/corpus/standards/governance": "/corpus/standards/std-002-governance",
+		"/corpus/standards/governance": "/corpus/standards/std-009-which-rule-wins",
+		// STD-002 deleted under ADR-043 rule 8: STD-009 absorbs it. The map of
+		// where each part went is in git (standards/STD-002-governance.md, v5.0.0).
+		"/corpus/standards/std-002-governance": "/corpus/standards/std-009-which-rule-wins",
 		"/corpus/standards/s-003-platform-role-system": "/corpus/standards/std-003-platform-role-system",
 		"/corpus/standards/s-004-header-standard": "/corpus/standards/std-004-header-standard",
 		"/corpus/standards/engineering-standards": "/corpus/standards/std-005-engineering-standards",
@@ -349,7 +352,7 @@ export default defineConfig({
 		// and the relation vocabulary are sections of the governance standard
 		// now, so this points at the document that answers the question, not
 		// at the system index — a 301 to a section listing is a 200 that lies.
-		"/corpus/system/sys-004-document-relations": "/corpus/standards/std-002-governance",
+		"/corpus/system/sys-004-document-relations": "/corpus/standards/std-009-which-rule-wins",
 		// Rank Specifications was absorbed into CAN-003 (ADR-036 §4).
 		"/corpus/canon/rank-specifications": "/corpus/canon/can-003-attributes-and-ranks",
 		"/corpus/canon/c-007-rank-specifications": "/corpus/canon/can-003-attributes-and-ranks",

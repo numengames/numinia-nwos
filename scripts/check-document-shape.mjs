@@ -52,8 +52,8 @@ const PLATE_RE = /\*\*([A-Z]{3}-\d{3})\s+—/g;
 const LEGACY_PLATE_RE = /\*\*((?:CORE|H|PW|A|RK|SEC|ARC|PM|DEV)-\d{1,2})\*\*/g;
 const NEEDS_PLATES = new Set(['standards', 'protocols']);
 
-// Blocking flips here, and only here, when ADR-043 says so.
-const BLOCK_ON_FORM = false;
+// ADR-043: form is MUST. Flipped when the tenth cut merged (MIS-146 phase 4).
+const BLOCK_ON_FORM = true;
 
 const args = process.argv.slice(2);
 const JSON_OUT = args.includes('--json');
@@ -202,7 +202,7 @@ for (const r of results) {
   if (r.body_words !== null) { s.words.push(r.body_words); if (r.budget && r.body_words > r.budget) s.over++; else s.in++; }
   s.findings += r.findings.length;
 }
-console.log('document shape (STD-007, ADR-043) — report only, exit 0\n');
+console.log('document shape (STD-007, ADR-043) — budgets report, form blocks\n');
 console.log('series       docs  budget  within  over   median  max   findings');
 for (const [d, s] of Object.entries(bySeries).sort()) {
   const w = s.words.sort((a, b) => a - b);

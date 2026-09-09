@@ -59,6 +59,21 @@ const WRITE = args.includes('--write-baseline');
    which this guard must keep resolving — see the ID_RE note below. */
 const PREFIX_DIR = prefixToDir(loadRules());
 
+/* RETIRED IDENTIFIERS (ADR-043 rule 8, ADR-041). A document is deleted when
+   no living document depends on it normatively; the historical mentions that
+   remain — in decisions, closed missions, the changelog — are kept as written.
+   Those citations are not broken: git is the archive, so an identifier whose
+   file was deleted resolves against `git log`, to the file that carried it.
+   Only identifiers that NEVER existed in this repository are unresolved.
+   `known` (below) is what the tree has; this is what the tree had. */
+const retired = new Map();  // id -> last path that carried it
+for (const line of execFileSync('git', ['-C', ROOT, 'log', '--diff-filter=D', '--name-only', '--format=', '--', '*.md'], { encoding: 'utf8' }).split('\n')) {
+  const base = path.basename(line.trim(), '.md');
+  const m = base.match(/^([A-Z]{2,5})-(\d{3,4})/);
+  if (m && !retired.has(`${m[1]}-${m[2]}`)) retired.set(`${m[1]}-${m[2]}`, line.trim());
+}
+const retiredBase = new Set([...retired.values()].map((p) => path.basename(p)));
+
 const files = execFileSync('git', ['-C', ROOT, 'ls-files', '*.md'], { encoding: 'utf8' })
   .split('\n')
   .filter(Boolean);
@@ -259,6 +274,7 @@ for (const rel of files) {
     if (isExample(id) || isPrinciple(m[1], m[2])) continue;
     if (id === path.basename(rel, '.md').slice(0, id.length)) continue;  // self
     if (known.has(id)) continue;
+    if (retired.has(id)) continue;     // deleted under ADR-043 rule 8: resolves in git history
     // an ADR in web's range is not missing — it is elsewhere, cited unqualified
     if (m[1] === 'ADR' && WEB_ADR_RANGE(Number(m[2]))) {
       crossRepo.push({ from: rel, id });
@@ -279,6 +295,7 @@ for (const rel of files) {
     if (seenFile.has(bare)) continue;
     seenFile.add(bare);
     if (basenames.has(bare)) continue;              // resolves, current corpus
+    if (retiredBase.has(bare)) continue;            // resolves in git history (ADR-043 rule 8)
     unknownFilenames.push({ from: rel, file: cited });
   }
 }
