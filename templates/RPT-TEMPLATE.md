@@ -104,6 +104,17 @@ DAILY REPORTS are the one shape that departs from this file:
   - the `evidence_script` / `evidence_head` pair when figures are quoted
 Everything else on this page still applies, §3 above all.
 
+AUDIT REPORTS (subtype audit, PRO-011) add to §2 and §3:
+  - each finding carries state (live / doubtful / dead) and severity (blast
+    radius) as separate axes, and an identifier that survives between runs
+    (FND-YYYY-NN, never reused)
+  - a verdict on every finding of the previous run: resolved, persists,
+    returned, reclassified
+  - open questions in their own list, never inside the findings
+  - §3 states the denominator and how much of it was censused; the three
+    scores (doctrine, execution, coverage) close the report
+  - public tier only: no resource identifier, no address, no secret name
+
 Annexes live in reports/evidence/<RPT-id>/ and are excluded from the web
 corpus deliberately: the report is the published document, the annex is the
 captured artefact behind it.
