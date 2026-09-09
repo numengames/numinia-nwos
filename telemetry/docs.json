@@ -1160,10 +1160,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 7501,
+  "chars": 4437,
   "apparatus": false,
   "archived": false,
-  "tokens": 1916
+  "tokens": 1238
  },
  {
   "path": "protocols/PRO-003-mission-cycle.md",

@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "0574e01",
-  "corpus_hash": "36ffeacdad5339a3235d8a9f2bc8ff09d4da5b263abb498b06666dddad4f5804",
+  "head": "2b7779d",
+  "corpus_hash": "5e50981f2bf777b5b62dfcd2084d46f50f58513f59752b0fb93966c4fa1828b0",
   "root_dirty": 0,
-  "measured_at": "2026-09-09T10:42:54Z",
+  "measured_at": "2026-09-09T10:47:42Z",
   "families": [
     "corpus",
     "series",
@@ -338,7 +338,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 283976,
+      "value": 283298,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -351,7 +351,7 @@
         "reports": 22867,
         "blueprints": 22838,
         "operations": 21381,
-        "protocols": 18703,
+        "protocols": 18025,
         "decisions": 17495,
         "templates": 17125,
         "": 12455,
@@ -366,7 +366,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 171028,
+        "active": 170350,
         "draft": 43772,
         "done": 26350,
         "todo": 13588,
@@ -378,7 +378,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 15.15,
+      "value": 15.19,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -437,8 +437,8 @@
         "created_confidence": 71,
         "guild": 48,
         "registration": 42,
+        "related": 39,
         "registration_reason": 38,
-        "related": 38,
         "subtype": 37,
         "agent": 33,
         "threshold": 24,
@@ -706,23 +706,23 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 575
+          "3": 568
         },
         "MIS": {
           "3": 728,
           "4": 185
         },
         "CAN": {
-          "3": 159
+          "3": 158
         },
         "ADR": {
           "3": 401
         },
         "PRO": {
-          "3": 226
+          "3": 227
         },
         "OPS": {
-          "3": 32
+          "3": 38
         },
         "RPT": {
           "3": 58,
@@ -735,7 +735,7 @@
           "3": 13
         },
         "SYS": {
-          "3": 16
+          "3": 18
         },
         "BLU": {
           "3": 114
