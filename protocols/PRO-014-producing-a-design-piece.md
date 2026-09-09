@@ -4,9 +4,9 @@ uid: ""
 title: "Producing a design piece: the order of decisions and the checklist before delivering"
 type: protocol
 status: active
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-09-07T14:00:00+02:00"
-updated: "2026-09-07T14:00:00+02:00"
+updated: "2026-09-09T10:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -118,9 +118,9 @@ Moved out of the design system standard's recipe section on 2026-09-08. A bluepr
 this is where procedures live. **Second numbers are preserved** — what was
 §13.7 is §6.7 — so a citation needs only its section number changed.
 
-What did not move: the `STD-008` §13 starter kit stays in the standard, because
-`scripts/generate-design-kit.mjs` reads those blocks to build the published kit.
-The standard is the source of that artifact, not a recipe for it.
+The starter kit itself moved again on 2026-09-09 (ADR-044): its source is the
+package `packages/design-kit/`, not a block in the standard, so a consumer
+installs it instead of copying it.
 
 The obligations these blueprints assume also stay in `STD-008`: the kit is
 mandatory for every HTML piece, and no medium invents a palette, a scale or a

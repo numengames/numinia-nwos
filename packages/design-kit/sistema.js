@@ -1,4 +1,3 @@
-/* GENERADO de packages/design-kit (@numengames/design-kit v6.0.0) — no editar aquí: la fuente es el paquete */
 /* Sistema · tecleo (01) y revelado (02), implementación de referencia accesible */
 const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
 function tecleo(el, ms = 22){

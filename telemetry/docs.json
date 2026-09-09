@@ -847,6 +847,17 @@
   "tokens": 1777
  },
  {
+  "path": "decisions/ADR-044-consumers-install-packages.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "active",
+  "chars": 5493,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1464
+ },
+ {
   "path": "guilds/alquimistas/GLD-001-charter.md",
   "dir": "guilds",
   "series": "guilds",
@@ -1325,10 +1336,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 23935,
+  "chars": 23896,
   "apparatus": false,
   "archived": false,
-  "tokens": 6733
+  "tokens": 6728
  },
  {
   "path": "protocols/PRO-015-joining-and-leaving.md",
@@ -1501,10 +1512,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 70000,
+  "chars": 63043,
   "apparatus": false,
   "archived": false,
-  "tokens": 20032
+  "tokens": 17759
  },
  {
   "path": "standards/STD-009-which-rule-wins.md",

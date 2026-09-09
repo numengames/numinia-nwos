@@ -1,14 +1,18 @@
 {
   "sistema": "Numen Games · Sistema de Diseño",
   "version": "6.0.0",
-  "master": {
-    "path": "standards/STD-008-design-system.md",
-    "url": "https://numinia.org/corpus/standards/std-008-design-system.md",
-    "sha256": "50d71c1e798dcb01221f096be2bfe829f3224410b36c429b5b07ed17ed0f46ba"
+  "source": {
+    "package": "@numengames/design-kit",
+    "path": "packages/design-kit",
+    "url": "https://github.com/numengames/numinia-nwos/tree/main/packages/design-kit"
+  },
+  "rules": {
+    "id": "STD-008",
+    "url": "https://numinia.org/corpus/standards/std-008-design-tokens"
   },
   "files": {
-    "sistema.css": "c0a111bc1e29895be8f29744af943de4b2852f4a0446aa313ae36df4f1ba3d94",
-    "sistema.js": "9fff18b8c1e4f299794173802cef48249f028bf00a8037588ffb7d57914c1180",
+    "sistema.css": "d2a7314f458072637fe2c335e01196a6b5a9a876c8d4c10fbde6e02068d8fc70",
+    "sistema.js": "8d5edb396323a8c33a3c5dd768fd16c9809493e5a1232d915e48a81102143a11",
     "sistema.tokens.json": "acd7f465431afc187fcdf1cd0cda5c0d4ca29df54a36f0cd8b8d9a9b159ed658",
     "sistema.prompt.txt": "b1b2003ef7e6442cfa109b958cb83c1360f8f4a62438ea979c20647a86ff762f"
   }

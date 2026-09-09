@@ -5,14 +5,14 @@ title: "Design system: the values a piece is built with, in four registers"
 type: documentation
 subtype: standard
 status: draft
-version: "6.0.0"
+version: "6.1.0"
 created: "2026-08-18T13:41:01Z"
-updated: "2026-09-08T22:30:00+02:00"
+updated: "2026-09-09T10:30:00+02:00"
 author: "oracle"
 owner: "oracle"
 territory: "Product"
 registration: registered
-related: ["CAN-008", "PRO-014", "STD-010", "STD-011"]
+related: ["CAN-008", "PRO-014", "STD-010", "STD-011", "ADR-044"]
 license: "CC0-1.0"
 ---
 
@@ -565,111 +565,13 @@ An interactive object MUST be locatable through at least two channels: silhouett
 
 ---
 
-## 13. Starter kit (canonical CSS and JS)
-Base of every website and HTML document. It is **copied as is** — rewriting it from memory produces token drift. Paths relative to `/assets/`. Distribution: the kit includes `kit/sistema.css` and `kit/sistema.js` **generated from these blocks at packaging time** — link them or copy them; editing the files without touching this § is drift.
+## 13. Starter kit
 
-<!-- kit:css -->
-```css
-/* Sistema de Diseño v5.0.0 · kit de arranque */
-@font-face{font-family:'Geist';src:url('assets/fonts/Geist-Variable.woff2') format('woff2');font-weight:100 900;font-display:swap}
-@font-face{font-family:'Geist Mono';src:url('assets/fonts/GeistMono-Variable.woff2') format('woff2');font-weight:100 900;font-display:swap}
-:root{
-  --verdemar:#A6DAD5;--turquesa:#018EA1;--ambar:#EFA517;--arena:#F9EBDC;--coral:#F35059;--grana:#D33440;
-  --fondo:#14110F;--superficie:#1E1A17;--elevada:#292420;--linea:#241F1B;--linea-f:#3A332D;
-  --texto:#F9EBDC;--texto-2:#C4B5A6;--texto-3:#8A7D72;
-  --sans:'Geist',system-ui,'Segoe UI',Arial,sans-serif;--mono:'Geist Mono','Consolas',monospace;
-  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;--s8:64px;--s9:96px;--s10:128px;
-  --radio-control:6px;--radio-marco:8px;--ciclo:cubic-bezier(.2,0,0,1);
-  --interactivo-fondo:#017C8D;--interactivo-hover:#016E7D;--interactivo-activo:#015866;
-  --enlace:#A6DAD5;
-  --tinte-confirmacion:#EFE9DB;--tinte-aviso:#F8D8CC;--tinte-critico:#F4D5C9;--tinte-interactivo:#DBE0D5
-}
-/* Diurno: documentos, o forzado con data-modo */
-[data-modo="diurno"]{--fondo:#F9EBDC;--superficie:#FDF6EE;--elevada:#FDF6EE;--linea:#E2D3C2;--linea-f:#E2D3C2;
-  --texto:#14110F;--texto-2:#4A423B;--texto-3:#6E6259;--turquesa:#016E7D;--grana:#B02330;--ambar:#7A5100;
-  --enlace:#016E7D;--verdemar:#1F6B5F}
-@media print{:root{--fondo:#F9EBDC;--superficie:#FDF6EE;--elevada:#FDF6EE;--linea:#E2D3C2;--linea-f:#E2D3C2;
-  --texto:#14110F;--texto-2:#4A423B;--texto-3:#6E6259;--turquesa:#016E7D;--grana:#B02330;--ambar:#7A5100}
-  body{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--fondo);color:var(--texto);font-family:var(--sans);font-size:1rem;line-height:1.55}
-:focus-visible{outline:2px solid #018EA1;outline-offset:2px}
-a{color:var(--enlace)}
-h1,h2,h3{font-weight:600;letter-spacing:-.02em;line-height:1.1;margin:0 0 var(--s4)}
-h1{font-size:2.986rem;font-weight:500}
-.etiqueta{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ambar)}
-.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
-.binaria{font-family:var(--mono);font-size:.875rem;color:var(--linea-f);letter-spacing:.15em;white-space:nowrap;overflow:hidden;user-select:none}
-.tarjeta{background:var(--superficie);border:1px solid var(--linea);padding:var(--s5);border-radius:var(--radio-marco)}
-.btn{font:500 1rem var(--sans);min-height:40px;padding:10px var(--s6);border-radius:var(--radio-control);border:1px solid transparent;
-  cursor:pointer;display:inline-flex;align-items:center;gap:var(--s2);transition:background 120ms var(--ciclo),border-color 120ms var(--ciclo)}
-.btn-primario{background:var(--interactivo-fondo);color:#fff}.btn-primario:hover{background:var(--interactivo-hover)}.btn-primario:active{background:var(--interactivo-activo)}
-.btn-fantasma{background:transparent;border-color:var(--linea-f);color:var(--texto)}.btn-fantasma:hover{border-color:var(--verdemar);color:var(--verdemar)}
-.btn-silencioso{background:transparent;color:var(--verdemar);padding-inline:var(--s2)}
-.btn-destructivo{background:#D33440;color:#fff}.btn-destructivo:hover{background:#B02330}
-.btn:disabled{background:var(--superficie);border-color:var(--linea);color:var(--texto-2);cursor:not-allowed}
-/* Mensajes §8.7 */
-.aviso{position:fixed;right:var(--s5);bottom:var(--s5);max-width:360px;background:var(--elevada);border:1px solid var(--linea);border-left:2px solid var(--turquesa);border-radius:var(--radio-marco);padding:var(--s3) var(--s4);box-shadow:0 1px 2px rgba(20,17,15,.08),0 8px 24px rgba(20,17,15,.06)}
-.aviso[data-tono="exito"]{border-left-color:var(--verdemar)}
-.aviso[data-tono="aviso"]{border-left-color:#F35059}
-.aviso[data-tono="critico"]{border-left-color:var(--grana)}
-[data-tip]{position:relative}
-[data-tip]:hover::after,[data-tip]:focus-visible::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);white-space:nowrap;font-size:.875rem;padding:4px 10px;border-radius:var(--radio-control);background:var(--texto);color:var(--fondo);transition-delay:400ms}
-@media(prefers-reduced-motion:no-preference){
-  .reveal{opacity:0;transform:translateY(8px);transition:opacity 320ms var(--ciclo),transform 320ms var(--ciclo)}
-  .reveal.visible{opacity:1;transform:none}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}}
-```
-
-<!-- kit:js -->
-```js
-/* Sistema · tecleo (01) y revelado (02), implementación de referencia accesible */
-const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
-function tecleo(el, ms = 22){
-  if (rm) return;                                   // reduce: el texto simplemente está
-  el.setAttribute('aria-label', el.textContent);    // lectura íntegra desde el inicio
-  const nodos = [];
-  (function walk(n){ [...n.childNodes].forEach(c => {
-    if (c.nodeType === 3){ nodos.push({node:c, text:c.nodeValue}); c.nodeValue=''; } else walk(c);
-  }); })(el);
-  const cur = Object.assign(document.createElement('span'),
-    {className:'cursor', style:'display:inline-block;width:.55em;height:1em;background:var(--ambar);animation:parpadeo 1s steps(2,start) infinite'});
-  cur.setAttribute('aria-hidden','true'); el.appendChild(cur);
-  let i=0, j=0;
-  (function paso(){
-    if (i >= nodos.length){ setTimeout(()=>{cur.remove(); el.removeAttribute('aria-label');}, 900); return; }
-    const n = nodos[i];
-    if (j < n.text.length){ n.node.nodeValue += n.text[j++]; el.appendChild(cur); setTimeout(paso, ms); }
-    else { i++; j=0; paso(); }
-  })();
-}
-if (!rm && 'IntersectionObserver' in window){
-  const io = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
-  }), {rootMargin:'0px 0px -10% 0px'});
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-} else document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-```
-
-The cursor's blink animation: `@keyframes parpadeo{50%{opacity:0}}`.
-
-The binary's generator (§5.1) — any canon phrase, as signal:
-
-```js
-/* Sistema · binaria(frase) → bits + sedimento (§5.1) */
-const binaria = (frase, sed = 60) =>
-  [...frase].map(c => c.charCodeAt(0).toString(2).padStart(8, '0')).join('') + 'x'.repeat(sed);
-// binaria('Leave things better than we found them.')
-```
-
-The remaining blueprints — web, presentation, document, event, product, 3D,
-email, pixel scene, deliverables, platform and living paper — are procedures,
-not obligations, and moved to `PRO-014` §5 on 2026-09-08. Second numbers are
-preserved: the seventh blueprint is still the seventh there.
-
-The kit above stays because it is not a recipe: `scripts/generate-design-kit.mjs`
-reads these very blocks to build the published kit, and the standard is the
-source of that artifact.
+Base of every website and HTML document. It is **installed, never copied**:
+the source is the package `packages/design-kit/` (`@numengames/design-kit`,
+MIT) and the published copy is `/diseno/kit/` with a sha256 manifest, by
+the decision that consumers install packages. Rewriting it from memory produces token drift. Paths are
+relative to the site root.
 
 ## 14. License · *Legal by Design*
 **CC0 1.0 Universal** for the whole system. **Exception:** the logo, the scarab brandmark, «Numen Games» and «Numinia» are identifiers of origin and stay out. You can copy the system; you cannot say you are Numen. What is released uses open formats and free licenses (OFL, MIT); the license texts **accompany the fonts** in `assets/fonts/` inside the kit. Public Domain Day is the moment to release the accumulated.
@@ -680,7 +582,7 @@ source of that artifact.
 
 | Check | Rule | Verified by |
 |---|---|---|
-| `DS-01` | The starter kit is generated from this file, never edited in place | `[AUTO: scripts/generate-design-kit.mjs]` — extracts by the `kit:` markers |
+| `DS-01` | The published kit is generated from `packages/design-kit/`, never edited in place | `[AUTO: scripts/generate-design-kit.mjs --check]` — byte-identical |
 | `DS-02` | A value used in a piece exists in the published token file | `[MANUAL]` — `PRO-014` step 3 |
 | `DS-03` | Every public route meets WCAG 2.2 AA (§12) | `[AUTO: axe-core + Playwright, in numinia-web]` — `ARC-010` |
 | `DS-04` | Motion is one of the catalogued animations (§9.1) | `[MANUAL]` — `PRO-014` checklist |
