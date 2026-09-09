@@ -14,7 +14,7 @@ guild: "Alchemists"
 territory: "Archive"
 license: "CC0-1.0"
 tags: [standards, series, thresholds, registration]
-threshold: sealed
+threshold: governed
 related: ["STD-001", "STD-017", "STD-018", "STD-020", "CAN-004"]
 series_change: "1.0.0 — new standard, cut eleven under ADR-043: the rules that STD-001 carried as prose since v1, now plated. STD-001 keeps the tables."
 ---

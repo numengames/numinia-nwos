@@ -588,7 +588,7 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 12170,
+  "chars": 12172,
   "apparatus": false,
   "archived": false,
   "tokens": 2734
@@ -599,7 +599,7 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 34513,
+  "chars": 34515,
   "apparatus": false,
   "archived": false,
   "tokens": 7403
@@ -610,7 +610,7 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 10596,
+  "chars": 10598,
   "apparatus": false,
   "archived": false,
   "tokens": 2203
@@ -621,7 +621,7 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 13598,
+  "chars": 13600,
   "apparatus": false,
   "archived": false,
   "tokens": 3051
@@ -632,7 +632,7 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 9037,
+  "chars": 9039,
   "apparatus": false,
   "archived": false,
   "tokens": 2366
@@ -643,7 +643,7 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 16445,
+  "chars": 16447,
   "apparatus": false,
   "archived": false,
   "tokens": 3360
@@ -654,7 +654,7 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 12159,
+  "chars": 12161,
   "apparatus": false,
   "archived": false,
   "tokens": 2389
@@ -665,7 +665,7 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 26314,
+  "chars": 26316,
   "apparatus": false,
   "archived": false,
   "tokens": 6861
@@ -775,21 +775,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 11998,
+  "chars": 12000,
   "apparatus": false,
   "archived": false,
   "tokens": 3672
- },
- {
-  "path": "decisions/ADR-039-licensing-obligations-leave-canon.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "active",
-  "chars": 5021,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1330
  },
  {
   "path": "decisions/ADR-040-done-mission-deletion.md",
@@ -1413,10 +1402,10 @@
   "series": "reports",
   "type": "report",
   "status": "closed",
-  "chars": 5407,
+  "chars": 5879,
   "apparatus": false,
   "archived": false,
-  "tokens": 1681
+  "tokens": 1828
  },
  {
   "path": "standards/STD-001-the-series.md",
@@ -1424,10 +1413,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 4814,
+  "chars": 4816,
   "apparatus": false,
   "archived": false,
-  "tokens": 1557
+  "tokens": 1559
  },
  {
   "path": "standards/STD-003-platform-ranks.md",
@@ -1501,10 +1490,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3598,
+  "chars": 3682,
   "apparatus": false,
   "archived": false,
-  "tokens": 928
+  "tokens": 944
  },
  {
   "path": "standards/STD-010-licensing.md",
@@ -1512,7 +1501,7 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5420,
+  "chars": 5422,
   "apparatus": false,
   "archived": false,
   "tokens": 1473
@@ -1523,7 +1512,7 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5041,
+  "chars": 5043,
   "apparatus": false,
   "archived": false,
   "tokens": 1586
@@ -1545,7 +1534,7 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3343,
+  "chars": 3345,
   "apparatus": false,
   "archived": false,
   "tokens": 1118
@@ -1556,7 +1545,7 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3257,
+  "chars": 3259,
   "apparatus": false,
   "archived": false,
   "tokens": 869
@@ -1589,10 +1578,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3389,
+  "chars": 3449,
   "apparatus": false,
   "archived": false,
-  "tokens": 902
+  "tokens": 915
  },
  {
   "path": "standards/STD-018-one-document-one-identifier.md",
@@ -1600,7 +1589,7 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 2546,
+  "chars": 2548,
   "apparatus": false,
   "archived": false,
   "tokens": 681
@@ -1611,7 +1600,7 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 2466,
+  "chars": 2468,
   "apparatus": false,
   "archived": false,
   "tokens": 678
@@ -1622,7 +1611,7 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3385,
+  "chars": 3387,
   "apparatus": false,
   "archived": false,
   "tokens": 899
@@ -1633,7 +1622,7 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 2763,
+  "chars": 2765,
   "apparatus": false,
   "archived": false,
   "tokens": 751
@@ -1644,7 +1633,7 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 2128,
+  "chars": 2130,
   "apparatus": false,
   "archived": false,
   "tokens": 564
@@ -1666,7 +1655,7 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4217,
+  "chars": 4219,
   "apparatus": false,
   "archived": false,
   "tokens": 1116
@@ -1710,10 +1699,10 @@
   "series": null,
   "type": "adr",
   "status": "draft",
-  "chars": 3687,
+  "chars": 3617,
   "apparatus": true,
   "archived": false,
-  "tokens": 932
+  "tokens": 919
  },
  {
   "path": "templates/BLU-TEMPLATE.md",
@@ -1732,10 +1721,10 @@
   "series": null,
   "type": "seminal",
   "status": "draft",
-  "chars": 3264,
+  "chars": 3267,
   "apparatus": true,
   "archived": false,
-  "tokens": 800
+  "tokens": 803
  },
  {
   "path": "templates/DBT-TEMPLATE.md",
@@ -1853,10 +1842,10 @@
   "series": null,
   "type": "documentation",
   "status": "draft",
-  "chars": 2773,
+  "chars": 2702,
   "apparatus": true,
   "archived": false,
-  "tokens": 743
+  "tokens": 730
  },
  {
   "path": "templates/SYS-TEMPLATE.md",

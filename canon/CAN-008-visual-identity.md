@@ -13,7 +13,7 @@ guild: "Exegetes"
 territory: "Archive"
 tags: [canon, seminal, brand, design, direction]
 license: "CC0-1.0"
-threshold: sealed
+threshold: governed
 related: ["CAN-002", "STD-008", "STD-023", "PRO-014", "ADR-044"]
 ---
 

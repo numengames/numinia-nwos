@@ -17,9 +17,8 @@ guild: "Exegetes"
 territory: "Archive"
 tags: [canon, seminal]
 license: "CC0-1.0"
-# canon sits at the sealed threshold: it changes with the Oracle's signature
-threshold: sealed
-
+# canon sits at the governed threshold: it changes by an ADR or an approved PR
+threshold: governed
 # OPTIONAL — use when they apply, omit without guilt.
 # ratified_by: "ADR-NNN"            # the decision that sealed this text
 # supersedes_version: "1.2.0"

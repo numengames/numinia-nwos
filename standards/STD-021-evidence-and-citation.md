@@ -13,7 +13,7 @@ owner: "oracle"
 territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, evidence, citation, audits]
-threshold: sealed
+threshold: governed
 series_change: "1.0.0 — new standard, split from STD-009 under ADR-043. Rules keep their plates and their verifiers; the prose around them is the Why. Old §9 Citation and EVI-057 are one standard."
 ---
 

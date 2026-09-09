@@ -13,7 +13,7 @@ owner: "oracle"
 territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, git, archiving, redirects]
-threshold: sealed
+threshold: governed
 series_change: "1.0.0 — new standard, split from STD-009 under ADR-043. Rules keep their plates and their verifiers; the prose around them is the Why. Old §7 Git and §8 Archiving are one standard: retiring a document is a git operation."
 ---
 

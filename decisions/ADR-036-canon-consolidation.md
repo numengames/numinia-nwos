@@ -14,7 +14,7 @@ territory: "Archive"
 tags: [canon, taxonomy, series, prefixes, licensing, CC0, deletion, ADR-004, ADR-005, ADR-030, CAN-005]
 license: "CC-BY-4.0"
 related: ["MIS-127", "ADR-004", "ADR-005", "ADR-023", "ADR-026", "ADR-030", "ADR-035", "CAN-005", "PRO-010", "SYS-003", "DBT-001"]
-threshold: sealed
+threshold: governed
 supersedes_record_of: ["canon/INDEX.md", "canon/README.md"]
 ---
 

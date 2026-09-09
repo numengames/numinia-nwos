@@ -237,6 +237,8 @@ export default defineConfig({
 		"/decisions/adr-037": "/corpus/standards/std-015-engineering-checks",
 		"/decisiones/adr-038": "/corpus/standards/std-009-which-rule-wins",
 		"/decisions/adr-038": "/corpus/standards/std-009-which-rule-wins",
+		"/decisiones/adr-039": "/corpus/standards/std-010-licensing",
+		"/decisions/adr-039": "/corpus/standards/std-010-licensing",
 		// Two closed debts deleted the same day; their line is in the week's
 		// report (DEF-005).
 		"/corpus/debt/dbt-013-design-system-filename-not-frozen": "/reports/rpt-019-2026-w37",

@@ -26,7 +26,6 @@ license: "CC-BY-4.0"
 # amends: "STD-NNN"                 # a standard this narrows without superseding
 # supersedes: "ADR-NNN"             # the decision this replaces
 # superseded_by: "ADR-NNN"          # filled by the decision that replaces THIS one
-# threshold: sealed                 # when the decision amends canon/
 # related: ["MIS-NNNN"]
 ---
 
