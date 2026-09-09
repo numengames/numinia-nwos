@@ -3,11 +3,11 @@ title: "Glossary — the archive's own vocabulary"
 id: "STD-001"
 uid: ""
 type: documentation
-subtype: standard
+subtype: register
 status: active
-version: "4.0.0"
+version: "4.0.1"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-09-09T00:30:00+02:00"
+updated: "2026-09-09T11:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"

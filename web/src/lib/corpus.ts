@@ -221,7 +221,6 @@ const READING_ORDER: Record<string, string[]> = {
   // it never bound anything, and the canon already held the structure it named.
   standards: [
     "/corpus/standards/std-001-glossary",
-    "/corpus/standards/std-002-governance",
     "/corpus/standards/std-004-the-header",
     "/corpus/standards/std-016-header-fields",
     "/corpus/standards/std-003-platform-ranks",
