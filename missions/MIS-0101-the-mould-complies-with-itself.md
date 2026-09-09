@@ -6,7 +6,7 @@ status: todo
 priority: "high"
 effort: "M"
 guild: "Alchemists"
-territory: "TBA"
+territory: "Archive"
 type_execution: "digital"
 assigned_to: null
 started: null
