@@ -1265,6 +1265,17 @@
   "tokens": 1188
  },
  {
+  "path": "protocols/PRO-018-publishing-a-repository.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "draft",
+  "chars": 4809,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1310
+ },
+ {
   "path": "reports/RPT-003-wardley-map.md",
   "dir": "reports",
   "series": "reports",
@@ -1589,10 +1600,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 10298,
+  "chars": 10417,
   "apparatus": false,
   "archived": false,
-  "tokens": 2802
+  "tokens": 2832
  },
  {
   "path": "system/SYS-002-agent-cycle.md",
