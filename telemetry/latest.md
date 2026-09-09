@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-09T12:12:03Z"
+updated: "2026-09-09T12:25:14Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `2df4a70`  · corpus_hash: `081724d13e0a336a…`  · measured_at: 2026-09-09T12:12:03Z  · root_dirty: 0
+- head: `9bb512b`  · corpus_hash: `77d288272fff97c7…`  · measured_at: 2026-09-09T12:25:14Z  · root_dirty: 0
 
 ## corpus
 
@@ -208,10 +208,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 269562 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 268546 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
-| `tokens.missions_share_pct` | 15.96 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.missions_share_pct` | 16.02 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
 | `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
@@ -220,9 +220,9 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 |---|---|
 | missions | 43032 |
 | standards | 35017 |
-| canon | 30373 |
+| canon | 29352 |
 | agents | 25431 |
-| reports | 23469 |
+| reports | 23474 |
 | blueprints | 22838 |
 | operations | 21323 |
 | templates | 17276 |
@@ -239,7 +239,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| active | 158042 |
+| active | 157026 |
 | draft | 41297 |
 | done | 26350 |
 | todo | 13588 |
@@ -303,8 +303,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | role | 10 |
 | related_missions | 9 |
 | former_id | 8 |
-| former_id_note | 8 |
 | paths | 8 |
+| former_id_note | 7 |
 | depends_on | 6 |
 | started | 6 |
 | absorbs | 5 |
@@ -320,21 +320,18 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | opened_by | 3 |
 | parent_mission | 3 |
 | requested_by | 3 |
-| scope | 3 |
 | accuracy_warning | 2 |
 | human_approval_score | 2 |
 | provenance | 2 |
 | restoration_note | 2 |
+| scope | 2 |
 | sub_missions | 2 |
 | supersedes | 2 |
 | supersedes_version | 2 |
 | about | 1 |
-| authority | 1 |
 | blocked_by | 1 |
-| canonical_language | 1 |
 | consulted | 1 |
 | decision | 1 |
-| distributed_file | 1 |
 | evidence_head | 1 |
 | evidence_script | 1 |
 | fondos | 1 |
@@ -344,17 +341,12 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | language_note | 1 |
 | mission | 1 |
 | name | 1 |
-| normative_conventions | 1 |
-| out_of_scope | 1 |
 | outcome | 1 |
 | period | 1 |
 | previous_name | 1 |
 | previous_name_note | 1 |
-| public_guide | 1 |
-| reasoned_edition | 1 |
 | review_flags | 1 |
 | review_next | 1 |
-| revision_policy | 1 |
 | source_title | 1 |
 | superseded_by | 1 |
 | supersedes_record_of | 1 |
@@ -455,14 +447,14 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | 3 |
 |---|---|
-| STD | 585 |
+| STD | 579 |
 | MIS | 693 |
-| CAN | 132 |
-| ADR | 332 |
-| PRO | 211 |
+| CAN | 130 |
+| ADR | 331 |
+| PRO | 212 |
 | OPS | 38 |
 | RPT | 42 |
-| DBT | 76 |
+| DBT | 75 |
 | DEC | 13 |
 | SYS | 17 |
 | BLU | 113 |
@@ -516,7 +508,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `legacy.docs_total` | 159 | documents | every tracked path ending in .md (git ls-files '*.md'), web/ included, telemetry/ excluded |
 | `legacy.docs_con_frontmatter` | 150 | documents | docs_total whose text starts with a `---` block closed by a second `---` line |
 | `legacy.docs_sin_frontmatter` | 9 | documents | docs_total − docs_con_frontmatter |
-| `legacy.referencias_textuales_total` | 1347 | mentions | occurrences of `(MIS\|ADR\|DEC\|RPT\|AUD\|P\|C\|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included) |
+| `legacy.referencias_textuales_total` | 1345 | mentions | occurrences of `(MIS\|ADR\|DEC\|RPT\|AUD\|P\|C\|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included) |
 | `legacy.referencias_top` | (table below) | mentions | the six most-mentioned identifiers as [id, count]; ties keep first-seen order (Python Counter.most_common) |
 | `legacy.matricula` | (table below) | documents | per series dir (count-evidence order, 11 dirs — `system` absent, as in the script): con = filenames matching the scheme; total = docs in the dir minus _template/, reports/evidence/, apparatus (canonical name or type: meta) and dated filenames, as the replayed tool did; pct = 100·con/total rounded to 0.1 |
 | `legacy.excluidos` | (table below) | paths | the apparatus and dated-name paths removed from the matricula denominators, in scan order |

@@ -632,10 +632,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "active",
-  "chars": 9047,
+  "chars": 4989,
   "apparatus": false,
   "archived": false,
-  "tokens": 2368
+  "tokens": 1347
  },
  {
   "path": "canon/CAN-006-epistemic-relations.md",
@@ -1237,10 +1237,10 @@
   "series": "reports",
   "type": "report",
   "status": "active",
-  "chars": 35204,
+  "chars": 35222,
   "apparatus": false,
   "archived": false,
-  "tokens": 10716
+  "tokens": 10721
  },
  {
   "path": "reports/RPT-018-alpha-story.md",
