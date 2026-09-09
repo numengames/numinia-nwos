@@ -4,9 +4,9 @@ uid: ""
 title: "Web pieces"
 type: blueprint
 status: active
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-09T11:00:00+02:00"
+updated: "2026-09-09T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -14,7 +14,7 @@ tags: [blueprint, design, recipes]
 license: "CC0-1.0"
 related_missions: ["MIS-0146"]
 related: ["STD-008", "STD-023", "CAN-008"]
-extraction_note: "Extracted verbatim from STD-008 v6.1.0 (old §2.4–2.5, 3.1–3.2, 3.4, 5.1–5.3, 6.2, 6.4, 7.2–7.3, 8.1–8.5, 8.7–8.8, 9.2–9.3, 12) under ADR-043 and ADR-044: recipes leave the standard; the standard keeps the rules, the register keeps the values."
+extraction_note: "Extracted verbatim from STD-008 v6.1.0 (old §2.4–2.5, 3.1–3.2, 3.4, 5.1–5.3, 6.2, 6.4, 7.2–7.3, 8.1–8.5, 8.7–8.8, 9.2–9.3, 12) under ADR-043 and ADR-044: recipes leave the standard; the standard keeps the rules, the register keeps the values. Sections 12–13 came from PRO-014 v1.1.0 (then its sections 6.2 and 6.6) on 2026-09-09."
 ---
 
 <!--
@@ -110,7 +110,7 @@ Rules: one patina per piece; the patina does not change the palette — it inter
 A custom icon only if Phosphor does not cover the concept; it is drawn on its grid and proposed here as an extension. **The scarab and the Moon are not icons: they are marks** — the sequence marker's phases are built as a proper geometric glyph, not with Phosphor's `moon`.
 
 ### The mode switch
-The `moon-stars` / `sun` pair is one piece, not two loose icons. **Hard rule: the icon shows the mode a tap leads to, not the mode you are in** — the moon with stars invites the Nocturno, the sun invites the Diurno. Only one visible at a time, in `regular` 20 px, among the bar's utilities (`PRO-014` section 6.2). Behavior canonized from production: while nobody chooses, the page **follows the operating system** and changes with it at nightfall; an explicit choice ends the following and is remembered; the preference is applied **before painting** so the page does not flash. The state is written on the document as `data-modo`, and its **absence means Nocturno** — light mode is always declared explicitly.
+The `moon-stars` / `sun` pair is one piece, not two loose icons. **Hard rule: the icon shows the mode a tap leads to, not the mode you are in** — the moon with stars invites the Nocturno, the sun invites the Diurno. Only one visible at a time, in `regular` 20 px, among the bar's utilities (`BLU-009` §12). Behavior canonized from production: while nobody chooses, the page **follows the operating system** and changes with it at nightfall; an explicit choice ends the following and is remembered; the preference is applied **before painting** so the page does not flash. The state is written on the document as `data-modo`, and its **absence means Nocturno** — light mode is always declared explicitly.
 
 ## 6. Brand: how yes, how no
 
@@ -129,7 +129,7 @@ All demonstrated live in `index.html`.
 
 | Type | Style | When |
 |---|---|---|
-| **Primary** | Action fill `#017C8D`, white text | The main action. **One per view**. On Platform, the primary is ink (`PRO-014` section 6.11) |
+| **Primary** | Action fill `#017C8D`, white text | The main action. **One per view**. On Platform, the primary is ink (`BLU-014`) |
 | **Ghost** | Transparent, `linea.fuerte` border; hover border+text Verdemar | Secondary action |
 | **Quiet** | Verdemar text only, underline on hover | Tertiary action |
 | **Destructive** | Grana fill, white text | Irreversible. **Confirmation mandatory. Never next to the primary** |
@@ -203,3 +203,37 @@ The full text MUST be in the DOM before animating (SEO and accessibility): `aria
 
 ---
 
+## 12. The web page
+
+Nocturno, 12 col ≤1280 px, hero = the thesis with relief at the back and headline typing (the orchestrated moment); level II on home, I/III on inner pages; LCP < 2.5 s, < 1 MB initial; fonts and icons self-hosted.
+
+**Hero skeleton** (annotated; the piece's only orchestrated moment):
+
+```html
+<section class="hero"><!-- background: var(--fondo) url(assets/textura-relieve-nocturno-768.webp) center/cover -->
+  <div class="marca"><!-- isotipo del escarabajo 44px + wordmark 20px, ambos en var(--arena) --></div>
+  <h1 data-tecleo>La tesis en una frase, con <span style="color:var(--ambar)">una palabra</span> en Ámbar.</h1>
+  <p class="sub"><!-- cuerpo.l, texto-2, máx 56ch, nivel II --></p>
+  <a class="btn btn-primario" href="#"><!-- verbo exacto; ÚNICO primario de la vista --></a>
+  <div class="binaria" aria-hidden="true">0100110001100101…xxxx</div><!-- la frase del canon en 8 bits: `BLU-009` §3 · binaria() del kit -->
+</section>
+```
+
+Following sections: `eyebrow` → `h2` → prose/cards with `.reveal`; at most one signal `barrido` per view.
+
+**The menu** (web and public platform): one-line top bar — wordmark on the left; **≤5 entries** in Mono `type.etiqueta` uppercase; utilities on the right (language, mode, GitHub/X) as Phosphor `regular` 20 px icons; active entry with a 2 px Ámbar underline; on mobile, a full-screen panel with the same entries and nothing else. The menu is skin, not architecture: which entries exist is each product's decision.
+
+## 13. Product and interface
+
+Nocturno by default, level I, Turquesa for the interactive, Phosphor by weight (`STD-023` §10), rarity (`STD-023` §4) where objects and rewards exist.
+
+## Check
+
+After the general checklist of `PRO-014` §4, and before delivering:
+
+- [ ] Hero = the thesis with relief at the back and headline typing: the only orchestrated moment; at most one `barrido` per view.
+- [ ] Menu: ≤5 entries in Mono uppercase; active with a 2 px Ámbar underline; mobile = full-screen panel, nothing else.
+- [ ] LCP < 2.5 s, < 1 MB initial; fonts and icons self-hosted.
+- [ ] Controls (§9): active in ink, label always, modal with the canonical veil and trapped focus, `aria-sort` on tables, bar only with a real percentage.
+- [ ] Messages (§8): cause + way out, never mute.
+- [ ] Era only through sanctioned devices: `1920 · 2020 · 2120` seal, single patina (§4); with them removed, still the System's.

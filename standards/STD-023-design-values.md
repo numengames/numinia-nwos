@@ -5,9 +5,9 @@ title: "Design values"
 type: documentation
 subtype: register
 status: active
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-09T11:00:00+02:00"
+updated: "2026-09-09T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -166,7 +166,7 @@ All normalized to `fill="currentColor"`, in `/assets/`.
 | `pixel/khepri-sprite-24.png` | Canonical scarab sprite | 24×24 px | Pixel register; the brand's only pixel translation |
 | `pixel/moneda-12.png` | Ámbar coin (corrected to the Solar ramp) | 12×12 px | The register's example object; tokens, rewards |
 | `pixel/moneda-giro-12x4.png` | The coin's turn sheet | 48×12 px · 4 frames | Canonical reference cycle: 200 ms · steps(4) · stable volume |
-| `pixel/cartografo-24.png` | The Cartographer | 24×24 px | Reference character of the `PRO-014` section 6.9 pipeline; status [EXTENSION — validate] |
+| `pixel/cartografo-24.png` | The Cartographer | 24×24 px | Reference character of the `BLU-010` production pipeline; status [EXTENSION — validate] |
 | `pixel/guia/` | Didactic how-yes / how-no pairs | 16×16 px ×1 and ×8 | Production-guide material; not game assets |
 | `fonts/PixelifySans-Variable.woff2` | Pixel typeface | variable 400–700 | Dialogue and display of the pixel register |
 | `marca/glifo-space.svg` | *Space* glyph (the wordmark's n) | 31×29 | Brand play (`CAN-008`, the glyphs): the space, the territory |
@@ -202,7 +202,7 @@ Selection: horizontal by default → vertical in square → NG under 120 px → 
 | **10** | **Surfacing** — knowledge comes out of the fog [5.0.0] | `560 ms` · ciclo; opacity 0→1 + `blur(8px)→0` + 8 px rise; on entering the viewport, once | Velo register: archive, Summa, sheets upon opening, revelations | Functional interface; long lists (reveal 02 suffices); Diurno; corporate Umbral |
 | **11** | **Crystallization** — the glass materializes [5.0.0] | `320 ms` · ciclo; `backdrop-blur 0→12px` + border 0→50 % + opacity | Velo panels and modals (`BLU-009`) | Outside the Velo; over backgrounds without atmosphere |
 | **12** | **Page turn** — **RETIRED in 5.1.0 (H5)** | 5.0.0 registered it "to be verified against the LAP"; verification came back empty: the codex does not animate the page turn — the only living thing in that view is the Trazo (13). The number is not reused (append-only catalogue); if someday the paper turns pages with animation, it will enter as a new piece with its own specs | — | — |
-| **13** | **Trazo** — the corners draw themselves [5.0.0 · in production] | `1.6 s` · ease · `stroke-dashoffset: 340 → 0`; four engraving frames staggered at `120 ms` | Book cover and chapter opening (`PRO-014` section 6.12) — it **is** that view's orchestrated moment | Interface; re-firing on scroll; alongside another orchestrated moment |
+| **13** | **Trazo** — the corners draw themselves [5.0.0 · in production] | `1.6 s` · ease · `stroke-dashoffset: 340 → 0`; four engraving frames staggered at `120 ms` | Book cover and chapter opening (`BLU-011`, the living paper) — it **is** that view's orchestrated moment | Interface; re-firing on scroll; alongside another orchestrated moment |
 | **14** | **Sky** — the Velo's background breathes [5.0.0 · in production] | Drift of `±0.06 px`/frame with reappearance on the opposite side + alpha oscillating between `.05` and `.85` at its own rhythm (`.002–.006`) | Background of the Velo register (the sky, below) — **the only sanctioned exception** to the ambient-loop veto | Over long reading; with parallax; reacting to cursor or scroll |
 
 The first three 5.0.0 pieces (10–12) are **transitions, not loops** and **invent no durations**: they reuse `duration.largo` (560) and `duration.medio` (320). The **trazo** (13) arrives measured from production with its own `1.6 s` — it is the catalogue's only new duration, and it is justified because drawing four corners faster turns them into a blink. The **sky** (14) is the only sanctioned exception to the ambient-loop veto (DSN-012): it is authorized because it is the **register's background**, not a view's ornament — and that is why it reacts to nothing. The codex's **reading moon** is not a new animation: it is the lunar phase (06) demonstrated in production. 10–12 belong to the Velo register and the living paper; the 01–09 catalogue serves Umbral and Velo alike. The orchestrated moment remains **one per piece**. With `prefers-reduced-motion`, surfacing and crystallization appear instantly: opacity is kept, blur and displacement are removed.

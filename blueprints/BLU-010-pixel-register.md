@@ -4,9 +4,9 @@ uid: ""
 title: "The pixel register"
 type: blueprint
 status: active
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-09T11:00:00+02:00"
+updated: "2026-09-09T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -14,7 +14,7 @@ tags: [blueprint, design, recipes]
 license: "CC0-1.0"
 related_missions: ["MIS-0146"]
 related: ["STD-008", "STD-023", "CAN-008"]
-extraction_note: "Extracted verbatim from STD-008 v6.1.0 (old §2.7.2–2.7.3, 3.5, 4.1, 8.6, 9.4, 11) under ADR-043 and ADR-044: recipes leave the standard; the standard keeps the rules, the register keeps the values."
+extraction_note: "Extracted verbatim from STD-008 v6.1.0 (old §2.7.2–2.7.3, 3.5, 4.1, 8.6, 9.4, 11) under ADR-043 and ADR-044: recipes leave the standard; the standard keeps the rules, the register keeps the values. Sections 7–8 came from PRO-014 v1.1.0 (then its sections 6.9 and 6.10) on 2026-09-09."
 ---
 
 <!--
@@ -135,3 +135,39 @@ An interactive object MUST be locatable through at least two channels: silhouett
 | Keep the same origin and volume across frames | Let the character tremble through outline changes |
 | Use nostalgia as production grammar | Copy proprietary compositions, characters or interfaces |
 
+## 7. Production pipeline of a scene
+
+*The blueprint in one line:* Nocturno, level II; Píxel-16 index with neutral dominance ≥60 %; sprites on 24/12/48 grids with Noche outline; Pixelify at multiples; dialogue typed and colored by speaker; integer scaling with `pixelated`; the register is entered and left completely.
+
+1. **Declare function and level.** Write what the person must understand, discover or do; confirm that level II is justified.
+2. **Choose the grid.** Assign `12×12`, `24×24` and `48×48` modules before drawing. Inventory assets and states.
+3. **Mass thumbnail.** Compose background, play plane, foreground and focus with neutrals only. Verify the 40/40/20 dose by squinting.
+4. **Silhouettes.** Resolve characters and interactive objects in one color. Test direction, pose and hierarchy at ×1.
+5. **Values and light.** Add shadow, body and light from top-left; lock cast shadows before the details.
+6. **Assign ramps.** Choose ramps from `STD-023` §6, keep neutrals ≥60 % and reserve accents for function or story.
+7. **Build clusters.** Clean isolated pixels, regularize diagonals, apply selective outline and use dithering only where `BLU-010` §1 allows it.
+8. **Add interface and text.** Integrate `BLU-010` §4 components, AA contrast, visible focus and a reduced-motion alternative.
+9. **Animate from key poses.** Select 2–4 frames and a `BLU-010` §5 cadence. Test the cycle at ×1 without smoothing.
+10. **Export and validate.** Export the master as indexed PNG; sprite sheets with uniform cells; check palette, transparency, integer scale, weight, names and absence of colors outside Píxel-16.
+
+## 8. Minimum deliverables
+
+| Deliverable | Must contain |
+|---|---|
+| **Editable master** | indexed mode, ordered Píxel-16 palette, named layers or groups, labelled frames |
+| **Individual PNG** | native dimensions, binary transparency, no smoothing or rescaling |
+| **Sprite sheet** | uniform cells, same origin, documented sequence, no accidental margin between frames |
+| **Asset sheet** | function, grid, states, ramp, duration, anchor point, alt text if applicable |
+| **QA capture** | ×1 view and integer scale, real background, focus state and reduced-motion variant |
+
+**Exit criterion:** the asset is approved first at ×1. Magnification only demonstrates; it never rescues.
+
+## Check
+
+After the general checklist of `PRO-014` §4, and before delivering:
+
+- [ ] Píxel-16 only, neutrals ≥60 %, Grana without dialogue, 12/24/48 grid, integer scaling with `pixelated`, Noche outline, Pixelify at multiples, the canonical scarab sprite; full register entry and exit; never in level III.
+- [ ] Produced at ×1: legible silhouette, continuous clusters, regular diagonals, no *pillow shading*, top-left light, 2–4 colours per material, dithering only between adjacent colours, no decorative loose pixels.
+- [ ] Sprites: stable cells and anchors, 2–4 frames, 120/200/320 ms, no interpolation or subpixel; reduced motion shows the most informative pose.
+- [ ] Export: indexed PNG, binary transparency, palette verified, uniform sprite sheet, ×1 test + integer scale + minimum viewport.
+- [ ] The five deliverables of §8, approved first at ×1.
