@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-09T13:32:47Z"
+updated: "2026-09-09T14:34:20Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `32108a5`  · corpus_hash: `f6f23a54fd0349e0…`  · measured_at: 2026-09-09T13:32:47Z  · root_dirty: 0
+- head: `2ab1f51`  · corpus_hash: `d01bf1397dc0e7be…`  · measured_at: 2026-09-09T14:34:20Z  · root_dirty: 0
 
 ## corpus
 
@@ -203,10 +203,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 265498 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 265802 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
-| `tokens.missions_share_pct` | 16.22 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.missions_share_pct` | 16.2 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
 | `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
@@ -214,15 +214,15 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | tokens |
 |---|---|
 | missions | 43062 |
-| standards | 34961 |
+| standards | 35192 |
 | canon | 29352 |
 | agents | 26724 |
 | reports | 23474 |
 | blueprints | 22838 |
 | operations | 21323 |
-| templates | 15732 |
+| templates | 15800 |
 | protocols | 14390 |
-|  | 13109 |
+|  | 13114 |
 | system | 9652 |
 | decisions | 6582 |
 | debt | 3722 |
@@ -232,12 +232,11 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| active | 151801 |
-| draft | 42861 |
+| active | 163313 |
+| draft | 44774 |
 | done | 26350 |
 | todo | 13588 |
-| (none) | 13139 |
-| closed | 13117 |
+| (none) | 13135 |
 | in-progress | 4642 |
 
 ### `tokens.largest`
@@ -403,7 +402,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `contradictions.status_vocabulary_used` | (table below) | documents | frontmatter status values in the corpus with counts |
-| `contradictions.status_vocabulary_undeclared` | (table below) | documents | status values in use that scripts/lib/rules.json does not declare (mission ∪ adr ∪ _default), with the docs carrying them — a contradiction between a document and the vocabulary |
+| `contradictions.status_vocabulary_undeclared` | (table below) | documents | status values in use that scripts/lib/rules.json does not declare (STD-016 lifecycles), with the docs carrying them — a contradiction between a document and the vocabulary |
 | `contradictions.ci_markers_std001` | 31 | rows | table rows of STD-001 carrying `[CI]` |
 | `contradictions.ci_marked_scripts_not_in_ci` | (table below) | scripts | scripts a `[CI]` row names that ci.yml runs in no `run: node` step — a norm claiming a machine check that does not happen |
 | `contradictions.ci_scripts_not_marked` | (table below) | scripts | scripts ci.yml runs that no `[CI]` row of STD-001 names — a check the norm does not claim |
@@ -418,12 +417,11 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | documents |
 |---|---|
-| active | 89 |
-| draft | 35 |
+| active | 92 |
+| draft | 36 |
 | todo | 5 |
 | done | 6 |
 | in-progress | 1 |
-| closed | 4 |
 
 ### `contradictions.status_vocabulary_undeclared`
 
@@ -441,7 +439,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | 3 |
 |---|---|
-| STD | 585 |
+| STD | 597 |
 | ADR | 342 |
 | MIS | 675 |
 | CAN | 143 |

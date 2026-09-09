@@ -82,10 +82,10 @@
   "series": null,
   "type": "documentation",
   "status": "active",
-  "chars": 5875,
+  "chars": 5898,
   "apparatus": true,
   "archived": false,
-  "tokens": 1515
+  "tokens": 1520
  },
  {
   "path": "SECURITY.md",
@@ -1148,7 +1148,7 @@
   "dir": "reports",
   "series": "reports",
   "type": "report",
-  "status": "closed",
+  "status": "active",
   "chars": 18877,
   "apparatus": false,
   "archived": false,
@@ -1159,7 +1159,7 @@
   "dir": "reports",
   "series": "reports",
   "type": "report",
-  "status": "closed",
+  "status": "active",
   "chars": 18152,
   "apparatus": false,
   "archived": false,
@@ -1192,7 +1192,7 @@
   "dir": "reports",
   "series": "reports",
   "type": "report",
-  "status": "closed",
+  "status": "active",
   "chars": 9657,
   "apparatus": false,
   "archived": false,
@@ -1204,10 +1204,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 4627,
+  "chars": 4362,
   "apparatus": false,
   "archived": false,
-  "tokens": 1479
+  "tokens": 1398
  },
  {
   "path": "standards/STD-003-platform-ranks.md",
@@ -1357,11 +1357,11 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "active",
-  "chars": 5116,
+  "status": "draft",
+  "chars": 6228,
   "apparatus": false,
   "archived": false,
-  "tokens": 1563
+  "tokens": 1868
  },
  {
   "path": "standards/STD-017-who-may-change-what.md",
@@ -1369,10 +1369,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3449,
+  "chars": 3408,
   "apparatus": false,
   "archived": false,
-  "tokens": 915
+  "tokens": 904
  },
  {
   "path": "standards/STD-018-one-document-one-identifier.md",
@@ -1402,10 +1402,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3387,
+  "chars": 3444,
   "apparatus": false,
   "archived": false,
-  "tokens": 899
+  "tokens": 917
  },
  {
   "path": "standards/STD-021-evidence-and-citation.md",
@@ -1501,10 +1501,10 @@
   "series": null,
   "type": "adr",
   "status": "draft",
-  "chars": 3617,
+  "chars": 3655,
   "apparatus": true,
   "archived": false,
-  "tokens": 919
+  "tokens": 933
  },
  {
   "path": "templates/BLU-TEMPLATE.md",
@@ -1512,10 +1512,10 @@
   "series": null,
   "type": "blueprint",
   "status": "draft",
-  "chars": 3089,
+  "chars": 3112,
   "apparatus": true,
   "archived": false,
-  "tokens": 785
+  "tokens": 793
  },
  {
   "path": "templates/CAN-TEMPLATE.md",
@@ -1523,10 +1523,10 @@
   "series": null,
   "type": "seminal",
   "status": "draft",
-  "chars": 3267,
+  "chars": 3290,
   "apparatus": true,
   "archived": false,
-  "tokens": 803
+  "tokens": 811
  },
  {
   "path": "templates/DBT-TEMPLATE.md",
@@ -1534,10 +1534,10 @@
   "series": null,
   "type": "documentation",
   "status": "active",
-  "chars": 3630,
+  "chars": 3635,
   "apparatus": true,
   "archived": false,
-  "tokens": 937
+  "tokens": 941
  },
  {
   "path": "templates/MIS-TEMPLATE-CHANGES.md",
@@ -1578,10 +1578,10 @@
   "series": null,
   "type": "documentation",
   "status": "active",
-  "chars": 3064,
+  "chars": 3087,
   "apparatus": true,
   "archived": false,
-  "tokens": 786
+  "tokens": 794
  },
  {
   "path": "templates/PRO-TEMPLATE.md",
@@ -1589,10 +1589,10 @@
   "series": null,
   "type": "protocol",
   "status": "draft",
-  "chars": 3475,
+  "chars": 3498,
   "apparatus": true,
   "archived": false,
-  "tokens": 877
+  "tokens": 885
  },
  {
   "path": "templates/README.md",
@@ -1600,21 +1600,21 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 4631,
+  "chars": 4629,
   "apparatus": true,
   "archived": false,
-  "tokens": 1280
+  "tokens": 1276
  },
  {
   "path": "templates/RPT-TEMPLATE.md",
   "dir": "templates",
   "series": null,
   "type": "report",
-  "status": "closed",
-  "chars": 4473,
+  "status": "active",
+  "chars": 4528,
   "apparatus": true,
   "archived": false,
-  "tokens": 1136
+  "tokens": 1150
  },
  {
   "path": "templates/STD-TEMPLATE.md",
@@ -1622,7 +1622,7 @@
   "series": null,
   "type": "documentation",
   "status": "draft",
-  "chars": 2702,
+  "chars": 2694,
   "apparatus": true,
   "archived": false,
   "tokens": 730
@@ -1633,9 +1633,9 @@
   "series": null,
   "type": "documentation",
   "status": "active",
-  "chars": 3235,
+  "chars": 3258,
   "apparatus": true,
   "archived": false,
-  "tokens": 809
+  "tokens": 817
  }
 ]
