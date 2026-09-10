@@ -14,15 +14,21 @@
 //               nearly deleted 90 lines); isApparatus/isTemplate agree with
 //               the three lists they replaced on the cases that used to differ.
 //
-// Run: node scripts/test/rules.test.mjs   (exit 1 on any failure)
+// Run: npm test
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { ROOT, NESTED, parseFM, loadRules, seriesDirs, prefixToDir, isApparatus, isTemplate } from '../lib/frontmatter.mjs';
 
-const results = [];
-const check = (name, fn) => { try { const r = fn(); results.push({ name, ok: r !== false && typeof r !== 'string', note: typeof r === 'string' ? r : '' }); } catch (e) { results.push({ name, ok: false, note: e.message }); } };
+import test from 'node:test';
+/* A case returns true, false, or a string: a string starting `skipped:` is a
+   named skip; any other string is the reason it failed. */
+const check = (name, fn) => test(name, (t) => {
+  const r = fn();
+  if (typeof r === 'string' && r.startsWith('skipped:')) return t.skip(r.slice(8).trim());
+  if (r === false || typeof r === 'string') throw new Error(typeof r === 'string' ? r : 'returned false');
+});
 const rules = loadRules();
 
 check('rules.json: every series carries prefix[] and digits', () =>
@@ -93,7 +99,3 @@ check('isApparatus: type meta, canonical basenames, template family', () =>
 check('isTemplate: the two families lint-frontmatter exempted from HDR-006', () =>
   isTemplate('agents/_template/README.md') && isTemplate('missions/TEMPLATE.md') && isTemplate('missions/TEMPLATE-CHANGES.md') && !isTemplate('missions/MIS-0001-x.md'));
 
-const failed = results.filter((r) => !r.ok);
-for (const r of results) console.log(`${r.ok ? '✓' : '✖'} ${r.name}${r.note ? ` — ${r.note}` : ''}`);
-console.log(`\n${results.length - failed.length} passed, ${failed.length} failed`);
-process.exit(failed.length ? 1 : 0);

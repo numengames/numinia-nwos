@@ -8,19 +8,11 @@
  * marks it [MANUAL] — there is no third kind. The mapping is 1:1 BY
  * CONSTRUCTION: read STD-016 (the field register) side by side with CHECKS below.
  *
- *   node scripts/lint-frontmatter.mjs                  # verify vs baseline
+ *   node scripts/lint-frontmatter.mjs                  # every finding; exit 1 only if one binds
  *   node scripts/lint-frontmatter.mjs --report         # full detail, exit 0
- *   node scripts/lint-frontmatter.mjs --write-baseline # freeze current state
  *
- * Enforcement pattern (ENG-033): strict on the delta, baseline on the
- * stock. Violations present at adoption are frozen in
- * scripts/frontmatter-baseline.json — allowed to exist, not to grow.
- * The baseline's size is the corpus's public entropy metric; migrations
- * (D-009, D-010, ...) shrink it. Zero is the finish line.
- *
- * STD-004 is a DRAFT until the Oracle signs. So is this lint's authority:
- * it runs, it reports, it ratchets — it does not gate CI until the
- * Oracle wires it there (D-017: workflows are Oracle territory).
+ * Every finding is printed. Whether one fails the build is the regime's
+ * call (ENG-067): only while the standard holding its plate is `active`.
  *
  * WHAT THIS GUARD DOES NOT CHECK (D-025 — declare your blindness):
  *
@@ -36,7 +28,7 @@
  *    for weeks while every guard here stayed green. Nothing in this file
  *    reads web/.
  */
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -53,10 +45,8 @@ declareBlindSpots('lint-frontmatter');
 const RULES = loadRules();
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const BASELINE = path.join(ROOT, 'scripts', 'frontmatter-baseline.json');
 const args = process.argv.slice(2);
 const REPORT = args.includes('--report');
-const WRITE = args.includes('--write-baseline');
 
 /* ---------------- STD-004 HDR-030: the three rings ---------------- */
 /* MIS-145 v2 (2026-09-04): the registry moved to scripts/lib/rings.mjs when
@@ -317,20 +307,9 @@ for (const rel of files) {
       F('HDR-030', rel, `field "${k}" is in no ring and not registered for ${top}/ (STD-016, Ring 3)`);
 }
 
-/* ---------------- baseline ratchet ---------------- */
+/* ---------------- verdict ---------------- */
 
 const keys = findings.map((f) => `${f.check} ${f.file} :: ${f.detail}`).sort();
-
-if (WRITE) {
-  writeFileSync(BASELINE, JSON.stringify({
-    _comment: 'Frontmatter violations frozen at adoption (ENG-033). The lint fails only on NEW ones. This list shrinks with each migration and never grows; its size is the corpus entropy metric.',
-    generated: new Date().toISOString(),
-    count: keys.length,
-    entries: keys,
-  }, null, 1) + '\n');
-  console.log(`baseline written: ${keys.length} findings frozen`);
-  process.exit(0);
-}
 
 const byCheck = {};
 for (const f of findings) byCheck[f.check] = (byCheck[f.check] || 0) + 1;
@@ -357,24 +336,9 @@ if (REPORT) {
   process.exit(0);
 }
 
-const baseline = existsSync(BASELINE)
-  ? new Set(JSON.parse(readFileSync(BASELINE, 'utf8')).entries)
-  : new Set();
-const fresh = keys.filter((k) => !baseline.has(k));
-const healed = [...baseline].filter((k) => !keys.includes(k));
-
-console.log(`lint-frontmatter: ${findings.length} findings (${baseline.size} baselined) — ${summary}`);
+console.log(`lint-frontmatter: ${findings.length} findings — ${summary}`);
 const dl = deferralLine();
 if (dl) console.log(`deferred values (ADR-028):\n${dl}`);
-if (healed.length) console.log(`  ${healed.length} baselined finding(s) healed — regenerate the baseline to bank the progress`);
-/* ENG-067: a NEW finding fails the build only while the standard holding
-   its plate is active. The baseline is unchanged by this; it says what is
-   old, the regime says what bites. */
-if (fresh.length) {
-  console.log(`\nNEW violations (not in baseline):\n`);
-  const out = new Findings('lint-frontmatter');
-  for (const k of fresh) { const m = /^(\S+) (\S+) :: (.*)$/.exec(k); out.add(m[1], m[3], m[2]); }
-  out.finish();
-} else {
-  console.log('no new violations — the ratchet holds');
-}
+const out = new Findings('lint-frontmatter');
+for (const k of keys) { const m = /^(\S+) (\S+) :: (.*)$/.exec(k); out.add(m[1], m[3], m[2]); }
+out.finish();

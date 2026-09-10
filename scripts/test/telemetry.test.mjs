@@ -10,7 +10,7 @@
 //             (registered/total/apparatus) while count-evidence.py still exists (criterion 2).
 //   TRUTH     three fixtures counted by hand in a scratch clone come back as counted.
 //
-// Run: node scripts/test/telemetry.test.mjs
+// Run: npm test
 import { execFileSync, spawnSync } from 'node:child_process';
 import { existsSync, mkdirSync, mkdtempSync, writeFileSync, readFileSync, readdirSync, rmSync, cpSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -25,9 +25,14 @@ import { ROOT } from '../lib/frontmatter.mjs';
    EPERM). scratchClone also turns gc off, which removes the usual writer. */
 const rmTree = (p) => rmSync(p, { recursive: true, force: true, maxRetries: 10, retryDelay: 100 });
 
-const results = [];
-// a check returns true, false, or a string; a string starting `skipped:` is a named skip (counted, never a failure)
-const check = (name, fn) => { try { const r = fn(); const skip = typeof r === 'string' && r.startsWith('skipped:'); results.push({ name, ok: skip || (r !== false && typeof r !== 'string'), skip, note: typeof r === 'string' ? r : '' }); } catch (e) { results.push({ name, ok: false, note: e.message.split('\n')[0] }); } };
+import test from 'node:test';
+/* A case returns true, false, or a string: a string starting `skipped:` is a
+   named skip; any other string is the reason it failed. */
+const check = (name, fn) => test(name, (t) => {
+  const r = fn();
+  if (typeof r === 'string' && r.startsWith('skipped:')) return t.skip(r.slice(8).trim());
+  if (r === false || typeof r === 'string') throw new Error(typeof r === 'string' ? r : 'returned false');
+});
 const run = (cwd) => JSON.parse(execFileSync('node', [path.join(cwd, 'scripts/telemetry.mjs'), '--print'], { cwd, encoding: 'utf8' }));
 
 const t1 = run(ROOT); const t2 = run(ROOT);
@@ -176,8 +181,3 @@ function scratchClone() {
   return dir;
 }
 
-const failed = results.filter((r) => !r.ok);
-for (const r of results) console.log(`${r.skip ? '○' : r.ok ? '✓' : '✖'} ${r.name}${r.note ? ` — ${r.note}` : ''}`);
-const skipped = results.filter((r) => r.skip).length;
-console.log(`\n${results.length - failed.length - skipped} passed, ${failed.length} failed, ${skipped} skipped`);
-process.exit(failed.length ? 1 : 0);

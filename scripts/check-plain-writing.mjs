@@ -24,30 +24,23 @@
  * manual. It is an editorial judgment; a script claiming to measure it would
  * be lying about what it can see.
  *
- *   node scripts/check-plain-writing.mjs              # verify against baseline
+ *   node scripts/check-plain-writing.mjs              # every finding; exit 1 only if one binds
  *   node scripts/check-plain-writing.mjs --report     # full detail, exit 0
- *   node scripts/check-plain-writing.mjs --write-baseline
  *
- * Baseline, same ratchet as the reference lint: the five standards that
- * predate STD-007 do not conform, and STD-007 itself says they conform when
- * next substantively reopened, not by sweep. Failing on day one on damage the
- * standard explicitly grandfathers would mean the check never gets adopted.
- * Current violations freeze in scripts/plain-writing-baseline.json; the guard
- * fails only on NEW ones.
+ * Every finding is printed. Whether one fails the build is the regime's
+ * call (ENG-067): only while STD-007 is `active`.
  */
 import { declareBlindSpots } from './lib/blindness.mjs';
 import { Findings } from './lib/regime.mjs';
 declareBlindSpots('check-plain-writing');
 import { execFileSync } from 'node:child_process';
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const BASELINE = path.join(ROOT, 'scripts', 'plain-writing-baseline.json');
 
 const REPORT = process.argv.includes('--report');
-const WRITE = process.argv.includes('--write-baseline');
 
 /* Every series prefix that can appear as a citation. Kept literal rather than
    derived from rules.json: this lint asks "does this look like an ID to a
@@ -123,20 +116,7 @@ for (const rel of files) {
   }
 }
 
-const key = f => `${f.check} ${f.file} ${f.token}`;
-const current = findings.map(key);
-
-if (WRITE) {
-  const uniq = [...new Set(current)].sort();
-  writeFileSync(BASELINE, JSON.stringify(uniq, null, 2) + '\n');
-  console.log(`plain-writing: baseline written — ${uniq.length} known violation(s) frozen.`);
-  process.exit(0);
-}
-
-const baseline = existsSync(BASELINE) ? new Set(JSON.parse(readFileSync(BASELINE, 'utf8'))) : new Set();
-const fresh = findings.filter(f => !baseline.has(key(f)));
-
-console.log(`plain-writing lint (STD-007): ${files.length} standards · ${findings.length} violation(s) · ${baseline.size} baselined`);
+console.log(`plain-writing lint (STD-007): ${files.length} standards · ${findings.length} violation(s)`);
 
 if (REPORT) {
   for (const f of findings) console.log(`  ${f.check} ${f.file}:${f.line || '-'} :: ${f.token}`);
@@ -145,12 +125,9 @@ if (REPORT) {
 
 /* ENG-067: PW-01 (bare id in prose), PW-02 (section pointer) and PW-03 (id
    missing from References) are the three faces of DOC-008, "cite plates, not
-   places"; a NEW one binds by STD-007's state. */
-if (fresh.length) {
-  console.log(`\n✗ ${fresh.length} NEW STD-007 violation(s) — name other documents by their plain subject in prose, collect the IDs you depend on in one \`## References\` table at the end, and never point at another document's section number. Fix the prose, or update the baseline deliberately.\n`);
-  const out = new Findings('plain-writing');
-  for (const f of fresh) out.add('DOC-008', `${f.check} ${f.token}`, `${f.file}:${f.line || '-'}`);
-  out.finish();
-}
-
-console.log('✓ no new STD-007 violations.');
+   places"; each binds by STD-007's state. */
+if (findings.length)
+  console.log(`\nSTD-007: name other documents by their plain subject in prose, collect the IDs you depend on in one \`## References\` table at the end, and never point at another document's section number.\n`);
+const out = new Findings('plain-writing');
+for (const f of findings) out.add('DOC-008', `${f.check} ${f.token}`, `${f.file}:${f.line || '-'}`);
+out.finish({ ok: 'no STD-007 violations.' });

@@ -423,10 +423,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 4354,
+  "chars": 4278,
   "apparatus": false,
   "archived": false,
-  "tokens": 1229
+  "tokens": 1212
  },
  {
   "path": "agents/talos/OPERATOR.md",

@@ -1,6 +1,0 @@
-{
- "_comment": "Frontmatter violations frozen at adoption (ENG-033). The lint fails only on NEW ones. This list shrinks with each migration and never grows; its size is the corpus entropy metric.",
- "generated": "2026-09-04T12:48:57.000Z",
- "count": 0,
- "entries": []
-}
