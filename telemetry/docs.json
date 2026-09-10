@@ -693,37 +693,15 @@
   "tokens": 6861
  },
  {
-  "path": "debt/DBT-017-guards-without-a-rule.md",
-  "dir": "debt",
-  "series": "debt",
-  "type": "documentation",
-  "status": "active",
-  "chars": 4781,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1294
- },
- {
   "path": "debt/DBT-020-declared-automatic-executed-by-nobody.md",
   "dir": "debt",
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 5294,
+  "chars": 5666,
   "apparatus": false,
   "archived": false,
-  "tokens": 1443
- },
- {
-  "path": "debt/DBT-021-draft-binds-as-hard-as-active.md",
-  "dir": "debt",
-  "series": "debt",
-  "type": "documentation",
-  "status": "active",
-  "chars": 5276,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1440
+  "tokens": 1544
  },
  {
   "path": "decisions/ADR-030-lifecycle-and-deletion.md",
@@ -1193,10 +1171,10 @@
   "series": "reports",
   "type": "report",
   "status": "active",
-  "chars": 9745,
+  "chars": 10651,
   "apparatus": false,
   "archived": false,
-  "tokens": 3123
+  "tokens": 3386
  },
  {
   "path": "standards/STD-001-the-series.md",
@@ -1237,10 +1215,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6381,
+  "chars": 6533,
   "apparatus": false,
   "archived": false,
-  "tokens": 1701
+  "tokens": 1749
  },
  {
   "path": "standards/STD-006-plain-text-is-sovereign.md",
