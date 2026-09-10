@@ -42,34 +42,44 @@ function assert(cond, msg) { if (!cond) throw new Error(msg); }
 
 /* ---------- STRUCTURAL ---------- */
 
-// Guards actually wired into .github/workflows/ci.yml. Parsed, not typed out,
-// so a guard added to CI without a declaration fails this suite.
-const ciYaml = readFileSync(path.join(ROOT, '.github/workflows/ci.yml'), 'utf8');
-const ciGuards = [...ciYaml.matchAll(/run:\s*node (scripts\/[\w.-]+)\.mjs/g)].map((m) => m[1]);
+// What runs in CI is what the runner finds: every registered script under
+// scripts/ (ENG-032). A script there with no registry entry never runs, so
+// the first check is the other way round from before: no script may sit in
+// scripts/ unregistered, or it is a guard that CI silently does not run.
+const guardScripts = readdirSync(path.join(ROOT, 'scripts'))
+  .filter((f) => f.endsWith('.mjs') && f !== 'run-guards.mjs')
+  .map((f) => `scripts/${f.replace(/\.mjs$/, '')}`);
+const registered = new Set(Object.values(registry.guards).map((g) => g.script.replace(/\.mjs$/, '')));
 
-check('every guard run by CI has a blind-spot declaration', () => {
-  const declared = new Set(Object.values(registry.guards).map((g) => g.script.replace(/\.mjs$/, '')));
-  const missing = ciGuards.filter((g) => !declared.has(g));
+check('every script in scripts/ is a registered guard, so the runner runs it', () => {
+  const missing = guardScripts.filter((g) => !registered.has(g));
   assert(missing.length === 0,
-    `these guards run in CI but declare no blind spots: ${missing.join(', ')}`);
+    `these scripts sit in scripts/ but have no registry entry, so CI never runs them: ${missing.join(', ')}`);
 });
 
-check('every guard run by CI is a build guard or answers to the regime (ENG-067)', () => {
+check('every guard the runner runs is a build guard or answers to the regime (ENG-067)', () => {
   // ENG-067's exception is declared, not assumed: a guard that bites regardless
   // of any standard's state says so in its registry entry (`build_guard`), and
-  // every other guard in CI hands its findings to scripts/lib/regime.mjs. A
-  // guard that is neither is exactly the defect of DBT-017 — code obliging
-  // where no document obliges.
+  // every other guard hands its findings to scripts/lib/regime.mjs. A guard
+  // that is neither is exactly the defect of DBT-017 — code obliging where no
+  // document obliges.
   const offenders = [];
-  for (const g of ciGuards) {
-    const entry = Object.values(registry.guards).find((e) => e.script === `${g}.mjs`);
-    if (!entry) continue;                              // the check above reports it
+  for (const [id, entry] of Object.entries(registry.guards)) {
+    if (!entry.script.startsWith('scripts/')) continue;   // a tool, run by hand
     if (entry.build_guard) continue;
     const src = readFileSync(path.join(ROOT, entry.script), 'utf8');
-    if (!src.includes('lib/regime.mjs')) offenders.push(g);
+    if (!src.includes('lib/regime.mjs')) offenders.push(id);
   }
   assert(offenders.length === 0,
-    `these CI guards neither declare build_guard nor use regime.mjs: ${offenders.join(', ')}`);
+    `these guards neither declare build_guard nor use regime.mjs: ${offenders.join(', ')}`);
+});
+
+check('a build guard says what it needs, so the runner can skip or refuse instead of crashing', () => {
+  for (const [id, entry] of Object.entries(registry.guards)) {
+    if (!entry.build_guard || !entry.script.startsWith('scripts/')) continue;
+    assert(typeof entry.needs === 'string' && entry.needs.length > 0,
+      `${id}: build_guard with no \`needs\` path`);
+  }
 });
 
 check('every registry entry points at a script that exists and imports the module', () => {

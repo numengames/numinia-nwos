@@ -15,6 +15,8 @@
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { ROOT } from '../frontmatter.mjs';
+import { ciScripts } from './corpus.mjs';
+import { trackedFiles } from '../corpus.mjs';
 
 const fig = (value, unit, definition) => ({ value, unit, definition });
 const count = (m, k) => { m[k] = (m[k] ?? 0) + 1; };
@@ -26,9 +28,8 @@ export const contradictions = {
     const declared = new Set(Object.entries(rules.status).filter(([k]) => !k.startsWith('_') || k === '_default').flatMap(([, v]) => v));
     const used = {}; const undeclared = {};
     for (const d of docs) { if (d.status == null) continue; count(used, d.status); if (!declared.has(d.status)) (undeclared[d.status] ??= []).push(d.path); }
-    // ci_guards_vs_ci_markers: scripts in ci.yml steps vs scripts named in the Check tables of standards/
-    const ci = path.join(ROOT, '.github/workflows/ci.yml');
-    const inCi = existsSync(ci) ? [...readFileSync(ci, 'utf8').matchAll(/run:\s*node\s+(scripts\/\S+)/g)].map((m) => m[1]) : [];
+    // ci_guards_vs_ci_markers: scripts the runner runs in CI vs scripts named in the Check tables of standards/
+    const inCi = ciScripts(trackedFiles());
     const marked = []; const markedScripts = new Set();
     for (const std of docs.filter((d) => d.path.startsWith('standards/'))) {
       for (const m of std.text.matchAll(/^\|.*`([a-z-]+\.mjs)`.*$/gm)) {
@@ -62,8 +63,8 @@ export const contradictions = {
       status_vocabulary_used: fig(used, 'documents', 'frontmatter status values in the corpus with counts'),
       status_vocabulary_undeclared: fig(undeclared, 'documents', 'status values in use that scripts/lib/rules.json does not declare (STD-016 lifecycles), with the docs carrying them — a contradiction between a document and the vocabulary'),
       ci_markers_std001: fig(marked.length, 'rows', 'table rows of STD-001 carrying `[CI]`'),
-      ci_marked_scripts_not_in_ci: fig(markedNotInCi, 'scripts', 'scripts a `[CI]` row names that ci.yml runs in no `run: node` step — a norm claiming a machine check that does not happen'),
-      ci_scripts_not_marked: fig(inCiNotMarked, 'scripts', 'scripts ci.yml runs that no `[CI]` row of STD-001 names — a check the norm does not claim'),
+      ci_marked_scripts_not_in_ci: fig(markedNotInCi, 'scripts', 'scripts a Check row of a standard names that the runner does not run in CI — a norm claiming a machine check that does not happen'),
+      ci_scripts_not_marked: fig(inCiNotMarked, 'scripts', 'scripts the runner runs in CI that no Check row of any standard names — a check the norm does not claim'),
       id_form_per_series: fig(widths, 'citations', 'per series prefix, citations by digit width (3 vs 4) across the corpus; S1 fixes 4 for MIS files, 3 in `id:`'),
       id_form_mixed: fig(Object.keys(mixed), 'prefixes', 'prefixes cited with more than one digit width — the class is contradictory for these'),
       claims_open: fig(byState.open, 'claims', 'claims.json entries whose exact quote is still at its path'),

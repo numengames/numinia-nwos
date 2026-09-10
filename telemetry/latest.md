@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-10T16:10:05Z"
+updated: "2026-09-10T16:24:37Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `7e30f9a`  · corpus_hash: `2152baf8e3842a86…`  · measured_at: 2026-09-10T16:10:05Z  · root_dirty: 1
+- head: `4c7d4d6`  · corpus_hash: `e22eda3288c2457a…`  · measured_at: 2026-09-10T16:24:37Z  · root_dirty: 1
 
 ## corpus
 
@@ -36,7 +36,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `corpus.apparatus` | 20 | documents | corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path) |
 | `corpus.scripts_total` | 38 | files | files under `scripts/` with a code extension (.py .mjs .js .sh .ts) |
 | `corpus.scripts_by_language` | (table below) | files | those scripts by language, from the extension |
-| `corpus.scripts_in_ci` | 14 | files | scripts named in `.github/workflows/ci.yml` as `scripts/<name>` |
+| `corpus.scripts_in_ci` | 16 | files | guards the runner runs in CI: registered scripts under `scripts/` (ENG-032) |
 
 ### `corpus.files_by_ext`
 
@@ -402,8 +402,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `contradictions.status_vocabulary_used` | (table below) | documents | frontmatter status values in the corpus with counts |
 | `contradictions.status_vocabulary_undeclared` | (table below) | documents | status values in use that scripts/lib/rules.json does not declare (STD-016 lifecycles), with the docs carrying them — a contradiction between a document and the vocabulary |
 | `contradictions.ci_markers_std001` | 31 | rows | table rows of STD-001 carrying `[CI]` |
-| `contradictions.ci_marked_scripts_not_in_ci` | (table below) | scripts | scripts a `[CI]` row names that ci.yml runs in no `run: node` step — a norm claiming a machine check that does not happen |
-| `contradictions.ci_scripts_not_marked` | (table below) | scripts | scripts ci.yml runs that no `[CI]` row of STD-001 names — a check the norm does not claim |
+| `contradictions.ci_marked_scripts_not_in_ci` | (table below) | scripts | scripts a Check row of a standard names that the runner does not run in CI — a norm claiming a machine check that does not happen |
+| `contradictions.ci_scripts_not_marked` | (table below) | scripts | scripts the runner runs in CI that no Check row of any standard names — a check the norm does not claim |
 | `contradictions.id_form_per_series` | (table below) | citations | per series prefix, citations by digit width (3 vs 4) across the corpus; S1 fixes 4 for MIS files, 3 in `id:` |
 | `contradictions.id_form_mixed` | (table below) | prefixes | prefixes cited with more than one digit width — the class is contradictory for these |
 | `contradictions.claims_open` | 2 | claims | claims.json entries whose exact quote is still at its path |
@@ -427,11 +427,11 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 ### `contradictions.ci_marked_scripts_not_in_ci`
 
-6 rows (scripts) — in `latest.json`.
+2 rows (scripts) — in `latest.json`.
 
 ### `contradictions.ci_scripts_not_marked`
 
-5 rows (scripts) — in `latest.json`.
+3 rows (scripts) — in `latest.json`.
 
 ### `contradictions.id_form_per_series`
 

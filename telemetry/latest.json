@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "7e30f9a",
-  "corpus_hash": "2152baf8e3842a86469efdb2bdbba08c225e0226936a153a35d9d50ca5ad5688",
+  "head": "4c7d4d6",
+  "corpus_hash": "e22eda3288c2457a944b1269703652e5e7476f62a71521e4f979cb65c31d0bde",
   "root_dirty": 1,
-  "measured_at": "2026-09-10T16:10:05Z",
+  "measured_at": "2026-09-10T16:24:37Z",
   "families": [
     "corpus",
     "series",
@@ -117,9 +117,9 @@
       "definition": "those scripts by language, from the extension"
     },
     "corpus.scripts_in_ci": {
-      "value": 14,
+      "value": 16,
       "unit": "files",
-      "definition": "scripts named in `.github/workflows/ci.yml` as `scripts/<name>`"
+      "definition": "guards the runner runs in CI: registered scripts under `scripts/` (ENG-032)"
     },
     "series.registration": {
       "value": {
@@ -654,26 +654,20 @@
     },
     "contradictions.ci_marked_scripts_not_in_ci": {
       "value": [
-        "scripts/check-prose-in-code.mjs",
-        "scripts/check-document-shape.mjs",
-        "scripts/check-plain-writing.mjs",
         "scripts/generate-design-kit.mjs",
-        "scripts/check-deletable.mjs",
-        "scripts/check-section-citations.mjs"
+        "scripts/check-deletable.mjs"
       ],
       "unit": "scripts",
-      "definition": "scripts a `[CI]` row names that ci.yml runs in no `run: node` step — a norm claiming a machine check that does not happen"
+      "definition": "scripts a Check row of a standard names that the runner does not run in CI — a norm claiming a machine check that does not happen"
     },
     "contradictions.ci_scripts_not_marked": {
       "value": [
-        "scripts/telemetry.mjs",
-        "scripts/telemetry.mjs",
-        "scripts/test/telemetry.test.mjs",
+        "scripts/check-internal-links.mjs",
         "scripts/check-orphan-content.mjs",
-        "scripts/check-internal-links.mjs"
+        "scripts/telemetry.mjs"
       ],
       "unit": "scripts",
-      "definition": "scripts ci.yml runs that no `[CI]` row of STD-001 names — a check the norm does not claim"
+      "definition": "scripts the runner runs in CI that no Check row of any standard names — a check the norm does not claim"
     },
     "contradictions.id_form_per_series": {
       "value": {

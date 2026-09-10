@@ -25,15 +25,18 @@ export function measure({ docs, rules }) {
     apparatus: { value: md.filter((d) => d.apparatus).length, unit: 'documents', definition: 'corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)' },
     scripts_total: { value: scripts.length, unit: 'files', definition: 'files under `scripts/` with a code extension (.py .mjs .js .sh .ts)' },
     scripts_by_language: { value: tally(scripts, (f) => CODE_EXT[ext(f)]), unit: 'files', definition: 'those scripts by language, from the extension' },
-    scripts_in_ci: { value: ciScripts(files).length, unit: 'files', definition: 'scripts named in `.github/workflows/ci.yml` as `scripts/<name>`' },
+    scripts_in_ci: { value: ciScripts(files).length, unit: 'files', definition: 'guards the runner runs in CI: registered scripts under `scripts/` (ENG-032)' },
   };
 }
 
-/** Scripts a CI step invokes: every `scripts/<file>` token in ci.yml that is a tracked file. */
+/** Scripts CI runs: what the runner finds — every registered script under
+ * scripts/ (ENG-032). The workflow calls the runner and names no guard, so
+ * the registry, not the YAML, is the record. Only tracked files count. */
 export function ciScripts(files) {
-  const p = path.join(ROOT, '.github', 'workflows', 'ci.yml');
+  const p = path.join(ROOT, 'scripts', 'blind-spots.json');
   if (!existsSync(p)) return [];
-  const yml = readFileSync(p, 'utf8');
+  const registry = JSON.parse(readFileSync(p, 'utf8'));
   const tracked = new Set(files);
-  return [...new Set([...yml.matchAll(/scripts\/[\w./-]+/g)].map((m) => m[0]))].filter((s) => tracked.has(s)).sort();
+  return [...new Set(Object.values(registry.guards).map((g) => g.script))]
+    .filter((s) => s.startsWith('scripts/') && tracked.has(s)).sort();
 }
