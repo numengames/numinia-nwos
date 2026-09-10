@@ -48,6 +48,8 @@ import path from 'node:path';
 import { ROOT, parseFM, stripFM, isApparatus, isTemplate, loadRules } from './lib/frontmatter.mjs';
 import { isTerminalStatus } from './lib/rings.mjs';
 import { Findings } from './lib/regime.mjs';
+import { declareBlindSpots } from './lib/blindness.mjs';
+declareBlindSpots('check-document-shape');
 const RULES = loadRules();
 
 // ADR-043 rule 6. Moves to the Series register when that file exists.

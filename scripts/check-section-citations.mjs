@@ -36,6 +36,8 @@ import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { execSync } from "node:child_process";
 import path from "node:path";
 import { Findings } from "./lib/regime.mjs";
+import { declareBlindSpots } from "./lib/blindness.mjs";
+declareBlindSpots("check-section-citations");
 
 const root = execSync("git rev-parse --show-toplevel", { encoding: "utf-8" }).trim();
 const REPORT = process.argv.includes("--report");

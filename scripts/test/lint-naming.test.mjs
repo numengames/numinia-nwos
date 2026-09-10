@@ -56,6 +56,12 @@ try {
   copyFileSync(path.join(HERE, 'lint-naming.mjs'), path.join(dir, 'scripts', 'lint-naming.mjs'));
   copyFileSync(path.join(HERE, 'lib', 'blindness.mjs'), path.join(dir, 'scripts', 'lib', 'blindness.mjs'));
   copyFileSync(path.join(HERE, 'blind-spots.json'), path.join(dir, 'scripts', 'blind-spots.json'));
+  // Since #349 the guard imports the regime and the shared frontmatter
+  // reader; without them it crashes in the scratch repo and every case
+  // reads "got 0". The scratch tree has no axis, so every plate is unheld
+  // and the regime reports only — `--report` output is what is read anyway.
+  for (const lib of ['regime.mjs', 'frontmatter.mjs', 'rules.json'])
+    copyFileSync(path.join(HERE, 'lib', lib), path.join(dir, 'scripts', 'lib', lib));
 
   for (const [rel, sub] of Object.entries(fixtures)) {
     const abs = path.join(dir, rel);

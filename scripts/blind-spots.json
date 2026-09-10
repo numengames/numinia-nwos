@@ -313,6 +313,53 @@
           "debt": "D-049"
         }
       ]
+    },
+    "check-document-shape": {
+      "script": "scripts/check-document-shape.mjs",
+      "sees": "the STD-007 shape of every governed document: title length, the three-part card, the Binds/Does-not-bind lines, plated rules in standards and protocols, and the word budget of each series (DOC-001..007)",
+      "blind_to": [
+        {
+          "spot": "whether a card SAYS anything — it counts the three labels and their words, not whether Summary states the finding or Pragmatic names a use",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "budgets (S-01, S-05, S-06, S-07) — reported, never handed to the regime: STD-007 makes them SHOULD, so an overrun is a figure, not a finding",
+          "covered_by": "nothing; RPT-020 §2.2 lists them by hand",
+          "debt": null
+        },
+        {
+          "spot": "DOC-008 (plates, not sections) and DOC-009/010 (registers keep no history)",
+          "covered_by": "check-plain-writing for DOC-008; check-templates for DOC-009/010",
+          "debt": null
+        },
+        {
+          "spot": "documents with no frontmatter, apparatus files and templates — skipped by the shared reader before this guard sees them",
+          "covered_by": "lint-frontmatter for the missing header",
+          "debt": null
+        }
+      ]
+    },
+    "check-section-citations": {
+      "script": "scripts/check-section-citations.mjs",
+      "sees": "every `DOC-NNN §X.Y` in the corpus whose target exists and uses numbered headings: the section must be one of them (CIT-050 family, STD-021)",
+      "blind_to": [
+        {
+          "spot": "documents whose headings are prose (ADR, RPT) — a `§2` there means 'the second section', an ordering this guard would have to invent to verify",
+          "covered_by": null,
+          "debt": "DBT-016"
+        },
+        {
+          "spot": "whether a section that EXISTS still says what the citer claims — a renumbered section that resolves to different content passes",
+          "covered_by": null,
+          "debt": "DBT-016"
+        },
+        {
+          "spot": "citations inside fenced code blocks — read like any other text, so a quoted bad example is a finding and a real one in a fence is too",
+          "covered_by": null,
+          "debt": null
+        }
+      ]
     }
   }
 }
