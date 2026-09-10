@@ -189,6 +189,27 @@ check('license guard fixture — a .md with no license: field is skipped, as dec
   } finally { rmSync(clone, { recursive: true, force: true }); }
 });
 
+check('license guard fixture — a header that contradicts REUSE.toml is reported as LIC-008, not a crash', () => {
+  // The failure path is the one a move breaks: the guard resolves its regime
+  // helper by a relative path only when a file actually contradicts, so a
+  // green corpus proves nothing about it. debt/ is CC-BY-4.0 in REUSE.toml;
+  // a header saying MIT must come out as a finding under the plate, and the
+  // process must end through the regime (exit 0 while STD-010 is not
+  // active), never through an unresolved import.
+  const clone = scratchClone();
+  try {
+    writeFileSync(path.join(clone, 'debt/D-000-wronglicense.md'), '---\nid: "D-000"\nlicense: "MIT"\n---\n\nWrong licence.\n');
+    execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
+    const res = spawnGuard('guards/rules/std-010-licensing.mjs', clone);
+    assert(!/ERR_MODULE_NOT_FOUND|Cannot find module/.test(res.stderr),
+      `the licence guard crashed on its failure path instead of reporting:\n${res.stderr}`);
+    assert(/LIC-008/.test(res.stdout + res.stderr),
+      `a contradicting header did not surface as LIC-008 (exit ${res.status}):\n${res.stdout}${res.stderr}`);
+    assert(/1 finding\(s\), \d+ enforced/.test(res.stdout + res.stderr),
+      'the finding did not pass through the regime (no "finding(s), enforced" line)');
+  } finally { rmSync(clone, { recursive: true, force: true }); }
+});
+
 /* ---------- helpers ---------- */
 
 // execFileSync THROWS on a non-zero exit, which would make every failure-path
