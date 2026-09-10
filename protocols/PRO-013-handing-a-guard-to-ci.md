@@ -4,11 +4,11 @@ uid: ""
 title: "Handing a guard to CI"
 type: protocol
 status: draft
-version: "3.2.0"
+version: "4.0.0"
 created: "2026-08-28T15:30:00Z"
 created_source: "git:3d01bc2"
 created_confidence: exact
-updated: "2026-09-10T18:30:00+02:00"
+updated: "2026-09-10T19:15:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, ci, guards, engineering]
@@ -29,11 +29,13 @@ SPDX-License-Identifier: CC0-1.0
 # PRO-013 — Handing a guard to CI
 
 > **Summary:** How a verification guard written by an agent reaches the
-> pipeline, given that the agent cannot edit the workflow file and will not
-> be given the scope.
+> pipeline: it is merged into the guards folder, and the runner the
+> workflow already calls picks it up. The agent still cannot edit the
+> workflow file.
 > **Epistemic:** An agent that can rewrite the pipeline can disable the
-> checks that constrain it. The boundary is correct; the handoff is routine.
-> **Pragmatic:** Four steps, three of them the agent's, one the Oracle's.
+> checks that constrain it. The boundary stays; what moved is that a guard
+> no longer needs a line in the pipeline to exist.
+> **Pragmatic:** Three steps, two of them the agent's, one the Oracle's.
 > **Audience:** Agents · Oracle
 
 **Binds:** any agent that writes a guard script, and the Oracle who wires it.
@@ -41,9 +43,8 @@ SPDX-License-Identifier: CC0-1.0
 
 ## 1. Trigger
 
-A task produces a script under `scripts/` meant to fail a build. Reached
-from `PRO-016` step 6. Executor: the agent; the Oracle for the workflow
-edit.
+A task produces a script meant to fail a build. Reached from `PRO-016`
+step 6. Executor: the agent; the Oracle for the review.
 
 ## 2. Rules
 
@@ -63,39 +64,34 @@ non-zero only when a finding's rule is in force (`ENG-067`: the holder
 standard is `active`). No flag changes what is checked. Same tree, same
 output.
 
-**GRD-005 — The YAML is pasted, not edited.** The PR body MUST carry the
-exact step — name, `run:` line, the step it follows — and nothing else in
-the workflow changes. A new job, permission or action is a separate ask.
+**GRD-005 — The workflow is not touched.** A guard needs no workflow change:
+the runner finds it. A guard that needs a new job, permission or action is
+a separate ask (`PRO-005`); the agent never edits the workflow file.
 
-**GRD-006 — The register of guards is the workflow file.** No document MAY
-keep a table of guards. What is wired is read from `ci.yml` when asked; a
-script with no line there is written, not wired.
+**GRD-006 — The register of guards is the folder.** No document MAY keep a
+table of guards. What runs is what the runner finds; `npm run guards` lists
+it when asked. A script that is in the folder runs; one that must not run
+as a guard does not live there.
 
 **GRD-007 — Wired means seen running on the trunk.** The handoff ends when
-the agent reports the run identifier of the guard's step on `main`, not when
-the YAML is pasted (`TRC-006`).
+the agent reports the run identifier of the runner's step on `main` showing
+the new guard, not when the pull request is merged (`TRC-006`).
 
 ## 3. Procedure
 
 | Step | Whose | What |
 |---|---|---|
-| 1 | agent | Write and test the guard (`GRD-001..004`); declare blindness (`TRC-007`). |
-| 2 | agent | Put the YAML block in the PR body (`GRD-005`). Guards run before the build; a guard that reads build output runs after. |
-| 3 | Oracle | Paste it into the workflow through a pull request. Branch protection requires one review; a self-approval is stated in the review body. |
-| 4 | agent | Read the branch run (proof of wiring) and the trunk run (the record); report the identifier (`GRD-007`). |
-
-```yaml
-      - name: <short name> (<plate it enforces>)
-        run: node scripts/<guard>.mjs
-```
+| 1 | agent | Write and test the guard (`GRD-001..004`); declare blindness (`TRC-007`); place it in the guards folder. A guard that reads build output says so where the runner reads it. |
+| 2 | Oracle | Review and merge the pull request. This is the control: a guard that is not merged does not run. |
+| 3 | agent | Read the trunk run and report the identifier of the runner's step showing the guard (`GRD-007`). |
 
 ## 4. Verification
 
 | Check | Evidence |
 |---|---|
 | Both directions | planted-breakage run and clean run in the PR body |
-| Wired | `grep -nE "name:\|run:" .github/workflows/ci.yml` shows the step |
-| Seen running | `gh run view <id> --log \| grep -A3 '<step name>'` on `main`, id reported |
+| Wired | `npm run guards` on the merged tree lists the guard |
+| Seen running | `gh run view <id> --log \| grep '<guard name>'` on `main`, id reported |
 
 ## 5. Escalation
 
