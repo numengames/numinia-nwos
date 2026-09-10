@@ -106,9 +106,9 @@ for (const rel of files) {
   if (!basenameOwner.has(bareName)) basenameOwner.set(bareName, rel);
   // an identifier may also be declared in frontmatter without being in the name
   const text = readFileSync(path.join(ROOT, rel), 'utf8');
-  const fm = text.match(/^---\s*\n([\s\S]*?)\n---/);
+  const fm = parseFM(text);
   if (fm) {
-    const decl = fm[1].match(/^id:\s*["']?([A-Z]+-[\w-]+)/m);
+    const decl = typeof fm.id === 'string' ? /^([A-Z]+-[\w-]+)/.exec(fm.id) : null;
     if (decl) {
       known.add(decl[1]);
       if (!idOwner.has(decl[1])) idOwner.set(decl[1], rel);
@@ -121,10 +121,8 @@ for (const rel of files) {
     // corpus to choose between consolidating and staying verifiable.
     //
     // Reachability, not file existence, is what ADR-030 requires.
-    const abs = fm[1].match(/^absorbs:\s*\[(.*?)\]/m);
-    if (abs) {
-      for (const raw of abs[1].split(',')) {
-        const id = raw.trim().replace(/^["']|["']$/g, '');
+    if (Array.isArray(fm.absorbs)) {
+      for (const id of fm.absorbs) {
         if (!id) continue;
         known.add(id);
         if (!idOwner.has(id)) idOwner.set(id, rel);
@@ -136,7 +134,7 @@ for (const rel of files) {
     // the document that used to carry it. Without this, every renumbering
     // breaks every historical citation of the thing it renumbered, and the
     // only way to stay green would be to stop writing down what moved.
-    const former = fm[1].match(/^former_id:\s*["']?([A-Z]+-[\w-]+)/m);
+    const former = typeof fm.former_id === 'string' ? /^([A-Z]+-[\w-]+)/.exec(fm.former_id) : null;
     if (former) {
       known.add(former[1]);
       if (!idOwner.has(former[1])) idOwner.set(former[1], rel);

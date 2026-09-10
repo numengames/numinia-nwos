@@ -32,6 +32,7 @@
  */
 import { declareBlindSpots } from './lib/blindness.mjs';
 import { Findings } from './lib/regime.mjs';
+import { rawFM } from './lib/frontmatter.mjs';
 declareBlindSpots('check-plain-writing');
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
@@ -57,12 +58,12 @@ function stripCode(text) {
     .replace(/`[^`\n]*`/g, m => ' '.repeat(m.length));
 }
 
+/* The header is masked, not cut, so line numbers in findings stay true. */
 function stripFrontmatter(text) {
-  if (!text.startsWith('---')) return text;
-  const end = text.indexOf('\n---', 3);
-  if (end < 0) return text;
-  const fm = text.slice(0, end + 4);
-  return fm.replace(/[^\n]/g, ' ') + text.slice(end + 4);
+  const raw = rawFM(text);
+  if (!raw) return text;
+  const head = text.slice(0, text.indexOf(raw) + raw.length + '\n---'.length);
+  return head.replace(/[^\n]/g, ' ') + text.slice(head.length);
 }
 
 /** Split body from the `## References` section. The table is where IDs are

@@ -16,6 +16,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { ROOT } from '../frontmatter.mjs';
+import { regimeOf } from '../reuse.mjs';
 
 const git = (...a) => execFileSync('git', ['-C', ROOT, ...a], { encoding: 'utf8', maxBuffer: 1 << 26 }).trimEnd();
 const fig = (value, unit, definition) => ({ value, unit, definition });
@@ -35,21 +36,6 @@ function history() {
     else if (st?.startsWith('R') && b) { renames.push([a, b, date]); if (!(b in added)) added[b] = added[a] ?? date; }
   }
   return (walk = { added, renames });
-}
-
-/** REUSE.toml regime of a path: the last matching annotation wins (as reuse does). */
-function regimeOf(p, rules) { let r = null; for (const [globs, lic] of rules) if (globs.some((g) => g.test(p))) r = lic; return r; }
-function reuseRules() {
-  const f = path.join(ROOT, 'REUSE.toml'); if (!existsSync(f)) return [];
-  const out = [];
-  for (const blk of readFileSync(f, 'utf8').split('[[annotations]]').slice(1)) {
-    const paths = [...blk.matchAll(/"([^"]+)"/g)].map((m) => m[1]).filter((s) => !/^[A-Z0-9.-]+$/.test(s) || s.includes('/'));
-    const lic = /SPDX-License-Identifier\s*=\s*"([^"]+)"/.exec(blk)?.[1];
-    const pth = /path\s*=\s*(\[[^\]]*\]|"[^"]*")/.exec(blk)?.[1] ?? '';
-    const globs = [...pth.matchAll(/"([^"]+)"/g)].map((m) => new RegExp('^' + m[1].replace(/[.+^${}()|[\]\\]/g, '\\$&').replace(/\*\*/g, '\u0000').replace(/\*/g, '[^/]*').replace(/\u0000/g, '.*') + '$'));
-    if (lic && globs.length) out.push([globs, lic]);
-  }
-  return out;
 }
 
 const LLM_RE = /(claude|gpt|opus|sonnet|fable|gemini|llm)/i;
@@ -81,7 +67,7 @@ export const headers = {
       docs_without_frontmatter: fig(docs.length - withFm.length, 'documents', 'corpus docs minus docs_with_frontmatter'),
       field_usage: fig(sorted(fields), 'documents', 'per frontmatter key, the number of docs carrying it, most used first'),
       uid_present: fig(Object.values(uids).reduce((a, b) => a + b, 0), 'documents', 'docs with a non-empty uid'),
-      uid_collisions: fig(collisions.reduce((a, [, n]) => a + n - 1, 0), 'collisions', 'Σ(n−1) over uid values held by n>1 docs; values as typed (a shared placeholder counts, as in legacy.uid_colisiones)'),
+      uid_collisions: fig(collisions.reduce((a, [, n]) => a + n - 1, 0), 'collisions', 'Σ(n−1) over uid values held by n>1 docs; values as typed (a shared placeholder counts)'),
       uid_collision_values: fig(collisions.map(([v, n]) => [v, n]), 'documents', 'the colliding uid values with their holder counts'),
       created_T000000Z: fig(withFm.filter((d) => /T00:00:00Z$/.test(String(d.fm.created ?? ''))).length, 'documents', 'created ending in the midnight-UTC placeholder'),
       hygiene: fig(hygiene, 'values', 'frontmatter-census.py §4: created/updated without time; empty values; version with v prefix; values matching TODO|TBD|FIXME|{{|<…>|xxx'),
@@ -105,8 +91,8 @@ export const provenance = {
       compared++;
       if (c > g) ahead.push([d.path, c, g]); else if (c < g) behind.push([d.path, c, g]);
     }
-    const rules = reuseRules(); const crossings = [];
-    for (const [a, b, date] of renames) { const ra = regimeOf(a, rules), rb = regimeOf(b, rules); if (ra && rb && ra !== rb) crossings.push([a, b, `${ra}→${rb}`, date]); }
+    const crossings = [];
+    for (const [a, b, date] of renames) { const ra = regimeOf(a), rb = regimeOf(b); if (ra && rb && ra !== rb) crossings.push([a, b, `${ra}→${rb}`, date]); }
     const anchor = {};
     for (const d of docs) {
       if (d.dir !== 'missions' || !d.has_fm || d.apparatus) continue;

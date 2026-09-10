@@ -7,9 +7,8 @@
 //
 // Which scripts are guards is read from scripts/blind-spots.json, the one
 // place that already lists them; a script missing from that file is not a
-// guard and is not run here. Guards that need a built site (url-lifecycle)
-// or a browser (responsive) are skipped unless their input is present, and
-// the skip is printed.
+// guard and is not run here. A guard that needs a built site (url-lifecycle)
+// is skipped unless the site is there, and the skip is printed.
 //
 // Usage:
 //   npm run guards            # every guard, full output
@@ -25,20 +24,21 @@ const ROOT = path.resolve(HERE, '..');
 const QUIET = process.argv.includes('--quiet');
 
 const registry = JSON.parse(readFileSync(path.join(HERE, 'blind-spots.json'), 'utf8'));
-const guards = Object.keys(registry.guards).sort();
+/* A guard is a registered script under scripts/. A registered script anywhere
+   else (tools/) declares its blind spots but is run by hand, with arguments. */
+const guards = Object.entries(registry.guards)
+  .filter(([, g]) => g.script.startsWith('scripts/'))
+  .map(([name, g]) => [name, path.join(ROOT, g.script)])
+  .sort(([a], [b]) => a.localeCompare(b));
 
 /* A guard that only makes sense against an artefact says so here. */
 const needs = {
   'check-url-lifecycle': path.join(ROOT, 'web', 'dist'),
 };
-/* Not corpus guards: they take arguments or drive a browser. */
-const notHere = new Set(['check-deletable', 'check-responsive']);
 
 let failed = 0;
-for (const name of guards) {
-  if (notHere.has(name)) continue;
-  const script = path.join(HERE, `${name}.mjs`);
-  if (!existsSync(script)) { console.log(`?? ${name} — registered, no script`); failed += 1; continue; }
+for (const [name, script] of guards) {
+  if (!existsSync(script)) { console.log(`?? ${name} — registered, no script at ${path.relative(ROOT, script)}`); failed += 1; continue; }
   if (needs[name] && !existsSync(needs[name])) { console.log(`-- ${name} — skipped, needs ${path.relative(ROOT, needs[name])}`); continue; }
   const r = spawnSync('node', [script], { cwd: ROOT, encoding: 'utf8' });
   const out = (r.stdout || '') + (r.stderr || '');
@@ -48,5 +48,5 @@ for (const name of guards) {
   if (!QUIET && (r.status !== 0 || summary?.[1] !== '0')) console.log(out.replace(/^/gm, '     '));
   if (r.status !== 0) failed += 1;
 }
-console.log(`\n${guards.length - notHere.size} guards, ${failed} failed`);
+console.log(`\n${guards.length} guards, ${failed} failed`);
 process.exit(failed ? 1 : 0);

@@ -18,6 +18,8 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { declareBlindSpots } from "./lib/blindness.mjs";
+import { parseFM } from "./lib/frontmatter.mjs";
+import { regimeOf } from "./lib/reuse.mjs";
 declareBlindSpots("check-license-frontmatter");
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -26,64 +28,15 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 // with `path = "x"` or `path = ["x", ...]` (possibly multi-line) and
 // `SPDX-License-Identifier = "id"`. Block order is preserved because,
 // as REUSE.toml itself documents, the last matching annotation wins.
-function parseAnnotations(toml) {
-  const blocks = [];
-  let cur = null;
-  const lines = toml.split("\n");
-  for (let i = 0; i < lines.length; i++) {
-    let line = lines[i].replace(/(^|\s)#.*$/, "").trim();
-    if (!line) continue;
-    if (line === "[[annotations]]") {
-      cur = { paths: [], license: null };
-      blocks.push(cur);
-      continue;
-    }
-    if (!cur) continue;
-    if (/^path\s*=/.test(line)) {
-      let rhs = line.slice(line.indexOf("=") + 1).trim();
-      while (rhs.startsWith("[") && !rhs.endsWith("]")) {
-        i++;
-        rhs += lines[i].replace(/(^|\s)#.*$/, "").trim();
-      }
-      cur.paths = [...rhs.matchAll(/"([^"]+)"/g)].map((m) => m[1]);
-    } else if (/^SPDX-License-Identifier\s*=/.test(line)) {
-      cur.license = /"([^"]+)"/.exec(line)?.[1] ?? null;
-    }
-  }
-  return blocks;
-}
-
-function globToRegExp(glob) {
-  const escaped = glob
-    .replace(/[.+^${}()|[\]\\]/g, "\\$&")
-    .replace(/\*\*/g, "\u0000")
-    .replace(/\*/g, "[^/]*")
-    .replace(/\u0000/g, ".*");
-  return new RegExp(`^${escaped}$`);
-}
-
-function regimeFor(file, annotations) {
-  let regime = null;
-  for (const block of annotations) {
-    if (block.paths.some((p) => globToRegExp(p).test(file))) {
-      regime = block.license;
-    }
-  }
-  return regime;
-}
 
 // License declared in the file's own frontmatter (first `---` block at
 // byte 0), or null. Fenced examples later in the file never match.
 function frontmatterLicense(text) {
-  const fm = /^---\r?\n([\s\S]*?)\r?\n---(\r?\n|$)/.exec(text);
-  if (!fm) return null;
-  const m = /^license:\s*"?([^"\r\n]+?)"?\s*$/m.exec(fm[1]);
-  return m ? m[1].trim() : null;
+  const fm = parseFM(text);
+  const v = fm?.license;
+  return typeof v === 'string' && v.trim() ? v.trim() : null;
 }
 
-const annotations = parseAnnotations(
-  readFileSync(path.join(root, "REUSE.toml"), "utf8"),
-);
 const files = execFileSync("git", ["ls-files", "*.md"], {
   cwd: root,
   encoding: "utf8",
@@ -112,7 +65,7 @@ for (const file of files) {
   const license = frontmatterLicense(readFileSync(path.join(root, file), "utf8"));
   if (!license) continue;
   declared++;
-  const regime = regimeFor(file, annotations);
+  const regime = regimeOf(file);
   if (!regime) {
     failures.push({ file, license, regime: "(no REUSE.toml annotation)" });
   } else if (license !== regime) {

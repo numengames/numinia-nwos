@@ -224,6 +224,6 @@ SPDX-License-Identifier = "CC0-1.0"
 # It is configuration, not corpus: same regime as the code that consumes it
 # (ADR-045; regime first assigned 2026-08-25 as infra/**).
 [[annotations]]
-path = ["web/**", "scripts/**", "packages/**", ".github/rulesets/**"]
+path = ["web/**", "scripts/**", "tools/**", "packages/**", ".github/rulesets/**"]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "MIT"

@@ -15,7 +15,7 @@
 //
 // Usage:
 //   npm run build && npx astro preview --port 4399 &
-//   node ../scripts/check-responsive.mjs
+//   node ../tools/check-responsive.mjs
 //
 // Requires playwright-core and a Chromium. Both are dev-only: this never runs
 // in the deploy path, so the site ships without them. If either is missing the

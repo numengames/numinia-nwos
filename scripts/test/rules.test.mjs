@@ -10,16 +10,16 @@
 //               governed dir is a real top-level directory or a registered
 //               empty shelf; each guard that must read the file imports lib.
 //
-//   BEHAVIOURAL parseFM keeps the NESTED contract (the false positive that
-//               nearly deleted 90 lines); isApparatus/isTemplate agree with
-//               the three lists they replaced on the cases that used to differ.
+//   BEHAVIOURAL isApparatus/isTemplate agree with the three lists they
+//               replaced on the cases that used to differ. The reader itself
+//               is proven in frontmatter.test.mjs.
 //
 // Run: npm test
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
-import { ROOT, NESTED, parseFM, loadRules, seriesDirs, prefixToDir, isApparatus, isTemplate } from '../lib/frontmatter.mjs';
+import { ROOT, loadRules, seriesDirs, prefixToDir, isApparatus, isTemplate } from '../lib/frontmatter.mjs';
 
 import test from 'node:test';
 /* A case returns true, false, or a string: a string starting `skipped:` is a
@@ -86,12 +86,6 @@ for (const g of ['lint-naming', 'lint-frontmatter', 'check-references'])
 check('no guard keeps a private SERIES/PREFIX map', () =>
   ['lint-naming', 'lint-frontmatter', 'check-references'].every((g) => !/^const (SERIES|PREFIX) = \{\n\s+\w+:/m.test(readFileSync(path.join(ROOT, 'scripts', `${g}.mjs`), 'utf8'))));
 
-check('parseFM: bare key with indented children is NESTED, not empty', () => {
-  const fm = parseFM('---\nid: X-1\nfondos:\n  - a\nempty:\n---\nbody');
-  return fm.id === 'X-1' && fm.fondos === NESTED && fm.empty === '';
-});
-check('parseFM: strips one pair of quotes, keeps inner content', () => parseFM('---\ntitle: "a: b"\n---\n').title === 'a: b');
-check('parseFM: returns null without a frontmatter block', () => parseFM('# no fm') === null);
 check('prefixToDir: retired D resolves to debt', () => prefixToDir(rules).D === 'debt');
 check('isApparatus: type meta, canonical basenames, template family', () =>
   isApparatus('standards/STANDARDS.md') && isApparatus('missions/TEMPLATE-EXAMPLE.md') && isApparatus('x/INDEX.md')

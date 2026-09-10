@@ -61,12 +61,6 @@ const cases = [
   ['refuse: a test file is never rewritten by the tool (it rewrote this one, 2026-09-01)',
     () => /\.test\.mjs$/.test('scripts/test/rename-series.test.mjs'),
     true],
-  ['refuse: a ratchet baseline is never rewritten by the tool',
-    () => /^scripts\/[a-z-]+-baseline\.json$/.test('scripts/url-baseline.json'),
-    true],
-  ['refuse: blind-spots.json is not a baseline',
-    () => /^scripts\/[a-z-]+-baseline\.json$/.test('scripts/blind-spots.json'),
-    false],
   // --- the ones that actually broke -------------------------------------
   // --- the slug form: the hand-written map in [slug].astro (MIS-127) ----
   ['slug: hand-written slug map value is rewritten',

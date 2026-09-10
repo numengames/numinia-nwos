@@ -78,7 +78,6 @@ check('every registry entry points at a script that exists and imports the modul
     let src;
     try { src = readFileSync(abs, 'utf8'); }
     catch { throw new Error(`${id}: registry names ${g.script}, which does not exist`); }
-    if (!g.script.endsWith('.mjs')) continue;   // .py guards declare in their own output
     assert(src.includes('blindness.mjs'),
       `${id}: ${g.script} has a registry entry but never imports lib/blindness.mjs — ` +
       `it would declare nothing at runtime`);

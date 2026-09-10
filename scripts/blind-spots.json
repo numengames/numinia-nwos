@@ -23,7 +23,7 @@
       ]
     },
     "check-deletable": {
-      "script": "scripts/check-deletable.mjs",
+      "script": "tools/check-deletable.mjs",
       "sees": "whether a document has living inbound citers, whether it is sealed, and which public URLs it publishes (ADR-033 tests 1, 4, and the evidence for 2)",
       "blind_to": [
         {
@@ -336,7 +336,7 @@
     "telemetry": {
       "script": "scripts/telemetry.mjs",
       "build_guard": "verifies the artefact, not a rule — a stale telemetry/latest.json misreports the tree whatever any standard says (ENG-067 exception)",
-      "sees": "the corpus, counted: files, series registration, mission states, the former count-evidence keys — every figure with unit, definition, HEAD and corpus_hash (MIS-138)",
+      "sees": "the corpus, counted: files, series registration, mission states — every figure with unit, definition, HEAD and corpus_hash (MIS-138)",
       "blind_to": [
         {
           "spot": "whether a registered document is any GOOD — it counts conforming filenames, which is a measure of naming, not of content",

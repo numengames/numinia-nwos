@@ -15,16 +15,9 @@
 // exactly one thing latest.md cannot: it knows which build is showing it, and
 // can therefore say whether the dataset still describes the tree being served.
 //
-// WHAT IS DELIBERATELY EXCLUDED
-// The `legacy` family (20 of 87 keys) is a bug-compatible replica of the
-// retired count-evidence.py, pinned by a golden fixture so the migration can
-// be verified. Three of its figures are demonstrably false — legacy.field()
-// matches with `\s*`, which spans the newline, so an empty `uid:` captures the
-// NEXT key: 34 documents get uid = "title:", producing uid_presentes = 34 and
-// uid_colisiones = 32 where the true values are 0 and 0 (provenance.uid_present
-// says 0 and is right). Publishing those beside correct figures, with no way
-// for a reader to tell them apart, would make this page lie in three places.
-// They stay measured, in the dataset, out of the view.
+// WHAT IS EXCLUDED
+// Nothing, today. EXCLUDED_FAMILIES stays as the one place a family would be
+// kept out of the view, with its reason written beside it.
 
 import latestRaw from "../../../telemetry/latest.json";
 import historyRaw from "../../../telemetry/history.jsonl?raw";
@@ -62,10 +55,7 @@ const raw = latestRaw as unknown as {
 };
 
 /** Families kept out of the public view, with the reason. See header. */
-export const EXCLUDED_FAMILIES: Record<string, string> = {
-  legacy:
-    "Bug-compatible replica of the retired count-evidence.py, kept to verify the migration. Three of its figures are knowingly wrong (uid_presentes, uid_colisiones, uid_fabricados). Measured, not published.",
-};
+export const EXCLUDED_FAMILIES: Record<string, string> = {};
 
 /**
  * Figures whose predicate is a heuristic over free prose rather than an exact
@@ -112,7 +102,7 @@ const EDITORIAL_PREFIXES = ["contradictions.claims", "missions."];
 export const cadenceOf = (key: string): Cadence =>
   EDITORIAL_PREFIXES.some((p) => key.startsWith(p)) ? "editorial" : "mechanical";
 
-/** The dataset, legacy excluded, sorted by family then key. */
+/** The dataset, excluded families removed, sorted by family then key. */
 export const dataset: Dataset = {
   head: raw.head,
   corpus_hash: raw.corpus_hash,
