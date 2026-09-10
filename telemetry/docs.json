@@ -720,10 +720,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 4154,
+  "chars": 4247,
   "apparatus": false,
   "archived": false,
-  "tokens": 1129
+  "tokens": 1165
  },
  {
   "path": "decisions/ADR-030-lifecycle-and-deletion.md",
@@ -1237,10 +1237,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6338,
+  "chars": 6381,
   "apparatus": false,
   "archived": false,
-  "tokens": 1688
+  "tokens": 1701
  },
  {
   "path": "standards/STD-006-plain-text-is-sovereign.md",
