@@ -4,11 +4,11 @@ uid: ""
 title: "Handing a guard to CI"
 type: protocol
 status: active
-version: "3.0.0"
+version: "3.1.0"
 created: "2026-08-28T15:30:00Z"
 created_source: "git:3d01bc2"
 created_confidence: exact
-updated: "2026-09-09T21:00:00+02:00"
+updated: "2026-09-10T10:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, ci, guards, engineering]
@@ -59,7 +59,8 @@ everything gets disabled, and a disabled guard looks like coverage.
 that condemns it, so a failure is actionable without reading the script.
 
 **GRD-004 — Three modes, deterministic.** Bare verifies against the
-baseline and exits non-zero on new violations; `--report` gives detail and
+baseline and exits non-zero on new violations whose rule is in force
+(`ENG-067`: the holder standard is `active`); `--report` gives detail and
 exits zero; `--write-baseline` banks progress. Same tree, same output.
 
 **GRD-005 — The YAML is pasted, not edited.** The PR body MUST carry the
@@ -105,6 +106,6 @@ stated separately from the guard.
 
 | Document | Title | Why it obliges here |
 |---|---|---|
-| `STD-005` | Engineering baseline | `ENG-031..033`: wiring, register, baseline |
+| `STD-005` | Engineering baseline | `ENG-031..033`: wiring, register, baseline; `ENG-067`: when a finding fails the build |
 | `STD-015` | Engineering checks | `TRC-006`, `TRC-007`: proof by step, declared blindness |
 | `PRO-016` | Applying the engineering standard | the task this continues |

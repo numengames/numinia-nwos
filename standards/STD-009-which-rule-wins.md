@@ -5,9 +5,9 @@ title: "Which rule wins"
 type: documentation
 subtype: standard
 status: draft
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-09T17:00:00+02:00"
+updated: "2026-09-10T10:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
@@ -64,7 +64,7 @@ anyone until its state says otherwise — this standard included.
 | Plate | Verified by |
 |---|---|
 | PRE-001..005 | `[MANUAL]` — recognising that two sources conflict, and which is the claim, is a judgement no parser makes |
-| PRE-006 | `check-core-rules.mjs` reads each standard's `status` and reports without failing while it is `draft` |
+| PRE-006 | `check-core-rules.mjs` reads each standard's `status` and reports without failing while it is `draft`; every guard MUST behave so under `ENG-067` (`STD-005`) |
 
 ## Why
 

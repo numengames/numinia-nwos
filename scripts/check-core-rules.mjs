@@ -55,7 +55,8 @@ for (const d of docs) {
      (STD-016); whether a replacement exists is said by `superseded_by`,
      present or absent. A record still in force names no heir: that would
      be a document pointing past itself while claiming to bind. */
-  if (f.superseded_by && f.status !== 'withdrawn')
+  const heir = String(f.superseded_by ?? '').trim();
+  if (heir && !['null', '~', '""', "''"].includes(heir) && f.status !== 'withdrawn')
     record('GIT-045', `status ${f.status} names an heir "${f.superseded_by}" — only a withdrawn record has one`, r);
 
   if (r.startsWith('standards/')) {

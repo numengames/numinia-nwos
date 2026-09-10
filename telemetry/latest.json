@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "022fed7",
-  "corpus_hash": "d94fb918868255363d1dae88983434611ab9638ee9db11c4136d5a81e46cba55",
+  "head": "b590c71",
+  "corpus_hash": "e177cf5afcfdf49b727445be66489d774543f2f8727ab0d2d5fcfc771f930f95",
   "root_dirty": 0,
-  "measured_at": "2026-09-09T14:39:05Z",
+  "measured_at": "2026-09-10T09:07:10Z",
   "families": [
     "corpus",
     "series",
@@ -319,25 +319,25 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 265461,
+      "value": 266064,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "missions": 43062,
-        "standards": 35192,
+        "standards": 35621,
         "canon": 29352,
         "agents": 26728,
         "reports": 23522,
         "blueprints": 22838,
         "operations": 21323,
         "templates": 15800,
-        "protocols": 14390,
+        "protocols": 14420,
         "": 13114,
         "system": 9652,
         "decisions": 6189,
-        "debt": 3722,
+        "debt": 3866,
         ".github": 577
       },
       "unit": "tokens",
@@ -345,8 +345,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 164545,
-        "draft": 43201,
+        "active": 164719,
+        "draft": 43630,
         "done": 26350,
         "todo": 13588,
         "(none)": 13135,
@@ -356,7 +356,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 16.22,
+      "value": 16.18,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -651,7 +651,7 @@
       "definition": "status values in use that scripts/lib/rules.json does not declare (STD-016 lifecycles), with the docs carrying them — a contradiction between a document and the vocabulary"
     },
     "contradictions.ci_markers_std001": {
-      "value": 31,
+      "value": 32,
       "unit": "rows",
       "definition": "table rows of STD-001 carrying `[CI]`"
     },
@@ -681,7 +681,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 597
+          "3": 600
         },
         "ADR": {
           "3": 345
@@ -694,7 +694,7 @@
           "3": 143
         },
         "PRO": {
-          "3": 212
+          "3": 213
         },
         "OPS": {
           "3": 38
@@ -707,7 +707,7 @@
           "4": 9
         },
         "DBT": {
-          "3": 75
+          "3": 78
         },
         "DEC": {
           "3": 13
