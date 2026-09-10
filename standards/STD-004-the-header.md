@@ -5,18 +5,18 @@ title: "The header"
 type: documentation
 subtype: standard
 status: draft
-version: "3.1.2"
+version: "3.1.3"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-09-10T12:30:00+02:00"
+updated: "2026-09-10T18:30:00+02:00"
 ratified_by: "ADR-043"
 author: "ursa"
 owner: "oracle"
 territory: "Archive"
 license: "CC0-1.0"
 tags: [frontmatter, standard, lint, metadata]
-series_change: "3.1.2 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 3.1.0 — HDR-040, HDR-041 and HDR-043 are defined here, inside HDR-000, instead of in STD-009 (ADR-043 cut of STD-009). 3.0.0 — the standard takes the ADR-043 shape and splits: 2,108 -> 465 words of body here; every field table, vocabulary and lifecycle is the register STD-016. No HDR plate changes number. Major: §7.1, §7.2, §8.2 and §9 were cited by four documents and no longer exist; §8 (context card, standards template) is superseded by STD-007 DOC-002..006; §9 by ENG-033."
+series_change: "3.1.3 — 2026-09-10: HDR-031 and the HDR-001..038 check row no longer speak of a baseline; there is none (STD-005 2.2.0). Patch: prose only. 3.1.2 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 3.1.0 — HDR-040, HDR-041 and HDR-043 are defined here, inside HDR-000, instead of in STD-009 (ADR-043 cut of STD-009). 3.0.0 — the standard takes the ADR-043 shape and splits: 2,108 -> 465 words of body here; every field table, vocabulary and lifecycle is the register STD-016. No HDR plate changes number. Major: §7.1, §7.2, §8.2 and §9 were cited by four documents and no longer exist; §8 (context card, standards template) is superseded by STD-007 DOC-002..006; §9 by ENG-033."
 ---
 # The header
 
@@ -60,8 +60,9 @@ owns; the lint counts each and names the mission. A `TBA` in a field no
 mission owns fails. Whether the mission is alive is `[MANUAL]`.
 
 **HDR-031 — Retirements are waves.** A retired field (`area` → `territory`;
-`blocked_reason`; the Spanish-era keys) keeps a baseline entry until its
-migration lands, then the entry goes.
+`blocked_reason`; the Spanish-era keys) is reported wherever it still
+appears until its migration lands; the rule that names it goes with the
+last occurrence.
 
 **HDR-020 — `uid` stays empty.** A non-empty `uid` is an error until the
 identifier system exists.
@@ -79,7 +80,7 @@ known, and no relation is inferred from a shared folder, author or subject.
 | Plate | Verified by |
 |---|---|
 | HDR-000, HDR-040, HDR-041, HDR-043, HDR-044 | `check-core-rules.mjs` |
-| HDR-001..009, 012..014, 017..020, 030..038 | `lint-frontmatter.mjs`, one plate per finding, `frontmatter-baseline.json` for the stock (`ENG-033`) |
+| HDR-001..009, 012..014, 017..020, 030..038 | `lint-frontmatter.mjs`, one plate per finding |
 | HDR-010, 011, 015, 016 | `[MANUAL]` — presence only. No guard resolves frontmatter relations: `check-references.mjs` reads the body, not the header (measured 2026-09-10) |
 | HDR-042 | `[MANUAL]` — review checks the register row and the decision |
 
