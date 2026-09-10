@@ -4,9 +4,9 @@ uid: ""
 title: "Four automations are declared in the standards and none of them exists in the tree"
 type: documentation
 status: active
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-07T15:20:00+02:00"
-updated: "2026-09-07T15:20:00+02:00"
+updated: "2026-09-10T16:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -24,9 +24,14 @@ related: ["MIS-0146", "STD-005", "STD-010", "STD-011"]
 
 # DBT-020 — Declared automatic, executed by nobody
 
-> **Summary:** Four rules carry an `[AUTO: tool]` mark naming a tool that is not
-> in the tree, and a fifth cites a debt that is already closed. The mark tells a
-> reader a machine verifies the rule. No machine does.
+> **Summary:** Four rules carried an `[AUTO: tool]` mark naming a tool that is
+> not in the tree, and a fifth cited a debt already closed. **The marks are
+> honest now** — every one reads `[MANUAL]` or names where the tool really runs
+> (2026-09-10, verified against `ci.yml` and `STD-015`). What this entry still
+> holds is the two decisions in §5, which are the Oracle's and remain open:
+> whether `reuse lint` enters CI, and whether the DCO rule survives. Four
+> standards cite this entry as the home of "described, not built"; it stays
+> open as that home until those two are decided.
 > **Epistemic:** Verified at `f35ec1f` against the real tree — installed tools
 > and the fifteen steps of `ci.yml`, not prose.
 > **Pragmatic:** This is the same failure `CAN-005` already warns about for

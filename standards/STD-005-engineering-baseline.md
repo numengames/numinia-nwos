@@ -5,11 +5,11 @@ uid: ""
 type: documentation
 subtype: standard
 status: draft
-version: "2.1.1"
+version: "2.1.2"
 created: "2026-08-17T21:55:38+02:00"
 created_source: "git:e3123fc"
 created_confidence: exact
-updated: "2026-09-10T11:30:00+02:00"
+updated: "2026-09-10T16:00:00+02:00"
 author: "pablofm"
 owner: "oracle"
 territory: "Platform"
@@ -99,7 +99,7 @@ blindness entry.
 | ENG-001, ENG-002 | `[MANUAL]` — `STD-015` is the table; `telemetry/` reports the `[MANUAL]` share |
 | ENG-003 | `[AUTO: branch protection]` — `STD-015` DEV-007, ARC-002 |
 | ENG-004 | `[AUTO: push protection + gitleaks]` — `STD-015` SEC-004 |
-| ENG-031, ENG-032 | `[MANUAL]` — no guard register exists (`DBT-017`) |
+| ENG-031, ENG-032 | `[MANUAL]` — `blind-spots.json` is the register of what runs; `blindness.test.mjs` checks every CI guard is in it, not that every script is wired |
 | ENG-005, 006, 007, 033–035, 066 | `[MANUAL]` |
 | ENG-067 | `scripts/lib/regime.mjs` reads the holder's state; `regime.test.mjs` proves both directions; `[MANUAL]` for which guards have adopted it — read the imports, never a list (`ENG-032`) |
 
@@ -115,7 +115,7 @@ are themselves code that can rot — unwired, remembered wrong, or absorbing the
 damage they were meant to catch. ENG-067 gives the `status` field its
 consequence: before it, a draft's rules failed builds as hard as an active's,
 and the signature that turned a draft into an obligation changed nothing a
-machine could see (`DBT-021`). With it, ENG-001 reads as intended — a draft's
+machine could see (`DBT-021`, closed in `RPT-019`). With it, ENG-001 reads as intended — a draft's
 rules are prose until the Oracle signs, and the signature is the switch.
 
 ## References
@@ -125,5 +125,5 @@ rules are prose until the Oracle signs, and the signature is the switch.
 | `STD-015` | Engineering checks | the 52 practices, their level and their check |
 | `PRO-016` | Applying the engineering standard | the procedure for a task |
 | `STD-009` | Which rule wins | where ENG-031..035 and ENG-066 came from; `PRE-006`, the principle ENG-067 executes |
-| `DBT-021` | Draft binds as hard as active | the defect ENG-067 closes |
+| `RPT-019` | Week 37 | where `DBT-017` and `DBT-021`, the two defects ENG-067 closes, are recorded closed |
 | `DBT-020` | Declared automatic, executed by nobody | the `[MANUAL]` rows that claim otherwise |

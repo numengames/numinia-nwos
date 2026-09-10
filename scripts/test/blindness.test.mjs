@@ -66,6 +66,24 @@ check('every guard run by CI has a blind-spot declaration', () => {
     `these guards run in CI but declare no blind spots: ${missing.join(', ')}`);
 });
 
+check('every guard run by CI is a build guard or answers to the regime (ENG-067)', () => {
+  // ENG-067's exception is declared, not assumed: a guard that bites regardless
+  // of any standard's state says so in its registry entry (`build_guard`), and
+  // every other guard in CI hands its findings to scripts/lib/regime.mjs. A
+  // guard that is neither is exactly the defect of DBT-017 — code obliging
+  // where no document obliges.
+  const offenders = [];
+  for (const g of ciGuards) {
+    const entry = Object.values(registry.guards).find((e) => e.script === `${g}.mjs`);
+    if (!entry) continue;                              // the check above reports it
+    if (entry.build_guard) continue;
+    const src = readFileSync(path.join(ROOT, entry.script), 'utf8');
+    if (!src.includes('lib/regime.mjs')) offenders.push(g);
+  }
+  assert(offenders.length === 0,
+    `these CI guards neither declare build_guard nor use regime.mjs: ${offenders.join(', ')}`);
+});
+
 check('every registry entry points at a script that exists and imports the module', () => {
   for (const [id, g] of Object.entries(registry.guards)) {
     const abs = path.join(ROOT, g.script);
@@ -205,6 +223,12 @@ function scratchClone() {
   })(ROOT, dir);
   execFileSync('git', ['-C', dir, 'init', '--quiet'], { stdio: 'ignore' });
   execFileSync('git', ['-C', dir, 'add', '-A'], { stdio: 'ignore' });
+  // One commit, or the branch is unborn and `git log` is fatal: the reference
+  // guard reads the deletion history (git log --diff-filter=D) at load, and
+  // an unborn branch made every fixture crash with 128 before it could prove
+  // anything — which read as "the blindness may be fixed". It was not.
+  execFileSync('git', ['-C', dir, '-c', 'user.name=fixture', '-c', 'user.email=fixture@test',
+    'commit', '--quiet', '--allow-empty-message', '-m', ''], { stdio: 'ignore' });
   return dir;
 }
 
