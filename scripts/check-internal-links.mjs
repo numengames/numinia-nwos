@@ -24,11 +24,7 @@
 // It resolves against web/dist, so redirects (emitted as real HTML files by
 // Astro) count as valid targets without parsing astro.config.
 //
-// BLIND TO (D-025):
-//   · external links — it never leaves the filesystem
-//   · whether the page at the other end is the RIGHT page, only that one exists
-//   · hrefs built at runtime by JavaScript
-//   · anchors (#fragment) — the file is checked, the fragment is not
+// BLIND TO (D-025): declared in scripts/blind-spots.json, printed at exit.
 //
 // Usage: node scripts/check-internal-links.mjs
 
@@ -36,7 +32,9 @@ import { readdirSync, statSync, readFileSync, existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { declareBlindSpots } from "./lib/blindness.mjs";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+declareBlindSpots("check-internal-links");
 const DIST = path.join(ROOT, "web", "dist");
 
 if (!existsSync(DIST)) {

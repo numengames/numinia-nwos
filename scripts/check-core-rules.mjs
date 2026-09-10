@@ -13,6 +13,8 @@ import { execFileSync } from 'node:child_process';
 import { loadDocs } from './lib/corpus.mjs';
 import { ROOT } from './lib/frontmatter.mjs';
 import { Findings } from './lib/regime.mjs';
+import { declareBlindSpots } from './lib/blindness.mjs';
+declareBlindSpots('check-core-rules');
 
 /* STD-009 scope: files addressing a reader outside the corpus follow the conventions
    of the platform they serve, not the numbered series. */
