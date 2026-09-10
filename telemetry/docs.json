@@ -609,19 +609,19 @@
   "dir": "canon",
   "series": "canon",
   "type": "seminal",
-  "status": "active",
-  "chars": 12222,
+  "status": "draft",
+  "chars": 12226,
   "apparatus": false,
   "archived": false,
-  "tokens": 2748
+  "tokens": 2751
  },
  {
   "path": "canon/CAN-002-brand-and-culture.md",
   "dir": "canon",
   "series": "canon",
   "type": "seminal",
-  "status": "active",
-  "chars": 34515,
+  "status": "draft",
+  "chars": 34514,
   "apparatus": false,
   "archived": false,
   "tokens": 7403
@@ -631,19 +631,19 @@
   "dir": "canon",
   "series": "canon",
   "type": "seminal",
-  "status": "active",
-  "chars": 10598,
+  "status": "draft",
+  "chars": 10602,
   "apparatus": false,
   "archived": false,
-  "tokens": 2203
+  "tokens": 2206
  },
  {
   "path": "canon/CAN-004-role-structure.md",
   "dir": "canon",
   "series": "canon",
   "type": "seminal",
-  "status": "active",
-  "chars": 13600,
+  "status": "draft",
+  "chars": 13599,
   "apparatus": false,
   "archived": false,
   "tokens": 3051
@@ -653,8 +653,8 @@
   "dir": "canon",
   "series": "canon",
   "type": "seminal",
-  "status": "active",
-  "chars": 4989,
+  "status": "draft",
+  "chars": 4988,
   "apparatus": false,
   "archived": false,
   "tokens": 1347
@@ -664,22 +664,22 @@
   "dir": "canon",
   "series": "canon",
   "type": "seminal",
-  "status": "active",
-  "chars": 16438,
+  "status": "draft",
+  "chars": 16442,
   "apparatus": false,
   "archived": false,
-  "tokens": 3355
+  "tokens": 3358
  },
  {
   "path": "canon/CAN-007-pragmatic-numen-system.md",
   "dir": "canon",
   "series": "canon",
   "type": "seminal",
-  "status": "active",
-  "chars": 12152,
+  "status": "draft",
+  "chars": 12156,
   "apparatus": false,
   "archived": false,
-  "tokens": 2384
+  "tokens": 2387
  },
  {
   "path": "canon/CAN-008-visual-identity.md",
@@ -1005,8 +1005,8 @@
   "dir": "protocols",
   "series": "protocols",
   "type": "protocol",
-  "status": "active",
-  "chars": 4437,
+  "status": "draft",
+  "chars": 4436,
   "apparatus": false,
   "archived": false,
   "tokens": 1238
@@ -1016,8 +1016,8 @@
   "dir": "protocols",
   "series": "protocols",
   "type": "protocol",
-  "status": "active",
-  "chars": 4512,
+  "status": "draft",
+  "chars": 4511,
   "apparatus": false,
   "archived": false,
   "tokens": 1212
@@ -1027,8 +1027,8 @@
   "dir": "protocols",
   "series": "protocols",
   "type": "protocol",
-  "status": "active",
-  "chars": 3432,
+  "status": "draft",
+  "chars": 3431,
   "apparatus": false,
   "archived": false,
   "tokens": 924
@@ -1038,8 +1038,8 @@
   "dir": "protocols",
   "series": "protocols",
   "type": "protocol",
-  "status": "active",
-  "chars": 4357,
+  "status": "draft",
+  "chars": 4356,
   "apparatus": false,
   "archived": false,
   "tokens": 1163
@@ -1049,8 +1049,8 @@
   "dir": "protocols",
   "series": "protocols",
   "type": "protocol",
-  "status": "active",
-  "chars": 4921,
+  "status": "draft",
+  "chars": 4920,
   "apparatus": false,
   "archived": false,
   "tokens": 1236
@@ -1060,8 +1060,8 @@
   "dir": "protocols",
   "series": "protocols",
   "type": "protocol",
-  "status": "active",
-  "chars": 4200,
+  "status": "draft",
+  "chars": 4199,
   "apparatus": false,
   "archived": false,
   "tokens": 1174
@@ -1071,8 +1071,8 @@
   "dir": "protocols",
   "series": "protocols",
   "type": "protocol",
-  "status": "active",
-  "chars": 4099,
+  "status": "draft",
+  "chars": 4098,
   "apparatus": false,
   "archived": false,
   "tokens": 1141
@@ -1082,8 +1082,8 @@
   "dir": "protocols",
   "series": "protocols",
   "type": "protocol",
-  "status": "active",
-  "chars": 11173,
+  "status": "draft",
+  "chars": 11172,
   "apparatus": false,
   "archived": false,
   "tokens": 2730
@@ -1093,8 +1093,8 @@
   "dir": "protocols",
   "series": "protocols",
   "type": "protocol",
-  "status": "active",
-  "chars": 4064,
+  "status": "draft",
+  "chars": 4063,
   "apparatus": false,
   "archived": false,
   "tokens": 1104
@@ -1104,8 +1104,8 @@
   "dir": "protocols",
   "series": "protocols",
   "type": "protocol",
-  "status": "active",
-  "chars": 4148,
+  "status": "draft",
+  "chars": 4147,
   "apparatus": false,
   "archived": false,
   "tokens": 1188
@@ -1181,33 +1181,33 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "active",
-  "chars": 4362,
+  "status": "draft",
+  "chars": 4660,
   "apparatus": false,
   "archived": false,
-  "tokens": 1398
+  "tokens": 1484
  },
  {
   "path": "standards/STD-003-platform-ranks.md",
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "active",
-  "chars": 4621,
+  "status": "draft",
+  "chars": 4919,
   "apparatus": false,
   "archived": false,
-  "tokens": 1196
+  "tokens": 1282
  },
  {
   "path": "standards/STD-004-the-header.md",
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "active",
-  "chars": 4527,
+  "status": "draft",
+  "chars": 4825,
   "apparatus": false,
   "archived": false,
-  "tokens": 1277
+  "tokens": 1363
  },
  {
   "path": "standards/STD-005-engineering-baseline.md",
@@ -1225,11 +1225,11 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "active",
-  "chars": 3906,
+  "status": "draft",
+  "chars": 4204,
   "apparatus": false,
   "archived": false,
-  "tokens": 994
+  "tokens": 1080
  },
  {
   "path": "standards/STD-007-one-page-per-document.md",
@@ -1247,11 +1247,11 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "active",
-  "chars": 5127,
+  "status": "draft",
+  "chars": 5425,
   "apparatus": false,
   "archived": false,
-  "tokens": 1423
+  "tokens": 1509
  },
  {
   "path": "standards/STD-009-which-rule-wins.md",
@@ -1291,11 +1291,11 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "active",
-  "chars": 4454,
+  "status": "draft",
+  "chars": 4752,
   "apparatus": false,
   "archived": false,
-  "tokens": 1219
+  "tokens": 1305
  },
  {
   "path": "standards/STD-013-licence-allowlist-and-fields.md",
@@ -1412,11 +1412,11 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "active",
-  "chars": 24819,
+  "status": "draft",
+  "chars": 25117,
   "apparatus": false,
   "archived": false,
-  "tokens": 8039
+  "tokens": 8125
  },
  {
   "path": "standards/STD-024-a-series-is-a-function.md",
