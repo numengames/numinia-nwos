@@ -5,17 +5,17 @@ uid: ""
 type: documentation
 subtype: standard
 status: draft
-version: "2.1.2"
+version: "2.2.0"
 created: "2026-08-17T21:55:38+02:00"
 created_source: "git:e3123fc"
 created_confidence: exact
-updated: "2026-09-10T16:00:00+02:00"
+updated: "2026-09-10T18:30:00+02:00"
 author: "pablofm"
 owner: "oracle"
 territory: "Platform"
 tags: [standards, engineering, ci, guards]
 license: "CC0-1.0"
-series_change: "2.1.0 — ENG-067: a guard bites by the state of the standard that holds the rule it cites — `draft` reports, `active` fails the build; build guards, which verify the artefact and not a rule, are the declared exception. Minor: a new obligation on guards, none reversed. Decided by the Oracle on 2026-09-10 (DBT-021, exit 1). 2.0.0 — the standard takes the ADR-043 shape and splits: 2,161 -> 480 words of body here, the 52 practice rows become the register STD-015. The seven principles are ENG-001..007; the six guard rules that came from STD-009 keep their numbers as ENG-031..035 and ENG-066. Major: §3.2 was cited by two documents and no longer exists."
+series_change: "2.2.0 — ENG-033 retired: it governed baselines, and since 2026-09-10 there are none — a guard reports every finding it sees and the state of the holding standard (ENG-067) decides whether it fails the build; new damage shows in the diff of the change that caused it. Minor: an obligation removed, none added. Decided by the Oracle on 2026-09-10. 2.1.0 — ENG-067: a guard bites by the state of the standard that holds the rule it cites — `draft` reports, `active` fails the build; build guards, which verify the artefact and not a rule, are the declared exception. Minor: a new obligation on guards, none reversed. Decided by the Oracle on 2026-09-10 (DBT-021, exit 1). 2.0.0 — the standard takes the ADR-043 shape and splits: 2,161 -> 480 words of body here, the 52 practice rows become the register STD-015. The seven principles are ENG-001..007; the six guard rules that came from STD-009 keep their numbers as ENG-031..035 and ENG-066. Major: §3.2 was cited by two documents and no longer exists."
 ---
 
 # Engineering baseline
@@ -67,8 +67,7 @@ digital.** If the golden path is unclear to an agent, it is unclear.
 **ENG-032 — The guard register is read, never remembered.** What runs is what
 the workflow file says.
 
-**ENG-033 — A baseline records old damage only.** It MUST NOT absorb damage
-the current change caused.
+**ENG-033** — retired 2.2.0. It governed baselines; there are none.
 
 **ENG-034 — Three layers, three speeds.** Principles change by Oracle
 decision; practices by ADR and pull request, semver; checks by pull request,
@@ -100,7 +99,7 @@ blindness entry.
 | ENG-003 | `[AUTO: branch protection]` — `STD-015` DEV-007, ARC-002 |
 | ENG-004 | `[AUTO: push protection + gitleaks]` — `STD-015` SEC-004 |
 | ENG-031, ENG-032 | `[MANUAL]` — `blind-spots.json` is the register of what runs; `blindness.test.mjs` checks every CI guard is in it, not that every script is wired |
-| ENG-005, 006, 007, 033–035, 066 | `[MANUAL]` |
+| ENG-005, 006, 007, 034, 035, 066 | `[MANUAL]` |
 | ENG-067 | `scripts/lib/regime.mjs` reads the holder's state; `regime.test.mjs` proves both directions; `[MANUAL]` for which guards have adopted it — read the imports, never a list (`ENG-032`) |
 
 Nothing in this standard fails a build in this repository today; it is

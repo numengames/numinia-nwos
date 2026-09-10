@@ -4,11 +4,11 @@ uid: ""
 title: "Handing a guard to CI"
 type: protocol
 status: draft
-version: "3.1.1"
+version: "3.2.0"
 created: "2026-08-28T15:30:00Z"
 created_source: "git:3d01bc2"
 created_confidence: exact
-updated: "2026-09-10T12:30:00+02:00"
+updated: "2026-09-10T18:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, ci, guards, engineering]
@@ -37,8 +37,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracle
 
 **Binds:** any agent that writes a guard script, and the Oracle who wires it.
-**Does not bind:** what a guard must check (`STD-015`) nor the baseline
-discipline (`ENG-033`).
+**Does not bind:** what a guard must check (`STD-015`).
 
 ## 1. Trigger
 
@@ -51,17 +50,18 @@ edit.
 **GRD-001 — Tested in both directions.** A guard MUST fail on planted
 breakage and pass on a clean tree before it is offered.
 
-**GRD-002 — Ratchet, never cliff.** Existing violations MUST be frozen in a
-dated baseline; the guard fails only on new ones. A guard that fails on
-everything gets disabled, and a disabled guard looks like coverage.
+**GRD-002 — Every finding, every run.** A guard reports everything it sees;
+it never keeps a list of what to ignore. Whether a finding fails the build
+is not the guard's call: the state of the standard that holds the rule
+decides (`ENG-067`). A guard that hides old damage looks like coverage.
 
 **GRD-003 — Every finding cites its plate.** Each finding MUST name the rule
 that condemns it, so a failure is actionable without reading the script.
 
-**GRD-004 — Three modes, deterministic.** Bare verifies against the
-baseline and exits non-zero on new violations whose rule is in force
-(`ENG-067`: the holder standard is `active`); `--report` gives detail and
-exits zero; `--write-baseline` banks progress. Same tree, same output.
+**GRD-004 — One mode, deterministic.** Bare prints every finding and exits
+non-zero only when a finding's rule is in force (`ENG-067`: the holder
+standard is `active`). No flag changes what is checked. Same tree, same
+output.
 
 **GRD-005 — The YAML is pasted, not edited.** The PR body MUST carry the
 exact step — name, `run:` line, the step it follows — and nothing else in
@@ -106,6 +106,6 @@ stated separately from the guard.
 
 | Document | Title | Why it obliges here |
 |---|---|---|
-| `STD-005` | Engineering baseline | `ENG-031..033`: wiring, register, baseline; `ENG-067`: when a finding fails the build |
+| `STD-005` | Engineering baseline | `ENG-031`, `ENG-032`: wiring, register; `ENG-067`: when a finding fails the build |
 | `STD-015` | Engineering checks | `TRC-006`, `TRC-007`: proof by step, declared blindness |
 | `PRO-016` | Applying the engineering standard | the task this continues |

@@ -1061,10 +1061,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4199,
+  "chars": 4177,
   "apparatus": false,
   "archived": false,
-  "tokens": 1174
+  "tokens": 1171
  },
  {
   "path": "protocols/PRO-014-producing-a-design-piece.md",
@@ -1215,10 +1215,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4825,
+  "chars": 4958,
   "apparatus": false,
   "archived": false,
-  "tokens": 1363
+  "tokens": 1410
  },
  {
   "path": "standards/STD-005-engineering-baseline.md",
@@ -1226,10 +1226,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6533,
+  "chars": 6845,
   "apparatus": false,
   "archived": false,
-  "tokens": 1749
+  "tokens": 1841
  },
  {
   "path": "standards/STD-006-plain-text-is-sovereign.md",
