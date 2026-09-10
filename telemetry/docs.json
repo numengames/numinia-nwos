@@ -720,10 +720,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 3631,
+  "chars": 4154,
   "apparatus": false,
   "archived": false,
-  "tokens": 985
+  "tokens": 1129
  },
  {
   "path": "decisions/ADR-030-lifecycle-and-deletion.md",
@@ -1083,10 +1083,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 4089,
+  "chars": 4200,
   "apparatus": false,
   "archived": false,
-  "tokens": 1144
+  "tokens": 1174
  },
  {
   "path": "protocols/PRO-014-producing-a-design-piece.md",
@@ -1237,10 +1237,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4700,
+  "chars": 6338,
   "apparatus": false,
   "archived": false,
-  "tokens": 1275
+  "tokens": 1688
  },
  {
   "path": "standards/STD-006-plain-text-is-sovereign.md",
@@ -1281,10 +1281,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3682,
+  "chars": 3738,
   "apparatus": false,
   "archived": false,
-  "tokens": 944
+  "tokens": 960
  },
  {
   "path": "standards/STD-010-licensing.md",
