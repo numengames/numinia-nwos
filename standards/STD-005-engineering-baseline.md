@@ -5,11 +5,11 @@ uid: ""
 type: documentation
 subtype: standard
 status: draft
-version: "2.1.0"
+version: "2.1.1"
 created: "2026-08-17T21:55:38+02:00"
 created_source: "git:e3123fc"
 created_confidence: exact
-updated: "2026-09-10T10:30:00+02:00"
+updated: "2026-09-10T11:30:00+02:00"
 author: "pablofm"
 owner: "oracle"
 territory: "Platform"
@@ -101,7 +101,7 @@ blindness entry.
 | ENG-004 | `[AUTO: push protection + gitleaks]` — `STD-015` SEC-004 |
 | ENG-031, ENG-032 | `[MANUAL]` — no guard register exists (`DBT-017`) |
 | ENG-005, 006, 007, 033–035, 066 | `[MANUAL]` |
-| ENG-067 | `[MANUAL]` — the shared reader of a holder's state does not exist yet; `check-core-rules.mjs` is the one guard that behaves this way today |
+| ENG-067 | `scripts/lib/regime.mjs` reads the holder's state; `regime.test.mjs` proves both directions; `[MANUAL]` for which guards have adopted it — read the imports, never a list (`ENG-032`) |
 
 Nothing in this standard fails a build in this repository today; it is
 enforced by reading and by the checks it names running elsewhere (`DBT-020`).
