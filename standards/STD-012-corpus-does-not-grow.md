@@ -4,17 +4,17 @@ uid: ""
 title: "The corpus does not grow"
 type: documentation
 subtype: standard
-status: active
-version: "1.2.0"
+status: draft
+version: "1.2.1"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-09-09T02:10:00+02:00"
+updated: "2026-09-10T12:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC0-1.0"
 tags: [deflation, lifecycle, reports, missions, debt, compression]
 ratified_by: "ADR-042"
 related: ["ADR-030", "STD-025", "ADR-042", "PRO-017", "STD-001", "CAN-001"]
-series_change: "1.2.0 — the standard takes the ADR-043 shape: 868 -> 455 words of body. DEF-001..007 keep their text and their checks; the history that motivated the standard is one sentence in the Why. Minor: no rule changed, and no section number was cited by any document."
+series_change: "1.2.1 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 1.2.0 — the standard takes the ADR-043 shape: 868 -> 455 words of body. DEF-001..007 keep their text and their checks; the history that motivated the standard is one sentence in the Why. Minor: no rule changed, and no section number was cited by any document."
 ---
 # The corpus does not grow
 

@@ -3,12 +3,12 @@ id: "CAN-007"
 uid: ""
 title: "Pragmatic Numen System"
 type: seminal
-status: active
-version: "1.0.0"
+status: draft
+version: "1.0.1"
 created: "2026-04-15T16:40:18Z"
 created_source: "git:b8f31d1"
 created_confidence: exact
-updated: "2026-04-15T16:40:18Z"
+updated: "2026-09-10T12:30:00+02:00"
 author: "Christian Numinia"
 owner: "oracle"
 guild: "Exegetes"

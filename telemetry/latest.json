@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "9160c0b",
-  "corpus_hash": "0750c59eb3702e1914cb0cb3f4dcb862af4cb250df45d2c5ddc7eb0f37542c32",
+  "head": "133f190",
+  "corpus_hash": "45ca87febd00c7795676cc9ca59bc9b649f9d9d5c962ae90859fc791174d42e6",
   "root_dirty": 0,
-  "measured_at": "2026-09-10T09:58:58Z",
+  "measured_at": "2026-09-10T10:26:50Z",
   "families": [
     "corpus",
     "series",
@@ -319,15 +319,15 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 264104,
+      "value": 264718,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "missions": 43062,
-        "standards": 35720,
-        "canon": 29352,
+        "standards": 36322,
+        "canon": 29364,
         "agents": 26728,
         "reports": 23785,
         "blueprints": 22838,
@@ -345,8 +345,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 162682,
-        "draft": 43707,
+        "active": 111535,
+        "draft": 95468,
         "done": 26350,
         "todo": 13588,
         "(none)": 13135,
@@ -356,7 +356,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 16.3,
+      "value": 16.27,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -376,7 +376,7 @@
         ],
         [
           "standards/STD-023-design-values.md",
-          8039
+          8125
         ],
         [
           "canon/CAN-002-brand-and-culture.md",
@@ -636,8 +636,8 @@
     },
     "contradictions.status_vocabulary_used": {
       "value": {
-        "active": 91,
-        "draft": 35,
+        "active": 67,
+        "draft": 59,
         "todo": 5,
         "done": 6,
         "in-progress": 1

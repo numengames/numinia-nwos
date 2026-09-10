@@ -3,10 +3,10 @@ id: "PRO-008"
 uid: ""
 title: "Requesting approval, issuing rulings"
 type: protocol
-status: active
-version: "4.0.0"
+status: draft
+version: "4.0.1"
 created: "2026-04-07T15:00:00Z"
-updated: "2026-09-09T22:00:00+02:00"
+updated: "2026-09-10T12:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 guild: "Alchemists"

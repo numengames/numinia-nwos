@@ -3,12 +3,12 @@ id: "PRO-011"
 uid: ""
 title: "Auditing identity, authorization and secrets"
 type: protocol
-status: active
-version: "1.0.0"
+status: draft
+version: "1.0.1"
 created: "2026-08-21T07:35:05Z"
 created_source: "git:b35ab06"
 created_confidence: exact
-updated: "2026-09-10T00:00:00+02:00"
+updated: "2026-09-10T12:30:00+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 tags: [protocols, security, audit, credentials, secrets, identity, authorization]

@@ -18,6 +18,7 @@
 import { spawnSync, execSync } from 'node:child_process';
 import { readFileSync, writeFileSync, copyFileSync, rmSync } from 'node:fs';
 import path from 'node:path';
+import { bindsFor } from '../lib/regime.mjs';
 
 const ROOT = execSync('git rev-parse --show-toplevel').toString().trim();
 const GUARD = path.join(ROOT, 'scripts', 'check-prose-in-code.mjs');
@@ -89,7 +90,11 @@ check('the guard declares its blind spots on success (D-025)', () => {
   );
 });
 
-// The decisive test: prose written into a component must fail the build.
+// The decisive test: prose written into a component must fail the build —
+// while TXT-003's holder (STD-006) is `active`. Under ENG-067 a draft holder
+// reports and exits zero, so the expected verdict is read from the regime,
+// not hard-coded: the test proves the growth is SEEN either way.
+const GROWTH_EXIT = bindsFor('TXT-003').binds ? 1 : 0;
 const SCRATCH = path.join(ROOT, 'web', 'src', 'components', '_ProseRatchetFixture.astro');
 check('prose added to a component FAILS the guard', () => {
   writeFileSync(
@@ -101,7 +106,7 @@ check('prose added to a component FAILS the guard', () => {
   );
   try {
     const { code, out } = runGuard();
-    assert(code === 1, `expected exit 1 on growth, got ${code}\n${out}`);
+    assert(code === GROWTH_EXIT, `expected exit ${GROWTH_EXIT} on growth (holder ${bindsFor('TXT-003').status}), got ${code}\n${out}`);
     assert(
       out.includes('GREW by'),
       'the failure must say how much it grew, not just that it failed'

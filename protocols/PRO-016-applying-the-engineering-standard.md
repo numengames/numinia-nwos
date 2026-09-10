@@ -3,10 +3,10 @@ id: "PRO-016"
 uid: ""
 title: "Applying the engineering standard"
 type: protocol
-status: active
-version: "2.0.0"
+status: draft
+version: "2.0.1"
 created: "2026-09-08T21:30:00Z"
-updated: "2026-09-09T19:00:00+02:00"
+updated: "2026-09-10T12:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, engineering, agents]

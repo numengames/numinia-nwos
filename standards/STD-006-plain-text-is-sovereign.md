@@ -4,17 +4,17 @@ uid: ""
 title: "Plain text is sovereign"
 type: documentation
 subtype: standard
-status: active
-version: "2.0.1"
+status: draft
+version: "2.0.2"
 created: "2026-09-03T06:27:46Z"
-updated: "2026-09-10T01:30:00+02:00"
+updated: "2026-09-10T12:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Archive"
 license: "CC0-1.0"
 tags: [archive, substrate, format, sovereignty, self-hosting]
 supersedes: ["ADR-001"]
-series_change: "2.0.0 — the standard takes the ADR-043 shape: 1,433 -> 340 words of body. The seven rules of the old conformance table are kept as TXT-001..007, with the same checks; the substrate, format and sovereignty sections and File Over App collapse into them. Major, not minor, because the section numbers other documents could cite (§2.1-2.3) no longer exist."
+series_change: "2.0.2 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 2.0.0 — the standard takes the ADR-043 shape: 1,433 -> 340 words of body. The seven rules of the old conformance table are kept as TXT-001..007, with the same checks; the substrate, format and sovereignty sections and File Over App collapse into them. Major, not minor, because the section numbers other documents could cite (§2.1-2.3) no longer exist."
 ---
 
 # Plain text is sovereign

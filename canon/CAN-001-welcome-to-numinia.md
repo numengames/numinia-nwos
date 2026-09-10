@@ -3,12 +3,12 @@ id: "CAN-001"
 uid: ""
 title: "Welcome to Numinia"
 type: seminal
-status: active
-version: "2.1.0"
+status: draft
+version: "2.1.1"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-08T22:00:00Z"
+updated: "2026-09-10T12:30:00+02:00"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Exegetes"

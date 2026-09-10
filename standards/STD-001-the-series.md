@@ -4,10 +4,10 @@ id: "STD-001"
 uid: ""
 type: documentation
 subtype: register
-status: active
-version: "5.2.0"
+status: draft
+version: "5.2.1"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-09-09T16:40:00+02:00"
+updated: "2026-09-10T12:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -17,7 +17,7 @@ license: "CC0-1.0"
 ratified_by: "ADR-043"
 threshold: governed
 related: ["STD-024", "STD-016", "STD-018", "STD-007"]
-series_change: "5.0.0 — cut eleven under ADR-043. The glossary that was not a glossary becomes the register it always was: what series exist, what each holds, its prefix, its threshold, its budget, its mould. The rules moved to STD-024 (a series is a function), STD-021 (citing vs data), STD-015 (guard checks); the field vocabularies were already in STD-016. Section-numbered citations resolve in git."
+series_change: "5.2.1 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 5.0.0 — cut eleven under ADR-043. The glossary that was not a glossary becomes the register it always was: what series exist, what each holds, its prefix, its threshold, its budget, its mould. The rules moved to STD-024 (a series is a function), STD-021 (citing vs data), STD-015 (guard checks); the field vocabularies were already in STD-016. Section-numbered citations resolve in git."
 ---
 
 # The series

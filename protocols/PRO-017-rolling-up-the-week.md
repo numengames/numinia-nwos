@@ -3,10 +3,10 @@ id: "PRO-017"
 uid: ""
 title: "Rolling up the week"
 type: protocol
-status: active
-version: "2.0.0"
+status: draft
+version: "2.0.1"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-09-09T18:00:00+02:00"
+updated: "2026-09-10T12:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, rollup, deflation, weekly, reports]
