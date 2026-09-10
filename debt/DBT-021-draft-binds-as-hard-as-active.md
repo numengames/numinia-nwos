@@ -4,9 +4,9 @@ uid: ""
 title: "Six standards are draft and bind anyway: only one guard reads the status field"
 type: documentation
 status: active
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-09-07T16:40:00+02:00"
-updated: "2026-09-10T10:30:00+02:00"
+updated: "2026-09-10T11:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -89,9 +89,10 @@ The Oracle chose exit 1. The rule is `ENG-067` in `STD-005` 2.1.0: a guard
 fails the build only while the standard holding the plate it cites is
 `active`; a draft's findings are reported and exit zero; build guards are the
 declared exception. `STD-005` is itself `draft`, so writing the rule changed
-no behaviour — which is the rule applied to itself. This entry closes when
-every guard in `ci.yml` reads the holder's state through one shared function
-and the count in §1 is zero.
+no behaviour — which is the rule applied to itself. The shared reader is
+`scripts/lib/regime.mjs` (2026-09-10, under `regime.test.mjs`);
+`check-core-rules.mjs` is its first adopter. This entry closes when every
+rule guard in `ci.yml` imports it and the count in §1 is zero.
 
 ## 4. References
 
