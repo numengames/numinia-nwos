@@ -5,17 +5,17 @@ uid: ""
 type: documentation
 subtype: standard
 status: draft
-version: "2.0.0"
+version: "2.1.0"
 created: "2026-08-17T21:55:38+02:00"
 created_source: "git:e3123fc"
 created_confidence: exact
-updated: "2026-09-09T02:40:00+02:00"
+updated: "2026-09-10T10:30:00+02:00"
 author: "pablofm"
 owner: "oracle"
 territory: "Platform"
 tags: [standards, engineering, ci, guards]
 license: "CC0-1.0"
-series_change: "2.0.0 — the standard takes the ADR-043 shape and splits: 2,161 -> 480 words of body here, the 52 practice rows become the register STD-015. The seven principles are ENG-001..007; the six guard rules that came from STD-009 keep their numbers as ENG-031..035 and ENG-066. Major: §3.2 was cited by two documents and no longer exists."
+series_change: "2.1.0 — ENG-067: a guard bites by the state of the standard that holds the rule it cites — `draft` reports, `active` fails the build; build guards, which verify the artefact and not a rule, are the declared exception. Minor: a new obligation on guards, none reversed. Decided by the Oracle on 2026-09-10 (DBT-021, exit 1). 2.0.0 — the standard takes the ADR-043 shape and splits: 2,161 -> 480 words of body here, the 52 practice rows become the register STD-015. The seven principles are ENG-001..007; the six guard rules that came from STD-009 keep their numbers as ENG-031..035 and ENG-066. Major: §3.2 was cited by two documents and no longer exists."
 ---
 
 # Engineering baseline
@@ -81,6 +81,17 @@ then presence checks, then the full pipeline. Measure, then tighten.
 the guard or write the rule; never bend the tree to a guard no axis document
 backs.
 
+**ENG-067 — A guard bites by the state of its rule.** A finding fails the
+build only while the standard that holds the plate it cites is `active`;
+while that standard is `draft`, the guard reports the finding and exits zero.
+The state is read from the holder's header at run time, never configured in
+the guard, so ratifying a standard is what turns its guards on (`PRE-006`).
+A finding that cites no plate has no state to read and MUST NOT fail a build
+(`ENG-066`). Exception: a guard that verifies the artefact rather than a rule
+— the build, telemetry freshness, internal links, orphan content, the life of
+cited URLs — bites regardless; it declares itself a build guard in its
+blindness entry.
+
 ## Check
 
 | Plate | Verified by |
@@ -90,6 +101,7 @@ backs.
 | ENG-004 | `[AUTO: push protection + gitleaks]` — `STD-015` SEC-004 |
 | ENG-031, ENG-032 | `[MANUAL]` — no guard register exists (`DBT-017`) |
 | ENG-005, 006, 007, 033–035, 066 | `[MANUAL]` |
+| ENG-067 | `[MANUAL]` — the shared reader of a holder's state does not exist yet; `check-core-rules.mjs` is the one guard that behaves this way today |
 
 Nothing in this standard fails a build in this repository today; it is
 enforced by reading and by the checks it names running elsewhere (`DBT-020`).
@@ -100,7 +112,11 @@ A practice with no check is a wish with a heading. Writing the check beside
 the practice makes the honest state visible: how much of the baseline is
 enforced and how much is promised. The guard rules exist because the guards
 are themselves code that can rot — unwired, remembered wrong, or absorbing the
-damage they were meant to catch.
+damage they were meant to catch. ENG-067 gives the `status` field its
+consequence: before it, a draft's rules failed builds as hard as an active's,
+and the signature that turned a draft into an obligation changed nothing a
+machine could see (`DBT-021`). With it, ENG-001 reads as intended — a draft's
+rules are prose until the Oracle signs, and the signature is the switch.
 
 ## References
 
@@ -108,5 +124,6 @@ damage they were meant to catch.
 |---|---|---|
 | `STD-015` | Engineering checks | the 52 practices, their level and their check |
 | `PRO-016` | Applying the engineering standard | the procedure for a task |
-| `STD-009` | Core rules | where ENG-031..035 and ENG-066 came from |
+| `STD-009` | Which rule wins | where ENG-031..035 and ENG-066 came from; `PRE-006`, the principle ENG-067 executes |
+| `DBT-021` | Draft binds as hard as active | the defect ENG-067 closes |
 | `DBT-020` | Declared automatic, executed by nobody | the `[MANUAL]` rows that claim otherwise |

@@ -4,9 +4,9 @@ uid: ""
 title: "Six standards are draft and bind anyway: only one guard reads the status field"
 type: documentation
 status: active
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-07T16:40:00+02:00"
-updated: "2026-09-07T16:40:00+02:00"
+updated: "2026-09-10T10:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -19,7 +19,7 @@ detected: "2026-09-07"
 visibility: "restricted-oracle"
 visibility_reason: "internal governance debt"
 opened_by: "ursa"
-related: ["MIS-0146", "STD-005", "STD-007", "STD-009", "STD-010", "STD-011"]
+related: ["MIS-0146", "STD-005", "STD-007", "STD-009", "STD-010", "STD-011", "PRO-013"]
 ---
 
 # DBT-021 — Draft binds exactly as hard as active
@@ -82,6 +82,16 @@ Two coherent exits exist, both for later:
    and `active` enforces. Uniform, and it makes ratification a real act.
 2. **Admit it is a label** — record that enforcement does not depend on status,
    so no reader is misled.
+
+## 3a. Decision (2026-09-10)
+
+The Oracle chose exit 1. The rule is `ENG-067` in `STD-005` 2.1.0: a guard
+fails the build only while the standard holding the plate it cites is
+`active`; a draft's findings are reported and exit zero; build guards are the
+declared exception. `STD-005` is itself `draft`, so writing the rule changed
+no behaviour — which is the rule applied to itself. This entry closes when
+every guard in `ci.yml` reads the holder's state through one shared function
+and the count in §1 is zero.
 
 ## 4. References
 
