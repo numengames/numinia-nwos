@@ -3,12 +3,12 @@ id: "CAN-006"
 uid: ""
 title: "Epistemic Relations between Numen Games and Numinia"
 type: seminal
-status: active
-version: "1.0.0"
+status: draft
+version: "1.0.1"
 created: "2026-04-15T16:25:05Z"
 created_source: "git:89404d7"
 created_confidence: exact
-updated: "2026-04-15T16:25:05Z"
+updated: "2026-09-10T12:30:00+02:00"
 author: "Christian Numinia"
 owner: "oracle"
 guild: "Exegetes"

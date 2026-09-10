@@ -4,12 +4,12 @@ id: "STD-003"
 uid: ""
 type: documentation
 subtype: standard
-status: active
-version: "3.0.1"
+status: draft
+version: "3.0.2"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-10T01:30:00+02:00"
+updated: "2026-09-10T12:30:00+02:00"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Alchemists"
@@ -17,7 +17,7 @@ territory: "Archive"
 tags: [standards, ranks, permissions, digital-goods]
 license: "CC0-1.0"
 threshold: governed
-series_change: "3.0.0 — the standard takes the ADR-043 shape: 1,047 -> 386 words of body. RNK-001..004 keep their text and their checks; three new plates name obligations the prose held without one: RNK-005 automatic moves, RNK-006 the manual ceiling, RNK-007 the platform updates this standard with the matrix. Major because §2 and §3, citable by number, no longer exist."
+series_change: "3.0.2 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 3.0.0 — the standard takes the ADR-043 shape: 1,047 -> 386 words of body. RNK-001..004 keep their text and their checks; three new plates name obligations the prose held without one: RNK-005 automatic moves, RNK-006 the manual ceiling, RNK-007 the platform updates this standard with the matrix. Major because §2 and §3, citable by number, no longer exist."
 ---
 # Platform ranks
 

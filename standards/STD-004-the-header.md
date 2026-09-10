@@ -4,19 +4,19 @@ uid: ""
 title: "The header"
 type: documentation
 subtype: standard
-status: active
-version: "3.1.1"
+status: draft
+version: "3.1.2"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-09-10T13:00:00+02:00"
+updated: "2026-09-10T12:30:00+02:00"
 ratified_by: "ADR-043"
 author: "ursa"
 owner: "oracle"
 territory: "Archive"
 license: "CC0-1.0"
 tags: [frontmatter, standard, lint, metadata]
-series_change: "3.1.0 — HDR-040, HDR-041 and HDR-043 are defined here, inside HDR-000, instead of in STD-009 (ADR-043 cut of STD-009). 3.0.0 — the standard takes the ADR-043 shape and splits: 2,108 -> 465 words of body here; every field table, vocabulary and lifecycle is the register STD-016. No HDR plate changes number. Major: §7.1, §7.2, §8.2 and §9 were cited by four documents and no longer exist; §8 (context card, standards template) is superseded by STD-007 DOC-002..006; §9 by ENG-033."
+series_change: "3.1.2 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 3.1.0 — HDR-040, HDR-041 and HDR-043 are defined here, inside HDR-000, instead of in STD-009 (ADR-043 cut of STD-009). 3.0.0 — the standard takes the ADR-043 shape and splits: 2,108 -> 465 words of body here; every field table, vocabulary and lifecycle is the register STD-016. No HDR plate changes number. Major: §7.1, §7.2, §8.2 and §9 were cited by four documents and no longer exist; §8 (context card, standards template) is superseded by STD-007 DOC-002..006; §9 by ENG-033."
 ---
 # The header
 

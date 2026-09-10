@@ -4,17 +4,17 @@ uid: ""
 title: "Design values"
 type: documentation
 subtype: register
-status: active
-version: "1.0.2"
+status: draft
+version: "1.0.3"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-10T01:30:00+02:00"
+updated: "2026-09-10T12:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
 tags: [design, register, tokens, palette, typography, motion]
 license: "CC0-1.0"
 related: ["STD-008", "CAN-008", "ADR-044"]
-series_change: "1.0.0 — new register, split from STD-008 under ADR-043 and ADR-044: every closed list the old standard held — palette, neutrals, text variants, rarity, Píxel-16, ramps, data palette, type scale, space and grid, icon weights and subset, brand inventory, brandmark path, the animation catalogue, the sky, pixel grids and the external references. Values unchanged; tables moved verbatim (old §2.1–2.3, 2.6–2.8, 3.3, 4, 6.1, 6.3, 7.1, 7.4, 9.1, 10.1, 11.2, 17)."
+series_change: "1.0.3 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 1.0.0 — new register, split from STD-008 under ADR-043 and ADR-044: every closed list the old standard held — palette, neutrals, text variants, rarity, Píxel-16, ramps, data palette, type scale, space and grid, icon weights and subset, brand inventory, brandmark path, the animation catalogue, the sky, pixel grids and the external references. Values unchanged; tables moved verbatim (old §2.1–2.3, 2.6–2.8, 3.3, 4, 6.1, 6.3, 7.1, 7.4, 9.1, 10.1, 11.2, 17)."
 ---
 
 <!--

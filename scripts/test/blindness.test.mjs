@@ -128,9 +128,13 @@ check('the declaration is printed on SUCCESS, not only on failure', () => {
 });
 
 check('the declaration survives a failing run too', () => {
-  // Force a failure: an unparseable fence in a scratch clone.
+  // Force a failure: an unparseable fence in a scratch clone. TXT-002 bites
+  // only while its holder STD-006 is `active` (ENG-067); the fixture sets
+  // that state itself so the test reads the guard, not the tree's lifecycle.
   const clone = scratchClone();
   try {
+    const holder = path.join(clone, 'standards/STD-006-plain-text-is-sovereign.md');
+    writeFileSync(holder, readFileSync(holder, 'utf8').replace(/^status: \w+$/m, 'status: active'));
     writeFileSync(path.join(clone, 'debt/D-000-fence-broken.md'), '---\nid: "D-000"\n---# glued\n');
     execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
     const res = spawnGuard('scripts/check-frontmatter-delimiter.mjs', clone);

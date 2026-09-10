@@ -3,12 +3,12 @@ id: "CAN-005"
 uid: ""
 title: "Opening is an act"
 type: seminal
-status: active
-version: "3.0.0"
+status: draft
+version: "3.0.1"
 created: "2026-08-16T19:58:17+02:00"
 created_source: "git:2efd546"
 created_confidence: exact
-updated: "2026-09-10T05:00:00+02:00"
+updated: "2026-09-10T12:30:00+02:00"
 author: "oracle"
 owner: "oracle"
 guild: "Procurators"

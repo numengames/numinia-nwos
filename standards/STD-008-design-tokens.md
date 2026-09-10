@@ -4,17 +4,17 @@ uid: ""
 title: "Design tokens"
 type: documentation
 subtype: standard
-status: active
-version: "7.0.1"
+status: draft
+version: "7.0.2"
 created: "2026-08-18T13:41:01Z"
-updated: "2026-09-10T01:30:00+02:00"
+updated: "2026-09-10T12:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
 registration: registered
 related: ["CAN-008", "STD-023", "PRO-014", "STD-010", "ADR-044"]
 license: "CC0-1.0"
-series_change: "7.0.0 — the standard takes the ADR-043 shape and splits four ways under ADR-044: 9,934 -> 470 words of body here, as twelve plated rules DSN-001..012 (the old DS-01..04 conformance checks are DSN-009..012, same checks); every closed list is the register STD-023; every recipe is a blueprint (BLU-009 web, BLU-010 pixel, BLU-011 book and Velo); the kit source is packages/design-kit. Major: sections §2-§17 were cited by CAN-008 and PRO-014 and no longer exist; those citations are repointed in the same change. Direction prose that CAN-008 §3 already holds is not carried."
+series_change: "7.0.2 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 7.0.0 — the standard takes the ADR-043 shape and splits four ways under ADR-044: 9,934 -> 470 words of body here, as twelve plated rules DSN-001..012 (the old DS-01..04 conformance checks are DSN-009..012, same checks); every closed list is the register STD-023; every recipe is a blueprint (BLU-009 web, BLU-010 pixel, BLU-011 book and Velo); the kit source is packages/design-kit. Major: sections §2-§17 were cited by CAN-008 and PRO-014 and no longer exist; those citations are repointed in the same change. Direction prose that CAN-008 §3 already holds is not carried."
 ---
 
 <!--
