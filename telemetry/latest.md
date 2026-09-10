@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-10T10:54:02Z"
+updated: "2026-09-10T15:10:07Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,13 +20,13 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `ff11d0d`  · corpus_hash: `f39338cc3ffd8452…`  · measured_at: 2026-09-10T10:54:02Z  · root_dirty: 0
+- head: `c125423`  · corpus_hash: `97f3cc28b8bdb1da…`  · measured_at: 2026-09-10T15:10:07Z  · root_dirty: 1
 
 ## corpus
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `corpus.files_total` | 457 | files | `git ls-files` at HEAD, every path |
+| `corpus.files_total` | 452 | files | `git ls-files` at HEAD, every path |
 | `corpus.files_by_ext` | (table below) | files | tracked files by lowercase extension; `(none)` when no extension |
 | `corpus.md_total` | 150 | files | tracked `.md` anywhere, including `web/` |
 | `corpus.docs_total` | 148 | documents | tracked `.md` outside `web/` — the corpus every other family measures |
@@ -34,7 +34,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `corpus.docs_by_type` | (table below) | documents | corpus documents by frontmatter `type`; `(none)` when absent |
 | `corpus.docs_without_frontmatter` | 8 | documents | corpus documents with no `---` block at the top |
 | `corpus.apparatus` | 20 | documents | corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path) |
-| `corpus.scripts_total` | 41 | files | files under `scripts/` with a code extension (.py .mjs .js .sh .ts) |
+| `corpus.scripts_total` | 42 | files | files under `scripts/` with a code extension (.py .mjs .js .sh .ts) |
 | `corpus.scripts_by_language` | (table below) | files | those scripts by language, from the extension |
 | `corpus.scripts_in_ci` | 14 | files | scripts named in `.github/workflows/ci.yml` as `scripts/<name>` |
 
@@ -50,9 +50,9 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | .ico | 1 |
 | .jpg | 1 |
 | .js | 2 |
-| .json | 20 |
+| .json | 14 |
 | .md | 150 |
-| .mjs | 44 |
+| .mjs | 45 |
 | .png | 36 |
 | .py | 1 |
 | .svg | 69 |
@@ -104,7 +104,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | files |
 |---|---|
-| node | 40 |
+| node | 41 |
 | python | 1 |
 
 ## series
@@ -203,7 +203,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 267071 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 267054 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
 | `tokens.missions_share_pct` | 16.12 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
@@ -216,7 +216,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | missions | 43062 |
 | standards | 36322 |
 | canon | 29364 |
-| agents | 26728 |
+| agents | 26711 |
 | reports | 26138 |
 | blueprints | 22838 |
 | operations | 21323 |
@@ -232,7 +232,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| active | 113888 |
+| active | 113871 |
 | draft | 95468 |
 | done | 26350 |
 | todo | 13588 |

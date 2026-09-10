@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "ff11d0d",
-  "corpus_hash": "f39338cc3ffd84528b4add3cc9d8e282a99383633d1b2a64c8f723225477a7c7",
-  "root_dirty": 0,
-  "measured_at": "2026-09-10T10:54:02Z",
+  "head": "c125423",
+  "corpus_hash": "97f3cc28b8bdb1dacb3837680e78cb463ca0ed71fa4dac257b6579e404994376",
+  "root_dirty": 1,
+  "measured_at": "2026-09-10T15:10:07Z",
   "families": [
     "corpus",
     "series",
@@ -17,7 +17,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 457,
+      "value": 452,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -31,9 +31,9 @@
         ".ico": 1,
         ".jpg": 1,
         ".js": 2,
-        ".json": 20,
+        ".json": 14,
         ".md": 150,
-        ".mjs": 44,
+        ".mjs": 45,
         ".png": 36,
         ".py": 1,
         ".svg": 69,
@@ -107,13 +107,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 41,
+      "value": 42,
       "unit": "files",
       "definition": "files under `scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 40,
+        "node": 41,
         "python": 1
       },
       "unit": "files",
@@ -319,7 +319,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 267071,
+      "value": 267054,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -328,7 +328,7 @@
         "missions": 43062,
         "standards": 36322,
         "canon": 29364,
-        "agents": 26728,
+        "agents": 26711,
         "reports": 26138,
         "blueprints": 22838,
         "operations": 21323,
@@ -345,7 +345,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 113888,
+        "active": 113871,
         "draft": 95468,
         "done": 26350,
         "todo": 13588,
