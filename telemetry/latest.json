@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "710faa0",
-  "corpus_hash": "fc37cb0ca071e0ec36026c88cecbaf0a859977032e1a83e0797555c55ad60a4b",
+  "head": "022fed7",
+  "corpus_hash": "d94fb918868255363d1dae88983434611ab9638ee9db11c4136d5a81e46cba55",
   "root_dirty": 0,
-  "measured_at": "2026-09-09T13:36:10Z",
+  "measured_at": "2026-09-09T14:39:05Z",
   "families": [
     "corpus",
     "series",
@@ -319,22 +319,22 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 265157,
+      "value": 265461,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "missions": 43062,
-        "standards": 34961,
+        "standards": 35192,
         "canon": 29352,
         "agents": 26728,
         "reports": 23522,
         "blueprints": 22838,
         "operations": 21323,
-        "templates": 15732,
+        "templates": 15800,
         "protocols": 14390,
-        "": 13109,
+        "": 13114,
         "system": 9652,
         "decisions": 6189,
         "debt": 3722,
@@ -345,19 +345,18 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 152985,
-        "draft": 41288,
+        "active": 164545,
+        "draft": 43201,
         "done": 26350,
         "todo": 13588,
-        "closed": 13165,
-        "(none)": 13139,
+        "(none)": 13135,
         "in-progress": 4642
       },
       "unit": "tokens",
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 16.24,
+      "value": 16.22,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -637,12 +636,11 @@
     },
     "contradictions.status_vocabulary_used": {
       "value": {
-        "active": 90,
-        "draft": 34,
+        "active": 93,
+        "draft": 35,
         "todo": 5,
         "done": 6,
-        "in-progress": 1,
-        "closed": 4
+        "in-progress": 1
       },
       "unit": "documents",
       "definition": "frontmatter status values in the corpus with counts"
@@ -650,7 +648,7 @@
     "contradictions.status_vocabulary_undeclared": {
       "value": {},
       "unit": "documents",
-      "definition": "status values in use that scripts/lib/rules.json does not declare (mission ∪ adr ∪ _default), with the docs carrying them — a contradiction between a document and the vocabulary"
+      "definition": "status values in use that scripts/lib/rules.json does not declare (STD-016 lifecycles), with the docs carrying them — a contradiction between a document and the vocabulary"
     },
     "contradictions.ci_markers_std001": {
       "value": 31,
@@ -683,7 +681,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 585
+          "3": 597
         },
         "ADR": {
           "3": 345

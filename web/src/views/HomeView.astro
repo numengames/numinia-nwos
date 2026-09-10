@@ -33,8 +33,8 @@ const features = [
     default: "on",
     description: "Append-only log of architectural and strategic decisions. Each record captures context, the decision made, alternatives rejected, and pros/cons.",
     why: "Decisions made without documentation get remade. The registry prevents wheel reinvention and makes the cost of changing direction explicit.",
-    compare: "Notion docs get edited and lose history. The Decision Registry is immutable — superseded by new decisions, never deleted.",
-    fields: ["id", "title", "date", "status (active/provisional/superseded)", "context", "decision", "why", "rejected alternatives", "pros/cons"],
+    compare: "Notion docs get edited and lose history. The Decision Registry is immutable — withdrawn by new decisions, never rewritten.",
+    fields: ["id", "title", "date", "status (draft/active/withdrawn)", "context", "decision", "why", "rejected alternatives", "pros/cons"],
   },
   {
     id: "agents",

@@ -49,7 +49,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { ROOT, parseFM, rawFM, stripFM, loadRules, seriesDirs } from './lib/frontmatter.mjs';
-import { RING1, RING2, RING3, RING3_ALL, lifecycleFor } from './lib/rings.mjs';
+import { RING1, RING2, RING3, RING3_ALL, lifecycleFor, isTerminalStatus } from './lib/rings.mjs';
 import { declareBlindSpots } from './lib/blindness.mjs';
 declareBlindSpots('check-templates');
 
@@ -214,7 +214,7 @@ for (const dir of seriesDirs(RULES)) {
           is a Summary and a table, and needs none of these headings.
    A file that is in neither shape fails. And no log of itself in either:
    no "Version history", "Changelog" or "Amendment" heading, because git is
-   the archive (ADR-041). A superseded standard is a stub and exempt.
+   the archive (ADR-041). A withdrawn standard is a stub and exempt.
    When the last standard is cut, delete the OLD branch. */
 /* Standards whose shape is known debt and scheduled for a rewrite. Emptied
    2026-09-09 when STD-008, the last entry, took the ADR-043 shape. Kept as a
@@ -227,7 +227,7 @@ const standards = execFileSync('git', ['ls-files', 'standards/STD-*.md'], { cwd:
 for (const rel of standards) {
   const text = readFileSync(path.join(ROOT, rel), 'utf8');
   const fm = parseFM(text);
-  if (fm?.status === 'superseded' || fm?.status === 'withdrawn') continue;
+  if (isTerminalStatus(fm?.status, RULES)) continue;
   if (T11_BASELINE.has(rel)) continue;   // shape debt named, not hidden — see the set above
   const body = stripFM(text);
   const h2 = body.split('\n').filter((l) => /^## /.test(l));
