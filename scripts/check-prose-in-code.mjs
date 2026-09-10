@@ -49,6 +49,7 @@ import { readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { declareBlindSpots } from './lib/blindness.mjs';
+import { Findings } from './lib/regime.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.join(HERE, '..');
@@ -214,9 +215,13 @@ if (orphanTotal > base.orphan_chars) {
       `  Put the text in a .md and render it, or explain the exception in the\n` +
       `  PR and re-freeze with --update.\n` +
       `\n` +
-      `  Run with --report to see which files carry it.`
+      `  Run with --report to see which files carry it.\n`
   );
-  process.exit(1);
+  /* ENG-067: prose that lives only in a component is TXT-003, "nothing lives
+     only outside the tree" (STD-006). One finding: the number grew. */
+  const out = new Findings('prose-in-code');
+  out.add('TXT-003', `prose in code grew by ${grew} characters (${base.orphan_chars} -> ${orphanTotal})`, 'web/src');
+  out.finish();
 }
 
 if (orphanTotal < base.orphan_chars) {

@@ -5,9 +5,9 @@ title: "One page per document"
 type: documentation
 subtype: standard
 status: draft
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-09-03T10:30:00Z"
-updated: "2026-09-10T02:30:00+02:00"
+updated: "2026-09-10T14:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Content"
@@ -86,8 +86,8 @@ Spanish document is not invalid, it is mid-migration.
 
 | Rule | Verified by |
 |---|---|
-| DOC-001..003, DOC-005..007 | `check-document-shape.mjs` — counts, reports on the PR, never blocks |
-| DOC-004 | `check-document-shape.mjs` — a standard with no plated rule is reported |
+| DOC-001, DOC-005..007 | `check-document-shape.mjs` — budgets are SHOULD: counted, reported, never handed to the regime |
+| DOC-002..004 | `check-document-shape.mjs` — a NEW missing card, scope line or plate binds by this standard's state (ENG-067) |
 | DOC-008 | `check-plain-writing.mjs` (bare IDs, section pointers) |
 | DOC-009, DOC-010 | `check-templates.mjs` |
 
