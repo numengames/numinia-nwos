@@ -47,6 +47,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { ROOT, parseFM, stripFM, isApparatus, isTemplate, loadRules } from './lib/frontmatter.mjs';
 import { isTerminalStatus } from './lib/rings.mjs';
+import { Findings } from './lib/regime.mjs';
 const RULES = loadRules();
 
 // ADR-043 rule 6. Moves to the Series register when that file exists.
@@ -241,11 +242,17 @@ if (WRITE) {
 }
 const baseline = existsSync(BASELINE) ? new Set(JSON.parse(readFileSync(BASELINE, 'utf8'))) : new Set();
 const fresh = formKeys.filter((k) => !baseline.has(k));
+/* ENG-067: a NEW form failure answers to the plate its S-code measures —
+   S-02 the card (DOC-002), S-03 the scope line (DOC-003), S-04 the plated
+   rules (DOC-004) — and binds by STD-007's state. Budgets (S-01/05/06/07)
+   are SHOULD and are never handed to the regime. */
+const PLATE = { 'S-02': 'DOC-002', 'S-03': 'DOC-003', 'S-04': 'DOC-004' };
 if (BLOCK_ON_FORM && !only) {
   console.log(`\nform: ${formKeys.length} failure(s) · ${baseline.size} baselined · ${fresh.length} new`);
   if (fresh.length) {
-    console.error(`\n✗ ${fresh.length} NEW form failure(s). ADR-043: form is MUST — card, scope and plates before merge.`);
-    for (const k of fresh) console.error(`    ${k}`);
-    process.exit(1);
+    console.error(`\n✗ ${fresh.length} NEW form failure(s) — card, scope and plates before merge (ADR-043).\n`);
+    const out = new Findings('document-shape');
+    for (const k of fresh) { const m = /^(\S+) (S-0\d) (.*)$/.exec(k); out.add(PLATE[m[2]], `${m[2]} ${m[3]}`, m[1]); }
+    out.finish();
   }
 }

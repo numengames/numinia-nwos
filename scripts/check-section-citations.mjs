@@ -35,6 +35,7 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { execSync } from "node:child_process";
 import path from "node:path";
+import { Findings } from "./lib/regime.mjs";
 
 const root = execSync("git rev-parse --show-toplevel", { encoding: "utf-8" }).trim();
 const REPORT = process.argv.includes("--report");
@@ -137,5 +138,9 @@ if (added.length === 0) {
   process.exit(0);
 }
 
+/* ENG-067: a citation to a section that does not exist is CIT-050, "cite
+   the document, not the place" (STD-021); a NEW one binds by that state. */
 show(added, `✗ ${added.length} NEW citation(s) to a section that does not exist:`);
-process.exit(1);
+const out = new Findings("check-section-citations");
+for (const b of added) out.add("CIT-050", `cites ${b.id} §${b.sec}, which ${b.name} does not have`, `${b.rel}:${b.line}`);
+out.finish();

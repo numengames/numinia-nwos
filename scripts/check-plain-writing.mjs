@@ -36,6 +36,7 @@
  * fails only on NEW ones.
  */
 import { declareBlindSpots } from './lib/blindness.mjs';
+import { Findings } from './lib/regime.mjs';
 declareBlindSpots('check-plain-writing');
 import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
@@ -142,15 +143,14 @@ if (REPORT) {
   process.exit(0);
 }
 
+/* ENG-067: PW-01 (bare id in prose), PW-02 (section pointer) and PW-03 (id
+   missing from References) are the three faces of DOC-008, "cite plates, not
+   places"; a NEW one binds by STD-007's state. */
 if (fresh.length) {
-  console.log(`\n✗ ${fresh.length} NEW STD-007 violation(s):\n`);
-  for (const f of fresh) console.log(`    ${f.check} ${f.file}:${f.line || '-'} :: ${f.token}`);
-  console.log(`
-STD-007: name other documents by their plain subject in prose, collect the
-IDs you depend on in one \`## References\` table at the end, and never point
-at another document's section number — it moves, your citation does not.
-Fix the prose, or update the baseline deliberately.`);
-  process.exit(1);
+  console.log(`\n✗ ${fresh.length} NEW STD-007 violation(s) — name other documents by their plain subject in prose, collect the IDs you depend on in one \`## References\` table at the end, and never point at another document's section number. Fix the prose, or update the baseline deliberately.\n`);
+  const out = new Findings('plain-writing');
+  for (const f of fresh) out.add('DOC-008', `${f.check} ${f.token}`, `${f.file}:${f.line || '-'}`);
+  out.finish();
 }
 
 console.log('✓ no new STD-007 violations.');
