@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "977fc5e",
-  "corpus_hash": "f98f94a6198f596d07c67e6983baee7fb1c9e8be2cd8d68114f38c1083c27e39",
+  "head": "1d8e94b",
+  "corpus_hash": "4b1720ba5c3328d5f0359b226e4997e4a96e13e94bc57b5de8ef13ec898a4faf",
   "root_dirty": 1,
-  "measured_at": "2026-09-10T16:53:33Z",
+  "measured_at": "2026-09-10T20:28:06Z",
   "families": [
     "corpus",
     "series",
@@ -105,13 +105,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 38,
+      "value": 37,
       "unit": "files",
       "definition": "files under `scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 38
+        "node": 37
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
@@ -316,22 +316,22 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 267312,
+      "value": 267373,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "missions": 43062,
-        "standards": 36616,
+        "standards": 36665,
         "canon": 29364,
         "agents": 26711,
         "reports": 26138,
         "blueprints": 22838,
         "operations": 21323,
-        "templates": 15800,
+        "templates": 15806,
         "protocols": 14384,
-        "": 13114,
+        "": 13120,
         "system": 9652,
         "decisions": 6189,
         "debt": 1544,
@@ -342,11 +342,11 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 113871,
-        "draft": 95726,
+        "active": 113880,
+        "draft": 95775,
         "done": 26350,
         "todo": 13588,
-        "(none)": 13135,
+        "(none)": 13138,
         "in-progress": 4642
       },
       "unit": "tokens",
@@ -648,12 +648,14 @@
       "definition": "status values in use that scripts/lib/rules.json does not declare (STD-016 lifecycles), with the docs carrying them — a contradiction between a document and the vocabulary"
     },
     "contradictions.ci_markers_std001": {
-      "value": 31,
+      "value": 33,
       "unit": "rows",
       "definition": "table rows of STD-001 carrying `[CI]`"
     },
     "contradictions.ci_marked_scripts_not_in_ci": {
       "value": [
+        "scripts/run-guards.mjs",
+        "scripts/lib/regime.mjs",
         "scripts/generate-design-kit.mjs",
         "scripts/check-deletable.mjs"
       ],
