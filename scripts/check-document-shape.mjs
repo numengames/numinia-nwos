@@ -29,25 +29,24 @@
  *   Whether a rule is one obligation, or a title is a rule — editorial.
  *
  * Usage:
- *   node scripts/check-document-shape.mjs               # report sizes; block on NEW form failures
+ *   node scripts/check-document-shape.mjs               # sizes and every form failure; exit 1 only if one binds
  *   node scripts/check-document-shape.mjs --json        # machine output
  *   node scripts/check-document-shape.mjs standards/    # one folder
- *   node scripts/check-document-shape.mjs --write-baseline
  *
- * Form failures present when blocking switched on (ADR-043: "when the last
- * standard is cut") are frozen in scripts/document-shape-baseline.json, one
- * `file finding` per line. The guard fails only on a form failure NOT in that
- * file, so the list can shrink and never grow — the same ratchet as
- * check-references and check-plain-writing. A baselined document loses its
- * exemption the moment it is edited into shape.
+ * Form is MUST; budgets are SHOULD. Every form failure is printed; whether
+ * one fails the build is the regime's call (ENG-067): only while STD-007
+ * is `active`. Budgets are reported and never handed to the regime.
  */
 
 import { execFileSync } from 'node:child_process';
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { ROOT, parseFM, stripFM, isApparatus, isTemplate, loadRules } from './lib/frontmatter.mjs';
 import { isTerminalStatus } from './lib/rings.mjs';
 import { Findings } from './lib/regime.mjs';
+import { declareBlindSpots } from './lib/blindness.mjs';
+
+declareBlindSpots('check-document-shape');
 const RULES = loadRules();
 
 // ADR-043 rule 6. Moves to the Series register when that file exists.
@@ -60,15 +59,9 @@ const BUDGET = {
 const CAP = { title: 5, card: 40, scope: 15, why: 80, refs: 5 };
 const PLATE_RE = /\*\*([A-Z]{3}-\d{3})\s+—/g;
 // Old-shape plates still valid until the rename PR (ADR-043 consequences).
-const LEGACY_PLATE_RE = /\*\*((?:CORE|H|PW|A|RK|SEC|ARC|PM|DEV)-\d{1,2})\*\*/g;
 const NEEDS_PLATES = new Set(['standards', 'protocols']);
 
-// ADR-043: form is MUST. Flipped when the tenth cut merged (MIS-146 phase 4).
-const BLOCK_ON_FORM = true;
-const BASELINE = path.join(ROOT, 'scripts', 'document-shape-baseline.json');
-
 const args = process.argv.slice(2);
-const WRITE = args.includes('--write-baseline');
 const JSON_OUT = args.includes('--json');
 const only = args.find((a) => !a.startsWith('--'));
 
@@ -147,9 +140,8 @@ function measure(rel) {
 
   // S-04 plates
   const plates = [...core.matchAll(PLATE_RE)].map((m) => m[1]);
-  const legacy = [...core.matchAll(LEGACY_PLATE_RE)].map((m) => m[1]);
-  r.plates = plates.length; r.legacy_plates = legacy.length;
-  if (!register && NEEDS_PLATES.has(dir) && plates.length + legacy.length === 0)
+  r.plates = plates.length;
+  if (!register && NEEDS_PLATES.has(dir) && plates.length === 0)
     findings.push('S-04 no plated rule (**AAA-NNN — …**)');
 
   // S-05 why — the section from `## Why` to the next `## `, scanned by line.
@@ -229,30 +221,21 @@ if (only || process.env.SHAPE_VERBOSE) {
   console.log('');
   for (const r of results) {
     const tag = r.findings.length ? '·' : '✓';
-    console.log(`${tag} ${r.file}  title=${r.title_words}w body=${r.body_words ?? '-'}/${r.budget} plates=${r.plates + r.legacy_plates} refs=${r.refs ?? '-'}`);
+    console.log(`${tag} ${r.file}  title=${r.title_words}w body=${r.body_words ?? '-'}/${r.budget} plates=${r.plates} refs=${r.refs ?? '-'}`);
     for (const f of r.findings) console.log(`    ${f}`);
   }
 }
 const FORM_RE = /^S-0[234] (no|card has no)/;
 const formKeys = results.flatMap((r) => r.findings.filter((f) => FORM_RE.test(f)).map((f) => `${r.file} ${f}`)).sort();
-if (WRITE) {
-  writeFileSync(BASELINE, JSON.stringify(formKeys, null, 2) + '\n');
-  console.log(`document-shape: baseline written — ${formKeys.length} known form failure(s) frozen.`);
-  process.exit(0);
-}
-const baseline = existsSync(BASELINE) ? new Set(JSON.parse(readFileSync(BASELINE, 'utf8'))) : new Set();
-const fresh = formKeys.filter((k) => !baseline.has(k));
-/* ENG-067: a NEW form failure answers to the plate its S-code measures —
-   S-02 the card (DOC-002), S-03 the scope line (DOC-003), S-04 the plated
-   rules (DOC-004) — and binds by STD-007's state. Budgets (S-01/05/06/07)
-   are SHOULD and are never handed to the regime. */
+/* ENG-067: a form failure answers to the plate its S-code measures — S-02
+   the card (DOC-002), S-03 the scope line (DOC-003), S-04 the plated rules
+   (DOC-004) — and binds by STD-007's state. Budgets (S-01/05/06/07) are
+   SHOULD and are never handed to the regime. */
 const PLATE = { 'S-02': 'DOC-002', 'S-03': 'DOC-003', 'S-04': 'DOC-004' };
-if (BLOCK_ON_FORM && !only) {
-  console.log(`\nform: ${formKeys.length} failure(s) · ${baseline.size} baselined · ${fresh.length} new`);
-  if (fresh.length) {
-    console.error(`\n✗ ${fresh.length} NEW form failure(s) — card, scope and plates before merge (ADR-043).\n`);
-    const out = new Findings('document-shape');
-    for (const k of fresh) { const m = /^(\S+) (S-0\d) (.*)$/.exec(k); out.add(PLATE[m[2]], `${m[2]} ${m[3]}`, m[1]); }
-    out.finish();
-  }
+if (!only) {
+  console.log(`\nform: ${formKeys.length} failure(s)`);
+  if (formKeys.length) console.error(`\ncard, scope and plates before merge (ADR-043).\n`);
+  const out = new Findings('document-shape');
+  for (const k of formKeys) { const m = /^(\S+) (S-0\d) (.*)$/.exec(k); out.add(PLATE[m[2]], `${m[2]} ${m[3]}`, m[1]); }
+  out.finish({ ok: 'every document holds its shape.' });
 }

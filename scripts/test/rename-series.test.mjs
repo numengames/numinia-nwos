@@ -13,8 +13,10 @@
 // check-references caught it and nothing was committed, but a tool whose whole
 // job is "rename safely" has to be tested against the cases that broke it.
 //
-// Run: node scripts/test/rename-series.test.mjs
+// Run: npm test
 
+import test from 'node:test';
+import assert from 'node:assert/strict';
 const reEsc = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 const ID_SHAPED = /^[A-Z]{1,6}-\d{1,4}$/i;
@@ -165,13 +167,4 @@ const cases = [
     '[gov](STD-002-governance.md)'],
 ];
 
-let failed = 0;
-for (const [name, fn, want] of cases) {
-  const got = fn();
-  const ok = got === want;
-  if (!ok) failed++;
-  console.log(`${ok ? 'ok  ' : 'FAIL'}  ${name}`);
-  if (!ok) console.log(`        want: ${want}\n        got:  ${got}`);
-}
-console.log(`\n${cases.length - failed}/${cases.length} passed`);
-process.exit(failed ? 1 : 0);
+for (const [name, fn, want] of cases) test(name, () => assert.equal(fn(), want));

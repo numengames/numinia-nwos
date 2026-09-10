@@ -1,6 +1,27 @@
 {
   "$comment": "Blind-spot registry — D-025. Single source of truth for what each guard CANNOT see. Guards import scripts/lib/blindness.mjs and call declareBlindSpots(<id>), which prints these on every exit path, success or failure. Verified by scripts/test/blindness.test.mjs: every id here must be claimed by a guard, every guard must declare, and the fixture-backed entries are proven against real files rather than asserted. A guard that verifies the artefact rather than a rule carries `build_guard` with its reason: it bites whatever any standard's state (ENG-067 exception). A guard without that field answers to the regime and must use scripts/lib/regime.mjs.",
   "guards": {
+    "check-core-rules": {
+      "script": "scripts/check-core-rules.mjs",
+      "sees": "eleven plated rules that had no guard of their own (IDN-012/013/014, HDR-040/043/044, VER-021/024, GIT-026/045, CIT-050), each finding bound by its holder's state (ENG-067)",
+      "blind_to": [
+        {
+          "spot": "every other plated rule — a rule with no guard is enforced by nobody, and this guard does not list which those are",
+          "covered_by": "the Check tables of the standards, read by hand",
+          "debt": "DBT-017"
+        },
+        {
+          "spot": "values the flat frontmatter parser cannot read — a nested or multi-line field reads as its raw text",
+          "covered_by": "check-frontmatter-yaml, which parses the header for real",
+          "debt": null
+        },
+        {
+          "spot": "untracked files — enumerates via `git ls-files`",
+          "covered_by": "its own untracked-file warning (D-049)",
+          "debt": "D-049"
+        }
+      ]
+    },
     "check-deletable": {
       "script": "scripts/check-deletable.mjs",
       "sees": "whether a document has living inbound citers, whether it is sealed, and which public URLs it publishes (ADR-033 tests 1, 4, and the evidence for 2)",
@@ -31,102 +52,21 @@
         }
       ]
     },
-    "check-url-lifecycle": {
-      "script": "scripts/check-url-lifecycle.mjs",
-      "build_guard": "verifies the built output, not a rule — a public URL that dies without a redirect is a broken promise to a reader, not a breach of a draft (ENG-067 exception)",
-      "sees": "public URLs that stop being built without a redirect declared in web/astro.config.mjs (D-028)",
+    "check-document-shape": {
+      "script": "scripts/check-document-shape.mjs",
+      "sees": "every governed .md: title length, body word count against its series budget, the card, the scope line, plated rules, the References table",
       "blind_to": [
         {
-          "spot": "whether a redirect's TARGET actually answers the question the dead URL answered — a 301 to a section index silences this guard and still loses the content",
-          "covered_by": null,
-          "debt": "D-028"
+          "spot": "whether the words are the RIGHT words — it counts them; a document can be within budget and say nothing",
+          "covered_by": null
         },
         {
-          "spot": "inbound links from OUTSIDE the repository — search engines, other sites, the numinia-web repo, printed QR codes. It knows an address died; it cannot know who was walking to it",
-          "covered_by": null,
-          "debt": "D-028"
+          "spot": "budget overruns — reported as SHOULD, never handed to the regime, so a document can grow past its budget and merge",
+          "covered_by": null
         },
         {
-          "spot": "URLs that never entered the baseline because the build that would have published them failed or was never run — it measures web/dist, so it inherits that build's coverage exactly",
-          "covered_by": "npm run build in CI"
-        },
-        {
-          "spot": "redirect rules with Astro's [param] syntax (e.g. /misiones/[id]) — those are matched literally against the baseline, so a parameterised route is neither verified nor expanded",
-          "covered_by": null,
-          "debt": "D-028"
-        }
-      ]
-    },
-    "check-references": {
-      "script": "scripts/check-references.mjs",
-      "sees": ".md and .json citations, by identifier and by path",
-      "blind_to": [
-        {
-          "spot": "consumers written in code (.ts, .astro) — slug maps and import.meta.glob",
-          "covered_by": "npm run build",
-          "fixture": "ts-consumer"
-        },
-        {
-          "spot": "the FOLDER in a path citation: the resolver falls back to basename, so agents/guilds/x.md resolves against guilds/x.md and a wrong directory reads as green",
-          "covered_by": null,
-          "debt": "D-047",
-          "fixture": "wrong-folder"
-        },
-        {
-          "spot": "untracked files — enumerates via `git ls-files`, so a .md created but not `git add`ed is never scanned",
-          "covered_by": "its own untracked-file warning (D-049)",
-          "debt": "D-049",
-          "fixture": "untracked"
-        }
-      ]
-    },
-    "lint-naming": {
-      "script": "scripts/lint-naming.mjs",
-      "sees": "filename shape against the series scheme (N-01…N-05)",
-      "blind_to": [
-        {
-          "spot": "untracked files — enumerates via `git ls-files`",
-          "covered_by": "its own untracked-file warning (D-049)",
-          "debt": "D-049",
-          "fixture": "untracked"
-        },
-        {
-          "spot": "whether a filename slug is meaningful — a name that keeps a dead prefix inside its slug still passes the shape check",
-          "covered_by": null,
-          "debt": null
-        }
-      ]
-    },
-    "check-license-frontmatter": {
-      "script": "scripts/check-license-frontmatter.mjs",
-      "sees": "frontmatter `license:` against the REUSE.toml regime",
-      "blind_to": [
-        {
-          "spot": "whether the licence is CORRECT for the content — this checks consistency between two declarations, not legal fit",
-          "covered_by": null,
-          "debt": null
-        },
-        {
-          "spot": "files with no `license:` field at all — they are skipped, not flagged",
-          "covered_by": null,
-          "debt": null,
-          "fixture": "no-license-field"
-        },
-        {
-          "spot": "templates/ — a mould declares the licence of the series it scaffolds, not of its own path, so this guard skips it (MIS-145 v2, 2026-09-04)",
-          "covered_by": "scripts/check-templates.mjs T-04, which resolves each mould's destination directory and checks the regime there",
-          "debt": null
-        }
-      ]
-    },
-    "check-frontmatter-yaml": {
-      "script": "scripts/check-frontmatter-yaml.mjs",
-      "sees": "frontmatter parses as YAML",
-      "blind_to": [
-        {
-          "spot": "whether the parsed VALUES are right — a well-formed header full of wrong dates or invented sources parses clean",
-          "covered_by": "lint-frontmatter (HDR-000…HDR-031), partially",
-          "debt": null
+          "spot": "untracked files — enumerates via `git ls-files`, so a .md not `git add`ed is never measured",
+          "covered_by": "its own untracked-file warning (D-049)"
         }
       ]
     },
@@ -141,127 +81,13 @@
         }
       ]
     },
-    "lint-frontmatter": {
-      "script": "scripts/lint-frontmatter.mjs",
-      "sees": "header fields HDR-000…HDR-031",
+    "check-frontmatter-yaml": {
+      "script": "scripts/check-frontmatter-yaml.mjs",
+      "sees": "frontmatter parses as YAML",
       "blind_to": [
         {
-          "spot": "whether a deferral is honest — HDR-032 checks a TBA names a mission, not that the mission is alive, funded, or ever worked on",
-          "covered_by": null,
-          "debt": null
-        },
-        {
-          "spot": "untracked files — enumerates via `git ls-files`",
-          "covered_by": "its own untracked-file warning (D-049)",
-          "debt": "D-049",
-          "fixture": "untracked"
-        }
-      ]
-    },
-    "check-orphan-content": {
-      "script": "scripts/check-orphan-content.mjs",
-      "build_guard": "verifies the built output, not a rule — a file that reaches dist/ without the renderer is an artefact defect (ENG-067 exception)",
-      "sees": "files in web/public/ that reach web/dist/ without the renderer",
-      "blind_to": [
-        {
-          "spot": "whether the RENDERED page is correct — it checks that content passed through the renderer, not what came out",
-          "covered_by": null,
-          "debt": null
-        },
-        {
-          "spot": "content served from outside web/public/ — a route added directly in src/pages is not orphan content and is not examined here",
-          "covered_by": "npm run build",
-          "debt": null
-        }
-      ]
-    },
-    "check-prose-in-code": {
-      "script": "scripts/check-prose-in-code.mjs",
-      "sees": "characters of prose (string literals and text nodes over 60 chars) living in .astro/.tsx files under web/src that read no .md at build time — the MIS-071 acceptance criterion, measured",
-      "blind_to": [
-        {
-          "spot": "whether the prose it counts SHOULD be in a .md. Page furniture (a section blurb, a button label, a legend) is prose by this measure and belongs in the component. The number is a ratchet, not a verdict — it says the quantity grew, never that the growth was wrong",
-          "covered_by": null,
-          "debt": null
-        },
-        {
-          "spot": "whether a page that DOES read a .md renders it faithfully. A file containing getCollection is exempt wholesale, so prose hardcoded beside an archive read is invisible here",
-          "covered_by": null,
-          "debt": null
-        },
-        {
-          "spot": "prose in .ts/.js data modules and in web/scripts/ — the scan covers pages, views and components only, so content moved into a lib/ constant leaves the measure without leaving the codebase",
-          "covered_by": null,
-          "debt": null
-        },
-        {
-          "spot": "whether an extracted .md is actually reachable on the site. It measures what left the code, not what arrived in the archive",
-          "covered_by": "check-orphan-content",
-          "debt": null
-        }
-      ]
-    },
-    "telemetry": {
-      "script": "scripts/telemetry.mjs",
-      "build_guard": "verifies the artefact, not a rule — a stale telemetry/latest.json misreports the tree whatever any standard says (ENG-067 exception)",
-      "sees": "the corpus, counted: files, series registration, mission states, the former count-evidence keys — every figure with unit, definition, HEAD and corpus_hash (MIS-138)",
-      "blind_to": [
-        {
-          "spot": "whether a registered document is any GOOD — it counts conforming filenames, which is a measure of naming, not of content",
-          "covered_by": null,
-          "debt": null
-        },
-        {
-          "spot": "whether a figure that a document CITES matches the dataset — the instrument writes telemetry/, it does not read the citers (figures family, MIS-138 D3, not built)",
-          "covered_by": null,
-          "debt": null
-        }
-      ]
-    },
-    "check-plain-writing": {
-      "script": "scripts/check-plain-writing.mjs",
-      "sees": "prose in standards/*.md: bare series IDs outside the References table, section pointers anywhere, and IDs used but never listed",
-      "blind_to": [
-        {
-          "spot": "whether the document is actually READABLE — PW-04 is an editorial judgment about whether a reader can finish without opening another document, and no script can measure it",
-          "covered_by": null
-        },
-        {
-          "spot": "whether the plain name a document uses is the RIGHT one — it checks that prose avoids the ID, not that 'the header standard' names the document the author meant",
-          "covered_by": null
-        },
-        {
-          "spot": "every series except standards/ — STD-007 binds only its own shelf, so canon/, protocols/ and decisions/ may cite by ID in prose and this guard never looks",
-          "covered_by": null
-        },
-        {
-          "spot": "IDs inside code fences and inline code spans — deliberately masked, because quoting a bad citation is how the rule is taught; a real violation hidden in backticks reads as green",
-          "covered_by": null
-        }
-      ]
-    },
-    "check-templates": {
-      "script": "scripts/check-templates.mjs",
-      "sees": "templates/ against the contract of the series each mould scaffolds — name, destination licence, type, lifecycle, ring registry, SemVer, context card, and whether every registered series has a mould at all",
-      "blind_to": [
-        {
-          "spot": "whether the mould's PROSE teaches the right thing — it checks the frontmatter contract and the presence of the context card, not whether the guidance under it is sound or current",
-          "covered_by": null,
-          "debt": null
-        },
-        {
-          "spot": "whether documents already in the corpus were created from these moulds — a template can be perfect and universally ignored, and this guard cannot tell",
-          "covered_by": "lint-frontmatter and check-license-frontmatter, which read the documents themselves",
-          "debt": null
-        },
-        {
-          "spot": "the -EXAMPLE and -CHANGES companions past T-01/T-02/T-03: they document a real mission, so the destination contract does not apply to them and is not enforced",
-          "covered_by": null,
-          "debt": null
-        },
-        {
-          "spot": "scaffolds that are not single files — agents/_template/ is a directory of five documents and is checked by nothing here",
-          "covered_by": null,
+          "spot": "whether the parsed VALUES are right — a well-formed header full of wrong dates or invented sources parses clean",
+          "covered_by": "lint-frontmatter (HDR-000…HDR-031), partially",
           "debt": null
         }
       ]
@@ -293,24 +119,234 @@
         }
       ]
     },
-    "check-core-rules": {
-      "script": "scripts/check-core-rules.mjs",
-      "sees": "eleven plated rules that had no guard of their own (IDN-012/013/014, HDR-040/043/044, VER-021/024, GIT-026/045, CIT-050), each finding bound by its holder's state (ENG-067)",
+    "check-license-frontmatter": {
+      "script": "scripts/check-license-frontmatter.mjs",
+      "sees": "frontmatter `license:` against the REUSE.toml regime",
       "blind_to": [
         {
-          "spot": "every other plated rule — a rule with no guard is enforced by nobody, and this guard does not list which those are",
-          "covered_by": "the Check tables of the standards, read by hand",
-          "debt": "DBT-017"
+          "spot": "whether the licence is CORRECT for the content — this checks consistency between two declarations, not legal fit",
+          "covered_by": null,
+          "debt": null
         },
         {
-          "spot": "values the flat frontmatter parser cannot read — a nested or multi-line field reads as its raw text",
-          "covered_by": "check-frontmatter-yaml, which parses the header for real",
+          "spot": "files with no `license:` field at all — they are skipped, not flagged",
+          "covered_by": null,
+          "debt": null,
+          "fixture": "no-license-field"
+        },
+        {
+          "spot": "templates/ — a mould declares the licence of the series it scaffolds, not of its own path, so this guard skips it (MIS-145 v2, 2026-09-04)",
+          "covered_by": "scripts/check-templates.mjs T-04, which resolves each mould's destination directory and checks the regime there",
+          "debt": null
+        }
+      ]
+    },
+    "check-orphan-content": {
+      "script": "scripts/check-orphan-content.mjs",
+      "build_guard": "verifies the built output, not a rule — a file that reaches dist/ without the renderer is an artefact defect (ENG-067 exception)",
+      "sees": "files in web/public/ that reach web/dist/ without the renderer",
+      "blind_to": [
+        {
+          "spot": "whether the RENDERED page is correct — it checks that content passed through the renderer, not what came out",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "content served from outside web/public/ — a route added directly in src/pages is not orphan content and is not examined here",
+          "covered_by": "npm run build",
+          "debt": null
+        }
+      ]
+    },
+    "check-plain-writing": {
+      "script": "scripts/check-plain-writing.mjs",
+      "sees": "prose in standards/*.md: bare series IDs outside the References table, section pointers anywhere, and IDs used but never listed",
+      "blind_to": [
+        {
+          "spot": "whether the document is actually READABLE — PW-04 is an editorial judgment about whether a reader can finish without opening another document, and no script can measure it",
+          "covered_by": null
+        },
+        {
+          "spot": "whether the plain name a document uses is the RIGHT one — it checks that prose avoids the ID, not that 'the header standard' names the document the author meant",
+          "covered_by": null
+        },
+        {
+          "spot": "every series except standards/ — STD-007 binds only its own shelf, so canon/, protocols/ and decisions/ may cite by ID in prose and this guard never looks",
+          "covered_by": null
+        },
+        {
+          "spot": "IDs inside code fences and inline code spans — deliberately masked, because quoting a bad citation is how the rule is taught; a real violation hidden in backticks reads as green",
+          "covered_by": null
+        }
+      ]
+    },
+    "check-prose-in-code": {
+      "script": "scripts/check-prose-in-code.mjs",
+      "sees": "characters of prose (string literals and text nodes over 60 chars) living in .astro/.tsx files under web/src that read no .md at build time — the MIS-071 acceptance criterion, measured",
+      "blind_to": [
+        {
+          "spot": "whether the prose it counts SHOULD be in a .md. Page furniture (a section blurb, a button label, a legend) is prose by this measure and belongs in the component. The number is a ratchet, not a verdict — it says the quantity grew, never that the growth was wrong",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "whether a page that DOES read a .md renders it faithfully. A file containing getCollection is exempt wholesale, so prose hardcoded beside an archive read is invisible here",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "prose in .ts/.js data modules and in web/scripts/ — the scan covers pages, views and components only, so content moved into a lib/ constant leaves the measure without leaving the codebase",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "whether an extracted .md is actually reachable on the site. It measures what left the code, not what arrived in the archive",
+          "covered_by": "check-orphan-content",
+          "debt": null
+        }
+      ]
+    },
+    "check-references": {
+      "script": "scripts/check-references.mjs",
+      "sees": ".md and .json citations, by identifier and by path",
+      "blind_to": [
+        {
+          "spot": "consumers written in code (.ts, .astro) — slug maps and import.meta.glob",
+          "covered_by": "npm run build",
+          "fixture": "ts-consumer"
+        },
+        {
+          "spot": "the FOLDER in a path citation: the resolver falls back to basename, so agents/guilds/x.md resolves against guilds/x.md and a wrong directory reads as green",
+          "covered_by": null,
+          "debt": "D-047",
+          "fixture": "wrong-folder"
+        },
+        {
+          "spot": "untracked files — enumerates via `git ls-files`, so a .md created but not `git add`ed is never scanned",
+          "covered_by": "its own untracked-file warning (D-049)",
+          "debt": "D-049",
+          "fixture": "untracked"
+        }
+      ]
+    },
+    "check-section-citations": {
+      "script": "scripts/check-section-citations.mjs",
+      "sees": "every `ID §N` citation in a governed .md, resolved against the cited document's real section numbers",
+      "blind_to": [
+        {
+          "spot": "a section that exists but no longer says what the citer meant — the number resolves, the meaning drifted",
+          "covered_by": null
+        },
+        {
+          "spot": "citations by heading text rather than section number — it only reads the § form",
+          "covered_by": null
+        },
+        {
+          "spot": "untracked files — enumerates via `git ls-files`",
+          "covered_by": "its own untracked-file warning (D-049)"
+        }
+      ]
+    },
+    "check-templates": {
+      "script": "scripts/check-templates.mjs",
+      "sees": "templates/ against the contract of the series each mould scaffolds — name, destination licence, type, lifecycle, ring registry, SemVer, context card, and whether every registered series has a mould at all",
+      "blind_to": [
+        {
+          "spot": "whether the mould's PROSE teaches the right thing — it checks the frontmatter contract and the presence of the context card, not whether the guidance under it is sound or current",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "whether documents already in the corpus were created from these moulds — a template can be perfect and universally ignored, and this guard cannot tell",
+          "covered_by": "lint-frontmatter and check-license-frontmatter, which read the documents themselves",
+          "debt": null
+        },
+        {
+          "spot": "the -EXAMPLE and -CHANGES companions past T-01/T-02/T-03: they document a real mission, so the destination contract does not apply to them and is not enforced",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "scaffolds that are not single files — agents/_template/ is a directory of five documents and is checked by nothing here",
+          "covered_by": null,
+          "debt": null
+        }
+      ]
+    },
+    "check-url-lifecycle": {
+      "script": "scripts/check-url-lifecycle.mjs",
+      "build_guard": "verifies the built output, not a rule — a public URL that dies without a redirect is a broken promise to a reader, not a breach of a draft (ENG-067 exception)",
+      "sees": "public URLs that stop being built without a redirect declared in web/astro.config.mjs (D-028)",
+      "blind_to": [
+        {
+          "spot": "whether a redirect's TARGET actually answers the question the dead URL answered — a 301 to a section index silences this guard and still loses the content",
+          "covered_by": null,
+          "debt": "D-028"
+        },
+        {
+          "spot": "inbound links from OUTSIDE the repository — search engines, other sites, the numinia-web repo, printed QR codes. It knows an address died; it cannot know who was walking to it",
+          "covered_by": null,
+          "debt": "D-028"
+        },
+        {
+          "spot": "URLs that never entered the baseline because the build that would have published them failed or was never run — it measures web/dist, so it inherits that build's coverage exactly",
+          "covered_by": "npm run build in CI"
+        },
+        {
+          "spot": "redirect rules with Astro's [param] syntax (e.g. /misiones/[id]) — those are matched literally against the baseline, so a parameterised route is neither verified nor expanded",
+          "covered_by": null,
+          "debt": "D-028"
+        }
+      ]
+    },
+    "lint-frontmatter": {
+      "script": "scripts/lint-frontmatter.mjs",
+      "sees": "header fields HDR-000…HDR-031",
+      "blind_to": [
+        {
+          "spot": "whether a deferral is honest — HDR-032 checks a TBA names a mission, not that the mission is alive, funded, or ever worked on",
+          "covered_by": null,
           "debt": null
         },
         {
           "spot": "untracked files — enumerates via `git ls-files`",
           "covered_by": "its own untracked-file warning (D-049)",
-          "debt": "D-049"
+          "debt": "D-049",
+          "fixture": "untracked"
+        }
+      ]
+    },
+    "lint-naming": {
+      "script": "scripts/lint-naming.mjs",
+      "sees": "filename shape against the series scheme (N-01…N-05)",
+      "blind_to": [
+        {
+          "spot": "untracked files — enumerates via `git ls-files`",
+          "covered_by": "its own untracked-file warning (D-049)",
+          "debt": "D-049",
+          "fixture": "untracked"
+        },
+        {
+          "spot": "whether a filename slug is meaningful — a name that keeps a dead prefix inside its slug still passes the shape check",
+          "covered_by": null,
+          "debt": null
+        }
+      ]
+    },
+    "telemetry": {
+      "script": "scripts/telemetry.mjs",
+      "build_guard": "verifies the artefact, not a rule — a stale telemetry/latest.json misreports the tree whatever any standard says (ENG-067 exception)",
+      "sees": "the corpus, counted: files, series registration, mission states, the former count-evidence keys — every figure with unit, definition, HEAD and corpus_hash (MIS-138)",
+      "blind_to": [
+        {
+          "spot": "whether a registered document is any GOOD — it counts conforming filenames, which is a measure of naming, not of content",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "whether a figure that a document CITES matches the dataset — the instrument writes telemetry/, it does not read the citers (figures family, MIS-138 D3, not built)",
+          "covered_by": null,
+          "debt": null
         }
       ]
     }

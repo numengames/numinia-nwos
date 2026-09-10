@@ -20,10 +20,9 @@
 //   convention this guard cannot verify without inventing an ordering rule.
 //   Silence is honest; a false failure would teach people to ignore the guard.
 //
-// MODES (PRO-013)
-//   bare              verify against the baseline; non-zero only on NEW breakage
+// MODES
+//   bare              every unresolved citation; exit 1 only if one binds (ENG-067)
 //   --report          list every unresolved citation, exit 0
-//   --write-baseline  bank the current state after a migration
 //
 // BLINDNESS (declared, per PRO-013)
 //   - Prose-headed documents (ADR, RPT) are skipped: "§2" there is ordinal.
@@ -32,15 +31,16 @@
 //     citing document claims. A renumbered section that resolves to different
 //     content passes silently. That is DBT-016's deeper half and stays open.
 
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { execSync } from "node:child_process";
 import path from "node:path";
 import { Findings } from "./lib/regime.mjs";
+import { declareBlindSpots } from "./lib/blindness.mjs";
+
+declareBlindSpots("check-section-citations");
 
 const root = execSync("git rev-parse --show-toplevel", { encoding: "utf-8" }).trim();
 const REPORT = process.argv.includes("--report");
-const WRITE = process.argv.includes("--write-baseline");
-const BASELINE = path.join(root, "scripts/section-citations-baseline.json");
 const SKIP = ["web/dist/", "salida/", "templates/", "history/", "node_modules/"];
 
 const files = execSync("git ls-files '*.md'", { cwd: root, encoding: "utf-8" })
@@ -94,22 +94,6 @@ for (const rel of files) {
   });
 }
 
-const key = (b) => `${b.rel}:${b.id} §${b.sec}`;
-const current = broken.map(key).sort();
-
-if (WRITE) {
-  writeFileSync(
-    BASELINE,
-    JSON.stringify({ generated: new Date().toISOString().slice(0, 10), count: current.length, entries: current }, null, 2) + "\n"
-  );
-  console.log(`check-section-citations: baseline written — ${current.length} known`);
-  process.exit(0);
-}
-
-const baseline = existsSync(BASELINE) ? JSON.parse(readFileSync(BASELINE, "utf-8")).entries : [];
-const known = new Set(baseline);
-const added = broken.filter((b) => !known.has(key(b)));
-
 const show = (list, label) => {
   console.error(`${label}\n`);
   for (const b of list) {
@@ -118,29 +102,21 @@ const show = (list, label) => {
     console.error(`      cites ${b.id} §${b.sec} — ${b.name} has: ${have.join(", ")}`);
   }
   console.error(`
-Cite the rule, never the place (DBT-016). A section number is the most
-fragile part of a citation: it changes whenever the cited document is
-reorganised, and the reader of the citing document never finds out.
+Cite the rule, never the place. A section number is the most fragile part
+of a citation: it changes whenever the cited document is reorganised, and
+the reader of the citing document never finds out.
 `);
 };
 
 if (REPORT) {
   if (broken.length === 0) console.log("check-section-citations: OK — every § citation resolves");
-  else show(broken, `${broken.length} unresolved citation(s), ${known.size} of them known:`);
-  process.exit(0);
-}
-
-if (added.length === 0) {
-  console.log(
-    `check-section-citations: OK — ${current.length} unresolved, all in baseline` +
-      (current.length === 0 ? " (empty)" : "")
-  );
+  else show(broken, `${broken.length} unresolved citation(s):`);
   process.exit(0);
 }
 
 /* ENG-067: a citation to a section that does not exist is CIT-050, "cite
-   the document, not the place" (STD-021); a NEW one binds by that state. */
-show(added, `✗ ${added.length} NEW citation(s) to a section that does not exist:`);
+   the document, not the place" (STD-021); it binds by that standard's state. */
+if (broken.length) show(broken, `${broken.length} citation(s) to a section that does not exist:`);
 const out = new Findings("check-section-citations");
-for (const b of added) out.add("CIT-050", `cites ${b.id} §${b.sec}, which ${b.name} does not have`, `${b.rel}:${b.line}`);
-out.finish();
+for (const b of broken) out.add("CIT-050", `cites ${b.id} §${b.sec}, which ${b.name} does not have`, `${b.rel}:${b.line}`);
+out.finish({ ok: "every § citation resolves." });

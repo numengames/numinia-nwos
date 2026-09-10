@@ -13,14 +13,20 @@
 //                      enforced finding exists, and 0 with findings under a
 //                      draft. Exit is injected so the test observes the code.
 //
-// Run: node scripts/test/regime.test.mjs   (exit 1 on any failure)
+// Run: npm test
 import { readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { ROOT } from '../lib/frontmatter.mjs';
 import { loadHolders, holderOf, bindsFor, Findings } from '../lib/regime.mjs';
 
-const results = [];
-const check = (name, fn) => { try { const r = fn(); results.push({ name, ok: r !== false && typeof r !== 'string', note: typeof r === 'string' ? r : '' }); } catch (e) { results.push({ name, ok: false, note: e.message }); } };
+import test from 'node:test';
+/* A case returns true, false, or a string: a string starting `skipped:` is a
+   named skip; any other string is the reason it failed. */
+const check = (name, fn) => test(name, (t) => {
+  const r = fn();
+  if (typeof r === 'string' && r.startsWith('skipped:')) return t.skip(r.slice(8).trim());
+  if (r === false || typeof r === 'string') throw new Error(typeof r === 'string' ? r : 'returned false');
+});
 
 const index = loadHolders();
 
@@ -89,11 +95,3 @@ check('fixture: finish() prints ENFORCING for an active holder and reporting-onl
   return text.includes('STD-900 (`active`) — ENFORCING') && text.includes('STD-901 (`draft`) — reporting only') && text.includes('2 finding(s), 1 enforced');
 });
 
-/* ---- report ---- */
-let failed = 0;
-for (const r of results) {
-  if (!r.ok) failed += 1;
-  console.log(`${r.ok ? 'ok  ' : 'FAIL'} ${r.name}${r.note ? ` — ${r.note}` : ''}`);
-}
-console.log(`\n${results.length - failed} passed, ${failed} failed`);
-process.exit(failed ? 1 : 0);

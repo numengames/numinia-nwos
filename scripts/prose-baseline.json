@@ -1,7 +1,0 @@
-{
-  "_comment": "Alpha reset 2026-09-10: the baseline is zero. Every character of prose living only in a component is reported as growth over zero (TXT-003) and binds by STD-006's state (ENG-067). The floor and the ceiling are the same number: wiring a page to its .md is the only way to green.",
-  "generated": "2026-09-10T10:39:50.736926+00:00",
-  "orphan_chars": 0,
-  "orphan_files": 0,
-  "entries": []
-}

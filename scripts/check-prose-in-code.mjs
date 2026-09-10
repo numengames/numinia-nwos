@@ -33,18 +33,15 @@
 //
 // HOW IT FAILS
 // ------------
-// Same ratchet as references/url/naming baselines: the damage is frozen at
-// adoption and only NEW damage fails the build. Unlike those three, this
-// baseline has a floor of zero and a mission whose completion drives it
-// there — MIS-071 phase 4 wires one page at a time, and each landing PR
-// lowers the number.
+// One finding per file whose prose lives only in code (TXT-003). Whether a
+// finding fails the build is the regime's call (ENG-067): only while
+// STD-006 is `active`.
 //
 // Usage:
-//   node scripts/check-prose-in-code.mjs            # verify against baseline
+//   node scripts/check-prose-in-code.mjs            # every orphan file; exit 1 only if one binds
 //   node scripts/check-prose-in-code.mjs --report   # per-file breakdown
-//   node scripts/check-prose-in-code.mjs --update   # re-freeze (must shrink)
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -53,7 +50,6 @@ import { Findings } from './lib/regime.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.join(HERE, '..');
-const BASELINE = path.join(HERE, 'prose-baseline.json');
 
 const SCAN_ROOTS = ['web/src/pages', 'web/src/views', 'web/src/components'];
 const EXTS = new Set(['.astro', '.tsx']);
@@ -160,77 +156,14 @@ if (args.includes('--report')) {
   console.log('');
 }
 
-if (args.includes('--update')) {
-  const prev = existsSync(BASELINE)
-    ? JSON.parse(readFileSync(BASELINE, 'utf8'))
-    : null;
-  if (prev && orphanTotal > prev.orphan_chars) {
-    console.error(
-      `✗ refusing to update: ${orphanTotal} > baseline ${prev.orphan_chars}.\n` +
-        `  This ratchet only turns one way. Wire a page to its .md instead of\n` +
-        `  re-freezing the growth (MIS-071 phase 4).`
-    );
-    process.exit(1);
-  }
-  const next = {
-    _comment:
-      'Prose living only in .astro/.tsx components, frozen at adoption ' +
-      '(MIS-071 acceptance criterion, DBT-003 deferred category). The guard ' +
-      'fails only when the number GROWS. Unlike the other baselines this one ' +
-      'has a floor of zero: each page wired to its .md lowers it. Never grows.',
-    generated: new Date().toISOString(),
-    orphan_chars: orphanTotal,
-    orphan_files: orphan.length,
-    entries: orphan.map((r) => `${r.chars} ${r.file}`),
-  };
-  writeFileSync(BASELINE, JSON.stringify(next, null, 2) + '\n');
-  console.log(
-    `✓ baseline written: ${orphanTotal} chars across ${orphan.length} files` +
-      (prev ? ` (was ${prev.orphan_chars})` : '')
-  );
-  process.exit(0);
-}
-
-if (!existsSync(BASELINE)) {
+/* ENG-067: prose that lives only in a component is TXT-003, "nothing lives
+   only outside the tree" (STD-006). One finding per file, sized. */
+if (orphanTotal)
   console.error(
-    `✗ no baseline at scripts/prose-baseline.json.\n` +
-      `  Run: node scripts/check-prose-in-code.mjs --update`
+    `${orphanTotal} characters of prose live only in components, not in any .md.\n` +
+      `  That is how the archive acquires a silent second copy. Put the text in a\n` +
+      `  .md and render it. Run with --report to see which files carry it.\n`
   );
-  process.exit(1);
-}
-
-const base = JSON.parse(readFileSync(BASELINE, 'utf8'));
-console.log(`  baseline                 : ${base.orphan_chars}`);
-console.log('');
-
-if (orphanTotal > base.orphan_chars) {
-  const grew = orphanTotal - base.orphan_chars;
-  console.error(
-    `✗ prose in code GREW by ${grew} characters (${base.orphan_chars} -> ${orphanTotal}).\n` +
-      `\n` +
-      `  Someone wrote prose into a component instead of into a .md. That is\n` +
-      `  how the archive acquires a silent second copy — MIS-071 exists\n` +
-      `  because it already happened once, to ten essays, unnoticed.\n` +
-      `\n` +
-      `  Put the text in a .md and render it, or explain the exception in the\n` +
-      `  PR and re-freeze with --update.\n` +
-      `\n` +
-      `  Run with --report to see which files carry it.\n`
-  );
-  /* ENG-067: prose that lives only in a component is TXT-003, "nothing lives
-     only outside the tree" (STD-006). One finding: the number grew. */
-  const out = new Findings('prose-in-code');
-  out.add('TXT-003', `prose in code grew by ${grew} characters (${base.orphan_chars} -> ${orphanTotal})`, 'web/src');
-  out.finish();
-}
-
-if (orphanTotal < base.orphan_chars) {
-  const shrank = base.orphan_chars - orphanTotal;
-  console.log(
-    `✓ prose in code SHRANK by ${shrank} characters. Re-freeze the baseline\n` +
-      `  in this PR: node scripts/check-prose-in-code.mjs --update`
-  );
-} else {
-  console.log('✓ prose in code held at baseline.');
-}
-process.exit(0);
+const out = new Findings('prose-in-code');
+for (const r of orphan) out.add('TXT-003', `${r.chars} characters of prose live only in this component`, r.file);
+out.finish({ ok: 'no prose lives only in code.' });

@@ -24,7 +24,7 @@
 //               and the test asserts the guard stays green — demonstrating
 //               the blindness is real and the declaration is honest.
 //
-// Run: node scripts/test/blindness.test.mjs
+// Run: npm test
 
 import { execFileSync, execSync, spawnSync } from 'node:child_process';
 import { readFileSync, writeFileSync, mkdtempSync, rmSync, mkdirSync, readdirSync } from 'node:fs';
@@ -36,21 +36,9 @@ import { loadRegistry, formatBlindSpots } from '../lib/blindness.mjs';
 const ROOT = execSync('git rev-parse --show-toplevel').toString().trim();
 const registry = loadRegistry();
 
-let pass = 0;
-const failures = [];
-function check(name, fn) {
-  try {
-    fn();
-    pass++;
-    console.log(`  ok   ${name}`);
-  } catch (e) {
-    failures.push({ name, message: e.message });
-    console.log(`  FAIL ${name}\n         ${e.message}`);
-  }
-}
+import test from 'node:test';
+const check = (name, fn) => test(name, () => { fn(); });
 function assert(cond, msg) { if (!cond) throw new Error(msg); }
-
-console.log('blindness suite — D-025 condition 3: verified, not asserted\n');
 
 /* ---------- STRUCTURAL ---------- */
 
@@ -236,14 +224,3 @@ function scratchClone() {
   return dir;
 }
 
-/* ---------- report ---------- */
-
-console.log(`\n${pass} passed, ${failures.length} failed`);
-if (failures.length) {
-  console.log('\nA failure here means a declared blind spot is no longer true, or a guard');
-  console.log('stopped declaring. Both are worth knowing: the first is progress that must');
-  console.log('be recorded, the second is a regression.');
-  process.exit(1);
-}
-console.log('\nEvery declared blind spot is either structurally checked or proven against a');
-console.log('real file that the guard fails to see. D-025 condition 3 satisfied.');

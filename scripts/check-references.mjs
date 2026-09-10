@@ -21,17 +21,11 @@
  * breaking a build. This script is the missing verification: it is what
  * makes the archive restructuring a verifiable operation instead of a bet.
  *
- *   node scripts/check-references.mjs              # verify against baseline
+ *   node scripts/check-references.mjs              # every broken reference; exit 1 only if one binds
  *   node scripts/check-references.mjs --report     # full detail, exit 0
- *   node scripts/check-references.mjs --write-baseline
  *
- * Baseline: known-broken references are frozen at adoption time (kinds 1
- * and 2 originally; kind 3 baselined MIS-125, 2026-08-31, since it had
- * never been measured before and could not honestly start at zero).
- * Failing on pre-existing damage on day one would mean the check never
- * gets adopted. Instead the current damage is frozen in
- * scripts/references-baseline.json and the script fails only on NEW
- * breakage — a ratchet, not a cliff.
+ * Every finding is printed. Whether one fails the build is the regime's
+ * call (ENG-067): only while STD-020 is `active`.
  */
 import { execFileSync } from 'node:child_process';
 import { declareBlindSpots } from './lib/blindness.mjs';
@@ -39,16 +33,14 @@ import { loadRules, prefixToDir, stripFM, parseFM } from './lib/frontmatter.mjs'
 import { isPhotograph } from './lib/rings.mjs';
 import { Findings } from './lib/regime.mjs';
 declareBlindSpots('check-references');
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const BASELINE = path.join(ROOT, 'scripts', 'references-baseline.json');
 
 const args = process.argv.slice(2);
 const REPORT = args.includes('--report');
-const WRITE = args.includes('--write-baseline');
 
 /** Identifier prefixes that name a real series (ADR-005 v1.1.0, the
  * 13-series register, MIS-125 2026-08-31). Superseded the 5-prefix map
@@ -84,7 +76,7 @@ const files = execFileSync('git', ['-C', ROOT, 'ls-files', '*.md'], { encoding: 
 // D-049: this guard reads the INDEX, not the working tree. A .md file that
 // exists on disk but has not been `git add`ed is invisible here — the guard
 // cannot disagree about input it was never given (D-039, sharper form).
-// Say so, and refuse to bank a baseline that would omit it.
+// Say so.
 const untracked = execFileSync('git', ['-C', ROOT, 'ls-files', '--others', '--exclude-standard', '*.md'], { encoding: 'utf8' })
   .split('\n')
   .filter(Boolean);
@@ -302,47 +294,17 @@ for (const rel of files) {
   }
 }
 
-/* ---------- 3. Compare against the baseline ---------- */
+/* ---------- 3. Report ---------- */
 
 const key = (o) => (o.link ? `LINK ${o.from} -> ${o.link}` : o.id ? `ID   ${o.from} -> ${o.id}` : `FILE ${o.from} -> ${o.file}`);
 const current = [...brokenLinks, ...unknownIds, ...unknownFilenames].map(key).sort();
-
-if (WRITE) {
-  writeFileSync(
-    BASELINE,
-    JSON.stringify(
-      {
-        _comment:
-          'Known-broken references frozen at adoption time. The lint fails only on NEW breakage. ' +
-          'This list should shrink over time and never grow. Regenerate only when fixing entries.',
-        generated: new Date().toISOString(),
-        count: current.length,
-        entries: current,
-      },
-      null,
-      2,
-    ) + '\n',
-  );
-  console.log(`baseline written: ${current.length} known-broken references`);
-  process.exit(0);
-}
-
-const baseline = existsSync(BASELINE)
-  ? new Set(JSON.parse(readFileSync(BASELINE, 'utf8')).entries)
-  : new Set();
-
-const added = current.filter((c) => !baseline.has(c));
-const fixed = [...baseline].filter((b) => !current.includes(b));
-
-/* ---------- 4. Report ---------- */
 
 console.log(`reference lint: ${files.length} documents · ${known.size} identifiers indexed · ${basenames.size} filenames indexed`);
 console.log(
   `  broken markdown links : ${brokenLinks.length}\n` +
     `  unresolved identifiers: ${unknownIds.length}\n` +
-    `  unresolved filenames  : ${unknownFilenames.length}  (kind 3 — bare "doc.md" mentions, MIS-125)\n` +
-    `  cross-repo, unqualified: ${crossRepo.length}  (ADR-004 §7 — informational)\n` +
-    `  baseline              : ${baseline.size}`,
+    `  unresolved filenames  : ${unknownFilenames.length}  (kind 3 — bare "doc.md" mentions)\n` +
+    `  cross-repo, unqualified: ${crossRepo.length}  (ADR-004 §7 — informational)`,
 );
 
 if (REPORT) {
@@ -367,21 +329,12 @@ if (REPORT) {
   process.exit(0);
 }
 
-if (fixed.length) {
-  console.log(`\n✓ ${fixed.length} previously-broken reference(s) now resolve.`);
-  console.log('  Run --write-baseline to lock the improvement in.');
-  for (const f of fixed.slice(0, 10)) console.log(`    ${f}`);
-}
-
-/* ENG-067: a NEW broken reference is a thing cited that does not exist —
+/* ENG-067: a broken reference is a thing cited that does not exist —
    GIT-048 (STD-020, "Nothing is deleted while cited"). It binds by that
    standard's state. This guard reads body links, bare identifiers and
    filenames; it does not read frontmatter relations (HDR-016 is not here). */
-if (added.length) {
-  console.error(`\n✗ ${added.length} NEW broken reference(s) — a reference in this corpus is usually plain text, so nothing else would have caught this. Fix the reference, or update the baseline deliberately.\n`);
-  const out = new Findings('check-references');
-  for (const a of added) { const m = /^(\S+)\s+(\S+) -> (.*)$/.exec(a); out.add('GIT-048', `${m[1]} -> ${m[3]}`, m[2]); }
-  out.finish();
-}
-
-console.log('\n✓ no new broken references.');
+if (current.length)
+  console.error(`\n${current.length} broken reference(s) — a reference in this corpus is usually plain text, so nothing else would have caught this.\n`);
+const out = new Findings('check-references');
+for (const a of current) { const m = /^(\S+)\s+(\S+) -> (.*)$/.exec(a); out.add('GIT-048', `${m[1]} -> ${m[3]}`, m[2]); }
+out.finish({ ok: 'no broken references.' });

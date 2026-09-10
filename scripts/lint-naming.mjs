@@ -11,13 +11,11 @@
  *      are reserved for frozen artifacts (P-010 §3.2).
  *   3. Root documents: `UPPERCASE.md`.
  *
- *   node scripts/lint-naming.mjs                  # verify vs baseline
+ *   node scripts/lint-naming.mjs                  # every finding; exit 1 only if one binds
  *   node scripts/lint-naming.mjs --report         # full detail, exit 0
- *   node scripts/lint-naming.mjs --write-baseline # freeze current state
  *
- * Enforcement pattern (same as lint-frontmatter.mjs, STD-004 §9): strict on
- * the delta, baseline on the stock. Violations present at adoption are
- * frozen in scripts/naming-baseline.json — allowed to exist, not to grow.
+ * Every finding is printed. Whether one fails the build is the regime's
+ * call (ENG-067): only while the standard holding its plate is `active`.
  *
  * WHAT THIS GUARD DOES NOT CHECK (D-025 — declare your blindness):
  *
@@ -35,7 +33,7 @@
  *    prefix ruling for that series — it is identified by folder name, not
  *    filename, so no naming scheme applies there at all.
  */
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -45,10 +43,8 @@ import { parseFM, loadRules, isApparatus } from './lib/frontmatter.mjs';
 declareBlindSpots('lint-naming');
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const BASELINE = path.join(ROOT, 'scripts', 'naming-baseline.json');
 const args = process.argv.slice(2);
 const REPORT = args.includes('--report');
-const WRITE = args.includes('--write-baseline');
 
 /** ADR-005 v1.2.0 register — read from scripts/lib/rules.json since MIS-138
  *  (2026-09-02). Three private copies of this map (here, check-references,
@@ -155,10 +151,6 @@ for (const rel of files) {
   const re = new RegExp(`^${scheme.prefix}-\\d{${scheme.digits}}-(.+)\\.md$`);
   const m = base.match(re);
   if (!m) {
-    /* Message text is part of the baseline key — keep the historic wording
-       for every series except reports/, whose rule (and key) changed in
-       ADR-005 v1.2.0. Re-keying the other twelve would read as 140 "new"
-       violations that are the same old ones. */
     const expected = scheme.dailyDate
       ? `${scheme.prefix}-${'N'.repeat(scheme.digits)}-<slug>.md (or RPT-YYYY-MM-DD.md for subtype: daily) for ${top}/ (STD-001 §9, ADR-005 v1.2.0)`
       : `${scheme.prefix}-${'N'.repeat(scheme.digits)}-<slug>.md for ${top}/ (STD-001 §9, ADR-005 v1.1.0)`;
@@ -171,20 +163,9 @@ for (const rel of files) {
     F('N-05', rel, `slug "${m[1]}" is not lowercase kebab-case (STD-001 §9)`);
 }
 
-/* ---------------- baseline ratchet (same pattern as lint-frontmatter.mjs) ---------------- */
+/* ---------------- verdict ---------------- */
 
 const keys = findings.map((f) => `${f.check} ${f.file} :: ${f.detail}`).sort();
-
-if (WRITE) {
-  writeFileSync(BASELINE, JSON.stringify({
-    _comment: 'Filename violations frozen at adoption (STD-001 §9, D-001 item 3). The lint fails only on NEW ones. Shrinks as MIS-125 Stage C renames land; never grows.',
-    generated: new Date().toISOString(),
-    count: keys.length,
-    entries: keys,
-  }, null, 1) + '\n');
-  console.log(`baseline written: ${keys.length} findings frozen`);
-  process.exit(0);
-}
 
 const byCheck = {};
 for (const f of findings) byCheck[f.check] = (byCheck[f.check] || 0) + 1;
@@ -197,24 +178,11 @@ if (REPORT) {
   process.exit(0);
 }
 
-const baseline = existsSync(BASELINE)
-  ? new Set(JSON.parse(readFileSync(BASELINE, 'utf8')).entries)
-  : new Set();
-const fresh = keys.filter((k) => !baseline.has(k));
-const healed = [...baseline].filter((k) => !keys.includes(k));
-
-console.log(`lint-naming: ${findings.length} findings (${baseline.size} baselined) — ${summary}`);
-if (healed.length) console.log(`  ${healed.length} baselined finding(s) healed — regenerate the baseline to bank the progress`);
+console.log(`lint-naming: ${findings.length} findings — ${summary}`);
 /* ENG-067: each local code answers to one plate. N-01/N-02/N-05 are the
    shape of a file name under a series folder — TXT-001 (STD-006). N-04 is
-   the identifier the name carries — IDN-011 (STD-018). A NEW finding fails
-   the build only while its holder is active; the baseline says what is old. */
+   the identifier the name carries — IDN-011 (STD-018). */
 const PLATE = { 'N-01': 'TXT-001', 'N-02': 'TXT-001', 'N-04': 'IDN-011', 'N-05': 'TXT-001' };
-if (fresh.length) {
-  console.log(`\nNEW violations (not in baseline):\n`);
-  const out = new Findings('lint-naming');
-  for (const k of fresh) { const m = /^(\S+) (\S+) :: (.*)$/.exec(k); out.add(PLATE[m[1]] ?? m[1], `${m[1]} ${m[3]}`, m[2]); }
-  out.finish();
-} else {
-  console.log('no new violations — the ratchet holds');
-}
+const out = new Findings('lint-naming');
+for (const k of keys) { const m = /^(\S+) (\S+) :: (.*)$/.exec(k); out.add(PLATE[m[1]] ?? m[1], `${m[1]} ${m[3]}`, m[2]); }
+out.finish();

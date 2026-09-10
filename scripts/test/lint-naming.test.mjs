@@ -16,9 +16,11 @@
 //   - reports/evidence/** is not held to the series scheme
 //   - AUD- is no longer a shape reports/ accepts
 //
-// Run: node scripts/test/lint-naming.test.mjs
+// Run: npm test
 
-import { mkdtempSync, mkdirSync, writeFileSync, copyFileSync, rmSync } from 'node:fs';
+import test, { before, after } from 'node:test';
+import assert from 'node:assert/strict';
+import { mkdtempSync, mkdirSync, writeFileSync, cpSync, rmSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -51,11 +53,14 @@ const expect = [
 ];
 
 const dir = mkdtempSync(path.join(tmpdir(), 'lint-naming-'));
-try {
-  mkdirSync(path.join(dir, 'scripts', 'lib'), { recursive: true });
-  copyFileSync(path.join(HERE, 'lint-naming.mjs'), path.join(dir, 'scripts', 'lint-naming.mjs'));
-  copyFileSync(path.join(HERE, 'lib', 'blindness.mjs'), path.join(dir, 'scripts', 'lib', 'blindness.mjs'));
-  copyFileSync(path.join(HERE, 'blind-spots.json'), path.join(dir, 'scripts', 'blind-spots.json'));
+let lines = [];
+
+before(() => {
+  /* The guard is run as it ships: its libraries and rules travel with it. */
+  mkdirSync(path.join(dir, 'scripts'), { recursive: true });
+  cpSync(path.join(HERE, 'lint-naming.mjs'), path.join(dir, 'scripts', 'lint-naming.mjs'));
+  cpSync(path.join(HERE, 'lib'), path.join(dir, 'scripts', 'lib'), { recursive: true });
+  cpSync(path.join(HERE, 'blind-spots.json'), path.join(dir, 'scripts', 'blind-spots.json'));
 
   for (const [rel, sub] of Object.entries(fixtures)) {
     const abs = path.join(dir, rel);
@@ -70,24 +75,17 @@ try {
 
   let out = '';
   try {
-    out = execFileSync('node', [path.join(dir, 'scripts', 'lint-naming.mjs'), '--report'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+    out = execFileSync('node', [path.join(dir, 'scripts', 'lint-naming.mjs'), '--report'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
   } catch (e) {
-    out = e.stdout || '';
+    out = (e.stdout || '') + (e.stderr || '');
   }
-  const lines = out.split('\n');
+  lines = out.split('\n');
+});
+after(() => rmSync(dir, { recursive: true, force: true }));
 
-  let failed = 0;
-  for (const [rel, check, why] of expect) {
+for (const [rel, check, why] of expect) {
+  test(`${rel} — ${why}`, () => {
     const hits = lines.filter((l) => l.includes(` ${rel} :: `) && l.startsWith('N-04'));
-    const ok = check ? hits.length === 1 : hits.length === 0;
-    console.log(`${ok ? 'ok  ' : 'FAIL'} ${rel} — ${why}`);
-    if (!ok) {
-      failed++;
-      console.log(`      expected ${check ? 'one N-04' : 'no N-04'}, got ${hits.length}: ${hits.join(' | ')}`);
-    }
-  }
-  console.log(`\n${expect.length - failed}/${expect.length} passed`);
-  process.exit(failed ? 1 : 0);
-} finally {
-  rmSync(dir, { recursive: true, force: true });
+    assert.equal(hits.length, check ? 1 : 0, `expected ${check ? 'one N-04' : 'no N-04'}, got ${hits.length}: ${hits.join(' | ') || lines.join('\n')}`);
+  });
 }

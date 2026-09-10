@@ -48,13 +48,11 @@ before acting (`git fetch && git log -1 origin/main`, `gh pr list --state open`)
    `threshold`, `supersedes_record_of`, `license`); bump from the version that
    is actually in the file; keep the SPDX comment equal to `license:`.
 3. `git checkout -b <series>/<id>-shape`.
-4. `node scripts/check-document-shape.mjs --write-baseline` — the list only
-   shrinks.
-5. Guards, all of them: `check-document-shape`, `check-references`,
-   `check-internal-links`, `lint-frontmatter`, `check-frontmatter-yaml`,
-   `lint-naming`, `check-section-citations`, `check-license-frontmatter`,
-   `check-templates`; then `cd web && npm run build` and
-   `node scripts/check-url-lifecycle.mjs`.
+4. `npm test` at the root — every suite.
+5. Guards, all of them: `npm run guards` at the root; then `cd web && npm run
+   build` and `node scripts/check-url-lifecycle.mjs`. A guard prints every
+   finding on the tree and exits 1 only when its rule's holder is `active`
+   (ENG-067); there is no baseline to refresh.
 6. Commit as the agent that did the work (`-c user.name=<Agent>
    -c user.email=<agent>@numinia.org`), with a long message that says what
    went out and where it now lives.
@@ -86,6 +84,6 @@ Base SHA · before/after table on `DOC-00x` · what went out and where it lives
   curated order in `corpus.ts`; re-point living citers to the concrete plate.
   Closed records (`done` missions, old ADRs) are photographs (`CIT-053`) and
   stay as written.
-- The shape baseline counts **form** failures only; budget overruns are
-  reported, never baselined. Report both figures.
+- `check-document-shape` hands **form** failures to the regime; budget
+  overruns are reported, never enforced. Report both figures.
 - Plates migrated from `CORE-NN` keep their number under the new prefix.
