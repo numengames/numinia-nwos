@@ -6,9 +6,12 @@
 # how to fix it when it turns red.
 #
 # Order is not cosmetic. Everything before `install` is bare node over the
-# working tree: no npm, no web/. The last three steps read web/dist, so they
-# can only run after `build` — each exits 1 if that directory is missing, so a
-# misplaced step fails loudly instead of passing blind.
+# working tree: no npm, no web/. The build guards read web/dist, so they can
+# only run after `build` — the runner exits 2 if that directory is missing, so
+# a misplaced step fails loudly instead of passing blind.
+#
+# The workflow names no guard. What runs is what scripts/run-guards.mjs finds
+# in the registry (ENG-032); a guard enters CI by being merged.
 #
 # Actions are pinned by commit SHA, not by tag: a tag can be moved by its
 # owner, a SHA cannot. The token is read-only.
@@ -40,80 +43,24 @@ jobs:
           cache: npm
           cache-dependency-path: web/package-lock.json
 
-      # Every document declares a licence in its header, and that licence
-      # agrees with the regime REUSE.toml assigns to its path.
-      # Red means: add the licence field, or the file sits in the wrong folder.
-      - name: licence declaration
-        run: node scripts/check-license-frontmatter.mjs
-
-      # Every frontmatter block parses as YAML. A header that does not parse is
-      # invisible to every other guard, so this one runs early and on its own.
-      # Red means: the header is malformed — quotes, tabs or a stray colon.
-      - name: header parses as YAML
-        run: node scripts/check-frontmatter-yaml.mjs
-
-      # Cross-references resolve: markdown links and bare identifiers point at
-      # documents that exist. Ratcheted against a baseline, so only NEW
-      # breakage fails; the existing debt is frozen, never silently widened.
-      # Red means: you cited something that is not there, or you renamed a file
-      # without updating its citers.
-      - name: cross-references resolve
-        run: node scripts/check-references.mjs
-
-      # The closing `---` of a header sits on its own line. This is damage a
-      # tolerant parser swallows in silence, which is why it needs its own eye.
-      # Red means: the delimiter shares a line with content.
-      - name: header delimiter is intact
-        run: node scripts/check-frontmatter-delimiter.mjs
-
-      # The full header contract: required fields per series, status
-      # vocabulary, date shapes, identifier form. The classifiers are read from
-      # scripts/lib/rules.json, so this guard follows the standard it enforces.
-      # Red means: a required field is missing, or a value is off-vocabulary.
-      - name: header contract
-        run: node scripts/lint-frontmatter.mjs
-
-      # Filenames obey the scheme: prefix, number width and slug per series,
-      # and the identifier inside the file matches the name outside it.
-      # Red means: rename the file, or fix its id — they disagree.
-      - name: filename scheme
-        run: node scripts/lint-naming.mjs
-
-      # ── Telemetry: the committed dataset must be the one HEAD produces. ──
-      # Fix a red step here by running `node scripts/telemetry.mjs` on the
-      # branch and committing telemetry/ — never by hand-editing latest.json.
-
       # Downloads the tokenizer rank file (~1.6 MB, gitignored) and verifies
       # its checksum. Without it the token figures are null and the next step
       # fails. Needs network egress to the tokenizer host.
       - name: telemetry — tokenizer rank file
         run: node scripts/telemetry.mjs --fetch-tokenizer
 
-      # Re-measures the tree in memory and compares against the committed
-      # dataset. Writes nothing. STALE = the corpus changed and the instrument
-      # was not re-run. ALTERED = same corpus, a figure differs — a hand edit,
-      # or the measuring code itself changed.
-      - name: telemetry — dataset matches HEAD
-        run: node scripts/telemetry.mjs --check
+      # Every rule guard the runner finds in scripts/ (ENG-032). Each reports
+      # every finding it sees; whether one fails the build is decided by the
+      # state of the standard that holds the rule (ENG-067). Red means: a
+      # rule whose standard is active is broken — the line names the file.
+      - name: rule guards
+        run: npm run guards -- --rules
 
-      # The instrument's own self-tests on throwaway clones: the corpus hash
-      # moves only when a document moves, the historical series is intact, and
-      # our tokenizer agrees with the reference implementation.
-      - name: telemetry — instrument self-tests
-        run: node scripts/test/telemetry.test.mjs
-
-      # The core rules of the corpus standard, over every bound document.
-      # While that standard is `draft` this step reports its findings and exits
-      # 0 — eyes, not teeth. Ratifying the standard is what gives it bite; no
-      # change is needed here when that happens.
-      - name: core rules (reporting while the standard is draft)
-        run: node scripts/check-core-rules.mjs
-
-      # The moulds in templates/ obey the header standard they teach, and every
-      # registered series has one.
-      # Red means: a template drifted from the contract it is meant to model.
-      - name: templates obey their own standard
-        run: node scripts/check-templates.mjs
+      # The guards' own tests, and the telemetry instrument's self-tests on
+      # throwaway clones. Red means: a guard or the instrument is broken, not
+      # the tree.
+      - name: tests
+        run: npm test
 
       # Dependencies of the Astro site, from the lockfile. Not a check.
       - name: install
@@ -121,24 +68,15 @@ jobs:
         working-directory: web
 
       # Builds web/dist. A page that fails to render fails here. Not a check,
-      # but the three steps below read its output.
+      # but the build guards below read its output.
       - name: build
         run: npm run build
         working-directory: web
 
-      # No content file is served straight out of the build without having
-      # passed through the renderer.
-      # Red means: a file reached the site bypassing the pipeline.
-      - name: no content bypasses the renderer
-        run: node scripts/check-orphan-content.mjs
-
-      # Every public address that existed in a previous build still resolves or
-      # is redirected. No URL dies unredirected. Ratcheted.
-      # Red means: you removed or renamed a page without leaving a redirect.
-      - name: no public address dies unredirected
-        run: node scripts/check-url-lifecycle.mjs
-
-      # Every internal link in the built site resolves to a page or a redirect.
-      # Red means: a link points at a page that the build did not produce.
-      - name: internal links resolve
-        run: node scripts/check-internal-links.mjs
+      # Every build guard: the built site and the committed telemetry are what
+      # HEAD produces. These bite regardless of any standard's state. Red
+      # means: a page, a link, a redirect or the dataset is broken. Fix a
+      # telemetry red by running `node scripts/telemetry.mjs` on the branch
+      # and committing telemetry/ — never by hand-editing latest.json.
+      - name: build guards
+        run: npm run guards -- --build
