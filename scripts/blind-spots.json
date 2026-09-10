@@ -95,6 +95,7 @@
     "check-internal-links": {
       "script": "scripts/check-internal-links.mjs",
       "build_guard": "verifies the built output, not a rule — a broken href is a broken page whatever any standard says (ENG-067 exception)",
+      "needs": "web/dist",
       "sees": "every internal href in web/dist, resolved against the built output the way a browser would — a file must exist at the other end (redirects count, Astro emits them as HTML)",
       "blind_to": [
         {
@@ -144,6 +145,7 @@
     "check-orphan-content": {
       "script": "scripts/check-orphan-content.mjs",
       "build_guard": "verifies the built output, not a rule — a file that reaches dist/ without the renderer is an artefact defect (ENG-067 exception)",
+      "needs": "web/dist",
       "sees": "files in web/public/ that reach web/dist/ without the renderer",
       "blind_to": [
         {
@@ -276,6 +278,7 @@
     "check-url-lifecycle": {
       "script": "scripts/check-url-lifecycle.mjs",
       "build_guard": "verifies the built output, not a rule — a public URL that dies without a redirect is a broken promise to a reader, not a breach of a draft (ENG-067 exception)",
+      "needs": "web/dist",
       "sees": "public URLs that stop being built without a redirect declared in web/astro.config.mjs (D-028)",
       "blind_to": [
         {
@@ -336,6 +339,10 @@
     "telemetry": {
       "script": "scripts/telemetry.mjs",
       "build_guard": "verifies the artefact, not a rule — a stale telemetry/latest.json misreports the tree whatever any standard says (ENG-067 exception)",
+      "needs": "scripts/lib/tokenizer/cl100k_base.tiktoken",
+      "run": [
+        "--check"
+      ],
       "sees": "the corpus, counted: files, series registration, mission states — every figure with unit, definition, HEAD and corpus_hash (MIS-138)",
       "blind_to": [
         {

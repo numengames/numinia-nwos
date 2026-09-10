@@ -127,8 +127,15 @@ check('fixture: corpus_hash changes when a tracked file changes, and --check the
 
 function scratchClone() {
   // Fresh repo, never the worktree's .git pointer: a fixture `git add` must touch only the clone.
+  // Only tracked files go in: an untracked draft in the developer's tree would
+  // otherwise be committed in the clone and shift every delta by one.
   const dir = mkdtempSync(path.join(tmpdir(), 'telemetry-'));
-  cpSync(ROOT, dir, { recursive: true, filter: (src) => !/[\\/](\.git|node_modules|dist|\.astro|\.hermes|telemetry)([\\/]|$)/.test(src) });
+  const tracked = execFileSync('git', ['-C', ROOT, 'ls-files', '-z'], { encoding: 'utf8' }).split('\0').filter(Boolean)
+    .filter((f) => !/^(telemetry\/|web\/(node_modules|dist|\.astro)\/)/.test(f));
+  for (const f of tracked) {
+    mkdirSync(path.dirname(path.join(dir, f)), { recursive: true });
+    cpSync(path.join(ROOT, f), path.join(dir, f));
+  }
   // telemetry/ is output and stays out — except claims.json, which is input (the register)
   if (existsSync(path.join(ROOT, 'telemetry/claims.json'))) { mkdirSync(path.join(dir, 'telemetry'), { recursive: true }); cpSync(path.join(ROOT, 'telemetry/claims.json'), path.join(dir, 'telemetry/claims.json')); }
   execFileSync('git', ['-C', dir, 'init', '--quiet'], { stdio: 'ignore' });
