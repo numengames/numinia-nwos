@@ -5,11 +5,11 @@ title: "The header"
 type: documentation
 subtype: standard
 status: active
-version: "3.1.0"
+version: "3.1.1"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-09-09T03:10:00+02:00"
+updated: "2026-09-10T13:00:00+02:00"
 ratified_by: "ADR-043"
 author: "ursa"
 owner: "oracle"
@@ -80,7 +80,7 @@ known, and no relation is inferred from a shared folder, author or subject.
 |---|---|
 | HDR-000, HDR-040, HDR-041, HDR-043, HDR-044 | `check-core-rules.mjs` |
 | HDR-001..009, 012..014, 017..020, 030..038 | `lint-frontmatter.mjs`, one plate per finding, `frontmatter-baseline.json` for the stock (`ENG-033`) |
-| HDR-010, 011, 015, 016 | `[MANUAL]` — presence only; `check-references.mjs` resolves the identifiers |
+| HDR-010, 011, 015, 016 | `[MANUAL]` — presence only. No guard resolves frontmatter relations: `check-references.mjs` reads the body, not the header (measured 2026-09-10) |
 | HDR-042 | `[MANUAL]` — review checks the register row and the decision |
 
 ## Why

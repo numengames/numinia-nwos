@@ -43,6 +43,7 @@ import { fileURLToPath } from 'node:url';
 import { declareBlindSpots } from './lib/blindness.mjs';
 import { parseFM, NESTED, loadRules, isTemplate } from './lib/frontmatter.mjs';
 import { RING1, RING2, RING3, RING3_ALL } from './lib/rings.mjs';
+import { Findings } from './lib/regime.mjs';
 declareBlindSpots('lint-frontmatter');
 
 /* MIS-138 D1.1 (2026-09-02): the closed vocabularies below are read from
@@ -366,9 +367,14 @@ console.log(`lint-frontmatter: ${findings.length} findings (${baseline.size} bas
 const dl = deferralLine();
 if (dl) console.log(`deferred values (ADR-028):\n${dl}`);
 if (healed.length) console.log(`  ${healed.length} baselined finding(s) healed — regenerate the baseline to bank the progress`);
+/* ENG-067: a NEW finding fails the build only while the standard holding
+   its plate is active. The baseline is unchanged by this; it says what is
+   old, the regime says what bites. */
 if (fresh.length) {
-  console.log(`\nNEW violations (not in baseline) — the ratchet fails:\n`);
-  for (const k of fresh) console.log(`  ${k}`);
-  process.exit(1);
+  console.log(`\nNEW violations (not in baseline):\n`);
+  const out = new Findings('lint-frontmatter');
+  for (const k of fresh) { const m = /^(\S+) (\S+) :: (.*)$/.exec(k); out.add(m[1], m[3], m[2]); }
+  out.finish();
+} else {
+  console.log('no new violations — the ratchet holds');
 }
-console.log('no new violations — the ratchet holds');

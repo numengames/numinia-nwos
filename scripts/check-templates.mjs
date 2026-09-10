@@ -51,6 +51,7 @@ import path from 'node:path';
 import { ROOT, parseFM, rawFM, stripFM, loadRules, seriesDirs } from './lib/frontmatter.mjs';
 import { RING1, RING2, RING3, RING3_ALL, lifecycleFor, isTerminalStatus } from './lib/rings.mjs';
 import { declareBlindSpots } from './lib/blindness.mjs';
+import { Findings } from './lib/regime.mjs';
 declareBlindSpots('check-templates');
 
 const RULES = loadRules();
@@ -114,8 +115,21 @@ function destRegime(dir) {
 }
 
 // --- the check -------------------------------------------------------------
-const failures = [];
-const F = (code, file, msg) => failures.push(`  ${code} ${file} :: ${msg}`);
+/* ENG-067: each T-code answers to one plate, and the finding binds by the
+   state of the standard that holds it. T-01/T-07 are the header contract
+   (HDR-000/HDR-030, STD-004); T-02 is the file name (TXT-001, STD-006); T-03
+   is a well-formed header (TXT-002, STD-006); T-04 the licence regime
+   (LIC-008, STD-010); T-05/T-06 the closed vocabularies (HDR-003/HDR-004,
+   STD-004); T-08 the opening version (VER-021, STD-019); T-09/T-10/T-11 the
+   shape of a document and its mould (DOC-009/DOC-010, STD-007). */
+const PLATE = {
+  'T-01': 'HDR-000', 'T-02': 'TXT-001', 'T-03': 'TXT-002', 'T-04': 'LIC-008',
+  'T-05': 'HDR-003', 'T-06': 'HDR-004', 'T-07': 'HDR-030', 'T-08': 'VER-021',
+  'T-09': 'DOC-009', 'T-10': 'DOC-009', 'T-11': 'DOC-010',
+};
+const out = new Findings('template guard');
+let failures = 0;
+const F = (code, file, msg) => { failures += 1; out.add(PLATE[code], `${code} ${msg}`, file); };
 
 const files = execFileSync('git', ['ls-files', 'templates/*'], { cwd: ROOT, encoding: 'utf8' })
   .split('\n').filter(Boolean);
@@ -265,11 +279,8 @@ for (const rel of standards) {
   if (!/^References$/.test(refs)) F('T-11', rel, `last section is "${refs}" — the shape ends with References`);
 }
 
-if (failures.length) {
-  console.error(`template guard: ${failures.length} finding(s) across ${checked} template(s)`);
-  for (const f of failures.sort()) console.error(f);
-  console.error('\nA template is a worked example of its DESTINATION series\' contract.');
-  console.error('Fix the mould, not the documents copied from it.');
-  process.exit(1);
+if (failures) {
+  console.error(`template guard: ${failures} finding(s) across ${checked} template(s) — a template is a worked example of its DESTINATION series' contract. Fix the mould, not the documents copied from it.\n`);
+  out.finish();
 }
 console.log(`template guard: ${checked} template(s) · every registered series covered · destination contracts hold`);

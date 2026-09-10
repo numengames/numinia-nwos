@@ -37,6 +37,7 @@ import { execFileSync } from 'node:child_process';
 import { declareBlindSpots } from './lib/blindness.mjs';
 import { loadRules, prefixToDir, stripFM, parseFM } from './lib/frontmatter.mjs';
 import { isPhotograph } from './lib/rings.mjs';
+import { Findings } from './lib/regime.mjs';
 declareBlindSpots('check-references');
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
@@ -372,14 +373,15 @@ if (fixed.length) {
   for (const f of fixed.slice(0, 10)) console.log(`    ${f}`);
 }
 
+/* ENG-067: a NEW broken reference is a thing cited that does not exist —
+   GIT-048 (STD-020, "Nothing is deleted while cited"). It binds by that
+   standard's state. This guard reads body links, bare identifiers and
+   filenames; it does not read frontmatter relations (HDR-016 is not here). */
 if (added.length) {
-  console.error(`\n✗ ${added.length} NEW broken reference(s):\n`);
-  for (const a of added) console.error(`    ${a}`);
-  console.error(
-    '\nA reference in this corpus is usually plain text, so nothing else would\n' +
-      'have caught this. Fix the reference, or update the baseline deliberately.',
-  );
-  process.exit(1);
+  console.error(`\n✗ ${added.length} NEW broken reference(s) — a reference in this corpus is usually plain text, so nothing else would have caught this. Fix the reference, or update the baseline deliberately.\n`);
+  const out = new Findings('check-references');
+  for (const a of added) { const m = /^(\S+)\s+(\S+) -> (.*)$/.exec(a); out.add('GIT-048', `${m[1]} -> ${m[3]}`, m[2]); }
+  out.finish();
 }
 
 console.log('\n✓ no new broken references.');
