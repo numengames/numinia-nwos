@@ -40,6 +40,7 @@ import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { declareBlindSpots } from './lib/blindness.mjs';
+import { Findings } from './lib/regime.mjs';
 import { parseFM, loadRules, isApparatus } from './lib/frontmatter.mjs';
 declareBlindSpots('lint-naming');
 
@@ -204,9 +205,16 @@ const healed = [...baseline].filter((k) => !keys.includes(k));
 
 console.log(`lint-naming: ${findings.length} findings (${baseline.size} baselined) — ${summary}`);
 if (healed.length) console.log(`  ${healed.length} baselined finding(s) healed — regenerate the baseline to bank the progress`);
+/* ENG-067: each local code answers to one plate. N-01/N-02/N-05 are the
+   shape of a file name under a series folder — TXT-001 (STD-006). N-04 is
+   the identifier the name carries — IDN-011 (STD-018). A NEW finding fails
+   the build only while its holder is active; the baseline says what is old. */
+const PLATE = { 'N-01': 'TXT-001', 'N-02': 'TXT-001', 'N-04': 'IDN-011', 'N-05': 'TXT-001' };
 if (fresh.length) {
-  console.log(`\nNEW violations (not in baseline) — the ratchet fails:\n`);
-  for (const k of fresh) console.log(`  ${k}`);
-  process.exit(1);
+  console.log(`\nNEW violations (not in baseline):\n`);
+  const out = new Findings('lint-naming');
+  for (const k of fresh) { const m = /^(\S+) (\S+) :: (.*)$/.exec(k); out.add(PLATE[m[1]] ?? m[1], `${m[1]} ${m[3]}`, m[2]); }
+  out.finish();
+} else {
+  console.log('no new violations — the ratchet holds');
 }
-console.log('no new violations — the ratchet holds');

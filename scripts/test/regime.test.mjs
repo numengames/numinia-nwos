@@ -39,7 +39,11 @@ check('guards: every plate emitted by a regime guard has a holder', () => {
   for (const f of readdirSync(dir).filter((n) => n.endsWith('.mjs'))) {
     const src = readFileSync(path.join(dir, f), 'utf8');
     if (!src.includes("lib/regime.mjs")) continue;
-    for (const p of new Set([...src.matchAll(/'([A-Z]{2,4}-\d{3})'/g)].map((m) => m[1])))
+    /* A plate is what reaches out.add() — as a literal, or through a
+       PLATE/RULES table. Any other quoted identifier is data, not a rule. */
+    const literal = [...src.matchAll(/out\.add\(\s*'([A-Z]{2,4}-\d{3})'/g)].map((m) => m[1]);
+    const tables = [...src.matchAll(/const (?:PLATE|RULES) = (\{[^}]*\}|\[[^\]]*\])/g)].flatMap((m) => [...m[1].matchAll(/:\s*'([A-Z]{2,4}-\d{3})'|'([A-Z]{2,4}-\d{3})'(?=\s*[,\]])/g)].map((x) => x[1] ?? x[2]));
+    for (const p of new Set([...literal, ...tables]))
       if (!holderOf(p)) unheld.push(`${f}: ${p}`);
   }
   return unheld.length === 0 || unheld.join('; ');

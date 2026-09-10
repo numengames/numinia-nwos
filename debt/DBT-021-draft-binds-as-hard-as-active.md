@@ -4,9 +4,9 @@ uid: ""
 title: "Six standards are draft and bind anyway: only one guard reads the status field"
 type: documentation
 status: active
-version: "0.2.1"
+version: "0.3.0"
 created: "2026-09-07T16:40:00+02:00"
-updated: "2026-09-10T11:30:00+02:00"
+updated: "2026-09-10T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -58,6 +58,18 @@ ratification is an edit to a header, not to the script.
 The other thirteen enforce regardless. The plain-writing guard is the sharpest
 case: it is `draft`, and it blocked two commits on the day this entry was
 written.
+
+**Re-measured 2026-09-10, after the CI guards adopted `regime.mjs`.** Nine of
+the fourteen CI steps are rule guards and all nine read the holder's state
+(`check-core-rules`, `lint-frontmatter`, `check-frontmatter-delimiter`,
+`check-frontmatter-yaml`, `lint-naming`, `check-references`,
+`check-license-frontmatter`, `check-templates`; `regime.test.mjs` proves the
+reader). Of those, two changed behaviour: the licence-header guard (STD-010,
+draft) and the template guard (STD-007/STD-019, draft) now report and exit
+0. The remaining five steps are build guards (build, telemetry ×2, internal
+links, orphan content, URL lifecycle) and bite by design (ENG-067). The four
+rule guards outside CI (`check-document-shape`, `lint-plain-writing`,
+`check-citations-by-section`, `check-prose-in-code`) are the next cut.
 
 ## 2. Why this matters
 

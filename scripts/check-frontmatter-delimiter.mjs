@@ -38,6 +38,11 @@ const files = execSync('git ls-files "*.md"', { cwd: ROOT })
   .toString().split('\n')
   .filter((f) => f && !f.startsWith('web/'));
 
+import { Findings } from './lib/regime.mjs';
+
+/* TXT-002 (STD-006): a plain-text header between correct delimiters. The
+   finding binds by that standard's state (ENG-067). */
+const out = new Findings('frontmatter-delimiter guard');
 const pegados = [];
 const sinCierre = [];
 
@@ -65,9 +70,8 @@ if (total === 0) {
 }
 
 console.log(`frontmatter-delimiter guard: ${total} file(s) with an unparseable fence\n`);
-for (const l of [...pegados, ...sinCierre]) console.log(`  ${l}`);
-console.log(`
-A YAML parser that requires --- on its own line reads NO frontmatter in these
+for (const l of [...pegados, ...sinCierre]) { const [where, what] = l.split(' :: '); out.add('TXT-002', what, where); }
+console.log(`A YAML parser that requires --- on its own line reads NO frontmatter in these
 files. Our lint and Astro tolerate it; a standard parser does not.
-Fix: scripts/repair-frontmatter-delimiter.py --write`);
-process.exit(1);
+Fix: scripts/repair-frontmatter-delimiter.py --write\n`);
+out.finish();

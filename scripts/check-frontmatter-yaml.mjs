@@ -126,10 +126,12 @@ for (const rel of files) {
 }
 
 if (bad.length) {
-  console.error(`frontmatter-yaml guard: ${bad.length} file(s) have a broken header\n`);
-  for (const [rel, err] of bad) console.error(`  ${rel}\n      ${err}`);
-  console.error('\nA header no parser can read is a header no instrument can trust.');
-  process.exit(1);
+  /* TXT-002 (STD-006): the finding binds by that standard's state (ENG-067). */
+  const { Findings } = await import('./lib/regime.mjs');
+  const out = new Findings('frontmatter-yaml guard');
+  for (const [rel, err] of bad) out.add('TXT-002', err, rel);
+  console.error(`frontmatter-yaml guard: ${bad.length} file(s) have a broken header — a header no parser can read is a header no instrument can trust.\n`);
+  out.finish();
 }
 
 console.log(`frontmatter-yaml guard: OK — ${checked} .md files, every header is structurally sound.`);
