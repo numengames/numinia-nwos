@@ -1061,10 +1061,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4177,
+  "chars": 4148,
   "apparatus": false,
   "archived": false,
-  "tokens": 1171
+  "tokens": 1138
  },
  {
   "path": "protocols/PRO-014-producing-a-design-piece.md",
@@ -1226,10 +1226,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6845,
+  "chars": 7522,
   "apparatus": false,
   "archived": false,
-  "tokens": 1841
+  "tokens": 1996
  },
  {
   "path": "standards/STD-006-plain-text-is-sovereign.md",
