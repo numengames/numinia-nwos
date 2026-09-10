@@ -123,7 +123,7 @@ a licence from a neighbouring file.
 
 One rule in this repository is enforced by a machine: every document's declared
 licence must match `REUSE.toml`, checked by
-[`scripts/check-license-frontmatter.mjs`](scripts/check-license-frontmatter.mjs)
+[`guards/rules/std-010-licensing.mjs`](guards/rules/std-010-licensing.mjs)
 on every push through [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
 The site build runs in the same pipeline, so a structural change that breaks
 [numinia.org](https://numinia.org) fails before it merges.

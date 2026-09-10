@@ -62,10 +62,11 @@ check('every guard the runner runs is a build guard or answers to the regime (EN
   // of any standard's state says so in its registry entry (`build_guard`), and
   // every other guard hands its findings to scripts/lib/regime.mjs. A guard
   // that is neither is exactly the defect of DBT-017 — code obliging where no
-  // document obliges.
+  // document obliges. `manual` entries are tools run by hand, not by the
+  // runner, and are out of scope here (same test as run-guards.mjs's filter).
   const offenders = [];
   for (const [id, entry] of Object.entries(registry.guards)) {
-    if (!entry.script.startsWith('scripts/')) continue;   // a tool, run by hand
+    if (entry.manual) continue;
     if (entry.build_guard) continue;
     const src = readFileSync(path.join(ROOT, entry.script), 'utf8');
     if (!src.includes('lib/regime.mjs')) offenders.push(id);
@@ -76,7 +77,7 @@ check('every guard the runner runs is a build guard or answers to the regime (EN
 
 check('a build guard says what it needs, so the runner can skip or refuse instead of crashing', () => {
   for (const [id, entry] of Object.entries(registry.guards)) {
-    if (!entry.build_guard || !entry.script.startsWith('scripts/')) continue;
+    if (!entry.build_guard || entry.manual) continue;
     assert(typeof entry.needs === 'string' && entry.needs.length > 0,
       `${id}: build_guard with no \`needs\` path`);
   }
@@ -180,7 +181,7 @@ check('license guard fixture — a .md with no license: field is skipped, as dec
   try {
     writeFileSync(path.join(clone, 'debt/D-000-nolicense.md'), '---\nid: "D-000"\n---\n\nNo licence field.\n');
     execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
-    const res = spawnGuard('scripts/check-license-frontmatter.mjs', clone);
+    const res = spawnGuard('guards/rules/std-010-licensing.mjs', clone);
     assert(res.status === 0,
       `the licence guard flagged a file with no license: field — the declaration is now wrong (exit ${res.status})`);
     assert(/no `license:` field|files with no `license:` field/.test(res.stderr),

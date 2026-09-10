@@ -5,16 +5,16 @@ title: "Licensing"
 type: documentation
 subtype: standard
 status: draft
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-09-10T02:30:00+02:00"
+updated: "2026-09-10T19:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
 license: "CC0-1.0"
 tags: [licensing, legal, REUSE, SPDX]
 threshold: governed
-series_change: "1.0.1 — LIC-058 and LIC-059 retired as duplicates of LIC-007 and HDR-008; the Check names the header plates instead (ADR-043 cut of STD-009). 1.0.0 — the standard takes the ADR-043 shape: 3,020 -> 495 words of body across three files. LIC-001..013 are the obligations of the old §2-§7; the allowlist, the metadata-field table and the licence texts are the register STD-013; the two irreversible gates are STD-014. LIC-058..060 (core rules) are cited, not restated. Nothing that bound is dropped; what explained is in the Why or in CAN-005."
+series_change: "1.1.1 — Check row repoints to guards/rules/std-010-licensing.mjs (R3, MIS guards-tests-ci-alpha): the guard moved out of scripts/, the name did not change. 1.0.1 — LIC-058 and LIC-059 retired as duplicates of LIC-007 and HDR-008; the Check names the header plates instead (ADR-043 cut of STD-009). 1.0.0 — the standard takes the ADR-043 shape: 3,020 -> 495 words of body across three files. LIC-001..013 are the obligations of the old §2-§7; the allowlist, the metadata-field table and the licence texts are the register STD-013; the two irreversible gates are STD-014. LIC-058..060 (core rules) are cited, not restated. Nothing that bound is dropped; what explained is in the Why or in CAN-005."
 ---
 
 # Licensing
@@ -92,7 +92,7 @@ pull request.
 
 | Plate | Verified by |
 |---|---|
-| LIC-007 (documents), LIC-008 | `check-license-frontmatter.mjs` (also `HDR-043`, `HDR-008`) |
+| LIC-007 (documents), LIC-008 | `guards/rules/std-010-licensing.mjs` (also `HDR-043`, `HDR-008`) |
 | LIC-005, LIC-007 (packages) | `license-check` in CI, default severity error — not yet in this repository |
 | LIC-003, LIC-006 | `[MANUAL]` — the dependency-direction lint and the artifact inspector are described, not built (`DBT-020`) |
 | LIC-001, 002, 004, 009–013 | `[MANUAL]` — review at the pull request |

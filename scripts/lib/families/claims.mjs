@@ -32,8 +32,11 @@ export const contradictions = {
     const inCi = ciScripts(trackedFiles());
     const marked = []; const markedScripts = new Set();
     for (const std of docs.filter((d) => d.path.startsWith('standards/'))) {
-      for (const m of std.text.matchAll(/^\|.*`([a-z-]+\.mjs)`.*$/gm)) {
-        const scripts = [...m[0].matchAll(/`((?:scripts\/)?[a-z-]+\.mjs)`/g)].map((x) => x[1].startsWith('scripts/') ? x[1] : `scripts/${x[1]}`);
+      for (const m of std.text.matchAll(/^\|.*`([a-z0-9/-]+\.mjs)`.*$/gm)) {
+        // A Check row cites either a bare filename (assumed scripts/, the
+        // shelf every guard sat on until R3) or a path with a slash already
+        // in it (guards/rules/…, tools/…) — normalise only the bare form.
+        const scripts = [...m[0].matchAll(/`([a-z0-9/-]+\.mjs)`/g)].map((x) => x[1].includes('/') ? x[1] : `scripts/${x[1]}`);
         marked.push({ file: std.path, line: lineOf(std.text, m.index), scripts }); scripts.forEach((s) => markedScripts.add(s));
       }
     }
