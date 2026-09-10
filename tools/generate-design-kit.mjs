@@ -21,7 +21,7 @@
 // master). The package is the source; every consumer, this site included,
 // takes the file from it.
 //
-// Run from anywhere: node scripts/generate-design-kit.mjs
+// Run from anywhere: node tools/generate-design-kit.mjs
 //   --check   verify the published kit is byte-identical to the source
 //             (exit 1 on drift) instead of writing it.
 import { createHash } from "node:crypto";
@@ -88,7 +88,7 @@ if (check) {
   }
   if (drift.length) {
     console.error(`generate-design-kit --check: published kit differs from packages/design-kit for: ${drift.join(", ")}`);
-    console.error("Run `node scripts/generate-design-kit.mjs` and commit the result (GIT-027).");
+    console.error("Run `node tools/generate-design-kit.mjs` and commit the result (GIT-027).");
     process.exit(1);
   }
   console.log(`generate-design-kit --check: kit v${version} is byte-identical to the package.`);

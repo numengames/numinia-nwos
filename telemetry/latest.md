@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-10T15:10:07Z"
+updated: "2026-09-10T15:43:38Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,13 +20,13 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `c125423`  · corpus_hash: `97f3cc28b8bdb1da…`  · measured_at: 2026-09-10T15:10:07Z  · root_dirty: 1
+- head: `d6d3f49`  · corpus_hash: `39d3db7fd6ae137a…`  · measured_at: 2026-09-10T15:43:38Z  · root_dirty: 0
 
 ## corpus
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `corpus.files_total` | 452 | files | `git ls-files` at HEAD, every path |
+| `corpus.files_total` | 451 | files | `git ls-files` at HEAD, every path |
 | `corpus.files_by_ext` | (table below) | files | tracked files by lowercase extension; `(none)` when no extension |
 | `corpus.md_total` | 150 | files | tracked `.md` anywhere, including `web/` |
 | `corpus.docs_total` | 148 | documents | tracked `.md` outside `web/` — the corpus every other family measures |
@@ -34,7 +34,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `corpus.docs_by_type` | (table below) | documents | corpus documents by frontmatter `type`; `(none)` when absent |
 | `corpus.docs_without_frontmatter` | 8 | documents | corpus documents with no `---` block at the top |
 | `corpus.apparatus` | 20 | documents | corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path) |
-| `corpus.scripts_total` | 42 | files | files under `scripts/` with a code extension (.py .mjs .js .sh .ts) |
+| `corpus.scripts_total` | 38 | files | files under `scripts/` with a code extension (.py .mjs .js .sh .ts) |
 | `corpus.scripts_by_language` | (table below) | files | those scripts by language, from the extension |
 | `corpus.scripts_in_ci` | 14 | files | scripts named in `.github/workflows/ci.yml` as `scripts/<name>` |
 
@@ -50,11 +50,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | .ico | 1 |
 | .jpg | 1 |
 | .js | 2 |
-| .json | 14 |
+| .json | 13 |
 | .md | 150 |
-| .mjs | 45 |
+| .mjs | 46 |
 | .png | 36 |
-| .py | 1 |
 | .svg | 69 |
 | .toml | 4 |
 | .ts | 17 |
@@ -104,8 +103,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | files |
 |---|---|
-| node | 41 |
-| python | 1 |
+| node | 38 |
 
 ## series
 
@@ -251,7 +249,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `headers.docs_without_frontmatter` | 8 | documents | corpus docs minus docs_with_frontmatter |
 | `headers.field_usage` | (table below) | documents | per frontmatter key, the number of docs carrying it, most used first |
 | `headers.uid_present` | 0 | documents | docs with a non-empty uid |
-| `headers.uid_collisions` | 0 | collisions | Σ(n−1) over uid values held by n>1 docs; values as typed (a shared placeholder counts, as in legacy.uid_colisiones) |
+| `headers.uid_collisions` | 0 | collisions | Σ(n−1) over uid values held by n>1 docs; values as typed (a shared placeholder counts) |
 | `headers.uid_collision_values` | (table below) | documents | the colliding uid values with their holder counts |
 | `headers.created_T000000Z` | 4 | documents | created ending in the midnight-UTC placeholder |
 | `headers.hygiene` | (table below) | values | frontmatter-census.py §4: created/updated without time; empty values; version with v prefix; values matching TODO\|TBD\|FIXME\|{{\|<…>\|xxx |
@@ -354,7 +352,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | values |
 |---|---|
 | dates_without_time | 4 |
-| empty_values | 103 |
+| empty_values | 114 |
 | v_prefixed_versions | 0 |
 | placeholders | 5 |
 
@@ -491,86 +489,4 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 ### `figures.stale_citations`
 
 0 rows (citations) — in `latest.json`.
-
-## legacy
-
-| key | value | unit | definition |
-|---|---|---|---|
-| `legacy.docs_total` | 150 | documents | every tracked path ending in .md (git ls-files '*.md'), web/ included, telemetry/ excluded |
-| `legacy.docs_con_frontmatter` | 140 | documents | docs_total whose text starts with a `---` block closed by a second `---` line |
-| `legacy.docs_sin_frontmatter` | 10 | documents | docs_total − docs_con_frontmatter |
-| `legacy.referencias_textuales_total` | 1364 | mentions | occurrences of `(MIS\|ADR\|DEC\|RPT\|AUD\|P\|C\|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included) |
-| `legacy.referencias_top` | (table below) | mentions | the six most-mentioned identifiers as [id, count]; ties keep first-seen order (Python Counter.most_common) |
-| `legacy.matricula` | (table below) | documents | per series dir (count-evidence order, 11 dirs — `system` absent, as in the script): con = filenames matching the scheme; total = docs in the dir minus _template/, reports/evidence/, apparatus (canonical name or type: meta) and dated filenames, as the replayed tool did; pct = 100·con/total rounded to 0.1 |
-| `legacy.excluidos` | (table below) | paths | the apparatus and dated-name paths removed from the matricula denominators, in scan order |
-| `legacy.agents_sin_prefijo_por_diseno` | 11 | directories | subdirectories of agents/ other than _template (ADR-005 v1.1.0: agents are named, not numbered) |
-| `legacy.uid_presentes` | 2 | documents | docs with a non-empty `uid:` line in the frontmatter |
-| `legacy.uid_fabricados` | 0 | documents | uid values ending in eight or more zeros plus an optional counter (the hand-made v7 pattern) |
-| `legacy.uid_colisiones` | 1 | collisions | Σ(count − 1) over uid values held by more than one doc. Known defect reproduced: values are compared as typed, so a shared placeholder counts as collisions (MIS-122) |
-| `legacy.docs_con_relacion_declarada` | 2 | documents | docs with at least one of supersedes / superseded_by / derived_from / replaces holding a non-null value (E6) |
-| `legacy.misiones_por_status` | (table below) | documents | every .md under missions/ (TEMPLATE, ANNEX, INDEX included — the "three predicates" of the brief) by raw `status:` value, most common first |
-| `legacy.guild_valores` | (table below) | documents | distinct raw `guild:` values with counts, most common first |
-| `legacy.type_execution_valores` | (table below) | documents | distinct raw `type_execution:` values with counts |
-| `legacy.area_valores_distintos` | 0 | values | number of distinct non-empty `area:` values |
-| `legacy.created_T000000Z` | 4 | documents | `created:` lines whose value carries the midnight-UTC placeholder time |
-| `legacy.created_total` | 139 | documents | docs with a `created:` line |
-| `legacy.ci_workflow_existe` | true | boolean | .github/workflows/ci.yml is present |
-| `legacy.ci_guards` | (table below) | paths | the `run: node scripts/…` steps of ci.yml, in file order |
-
-### `legacy.referencias_top`
-
-6 rows (mentions) — in `latest.json`.
-
-### `legacy.matricula`
-
-| | esquema | con | total | aparato | pct |
-|---|---|---|---|---|---|
-| missions | MIS-NNNN | 10 | 10 | 1 | 100 |
-| protocols | PRO-NNN | 11 | 11 | 0 | 100 |
-| decisions | ADR/DEC-NNN | 7 | 7 | 0 | 100 |
-| reports | RPT-NNN · RPT-YYYY-MM-DD (daily) | 6 | 6 | 0 | 100 |
-| blueprints | BLU-NNN | 10 | 10 | 0 | 100 |
-| canon | CAN-NNN | 8 | 8 | 0 | 100 |
-| standards | STD-NNN | 24 | 24 | 0 | 100 |
-| operations | OPS-NNN | 9 | 9 | 0 | 100 |
-| debt | DBT-NNN | 1 | 1 | 0 | 100 |
-| guilds | GLD-NNN | 0 | 0 | 0 |  |
-| infra | INF-NNN | 0 | 0 | 0 |  |
-
-### `legacy.excluidos`
-
-| | 0 |
-|---|---|
-| aparato | missions/ANNEX-mission-selection-draft.md |
-| congelados |  |
-
-### `legacy.misiones_por_status`
-
-| | documents |
-|---|---|
-| done | 5 |
-| todo | 4 |
-| draft | 1 |
-| in-progress | 1 |
-
-### `legacy.guild_valores`
-
-| | documents |
-|---|---|
-| Alchemists | 29 |
-| Exegetes | 8 |
-| Sentinels | 6 |
-| Procurators | 1 |
-
-### `legacy.type_execution_valores`
-
-| | documents |
-|---|---|
-| digital | 8 |
-| hybrid | 2 |
-| biological | 1 |
-
-### `legacy.ci_guards`
-
-14 rows (paths) — in `latest.json`.
 

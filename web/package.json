@@ -11,7 +11,7 @@
     "check:license": "node ../scripts/check-license-frontmatter.mjs",
     "build": "node ../scripts/check-license-frontmatter.mjs && astro build",
     "preview": "astro preview",
-    "check:responsive": "node ../scripts/check-responsive.mjs",
+    "check:responsive": "node ../tools/check-responsive.mjs",
     "astro": "astro"
   },
   "dependencies": {

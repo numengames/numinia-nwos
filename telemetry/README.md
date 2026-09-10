@@ -30,7 +30,6 @@ node scripts/telemetry.mjs --check           # exit 1 if latest.json is not HEAD
 node scripts/telemetry.mjs --key tokens.total
 node scripts/telemetry.mjs --print           # JSON to stdout, writes nothing
 node scripts/telemetry.mjs --fetch-tokenizer # cl100k rank file, verified by sha256 (needed once; tokens.* are null without it)
-node scripts/telemetry.mjs --legacy-json     # the 21 keys of the retired count-evidence.py
 node scripts/test/telemetry.test.mjs
 ```
 

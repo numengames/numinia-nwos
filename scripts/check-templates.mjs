@@ -49,6 +49,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { ROOT, parseFM, rawFM, stripFM, loadRules, seriesDirs } from './lib/frontmatter.mjs';
+import { regimeOf } from './lib/reuse.mjs';
 import { RING1, RING2, RING3, RING3_ALL, lifecycleFor, isTerminalStatus } from './lib/rings.mjs';
 import { declareBlindSpots } from './lib/blindness.mjs';
 import { Findings } from './lib/regime.mjs';
@@ -74,35 +75,6 @@ const EXEMPT = new Set(['README.md']);
 const SEMVER = /^\d+\.\d+\.\d+$/;
 
 // --- REUSE.toml, same parse as check-license-frontmatter -------------------
-function parseAnnotations(toml) {
-  const blocks = []; let cur = null;
-  const lines = toml.split('\n');
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i].replace(/(^|\s)#.*$/, '').trim();
-    if (!line) continue;
-    if (line === '[[annotations]]') { cur = { paths: [], license: null }; blocks.push(cur); continue; }
-    if (!cur) continue;
-    if (/^path\s*=/.test(line)) {
-      let rhs = line.slice(line.indexOf('=') + 1).trim();
-      while (rhs.startsWith('[') && !rhs.endsWith(']')) { i++; rhs += lines[i].replace(/(^|\s)#.*$/, '').trim(); }
-      cur.paths = [...rhs.matchAll(/"([^"]+)"/g)].map((m) => m[1]);
-    } else if (/^SPDX-License-Identifier\s*=/.test(line)) {
-      cur.license = /"([^"]+)"/.exec(line)?.[1] ?? null;
-    }
-  }
-  return blocks;
-}
-function globToRegExp(glob) {
-  const escaped = glob.replace(/[.+^${}()|[\]\\]/g, '\\$&')
-    .replace(/\*\*/g, '\u0000').replace(/\*/g, '[^/]*').replace(/\u0000/g, '.*');
-  return new RegExp(`^${escaped}$`);
-}
-function regimeFor(file, ann) {
-  let r = null;
-  for (const b of ann) if (b.paths.some((p) => globToRegExp(p).test(file))) r = b.license;
-  return r;
-}
-const ANN = parseAnnotations(readFileSync(path.join(ROOT, 'REUSE.toml'), 'utf8'));
 
 /* The licence a document created from this template will need. Probed with a
    filename of the destination's own shape, because REUSE.toml discriminates by
@@ -111,7 +83,7 @@ function destRegime(dir) {
   const pfx = RULES.series[dir]?.prefix?.[0] ?? 'XXX';
   const digits = RULES.series[dir]?.digits ?? 3;
   const n = '9'.repeat(digits);
-  return regimeFor(`${dir}/${pfx}-${n}-probe.md`, ANN);
+  return regimeOf(`${dir}/${pfx}-${n}-probe.md`);
 }
 
 // --- the check -------------------------------------------------------------

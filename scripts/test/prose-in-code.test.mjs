@@ -91,7 +91,10 @@ test('--report lists the files that carry the prose', () => {
   assert.ok(out.includes('worst offenders'), out);
 });
 
-test('the tree is left exactly as it was found', () => {
-  const dirty = execSync('git status --porcelain web/src', { cwd: ROOT }).toString().trim();
-  assert.equal(dirty, '', `tests must not leave changes behind:\n${dirty}`);
+test('the guard reads and never writes', () => {
+  const snapshot = () => execSync('git status --porcelain web/src', { cwd: ROOT }).toString();
+  const before = snapshot();
+  runGuard([]);
+  runGuard(['--report']);
+  assert.equal(snapshot(), before, 'the guard changed the working tree');
 });

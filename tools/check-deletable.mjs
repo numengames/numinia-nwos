@@ -26,8 +26,8 @@
  *      ADR, whatever the other three say. This guard refuses, it does not
  *      weigh.
  *
- *   node scripts/check-deletable.mjs <path>...     # judge specific files
- *   node scripts/check-deletable.mjs --candidates  # list everything that passes 1+4
+ *   node tools/check-deletable.mjs <path>...     # judge specific files
+ *   node tools/check-deletable.mjs --candidates  # list everything that passes 1+4
  *
  * WHAT IT DECIDES AND WHAT IT DOES NOT
  * ------------------------------------
@@ -44,9 +44,9 @@ import { readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { declareBlindSpots } from './lib/blindness.mjs';
-import { loadRules } from './lib/frontmatter.mjs';
-import { isTerminalStatus } from './lib/rings.mjs';
+import { declareBlindSpots } from '../scripts/lib/blindness.mjs';
+import { loadRules, parseFM } from '../scripts/lib/frontmatter.mjs';
+import { isTerminalStatus } from '../scripts/lib/rings.mjs';
 declareBlindSpots('check-deletable');
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -75,19 +75,15 @@ if (untracked.length) {
 const doc = new Map();
 for (const rel of files) {
   const text = readFileSync(path.join(ROOT, rel), 'utf8');
-  const fm = text.match(/^---\s*\n([\s\S]*?)\n---/);
-  const field = (name) => {
-    const m = fm && fm[1].match(new RegExp(`^${name}:\\s*["']?([^"'\\n]*)`, 'm'));
-    return m ? m[1].trim() : '';
-  };
+  const fm = parseFM(text) ?? {};
+  const field = (name) => (typeof fm[name] === 'string' ? fm[name] : '');
   const base = path.basename(rel, '.md');
   const ids = new Set([base]);
   const declared = field('id');
   if (declared) ids.add(declared);
   // `absorbs:` — the identifiers this document is the written resolution
   // for (ADR-030 §absorption; check-references.mjs resolves them here).
-  const absorbsRaw = fm && fm[1].match(/^absorbs:\s*\[(.*?)\]/m);
-  const absorbs = new Set(absorbsRaw ? absorbsRaw[1].split(',').map((s) => s.trim().replace(/^["']|["']$/g, '')).filter(Boolean) : []);
+  const absorbs = new Set(Array.isArray(fm.absorbs) ? fm.absorbs.filter(Boolean) : []);
   doc.set(rel, {
     absorbs,
     text,

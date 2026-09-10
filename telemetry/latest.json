@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "c125423",
-  "corpus_hash": "97f3cc28b8bdb1dacb3837680e78cb463ca0ed71fa4dac257b6579e404994376",
-  "root_dirty": 1,
-  "measured_at": "2026-09-10T15:10:07Z",
+  "head": "d6d3f49",
+  "corpus_hash": "39d3db7fd6ae137a8c58f10e8da1869db02656f83af78e8a5f5887f6a337d696",
+  "root_dirty": 0,
+  "measured_at": "2026-09-10T15:43:38Z",
   "families": [
     "corpus",
     "series",
@@ -12,12 +12,11 @@
     "headers",
     "provenance",
     "contradictions",
-    "figures",
-    "legacy"
+    "figures"
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 452,
+      "value": 451,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -31,11 +30,10 @@
         ".ico": 1,
         ".jpg": 1,
         ".js": 2,
-        ".json": 14,
+        ".json": 13,
         ".md": 150,
-        ".mjs": 45,
+        ".mjs": 46,
         ".png": 36,
-        ".py": 1,
         ".svg": 69,
         ".toml": 4,
         ".ts": 17,
@@ -107,14 +105,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 42,
+      "value": 38,
       "unit": "files",
       "definition": "files under `scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 41,
-        "python": 1
+        "node": 38
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
@@ -494,7 +491,7 @@
     "headers.uid_collisions": {
       "value": 0,
       "unit": "collisions",
-      "definition": "Σ(n−1) over uid values held by n>1 docs; values as typed (a shared placeholder counts, as in legacy.uid_colisiones)"
+      "definition": "Σ(n−1) over uid values held by n>1 docs; values as typed (a shared placeholder counts)"
     },
     "headers.uid_collision_values": {
       "value": [],
@@ -509,7 +506,7 @@
     "headers.hygiene": {
       "value": {
         "dates_without_time": 4,
-        "empty_values": 103,
+        "empty_values": 114,
         "v_prefixed_versions": 0,
         "placeholders": 5
       },
@@ -818,243 +815,6 @@
       "value": [],
       "unit": "citations",
       "definition": "cited `key = value @ head` whose value in latest.json at this HEAD differs from the cited value: [where, key, cited, current]. A stale citation is not an error — the head beside it says when it was true"
-    },
-    "legacy.docs_total": {
-      "value": 150,
-      "unit": "documents",
-      "definition": "every tracked path ending in .md (git ls-files '*.md'), web/ included, telemetry/ excluded"
-    },
-    "legacy.docs_con_frontmatter": {
-      "value": 140,
-      "unit": "documents",
-      "definition": "docs_total whose text starts with a `---` block closed by a second `---` line"
-    },
-    "legacy.docs_sin_frontmatter": {
-      "value": 10,
-      "unit": "documents",
-      "definition": "docs_total − docs_con_frontmatter"
-    },
-    "legacy.referencias_textuales_total": {
-      "value": 1364,
-      "unit": "mentions",
-      "definition": "occurrences of `(MIS|ADR|DEC|RPT|AUD|P|C|BP)-<1..4 digits>` at word boundaries in the full text of docs_total (frontmatter included)"
-    },
-    "legacy.referencias_top": {
-      "value": [
-        [
-          "ADR-005",
-          59
-        ],
-        [
-          "ADR-043",
-          47
-        ],
-        [
-          "ADR-030",
-          41
-        ],
-        [
-          "MIS-125",
-          21
-        ],
-        [
-          "MIS-127",
-          19
-        ],
-        [
-          "ADR-036",
-          18
-        ]
-      ],
-      "unit": "mentions",
-      "definition": "the six most-mentioned identifiers as [id, count]; ties keep first-seen order (Python Counter.most_common)"
-    },
-    "legacy.matricula": {
-      "value": {
-        "missions": {
-          "esquema": "MIS-NNNN",
-          "con": 10,
-          "total": 10,
-          "aparato": 1,
-          "pct": 100
-        },
-        "protocols": {
-          "esquema": "PRO-NNN",
-          "con": 11,
-          "total": 11,
-          "aparato": 0,
-          "pct": 100
-        },
-        "decisions": {
-          "esquema": "ADR/DEC-NNN",
-          "con": 7,
-          "total": 7,
-          "aparato": 0,
-          "pct": 100
-        },
-        "reports": {
-          "esquema": "RPT-NNN · RPT-YYYY-MM-DD (daily)",
-          "con": 6,
-          "total": 6,
-          "aparato": 0,
-          "pct": 100
-        },
-        "blueprints": {
-          "esquema": "BLU-NNN",
-          "con": 10,
-          "total": 10,
-          "aparato": 0,
-          "pct": 100
-        },
-        "canon": {
-          "esquema": "CAN-NNN",
-          "con": 8,
-          "total": 8,
-          "aparato": 0,
-          "pct": 100
-        },
-        "standards": {
-          "esquema": "STD-NNN",
-          "con": 24,
-          "total": 24,
-          "aparato": 0,
-          "pct": 100
-        },
-        "operations": {
-          "esquema": "OPS-NNN",
-          "con": 9,
-          "total": 9,
-          "aparato": 0,
-          "pct": 100
-        },
-        "debt": {
-          "esquema": "DBT-NNN",
-          "con": 1,
-          "total": 1,
-          "aparato": 0,
-          "pct": 100
-        },
-        "guilds": {
-          "esquema": "GLD-NNN",
-          "con": 0,
-          "total": 0,
-          "aparato": 0,
-          "pct": null
-        },
-        "infra": {
-          "esquema": "INF-NNN",
-          "con": 0,
-          "total": 0,
-          "aparato": 0,
-          "pct": null
-        }
-      },
-      "unit": "documents",
-      "definition": "per series dir (count-evidence order, 11 dirs — `system` absent, as in the script): con = filenames matching the scheme; total = docs in the dir minus _template/, reports/evidence/, apparatus (canonical name or type: meta) and dated filenames, as the replayed tool did; pct = 100·con/total rounded to 0.1"
-    },
-    "legacy.excluidos": {
-      "value": {
-        "aparato": [
-          "missions/ANNEX-mission-selection-draft.md"
-        ],
-        "congelados": []
-      },
-      "unit": "paths",
-      "definition": "the apparatus and dated-name paths removed from the matricula denominators, in scan order"
-    },
-    "legacy.agents_sin_prefijo_por_diseno": {
-      "value": 11,
-      "unit": "directories",
-      "definition": "subdirectories of agents/ other than _template (ADR-005 v1.1.0: agents are named, not numbered)"
-    },
-    "legacy.uid_presentes": {
-      "value": 2,
-      "unit": "documents",
-      "definition": "docs with a non-empty `uid:` line in the frontmatter"
-    },
-    "legacy.uid_fabricados": {
-      "value": 0,
-      "unit": "documents",
-      "definition": "uid values ending in eight or more zeros plus an optional counter (the hand-made v7 pattern)"
-    },
-    "legacy.uid_colisiones": {
-      "value": 1,
-      "unit": "collisions",
-      "definition": "Σ(count − 1) over uid values held by more than one doc. Known defect reproduced: values are compared as typed, so a shared placeholder counts as collisions (MIS-122)"
-    },
-    "legacy.docs_con_relacion_declarada": {
-      "value": 2,
-      "unit": "documents",
-      "definition": "docs with at least one of supersedes / superseded_by / derived_from / replaces holding a non-null value (E6)"
-    },
-    "legacy.misiones_por_status": {
-      "value": {
-        "done": 5,
-        "todo": 4,
-        "draft": 1,
-        "in-progress": 1
-      },
-      "unit": "documents",
-      "definition": "every .md under missions/ (TEMPLATE, ANNEX, INDEX included — the \"three predicates\" of the brief) by raw `status:` value, most common first"
-    },
-    "legacy.guild_valores": {
-      "value": {
-        "Alchemists": 29,
-        "Exegetes": 8,
-        "Sentinels": 6,
-        "Procurators": 1
-      },
-      "unit": "documents",
-      "definition": "distinct raw `guild:` values with counts, most common first"
-    },
-    "legacy.type_execution_valores": {
-      "value": {
-        "digital": 8,
-        "hybrid": 2,
-        "biological": 1
-      },
-      "unit": "documents",
-      "definition": "distinct raw `type_execution:` values with counts"
-    },
-    "legacy.area_valores_distintos": {
-      "value": 0,
-      "unit": "values",
-      "definition": "number of distinct non-empty `area:` values"
-    },
-    "legacy.created_T000000Z": {
-      "value": 4,
-      "unit": "documents",
-      "definition": "`created:` lines whose value carries the midnight-UTC placeholder time"
-    },
-    "legacy.created_total": {
-      "value": 139,
-      "unit": "documents",
-      "definition": "docs with a `created:` line"
-    },
-    "legacy.ci_workflow_existe": {
-      "value": true,
-      "unit": "boolean",
-      "definition": ".github/workflows/ci.yml is present"
-    },
-    "legacy.ci_guards": {
-      "value": [
-        "scripts/check-license-frontmatter.mjs",
-        "scripts/check-frontmatter-yaml.mjs",
-        "scripts/check-references.mjs",
-        "scripts/check-frontmatter-delimiter.mjs",
-        "scripts/lint-frontmatter.mjs",
-        "scripts/lint-naming.mjs",
-        "scripts/telemetry.mjs",
-        "scripts/telemetry.mjs",
-        "scripts/test/telemetry.test.mjs",
-        "scripts/check-core-rules.mjs",
-        "scripts/check-templates.mjs",
-        "scripts/check-orphan-content.mjs",
-        "scripts/check-url-lifecycle.mjs",
-        "scripts/check-internal-links.mjs"
-      ],
-      "unit": "paths",
-      "definition": "the `run: node scripts/…` steps of ci.yml, in file order"
     }
   }
 }

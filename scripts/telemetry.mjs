@@ -13,7 +13,6 @@
 //   node scripts/telemetry.mjs --print    # measure, print latest.json to stdout, write nothing
 //   node scripts/telemetry.mjs --key a.b  # print one figure with its predicate
 //   node scripts/telemetry.mjs --fetch-tokenizer  # download cl100k_base.tiktoken into scripts/lib/tokenizer/, verify sha256 (gitignored, ≈1.6 MB)
-//   node scripts/telemetry.mjs --legacy-json  # the count-evidence.py --json dict (family legacy + head), for the transition
 //
 // Read-only over the corpus; writes only under telemetry/. Deterministic:
 // same tree → same latest.json byte for byte (measured_at aside).
@@ -24,7 +23,6 @@ import { loadDocs, headInfo } from './lib/corpus.mjs';
 import * as corpus from './lib/families/corpus.mjs';
 import * as series from './lib/families/series.mjs';
 import * as missions from './lib/families/missions.mjs';
-import * as legacy from './lib/families/legacy.mjs';
 import * as tokens from './lib/families/tokens.mjs';
 import { headers, provenance } from './lib/families/provenance.mjs';
 import { contradictions, figures as figuresFam } from './lib/families/claims.mjs';
@@ -32,10 +30,10 @@ import { RANK_URL, RANK_SHA256, RANK_PATH } from './lib/cl100k.mjs';
 import { declareBlindSpots } from './lib/blindness.mjs';
 
 const VERSION = '0.5.0';
-// Declared on every exit, like the guards (D-025). Silenced for --print/--legacy-json/--key: their stdout is
+// Declared on every exit, like the guards (D-025). Silenced for --print/--key: their stdout is
 // parsed by tests and pipes, and blindness prints to stderr only after the JSON — still, one channel per run.
-if (!process.argv.some((a) => ['--print', '--legacy-json', '--key', '--fetch-tokenizer'].includes(a))) declareBlindSpots('telemetry');
-const FAMILIES = { corpus, series, missions, tokens, headers, provenance, contradictions, figures: figuresFam, legacy };
+if (!process.argv.some((a) => ['--print', '--key', '--fetch-tokenizer'].includes(a))) declareBlindSpots('telemetry');
+const FAMILIES = { corpus, series, missions, tokens, headers, provenance, contradictions, figures: figuresFam };
 const OUT = path.join(ROOT, 'telemetry');
 const args = process.argv.slice(2);
 const flag = (f) => args.includes(f);
@@ -130,10 +128,6 @@ if (keyArg && flag('--key')) {
   console.log(JSON.stringify({ key: keyArg, ...f, head: latest.head }, null, 2)); process.exit(0);
 }
 if (flag('--print')) { console.log(JSON.stringify(latest, null, 2)); process.exit(0); }
-if (flag('--legacy-json')) {
-  const only = Object.fromEntries(Object.entries(latest.figures).filter(([k]) => k.startsWith('legacy.')).map(([k, f]) => [k.slice(7), f]));
-  console.log(JSON.stringify({ ...legacy.legacyDict(only), head: latest.head.replace('+index', '') }, null, 2)); process.exit(0);
-}
 if (flag('--check')) {
   const p = path.join(OUT, 'latest.json');
   if (!existsSync(p)) { console.error('telemetry --check: telemetry/latest.json missing — run the instrument'); process.exit(1); }

@@ -18,7 +18,7 @@
  *
  * HOW IT WORKS — the same ratchet pattern as lint-naming.mjs
  * ---------------------------------------------------------
- * `scripts/url-baseline.json` is the manifest of every URL the site
+ * `scripts/published-urls.json` is the manifest of every URL the site
  * published at the last accepted build. After a build:
  *
  *   - a URL in the baseline that is no longer built, and has no redirect
@@ -76,7 +76,7 @@ declareBlindSpots('check-url-lifecycle');
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = path.join(ROOT, 'web', 'dist');
-const BASELINE = path.join(ROOT, 'scripts', 'url-baseline.json');
+const BASELINE = path.join(ROOT, 'scripts', 'published-urls.json');
 const CONFIG = path.join(ROOT, 'web', 'astro.config.mjs');
 
 const args = new Set(process.argv.slice(2));
