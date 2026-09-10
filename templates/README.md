@@ -62,7 +62,7 @@ Two companions of the mission mould, which are records rather than moulds:
 ```
 node scripts/lint-frontmatter.mjs
 node scripts/lint-naming.mjs
-node scripts/check-license-frontmatter.mjs
+node guards/rules/std-010-licensing.mjs
 node scripts/check-references.mjs
 ```
 

@@ -62,10 +62,11 @@ check('every guard the runner runs is a build guard or answers to the regime (EN
   // of any standard's state says so in its registry entry (`build_guard`), and
   // every other guard hands its findings to scripts/lib/regime.mjs. A guard
   // that is neither is exactly the defect of DBT-017 — code obliging where no
-  // document obliges.
+  // document obliges. `manual` entries are tools run by hand, not by the
+  // runner, and are out of scope here (same test as run-guards.mjs's filter).
   const offenders = [];
   for (const [id, entry] of Object.entries(registry.guards)) {
-    if (!entry.script.startsWith('scripts/')) continue;   // a tool, run by hand
+    if (entry.manual) continue;
     if (entry.build_guard) continue;
     const src = readFileSync(path.join(ROOT, entry.script), 'utf8');
     if (!src.includes('lib/regime.mjs')) offenders.push(id);
@@ -76,7 +77,7 @@ check('every guard the runner runs is a build guard or answers to the regime (EN
 
 check('a build guard says what it needs, so the runner can skip or refuse instead of crashing', () => {
   for (const [id, entry] of Object.entries(registry.guards)) {
-    if (!entry.build_guard || !entry.script.startsWith('scripts/')) continue;
+    if (!entry.build_guard || entry.manual) continue;
     assert(typeof entry.needs === 'string' && entry.needs.length > 0,
       `${id}: build_guard with no \`needs\` path`);
   }
@@ -180,11 +181,32 @@ check('license guard fixture — a .md with no license: field is skipped, as dec
   try {
     writeFileSync(path.join(clone, 'debt/D-000-nolicense.md'), '---\nid: "D-000"\n---\n\nNo licence field.\n');
     execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
-    const res = spawnGuard('scripts/check-license-frontmatter.mjs', clone);
+    const res = spawnGuard('guards/rules/std-010-licensing.mjs', clone);
     assert(res.status === 0,
       `the licence guard flagged a file with no license: field — the declaration is now wrong (exit ${res.status})`);
     assert(/no `license:` field|files with no `license:` field/.test(res.stderr),
       'the guard skips unlicensed files but does not declare that it does');
+  } finally { rmSync(clone, { recursive: true, force: true }); }
+});
+
+check('license guard fixture — a header that contradicts REUSE.toml is reported as LIC-008, not a crash', () => {
+  // The failure path is the one a move breaks: the guard resolves its regime
+  // helper by a relative path only when a file actually contradicts, so a
+  // green corpus proves nothing about it. debt/ is CC-BY-4.0 in REUSE.toml;
+  // a header saying MIT must come out as a finding under the plate, and the
+  // process must end through the regime (exit 0 while STD-010 is not
+  // active), never through an unresolved import.
+  const clone = scratchClone();
+  try {
+    writeFileSync(path.join(clone, 'debt/D-000-wronglicense.md'), '---\nid: "D-000"\nlicense: "MIT"\n---\n\nWrong licence.\n');
+    execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
+    const res = spawnGuard('guards/rules/std-010-licensing.mjs', clone);
+    assert(!/ERR_MODULE_NOT_FOUND|Cannot find module/.test(res.stderr),
+      `the licence guard crashed on its failure path instead of reporting:\n${res.stderr}`);
+    assert(/LIC-008/.test(res.stdout + res.stderr),
+      `a contradicting header did not surface as LIC-008 (exit ${res.status}):\n${res.stdout}${res.stderr}`);
+    assert(/1 finding\(s\), \d+ enforced/.test(res.stdout + res.stderr),
+      'the finding did not pass through the regime (no "finding(s), enforced" line)');
   } finally { rmSync(clone, { recursive: true, force: true }); }
 });
 

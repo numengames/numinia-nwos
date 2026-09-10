@@ -11,18 +11,19 @@
 // only: license strings inside fenced code examples are content, not
 // declarations, and are ignored.
 //
-// Run from anywhere: node scripts/check-license-frontmatter.mjs
+// Run from anywhere: node guards/rules/std-010-licensing.mjs
 
 import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { declareBlindSpots } from "./lib/blindness.mjs";
-import { parseFM } from "./lib/frontmatter.mjs";
-import { regimeOf } from "./lib/reuse.mjs";
+import { declareBlindSpots } from "../../scripts/lib/blindness.mjs";
+import { parseFM } from "../../scripts/lib/frontmatter.mjs";
+import { Findings } from "../../scripts/lib/regime.mjs";
+import { regimeOf } from "../../scripts/lib/reuse.mjs";
 declareBlindSpots("check-license-frontmatter");
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 
 // Parses the subset of TOML that REUSE.toml uses: [[annotations]] blocks
 // with `path = "x"` or `path = ["x", ...]` (possibly multi-line) and
@@ -77,7 +78,6 @@ if (failures.length > 0) {
   /* LIC-008 (STD-010): one file, one regime — the header's SPDX must be the
      regime REUSE.toml assigns to the path. Binds by STD-010's state
      (ENG-067). REUSE compliance itself is a build guard and is not this. */
-  const { Findings } = await import("./lib/regime.mjs");
   const out = new Findings("license-frontmatter guard");
   for (const f of failures) out.add("LIC-008", `frontmatter says ${f.license}, regime is ${f.regime}`, f.file);
   console.error(`license-frontmatter guard: ${failures.length} file(s) contradict REUSE.toml — fix the frontmatter to match REUSE.toml (or, with Oracle sign-off, the regime).\n`);

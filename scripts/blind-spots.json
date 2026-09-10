@@ -24,6 +24,7 @@
     },
     "check-deletable": {
       "script": "tools/check-deletable.mjs",
+      "manual": "takes arguments (a path, or --candidates) and is run by hand, not by run-guards.mjs (ENG-032's registry-discovery scope)",
       "sees": "whether a document has living inbound citers, whether it is sealed, and which public URLs it publishes (ADR-033 tests 1, 4, and the evidence for 2)",
       "blind_to": [
         {
@@ -121,7 +122,7 @@
       ]
     },
     "check-license-frontmatter": {
-      "script": "scripts/check-license-frontmatter.mjs",
+      "script": "guards/rules/std-010-licensing.mjs",
       "sees": "frontmatter `license:` against the REUSE.toml regime",
       "blind_to": [
         {

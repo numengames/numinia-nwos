@@ -38,8 +38,14 @@ const LIST = args.has('--list');
 const onlyRules = args.has('--rules');
 const onlyBuild = args.has('--build');
 const registry = JSON.parse(readFileSync(path.join(HERE, 'blind-spots.json'), 'utf8'));
+// A registry entry names every declared guard (ENG-032, D-025). Some entries
+// are tools that take arguments and are run by hand (`manual: <why>`); the
+// rest are guards the runner runs, wherever their script sits — a guard's
+// location is not a signal of whether CI runs it (that used to be
+// `startsWith('scripts/')`, which silently stopped discovering a guard the
+// moment R3 moved it out of scripts/).
 const all = Object.entries(registry.guards)
-  .filter(([, g]) => g.script.startsWith('scripts/'))
+  .filter(([, g]) => !g.manual)
   .map(([name, g]) => ({ name, script: path.join(ROOT, g.script), build: Boolean(g.build_guard), run: g.run ?? [], needs: g.needs ? path.join(ROOT, g.needs) : null }))
   .sort((a, b) => a.name.localeCompare(b.name));
 

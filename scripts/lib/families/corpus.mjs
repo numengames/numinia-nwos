@@ -29,14 +29,16 @@ export function measure({ docs, rules }) {
   };
 }
 
-/** Scripts CI runs: what the runner finds — every registered script under
- * scripts/ (ENG-032). The workflow calls the runner and names no guard, so
- * the registry, not the YAML, is the record. Only tracked files count. */
+/** Scripts CI runs: what the runner finds — every registered, non-manual
+ * guard (ENG-032). The workflow calls the runner and names no guard, so the
+ * registry, not the YAML, is the record. A guard's own path is not a signal
+ * of whether CI runs it — `manual` is (mirrors run-guards.mjs's filter).
+ * Only tracked files count. */
 export function ciScripts(files) {
   const p = path.join(ROOT, 'scripts', 'blind-spots.json');
   if (!existsSync(p)) return [];
   const registry = JSON.parse(readFileSync(p, 'utf8'));
   const tracked = new Set(files);
-  return [...new Set(Object.values(registry.guards).map((g) => g.script))]
-    .filter((s) => s.startsWith('scripts/') && tracked.has(s)).sort();
+  return [...new Set(Object.values(registry.guards).filter((g) => !g.manual).map((g) => g.script))]
+    .filter((s) => tracked.has(s)).sort();
 }
