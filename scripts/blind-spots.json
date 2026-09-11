@@ -53,24 +53,6 @@
         }
       ]
     },
-    "check-document-shape": {
-      "script": "scripts/check-document-shape.mjs",
-      "sees": "every governed .md: title length, body word count against its series budget, the card, the scope line, plated rules, the References table",
-      "blind_to": [
-        {
-          "spot": "whether the words are the RIGHT words — it counts them; a document can be within budget and say nothing",
-          "covered_by": null
-        },
-        {
-          "spot": "budget overruns — reported as SHOULD, never handed to the regime, so a document can grow past its budget and merge",
-          "covered_by": null
-        },
-        {
-          "spot": "untracked files — enumerates via `git ls-files`, so a .md not `git add`ed is never measured",
-          "covered_by": "its own untracked-file warning (D-049)"
-        }
-      ]
-    },
     "check-frontmatter-delimiter": {
       "script": "scripts/check-frontmatter-delimiter.mjs",
       "sees": "the closing --- sits on its own line",
@@ -121,28 +103,6 @@
         }
       ]
     },
-    "std-010-licensing": {
-      "script": "guards/rules/std-010-licensing.mjs",
-      "sees": "frontmatter `license:` against the REUSE.toml regime",
-      "blind_to": [
-        {
-          "spot": "whether the licence is CORRECT for the content — this checks consistency between two declarations, not legal fit",
-          "covered_by": null,
-          "debt": null
-        },
-        {
-          "spot": "files with no `license:` field at all — they are skipped, not flagged",
-          "covered_by": null,
-          "debt": null,
-          "fixture": "no-license-field"
-        },
-        {
-          "spot": "templates/ — a mould declares the licence of the series it scaffolds, not of its own path, so this guard skips it",
-          "covered_by": "scripts/check-templates.mjs T-04, which resolves each mould's destination directory and checks the regime there",
-          "debt": null
-        }
-      ]
-    },
     "check-orphan-content": {
       "script": "scripts/check-orphan-content.mjs",
       "build_guard": "verifies the built output, not a rule — a file that reaches dist/ without the renderer is an artefact defect (ENG-067 exception)",
@@ -158,28 +118,6 @@
           "spot": "content served from outside web/public/ — a route added directly in src/pages is not orphan content and is not examined here",
           "covered_by": "npm run build",
           "debt": null
-        }
-      ]
-    },
-    "check-plain-writing": {
-      "script": "scripts/check-plain-writing.mjs",
-      "sees": "prose in standards/*.md: bare series IDs outside the References table, section pointers anywhere, and IDs used but never listed",
-      "blind_to": [
-        {
-          "spot": "whether the document is actually READABLE — PW-04 is an editorial judgment about whether a reader can finish without opening another document, and no script can measure it",
-          "covered_by": null
-        },
-        {
-          "spot": "whether the plain name a document uses is the RIGHT one — it checks that prose avoids the ID, not that 'the header standard' names the document the author meant",
-          "covered_by": null
-        },
-        {
-          "spot": "every series except standards/ — STD-007 binds only its own shelf, so canon/, protocols/ and decisions/ may cite by ID in prose and this guard never looks",
-          "covered_by": null
-        },
-        {
-          "spot": "IDs inside code fences and inline code spans — deliberately masked, because quoting a bad citation is how the rule is taught; a real violation hidden in backticks reads as green",
-          "covered_by": null
         }
       ]
     },
@@ -333,6 +271,62 @@
         {
           "spot": "whether a filename slug is meaningful — a name that keeps a dead prefix inside its slug still passes the shape check",
           "covered_by": null,
+          "debt": null
+        }
+      ]
+    },
+    "std-007-one-page": {
+      "script": "guards/rules/std-007-one-page.mjs",
+      "sees": "every governed .md: title length, body word count against its series budget, the card, the scope line, plated rules, the References table; and in standards/*.md the prose: bare series IDs outside the References table, section pointers anywhere, IDs used but never listed",
+      "blind_to": [
+        {
+          "spot": "whether the words are the RIGHT words — it counts them; a document can be within budget and say nothing",
+          "covered_by": null
+        },
+        {
+          "spot": "budget overruns — reported as SHOULD, never handed to the regime, so a document can grow past its budget and merge",
+          "covered_by": null
+        },
+        {
+          "spot": "untracked files — enumerates via `git ls-files`, so a .md not `git add`ed is never measured",
+          "covered_by": "its own untracked-file warning (D-049)"
+        },
+        {
+          "spot": "whether the document is actually READABLE — PW-04 is an editorial judgment about whether a reader can finish without opening another document, and no script can measure it",
+          "covered_by": null
+        },
+        {
+          "spot": "whether the plain name a document uses is the RIGHT one — it checks that prose avoids the ID, not that 'the header standard' names the document the author meant",
+          "covered_by": null
+        },
+        {
+          "spot": "every series except standards/ — STD-007 binds only its own shelf, so canon/, protocols/ and decisions/ may cite by ID in prose and this guard never looks",
+          "covered_by": null
+        },
+        {
+          "spot": "IDs inside code fences and inline code spans — deliberately masked, because quoting a bad citation is how the rule is taught; a real violation hidden in backticks reads as green",
+          "covered_by": null
+        }
+      ]
+    },
+    "std-010-licensing": {
+      "script": "guards/rules/std-010-licensing.mjs",
+      "sees": "frontmatter `license:` against the REUSE.toml regime",
+      "blind_to": [
+        {
+          "spot": "whether the licence is CORRECT for the content — this checks consistency between two declarations, not legal fit",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "files with no `license:` field at all — they are skipped, not flagged",
+          "covered_by": null,
+          "debt": null,
+          "fixture": "no-license-field"
+        },
+        {
+          "spot": "templates/ — a mould declares the licence of the series it scaffolds, not of its own path, so this guard skips it",
+          "covered_by": "scripts/check-templates.mjs T-04, which resolves each mould's destination directory and checks the regime there",
           "debt": null
         }
       ]
