@@ -423,10 +423,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 4278,
+  "chars": 4290,
   "apparatus": false,
   "archived": false,
-  "tokens": 1212
+  "tokens": 1217
  },
  {
   "path": "agents/talos/OPERATOR.md",
@@ -1589,10 +1589,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 4626,
+  "chars": 4618,
   "apparatus": true,
   "archived": false,
-  "tokens": 1279
+  "tokens": 1281
  },
  {
   "path": "templates/RPT-TEMPLATE.md",
