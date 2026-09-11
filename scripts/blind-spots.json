@@ -3,7 +3,7 @@
   "guards": {
     "check-core-rules": {
       "script": "scripts/check-core-rules.mjs",
-      "sees": "six plated rules that had no guard of their own (HDR-040/043/044, GIT-026/045, CIT-050; IDN-012/013/014 moved to std-018-one-identifier, VER-021/024 to std-019-versions), each finding bound by its holder's state (ENG-067)",
+      "sees": "four plated rules that had no guard of their own (HDR-040/043/044, CIT-050; IDN-012/013/014 moved to std-018-one-identifier, VER-021/024 to std-019-versions, GIT-026/045 to std-020-git-is-the-archive), each finding bound by its holder's state (ENG-067)",
       "blind_to": [
         {
           "spot": "every other plated rule — a rule with no guard is enforced by nobody, and this guard does not list which those are",
@@ -44,7 +44,7 @@
         },
         {
           "spot": "consumers written in code (.ts, .astro, .json manifests) — it scans .md only, so a slug map or import.meta.glob referencing a document is invisible",
-          "covered_by": "npm run build + check-references"
+          "covered_by": "npm run build + std-020-git-is-the-archive"
         },
         {
           "spot": "untracked files — enumerates via `git ls-files`, so a citation from a .md that is not `git add`ed is never seen (D-049). It warns rather than passing silently",
@@ -96,29 +96,6 @@
           "spot": "content served from outside web/public/ — a route added directly in src/pages is not orphan content and is not examined here",
           "covered_by": "npm run build",
           "debt": null
-        }
-      ]
-    },
-    "check-references": {
-      "script": "scripts/check-references.mjs",
-      "sees": ".md and .json citations, by identifier and by path",
-      "blind_to": [
-        {
-          "spot": "consumers written in code (.ts, .astro) — slug maps and import.meta.glob",
-          "covered_by": "npm run build",
-          "fixture": "ts-consumer"
-        },
-        {
-          "spot": "the FOLDER in a path citation: the resolver falls back to basename, so agents/guilds/x.md resolves against guilds/x.md and a wrong directory reads as green",
-          "covered_by": null,
-          "debt": "D-047",
-          "fixture": "wrong-folder"
-        },
-        {
-          "spot": "untracked files — enumerates via `git ls-files`, so a .md created but not `git add`ed is never scanned",
-          "covered_by": "its own untracked-file warning (D-049)",
-          "debt": "D-049",
-          "fixture": "untracked"
         }
       ]
     },
@@ -352,6 +329,37 @@
           "spot": "the opening value of a fresh document (0.1.0) — that is T-08 on templates",
           "covered_by": "check-templates T-08",
           "debt": null
+        }
+      ]
+    },
+    "std-020-git-is-the-archive": {
+      "script": "guards/rules/std-020-git-is-the-archive.mjs",
+      "sees": "GIT-048 on every tracked .md (web/ included as a citer): markdown links, plain-text identifiers and bare filenames resolved against the tree's names, `id:`, `absorbs:`, `former_id:` and the git log of deleted .md; closed records (CIT-053) are indexed but not walked as citers. GIT-045 on the bound corpus: an heir named by a record not withdrawn. GIT-026 on the last 400 commit subjects.",
+      "blind_to": [
+        {
+          "spot": "consumers written in code (.ts, .astro) — slug maps and import.meta.glob",
+          "covered_by": "npm run build",
+          "fixture": "ts-consumer"
+        },
+        {
+          "spot": "the FOLDER in a path citation: the resolver falls back to basename, so agents/guilds/x.md resolves against guilds/x.md and a wrong directory reads as green",
+          "covered_by": null,
+          "debt": "D-047",
+          "fixture": "wrong-folder"
+        },
+        {
+          "spot": "untracked files — enumerates via `git ls-files`, so a .md created but not `git add`ed is never scanned",
+          "covered_by": "its own untracked-file warning (D-049)",
+          "debt": "D-049",
+          "fixture": "untracked"
+        },
+        {
+          "spot": "GIT-045 reads `superseded_by` and `status` only — whether the named heir EXISTS is GIT-048's question, answered only if the heir is cited in the body, not in the header (HDR-016 is manual)",
+          "covered_by": null
+        },
+        {
+          "spot": "GIT-026 reads the last 400 commit subjects — an older multi-line subject is out of the window",
+          "covered_by": null
         }
       ]
     },

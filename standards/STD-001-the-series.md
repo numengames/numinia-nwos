@@ -83,5 +83,5 @@ The states a document may hold, for every series, are declared once in
 
 `P-NNN` · `S-NNN` · `D-NNN` · `C-NNN` · `O-NNN` · `AUD-YYYY-MM-DD` · `AG-NNN`.
 Nothing is renumbered: a document that cites one keeps the citation as a
-promise about the past, and `check-references.mjs` resolves it against git.
+promise about the past, and the GIT-048 guard resolves it against git.
 Across repositories the identifier is qualified: `nwos:ADR-006` · `web:ADR-006`.

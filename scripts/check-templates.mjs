@@ -7,7 +7,7 @@
 // WHY THIS EXISTS
 // ---------------
 // Until now nothing checked the templates. Every other document in the archive
-// is read by lint-frontmatter, guards/lib/naming.mjs, check-references and the rest; the
+// is read by lint-frontmatter, guards/lib/naming.mjs, std-020-git-is-the-archive and the rest; the
 // moulds those documents are copied FROM were exempt from all of them, because
 // `^templates/` is apparatus and apparatus is skipped. The result was measured
 // on 2026-09-04, before this guard existed:

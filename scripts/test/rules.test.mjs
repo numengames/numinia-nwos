@@ -81,10 +81,11 @@ check('rules.json: every series dir with a naming scheme exists in the tree', ()
   const missing = seriesDirs(rules).filter((d) => !tracked.has(d));
   return missing.length === 0 || `missing: ${missing.join(', ')}`;
 });
-for (const g of ['lint-frontmatter', 'check-references'])
-  check(`${g}.mjs imports scripts/lib/frontmatter.mjs`, () => /from '\.\/lib\/frontmatter\.mjs'/.test(readFileSync(path.join(ROOT, 'scripts', `${g}.mjs`), 'utf8')));
+const SHARED = ['scripts/lint-frontmatter.mjs', 'guards/rules/std-020-git-is-the-archive.mjs'];
+for (const g of SHARED)
+  check(`${g} imports scripts/lib/frontmatter.mjs`, () => /from '(\.\.\/\.\.\/scripts|\.)\/lib\/frontmatter\.mjs'/.test(readFileSync(path.join(ROOT, g), 'utf8')));
 check('no guard keeps a private SERIES/PREFIX map', () =>
-  ['lint-frontmatter', 'check-references'].every((g) => !/^const (SERIES|PREFIX) = \{\n\s+\w+:/m.test(readFileSync(path.join(ROOT, 'scripts', `${g}.mjs`), 'utf8'))));
+  SHARED.every((g) => !/^const (SERIES|PREFIX) = \{\n\s+\w+:/m.test(readFileSync(path.join(ROOT, g), 'utf8'))));
 
 check('prefixToDir: retired D resolves to debt', () => prefixToDir(rules).D === 'debt');
 check('isApparatus: type meta, canonical basenames, template family', () =>

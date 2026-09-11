@@ -64,7 +64,7 @@ node scripts/lint-frontmatter.mjs
 node guards/rules/std-018-one-identifier.mjs
 node guards/rules/std-006-plain-text.mjs
 node guards/rules/std-010-licensing.mjs
-node scripts/check-references.mjs
+node guards/rules/std-020-git-is-the-archive.mjs
 ```
 
 A document created from an unedited mould should pass all four. If it does

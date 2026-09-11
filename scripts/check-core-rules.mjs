@@ -1,19 +1,18 @@
 #!/usr/bin/env node
 /**
  * check-core-rules — execute the mechanically checkable rules of the core
- * standards (STD-004, STD-020, STD-021; once one file, STD-009).
+ * standards (STD-004, STD-021; once one file, STD-009).
  *
  * STD-005 ENG-001 (once STD-009 CORE-31): "A rule that does not break the build does not exist for an
  * agent." This guard is what makes eight of the sixty-two rules exist.
  *
  * R3 of MIS guards-tests-ci-alpha folds it, one standard at a time, into
  * guards/rules/: IDN-012/013/014 live in std-018-one-identifier.mjs,
- * VER-021/024 in std-019-versions.mjs.
+ * VER-021/024 in std-019-versions.mjs, GIT-026/045 in std-020-git-is-the-archive.mjs.
  *
  * Scope comes from the corpus classifier, never from a list kept here.
  */
 import { readFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
 import { loadDocs } from './lib/corpus.mjs';
 import { ROOT } from './lib/frontmatter.mjs';
 import { Findings } from './lib/regime.mjs';
@@ -51,14 +50,6 @@ for (const d of docs) {
   if (!f.license)
     record('HDR-043', 'no licence declared', r);
 
-  /* GIT-045: the heir is a field. `withdrawn` is the one terminal state
-     (STD-016); whether a replacement exists is said by `superseded_by`,
-     present or absent. A record still in force names no heir: that would
-     be a document pointing past itself while claiming to bind. */
-  const heir = String(f.superseded_by ?? '').trim();
-  if (heir && !['null', '~', '""', "''"].includes(heir) && f.status !== 'withdrawn')
-    record('GIT-045', `status ${f.status} names an heir "${f.superseded_by}" — only a withdrawn record has one`, r);
-
   if (r.startsWith('standards/')) {
     const prose = body(d).replace(/```[\s\S]*?```/g, '').replace(/`[^`]*`/g, '');
     const m = prose.match(/\b[A-Z]{2,4}-\d+\s+§\d[\d.]*/g);
@@ -76,11 +67,6 @@ for (const d of docs) {
   }
 }
 
-/* GIT-026: a commit subject is one line. */
-const subjects = execFileSync('git', ['log', '-400', '--format=%s'], { cwd: ROOT, encoding: 'utf8' })
-  .split('\n').filter(Boolean);
-for (const s of subjects) if (s.includes('\n')) record('GIT-026', 'multi-line subject', s.slice(0, 60));
-
-const RULES = ['HDR-040', 'HDR-043', 'HDR-044', 'GIT-026', 'GIT-045', 'CIT-050'];
+const RULES = ['HDR-040', 'HDR-043', 'HDR-044', 'CIT-050'];
 console.log(`check-core-rules: ${docs.length} bound documents, ${RULES.length} rules executed`);
 out.finish({ ok: `${RULES.join(' ')} — all hold.` });

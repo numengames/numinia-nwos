@@ -3,7 +3,7 @@
 //
 // The corpus cites by section: `PRO-010 §3.2`, `STD-023 §14`. DBT-016 measured
 // 422 such citations across 107 files and called the numbers load-bearing. No
-// guard read them: check-references resolves identifiers, check-internal-links
+// guard read them: std-020-git-is-the-archive resolves identifiers, check-internal-links
 // resolves markdown links, and neither looks at what follows the §.
 //
 // The gap is not theoretical. PR #232 cut PRO-010 from 3652 to 1406 words and

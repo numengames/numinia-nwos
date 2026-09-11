@@ -23,13 +23,13 @@
  * Algorithm (plan §B, steps 1-5):
  *   1. List files to rename in --dir.
  *   2. Grep the WHOLE corpus (not just markdown links — ADR-004 documents
- *      1,619+ plain-text mentions invisible to a link-checker; check-references.mjs
+ *      1,619+ plain-text mentions invisible to a link-checker; the GIT-048 guard
  *      independently confirmed a third citation type, bare filenames) for
  *      the old id/filename.
  *   3. --dry-run (default): print the full plan, touch nothing.
  *   4. --apply: git mv, update id: in frontmatter, rewrite every citation
  *      found (old id string + old basename string, corpus-wide, any file
- *      type — not just .md), run check-references.mjs at the end. No commit.
+ *      type — not just .md), run the GIT-048 guard at the end. No commit.
  *   5. One run = one series. Never mixes series in the same pass.
  *
  * FROZEN-ARTIFACT SAFETY (ruled, no longer an open conflict):
@@ -382,7 +382,7 @@ for (const p of plan) {
   //   governance.md      -> STD-002.md  (word-shaped name, slug lost)
   //   AUD-...-governance -> AUD-...-STD-002
   //
-  // It reached LICENSE, CODEOWNERS and .github/workflows/. check-references
+  // It reached LICENSE, CODEOWNERS and .github/workflows/. The reference guard
   // caught it and nothing was committed, but the tool is meant to be the safe
   // way to do this. Each rule is now bounded by the context it is valid in:
   //
@@ -497,11 +497,11 @@ if (refused.length) {
   console.log('  If any of these is a live citation rather than a record, fix it by hand.');
 }
 
-console.log('\nVerifying with check-references.mjs...');
+console.log('\nVerifying with std-020-git-is-the-archive (GIT-048)...');
 try {
-  execFileSync('node', [path.join(ROOT, 'scripts', 'check-references.mjs')], { stdio: 'inherit' });
-  console.log('\ncheck-references.mjs: clean.');
+  execFileSync('node', [path.join(ROOT, 'guards', 'rules', 'std-020-git-is-the-archive.mjs')], { stdio: 'inherit' });
+  console.log('\nstd-020-git-is-the-archive: clean.');
 } catch (e) {
-  console.error('\ncheck-references.mjs: FAILED — review before committing. Nothing was auto-committed.');
+  console.error('\nstd-020-git-is-the-archive: FAILED — review before committing. Nothing was auto-committed.');
   process.exit(1);
 }
