@@ -5,9 +5,9 @@ title: "Which rule wins"
 type: documentation
 subtype: standard
 status: draft
-version: "1.1.1"
+version: "1.1.2"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-10T10:30:00+02:00"
+updated: "2026-09-11T11:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
@@ -15,7 +15,7 @@ license: "CC0-1.0"
 tags: [standards, governance, precedence, rules]
 threshold: governed
 absorbs: ["STD-002"]
-series_change: "1.0.0 — STD-009 stops being the whole normative layer and keeps precedence only: 2,887 -> 300 words of body. Its other sections are STD-017 (authority), STD-018 (identity), STD-019 (versions), STD-020 (git and archiving), STD-021 (evidence and citation), STD-022 (secrets); HDR-040/041/043 go to STD-004; LIC-058..060 are retired as duplicates of LIC-007, HDR-008 and PUB-001. Every plate keeps its number. Major: fourteen sections no longer exist."
+series_change: "1.1.2 — 2026-09-11: PRE-006 Check row names the R2 contract instead of the folded check-core-rules.mjs. Patch: prose only. 1.0.0 — STD-009 stops being the whole normative layer and keeps precedence only: 2,887 -> 300 words of body. Its other sections are STD-017 (authority), STD-018 (identity), STD-019 (versions), STD-020 (git and archiving), STD-021 (evidence and citation), STD-022 (secrets); HDR-040/041/043 go to STD-004; LIC-058..060 are retired as duplicates of LIC-007, HDR-008 and PUB-001. Every plate keeps its number. Major: fourteen sections no longer exist."
 ---
 
 # Which rule wins
@@ -64,7 +64,7 @@ anyone until its state says otherwise — this standard included.
 | Plate | Verified by |
 |---|---|
 | PRE-001..005 | `[MANUAL]` — recognising that two sources conflict, and which is the claim, is a judgement no parser makes |
-| PRE-006 | `check-core-rules.mjs` reads each standard's `status` and reports without failing while it is `draft`; every guard MUST behave so under `ENG-067` (`STD-005`) |
+| PRE-006 | every guard on the R2 contract (`guards/lib/guard.mjs`) reads each standard's `status` and reports without failing while it is `draft`; every guard MUST behave so under `ENG-067` (`STD-005`) |
 
 ## Why
 

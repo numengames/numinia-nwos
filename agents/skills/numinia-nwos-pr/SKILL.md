@@ -76,7 +76,7 @@ Base SHA · before/after table on `DOC-00x` · what went out and where it lives
   the licence guard (`std-010-licensing`) fails with ENOENT. Run `git rm --cached` again.
 - the reference guard (`std-020-git-is-the-archive`) reserves `DEC` as a legacy id prefix: never mint
   `DEC-NNN` plates.
-- `check-section-citations` also walks active reports (`RPT-017`). When
+- `std-021-evidence-and-citation` (CIT-050) also walks active reports (`RPT-017`). When
   sections are renumbered, either keep the cited number (say why in the
   heading) or correct the citing report in place with a patch bump.
 - Deleting a document: `absorbs:` line in the current weekly `RPT`; redirects
