@@ -3,7 +3,7 @@
   "guards": {
     "check-core-rules": {
       "script": "scripts/check-core-rules.mjs",
-      "sees": "eight plated rules that had no guard of their own (HDR-040/043/044, VER-021/024, GIT-026/045, CIT-050; IDN-012/013/014 moved to std-018-one-identifier), each finding bound by its holder's state (ENG-067)",
+      "sees": "six plated rules that had no guard of their own (HDR-040/043/044, GIT-026/045, CIT-050; IDN-012/013/014 moved to std-018-one-identifier, VER-021/024 to std-019-versions), each finding bound by its holder's state (ENG-067)",
       "blind_to": [
         {
           "spot": "every other plated rule — a rule with no guard is enforced by nobody, and this guard does not list which those are",
@@ -325,6 +325,32 @@
         {
           "spot": "IDN-015 — which of two colliding documents keeps the id is a judgement resolved by commit order, not a check",
           "covered_by": "the Check table of STD-018 ([MANUAL])",
+          "debt": null
+        }
+      ]
+    },
+    "std-019-versions": {
+      "script": "guards/rules/std-019-versions.mjs",
+      "sees": "on the bound corpus (tracked .md outside web/, not apparatus, not outward-facing): `version:` is bare SemVer (VER-021); where a document keeps a `## Version history`/`## Changelog`, its newest entry is the header's version and the log does not go backwards (VER-024, VER-021)",
+      "blind_to": [
+        {
+          "spot": "untracked files — enumerates via `git ls-files`",
+          "covered_by": "its own untracked-file warning (D-049)",
+          "debt": "D-049"
+        },
+        {
+          "spot": "whether the version MOVED when an obligation moved (VER-022/023) — a diff that changes a MUST under the same version is invisible; the guard reads one commit, not two",
+          "covered_by": "the Check table of STD-019 ([MANUAL])",
+          "debt": null
+        },
+        {
+          "spot": "a change log kept under any other heading, or as a table — only `## Version history` / `## Changelog` with `- x.y.z` bullets is read",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "the opening value of a fresh document (0.1.0) — that is T-08 on templates",
+          "covered_by": "check-templates T-08",
           "debt": null
         }
       ]

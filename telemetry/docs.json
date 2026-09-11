@@ -1380,10 +1380,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 2468,
+  "chars": 2643,
   "apparatus": false,
   "archived": false,
-  "tokens": 678
+  "tokens": 729
  },
  {
   "path": "standards/STD-020-git-is-the-archive.md",
