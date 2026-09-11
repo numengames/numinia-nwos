@@ -60,10 +60,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 8105,
+  "chars": 8187,
   "apparatus": false,
   "archived": false,
-  "tokens": 2074
+  "tokens": 2088
  },
  {
   "path": "CONTRIBUTING.md",
@@ -423,10 +423,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 4314,
+  "chars": 4330,
   "apparatus": false,
   "archived": false,
-  "tokens": 1223
+  "tokens": 1233
  },
  {
   "path": "agents/talos/OPERATOR.md",
@@ -1270,10 +1270,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3738,
+  "chars": 3894,
   "apparatus": false,
   "archived": false,
-  "tokens": 960
+  "tokens": 1008
  },
  {
   "path": "standards/STD-010-licensing.md",
@@ -1402,10 +1402,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 2811,
+  "chars": 3051,
   "apparatus": false,
   "archived": false,
-  "tokens": 763
+  "tokens": 828
  },
  {
   "path": "standards/STD-022-secrets.md",
@@ -1435,10 +1435,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4295,
+  "chars": 4367,
   "apparatus": false,
   "archived": false,
-  "tokens": 1136
+  "tokens": 1163
  },
  {
   "path": "standards/STD-025-a-mission-is-a-card.md",
