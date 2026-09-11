@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "9d5936b",
-  "corpus_hash": "b27b07802695cafbc1e3a5e9d4a14e8374e95c239e6ab06ebbea6e33e8fa569c",
+  "head": "1a560b5",
+  "corpus_hash": "274145b5424ce161c492ea8dea53591f95f0f09e9d9214d5293a22b473c809ee",
   "root_dirty": 1,
-  "measured_at": "2026-09-11T05:59:15Z",
+  "measured_at": "2026-09-11T06:10:41Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 453,
+      "value": 452,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -32,7 +32,7 @@
         ".js": 2,
         ".json": 13,
         ".md": 150,
-        ".mjs": 48,
+        ".mjs": 47,
         ".png": 36,
         ".svg": 69,
         ".toml": 4,
@@ -105,19 +105,19 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 37,
+      "value": 35,
       "unit": "files",
       "definition": "files under `scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 37
+        "node": 35
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
     },
     "corpus.scripts_in_ci": {
-      "value": 16,
+      "value": 15,
       "unit": "files",
       "definition": "guards the runner runs in CI: registered scripts under `scripts/` (ENG-032)"
     },
@@ -316,16 +316,16 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 267380,
+      "value": 267458,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "missions": 43062,
-        "standards": 36665,
+        "standards": 36742,
         "canon": 29364,
-        "agents": 26716,
+        "agents": 26717,
         "reports": 26138,
         "blueprints": 22838,
         "operations": 21323,
@@ -342,8 +342,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 113885,
-        "draft": 95775,
+        "active": 113886,
+        "draft": 95852,
         "done": 26350,
         "todo": 13588,
         "(none)": 13140,
@@ -353,7 +353,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 16.11,
+      "value": 16.1,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },

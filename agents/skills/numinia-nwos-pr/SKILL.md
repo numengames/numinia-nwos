@@ -84,6 +84,6 @@ Base SHA · before/after table on `DOC-00x` · what went out and where it lives
   curated order in `corpus.ts`; re-point living citers to the concrete plate.
   Closed records (`done` missions, old ADRs) are photographs (`CIT-053`) and
   stay as written.
-- `check-document-shape` hands **form** failures to the regime; budget
+- `std-007-one-page` hands **form** failures to the regime; budget
   overruns are reported, never enforced. Report both figures.
 - Plates migrated from `CORE-NN` keep their number under the new prefix.

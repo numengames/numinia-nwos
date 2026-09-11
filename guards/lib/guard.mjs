@@ -16,6 +16,11 @@
 // fails the build — that is the regime's question, answered by the state of
 // the standard that holds the plate.
 //
+// A finding may carry `should: true`: the plate is a SHOULD in its standard
+// (a budget, a size), so it is measured and counted but never handed to the
+// regime. The guard says so because the standard says so in prose; there is
+// no machine-readable severity to derive it from.
+//
 // `execute` is the standalone entry: it declares the guard's blind spots,
 // loads the corpus once, runs the guard, hands the findings to the regime and
 // exits with its verdict. A guard's last line is:
@@ -68,11 +73,20 @@ export function nameOf(importMeta) {
   return path.basename(fileURLToPath(importMeta.url), '.mjs');
 }
 
-/** Run one guard as a process: declare, load, run, judge, exit. */
+/** Run one guard as a process: declare, load, run, judge, exit. SHOULD
+ *  findings are counted on one line and kept out of the regime. */
 export async function execute(importMeta, meta, run, { corpus = loadCorpus() } = {}) {
   const name = nameOf(importMeta);
   declareBlindSpots(name);
   const out = new Findings(name);
-  for (const f of run(corpus)) out.add(f.plate, f.what, f.where);
+  const measured = new Map();
+  for (const f of run(corpus)) {
+    if (f.should) { measured.set(f.plate, (measured.get(f.plate) ?? 0) + 1); continue; }
+    out.add(f.plate, f.what, f.where);
+  }
+  if (measured.size) {
+    const parts = [...measured].sort().map(([p, n]) => `${p} ×${n}`);
+    console.log(`${name}: measured, not judged (SHOULD): ${parts.join(', ')}`);
+  }
   out.finish({ ok: `${meta.plates.join(' ')} — all hold.` });
 }

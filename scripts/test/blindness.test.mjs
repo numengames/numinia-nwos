@@ -222,6 +222,35 @@ check('license guard fixture — a header that contradicts REUSE.toml is reporte
   } finally { rmSync(clone, { recursive: true, force: true }); }
 });
 
+check('shape guard fixture — a missing card binds through the regime, an over-budget body never reaches it', () => {
+  // STD-007's two faces in one file: no card (DOC-002, form, MUST) and a
+  // body far past the 500-word budget (DOC-006, size, SHOULD). The first must
+  // come out as a regime finding under its plate; the second must be counted
+  // on the "measured, not judged" line and NOT appear as a finding — a guard
+  // that hands a SHOULD to the regime is the bug this guard was written to
+  // avoid. Plus one bare id in prose in standards/ (DOC-008).
+  const clone = scratchClone();
+  try {
+    const long = Array.from({ length: 700 }, (_, i) => `word${i}`).join(' ');
+    writeFileSync(path.join(clone, 'standards/STD-999-probe.md'),
+      '---\nid: "STD-999"\ntitle: "Probe"\nstatus: draft\n---\n\n# Probe\n\n' +
+      '**Binds:** nothing.\n**Does not bind:** anything.\n\n**PRB-001 — A rule.** Cites STD-004 in prose.\n\n' + long + '\n');
+    execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
+    const res = spawnGuard('guards/rules/std-007-one-page.mjs', clone);
+    const all = res.stdout + res.stderr;
+    assert(!/ERR_MODULE_NOT_FOUND|Cannot find module|TypeError/.test(all), `the shape guard crashed:\n${res.stderr}`);
+    assert(/DOC-002\s+S-02 card has no \*\*Summary:\*\*\n\s+standards\/STD-999-probe\.md/.test(all),
+      `a missing card did not surface as DOC-002 for the probe:\n${all}`);
+    assert(/DOC-008\s+PW-01 STD-004\n\s+standards\/STD-999-probe\.md/.test(all),
+      `a bare id in standards/ prose did not surface as DOC-008:\n${all}`);
+    assert(/measured, not judged \(SHOULD\):.*DOC-006/.test(all),
+      'the over-budget body was not counted as measured');
+    assert(!/[·✗] DOC-006/.test(all),
+      'DOC-006 (a SHOULD) reached the regime as a finding');
+    assert(/finding\(s\), \d+ enforced/.test(all), 'the form findings did not pass through the regime');
+  } finally { rmSync(clone, { recursive: true, force: true }); }
+});
+
 /* ---------- helpers ---------- */
 
 // execFileSync THROWS on a non-zero exit, which would make every failure-path

@@ -5,9 +5,9 @@ title: "One page per document"
 type: documentation
 subtype: standard
 status: draft
-version: "1.1.1"
+version: "1.1.2"
 created: "2026-09-03T10:30:00Z"
-updated: "2026-09-10T14:30:00+02:00"
+updated: "2026-09-11T02:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Content"
@@ -15,7 +15,7 @@ license: "CC0-1.0"
 tags: [standards, writing, form, plates, budget]
 ratified_by: "ADR-043"
 supersedes_version: "0.3.0"
-series_change: "Was 'Standards read as prose, not as pointers' and bound standards only. Now binds every series with one shape: rule-shaped title, three-part card, plated rules before reasons, a body budget per series. First document written in the shape it prescribes."
+series_change: "1.1.2 — Check rows repoint to guards/rules/std-007-one-page.mjs (R3, MIS guards-tests-ci-alpha): check-document-shape and check-plain-writing fold into one guard per standard; no plate, threshold or verdict changes. 1.1.1 and before — Was 'Standards read as prose, not as pointers' and bound standards only. Now binds every series with one shape: rule-shaped title, three-part card, plated rules before reasons, a body budget per series. First document written in the shape it prescribes."
 ---
 
 # One page per document
@@ -86,9 +86,9 @@ Spanish document is not invalid, it is mid-migration.
 
 | Rule | Verified by |
 |---|---|
-| DOC-001, DOC-005..007 | `check-document-shape.mjs` — budgets are SHOULD: counted, reported, never handed to the regime |
-| DOC-002..004 | `check-document-shape.mjs` — a NEW missing card, scope line or plate binds by this standard's state (ENG-067) |
-| DOC-008 | `check-plain-writing.mjs` (bare IDs, section pointers) |
+| DOC-001, DOC-005..007 | `guards/rules/std-007-one-page.mjs` — budgets are SHOULD: counted, reported, never handed to the regime |
+| DOC-002..004 | `guards/rules/std-007-one-page.mjs` — a NEW missing card, scope line or plate binds by this standard's state (ENG-067) |
+| DOC-008 | `guards/rules/std-007-one-page.mjs` (bare IDs, section pointers, in standards/ only) |
 | DOC-009, DOC-010 | `check-templates.mjs` |
 
 ## Why
