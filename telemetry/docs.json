@@ -82,10 +82,10 @@
   "series": null,
   "type": "documentation",
   "status": "active",
-  "chars": 5892,
+  "chars": 5916,
   "apparatus": true,
   "archived": false,
-  "tokens": 1526
+  "tokens": 1531
  },
  {
   "path": "SECURITY.md",
@@ -1369,10 +1369,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 2911,
+  "chars": 3222,
   "apparatus": false,
   "archived": false,
-  "tokens": 768
+  "tokens": 848
  },
  {
   "path": "standards/STD-019-versions.md",
@@ -1589,10 +1589,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 4659,
+  "chars": 4675,
   "apparatus": true,
   "archived": false,
-  "tokens": 1293
+  "tokens": 1296
  },
  {
   "path": "templates/RPT-TEMPLATE.md",

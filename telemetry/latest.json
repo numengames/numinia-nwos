@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "d3c56da",
-  "corpus_hash": "a3c6598544b8079d57ee052428d281f00c7ace271aca52e876adac6a18f6f197",
+  "head": "9ec5e7b",
+  "corpus_hash": "1e9c6733f56243acb22b84a709863b4824df178cabcd4d5085fe9333e836be7d",
   "root_dirty": 1,
-  "measured_at": "2026-09-11T08:01:46Z",
+  "measured_at": "2026-09-11T08:11:33Z",
   "families": [
     "corpus",
     "series",
@@ -105,13 +105,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 32,
+      "value": 30,
       "unit": "files",
       "definition": "files under `scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 32
+        "node": 30
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
@@ -316,22 +316,22 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 267594,
+      "value": 267682,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "missions": 43062,
-        "standards": 36846,
+        "standards": 36926,
         "canon": 29364,
         "agents": 26717,
         "reports": 26138,
         "blueprints": 22838,
         "operations": 21323,
-        "templates": 15820,
+        "templates": 15823,
         "protocols": 14384,
-        "": 13140,
+        "": 13145,
         "system": 9652,
         "decisions": 6189,
         "debt": 1544,
@@ -342,11 +342,11 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 113886,
-        "draft": 95956,
+        "active": 113891,
+        "draft": 96036,
         "done": 26350,
         "todo": 13588,
-        "(none)": 13172,
+        "(none)": 13175,
         "in-progress": 4642
       },
       "unit": "tokens",
@@ -674,7 +674,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 594
+          "3": 595
         },
         "ADR": {
           "3": 351

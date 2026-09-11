@@ -21,7 +21,7 @@ const git = (...args) => execFileSync('git', ['-C', ROOT, ...args], { encoding: 
    "deliberately paused, returns to any state", not "permanently fixed".
    State is read from the `status` field, like everywhere else in the corpus
    and like ISO stage codes, IETF `Category:` and W3C status sections. The
-   naming shape itself still exists and is checked by lint-naming; it just
+   naming shape itself still exists and is checked by std-006/std-018; it just
    no longer implies anything about lifecycle. */
 export const DATED_ARTIFACT_RE = /^\d{4}_\d{2}_\d{2}-.+-v\d+\.\d+\.\d+\.md$/;
 
