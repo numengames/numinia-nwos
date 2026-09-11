@@ -81,7 +81,7 @@ check('rules.json: every series dir with a naming scheme exists in the tree', ()
   const missing = seriesDirs(rules).filter((d) => !tracked.has(d));
   return missing.length === 0 || `missing: ${missing.join(', ')}`;
 });
-const SHARED = ['scripts/lint-frontmatter.mjs', 'guards/rules/std-020-git-is-the-archive.mjs'];
+const SHARED = ['guards/rules/std-004-the-header.mjs', 'guards/rules/std-020-git-is-the-archive.mjs'];
 for (const g of SHARED)
   check(`${g} imports scripts/lib/frontmatter.mjs`, () => /from '(\.\.\/\.\.\/scripts|\.)\/lib\/frontmatter\.mjs'/.test(readFileSync(path.join(ROOT, g), 'utf8')));
 check('no guard keeps a private SERIES/PREFIX map', () =>
@@ -91,6 +91,6 @@ check('prefixToDir: retired D resolves to debt', () => prefixToDir(rules).D === 
 check('isApparatus: type meta, canonical basenames, template family', () =>
   isApparatus('standards/STANDARDS.md') && isApparatus('missions/TEMPLATE-EXAMPLE.md') && isApparatus('x/INDEX.md')
   && isApparatus('missions/ANNEX-x.md', { type: 'meta' }) && !isApparatus('missions/MIS-0138-x.md', { type: 'mission' }));
-check('isTemplate: the two families lint-frontmatter exempted from HDR-006', () =>
+check('isTemplate: the two families the header guard exempts from HDR-006', () =>
   isTemplate('agents/_template/README.md') && isTemplate('missions/TEMPLATE.md') && isTemplate('missions/TEMPLATE-CHANGES.md') && !isTemplate('missions/MIS-0001-x.md'));
 

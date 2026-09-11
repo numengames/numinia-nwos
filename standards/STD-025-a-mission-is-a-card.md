@@ -90,8 +90,8 @@ or deleted at the next review.
 | MSN-037 | manual — the section is checkable; whether it states a test is not |
 | MSN-041 | manual — no trace distinguishes a read from a skim |
 | MSN-001 | `web/src/content.config.ts` (build fails on any other value) |
-| MSN-002 | `lint-frontmatter.mjs` — stamp present for the status |
-| MSN-039 | `lint-frontmatter.mjs` — `freeze_reason` present when `frozen` |
+| MSN-002 | `guards/rules/std-004-the-header.mjs` — stamp present for the status |
+| MSN-039 | `guards/rules/std-004-the-header.mjs` — `freeze_reason` present when `frozen` |
 | MSN-003 | manual — `assigned_to` is one value; who edits is judgement |
 | MSN-038 | manual — parent and child are declared in prose |
 | MSN-004 | `check-deletable.mjs` for the exit; the immutability is manual |

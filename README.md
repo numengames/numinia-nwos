@@ -129,7 +129,7 @@ The site build runs in the same pipeline, so a structural change that breaks
 [numinia.org](https://numinia.org) fails before it merges.
 
 **Naming, vocabularies, and identifiers now have guards; the states a
-mission may hold do not.** `lint-frontmatter.mjs` and `guards/rules/std-018-one-identifier.mjs` run
+mission may hold do not.** `guards/rules/std-004-the-header.mjs` and `guards/rules/std-018-one-identifier.mjs` run
 on every push (closed `debt/D-001`, 2026-08-31). Register `debt/` was
 retired in full 2026-09-04 (Oracle instruction, `MIS-0127` absorbs what
 remains): the archive describes four levels of change control, and git

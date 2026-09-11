@@ -82,10 +82,10 @@
   "series": null,
   "type": "documentation",
   "status": "active",
-  "chars": 5916,
+  "chars": 5931,
   "apparatus": true,
   "archived": false,
-  "tokens": 1531
+  "tokens": 1535
  },
  {
   "path": "SECURITY.md",
@@ -1215,10 +1215,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4968,
+  "chars": 5176,
   "apparatus": false,
   "archived": false,
-  "tokens": 1414
+  "tokens": 1477
  },
  {
   "path": "standards/STD-005-engineering-baseline.md",
@@ -1303,10 +1303,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4775,
+  "chars": 4790,
   "apparatus": false,
   "archived": false,
-  "tokens": 1311
+  "tokens": 1315
  },
  {
   "path": "standards/STD-013-licence-allowlist-and-fields.md",
@@ -1347,10 +1347,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6228,
+  "chars": 6243,
   "apparatus": false,
   "archived": false,
-  "tokens": 1868
+  "tokens": 1872
  },
  {
   "path": "standards/STD-017-who-may-change-what.md",
@@ -1435,10 +1435,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4265,
+  "chars": 4295,
   "apparatus": false,
   "archived": false,
-  "tokens": 1128
+  "tokens": 1136
  },
  {
   "path": "standards/STD-025-a-mission-is-a-card.md",
@@ -1446,10 +1446,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5008,
+  "chars": 5038,
   "apparatus": false,
   "archived": false,
-  "tokens": 1373
+  "tokens": 1381
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
@@ -1523,10 +1523,10 @@
   "series": null,
   "type": "documentation",
   "status": "active",
-  "chars": 3635,
+  "chars": 3642,
   "apparatus": true,
   "archived": false,
-  "tokens": 941
+  "tokens": 943
  },
  {
   "path": "templates/MIS-TEMPLATE-CHANGES.md",
@@ -1589,10 +1589,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 4690,
+  "chars": 4697,
   "apparatus": true,
   "archived": false,
-  "tokens": 1301
+  "tokens": 1303
  },
  {
   "path": "templates/RPT-TEMPLATE.md",

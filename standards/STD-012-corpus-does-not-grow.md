@@ -70,7 +70,7 @@ Oracle, never dropped.
 
 | Plate | Verified by |
 |---|---|
-| DEF-001 | `lint-frontmatter.mjs` — no `subtype: daily`, no one-day `period` · `[MANUAL]` for a daily in disguise |
+| DEF-001 | `guards/rules/std-004-the-header.mjs` — no `subtype: daily`, no one-day `period` · `[MANUAL]` for a daily in disguise |
 | DEF-002 | `[MANUAL]` — no guard reads `period` yet (`ADR-042`) |
 | DEF-003 | `[MANUAL]` — `PRO-017` makes the executor state which of the three |
 | DEF-004 | `check-deletable.mjs --candidates` — closed records with no living citer |
