@@ -20,8 +20,8 @@
     {
       "type": "pull_request",
       "parameters": {
-        "required_approving_review_count": 0,
-        "dismiss_stale_reviews_on_push": false,
+        "required_approving_review_count": 1,
+        "dismiss_stale_reviews_on_push": true,
         "required_reviewers": [],
         "require_code_owner_review": false,
         "dismissal_restriction": {
@@ -47,13 +47,9 @@
     {
       "type": "required_status_checks",
       "parameters": {
-        "strict_required_status_checks_policy": false,
+        "strict_required_status_checks_policy": true,
         "do_not_enforce_on_create": false,
         "required_status_checks": [
-          {
-            "context": "Workers Builds: numinia-nwos",
-            "integration_id": 85455
-          },
           {
             "context": "build",
             "integration_id": 15368
