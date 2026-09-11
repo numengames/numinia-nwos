@@ -19,7 +19,7 @@
 //     "draft          # draft|active|superseded|withdrawn". The template
 //     taught the exact defect (D-009) that its own sibling warns about.
 //   · Six templates declared a `license:` contradicting REUSE.toml for the
-//     path they live in — invisible, because check-license-frontmatter reads
+//     path they live in — invisible, because the licence guard (std-010-licensing) reads
 //     the file's OWN path, and templates/** is CC0-1.0 whatever the target is.
 //
 // A template is not a document of its series. It is the mould, and its
@@ -74,7 +74,7 @@ const EXEMPT = new Set(['README.md']);
 
 const SEMVER = /^\d+\.\d+\.\d+$/;
 
-// --- REUSE.toml, same parse as check-license-frontmatter -------------------
+// --- REUSE.toml, same parse as std-010-licensing ----------------------
 
 /* The licence a document created from this template will need. Probed with a
    filename of the destination's own shape, because REUSE.toml discriminates by
@@ -142,7 +142,7 @@ for (const rel of files) {
   // T-04: the licence of the DESTINATION, which no other guard can see.
   const want = destRegime(dir);
   if (want && fm.license !== want)
-    F('T-04', rel, `license "${fm.license}" is not the regime of ${dir}/ ("${want}") — a document copied from this mould fails check-license-frontmatter on its first commit`);
+    F('T-04', rel, `license "${fm.license}" is not the regime of ${dir}/ ("${want}") — a document copied from this mould fails the licence guard (std-010-licensing) on its first commit`);
 
   // T-05: type ↔ series, STD-004 §5.
   const allowedTypes = Object.entries(RULES.types.series)

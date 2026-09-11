@@ -89,7 +89,7 @@ the contract of the series it scaffolds:
 | T-09 | the context card carries Summary, Epistemic and Pragmatic |
 | T-10 | every registered series has a mould |
 
-T-04 is the one no other guard can perform. `check-license-frontmatter` reads
+T-04 is the one no other guard can perform. `std-010-licensing` reads
 a file's *own* path, and every path here is `templates/**` → CC0-1.0. So a
 mould could declare a licence that contradicts REUSE.toml for the folder it is
 copied to, and nothing would notice until a document built from it failed CI

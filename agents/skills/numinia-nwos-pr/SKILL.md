@@ -73,7 +73,7 @@ Base SHA · before/after table on `DOC-00x` · what went out and where it lives
 - Force-push is not available from the agent's environment: open a `-v2`
   branch from fresh `main` and close the old PR as superseded.
 - `git stash` / `stash pop` puts a `git rm`'d file back into the index and
-  `check-license-frontmatter` fails with ENOENT. Run `git rm --cached` again.
+  the licence guard (`std-010-licensing`) fails with ENOENT. Run `git rm --cached` again.
 - `check-references.mjs` reserves `DEC` as a legacy id prefix: never mint
   `DEC-NNN` plates.
 - `check-section-citations` also walks active reports (`RPT-017`). When

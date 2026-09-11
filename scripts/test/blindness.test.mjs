@@ -69,7 +69,11 @@ check('every guard the runner runs is a build guard or answers to the regime (EN
     if (entry.manual) continue;
     if (entry.build_guard) continue;
     const src = readFileSync(path.join(ROOT, entry.script), 'utf8');
-    if (!src.includes('lib/regime.mjs')) offenders.push(id);
+    // A guard under guards/ answers through guards/lib/guard.mjs, which is
+    // where regime.mjs is called for it (guards/test/contract.test.mjs
+    // proves the file fulfils that contract). A guard still in scripts/
+    // calls the regime itself.
+    if (!src.includes('lib/regime.mjs') && !src.includes('lib/guard.mjs')) offenders.push(id);
   }
   assert(offenders.length === 0,
     `these guards neither declare build_guard nor use regime.mjs: ${offenders.join(', ')}`);
@@ -89,6 +93,14 @@ check('every registry entry points at a script that exists and imports the modul
     let src;
     try { src = readFileSync(abs, 'utf8'); }
     catch { throw new Error(`${id}: registry names ${g.script}, which does not exist`); }
+    if (src.includes('lib/guard.mjs')) {
+      // guard.mjs declares for the guard, under the guard's file name — so
+      // the registry key must BE that name, or the declaration throws at
+      // runtime for an id nobody registered.
+      assert(path.basename(g.script, '.mjs') === id,
+        `${id}: ${g.script} is under the guards/ contract, which declares as "${path.basename(g.script, '.mjs')}" — the registry key must match the file name`);
+      continue;
+    }
     assert(src.includes('blindness.mjs'),
       `${id}: ${g.script} has a registry entry but never imports lib/blindness.mjs — ` +
       `it would declare nothing at runtime`);

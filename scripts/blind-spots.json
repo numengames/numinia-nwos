@@ -121,7 +121,7 @@
         }
       ]
     },
-    "check-license-frontmatter": {
+    "std-010-licensing": {
       "script": "guards/rules/std-010-licensing.mjs",
       "sees": "frontmatter `license:` against the REUSE.toml regime",
       "blind_to": [
@@ -137,7 +137,7 @@
           "fixture": "no-license-field"
         },
         {
-          "spot": "templates/ — a mould declares the licence of the series it scaffolds, not of its own path, so this guard skips it (MIS-145 v2, 2026-09-04)",
+          "spot": "templates/ — a mould declares the licence of the series it scaffolds, not of its own path, so this guard skips it",
           "covered_by": "scripts/check-templates.mjs T-04, which resolves each mould's destination directory and checks the regime there",
           "debt": null
         }
@@ -261,7 +261,7 @@
         },
         {
           "spot": "whether documents already in the corpus were created from these moulds — a template can be perfect and universally ignored, and this guard cannot tell",
-          "covered_by": "lint-frontmatter and check-license-frontmatter, which read the documents themselves",
+          "covered_by": "lint-frontmatter and std-010-licensing, which read the documents themselves",
           "debt": null
         },
         {
