@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "4f85d02",
-  "corpus_hash": "e4f436fc4b7e205dccadb1bed479ec6641933a3829e6fc9dcc47c6c13fe873c7",
+  "head": "ad24466",
+  "corpus_hash": "b312b6bbbcc7cf654cc74f264b185efd234bb375aa0d8ff860b2c961ca99cca4",
   "root_dirty": 1,
-  "measured_at": "2026-09-11T11:45:39Z",
+  "measured_at": "2026-09-11T11:59:09Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 454,
+      "value": 455,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -32,7 +32,7 @@
         ".js": 2,
         ".json": 13,
         ".md": 150,
-        ".mjs": 49,
+        ".mjs": 50,
         ".png": 36,
         ".svg": 69,
         ".toml": 4,
@@ -105,13 +105,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 26,
+      "value": 27,
       "unit": "files",
       "definition": "files under `scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 26
+        "node": 27
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
