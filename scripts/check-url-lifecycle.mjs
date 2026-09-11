@@ -16,7 +16,7 @@
  * prohibition with this instrument: a document may be deleted when its
  * consumers are zero or redirected, and THIS is what verifies "redirected".
  *
- * HOW IT WORKS — the same ratchet pattern as lint-naming.mjs
+ * HOW IT WORKS — the same ratchet pattern the naming lint used
  * ---------------------------------------------------------
  * `scripts/published-urls.json` is the manifest of every URL the site
  * published at the last accepted build. After a build:

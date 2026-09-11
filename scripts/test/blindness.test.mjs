@@ -274,6 +274,43 @@ check('plain-text guard fixture — a broken YAML header, a versioned name and a
   } finally { rmSync(clone, { recursive: true, force: true }); }
 });
 
+check('identifier guard fixture — state in a name, a version in a name and a reused id each surface under their plate', () => {
+  // IDN-012/013/014 never fire on a clean tree. A scratch clone with one of
+  // each, a `-not-frozen` name (a negation, not a state claim) and a clean
+  // control: each defect under its plate, the negation and the control silent.
+  const clone = scratchClone();
+  try {
+    writeFileSync(path.join(clone, 'debt/DBT-980-something-draft.md'), '---\nid: "DBT-980"\n---\n\nbody\n');
+    writeFileSync(path.join(clone, 'debt/DBT-981-thing-v1.2.md'), '---\nid: "DBT-981"\n---\n\nbody\n');
+    writeFileSync(path.join(clone, 'debt/DBT-982-first.md'), '---\nid: "DBT-982"\n---\n\nbody\n');
+    writeFileSync(path.join(clone, 'debt/DBT-983-second.md'), '---\nid: "DBT-982"\n---\n\nbody\n');
+    writeFileSync(path.join(clone, 'debt/DBT-984-x-not-frozen.md'), '---\nid: "DBT-984"\n---\n\nbody\n');
+    writeFileSync(path.join(clone, 'debt/DBT-985-clean.md'), '---\nid: "DBT-985"\n---\n\nbody\n');
+    execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
+    const res = spawnGuard('guards/rules/std-018-one-identifier.mjs', clone);
+    const all = res.stdout + res.stderr;
+    assert(!/ERR_MODULE_NOT_FOUND|Cannot find module|TypeError/.test(all), `the identifier guard crashed:\n${res.stderr}`);
+    assert(/IDN-012\s+filename encodes state\n\s+debt\/DBT-980-something-draft\.md/.test(all), `state in a name not reported as IDN-012:\n${all}`);
+    assert(/IDN-013\s+filename carries a version\n\s+debt\/DBT-981-thing-v1\.2\.md/.test(all), `version in a name not reported as IDN-013:\n${all}`);
+    assert(/IDN-014\s+id DBT-982 is held by two documents\n\s+debt\/DBT-982-first\.md \+ debt\/DBT-983-second\.md/.test(all), `reused id not reported as IDN-014:\n${all}`);
+    assert(!/DBT-984-x-not-frozen/.test(all), 'a negation (-not-frozen) was read as a state claim');
+    assert(!/DBT-985-clean/.test(all), 'the clean control file was reported');
+  } finally { rmSync(clone, { recursive: true, force: true }); }
+});
+
+check('D-049 on the contract — a guard under guards/ names the untracked .md it cannot see', () => {
+  // lint-naming carried this warning itself; on the contract it is execute()'s.
+  // Same three properties as the check-references fixture above.
+  const clone = scratchClone();
+  try {
+    writeFileSync(path.join(clone, 'debt/DBT-970-untracked-draft.md'), '---\nid: "DBT-970"\n---\n\nbody\n');
+    const res = spawnGuard('guards/rules/std-018-one-identifier.mjs', clone);
+    assert(res.status === 0, `the guard scanned an untracked file — D-049 may be fixed (exit ${res.status})`);
+    assert(/NOT scanned/.test(res.stderr), 'the untracked file was skipped WITHOUT any warning — silent blindness is the bug');
+    assert(/DBT-970-untracked-draft\.md/.test(res.stderr), 'the warning fired but did not NAME the file it could not see');
+  } finally { rmSync(clone, { recursive: true, force: true }); }
+});
+
 /* ---------- helpers ---------- */
 
 // execFileSync THROWS on a non-zero exit, which would make every failure-path

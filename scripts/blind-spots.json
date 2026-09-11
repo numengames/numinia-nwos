@@ -3,7 +3,7 @@
   "guards": {
     "check-core-rules": {
       "script": "scripts/check-core-rules.mjs",
-      "sees": "eleven plated rules that had no guard of their own (IDN-012/013/014, HDR-040/043/044, VER-021/024, GIT-026/045, CIT-050), each finding bound by its holder's state (ENG-067)",
+      "sees": "eight plated rules that had no guard of their own (HDR-040/043/044, VER-021/024, GIT-026/045, CIT-050; IDN-012/013/014 moved to std-018-one-identifier), each finding bound by its holder's state (ENG-067)",
       "blind_to": [
         {
           "spot": "every other plated rule — a rule with no guard is enforced by nobody, and this guard does not list which those are",
@@ -210,23 +210,6 @@
         }
       ]
     },
-    "lint-naming": {
-      "script": "scripts/lint-naming.mjs",
-      "sees": "the identifier a series filename carries, against the series scheme (N-04 → IDN-011). The shape checks (N-01/N-02/N-05) moved to std-006-plain-text",
-      "blind_to": [
-        {
-          "spot": "untracked files — enumerates via `git ls-files`",
-          "covered_by": "its own untracked-file warning (D-049)",
-          "debt": "D-049",
-          "fixture": "untracked"
-        },
-        {
-          "spot": "whether a filename slug is meaningful — a name that keeps a dead prefix inside its slug still passes the shape check",
-          "covered_by": null,
-          "debt": null
-        }
-      ]
-    },
     "std-006-plain-text": {
       "script": "guards/rules/std-006-plain-text.mjs",
       "sees": "every tracked .md outside web/: the frontmatter fence closes on its own line, the header is structurally sound YAML, the file name's shape (root UPPERCASE, no version/date in a living name, kebab-case slug); and every .astro/.tsx under web/src that reads no .md: characters of prose living only there",
@@ -320,6 +303,28 @@
         {
           "spot": "templates/ — a mould declares the licence of the series it scaffolds, not of its own path, so this guard skips it",
           "covered_by": "scripts/check-templates.mjs T-04, which resolves each mould's destination directory and checks the regime there",
+          "debt": null
+        }
+      ]
+    },
+    "std-018-one-identifier": {
+      "script": "guards/rules/std-018-one-identifier.mjs",
+      "sees": "every tracked .md outside web/: the identifier a series filename carries against the series scheme (IDN-011, from lint-naming N-04); and, on the bound corpus (not apparatus, not outward-facing), a filename that encodes state or a version (IDN-012/013) and an id held by two documents (IDN-014)",
+      "blind_to": [
+        {
+          "spot": "untracked files — enumerates via `git ls-files`",
+          "covered_by": "its own untracked-file warning (D-049)",
+          "debt": "D-049",
+          "fixture": "untracked"
+        },
+        {
+          "spot": "whether the identifier in the NAME matches the `id:` in the header — the name is held to the scheme and the header to its own rules; they are never compared",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "IDN-015 — which of two colliding documents keeps the id is a judgement resolved by commit order, not a check",
+          "covered_by": "the Check table of STD-018 ([MANUAL])",
           "debt": null
         }
       ]

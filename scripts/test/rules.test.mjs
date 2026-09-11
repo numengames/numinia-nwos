@@ -81,10 +81,10 @@ check('rules.json: every series dir with a naming scheme exists in the tree', ()
   const missing = seriesDirs(rules).filter((d) => !tracked.has(d));
   return missing.length === 0 || `missing: ${missing.join(', ')}`;
 });
-for (const g of ['lint-naming', 'lint-frontmatter', 'check-references'])
+for (const g of ['lint-frontmatter', 'check-references'])
   check(`${g}.mjs imports scripts/lib/frontmatter.mjs`, () => /from '\.\/lib\/frontmatter\.mjs'/.test(readFileSync(path.join(ROOT, 'scripts', `${g}.mjs`), 'utf8')));
 check('no guard keeps a private SERIES/PREFIX map', () =>
-  ['lint-naming', 'lint-frontmatter', 'check-references'].every((g) => !/^const (SERIES|PREFIX) = \{\n\s+\w+:/m.test(readFileSync(path.join(ROOT, 'scripts', `${g}.mjs`), 'utf8'))));
+  ['lint-frontmatter', 'check-references'].every((g) => !/^const (SERIES|PREFIX) = \{\n\s+\w+:/m.test(readFileSync(path.join(ROOT, 'scripts', `${g}.mjs`), 'utf8'))));
 
 check('prefixToDir: retired D resolves to debt', () => prefixToDir(rules).D === 'debt');
 check('isApparatus: type meta, canonical basenames, template family', () =>

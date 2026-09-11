@@ -1,10 +1,13 @@
 #!/usr/bin/env node
 /**
  * check-core-rules — execute the mechanically checkable rules of the core
- * standards (STD-004, STD-018..021; once one file, STD-009).
+ * standards (STD-004, STD-019..021; once one file, STD-009).
  *
  * STD-005 ENG-001 (once STD-009 CORE-31): "A rule that does not break the build does not exist for an
  * agent." This guard is what makes eight of the sixty-two rules exist.
+ *
+ * R3 of MIS guards-tests-ci-alpha folds it, one standard at a time, into
+ * guards/rules/: IDN-012/013/014 now live in std-018-one-identifier.mjs.
  *
  * Scope comes from the corpus classifier, never from a list kept here.
  */
@@ -40,14 +43,6 @@ const record = (rule, what, where) => out.add(rule, what, where);
 for (const d of docs) {
   const r = rel(d);
   const f = fm(d);
-
-  /* A negation is not a state claim: `-not-frozen.md` describes a defect about
-     another document, it does not encode this one's state. */
-  if (/-(draft|final|frozen|old|new|deprecated)\.md$/.test(r) && !/-not-[a-z]+\.md$/.test(r))
-    record('IDN-012', 'filename encodes state', r);
-
-  if (/-v\d+(\.\d+)*\.md$/.test(r) && !r.startsWith('history/'))
-    record('IDN-013', 'filename carries a version', r);
 
   if (!body(d).startsWith('---\n'))
     record('HDR-040', 'no frontmatter', r);
@@ -112,21 +107,11 @@ for (const d of docs) {
   }
 }
 
-/* IDN-014: an identifier is never reused. Two documents holding one id means
-   one of them is unreachable by citation — the reference resolver picks one. */
-const seen = new Map();
-for (const d of docs) {
-  const id = fm(d).id;
-  if (!id) continue;
-  if (seen.has(id)) record('IDN-014', `id ${id} is held by two documents`, `${seen.get(id)} + ${rel(d)}`);
-  else seen.set(id, rel(d));
-}
-
 /* GIT-026: a commit subject is one line. */
 const subjects = execFileSync('git', ['log', '-400', '--format=%s'], { cwd: ROOT, encoding: 'utf8' })
   .split('\n').filter(Boolean);
 for (const s of subjects) if (s.includes('\n')) record('GIT-026', 'multi-line subject', s.slice(0, 60));
 
-const RULES = ['IDN-012', 'IDN-013', 'IDN-014', 'HDR-040', 'HDR-043', 'HDR-044', 'VER-021', 'VER-024', 'GIT-026', 'GIT-045', 'CIT-050'];
+const RULES = ['HDR-040', 'HDR-043', 'HDR-044', 'VER-021', 'VER-024', 'GIT-026', 'GIT-045', 'CIT-050'];
 console.log(`check-core-rules: ${docs.length} bound documents, ${RULES.length} rules executed`);
 out.finish({ ok: `${RULES.join(' ')} — all hold.` });

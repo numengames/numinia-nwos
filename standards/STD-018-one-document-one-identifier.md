@@ -5,16 +5,16 @@ title: "One document, one identifier"
 type: documentation
 subtype: standard
 status: draft
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-10T02:30:00+02:00"
+updated: "2026-09-11T04:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, identifiers, naming]
 threshold: governed
-series_change: "1.0.0 — new standard, split from STD-009 under ADR-043. Rules keep their plates and their verifiers; the prose around them is the Why."
+series_change: "1.1.1 — Check rows repoint to guards/rules/std-018-one-identifier.mjs (R3, MIS guards-tests-ci-alpha): lint-naming N-04 and the IDN rules of check-core-rules fold into one guard; no plate or verdict changes. 1.0.0 — new standard, split from STD-009 under ADR-043. Rules keep their plates and their verifiers; the prose around them is the Why."
 ---
 
 # One document, one identifier
@@ -29,7 +29,7 @@ series_change: "1.0.0 — new standard, split from STD-009 under ADR-043. Rules 
 
 **Binds:** every registered document of the corpus.
 **Does not bind:** the grammar of each series prefix — `STD-001`; the slug —
-`lint-naming.mjs` states it.
+STD-006 (TXT-001) holds it.
 
 ## Rules
 
@@ -60,8 +60,8 @@ Within a repository the bare identifier is correct.
 
 | Plate | Verified by |
 |---|---|
-| IDN-011 | `lint-naming.mjs` |
-| IDN-012, 013, 014 | `check-core-rules.mjs` |
+| IDN-011 | `guards/rules/std-018-one-identifier.mjs` — the identifier the name carries, against the series scheme |
+| IDN-012, 013, 014 | `guards/rules/std-018-one-identifier.mjs` |
 | IDN-015 | `[MANUAL]` — resolved by commit order at the moment of collision |
 
 ## Why

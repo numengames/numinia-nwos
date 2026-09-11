@@ -48,7 +48,7 @@ const REPORT = args.includes('--report');
  * to every rename this same mission performs, which would have made this
  * guard's "exit 0" a false green light. */
 /* Series register: scripts/lib/rules.json since MIS-138 (2026-09-02) — one
-   map shared with lint-naming, lint-frontmatter and the telemetry instrument.
+   map shared with guards/lib/naming.mjs, lint-frontmatter and the telemetry instrument.
    `prefixToDir` includes the retired D- prefix (rules.json `retiredPrefixes`),
    which this guard must keep resolving — see the ID_RE note below. */
 const RULES = loadRules();

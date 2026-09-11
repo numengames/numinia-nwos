@@ -73,11 +73,27 @@ export function nameOf(importMeta) {
   return path.basename(fileURLToPath(importMeta.url), '.mjs');
 }
 
+/** D-049: a guard on the contract reads the INDEX. A .md on disk that has
+ *  not been `git add`ed is invisible to it, and a green verdict says nothing
+ *  about it — so the guard names what it could not see, on stderr, before
+ *  it judges. Every registry entry that claims "its own untracked-file
+ *  warning" is honoured here, once. */
+export function warnUntracked(name, root = ROOT) {
+  const untracked = execFileSync('git', ['ls-files', '--others', '--exclude-standard', '*.md'], { cwd: root, encoding: 'utf8' })
+    .split('\n').filter(Boolean).filter((f) => !f.startsWith('web/'));
+  if (!untracked.length) return [];
+  console.warn(`\n\u26a0 ${name}: ${untracked.length} untracked .md file(s) — NOT scanned (this guard reads git ls-files, D-049):`);
+  for (const f of untracked) console.warn(`    ${f}`);
+  console.warn('  A green result here says nothing about them. `git add` them first.\n');
+  return untracked;
+}
+
 /** Run one guard as a process: declare, load, run, judge, exit. SHOULD
  *  findings are counted on one line and kept out of the regime. */
 export async function execute(importMeta, meta, run, { corpus = loadCorpus() } = {}) {
   const name = nameOf(importMeta);
   declareBlindSpots(name);
+  warnUntracked(name, corpus.root);
   const out = new Findings(name);
   const measured = new Map();
   for (const f of run(corpus)) {
