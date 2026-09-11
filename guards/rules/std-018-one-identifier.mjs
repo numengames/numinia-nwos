@@ -9,7 +9,8 @@
 //
 // IDN-011  a series document's name is <PREFIX>-<NNN|NNNN>-<slug>.md and the
 //          identifier it carries is the series' shape; reports/ admit
-//          RPT-YYYY-MM-DD.md for subtype: daily only (ADR-005 v1.2.0 rule 1).
+//          RPT-YYYY-MM-DD.md for subtype: daily only — one report per day,
+//          so the day IS the identifier.
 //          Which files are held, and to which scheme, is guards/lib/naming.mjs
 //          — the reading STD-006 (TXT-001, the shape) shares.
 // IDN-012  a filename encodes no state (-draft, -final, -frozen…). A negation
@@ -47,16 +48,16 @@ function identifier(rel, fm) {
   const F = (what) => [{ plate: 'IDN-011', what: `N-04 ${what}`, where: rel }];
   if (c.dailyReport) {
     return fm.subtype === 'daily' ? []
-      : F(`date-shaped identifier on a report whose subtype is "${fm.subtype || '(none)'}" — RPT-YYYY-MM-DD is for subtype: daily only (ADR-005 v1.2.0 rule 1)`);
+      : F(`date-shaped identifier on a report whose subtype is "${fm.subtype || '(none)'}" — a date is the identifier of a daily report and of nothing else`);
   }
   if (c.slug === null) {
     const expected = scheme.dailyDate
-      ? `${scheme.prefix}-${'N'.repeat(scheme.digits)}-<slug>.md (or RPT-YYYY-MM-DD.md for subtype: daily) for ${top}/ (STD-001 §9, ADR-005 v1.2.0)`
-      : `${scheme.prefix}-${'N'.repeat(scheme.digits)}-<slug>.md for ${top}/ (STD-001 §9, ADR-005 v1.1.0)`;
+      ? `${scheme.prefix}-${'N'.repeat(scheme.digits)}-<slug>.md (or RPT-YYYY-MM-DD.md for subtype: daily) for ${top}/`
+      : `${scheme.prefix}-${'N'.repeat(scheme.digits)}-<slug>.md for ${top}/`;
     return F(`filename does not match ${expected}`);
   }
   if (scheme.dailyDate && fm.subtype === 'daily')
-    return F('subtype: daily report carries a numbered identifier — dailies are RPT-YYYY-MM-DD (ADR-005 v1.2.0 rule 1)');
+    return F('subtype: daily report carries a numbered identifier — a daily is identified by its day, not by a counter');
   return [];
 }
 

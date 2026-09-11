@@ -12,13 +12,14 @@
 //            1. Markdown links   [text](../path/doc.md)
 //            2. Plain-text ids   "see MIS-085"
 //            3. Bare filenames   "see credential-map.md" — the only way to
-//               cite a `registration: exempt` document (MIS-125)
+//               cite a document that declares itself exempt from the
+//               identifier scheme, and so has no id to cite
 //          A citation resolves against what the tree HAS (file names, `id:`,
 //          `absorbs:`, `former_id:`) and what the tree HAD (git log of
-//          deleted .md — ADR-043 rule 8: a deleted document's identifier
-//          still resolves, to the file that carried it). Closed records are
-//          photographs (CIT-053) and are not walked as citers; they are still
-//          indexed, so a living document citing them keeps resolving.
+//          deleted .md — a deleted document's identifier still resolves, to
+//          the file that carried it). Closed records are photographs
+//          (CIT-053) and are not walked as citers; they are still indexed,
+//          so a living document citing them keeps resolving.
 // GIT-045  the heir is a field: `superseded_by` on a record whose status is
 //          not `withdrawn` is a document pointing past itself while claiming
 //          to bind.
@@ -50,17 +51,19 @@ const OUTWARD = /^(AGENTS|CLAUDE|CONTRIBUTING|CHANGELOG|SECURITY|TRADEMARKS|READ
 // Registers that live in prose, not as documents (CON, FLAG, SEC, ARC, G,
 // MISSION) and the OLD blueprints slug scheme (BP-; BLU-NNN resolves).
 const IGNORED_PREFIX = /^(CON|FLAG|SEC|ARC|G|MISSION|BP)-/;
-// ADR-006…022 exist in numengames/numinia-web. ADR-004 §7 wants them cited
-// qualified (web:ADR-012); ~20 briefs predate the rule. Not missing: elsewhere.
+// One range of decision records lives in the web repository, not this one.
+// The rule is to cite them qualified (web:<id>); about twenty briefs predate
+// that rule and cite them bare. They are not missing: they are elsewhere.
 const WEB_ADR_RANGE = (n) => n >= 6 && n <= 22;
 const isExample = (id) => id === 'MIS-999';
 const ID_RE = new RegExp(`\\b(${Object.keys(PREFIX_DIR).join('|')})-(\\d{1,4}|\\d{4}-\\d{2}-\\d{2})\\b`, 'g');
 const LINK_RE = /\[[^\]]*\]\(([^)\s#]+\.md)(?:#[^)]*)?\)/g;
 // Kind 3: a bare filename in prose outside link syntax, resolved by basename —
-// citations are casual and rarely carry the folder (D-047 is that blindness).
+// citations are casual and rarely carry the folder, so a wrong folder reads
+// as green: that blindness is declared, not hidden.
 const BARE_FILENAME_RE = /(?:^|[\s(`"'])((?:[\w-]+\/)*[\w][\w.-]*\.md)\b/g;
-// A placeholder is a shape, not a document (MIS-145 v2): MIS-NNNN-slug.md,
-// RPT-YYYY-MM-DD.md, <title>.md never resolve by design.
+// A placeholder is a shape, not a document: MIS-NNNN-slug.md, RPT-YYYY-MM-DD.md
+// and <title>.md never resolve, by design — they are the mould of a citation.
 const PLACEHOLDER_RE = /(^|[^A-Za-z])(N{3,}|X{3,}|YYYY|MM|DD|PREFIX|SLUG|TITLE|vX\.Y\.Z)([^A-Za-z]|$)/;
 const isPlaceholder = (cited) => PLACEHOLDER_RE.test(cited) || /[<>{}]/.test(cited) || /\bslug\b/.test(cited);
 
@@ -90,10 +93,11 @@ function index(corpus) {
     if (!fm) continue;
     const decl = typeof fm.id === 'string' ? /^([A-Z]+-[\w-]+)/.exec(fm.id) : null;
     if (decl) known.add(decl[1]);
-    // ADR-030: an absorbed identifier resolves to the record that contains it.
+    // An absorbed identifier resolves to the record that swallowed it: the
+    // document is gone, the obligation it carried is not.
     if (Array.isArray(fm.absorbs)) for (const id of fm.absorbs) if (id) known.add(id);
-    // ADR-035: a renumbered document declares its old id in former_id; the
-    // old identifier resolves here, not nowhere.
+    // A renumbered document declares its old id in former_id, so the old
+    // identifier resolves here rather than nowhere.
     const former = typeof fm.former_id === 'string' ? /^([A-Z]+-[\w-]+)/.exec(fm.former_id) : null;
     if (former) known.add(former[1]);
   }

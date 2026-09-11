@@ -7,8 +7,8 @@
 // One plate, CIT-050: cite the document, not the place. A section number is
 // the most fragile part of a citation — it changes whenever the cited
 // document is reorganised, and the reader of the citing document never
-// finds out. PR #232 cut PRO-010 from 3652 to 1406 words and left nine
-// citations pointing at sections that no longer existed; nothing failed.
+// finds out. One edit once cut a protocol from 3652 to 1406 words and left
+// nine citations pointing at sections that no longer existed; nothing failed.
 //
 // Two readings of the rule, each kept with the reach its source gave it:
 //
@@ -40,8 +40,8 @@ const SKIP = ['web/dist/', 'salida/', 'templates/', 'history/', 'node_modules/']
 
 /* "PRO-010 §3.2.2", "STD-008 v6.0.0 §13" — the id, then a § close behind it.
    The window is narrow and must not span another identifier: a row like
-   "`PRO-013`, `STD-001` §10.4" cites STD-001, not PRO-013. Verified against
-   exactly that line in MIS-0138. */
+   "`PRO-013`, `STD-001` §10.4" cites the second, not the first. Verified
+   against exactly that line in the corpus. */
 const CITE = /\b([A-Z]{2,4}-\d{1,4}[a-z]?)\b((?:[^\n§]){0,18}?)§\s*(\d+(?:\.\d+)*)/g;
 const INTERVENING_ID = /\b[A-Z]{2,4}-\d{1,4}[a-z]?\b/;
 const NORM_CITE = /\b[A-Z]{2,4}-\d+\s+§\d[\d.]*/g;

@@ -20,8 +20,9 @@
 //                                               only); slug is null when the
 //                                               name does not match the scheme
 //
-// The scheme map is read from scripts/lib/rules.json (MIS-138): history/
-// and agents/ carry no filename scheme (ADR-035; ADR-005 v1.1.0 reversal).
+// The scheme map is read from scripts/lib/rules.json, so the guards and the
+// tools share one answer. history/ and agents/ carry no filename scheme: one
+// holds photographs of what names used to be, the other is apparatus.
 
 import { loadRules, isApparatus } from '../../scripts/lib/frontmatter.mjs';
 
@@ -38,8 +39,8 @@ export const ROOT_UPPERCASE_RE = /^[A-Z][A-Z_]*\.md$/;
 export const KEBAB_SLUG_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 export const VERSION_SUFFIX_RE = /-v\d+(\.\d+){0,2}\.md$/i;
 export const DATED_PREFIX_RE = /^\d{4}_\d{2}_\d{2}-/;
-/* ADR-005 v1.2.0 rule 1 / ADR-004 rule 3: the daily-report shape. No slug —
-   the date is the whole identity. */
+/* The daily-report shape. No slug — the date is the whole identity, so a
+   second name for the same day would be a second report. */
 export const DAILY_REPORT_RE = /^RPT-\d{4}-\d{2}-\d{2}\.md$/;
 
 export function classify(rel, fm) {
@@ -47,10 +48,10 @@ export function classify(rel, fm) {
   const top = parts[0];
   const base = parts[parts.length - 1];
   if (parts.length === 1) return { kind: 'root', base };
-  if (top === 'agents') return { kind: 'skip' };             // ADR-005 v1.1.0: no scheme applies
+  if (top === 'agents') return { kind: 'skip' };             // no filename scheme applies here
   if (isApparatus(rel, null)) return { kind: 'skip' };
-  // D-014: `type: meta` IS the apparatus declaration — scaffolding around a
-  // series, not a member of it, and no series filename shape applies.
+  // `type: meta` IS the apparatus declaration — scaffolding around a series,
+  // not a member of it, so no series filename shape applies.
   if (isApparatus(rel, fm ?? {})) return { kind: 'skip' };
 
   /* A name cannot license itself: the exemption is what the frontmatter
@@ -64,8 +65,8 @@ export function classify(rel, fm) {
 
   const scheme = SERIES[top] ?? null;                         // history/: no scheme
   /* reports/evidence/<RPT-id>/…: an annex, moved as an opaque block, never
-     authored (ADR-005 v1.2.0 rule 5; IDN-011). Captured artefacts, not
-     documents of the series. Still a living name (N-02), never a scheme. */
+     authored (IDN-011). Captured artefacts, not documents of the series.
+     Still a living name (N-02), never a scheme. */
   const evidence = top === 'reports' && parts[1] === 'evidence';
   if (!scheme || evidence) return { kind: 'series', base, top, scheme: null, dailyReport: false, slug: null };
 
