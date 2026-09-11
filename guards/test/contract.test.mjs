@@ -18,6 +18,7 @@ import { readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { loadCorpus, isMain, nameOf } from '../lib/guard.mjs';
+import { citationRe } from '../../scripts/lib/citation-pattern.mjs';
 import { ROOT } from '../../scripts/lib/frontmatter.mjs';
 import { loadRegistry } from '../../scripts/lib/blindness.mjs';
 
@@ -110,13 +111,9 @@ test('every plate a guard declares is held by one standard', async () => {
    citation of a SECTION: a § number is the most perishable thing a document
    has, and the rule against citing one binds the code that enforces it.
 
-   `\b` around D-NNN keeps the pattern off the tail of STD-016; without it the
-   scan counts the last three characters of a standard's own identifier. A
-   date wedged between hyphens is a filename, which is data the guard needs,
-   so the date form only matches where prose would put one. */
-const DOCUMENT = String.raw`MIS-[0-9]+|ADR-[0-9]+|DBT-[0-9]+|RPT-[0-9]+|\b[CD]-[0-9]{3}\b|PR #[0-9]+|(?<![-/\w])[0-9]{4}-[0-9]{2}-[0-9]{2}(?![-\w])`;
-const SECTION = String.raw`\b(?:STD|PRO|CAN|OPS)-[0-9]{3}[^\n]{0,14}?§\s?[0-9.]+`;
-const CITATION = new RegExp(`${DOCUMENT}|${SECTION}`, 'g');
+   The pattern itself lives in scripts/lib/citation-pattern.mjs, shared with
+   the registry's copy of this test: one definition of what a citation is. */
+const CITATION = citationRe();
 
 /* A citation inside "double quotes" is a specimen: the shape the rule reads,
    quoted so a reader can see it. Masking it is the same allowance the corpus

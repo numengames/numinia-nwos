@@ -1,23 +1,23 @@
 {
-  "$comment": "Blind-spot registry — D-025. Single source of truth for what each guard CANNOT see. Guards import scripts/lib/blindness.mjs and call declareBlindSpots(<id>), which prints these on every exit path, success or failure. Verified by scripts/test/blindness.test.mjs: every id here must be claimed by a guard, every guard must declare, and the fixture-backed entries are proven against real files rather than asserted. A guard that verifies the artefact rather than a rule carries `build_guard` with its reason: it bites whatever any standard's state (ENG-067 exception). A guard without that field answers to the regime and must use scripts/lib/regime.mjs.",
+  "$comment": "Blind-spot registry. Single source of truth for what each guard CANNOT see. Guards import scripts/lib/blindness.mjs and call declareBlindSpots(<id>), which prints these on every exit path, success or failure. Verified by scripts/test/blindness.test.mjs: every id here must be claimed by a guard, every guard must declare, and the fixture-backed entries are proven against real files rather than asserted. A guard that verifies the artefact rather than a rule carries `build_guard` with its reason: it bites whatever any standard's state (ENG-067 exception). A guard without that field answers to the regime and must use scripts/lib/regime.mjs.",
   "guards": {
     "check-deletable": {
       "script": "tools/check-deletable.mjs",
       "manual": "takes arguments (a path, or --candidates) and is run by hand, not by run-guards.mjs (ENG-032's registry-discovery scope)",
-      "sees": "whether a document has living inbound citers, whether it is sealed, and which public URLs it publishes (ADR-033 tests 1, 4, and the evidence for 2)",
+      "sees": "whether a document has living inbound citers, whether it is sealed, and which public URLs it publishes (the three tests a deletion must pass, minus the judgment in test 3)",
       "blind_to": [
         {
-          "spot": "test 3 — whether a written resolution EXISTS and is adequate. It prints the prompt and never answers it: that is a judgment about meaning, and P-010 §3.4 already ruled the citation/mention distinction 'lives in the sentence'",
+          "spot": "test 3 — whether a written resolution EXISTS and is adequate. It prints the prompt and never answers it: that is a judgment about meaning: whether a pointer is a citation or a mention lives in the sentence, not in the string",
           "covered_by": null,
           "debt": "D-028"
         },
         {
-          "spot": "the citation/mention distinction itself — it counts a substring match, so a document MENTIONED as evidence in a fixed record counts the same as one CITED as a live pointer (P-010 §3.4). It errs toward refusing, which is the safe direction",
+          "spot": "the citation/mention distinction itself — it counts a substring match, so a document MENTIONED as evidence in a fixed record counts the same as one CITED as a live pointer. It errs toward refusing, which is the safe direction",
           "covered_by": null,
           "debt": "D-048"
         },
         {
-          "spot": "consumers outside this repository — numinia-web's design-source.json pin, external inbound links, anything reading the raw GitHub URL. The same class of consumer that reverted the rename in D-024",
+          "spot": "consumers outside this repository — numinia-web's design-source.json pin, external inbound links, anything reading the raw GitHub URL. The same class of consumer that has forced a rename to be reverted before",
           "covered_by": null,
           "debt": "D-028"
         },
@@ -26,7 +26,7 @@
           "covered_by": "npm run build + std-020-git-is-the-archive"
         },
         {
-          "spot": "untracked files — enumerates via `git ls-files`, so a citation from a .md that is not `git add`ed is never seen (D-049). It warns rather than passing silently",
+          "spot": "untracked files — enumerates via `git ls-files`, so a citation from a .md that is not `git add`ed is never seen. It warns rather than passing silently",
           "covered_by": "its own untracked-file warning",
           "debt": "D-049"
         }
@@ -108,7 +108,7 @@
       "script": "scripts/check-url-lifecycle.mjs",
       "build_guard": "verifies the built output, not a rule — a public URL that dies without a redirect is a broken promise to a reader, not a breach of a draft (ENG-067 exception)",
       "needs": "web/dist",
-      "sees": "public URLs that stop being built without a redirect declared in web/astro.config.mjs (D-028)",
+      "sees": "public URLs that stop being built without a redirect declared in web/astro.config.mjs",
       "blind_to": [
         {
           "spot": "whether a redirect's TARGET actually answers the question the dead URL answered — a 301 to a section index silences this guard and still loses the content",
@@ -147,7 +147,7 @@
           "fixture": "untracked"
         },
         {
-          "spot": "the ADR-028 deferral census (`TBA` counts per field) that std-004-the-header printed — dropped; HDR-032 still fires on an unowned TBA, and zero deferrals exist in the corpus since MIS-124 closed",
+          "spot": "the deferral census (`TBA` counts per field) that std-004-the-header printed — dropped; HDR-032 still fires on an unowned TBA, and no deferral is left in the corpus",
           "covered_by": null
         }
       ]
@@ -361,7 +361,7 @@
       "run": [
         "--check"
       ],
-      "sees": "the corpus, counted: files, series registration, mission states — every figure with unit, definition, HEAD and corpus_hash (MIS-138)",
+      "sees": "the corpus, counted: files, series registration, mission states — every figure with unit, definition, HEAD and corpus_hash",
       "blind_to": [
         {
           "spot": "whether a registered document is any GOOD — it counts conforming filenames, which is a measure of naming, not of content",
@@ -369,7 +369,7 @@
           "debt": null
         },
         {
-          "spot": "whether a figure that a document CITES matches the dataset — the instrument writes telemetry/, it does not read the citers (figures family, MIS-138 D3, not built)",
+          "spot": "whether a figure that a document CITES matches the dataset — the instrument writes telemetry/, it does not read the citers: a document restating a figure can go stale and nothing notices",
           "covered_by": null,
           "debt": null
         }

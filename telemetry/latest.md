@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-11T11:45:39Z"
+updated: "2026-09-11T11:59:09Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,13 +20,13 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `4f85d02`  · corpus_hash: `e4f436fc4b7e205d…`  · measured_at: 2026-09-11T11:45:39Z  · root_dirty: 1
+- head: `ad24466`  · corpus_hash: `b312b6bbbcc7cf65…`  · measured_at: 2026-09-11T11:59:09Z  · root_dirty: 1
 
 ## corpus
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `corpus.files_total` | 454 | files | `git ls-files` at HEAD, every path |
+| `corpus.files_total` | 455 | files | `git ls-files` at HEAD, every path |
 | `corpus.files_by_ext` | (table below) | files | tracked files by lowercase extension; `(none)` when no extension |
 | `corpus.md_total` | 150 | files | tracked `.md` anywhere, including `web/` |
 | `corpus.docs_total` | 148 | documents | tracked `.md` outside `web/` — the corpus every other family measures |
@@ -34,7 +34,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `corpus.docs_by_type` | (table below) | documents | corpus documents by frontmatter `type`; `(none)` when absent |
 | `corpus.docs_without_frontmatter` | 8 | documents | corpus documents with no `---` block at the top |
 | `corpus.apparatus` | 20 | documents | corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path) |
-| `corpus.scripts_total` | 26 | files | files under `scripts/` with a code extension (.py .mjs .js .sh .ts) |
+| `corpus.scripts_total` | 27 | files | files under `scripts/` with a code extension (.py .mjs .js .sh .ts) |
 | `corpus.scripts_by_language` | (table below) | files | those scripts by language, from the extension |
 | `corpus.scripts_in_ci` | 13 | files | guards the runner runs in CI: registered scripts under `scripts/` (ENG-032) |
 
@@ -52,7 +52,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | .js | 2 |
 | .json | 13 |
 | .md | 150 |
-| .mjs | 49 |
+| .mjs | 50 |
 | .png | 36 |
 | .svg | 69 |
 | .toml | 4 |
@@ -103,7 +103,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | files |
 |---|---|
-| node | 26 |
+| node | 27 |
 
 ## series
 

@@ -32,6 +32,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadRegistry, formatBlindSpots } from '../lib/blindness.mjs';
+import { citationRe } from '../lib/citation-pattern.mjs';
 
 const ROOT = execSync('git rev-parse --show-toplevel').toString().trim();
 const registry = loadRegistry();
@@ -125,6 +126,34 @@ check('formatBlindSpots refuses an unknown guard', () => {
   let threw = false;
   try { formatBlindSpots('no-such-guard'); } catch { threw = true; }
   assert(threw, 'an unregistered guard id must throw, not silently print nothing');
+});
+
+check('the registry cites plates, not prose', () => {
+  // Same rule the guard sources answer to (guards/test/contract.test.mjs),
+  // on the other artefact that describes them. This text is PRINTED on every
+  // run, so a reader meets a pointer here more often than one in a comment,
+  // and it rots the same way: the document moves and the line stays.
+  //
+  // `debt` and `covered_by` are exempt: a debt id in a structured field is
+  // the register's key, and `covered_by` names the guard that covers the
+  // spot. Both are data the runner reads. Prose is `spot`, `sees`, `manual`
+  // and `$comment` — that is where a reason belongs instead of a pointer.
+  //
+  // A `backticked` span is exempt too: the corpus does not read one as a
+  // citation, so a rule may quote a citation shape to teach it.
+  const CITATION = citationRe();
+  const hits = [];
+  const walk = (node, trail) => {
+    if (Array.isArray(node)) return node.forEach((v, i) => walk(v, [...trail, String(i)]));
+    if (node && typeof node === 'object') return Object.entries(node).forEach(([k, v]) => walk(v, [...trail, k]));
+    if (typeof node !== 'string') return;
+    if (['debt', 'covered_by'].includes(trail.at(-1))) return;
+    const probe = node.replace(/`[^`\n]*`/g, (s) => ' '.repeat(s.length));
+    for (const m of probe.matchAll(CITATION)) hits.push(`${trail.join('.')}  ${m[0]}  …${node.slice(Math.max(0, m.index - 40), m.index + 40)}…`);
+  };
+  walk(JSON.parse(readFileSync(path.join(ROOT, 'scripts/blind-spots.json'), 'utf8')), []);
+  assert(hits.length === 0,
+    `${hits.length} citation(s) to a document in the blind-spot registry; say the reason instead:\n  ${hits.join('\n  ')}`);
 });
 
 /* ---------- BEHAVIOURAL ---------- */
