@@ -27,10 +27,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1005,
+  "chars": 2232,
   "apparatus": true,
   "archived": false,
-  "tokens": 260
+  "tokens": 547
  },
  {
   "path": "AGENTS.md",
@@ -797,10 +797,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 8640,
+  "chars": 10754,
   "apparatus": false,
   "archived": false,
-  "tokens": 2177
+  "tokens": 2692
  },
  {
   "path": "missions/MIS-0101-the-mould-complies-with-itself.md",
