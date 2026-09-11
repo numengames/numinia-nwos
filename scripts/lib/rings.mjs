@@ -44,7 +44,7 @@ export const RING3 = {
     'editorial_note', 'language', 'day_label', 'cost_estimate', 'context_load',
     'extraction_note',
     // registered 2026-09-08 (ADR-040, RPT-017 v0.2.0). Same load-bearing role
-    // it has in decisions/, debt/ and standards/: check-references.mjs reads
+    // it has in decisions/, debt/ and standards/: the GIT-048 guard (std-020) reads
     // `absorbs` to keep an absorbed identifier resolving. RPT-017 is the
     // written resolution for every deleted `done` mission, so a report can
     // now be the absorbing document — a mission's story merges into the
@@ -53,7 +53,7 @@ export const RING3 = {
   'decisions': ['deciders', 'consulted', 'outcome', 'decision',
     'context', 'pending_dark_council',
     // registered 2026-08-31 (MIS-127). `absorbs` is load-bearing, not a
-    // note: check-references.mjs reads it to keep absorbed identifiers
+    // note: the GIT-048 guard (std-020) reads it to keep absorbed identifiers
     // resolving, so a merged decision stays reachable (ADR-030). `amends`
     // records a decision that narrows a standard without superseding it.
     // `absorbs`, `amends` as above. Registered 2026-09-01 (ADR-036):
@@ -71,7 +71,7 @@ export const RING3 = {
   'debt': ['severity', 'severity_reason', 'detected', 'refuted', 'source_audit', 'opened_by',
     'visibility_reason',
     // registered 2026-08-31 (RPT-001 §12, the debt renumbering). Same
-    // load-bearing role as in decisions/: check-references.mjs reads
+    // load-bearing role as in decisions/: the GIT-048 guard (std-020) reads
     // `absorbs` to keep a merged entry's original identifiers resolving,
     // so consolidating debt does not break every citation of it (ADR-030).
     'absorbs',
@@ -86,7 +86,7 @@ export const RING3 = {
   'standards': ['supersedes_version', 'ratified_by', 'subtype', 'threshold',
     'series_change',
     // registered 2026-09-05 (MIS-147). Same load-bearing role it already has
-    // in decisions/ and debt/: check-references.mjs reads `absorbs` to keep an
+    // in decisions/ and debt/: the GIT-048 guard (std-020) reads `absorbs` to keep an
     // absorbed document's identifier resolving. STD-002 absorbed SYS-004, so a
     // standard can now be the absorbing document — the field had only ever
     // been needed where a record merged into a peer, and this is the first

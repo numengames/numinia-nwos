@@ -423,10 +423,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 4286,
+  "chars": 4314,
   "apparatus": false,
   "archived": false,
-  "tokens": 1218
+  "tokens": 1223
  },
  {
   "path": "agents/talos/OPERATOR.md",
@@ -1193,10 +1193,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4660,
+  "chars": 4655,
   "apparatus": false,
   "archived": false,
-  "tokens": 1484
+  "tokens": 1482
  },
  {
   "path": "standards/STD-003-platform-ranks.md",
@@ -1215,10 +1215,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4958,
+  "chars": 4968,
   "apparatus": false,
   "archived": false,
-  "tokens": 1410
+  "tokens": 1414
  },
  {
   "path": "standards/STD-005-engineering-baseline.md",
@@ -1303,10 +1303,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4752,
+  "chars": 4775,
   "apparatus": false,
   "archived": false,
-  "tokens": 1305
+  "tokens": 1311
  },
  {
   "path": "standards/STD-013-licence-allowlist-and-fields.md",
@@ -1391,10 +1391,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3444,
+  "chars": 3708,
   "apparatus": false,
   "archived": false,
-  "tokens": 917
+  "tokens": 985
  },
  {
   "path": "standards/STD-021-evidence-and-citation.md",
@@ -1402,10 +1402,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 2765,
+  "chars": 2811,
   "apparatus": false,
   "archived": false,
-  "tokens": 751
+  "tokens": 763
  },
  {
   "path": "standards/STD-022-secrets.md",
@@ -1435,10 +1435,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4219,
+  "chars": 4265,
   "apparatus": false,
   "archived": false,
-  "tokens": 1116
+  "tokens": 1128
  },
  {
   "path": "standards/STD-025-a-mission-is-a-card.md",
@@ -1589,10 +1589,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 4675,
+  "chars": 4690,
   "apparatus": true,
   "archived": false,
-  "tokens": 1296
+  "tokens": 1301
  },
  {
   "path": "templates/RPT-TEMPLATE.md",

@@ -81,7 +81,7 @@ known, and no relation is inferred from a shared folder, author or subject.
 |---|---|
 | HDR-000, HDR-040, HDR-041, HDR-043, HDR-044 | `check-core-rules.mjs` |
 | HDR-001..009, 012..014, 017..020, 030..038 | `lint-frontmatter.mjs`, one plate per finding |
-| HDR-010, 011, 015, 016 | `[MANUAL]` — presence only. No guard resolves frontmatter relations: `check-references.mjs` reads the body, not the header (measured 2026-09-10) |
+| HDR-010, 011, 015, 016 | `[MANUAL]` — presence only. No guard resolves frontmatter relations: `std-020-git-is-the-archive.mjs` reads the body, not the header (measured 2026-09-10) |
 | HDR-042 | `[MANUAL]` — review checks the register row and the decision |
 
 ## Why

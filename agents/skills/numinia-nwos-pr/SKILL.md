@@ -74,7 +74,7 @@ Base SHA · before/after table on `DOC-00x` · what went out and where it lives
   branch from fresh `main` and close the old PR as superseded.
 - `git stash` / `stash pop` puts a `git rm`'d file back into the index and
   the licence guard (`std-010-licensing`) fails with ENOENT. Run `git rm --cached` again.
-- `check-references.mjs` reserves `DEC` as a legacy id prefix: never mint
+- the reference guard (`std-020-git-is-the-archive`) reserves `DEC` as a legacy id prefix: never mint
   `DEC-NNN` plates.
 - `check-section-citations` also walks active reports (`RPT-017`). When
   sections are renumbered, either keep the cited number (say why in the

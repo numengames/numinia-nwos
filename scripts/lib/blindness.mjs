@@ -20,7 +20,7 @@
 // HOW TO USE
 // ----------
 //   import { declareBlindSpots } from './lib/blindness.mjs';
-//   declareBlindSpots('check-references');
+//   declareBlindSpots('check-section-citations');
 //
 // Call it once, near the top. It registers an exit hook, so the declaration
 // prints on every path out of the process — including `process.exit(1)` from

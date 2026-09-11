@@ -39,7 +39,7 @@ import { Findings } from './lib/regime.mjs';
 declareBlindSpots('lint-frontmatter');
 
 /* MIS-138 D1.1 (2026-09-02): the closed vocabularies below are read from
-   scripts/lib/rules.json, shared with guards/lib/naming.mjs, check-references and the
+   scripts/lib/rules.json, shared with guards/lib/naming.mjs, std-020-git-is-the-archive and the
    telemetry instrument. The ring registry (RING1–3) moved to lib/rings.mjs on
    2026-09-04 (MIS-145 v2), when check-templates became its second consumer. */
 const RULES = loadRules();

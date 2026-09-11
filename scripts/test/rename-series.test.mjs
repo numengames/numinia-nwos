@@ -10,7 +10,7 @@
 // governance.md -> STD-002-governance.md dropped the slug everywhere, leaving
 // STD-002.md. It reached LICENSE, CODEOWNERS and .github/workflows/.
 //
-// check-references caught it and nothing was committed, but a tool whose whole
+// the reference guard caught it and nothing was committed, but a tool whose whole
 // job is "rename safely" has to be tested against the cases that broke it.
 //
 // Run: npm test

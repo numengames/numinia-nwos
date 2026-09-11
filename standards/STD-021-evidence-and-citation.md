@@ -58,8 +58,8 @@ can name them without an ignore list.
 | Plate | Verified by |
 |---|---|
 | CIT-050 | `check-core-rules.mjs`, `check-section-citations.mjs` |
-| CIT-053 | `check-references.mjs` exempts closed documents |
-| CIT-054 | `check-references.mjs` (what it skips) |
+| CIT-053 | `guards/rules/std-020-git-is-the-archive.mjs` exempts closed documents |
+| CIT-054 | `guards/rules/std-020-git-is-the-archive.mjs` (what it skips) |
 | CIT-051, CIT-052, EVI-057 | `[MANUAL]` — the layout, the proof and the denominator are prose |
 
 ## Why

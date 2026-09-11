@@ -79,8 +79,8 @@ Counters read `exempt` as out of the denominator, not as a miss.
 | Plate | Verified by |
 |---|---|
 | SER-004 | `lint-frontmatter.mjs` (`HDR-017`) |
-| SER-005 | `check-references.mjs`, `check-core-rules.mjs` |
-| SER-006 | `check-references.mjs` (`absorbs:`), `check-url-lifecycle.mjs` |
+| SER-005 | `guards/rules/std-020-git-is-the-archive.mjs`, `check-core-rules.mjs` |
+| SER-006 | `guards/rules/std-020-git-is-the-archive.mjs` (`absorbs:`), `check-url-lifecycle.mjs` |
 | SER-007 | `lint-frontmatter.mjs` (`HDR-001`) |
 | SER-001, 002, 003 | `[MANUAL]` — what binds and what a signature is are read, not parsed |
 
