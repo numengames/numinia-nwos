@@ -10,7 +10,7 @@
 // side by side with the checks below: the mapping is 1:1 by construction.
 //
 // Two scopes, kept as their sources had them:
-//   governed  tracked .md under rules.json `governed.dirs` (STD-004 §10) —
+//   governed  tracked .md under the directories rules.json calls `governed` —
 //             HDR-000..038, the ring contract (from lint-frontmatter, folded)
 //   bound     tracked .md outside web/, not apparatus, not outward-facing —
 //             HDR-040/043/044 (from check-core-rules, folded)
@@ -39,7 +39,8 @@ const RULES = loadRules();
 const GOVERNED = new Set(RULES.governed.dirs);
 const OUTWARD = /^(AGENTS|CLAUDE|CONTRIBUTING|CHANGELOG|SECURITY|TRADEMARKS|README)\.md$|^\.github\/|^web\//;
 
-/* Closed vocabularies — rules.json (MIS-138 D1.1), one copy for every guard. */
+/* Closed vocabularies. They live in rules.json so every guard reads one copy:
+   a vocabulary duplicated per guard drifts silently, one guard at a time. */
 const TYPES = RULES.types.all;
 const TYPE_SERIES = RULES.types.series;
 const LAX_TYPES = RULES.types.lax;
@@ -50,16 +51,16 @@ const PREFIX = Object.fromEntries(Object.entries(RULES.series)
 
 /* HDR-031: retired fields, each the object of a registered migration. */
 const RETIRED = {
-  area: 'D-010: area → territory',
-  blocked_reason: 'D-002: orphaned by the removal of status blocked',
-  documento: 'C-005: Spanish-era key', ambito: 'C-005: Spanish-era key',
-  estado: 'C-005: Spanish-era key', fecha: 'C-005: Spanish-era key',
-  licencia: 'C-005: Spanish-era key', revision: 'C-005: Spanish-era key',
+  area: 'renamed to territory',
+  blocked_reason: 'orphaned when status blocked was removed',
+  documento: 'Spanish-era key', ambito: 'Spanish-era key',
+  estado: 'Spanish-era key', fecha: 'Spanish-era key',
+  licencia: 'Spanish-era key', revision: 'Spanish-era key',
 };
 
-/* HDR-033..038: STD-001 §6.3, §7, §territory. Each drifted the same three
-   ways before it was enforced: a Spanish value, a lowercase variant, a
-   template comment glued to the value. */
+/* HDR-033..038: the closed vocabularies of the header, held by STD-001. Each
+   drifted the same three ways before it was enforced: a Spanish value, a
+   lowercase variant, a template comment glued to the value. */
 const VOCAB = {
   guild: ['Sentinels', 'Alchemists', 'Exegetes', 'Procurators'],
   type_execution: ['digital', 'biological', 'hybrid'],
@@ -74,9 +75,10 @@ const VOCAB_PLATE = { guild: 'HDR-033', type_execution: 'HDR-034', visibility: '
 const ISO_TIME = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?(\.\d+)?(Z|[+-]\d{2}:?\d{2})$/;
 const SEMVER = /^\d+\.\d+\.\d+$/;
 
-/* ADR-028: `TBA` defers a value; legal only with a mission that will resolve
-   it. A field defers by being listed here with its owner, or HDR-032 fires.
-   Empty since MIS-124 closed (2026-09-09) with zero territory TBA left. */
+/* `TBA` defers a value, and a deferral is legal only when something owns it:
+   an unowned TBA is a parking space that nobody ever comes back to. A field
+   defers by being listed here with its owner, or HDR-032 fires. Empty today —
+   every deferral in the corpus has been resolved. */
 const DEFERRED = 'TBA';
 const DEFERRAL_OWNER = {};
 
@@ -106,10 +108,11 @@ function rings(corpus, out) {
 
     for (const [k, v] of Object.entries(fm))
       if (v === DEFERRED && !DEFERRAL_OWNER[k])
-        F('HDR-032', rel, `"${k}: ${DEFERRED}" defers a value with no mission to resolve it — ADR-028 forbids a parking space`);
+        F('HDR-032', rel, `"${k}: ${DEFERRED}" defers a value with no mission to resolve it — a deferral nobody owns is a parking space`);
 
-    // HDR-009: empty is absent. `uid` is the exception: STD-001 §6.2 wants it
-    // declared and empty until the UID system exists (MIS-122).
+    // HDR-009: empty is absent. `uid` is the exception — it is declared and
+    // left empty on purpose until the UID system exists, so its emptiness is
+    // a reservation, not an omission.
     for (const [k, v] of Object.entries(fm))
       if (v === '' && k !== 'uid') F('HDR-009', rel, `empty value written for "${k}" — omit the field instead`);
 
@@ -127,7 +130,7 @@ function rings(corpus, out) {
 
     for (const k of RING1)
       if (!(k in fm) || fm[k] === '') {
-        if (k === 'id' && fm.registration === 'exempt') continue;   // STD-001 §5.0
+        if (k === 'id' && fm.registration === 'exempt') continue;   // exempt: carries no id by declaration
         F(RING1_PLATE[k], rel, `missing mandatory field "${k}"`);
       }
 
@@ -135,7 +138,7 @@ function rings(corpus, out) {
       const pfx = fm.id.match(/^([A-Z]+)-/)?.[1];
       if (!pfx) F('HDR-001', rel, `id "${fm.id}" does not match <PREFIX>-<NNN>`);
       else if (PREFIX[top] && ![].concat(PREFIX[top]).includes(pfx))
-        F('HDR-001', rel, `id prefix "${pfx}" does not belong to ${top}/ (ADR-005)`);
+        F('HDR-001', rel, `id prefix "${pfx}" is not one of the prefixes ${top}/ may use`);
     }
 
     if (fm.type && !TYPES.includes(fm.type))
@@ -155,7 +158,7 @@ function rings(corpus, out) {
     const tpl = isTemplate(rel);
     if (fm.created && !tpl) {
       if (!ISO_TIME.test(fm.created)) F('HDR-006', rel, `created "${fm.created}" lacks a real time (ISO 8601 with time)`);
-      else if (/T00:00:00(\.0+)?Z?$/.test(fm.created)) F('HDR-006', rel, `created "${fm.created}" carries the midnight nobody wrote at (STD-001 §8)`);
+      else if (/T00:00:00(\.0+)?Z?$/.test(fm.created)) F('HDR-006', rel, `created "${fm.created}" carries the midnight nobody wrote at — a date with no time is a guess wearing a timestamp`);
     }
     if (fm.updated && !tpl) {
       if (!ISO_TIME.test(fm.updated)) F('HDR-007', rel, `updated "${fm.updated}" lacks a real time`);
@@ -178,7 +181,7 @@ function rings(corpus, out) {
       F('HDR-018', rel, `subtype "${fm.subtype}" not registered for type ${fm.type}`);
 
     if (fm.uid && fm.uid !== '')
-      F('HDR-020', rel, 'uid carries a hand-authored value — empty the field, keep it declared (STD-001 §6.2)');
+      F('HDR-020', rel, 'uid carries a hand-authored value — the field is reserved for a system that does not exist yet: keep it declared and empty');
 
     for (const k of Object.keys(fm))
       if (RETIRED[k]) F('HDR-031', rel, `retired field "${k}" (${RETIRED[k]})`);

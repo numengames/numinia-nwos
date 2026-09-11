@@ -14,9 +14,9 @@
 //          N-02 a living document's name carries no version or date
 //          N-05 the slug is lowercase kebab-case
 //          (N-04, the identifier the name carries, is IDN-011 → std-018)
-// TXT-002  the frontmatter fence closes on its own line — PR #134 glued 79
-//          of them and five guards stayed green; a strict parser reads NO
-//          header in such a file
+// TXT-002  the frontmatter fence closes on its own line. One commit once
+//          glued seventy-nine of them to the line above and five guards
+//          stayed green; a strict parser reads NO header in such a file
 //          the header is structurally sound YAML — an indented line under a
 //          closed key is what deleting a key with children leaves behind, and
 //          four guards were green over a corpus the web could not build.
@@ -43,19 +43,19 @@ function naming(rel, fm) {
   const c = classify(rel, fm);
   const F = (what) => ({ plate: 'TXT-001', what, where: rel });
   if (c.kind === 'root') {
-    return ROOT_UPPERCASE_RE.test(c.base) ? [] : [F(`N-01 root document "${c.base}" is not UPPERCASE.md (STD-001 §9)`)];
+    return ROOT_UPPERCASE_RE.test(c.base) ? [] : [F(`N-01 root document "${c.base}" is not UPPERCASE.md`)];
   }
   if (c.kind === 'legacy') {
     if (!c.declaredArchive && c.legacyDated)
-      return [F('N-02 filename carries a date prefix; dated names are a legacy shape and say nothing about state (STD-001 §9, P-010 §3.2.1)')];
+      return [F('N-02 filename carries a date prefix; a dated name is a legacy shape and says nothing about the state of the document')];
     return [];
   }
   if (c.kind !== 'series') return [];
   const out = [];
   if (VERSION_SUFFIX_RE.test(c.base))
-    out.push(F('N-02 filename carries a version suffix — version: lives in frontmatter, not the name (STD-001 §9)'));
+    out.push(F('N-02 filename carries a version suffix — version: lives in the header, where it can be read; a name has to be renamed'));
   if (c.slug !== null && !KEBAB_SLUG_RE.test(c.slug))
-    out.push(F(`N-05 slug "${c.slug}" is not lowercase kebab-case (STD-001 §9)`));
+    out.push(F(`N-05 slug "${c.slug}" is not lowercase kebab-case`));
   return out;
 }
 

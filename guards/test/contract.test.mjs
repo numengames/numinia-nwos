@@ -100,3 +100,55 @@ test('every plate a guard declares is held by one standard', async () => {
     for (const p of mod.meta.plates) assert.ok(holderOf(p), `${file}: ${p} has no holder in the axis`);
   }
 });
+
+/* A comment says what the code checks and why that is hard. It does not send
+   the reader to a document: documents move, are renumbered, are absorbed or
+   are withdrawn, and the comment stays behind asserting something no longer
+   true. What stays is the vocabulary — a plate (HDR-030, CIT-050, ENG-067)
+   and the standard that holds it (STD-016). What goes is every pointer at a
+   mission, a decision, a debt, a report, a pull request, a date, and every
+   citation of a SECTION: a § number is the most perishable thing a document
+   has, and the rule against citing one binds the code that enforces it.
+
+   `\b` around D-NNN keeps the pattern off the tail of STD-016; without it the
+   scan counts the last three characters of a standard's own identifier. A
+   date wedged between hyphens is a filename, which is data the guard needs,
+   so the date form only matches where prose would put one. */
+const DOCUMENT = String.raw`MIS-[0-9]+|ADR-[0-9]+|DBT-[0-9]+|RPT-[0-9]+|\b[CD]-[0-9]{3}\b|PR #[0-9]+|(?<![-/\w])[0-9]{4}-[0-9]{2}-[0-9]{2}(?![-\w])`;
+const SECTION = String.raw`\b(?:STD|PRO|CAN|OPS)-[0-9]{3}[^\n]{0,14}?§\s?[0-9.]+`;
+const CITATION = new RegExp(`${DOCUMENT}|${SECTION}`, 'g');
+
+/* A citation inside "double quotes" is a specimen: the shape the rule reads,
+   quoted so a reader can see it. Masking it is the same allowance the corpus
+   gets, where a backticked span is not read as a citation — quoting a bad
+   citation is how a rule is taught.
+
+   A literal whose WHOLE content is an identifier is a value the code compares,
+   not prose that points at a document: there is no reason to say instead of
+   it, because the guard stops working without it. Prose that merely contains
+   an id is not exempt — the literal has to be the identifier and nothing
+   else. */
+const SPECIMEN = /"[^"\n]*"/g;
+const VALUE = /(['"`])[A-Z]{2,5}-[0-9]{3,4}\1/g;
+
+/** Every .mjs under guards/ except this shelf: a test may quote what it forbids. */
+function guardSources(dir = path.join(ROOT, 'guards')) {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
+    const abs = path.join(dir, e.name);
+    if (e.isDirectory()) return e.name === 'test' ? [] : guardSources(abs);
+    return e.name.endsWith('.mjs') ? [abs] : [];
+  });
+}
+
+test('the code cites plates, not prose', () => {
+  const hits = [];
+  for (const abs of guardSources()) {
+    const rel = path.relative(ROOT, abs);
+    readFileSync(abs, 'utf8').split('\n').forEach((line, i) => {
+      const probe = line.replace(SPECIMEN, (s) => ' '.repeat(s.length)).replace(VALUE, (s) => ' '.repeat(s.length));
+      for (const m of probe.matchAll(CITATION)) hits.push(`${rel}:${i + 1}  ${m[0]}  ${line.trim().slice(0, 96)}`);
+    });
+  }
+  assert.equal(hits.length, 0,
+    `${hits.length} citation(s) to a document in guard code; say the reason instead:\n  ${hits.join('\n  ')}`);
+});

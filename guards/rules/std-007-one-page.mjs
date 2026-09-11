@@ -36,7 +36,7 @@ export const meta = {
   plates: ['DOC-001', 'DOC-002', 'DOC-003', 'DOC-004', 'DOC-005', 'DOC-006', 'DOC-007', 'DOC-008'],
 };
 
-// ADR-043 rule 6. Moves to the Series register when that file exists.
+// The word budget per series. Moves to the Series register when that exists.
 const BUDGET = {
   standards: 500, protocols: 500, decisions: 500, missions: 500,
   debt: 300, guilds: 300,

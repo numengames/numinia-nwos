@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-11T08:58:02Z"
+updated: "2026-09-11T11:27:59Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `2908fea`  · corpus_hash: `8d390974210c9df9…`  · measured_at: 2026-09-11T08:58:02Z  · root_dirty: 1
+- head: `fe83a0d`  · corpus_hash: `e0e8a0fb9d5f1f86…`  · measured_at: 2026-09-11T11:27:59Z  · root_dirty: 1
 
 ## corpus
 
