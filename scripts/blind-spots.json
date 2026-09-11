@@ -1,27 +1,6 @@
 {
   "$comment": "Blind-spot registry — D-025. Single source of truth for what each guard CANNOT see. Guards import scripts/lib/blindness.mjs and call declareBlindSpots(<id>), which prints these on every exit path, success or failure. Verified by scripts/test/blindness.test.mjs: every id here must be claimed by a guard, every guard must declare, and the fixture-backed entries are proven against real files rather than asserted. A guard that verifies the artefact rather than a rule carries `build_guard` with its reason: it bites whatever any standard's state (ENG-067 exception). A guard without that field answers to the regime and must use scripts/lib/regime.mjs.",
   "guards": {
-    "check-core-rules": {
-      "script": "scripts/check-core-rules.mjs",
-      "sees": "one plated rule that had no guard of its own (CIT-050; HDR-040/043/044 moved to std-004-the-header, IDN-012/013/014 to std-018-one-identifier, VER-021/024 to std-019-versions, GIT-026/045 to std-020-git-is-the-archive), bound by its holder's state (ENG-067)",
-      "blind_to": [
-        {
-          "spot": "every other plated rule — a rule with no guard is enforced by nobody, and this guard does not list which those are",
-          "covered_by": "the Check tables of the standards, read by hand",
-          "debt": "DBT-017"
-        },
-        {
-          "spot": "values the flat frontmatter parser cannot read — a nested or multi-line field reads as its raw text",
-          "covered_by": "std-006-plain-text, which checks the header's YAML structure",
-          "debt": null
-        },
-        {
-          "spot": "untracked files — enumerates via `git ls-files`",
-          "covered_by": "its own untracked-file warning (D-049)",
-          "debt": "D-049"
-        }
-      ]
-    },
     "check-deletable": {
       "script": "tools/check-deletable.mjs",
       "manual": "takes arguments (a path, or --candidates) and is run by hand, not by run-guards.mjs (ENG-032's registry-discovery scope)",
@@ -76,7 +55,7 @@
         },
         {
           "spot": "anchors (#fragment) — the file is checked, the fragment is not",
-          "covered_by": "check-section-citations, for §-citations between documents only",
+          "covered_by": "std-021-evidence-and-citation, for §-citations between documents only",
           "debt": null
         }
       ]
@@ -96,24 +75,6 @@
           "spot": "content served from outside web/public/ — a route added directly in src/pages is not orphan content and is not examined here",
           "covered_by": "npm run build",
           "debt": null
-        }
-      ]
-    },
-    "check-section-citations": {
-      "script": "scripts/check-section-citations.mjs",
-      "sees": "every `ID §N` citation in a governed .md, resolved against the cited document's real section numbers",
-      "blind_to": [
-        {
-          "spot": "a section that exists but no longer says what the citer meant — the number resolves, the meaning drifted",
-          "covered_by": null
-        },
-        {
-          "spot": "citations by heading text rather than section number — it only reads the § form",
-          "covered_by": null
-        },
-        {
-          "spot": "untracked files — enumerates via `git ls-files`",
-          "covered_by": "its own untracked-file warning (D-049)"
         }
       ]
     },
@@ -363,6 +324,32 @@
         },
         {
           "spot": "GIT-026 reads the last 400 commit subjects — an older multi-line subject is out of the window",
+          "covered_by": null
+        }
+      ]
+    },
+    "std-021-evidence-and-citation": {
+      "script": "guards/rules/std-021-evidence-and-citation.mjs",
+      "sees": "CIT-050 twice: a standard (standards/, not apparatus, code stripped) cites no section by number; and everywhere else (every tracked .md outside web/dist, salida/, templates/, history/) a `DOC-NNN §X.Y` resolves to a numbered heading DOC-NNN actually has, when DOC-NNN numbers its headings at all",
+      "blind_to": [
+        {
+          "spot": "a section that exists but no longer says what the citer meant — the number resolves, the meaning drifted",
+          "covered_by": null
+        },
+        {
+          "spot": "citations by heading text rather than section number — it only reads the § form",
+          "covered_by": null
+        },
+        {
+          "spot": "untracked files — enumerates via `git ls-files`",
+          "covered_by": "its own untracked-file warning (D-049)"
+        },
+        {
+          "spot": "a citation inside a fenced code block is read like any other text on the resolve side; the norm side strips code first",
+          "covered_by": null
+        },
+        {
+          "spot": "the norm reading (a standard cites no §) stops at standards/; a canon or protocol citing `STD-004 §7` is only held to the section existing",
           "covered_by": null
         }
       ]

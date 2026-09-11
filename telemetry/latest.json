@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "23c7d3d",
-  "corpus_hash": "a9da590a0e872079003f4748ac7633e8d972be74196d45f961c6cb688dd1ae0a",
+  "head": "2908fea",
+  "corpus_hash": "8d390974210c9df9ce3d15cbd7058c9aee2c427ddfd1c8226f2ab97337260a50",
   "root_dirty": 1,
-  "measured_at": "2026-09-11T08:49:28Z",
+  "measured_at": "2026-09-11T08:58:02Z",
   "families": [
     "corpus",
     "series",
@@ -105,19 +105,19 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 28,
+      "value": 26,
       "unit": "files",
       "definition": "files under `scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 28
+        "node": 26
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
     },
     "corpus.scripts_in_ci": {
-      "value": 14,
+      "value": 13,
       "unit": "files",
       "definition": "guards the runner runs in CI: registered scripts under `scripts/` (ENG-032)"
     },
@@ -316,22 +316,22 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 267938,
+      "value": 268102,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "missions": 43062,
-        "standards": 37164,
+        "standards": 37304,
         "canon": 29364,
-        "agents": 26722,
+        "agents": 26732,
         "reports": 26138,
         "blueprints": 22838,
         "operations": 21323,
         "templates": 15832,
         "protocols": 14384,
-        "": 13149,
+        "": 13163,
         "system": 9652,
         "decisions": 6189,
         "debt": 1544,
@@ -342,18 +342,18 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 113902,
-        "draft": 96274,
+        "active": 113912,
+        "draft": 96414,
         "done": 26350,
         "todo": 13588,
-        "(none)": 13182,
+        "(none)": 13196,
         "in-progress": 4642
       },
       "unit": "tokens",
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 16.07,
+      "value": 16.06,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -657,6 +657,7 @@
         "scripts/std-020-git-is-the-archive.mjs",
         "scripts/run-guards.mjs",
         "scripts/lib/regime.mjs",
+        "guards/lib/guard.mjs",
         "scripts/generate-design-kit.mjs",
         "tools/check-deletable.mjs",
         "scripts/check-deletable.mjs"

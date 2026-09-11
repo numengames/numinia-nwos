@@ -13,7 +13,7 @@
 //   governed  tracked .md under rules.json `governed.dirs` (STD-004 §10) —
 //             HDR-000..038, the ring contract (from lint-frontmatter, folded)
 //   bound     tracked .md outside web/, not apparatus, not outward-facing —
-//             HDR-040/043/044 (from check-core-rules)
+//             HDR-040/043/044 (from check-core-rules, folded)
 // The two overlap almost entirely; where they differ (agents/, templates)
 // each plate keeps the reach its standard gave it.
 //

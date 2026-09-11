@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-11T08:49:28Z"
+updated: "2026-09-11T08:58:02Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `23c7d3d`  · corpus_hash: `a9da590a0e872079…`  · measured_at: 2026-09-11T08:49:28Z  · root_dirty: 1
+- head: `2908fea`  · corpus_hash: `8d390974210c9df9…`  · measured_at: 2026-09-11T08:58:02Z  · root_dirty: 1
 
 ## corpus
 
@@ -34,9 +34,9 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `corpus.docs_by_type` | (table below) | documents | corpus documents by frontmatter `type`; `(none)` when absent |
 | `corpus.docs_without_frontmatter` | 8 | documents | corpus documents with no `---` block at the top |
 | `corpus.apparatus` | 20 | documents | corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path) |
-| `corpus.scripts_total` | 28 | files | files under `scripts/` with a code extension (.py .mjs .js .sh .ts) |
+| `corpus.scripts_total` | 26 | files | files under `scripts/` with a code extension (.py .mjs .js .sh .ts) |
 | `corpus.scripts_by_language` | (table below) | files | those scripts by language, from the extension |
-| `corpus.scripts_in_ci` | 14 | files | guards the runner runs in CI: registered scripts under `scripts/` (ENG-032) |
+| `corpus.scripts_in_ci` | 13 | files | guards the runner runs in CI: registered scripts under `scripts/` (ENG-032) |
 
 ### `corpus.files_by_ext`
 
@@ -103,7 +103,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | files |
 |---|---|
-| node | 28 |
+| node | 26 |
 
 ## series
 
@@ -201,10 +201,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 267938 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 268102 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
-| `tokens.missions_share_pct` | 16.07 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.missions_share_pct` | 16.06 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
 | `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
@@ -212,15 +212,15 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | tokens |
 |---|---|
 | missions | 43062 |
-| standards | 37164 |
+| standards | 37304 |
 | canon | 29364 |
-| agents | 26722 |
+| agents | 26732 |
 | reports | 26138 |
 | blueprints | 22838 |
 | operations | 21323 |
 | templates | 15832 |
 | protocols | 14384 |
-|  | 13149 |
+|  | 13163 |
 | system | 9652 |
 | decisions | 6189 |
 | debt | 1544 |
@@ -230,11 +230,11 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| active | 113902 |
-| draft | 96274 |
+| active | 113912 |
+| draft | 96414 |
 | done | 26350 |
 | todo | 13588 |
-| (none) | 13182 |
+| (none) | 13196 |
 | in-progress | 4642 |
 
 ### `tokens.largest`
@@ -427,7 +427,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 ### `contradictions.ci_marked_scripts_not_in_ci`
 
-6 rows (scripts) — in `latest.json`.
+7 rows (scripts) — in `latest.json`.
 
 ### `contradictions.ci_scripts_not_marked`
 
