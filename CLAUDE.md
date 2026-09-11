@@ -18,7 +18,7 @@ This is the Numinia NWOS workspace: canon, lore, missions, protocols and operati
 - `npm run build` — production build to `web/dist/`
 - `npm run build:pdf` — after build: prints every `/print/*` page to `web/dist/pdf/*.pdf` with Chromium and removes `dist/print/` (MIS-088). Deploy flow is build → build:pdf → `npx wrangler deploy`; CI runs build only.
 
-CI (`.github/workflows/ci.yml`) runs ten steps on every push/PR: six guards (licence-frontmatter, frontmatter-yaml, references, frontmatter-delimiter, header lint HDR-000…HDR-038, naming lint N-01…N-05), the web build, then the orphan-content and URL-lifecycle ratchets. Tests: `node scripts/test/*.test.mjs` (only `telemetry.test.mjs` is in CI). OpenSSF Scorecard runs weekly. Node ≥ 22.12 required.
+CI (`.github/workflows/ci.yml`) runs on every push/PR: `npm run guards -- --rules` (every guard registered in `scripts/blind-spots.json` — `guards/rules/std-NNN-*.mjs` on the R2 contract plus the `scripts/check-*`/`lint-*` not yet folded), `npm test` (`scripts/test/*.test.mjs` + `guards/test/*.test.mjs`), the web build, then `npm run guards -- --build` (the ratchets that need `web/dist`). OpenSSF Scorecard runs weekly. Node ≥ 22.12 required.
 
 ## Stack & architecture (`web/`)
 

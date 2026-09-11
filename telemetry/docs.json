@@ -60,10 +60,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 8060,
+  "chars": 8105,
   "apparatus": false,
   "archived": false,
-  "tokens": 2054
+  "tokens": 2074
  },
  {
   "path": "CONTRIBUTING.md",
@@ -1237,10 +1237,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4204,
+  "chars": 4613,
   "apparatus": false,
   "archived": false,
-  "tokens": 1080
+  "tokens": 1184
  },
  {
   "path": "standards/STD-007-one-page-per-document.md",
@@ -1589,10 +1589,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 4618,
+  "chars": 4659,
   "apparatus": true,
   "archived": false,
-  "tokens": 1281
+  "tokens": 1293
  },
  {
   "path": "templates/RPT-TEMPLATE.md",

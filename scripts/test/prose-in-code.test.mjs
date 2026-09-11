@@ -2,7 +2,7 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// prose-in-code.test.mjs — the guard's own behaviour, proven.
+// prose-in-code.test.mjs — TXT-003's behaviour, proven (guards/rules/std-006-plain-text.mjs).
 //
 // Each test runs the real guard against a real scratch file and reads its
 // verdict. No mocking — the thing under test is the guard's exit code and
@@ -20,7 +20,7 @@ import path from 'node:path';
 import { bindsFor } from '../lib/regime.mjs';
 
 const ROOT = execSync('git rev-parse --show-toplevel').toString().trim();
-const GUARD = path.join(ROOT, 'scripts', 'check-prose-in-code.mjs');
+const GUARD = path.join(ROOT, 'guards', 'rules', 'std-006-plain-text.mjs');
 const SCRATCH = path.join(ROOT, 'web', 'src', 'components', '_ProseFixture.astro');
 const PAGE = path.join(ROOT, 'web', 'src', 'pages', 'cao.astro');
 
@@ -28,8 +28,8 @@ const runGuard = (args = []) => {
   const r = spawnSync('node', [GUARD, ...args], { encoding: 'utf8' });
   return { code: r.status, out: (r.stdout || '') + (r.stderr || '') };
 };
-const findings = (out) => Number(/prose-in-code: (\d+) finding/.exec(out)?.[1] ?? NaN);
-const measured = (out) => Number(/orphan\)\s*:\s*(\d+)/.exec(out)?.[1] ?? NaN);
+const findings = (out) => (out.match(/[·✗] TXT-003 /g) || []).length;
+const measured = (out) => [...out.matchAll(/TXT-003\s+(\d+) characters/g)].reduce((n, m) => n + Number(m[1]), 0);
 
 after(() => rmSync(SCRATCH, { force: true }));
 
@@ -86,15 +86,17 @@ test('prose removed from a page is one finding fewer, not silence', () => {
   }
 });
 
-test('--report lists the files that carry the prose', () => {
-  const { out } = runGuard(['--report']);
-  assert.ok(out.includes('worst offenders'), out);
+test('every finding names the file that carries the prose', () => {
+  // The old guard had a --report mode for this; on the contract every
+  // finding is printed with its `where`, so the list IS the report.
+  const { out } = runGuard();
+  const named = [...out.matchAll(/[·✗] TXT-003 .*\n\s+(web\/src\/\S+)/g)].length;
+  assert.equal(named, findings(base.out), out);
 });
 
 test('the guard reads and never writes', () => {
   const snapshot = () => execSync('git status --porcelain web/src', { cwd: ROOT }).toString();
   const before = snapshot();
   runGuard([]);
-  runGuard(['--report']);
   assert.equal(snapshot(), before, 'the guard changed the working tree');
 });
