@@ -374,6 +374,49 @@
           "debt": null
         }
       ]
+    },
+    "check-register": {
+      "script": "tools/check-register.mjs",
+      "sees": "whether every row of the engineering register states a mechanism this tree can produce: a tracked file, an npm script, a real Scorecard check name, a GitHub setting, a gate with its human act named, or a debt with an owner and a date. Also whether every rule guard on disk is named by a registry entry, and whether the pipeline still invokes the runner and the tests",
+      "blind_to": [
+        {
+          "spot": "whether the named mechanism actually checks the practice the row describes. A row may cite a tracked script that tests something else entirely: the check proves the machine exists, not that it is the right machine",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "the GitHub settings rows, unless run with --github. Reading them needs a credential that administers the organisation, which CI does not have; without it those rows are unknown, which the summary line states rather than counting them as clean",
+          "covered_by": "a person runs it with --github",
+          "debt": null
+        },
+        {
+          "spot": "whether a DEBT entry is still true. An owner and a date make the debt answerable; nothing here notices that the thing was built and the row never updated. That is the drift that left three rows claiming a person checks what a guard had been checking for weeks",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "build guards. Discovery is checked for guards/rules/ only, so a build guard added and never registered is not reported here",
+          "covered_by": "run-guards.mjs fails the run when --build finds no input",
+          "debt": null
+        }
+      ]
+    },
+    "ruleset-export": {
+      "script": "tools/ruleset-export.mjs",
+      "manual": "reads the GitHub API, which needs a credential that administers the repository; CI's token cannot, so it is run by hand (ENG-032's registry-discovery scope)",
+      "sees": "whether the committed snapshot of the branch ruleset still equals the live one, naming each setting that differs",
+      "blind_to": [
+        {
+          "spot": "everything, without a credential. It exits 2 rather than reporting clean: an unanswered question is not a clean result",
+          "covered_by": "exit code 2 is distinct from both pass and fail",
+          "debt": null
+        },
+        {
+          "spot": "whether the live ruleset is CORRECT. It compares the file to the panel and says they agree; whether what the panel enforces is what the organisation wants is a judgment",
+          "covered_by": null,
+          "debt": null
+        }
+      ]
     }
   }
 }
