@@ -42,6 +42,11 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { ROOT } from '../scripts/lib/frontmatter.mjs';
+import { declareBlindSpots } from '../scripts/lib/blindness.mjs';
+
+/* What this tool did not look at, printed before its verdict (D-025). Without
+   a credential it sees nothing at all and says so with exit 2. */
+declareBlindSpots('ruleset-export');
 
 const RULESET_ID = 21281544;
 const SNAPSHOT = path.join(ROOT, '.github/rulesets/protect-main.json');

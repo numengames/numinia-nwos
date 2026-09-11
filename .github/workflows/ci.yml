@@ -49,10 +49,12 @@ jobs:
       - name: telemetry — tokenizer rank file
         run: node scripts/telemetry.mjs --fetch-tokenizer
 
-      # Every rule guard the runner finds in scripts/ (ENG-032). Each reports
-      # every finding it sees; whether one fails the build is decided by the
-      # state of the standard that holds the rule (ENG-067). Red means: a
-      # rule whose standard is active is broken — the line names the file.
+      # Every rule guard named by scripts/blind-spots.json (ENG-032), wherever
+      # its script sits. Each reports every finding it sees; whether one fails
+      # the build is decided by the state of the standard that holds the rule
+      # (ENG-067). Red means: a rule whose standard is active is broken — the
+      # line names the file. This step is itself a claim 23 rows of STD-015
+      # rest on, so check-register verifies the step is still here.
       - name: rule guards
         run: npm run guards -- --rules
 
