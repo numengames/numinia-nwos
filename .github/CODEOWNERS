@@ -1,10 +1,10 @@
-# SEC-010 (standards/STD-005-engineering-standards.md): sensitive paths require
-# Oracle review. Enforcement needs branch protection with "require
-# review from Code Owners" — an org-settings step tracked in MIS-070.
+# SEC-010 (standards/STD-015-engineering-checks.md): sensitive paths require
+# Oracle review. Enforcement needs branch protection with "require review from
+# Code Owners", which is an organisation setting, not a file in this tree: the
+# ruleset on main has it off, so the list below is advisory until it is on.
 /LICENSE* @PabloFMM
 /LICENSES/ @PabloFMM
 /REUSE.toml @PabloFMM
 /.github/ @PabloFMM
 /canon/ @PabloFMM
-/operations/legal/ @PabloFMM
-/operations/strategy/ @PabloFMM
+/operations/ @PabloFMM

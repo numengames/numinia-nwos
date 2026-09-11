@@ -5,16 +5,16 @@ title: "The corpus does not grow"
 type: documentation
 subtype: standard
 status: draft
-version: "1.2.1"
+version: "1.2.2"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-09-10T12:30:00+02:00"
+updated: "2026-09-11T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC0-1.0"
 tags: [deflation, lifecycle, reports, missions, debt, compression]
 ratified_by: "ADR-042"
 related: ["ADR-030", "STD-025", "ADR-042", "PRO-017", "STD-001", "CAN-001"]
-series_change: "1.2.1 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 1.2.0 — the standard takes the ADR-043 shape: 868 -> 455 words of body. DEF-001..007 keep their text and their checks; the history that motivated the standard is one sentence in the Why. Minor: no rule changed, and no section number was cited by any document."
+series_change: "1.2.2 — 2026-09-11: Check rows name the folder a script lives in (scripts/, tools/, guards/rules/); a bare filename does not say where to run it, and three of them had moved. Patch: prose only. 1.2.1 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 1.2.0 — the standard takes the ADR-043 shape: 868 -> 455 words of body. DEF-001..007 keep their text and their checks; the history that motivated the standard is one sentence in the Why. Minor: no rule changed, and no section number was cited by any document."
 ---
 # The corpus does not grow
 
@@ -73,8 +73,8 @@ Oracle, never dropped.
 | DEF-001 | `guards/rules/std-004-the-header.mjs` — no `subtype: daily`, no one-day `period` · `[MANUAL]` for a daily in disguise |
 | DEF-002 | `[MANUAL]` — no guard reads `period` yet (`ADR-042`) |
 | DEF-003 | `[MANUAL]` — `PRO-017` makes the executor state which of the three |
-| DEF-004 | `check-deletable.mjs --candidates` — closed records with no living citer |
-| DEF-005 | `guards/rules/std-020-git-is-the-archive.mjs` · `check-url-lifecycle.mjs` |
+| DEF-004 | `tools/check-deletable.mjs --candidates` — closed records with no living citer |
+| DEF-005 | `guards/rules/std-020-git-is-the-archive.mjs` · `scripts/check-url-lifecycle.mjs` |
 | DEF-006 | `[MANUAL]` |
 
 ## Why
