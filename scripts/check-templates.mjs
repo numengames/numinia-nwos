@@ -7,7 +7,7 @@
 // WHY THIS EXISTS
 // ---------------
 // Until now nothing checked the templates. Every other document in the archive
-// is read by lint-frontmatter, guards/lib/naming.mjs, std-020-git-is-the-archive and the rest; the
+// is read by std-004-the-header, guards/lib/naming.mjs, std-020-git-is-the-archive and the rest; the
 // moulds those documents are copied FROM were exempt from all of them, because
 // `^templates/` is apparatus and apparatus is skipped. The result was measured
 // on 2026-09-04, before this guard existed:
@@ -69,7 +69,7 @@ const COMPANIONS = { 'MIS-TEMPLATE-EXAMPLE.md': 'missions', 'MIS-TEMPLATE-CHANGE
 const EXEMPT = new Set(['README.md']);
 
 /* Ring 1, ring 2 and the per-series registry come from lib/rings.mjs — the
-   same registry lint-frontmatter enforces on the documents. Lifecycles come
+   same registry std-004-the-header enforces on the documents. Lifecycles come
    from rules.json, series before type (STD-004 §6). */
 
 const SEMVER = /^\d+\.\d+\.\d+$/;
@@ -161,7 +161,7 @@ for (const rel of files) {
   for (const k of Object.keys(fm)) {
     if (RING1.includes(k) || RING2.includes(k) || RING3_ALL.includes(k)) continue;
     if (ring3.includes(k)) continue;
-    if (k === 'subtype') continue;                 // lint-frontmatter allows it corpus-wide
+    if (k === 'subtype') continue;                 // std-004-the-header allows it corpus-wide
     F('T-07', rel, `field "${k}" is registered for no ring of ${dir}/ — a document copied from this mould fails HDR-030`);
   }
 

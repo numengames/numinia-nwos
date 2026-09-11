@@ -60,7 +60,7 @@ Two companions of the mission mould, which are records rather than moulds:
 5. Run the guards before committing:
 
 ```
-node scripts/lint-frontmatter.mjs
+node guards/rules/std-004-the-header.mjs
 node guards/rules/std-018-one-identifier.mjs
 node guards/rules/std-006-plain-text.mjs
 node guards/rules/std-010-licensing.mjs

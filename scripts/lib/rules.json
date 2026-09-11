@@ -15,7 +15,7 @@
     "agents":     { "prefix": [],             "digits": 0, "threshold": "live", "naming": false }
   },
   "retiredPrefixes": {
-    "_comment": "Prefixes that no longer name a series but still appear in prose and must resolve for reference checking (std-020-git-is-the-archiverences ID_RE). D- closed 2026-08-31 (RPT-001 §12). S- (standards, pre-MIS-109) and P- (protocols, pre-MIS-125) added 2026-09-03 — same shape as D-, found during the standards/ refactor: 168 and 287 live citations respectively, invisible to this guard until now.",
+    "_comment": "Prefixes that no longer name a series but still appear in prose and must resolve for reference checking (std-020-git-is-the-archive ID_RE). D- closed 2026-08-31 (RPT-001 §12). S- (standards, pre-MIS-109) and P- (protocols, pre-MIS-125) added 2026-09-03 — same shape as D-, found during the standards/ refactor: 168 and 287 live citations respectively, invisible to this guard until now.",
     "D": "debt",
     "S": "standards",
     "P": "protocols"
@@ -44,7 +44,7 @@
     "documentation": ["standard", "register", "guide", "reference"]
   },
   "governed": {
-    "_comment": "STD-004 §10: the top-level directories whose tracked .md files lint-frontmatter governs. Everything else (web/, scripts/, root, .github/) is out of its scope.",
+    "_comment": "STD-004 §10: the top-level directories whose tracked .md files std-004-the-header governs. Everything else (web/, scripts/, root, .github/) is out of its scope.",
     "dirs": ["missions", "decisions", "protocols", "debt", "standards", "canon", "reports", "agents", "blueprints", "operations", "system"]
   }
 }

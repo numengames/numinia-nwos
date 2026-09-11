@@ -2,7 +2,7 @@
  * scripts/lib/rings.mjs — STD-004's three rings, in one place.
  *
  * MIS-145 v2 (2026-09-04). Until now this registry lived inside
- * lint-frontmatter.mjs, which was correct while that guard was its only
+ * the header guard (now guards/rules/std-004-the-header.mjs), which was correct while that guard was its only
  * consumer. check-templates.mjs is the second: it applies HDR-030's rule one step
  * earlier — at the mould instead of at the documents copied from it — and a
  * second private copy of the registry is exactly the drift MIS-138 D1.1 moved
