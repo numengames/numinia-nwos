@@ -130,8 +130,8 @@ check('formatBlindSpots refuses an unknown guard', () => {
 /* ---------- BEHAVIOURAL ---------- */
 
 check('the declaration is printed on SUCCESS, not only on failure', () => {
-  // check-frontmatter-delimiter is green on a clean corpus: perfect success case.
-  const res = spawnGuard('scripts/check-frontmatter-delimiter.mjs', ROOT);
+  // std-006 exits 0 on the tree today (its holder is draft): the success path.
+  const res = spawnGuard('guards/rules/std-006-plain-text.mjs', ROOT);
   assert(res.status === 0, `expected a green run to test success output, got exit ${res.status}`);
   assert(/BLIND TO \(D-025\)/.test(res.stderr),
     'a green guard run did not print its blind spots — this is the exact failure D-025 describes');
@@ -147,7 +147,7 @@ check('the declaration survives a failing run too', () => {
     writeFileSync(holder, readFileSync(holder, 'utf8').replace(/^status: \w+$/m, 'status: active'));
     writeFileSync(path.join(clone, 'debt/D-000-fence-broken.md'), '---\nid: "D-000"\n---# glued\n');
     execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
-    const res = spawnGuard('scripts/check-frontmatter-delimiter.mjs', clone);
+    const res = spawnGuard('guards/rules/std-006-plain-text.mjs', clone);
     assert(res.status === 1, `expected the guard to fail on a glued fence, got exit ${res.status}`);
     assert(/BLIND TO \(D-025\)/.test(res.stderr),
       'the blind-spot declaration vanished on the failure path');
@@ -248,6 +248,29 @@ check('shape guard fixture — a missing card binds through the regime, an over-
     assert(!/[·✗] DOC-006/.test(all),
       'DOC-006 (a SHOULD) reached the regime as a finding');
     assert(/finding\(s\), \d+ enforced/.test(all), 'the form findings did not pass through the regime');
+  } finally { rmSync(clone, { recursive: true, force: true }); }
+});
+
+check('plain-text guard fixture — a broken YAML header, a versioned name and a bad slug each surface under their plate', () => {
+  // The three TXT-001/002 paths a clean corpus never runs: an indented line
+  // under a closed root key (what deleting a key with children leaves), a
+  // filename with a version suffix, and a slug that is not kebab-case.
+  // Each must come out under its own plate with its N-code / message, and
+  // the file that is clean must NOT appear.
+  const clone = scratchClone();
+  try {
+    writeFileSync(path.join(clone, 'debt/DBT-990-orphan-child.md'), '---\nid: "DBT-990"\nnote: "closed"\n  - child: orphan\n---\n\nbody\n');
+    writeFileSync(path.join(clone, 'debt/DBT-991-versioned-v2.md'), '---\nid: "DBT-991"\n---\n\nbody\n');
+    writeFileSync(path.join(clone, 'debt/DBT-992-Bad_Slug.md'), '---\nid: "DBT-992"\n---\n\nbody\n');
+    writeFileSync(path.join(clone, 'debt/DBT-993-clean.md'), '---\nid: "DBT-993"\n---\n\nbody\n');
+    execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
+    const res = spawnGuard('guards/rules/std-006-plain-text.mjs', clone);
+    const all = res.stdout + res.stderr;
+    assert(!/ERR_MODULE_NOT_FOUND|Cannot find module|TypeError/.test(all), `the plain-text guard crashed:\n${res.stderr}`);
+    assert(/TXT-002\s+line 3: indented under a closed key.*\n\s+debt\/DBT-990-orphan-child\.md/.test(all), `orphan child not reported as TXT-002:\n${all}`);
+    assert(/TXT-001\s+N-02 filename carries a version suffix.*\n\s+debt\/DBT-991-versioned-v2\.md/.test(all), `version suffix not reported as TXT-001 N-02:\n${all}`);
+    assert(/TXT-001\s+N-05 slug "Bad_Slug" is not lowercase kebab-case.*\n\s+debt\/DBT-992-Bad_Slug\.md/.test(all), `bad slug not reported as TXT-001 N-05:\n${all}`);
+    assert(!/DBT-993-clean/.test(all), 'the clean control file was reported');
   } finally { rmSync(clone, { recursive: true, force: true }); }
 });
 

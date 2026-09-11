@@ -1,15 +1,14 @@
 #!/usr/bin/env node
 /**
- * lint-naming.mjs — the filename lint (STD-001 §9, D-001 item 3).
+ * lint-naming.mjs — the identifier a filename carries (IDN-011, STD-018).
  *
- * STD-001 §9 states three rules about filenames that no instrument checked
- * before this one:
- *
- *   1. Series documents: `<PREFIX>-<NNN|NNNN>-<slug-kebab-case>.md`
- *   2. Never a version or a date in the filename of a LIVING document —
- *      git carries history, `version:` carries the version. Dated names
- *      are reserved for frozen artifacts (P-010 §3.2).
- *   3. Root documents: `UPPERCASE.md`.
+ * Since R3 of MIS guards-tests-ci-alpha this guard holds ONE rule: N-04, a
+ * series document's name is `<PREFIX>-<NNN|NNNN>-<slug>.md` and the id it
+ * carries is the series' shape. The other filename rules (N-01 root
+ * UPPERCASE, N-02 no version/date in a living name, N-05 kebab-case slug)
+ * are TXT-001 and live in guards/rules/std-006-plain-text.mjs; the
+ * classification both share is guards/lib/naming.mjs. This file folds into
+ * guards/rules/std-018-one-identifier.mjs next.
  *
  *   node scripts/lint-naming.mjs                  # every finding; exit 1 only if one binds
  *   node scripts/lint-naming.mjs --report         # full detail, exit 0
@@ -39,34 +38,13 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { declareBlindSpots } from './lib/blindness.mjs';
 import { Findings } from './lib/regime.mjs';
-import { parseFM, loadRules, isApparatus } from './lib/frontmatter.mjs';
+import { parseFM } from './lib/frontmatter.mjs';
+import { classify } from '../guards/lib/naming.mjs';
 declareBlindSpots('lint-naming');
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 const REPORT = args.includes('--report');
-
-/** ADR-005 v1.2.0 register — read from scripts/lib/rules.json since MIS-138
- *  (2026-09-02). Three private copies of this map (here, check-references,
- *  lint-frontmatter's PREFIX) drifted from each other before that; now one
- *  file, shared with the telemetry instrument. history/ and agents/ carry
- *  no filename scheme (ADR-035 §2; ADR-005 v1.1.0 reversal). */
-const RULES = loadRules();
-const SERIES = Object.fromEntries(Object.entries(RULES.series)
-  .filter(([k, v]) => !k.startsWith('_') && v.naming !== false)
-  .map(([k, v]) => [k, { prefix: v.prefix.length > 1 ? `(?:${v.prefix.join('|')})` : v.prefix[0], digits: v.digits, dailyDate: !!v.dailyDate }]));
-
-/* Apparatus (D-014): scaffolding around a series, not a member of it. The
-   list lives in rules.json (`apparatus`) since MIS-138 — the same list
-   count-evidence and lint-frontmatter's IS_TEMPLATE used to hold privately. */
-
-const ROOT_UPPERCASE_RE = /^[A-Z][A-Z_]*\.md$/;
-const KEBAB_SLUG_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
-const VERSION_SUFFIX_RE = /-v\d+(\.\d+){0,2}\.md$/i;
-const DATED_PREFIX_RE = /^\d{4}_\d{2}_\d{2}-/;
-/* ADR-005 v1.2.0 rule 1 / ADR-004 rule 3: the daily-report shape. No slug —
-   the date is the whole identity. */
-const DAILY_REPORT_RE = /^RPT-\d{4}-\d{2}-\d{2}\.md$/;
 
 /* parseFM: scripts/lib/frontmatter.mjs (shared with every guard and the instrument). */
 
@@ -90,67 +68,18 @@ if (untracked.length) {
 }
 
 for (const rel of files) {
-  const parts = rel.split('/');
-  const top = parts[0];
-  const base = parts[parts.length - 1];
+  const fm = parseFM(readFileSync(path.join(ROOT, rel), 'utf8')) || {};
+  const c = classify(rel, fm);
+  if (c.kind !== 'series' || !c.scheme) continue;   // root, apparatus, legacy names, history/, evidence: no id shape
+  const { base, top, scheme } = c;
 
-  /* Root documents: UPPERCASE.md (STD-001 §9). */
-  if (parts.length === 1) {
-    if (!ROOT_UPPERCASE_RE.test(base))
-      F('N-01', rel, `root document "${base}" is not UPPERCASE.md (STD-001 §9)`);
-    continue;
-  }
-
-  if (top === 'agents') continue; // ADR-005 v1.1.0: no naming scheme applies
-
-  const text = readFileSync(path.join(ROOT, rel), 'utf8');
-  const fm = parseFM(text) || {};
-  if (isApparatus(rel, null)) continue;
-  // D-014 (count-evidence.py applies the same rule): `type: meta` IS the
-  // apparatus declaration. A document that says so is scaffolding around a
-  // series, not a member of it, and no series filename shape applies. Until
-  // 2026-09-02 this guard only knew apparatus by basename, so a declared
-  // annex (missions/ANNEX-…) failed N-04 while count-evidence excluded it.
-  if (isApparatus(rel, fm)) continue;
-  const exemption = fm.registration === 'exempt' ? fm.registration_exemption : null;
-
-  /* N-02: version/date in a LIVING document's filename.
-     Until 2026-09-03 a dated prefix exempted itself: `looksFrozen` was true
-     merely because the name carried a date, so the guard read the filename as
-     proof of its own legitimacy and skipped every check below. A name cannot
-     license itself. The exemption is now what the frontmatter declares, and
-     the legacy dated shape is tolerated only where it is still on disk. */
-  /* Any declared exemption counts, whatever word it uses. Two documents in
-     history/ still say `frozen-artifact`; they are photographs and are
-     not rewritten to chase new vocabulary. What matters is that the exemption
-     is declared in the frontmatter, not inferred from the name. */
-  const declaredArchive = typeof exemption === 'string' && exemption.length > 0;
-  const legacyDated = DATED_PREFIX_RE.test(base);
-  if (!declaredArchive && !legacyDated && VERSION_SUFFIX_RE.test(base))
-    F('N-02', rel, `filename carries a version suffix — version: lives in frontmatter, not the name (STD-001 §9)`);
-  if (!declaredArchive && legacyDated)
-    F('N-02', rel, `filename carries a date prefix; dated names are a legacy shape and say nothing about state (STD-001 §9, P-010 §3.2.1)`);
-
-  if (legacyDated || declaredArchive) continue; // legacy names are not held to the series scheme below
-
-  /* N-04: series prefix + id shape + kebab-case slug. */
-  const scheme = SERIES[top];
-  if (!scheme) continue; // series with no registered naming scheme (e.g. history/)
-
-  /* reports/evidence/<RPT-id>/…: an annex, moved as an opaque block, never
-     authored (ADR-005 v1.2.0 rule 5; STD-018 IDN-011, formerly PRO-010 §3.4 rule 1). Its .md files are
-     captured artefacts, not documents of the series. */
-  if (top === 'reports' && parts[1] === 'evidence') continue;
-
-  if (scheme.dailyDate && DAILY_REPORT_RE.test(base)) {
+  /* N-04: series prefix + id shape. */
+  if (c.dailyReport) {
     if (fm.subtype !== 'daily')
       F('N-04', rel, `date-shaped identifier on a report whose subtype is "${fm.subtype || '(none)'}" — RPT-YYYY-MM-DD is for subtype: daily only (ADR-005 v1.2.0 rule 1)`);
     continue;
   }
-
-  const re = new RegExp(`^${scheme.prefix}-\\d{${scheme.digits}}-(.+)\\.md$`);
-  const m = base.match(re);
-  if (!m) {
+  if (c.slug === null) {
     const expected = scheme.dailyDate
       ? `${scheme.prefix}-${'N'.repeat(scheme.digits)}-<slug>.md (or RPT-YYYY-MM-DD.md for subtype: daily) for ${top}/ (STD-001 §9, ADR-005 v1.2.0)`
       : `${scheme.prefix}-${'N'.repeat(scheme.digits)}-<slug>.md for ${top}/ (STD-001 §9, ADR-005 v1.1.0)`;
@@ -159,8 +88,6 @@ for (const rel of files) {
   }
   if (scheme.dailyDate && fm.subtype === 'daily')
     F('N-04', rel, `subtype: daily report carries a numbered identifier — dailies are RPT-YYYY-MM-DD (ADR-005 v1.2.0 rule 1)`);
-  if (!KEBAB_SLUG_RE.test(m[1]))
-    F('N-05', rel, `slug "${m[1]}" is not lowercase kebab-case (STD-001 §9)`);
 }
 
 /* ---------------- verdict ---------------- */
@@ -179,10 +106,8 @@ if (REPORT) {
 }
 
 console.log(`lint-naming: ${findings.length} findings — ${summary}`);
-/* ENG-067: each local code answers to one plate. N-01/N-02/N-05 are the
-   shape of a file name under a series folder — TXT-001 (STD-006). N-04 is
-   the identifier the name carries — IDN-011 (STD-018). */
-const PLATE = { 'N-01': 'TXT-001', 'N-02': 'TXT-001', 'N-04': 'IDN-011', 'N-05': 'TXT-001' };
+/* ENG-067: N-04 is the identifier the name carries — IDN-011 (STD-018). */
+const PLATE = { 'N-04': 'IDN-011' };
 const out = new Findings('lint-naming');
 for (const k of keys) { const m = /^(\S+) (\S+) :: (.*)$/.exec(k); out.add(PLATE[m[1]] ?? m[1], `${m[1]} ${m[3]}`, m[2]); }
 out.finish();

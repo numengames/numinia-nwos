@@ -61,6 +61,8 @@ before(() => {
   cpSync(path.join(HERE, 'lint-naming.mjs'), path.join(dir, 'scripts', 'lint-naming.mjs'));
   cpSync(path.join(HERE, 'lib'), path.join(dir, 'scripts', 'lib'), { recursive: true });
   cpSync(path.join(HERE, 'blind-spots.json'), path.join(dir, 'scripts', 'blind-spots.json'));
+  // The classification it shares with std-006 travels too (guards/lib/naming.mjs).
+  cpSync(path.join(HERE, '..', 'guards', 'lib'), path.join(dir, 'guards', 'lib'), { recursive: true });
 
   for (const [rel, sub] of Object.entries(fixtures)) {
     const abs = path.join(dir, rel);
