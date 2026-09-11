@@ -423,10 +423,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 4290,
+  "chars": 4286,
   "apparatus": false,
   "archived": false,
-  "tokens": 1217
+  "tokens": 1218
  },
  {
   "path": "agents/talos/OPERATOR.md",
@@ -1248,10 +1248,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4455,
+  "chars": 4738,
   "apparatus": false,
   "archived": false,
-  "tokens": 1171
+  "tokens": 1248
  },
  {
   "path": "standards/STD-008-design-tokens.md",
