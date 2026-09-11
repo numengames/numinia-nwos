@@ -5,9 +5,9 @@ title: "A series is a function"
 type: documentation
 subtype: standard
 status: draft
-version: "1.0.1"
+version: "1.0.2"
 created: "2026-09-09T12:30:00+02:00"
-updated: "2026-09-11T11:30:00+02:00"
+updated: "2026-09-11T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -16,7 +16,7 @@ license: "CC0-1.0"
 tags: [standards, series, thresholds, registration]
 threshold: governed
 related: ["STD-001", "STD-017", "STD-018", "STD-020", "CAN-004"]
-series_change: "1.0.1 — 2026-09-11: SER-005 Check row drops the folded check-core-rules.mjs. Patch: prose only. 1.0.0 — new standard, cut eleven under ADR-043: the rules that STD-001 carried as prose since v1, now plated. STD-001 keeps the tables."
+series_change: "1.0.2 — 2026-09-11: Check rows name the folder a script lives in (scripts/, tools/, guards/rules/); a bare filename does not say where to run it, and three of them had moved. Patch: prose only. 1.0.1 — 2026-09-11: SER-005 Check row drops the folded check-core-rules.mjs. Patch: prose only. 1.0.0 — new standard, cut eleven under ADR-043: the rules that STD-001 carried as prose since v1, now plated. STD-001 keeps the tables."
 ---
 
 # A series is a function
@@ -80,7 +80,7 @@ Counters read `exempt` as out of the denominator, not as a miss.
 |---|---|
 | SER-004 | `guards/rules/std-004-the-header.mjs` (`HDR-017`) |
 | SER-005 | `guards/rules/std-020-git-is-the-archive.mjs` |
-| SER-006 | `guards/rules/std-020-git-is-the-archive.mjs` (`absorbs:`), `check-url-lifecycle.mjs` |
+| SER-006 | `guards/rules/std-020-git-is-the-archive.mjs` (`absorbs:`), `scripts/check-url-lifecycle.mjs` |
 | SER-007 | `guards/rules/std-004-the-header.mjs` (`HDR-001`) |
 | SER-001, 002, 003 | `[MANUAL]` — what binds and what a signature is are read, not parsed |
 

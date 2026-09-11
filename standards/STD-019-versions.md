@@ -5,16 +5,16 @@ title: "Versions"
 type: documentation
 subtype: standard
 status: draft
-version: "1.0.2"
+version: "1.0.3"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-11T05:00:00+02:00"
+updated: "2026-09-11T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, versioning, semver]
 threshold: governed
-series_change: "1.0.2 — Check row repoints to guards/rules/std-019-versions.mjs (R3, MIS guards-tests-ci-alpha): VER-021/024 leave check-core-rules; no plate or verdict changes. 1.0.0 — new standard, split from STD-009 under ADR-043. Rules keep their plates and their verifiers; the prose around them is the Why."
+series_change: "1.0.3 — 2026-09-11: Check rows name the folder a script lives in (scripts/, tools/, guards/rules/); a bare filename does not say where to run it, and three of them had moved. Patch: prose only. 1.0.2 — Check row repoints to guards/rules/std-019-versions.mjs (R3, MIS guards-tests-ci-alpha): VER-021/024 leave check-core-rules; no plate or verdict changes. 1.0.0 — new standard, split from STD-009 under ADR-043. Rules keep their plates and their verifiers; the prose around them is the Why."
 ---
 
 # Versions
@@ -53,7 +53,7 @@ version in the header and the newest entry are the same number.
 
 | Plate | Verified by |
 |---|---|
-| VER-021, VER-024 | `guards/rules/std-019-versions.mjs`; `check-templates.mjs` T-08 for the opening value |
+| VER-021, VER-024 | `guards/rules/std-019-versions.mjs`; `scripts/check-templates.mjs` T-08 for the opening value |
 | VER-022, 023 | `[MANUAL]` — classifying a diff as a changed obligation is the judgement itself |
 | VER-064 | `[MANUAL]` — matching an author to the digit they moved |
 
