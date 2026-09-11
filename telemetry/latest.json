@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "fe83a0d",
-  "corpus_hash": "e0e8a0fb9d5f1f86696babc7894d9e280edc78c8799e3aa8dbf623060997532c",
+  "head": "4f85d02",
+  "corpus_hash": "e4f436fc4b7e205dccadb1bed479ec6641933a3829e6fc9dcc47c6c13fe873c7",
   "root_dirty": 1,
-  "measured_at": "2026-09-11T11:27:59Z",
+  "measured_at": "2026-09-11T11:45:39Z",
   "families": [
     "corpus",
     "series",
@@ -316,14 +316,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 268102,
+      "value": 268496,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "missions": 43062,
-        "standards": 37304,
+        "standards": 37698,
         "canon": 29364,
         "agents": 26732,
         "reports": 26138,
@@ -343,7 +343,7 @@
     "tokens.by_status": {
       "value": {
         "active": 113912,
-        "draft": 96414,
+        "draft": 96808,
         "done": 26350,
         "todo": 13588,
         "(none)": 13196,
@@ -353,7 +353,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 16.06,
+      "value": 16.04,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -654,13 +654,11 @@
     },
     "contradictions.ci_marked_scripts_not_in_ci": {
       "value": [
-        "scripts/std-020-git-is-the-archive.mjs",
         "scripts/run-guards.mjs",
         "scripts/lib/regime.mjs",
         "guards/lib/guard.mjs",
-        "scripts/generate-design-kit.mjs",
-        "tools/check-deletable.mjs",
-        "scripts/check-deletable.mjs"
+        "tools/generate-design-kit.mjs",
+        "tools/check-deletable.mjs"
       ],
       "unit": "scripts",
       "definition": "scripts a Check row of a standard names that the runner does not run in CI — a norm claiming a machine check that does not happen"

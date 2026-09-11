@@ -1215,10 +1215,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5176,
+  "chars": 5361,
   "apparatus": false,
   "archived": false,
-  "tokens": 1477
+  "tokens": 1524
  },
  {
   "path": "standards/STD-005-engineering-baseline.md",
@@ -1248,10 +1248,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4738,
+  "chars": 4940,
   "apparatus": false,
   "archived": false,
-  "tokens": 1248
+  "tokens": 1305
  },
  {
   "path": "standards/STD-008-design-tokens.md",
@@ -1303,10 +1303,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4790,
+  "chars": 4998,
   "apparatus": false,
   "archived": false,
-  "tokens": 1315
+  "tokens": 1373
  },
  {
   "path": "standards/STD-013-licence-allowlist-and-fields.md",
@@ -1380,10 +1380,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 2643,
+  "chars": 2845,
   "apparatus": false,
   "archived": false,
-  "tokens": 729
+  "tokens": 786
  },
  {
   "path": "standards/STD-020-git-is-the-archive.md",
@@ -1391,10 +1391,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3708,
+  "chars": 3924,
   "apparatus": false,
   "archived": false,
-  "tokens": 985
+  "tokens": 1046
  },
  {
   "path": "standards/STD-021-evidence-and-citation.md",
@@ -1435,10 +1435,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4367,
+  "chars": 4569,
   "apparatus": false,
   "archived": false,
-  "tokens": 1163
+  "tokens": 1220
  },
  {
   "path": "standards/STD-025-a-mission-is-a-card.md",
@@ -1446,10 +1446,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5038,
+  "chars": 5238,
   "apparatus": false,
   "archived": false,
-  "tokens": 1381
+  "tokens": 1438
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
