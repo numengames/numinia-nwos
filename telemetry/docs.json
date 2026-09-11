@@ -1336,10 +1336,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8540,
+  "chars": 11132,
   "apparatus": false,
   "archived": false,
-  "tokens": 2329
+  "tokens": 3126
  },
  {
   "path": "standards/STD-016-header-fields.md",

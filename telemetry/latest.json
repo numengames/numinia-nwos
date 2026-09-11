@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "21606fe",
-  "corpus_hash": "4512dfdfbe651ea56b3218746e702ecec93ad465d71b8d47f4fed0ec006956d6",
+  "head": "08bcf0e",
+  "corpus_hash": "2caea4c649b55a688536ab5338310ed3804586545cb7ec5f1267fa1cd8c698d9",
   "root_dirty": 1,
-  "measured_at": "2026-09-11T14:17:20Z",
+  "measured_at": "2026-09-11T15:15:36Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 457,
+      "value": 459,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -32,7 +32,7 @@
         ".js": 2,
         ".json": 13,
         ".md": 150,
-        ".mjs": 52,
+        ".mjs": 54,
         ".png": 36,
         ".svg": 69,
         ".toml": 4,
@@ -117,7 +117,7 @@
       "definition": "those scripts by language, from the extension"
     },
     "corpus.scripts_in_ci": {
-      "value": 13,
+      "value": 14,
       "unit": "files",
       "definition": "guards the runner runs in CI: registered scripts under `scripts/` (ENG-032)"
     },
@@ -316,14 +316,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 269298,
+      "value": 270095,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "missions": 43577,
-        "standards": 37698,
+        "standards": 38495,
         "canon": 29364,
         "agents": 26732,
         "reports": 26138,
@@ -343,7 +343,7 @@
     "tokens.by_status": {
       "value": {
         "active": 113912,
-        "draft": 96808,
+        "draft": 97605,
         "done": 26350,
         "todo": 14103,
         "(none)": 13483,
@@ -353,7 +353,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 16.18,
+      "value": 16.13,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -508,7 +508,7 @@
         "dates_without_time": 4,
         "empty_values": 114,
         "v_prefixed_versions": 0,
-        "placeholders": 5
+        "placeholders": 6
       },
       "unit": "values",
       "definition": "frontmatter-census.py §4: created/updated without time; empty values; version with v prefix; values matching TODO|TBD|FIXME|{{|<…>|xxx"
@@ -667,7 +667,8 @@
       "value": [
         "scripts/check-internal-links.mjs",
         "scripts/check-orphan-content.mjs",
-        "scripts/telemetry.mjs"
+        "scripts/telemetry.mjs",
+        "tools/check-register.mjs"
       ],
       "unit": "scripts",
       "definition": "scripts the runner runs in CI that no Check row of any standard names — a check the norm does not claim"
@@ -675,7 +676,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 595
+          "3": 593
         },
         "MIS": {
           "3": 676,
@@ -685,7 +686,7 @@
           "3": 148
         },
         "ADR": {
-          "3": 350
+          "3": 349
         },
         "PRO": {
           "3": 216
@@ -701,7 +702,7 @@
           "4": 9
         },
         "DBT": {
-          "3": 77
+          "3": 73
         },
         "DEC": {
           "3": 13
