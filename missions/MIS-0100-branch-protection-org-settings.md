@@ -13,11 +13,11 @@ started: null
 completed: null
 
 type: mission
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-08-18T14:47:39Z"
 created_source: "git:b91848e"
 created_confidence: exact
-updated: "2026-09-02T01:51:14+02:00"
+updated: "2026-09-11T14:30:00+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -187,6 +187,41 @@ it is evidence that the criterion assumed more than one person.
 It becomes a real requirement the day a second person can merge. Until then:
 **covered by design, with the reason on the record.**
 
+### Correction — 2026-09-11: the trap is gone and the setting moved
+
+The paragraph above is no longer true of the live ruleset, and it is left
+standing because a signed record is evidence: it is amended, not rewritten.
+
+Measured against ruleset `21281544` today:
+
+| setting | recorded above | live |
+|---|---|---|
+| `required_approving_review_count` | 0 (single-operator trap) | **1** |
+| `dismiss_stale_reviews_on_push` | false | **true** |
+| `strict_required_status_checks_policy` | false | **true** |
+| required checks | `build`, `Workers Builds: numinia-nwos` | **`build` only** |
+
+The premise expired rather than the reasoning: the repository is no longer
+single-operator. PRs #371, #372 and #373 were each opened by `ursa-numinia`
+and approved by a different account before merging, so a non-zero requirement
+no longer makes `main` unmergeable. **The scenario "nothing reaches `main`
+without review" now passes on the setting itself**, not by design exception.
+
+Two consequences worth recording:
+
+- **`Workers Builds: numinia-nwos` stopped being a required check.** It still
+  runs on every pull request and still reports, so it looks like a gate in the
+  checks list — but a failing Cloudflare build no longer blocks a merge. The
+  audit finding this mission was opened from (*"Workers Builds deploys, it
+  does not audit before merging"*) is live again, narrowly.
+- Nobody noticed for two weeks. The snapshot in `.github/rulesets/` stated the
+  old values the whole time and nothing compared it to the panel. That gap is
+  now `node tools/ruleset-export.mjs --check`.
+
+Recorded, not decided: whether Workers Builds should be required again is the
+Oracle's call, and the remaining boxes are still org-admin work no agent can
+do.
+
 ### What remains
 
 Push protection / secret scanning: pending, and pending **authentication**, not
@@ -205,3 +240,4 @@ honest state is *unknown*, not *absent*.
 ## Version history
 
 - v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; retired identifiers repointed: C-005→CAN-005; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.
+- v1.2.0 (2026-09-11) — §Board triage amended: the signed `required_approving_review_count: 0` exception no longer describes the live ruleset (now 1, plus dismiss-stale and strict-checks on, and Workers Builds dropped from the required set). The record is amended in place, not rewritten: the reasoning was sound and its premise expired. Minor — new finding, status unchanged.

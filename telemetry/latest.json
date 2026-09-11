@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "ad24466",
-  "corpus_hash": "b312b6bbbcc7cf654cc74f264b185efd234bb375aa0d8ff860b2c961ca99cca4",
+  "head": "21606fe",
+  "corpus_hash": "4512dfdfbe651ea56b3218746e702ecec93ad465d71b8d47f4fed0ec006956d6",
   "root_dirty": 1,
-  "measured_at": "2026-09-11T11:59:09Z",
+  "measured_at": "2026-09-11T14:17:20Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 455,
+      "value": 457,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -32,7 +32,7 @@
         ".js": 2,
         ".json": 13,
         ".md": 150,
-        ".mjs": 50,
+        ".mjs": 52,
         ".png": 36,
         ".svg": 69,
         ".toml": 4,
@@ -316,13 +316,13 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 268496,
+      "value": 269298,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "missions": 43062,
+        "missions": 43577,
         "standards": 37698,
         "canon": 29364,
         "agents": 26732,
@@ -335,7 +335,7 @@
         "system": 9652,
         "decisions": 6189,
         "debt": 1544,
-        ".github": 577
+        ".github": 864
       },
       "unit": "tokens",
       "definition": "tokens per top-level dir, largest first"
@@ -345,15 +345,15 @@
         "active": 113912,
         "draft": 96808,
         "done": 26350,
-        "todo": 13588,
-        "(none)": 13196,
+        "todo": 14103,
+        "(none)": 13483,
         "in-progress": 4642
       },
       "unit": "tokens",
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 16.04,
+      "value": 16.18,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -677,15 +677,15 @@
         "STD": {
           "3": 595
         },
-        "ADR": {
-          "3": 351
-        },
         "MIS": {
           "3": 676,
           "4": 186
         },
         "CAN": {
           "3": 148
+        },
+        "ADR": {
+          "3": 350
         },
         "PRO": {
           "3": 216
